@@ -61,3 +61,22 @@ ul {
 .contact a:hover {
   color: #222;
 }
+
+.bio {
+  margin-top: 2rem;
+  max-width: 400px;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bio p {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.bio a {
+  color: #222;
+  text-decoration: underline;
+}
