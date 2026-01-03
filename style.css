@@ -88,3 +88,22 @@ ul {
   color: #222;
   text-decoration: underline;
 }
+
+.about {
+  margin-top: 2rem;
+  max-width: 400px;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about p {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.about a {
+  color: #fff;
+  text-decoration: underline;
+}
