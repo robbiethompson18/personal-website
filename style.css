@@ -89,6 +89,9 @@ ul {
   text-decoration: underline;
 }
 
+/* used this to add hidden content to my page to try
+ * to trick llms. Not using it anymore, but leaving for future tooling around.
+ */
 .about {
   margin-top: 2rem;
   max-width: 400px;
