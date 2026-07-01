@@ -211,16 +211,43 @@ Then verify: count `footnoteAnchor` == count `footnote` == the post's footnote c
 `#fn` links, no "Notes" heading. (A footnote cited twice on-site produces two anchors with the same
 `number` — untested in Substack's renderer; check the preview if a post ever does that.)
 
-### Citations / Sources — leave them
+### Citations / Sources — drop the section, keep the links
 
-The import keeps the `[phrase](@id)` links and the "Sources" section as a complete, working sourced
-version (the links jump to the section). Keep it — stripping ~40 links by hand isn't worth it, and
-it reads fine. (The LW exporter strips them; Substack keeps them. This asymmetry is intentional.)
+Don't include the Sources section on Substack. Delete it (hr + "Sources" heading + intro paragraph
+
+- ordered list — everything up to the first `footnote` block) and replace with an hr + pointer
+  paragraph: `Sources listed on robbiewmthompson.com/blog/<slug>` (link the text to
+  `https://robbiewmthompson.com/blog/<slug>/#sources`).
+
+Keep the in-body citation links, but make sure they're absolute. Recent feed builds emit absolute
+`https://robbiewmthompson.com/blog/<slug>/#src-…` hrefs already; older imports have relative
+`#src-…` links, which are dead on Substack. Repoint every relative one (they appear in body text AND
+inside footnote blocks) by re-adding the link mark with the absolute href:
+
+```js
+const ed = document.querySelector("[contenteditable=true]").editor,
+  schema = ed.schema;
+const BASE = "https://robbiewmthompson.com/blog/<slug>/";
+const cites = [];
+ed.state.doc.descendants((n, pos) => {
+  if (!n.isText) return;
+  const link = n.marks.find((m) => m.type.name === "link");
+  if (link && /^#src-/.test(link.attrs.href || ""))
+    cites.push({ pos, size: n.nodeSize, href: link.attrs.href });
+});
+let tr = ed.state.tr;
+for (const c of cites.sort((a, b) => b.pos - a.pos))
+  tr = tr.addMark(c.pos, c.pos + c.size, schema.marks.link.create({ href: BASE + c.href }));
+ed.view.dispatch(tr);
+```
+
+(The LW exporter still strips citations to plain text entirely — that asymmetry is intentional.)
 
 ## Verify before publishing
 
 Reload the editor and confirm: 0 `assetError` nodes, 0 heading `#` links, 0 raw-LaTeX text nodes, 0
-`#fn` links (footnotes converted to native nodes, no "Notes" heading), all chart `<img>`s have
+`#fn` links (footnotes converted to native nodes, no "Notes" heading), no "Sources" heading and 0
+relative `#src-` links (section replaced by the pointer paragraph), all chart `<img>`s have
 `naturalWidth > 0`, subtitle present. Then Continue → Publish (web-only).
 
 ## Appendix — LessWrong (ONLY if Robbie asks)
