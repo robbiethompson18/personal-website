@@ -22,6 +22,10 @@ const md = new MarkdownIt({ html: true, linkify: true, typographer: true })
   .use(katex.default ?? katex)
   .use(cite);
 
+// Only autolink explicit URLs (https://...), not bare domains — otherwise
+// filenames like skill.md linkify (.md is Moldova's TLD).
+md.linkify.set({ fuzzyLink: false });
+
 // Title the footnote section "Notes" (the commentary/aside stream), to sit
 // alongside the "Sources" section cite.js appends. Mirrors the default
 // markdown-it-footnote block markup, plus the heading.
