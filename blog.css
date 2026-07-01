@@ -53,7 +53,7 @@ h3 {
 
 h2 {
   font-size: 1.4rem;
-  margin: 2.5rem 0 0.75rem;
+  margin: 2.5rem 0 1rem;
 }
 
 h3 {
@@ -197,8 +197,13 @@ th {
   font-size: 0.85rem;
   color: var(--muted);
   line-height: 1.5;
-  margin-top: -1.5rem; /* tuck under the subtitle's bottom margin */
+  margin-top: 0.75rem; /* sits below the h1 when there's no subtitle */
   margin-bottom: 0;
+}
+
+/* When a subtitle precedes the dates, tuck up under its bottom margin instead. */
+.subtitle + .post-dates {
+  margin-top: -1.5rem;
 }
 
 .post-dates span {
@@ -206,7 +211,7 @@ th {
 }
 
 .post-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .post-footer {
