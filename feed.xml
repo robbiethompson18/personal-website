@@ -177,7 +177,7 @@ LCAs.</span></p>
 <!-- Source definitions (collected into the Sources section by cite.js; order here doesn't matter). -->
 <hr class="footnotes-sep">
 <section class="footnotes">
-<h2 class="footnotes-title">Notes</h2>
+<h2 class="footnotes-title" id="notes">Notes</h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>My plausible explanations are innumeracy or costly signaling/symbolism (see
 <a href="https://slatestarcodex.com/2014/12/17/the-toxoplasma-of-rage/">The Toxoplasma of Rage</a>). <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref1" class="footnote-backref">↩︎</a></p>
@@ -252,7 +252,7 @@ irrigation and power consumption were revived in 2015. <a href="https://robbiewm
 </section>
 <hr class="sources-sep">
 <section class="sources">
-<h2 class="sources-title">Sources</h2>
+<h2 class="sources-title" id="sources">Sources</h2>
 <p class="sources-note">Claude found these sources. Robbie did not review them.</p>
 <ol class="sources-list">
 <li id="src-methane80" class="source-item">IPCC AR6 WGI (2021), Ch. 7 Table 7.15 — methane’s 20-year GWP is ~80 (79.7–82.5× CO₂). <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/">https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-methane80" class="cite-backref" aria-label="Back to text">↩︎</a></li>
@@ -299,7 +299,7 @@ parts of my own writing (eg hedging and typos).<sup class="footnote-ref"><a href
 <a href="https://robbiewmthompson.com/blog">robbiewmthompson.com/blog</a>.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
-<h2 class="footnotes-title">Notes</h2>
+<h2 class="footnotes-title" id="notes">Notes</h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>This skill.md for Claude’s proofreading lives
 <a href="https://github.com/robbiethompson18/personal-website/blob/main/.claude/skills/blog-review/SKILL.md">here</a>. <a href="https://robbiewmthompson.com/blog/writing-with-claude/#fnref1" class="footnote-backref">↩︎</a></p>
@@ -376,7 +376,7 @@ that makes me happier. Which, luckily, is also the one that deeply values other 
 <em><a href="https://slatestarcodex.com/2014/01/28/wirehead-gods-on-lotus-thrones/">Wirehead Gods on Lotus Thrones</a>.</em></p>
 <hr class="footnotes-sep">
 <section class="footnotes">
-<h2 class="footnotes-title">Notes</h2>
+<h2 class="footnotes-title" id="notes">Notes</h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>Human brain: ~100 trillion synapses
 (<a href="https://aiimpacts.org/scale-of-the-human-brain/">estimates span 100–500 trillion</a>). DeepSeek
@@ -502,7 +502,7 @@ economic ones.</p>
 needed to be.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
-<h2 class="footnotes-title">Notes</h2>
+<h2 class="footnotes-title" id="notes">Notes</h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>AI is already great at this, see eg humans losing to
 <a href="https://www.science.org/doi/10.1126/science.ade9097">CICERO</a> and Diplomacy in 2022. In fact, we
@@ -600,7 +600,7 @@ why some VCs and founders use his Spaces for distribution.</p>
 getting follow-up questions.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
-<h2 class="footnotes-title">Notes</h2>
+<h2 class="footnotes-title" id="notes">Notes</h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>Claude certainly checks my work for typos. Writing that I don’t want or expect any human to
 read, like a reflection after an HR training or a corporate blog post for SEO, I will happily
@@ -749,7 +749,7 @@ observational.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/bl
 <p>Know if a study is indirect (eg it shows lowered cholesterol but not lowered mortality).</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
-<h2 class="footnotes-title">Notes</h2>
+<h2 class="footnotes-title" id="notes">Notes</h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>Yes, Paleolithic humans had lower life expectancies than modern ones. No, they did not all die
 by their 30s. Conditional on making it to 15, your life expectancy was about 50.

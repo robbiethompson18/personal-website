@@ -70,7 +70,7 @@ export default function cite(md) {
 
     let html =
       '<hr class="sources-sep">\n<section class="sources">\n' +
-      '<h2 class="sources-title">Sources</h2>\n' +
+      '<h2 class="sources-title" id="sources">Sources</h2>\n' +
       '<p class="sources-note">Claude found these sources. Robbie did not review them.</p>\n' +
       '<ol class="sources-list">\n';
     for (const id of env.order) {
