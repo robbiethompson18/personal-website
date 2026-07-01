@@ -31,7 +31,7 @@ md.linkify.set({ fuzzyLink: false });
 // markdown-it-footnote block markup, plus the heading.
 md.renderer.rules.footnote_block_open = () =>
   '<hr class="footnotes-sep">\n<section class="footnotes">\n' +
-  '<h2 class="footnotes-title" id="notes">Notes</h2>\n<ol class="footnotes-list">\n';
+  '<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="#notes" aria-label="Link to this section">#</a></h2>\n<ol class="footnotes-list">\n';
 
 // Give every markdown heading a stable id + a hover-visible "#" anchor, so
 // sections are linkable (like Substack). The slug is derived from the heading
