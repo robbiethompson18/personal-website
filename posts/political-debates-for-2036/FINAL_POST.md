@@ -8,11 +8,9 @@ Epistemic status: fun musings, numbers I made up.
 
 ## Seat Belts
 
-In 2026
-[40,000 Americans](https://www.nhtsa.gov/press-releases/traffic-deaths-2025-early-estimates-2024-annual)
-will die from car accidents. In 2036 that number will be down to about 4,000, 96% of which will be
-caused by human drivers. The same people who don’t let me use my phone while the plane takes off
-will force me to wear a seatbelt in my Waymo.
+In 2026 [40,000 Americans](@nhtsa) will die from car accidents. In 2036 that number will be down to
+about 4,000, 96% of which will be caused by human drivers. The same people who don’t let me use my
+phone while the plane takes off will force me to wear a seatbelt in my Waymo.
 
 San Francisco County will ban internal combustion vehicles. A tax on gas cars in NYC will get vetoed
 by the governor of New York, and that city will continue to turn my boogers black.
@@ -32,3 +30,7 @@ colloquially and doesn’t correlate positively with sociopathy. They will fail.
 
 Bay Area elites will fly to [Próspera](https://www.prospera.co/en) for IVF clinics that will
 genetically edit their child. Many thousands of surrogates will be impregnated there each year.
+
+{@nhtsa}: NHTSA press release — 2025 early estimates and 2024 annual traffic fatality data (~39,345
+deaths in 2024).
+<https://www.nhtsa.gov/press-releases/traffic-deaths-2025-early-estimates-2024-annual>
