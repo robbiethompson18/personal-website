@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node build.js",
     "charts": "node render-charts.mjs && node build.js",
+    "export": "node export.js",
     "watch": "node --watch-path=./posts build.js",
     "dev": "trap 'kill 0' EXIT; node --watch-path=./posts build.js & node render-charts.mjs --watch & python3 -m http.server 7000"
   },
