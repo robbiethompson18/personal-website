@@ -29,7 +29,7 @@ socks.
 A good landing page used to show that a company was serious and had good engineers.
 [But in 2026](https://www.jhourney.io/):[^2]
 
-![](https://substackcdn.com/image/fetch/$s_!TLHQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2cdd371e-b2da-479c-9da7-4ee2a18b2575_3450x1908.png)
+![](charts/image.png)
 
 I couldn’t tell you how many people I’ve met at OpenClaw events who have blazed business ideas, and
 are convinced that their project is serious because they have a landing page that looks legit. It’s

@@ -7,7 +7,7 @@ draft: true
 
 ## I: Childhood Impressions
 
-![Mr. Mackey | South Park Character ...](https://substackcdn.com/image/fetch/$s_!Vd18!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fea9d682d-e62b-4e39-a886-7693f0040b98_293x165.jpeg "Mr. Mackey | South Park Character ...")
+![Mr. Mackey | South Park Character ...](charts/mr-mackey.jpeg "Mr. Mackey | South Park Character ...")
 
 Among the many American normative values that South Park instilled in me at an impressionable young
 age was this one: “Drugs are bad, m’kay” (from Mr. Mackey). I was taught in school and at home that

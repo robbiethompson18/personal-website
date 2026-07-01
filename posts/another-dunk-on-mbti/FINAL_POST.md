@@ -24,7 +24,7 @@ In nerd land, what makes a test ‘real’ is its predictive power. So let’s p
 test. Can they predict, or are they at least correlated with, things like your income and who you
 marry? How strong are the correlations relative to other possible predictors like race or IQ?
 
-![](https://substackcdn.com/image/fetch/$s_!3u3t!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe4c9db55-c67a-4425-b3d7-29a25f86bb73_1679x1186.png)
+![](charts/image.png)
 
 I will confess that my methodology here is sus. I asked Claude, and Claude looked up the answers
 from previous studies. These numbers pass my brief sniff test.[^1]

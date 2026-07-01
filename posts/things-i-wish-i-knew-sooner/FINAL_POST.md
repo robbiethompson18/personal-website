@@ -56,7 +56,7 @@ not to be an asshole):
 
 > You might think that the [the cost of being an asshole] looks something like this:
 >
-> ![](https://substackcdn.com/image/fetch/$s_!2Hcz!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F72ce905f-14f4-46d2-9b11-f5322ebfde82_1348x1048.png)
+> ![](charts/image-1.png)
 >
 > But actually I don’t think the graph looks like this.
 >
@@ -77,7 +77,7 @@ not to be an asshole):
 >
 > In reality, I think the graph is closer to this
 >
-> ![](https://substackcdn.com/image/fetch/$s_!6kSf!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8e7acb22-ccac-4a57-8618-573fe2a47737_1360x1050.png)
+> ![](charts/image-2.png)
 
 My tiny contribution is the trivial corollary: if you engage in good behavior that people have only
 a small chance of detecting, and they detect it anyway, they will make a correspondingly large
