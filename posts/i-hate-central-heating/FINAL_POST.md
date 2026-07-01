@@ -16,10 +16,10 @@ plausible.
 Being exposed to the cold is good for you: you burn more calories, exercise your vasculature, and
 stimulate your nervous system.
 
-I a hot yoga class in London made it apparent to me how important this is. Capitalism isn’t as
-strong there as it is in New York, where I was introduced to hot yoga. In New York, studios use
-infrared heat and are humidity controlled. In London, they just cranked the usual forced air
-thermostat up to 100°.
+A hot yoga class in London made it apparent to me how important this is. Capitalism isn’t as strong
+there as it is in New York, where I was introduced to hot yoga. In New York, studios use infrared
+heat and are humidity controlled. In London, they just cranked the usual forced air thermostat up to
+100°.
 
 I foolishly placed my mat right under a vent. My nose instantly became a dry wasteland of boogers.
 My throat was sticky, my voice raspy, my skin itchy.

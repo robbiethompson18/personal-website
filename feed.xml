@@ -573,7 +573,7 @@ request for my pronouns with a response.”</p>
 predict, or are they at least correlated with, things like your income and who you marry? How strong
 are the correlations relative to other possible predictors like race or IQ?</p>
 <!-- @robbie done (claude3) -->
-<p><img src="https://robbiewmthompson.com/blog/another-dunk-on-mbti/charts/heatmap.png" alt=""></p>
+<p><img src="https://robbiewmthompson.com/blog/another-dunk-on-mbti/charts/light/heatmap.png" alt=""></p>
 <p><span class="chart-src">Sources by predictor. <em>Spouse similarity</em>: <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-horwitz" class="cite" id="citeref-horwitz">Horwitz 2023</a>. <em>IQ</em>:
 <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-strenze" class="cite" id="citeref-strenze">Strenze 2007</a>, <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-sackett" class="cite" id="citeref-sackett">Sackett 2022</a>, <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-calvin" class="cite" id="citeref-calvin">Calvin 2011</a>. <em>Big Five</em>: framework
 <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-ozer" class="cite" id="citeref-ozer">Ozer 2006</a>; grades <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-poropat" class="cite" id="citeref-poropat">Poropat 2009</a>; “job type” = RIASEC interest fit
@@ -807,10 +807,10 @@ coincidence these two illnesses peak in the winter.</p>
 plausible.</p>
 <p>Being exposed to the cold is good for you: you burn more calories, exercise your vasculature, and
 stimulate your nervous system.</p>
-<p>I a hot yoga class in London made it apparent to me how important this is. Capitalism isn’t as
-strong there as it is in New York, where I was introduced to hot yoga. In New York, studios use
-infrared heat and are humidity controlled. In London, they just cranked the usual forced air
-thermostat up to 100°.</p>
+<p>A hot yoga class in London made it apparent to me how important this is. Capitalism isn’t as strong
+there as it is in New York, where I was introduced to hot yoga. In New York, studios use infrared
+heat and are humidity controlled. In London, they just cranked the usual forced air thermostat up to
+100°.</p>
 <p>I foolishly placed my mat right under a vent. My nose instantly became a dry wasteland of boogers.
 My throat was sticky, my voice raspy, my skin itchy.</p>
 <p>Half of my brain takes the outside view, reads this post, and screams
@@ -933,7 +933,7 @@ meantime I will use my flawed-but-plausible one.</p>
 <p>I pulled the numbers here from Google / Claude / ChatGPT and did some light sanity checking. I hope
 they are all within one or two orders of magnitude of the true answer.
 (<a href="https://github.com/robbiethompson18/personal-website/blob/main/posts/bobs-diet/rankings.csv">Link</a>)<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn2" id="fnref2">[2]</a></sup></p>
-<p><img src="https://robbiewmthompson.com/blog/bobs-diet/charts/rankings-suffering.png" alt=""></p>
+<p><img src="https://robbiewmthompson.com/blog/bobs-diet/charts/light/rankings-suffering.png" alt=""></p>
 <p>Lifespan reflects the amount of time we can expect the animal to spend on a factory farm, so animals
 which aren’t farmed don’t appear in this graph.</p>
 <p>If you’re going to eat a farmed animal, bivalves (clams, mussels, oysters, scallops) are by far your
@@ -998,7 +998,7 @@ on staying warm.</p>
 <p>If you think keeping animals alive poses no moral cost and the only evil part is the killing, then I
 think you’re wrong. But if you’re right, then neurons/calorie is the correct metric. Here’s that
 table below. Humans fall between anchovies and octopi.</p>
-<p><img src="https://robbiewmthompson.com/blog/bobs-diet/charts/rankings-neurons-per-calorie.png" alt=""></p>
+<p><img src="https://robbiewmthompson.com/blog/bobs-diet/charts/light/rankings-neurons-per-calorie.png" alt=""></p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/bobs-diet/#notes" aria-label="Link to this section">#</a></h2>
