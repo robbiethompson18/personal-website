@@ -15,12 +15,7 @@ import MarkdownIt from "markdown-it";
 import footnote from "markdown-it-footnote";
 import katex from "@vscode/markdown-it-katex";
 import cite from "./cite.js";
-
-const SITE = {
-  title: "Robbie Thompson",
-  url: "https://robbiewmthompson.com",
-  description: "Essays by Robbie Thompson.",
-};
+import { SITE, liveAssetUrl } from "./site.js";
 
 const md = new MarkdownIt({ html: true, linkify: true, typographer: true })
   .use(footnote)
@@ -231,16 +226,14 @@ ${items}
 
 // The feed's <content:encoded> is consumed out of context — RSS readers, email,
 // and cross-post importers (e.g. Substack) have no base URL, so a relative image
-// src like "charts/foo.png" resolves to nothing and renders broken. Absolute-ize
-// every relative src against the post's live URL. For charts we prefer the
-// light-theme variant ("charts/light/foo.png") when it exists: unlike the dark
-// on-site pages, feed / email / cross-post surfaces are light backgrounds.
+// src like "charts/foo.png" resolves to nothing, and an in-page anchor like
+// href="#fn1" (footnotes, heading "#" links, backrefs) goes nowhere. Absolute-ize
+// both against the post's live URL. Image URLs go through liveAssetUrl (site.js),
+// which prefers the light-theme chart variant for these light-background surfaces.
 function feedHtml(p) {
-  return p.html.replace(/\bsrc="(?!https?:|\/)([^"]+)"/g, (_m, rel) => {
-    const light = rel.replace(/^charts\//, "charts/light/");
-    if (light !== rel && existsSync(join(p.assetDir, light))) rel = light;
-    return `src="${SITE.url}/blog/${p.slug}/${rel}"`;
-  });
+  return p.html
+    .replace(/\bsrc="(?!https?:|\/)([^"]+)"/g, (_m, rel) => `src="${liveAssetUrl(p.slug, rel)}"`)
+    .replace(/\bhref="#/g, `href="${SITE.url}/blog/${p.slug}/#`);
 }
 
 function feed(posts) {
@@ -252,7 +245,7 @@ function feed(posts) {
       <guid isPermaLink="true">${SITE.url}/blog/${p.slug}/</guid>
       <pubDate>${rfc822(p.meta.date)}</pubDate>
       <description>${esc(p.meta.subtitle || "")}</description>
-      <content:encoded><![CDATA[${feedHtml(p)}]]></content:encoded>
+      <content:encoded><![CDATA[${feedHtml(p).replace(/\]\]>/g, "]]]]><![CDATA[>")}]]></content:encoded>
     </item>`,
     )
     .join("\n");
@@ -274,8 +267,11 @@ ${items}
 
 // Recursively copy a post folder's assets (anything that isn't markdown) into
 // its output dir, e.g. posts/<slug>/charts/foo.png -> blog/<slug>/charts/foo.png.
+// Chart .py sources are published on purpose (the chart-source captions link to
+// them); interpreter/editor junk like __pycache__ and dotfiles is not.
 function copyAssets(srcDir, destDir) {
   for (const e of readdirSync(srcDir, { withFileTypes: true })) {
+    if (e.name === "__pycache__" || e.name.startsWith(".")) continue;
     const src = join(srcDir, e.name);
     const dest = join(destDir, e.name);
     if (e.isDirectory()) {
@@ -290,8 +286,9 @@ function copyAssets(srcDir, destDir) {
 // markdown-it renders broken footnotes and unclosed math as *literal text*
 // without ever throwing, so a typo'd `[^foo]` or a stray `$` would otherwise
 // sail through as a "successful" build with mangled output. These checks catch
-// the common silent degradations and surface them as build warnings.
-function lint(body) {
+// the common silent degradations and surface them as build warnings. (Named
+// "check", not "lint", to avoid colliding with lint.sh — the Prettier formatter.)
+function checkContent(body) {
   const issues = [];
 
   // Strip the zones where `$` and `[^...]` are legitimately literal, so we don't
@@ -357,7 +354,7 @@ function loadPost(slug, mdPath, assetDir) {
     archive: meta.archive === "true",
     hasMath,
     assetDir,
-    issues: lint(body),
+    issues: checkContent(body),
   };
 }
 

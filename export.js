@@ -11,8 +11,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
-
-const SITE_URL = "https://robbiewmthompson.com";
+import { SITE, liveAssetUrl } from "./site.js";
 
 const slug = process.argv[2];
 if (!slug) {
@@ -47,13 +46,10 @@ body = body.replace(/<span class="chart-src">([\s\S]*?)<\/span>/g, (_, inner) =>
 //    href doesn't start with `@` are left alone. Phrases never contain a `]`.
 body = body.replace(/\[([^\]]+)\]\(@[\w-]+\)/g, "$1");
 
-// --- make images hotlinkable from the live site, light variant -----------
-// `![alt](charts/foo.png)` -> `![alt](https://…/blog/<slug>/charts/light/foo.png)`
-// The light/ charts are the white-background variant for cross-posts (both
-// Substack and LessWrong default to a white page); they're served alongside the
-// dark site charts. See charts/theme.py (CHART_THEME=light).
-const assetBase = `${SITE_URL}/blog/${slug}/charts/light`;
-body = body.replace(/\]\(charts\/([^)]+)\)/g, `](${assetBase}/$1)`);
+// --- make images hotlinkable from the live site ---------------------------
+// `![alt](charts/foo.png)` -> the absolute live URL, preferring the light-theme
+// variant when it exists (shared policy with feed.xml — see site.js).
+body = body.replace(/\]\((charts\/[^)]+)\)/g, (_, rel) => `](${liveAssetUrl(slug, rel)})`);
 
 // --- drop editor-only HTML comments (@claude/@robbie notes, section markers) --
 body = body.replace(/<!--[\s\S]*?-->/g, "");
@@ -70,4 +66,6 @@ console.log(`\nPaste the body into LessWrong's *Markdown* editor (Account → Se
 console.log(`Fill the LessWrong form fields separately:`);
 console.log(`  Title:    ${meta.title ?? "(none)"}`);
 if (meta.subtitle) console.log(`  Subtitle: ${meta.subtitle}`);
-console.log(`\nImages hotlink (light variant) from ${assetBase}/ — make sure those are pushed live.`);
+console.log(
+  `\nImages hotlink (light variant when it exists) from ${SITE.url}/blog/${slug}/charts/ — make sure those are pushed live.`,
+);

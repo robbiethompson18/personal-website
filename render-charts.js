@@ -3,8 +3,8 @@
 // The markdown build (build.js) only *copies* existing chart images into blog/;
 // it never runs Python. This is that missing Python step:
 //
-//   node render-charts.mjs           render every chart once (npm run charts)
-//   node render-charts.mjs --watch   re-render a chart when its .py changes
+//   node render-charts.js            render every chart once (npm run charts)
+//   node render-charts.js --watch    re-render a chart when its .py changes
 //                                    (wired into npm run dev)
 //
 // Each script's theme.save() writes to charts/<name>.{svg,png} *relative to the
