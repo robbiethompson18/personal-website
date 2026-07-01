@@ -14,10 +14,11 @@
       <description>Stop Worrying About Your Consumption Habits</description>
       <content:encoded><![CDATA[<p>Many people before me have dunked on the plastic-straw Nazis. From a utilitarian perspective, using
 a paper straw is close to pointless. <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
-<p>Is it worth my mental energy to think about the externalities of my consumption? In the
-post-singularity utopia, we will price externalities, and no one besides the externality-pricers
-will have to think about this. For now, if you’re going to think about anything, just let it be your
-food and travel.</p>
+<p>In the post-singularity utopia, we will price externalities, and no one (besides the
+externality-pricers) will have to think about their consumption beyond it’s direct economic cost.
+Today, I do think about some things, like how the food I eat affects animal welfare. This post is my
+attempt to think about fewer of them: to convince myself that (for example) how much trash I create
+is not (even remotely) important.</p>
 <p>TLDR: These things might matter:</p>
 <ul>
 <li>Eating meat</li>
@@ -28,19 +29,18 @@ food and travel.</p>
 <ul>
 <li>Creating less trash, recycling, composting, buying fewer things</li>
 <li>Eating organic, eating local</li>
+<li>Water use, outside of that caused by food</li>
 <li>Any label that tries to convince me a product is ethical (aside from possibly ones to do with
 animal welfare)</li>
-<li>Carbon footprint, outside of travel</li>
 </ul>
 <h1 id="i-methodology">I: Methodology <a class="heading-anchor" href="#i-methodology" aria-label="Link to this section">#</a></h1>
 <h2 id="probably-approximately-correct">Probably Approximately Correct <a class="heading-anchor" href="#probably-approximately-correct" aria-label="Link to this section">#</a></h2>
 <p>Claude found basically all of the numbers for this article. I <em>strongly</em> believe in the power of
 working with approximately correct numbers.</p>
 <h2 id="animal-welfare">Animal Welfare <a class="heading-anchor" href="#animal-welfare" aria-label="Link to this section">#</a></h2>
-<p>See my thoughts [here](substack todo fix this)</p>
+<p>See my thoughts <a href="robbiewmthompson.com/blog/bobs-diet">here</a>.</p>
 <h2 id="global-warming">Global Warming <a class="heading-anchor" href="#global-warming" aria-label="Link to this section">#</a></h2>
-<p>In my inside view of the world, I care a very small amount about reducing my carbon footprint. I
-think it’s quite likely we get something singularity-like in the next 20 years. In that time global
+<p>think it’s quite likely we get something singularity-like in the next 20 years. In that time global
 warming won’t do much harm. But out of epistemic humility, I still try to reduct my carbon
 footprint.</p>
 <p>This post uses GWP20 C02e to model carbon footprint. The gist of it is: how much warming will be

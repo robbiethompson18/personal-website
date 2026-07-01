@@ -131,7 +131,7 @@ I pulled the numbers here most Google / Claude / ChatGPT and did some light sani
 they are all within one or two orders of magnitude of the true answer.
 ([Link](https://docs.google.com/spreadsheets/d/1rI7JUUkDsFYI6SeeXpwu7DmEE8A8e12i8fNWkH2QNwo/edit?gid=0#gid=0))[^3]
 
-![](rankings-suffering.png)
+![](charts/rankings-suffering.png)
 
 Lifespan reflects the amount of a time we can expect the animal to spend on a factory farm, so
 animals which aren't farmed have NA in that section.
@@ -220,7 +220,7 @@ If you think keep animals alive poses no moral cost and the only evil part is th
 think you're wrong. But if you're right, then neurons/calorie is the correct metric. Here's that
 table below. Humans fall between tuna and turkeys, which I think is a point in my favor.
 
-![](rankings-neurons-per-calorie.png)
+![](charts/rankings-neurons-per-calorie.png)
 
 [^1]:
     I know it's counterproductive, but to this day, people calling themselves flexitarians or

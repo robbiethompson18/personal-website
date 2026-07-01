@@ -12,10 +12,11 @@ a paper straw is close to pointless. [^toxoplasma]
     My plausible explanations are innumeracy or costly signaling/symbolism (see
     [The Toxoplasma of Rage](https://slatestarcodex.com/2014/12/17/the-toxoplasma-of-rage/)).
 
-Is it worth my mental energy to think about the externalities of my consumption? In the
-post-singularity utopia, we will price externalities, and no one besides the externality-pricers
-will have to think about this. For now, if you're going to think about anything, just let it be your
-food and travel.
+In the post-singularity utopia, we will price externalities, and no one (besides the
+externality-pricers) will have to think about their consumption beyond it's direct economic cost.
+Today, I do think about some things, like how the food I eat affects animal welfare. This post is my
+attempt to think about fewer of them: to convince myself that (for example) how much trash I create
+is not (even remotely) important.
 
 TLDR: These things might matter:
 
@@ -27,9 +28,9 @@ Worth zero mental energy:
 
 - Creating less trash, recycling, composting, buying fewer things
 - Eating organic, eating local
+- Water use, outside of that caused by food
 - Any label that tries to convince me a product is ethical (aside from possibly ones to do with
   animal welfare)
-- Carbon footprint, outside of travel
 
 # I: Methodology
 
@@ -40,11 +41,11 @@ working with approximately correct numbers.
 
 ## Animal Welfare
 
-See my thoughts [here](substack todo fix this)
+See my thoughts [here](robbiewmthompson.com/blog/bobs-diet).
 
 ## Global Warming
 
-In my inside view of the world, I care a very small amount about reducing my carbon footprint. I
+
 think it's quite likely we get something singularity-like in the next 20 years. In that time global
 warming won't do much harm. But out of epistemic humility, I still try to reduct my carbon
 footprint.
