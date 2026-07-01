@@ -32,10 +32,14 @@ screenshot before assuming.
 ## The flow (Substack)
 
 1. **Import.** Substack → Settings → Import → **Import posts** → paste the single post URL
-   (`https://robbiewmthompson.com/blog/<slug>/`) → Get started → tick "Yes, this is my publication"
-   (a ToS/ownership checkbox — Robbie must approve this) → **Import**. It parses the RSS feed and
-   creates a **published, backdated, web-only** post — **no email**. It may also pull 1 extra recent
-   post; delete that stray draft.
+   (`https://robbiewmthompson.com/blog/<slug>/`) → Get started. The importer discovers the **whole
+   RSS feed** ("N posts found") — that's fine: it **skips posts it already imported**, so only the
+   missing ones get created (one run can cover several new posts). Leave both toggles OFF —
+   especially **"Update existing posts"**, which would overwrite already-cleaned Substack posts with
+   raw feed HTML. Click **Import** → a "Confirm Ownership" modal carries the ToS checkbox ("Yes,
+   this is my publication and I accept" — Robbie must approve this) → **Next**. Each created post is
+   **published, backdated, web-only** — **no email**. Check the Published + Drafts lists after and
+   delete any stray you didn't ask for.
 2. **Unpublish to draft** while you clean: post "…" menu → **Unpublish** → confirm. Keeps the messy
    interim off the public archive. (Still no email either way.)
 3. **Clean up the import artifacts** — see next section.
@@ -82,11 +86,15 @@ this hotlink-then-Substack-rehosts trick is the way.
 ### Heading "#" artifacts
 
 The site adds a hover anchor `<a href="#slug">#</a>` to every heading; it imports as a trailing "
-#". Remove all of them (only matches text that is exactly `#` with a `#`-anchor link, so citations
-and footnotes are untouched):
+#". **The feed absolutizes hrefs**, so on recent imports the anchor href is
+`https://robbiewmthompson.com/blog/<slug>/#…`, not `#…` — normalize with `rel()` before matching
+(this applies to `#fn` / `#fnref` / `#src-` links in the other scripts too). Remove all of them
+(only matches text that is exactly `#` with an anchor link, so citations and footnotes are
+untouched):
 
 ```js
 const ed = document.querySelector("[contenteditable=true]").editor;
+const rel = (h) => (h || "").replace(/^https?:\/\/robbiewmthompson\.com\/blog\/[^#]*#/, "#");
 const st = ed.state,
   doc = st.doc,
   ranges = [];
@@ -94,7 +102,7 @@ doc.descendants((n, pos) => {
   if (
     n.isText &&
     n.text === "#" &&
-    n.marks.some((m) => m.type.name === "link" && (m.attrs.href || "").startsWith("#"))
+    n.marks.some((m) => m.type.name === "link" && rel(m.attrs.href).startsWith("#"))
   ) {
     let from = pos,
       to = pos + n.nodeSize;
@@ -140,6 +148,7 @@ All edits use original-doc positions applied bottom-up in one transaction:
 ```js
 const ed = document.querySelector("[contenteditable=true]").editor,
   schema = ed.schema;
+const rel = (h) => (h || "").replace(/^https?:\/\/robbiewmthompson\.com\/blog\/[^#]*#/, "#");
 const st = ed.state,
   doc = st.doc;
 let hrStart = null,
@@ -163,7 +172,7 @@ let hrStart = null,
 }
 const isBackref = (ch) =>
   ch.isText &&
-  ch.marks.some((m) => m.type.name === "link" && (m.attrs.href || "").startsWith("#fnref"));
+  ch.marks.some((m) => m.type.name === "link" && rel(m.attrs.href).startsWith("#fnref"));
 function cleanBlock(b) {
   if (b.isTextblock) {
     const inline = [];
@@ -196,8 +205,8 @@ const refs = [];
 doc.descendants((n, pos) => {
   if (!n.isText) return;
   const link = n.marks.find((m) => m.type.name === "link");
-  if (link && /^#fn\d+$/.test(link.attrs.href || ""))
-    refs.push({ pos, size: n.nodeSize, num: +link.attrs.href.slice(3) });
+  if (link && /^#fn\d+$/.test(rel(link.attrs.href)))
+    refs.push({ pos, size: n.nodeSize, num: +rel(link.attrs.href).slice(3) });
 });
 let tr = st.tr;
 tr = tr.insert(doc.content.size, footnotes);
