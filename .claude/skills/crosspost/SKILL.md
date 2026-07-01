@@ -306,9 +306,12 @@ pipeline, then run the normal cleanup suite.
    it and get silently superseded. Wait a beat, then in a NEW tool call assert the marker phrase is
    in `ed.state.doc.textContent` before running any cleanup.
 6. **Run the cleanup suite** from "Cleaning up import artifacts" as applicable: footnotes → native
-   (the pasted Notes section matches that script), Sources → pointer + absolute cite links. Plus one
-   paste-specific fix: TipTap merges adjacent blockquotes — split any multi-child `blockquote` node
-   back into one node per paragraph.
+   (the pasted Notes section matches that script), Sources → pointer + absolute cite links. Plus two
+   paste-specific fixes: TipTap merges adjacent blockquotes — split any multi-child `blockquote`
+   node back into one node per paragraph. And the site's `chart-src` caption spans flatten into
+   plain paragraphs right after their image — move each one into the image's native caption instead
+   (rebuild the `captionedImage` as `[image2, caption(inline)]` and delete the stray paragraph;
+   Substack renders `caption` as a small figcaption).
 7. **Wait for "Saved", reload the editor, re-verify.** Update pushes the SERVER revision, not your
    local view — clicking it before autosave syncs publishes a half-cleaned post (this happened; the
    fix is just to redo the cleanup, re-save, and Update again).
