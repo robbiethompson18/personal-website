@@ -48,26 +48,29 @@ DOLLAR = alt.Axis(format="$~r", grid=True)          # $0.0001 ... $1,000, no SI
 PLAIN = alt.Axis(format="~r", grid=True)            # plain decimals on log y
 
 # ---------------------------------------------------------------- FIG 1
-# name: ($ price, carbon kg CO2e GWP100, category, label-side)
+# name: ($ price, carbon kg CO2e GWP100, category, label placement).
+# Placement is a hand-tuned key into PLACE below (r/l = right/left of point,
+# a/b suffix = nudged above/below to dodge a neighbor). Altair has no automatic
+# label de-clutter, so with 15 points each label's offset is placed by hand.
 broad = {
-    "1 LED bulb-day":         (0.035,  0.081,   "energy",  "left"),
-    "1 Tesla-mile":           (0.05,   0.093,   "energy",  "right"),
-    "bowl of rice":           (0.15,   0.225,   "food",    "left"),
-    "oz of almonds":          (0.30,   0.012,   "food",    "left"),
-    "cup of coffee":          (0.30,   0.20,    "food",    "right"),
-    "10-min hot shower":      (0.50,   0.82,    "energy",  "right"),
-    "chocolate bar":          (2.0,    1.87,    "food",    "left"),
-    "rubber ducky":           (3.0,    0.30,    "goods",   "right"),
-    "gallon of gas (burned)": (3.5,    8.9,     "energy",  "left"),
-    "1 lb beef (a steak)":    (10.0,   27.0,    "food",    "left"),
-    "cotton t-shirt":         (15.0,   4.0,     "goods",   "right"),
-    "new iPhone":             (800.0,  65.0,    "goods",   "right"),
-    "month heavy AI coding":  (200.0,  11.0,    "digital", "left"),
-    "SF->NYC flight (1-way)": (200.0,  500.0,   "travel",  "left"),
-    "MacBook Air":            (1100.0, 135.0,   "goods",   "left"),
+    "1 LED bulb-day":         (0.035,  0.081,   "energy",  "ra"),
+    "1 Tesla-mile":           (0.05,   0.093,   "energy",  "rb"),
+    "bowl of rice":           (0.15,   0.225,   "food",    "l"),
+    "oz of almonds":          (0.30,   0.012,   "food",    "r"),
+    "cup of coffee":          (0.30,   0.20,    "food",    "l"),
+    "10-min hot shower":      (0.50,   0.82,    "energy",  "r"),
+    "chocolate bar":          (2.0,    1.87,    "food",    "r"),
+    "rubber ducky":           (3.0,    0.30,    "goods",   "r"),
+    "gallon of gas (burned)": (3.5,    8.9,     "energy",  "l"),
+    "1 lb beef (a steak)":    (10.0,   27.0,    "food",    "l"),
+    "cotton t-shirt":         (15.0,   4.0,     "goods",   "l"),
+    "new iPhone":             (800.0,  65.0,    "goods",   "l"),
+    "month heavy AI coding":  (200.0,  11.0,    "digital", "la"),
+    "SF→NYC flight (1-way)": (200.0,  500.0,   "travel",  "l"),
+    "MacBook Air":            (1100.0, 135.0,   "goods",   "l"),
 }
-rows = [{"name": n, "price": x, "carbon": gwp20(n, y0), "cat": cat, "side": side}
-        for n, (x, y0, cat, side) in broad.items()]
+rows = [{"name": n, "price": x, "carbon": gwp20(n, y0), "cat": cat, "place": place}
+        for n, (x, y0, cat, place) in broad.items()]
 bx = np.array([r["price"] for r in rows])
 by = np.array([r["carbon"] for r in rows])
 line, m, r2 = fit_line(bx, by, 0.5, 2)
@@ -82,18 +85,31 @@ color = alt.Color("cat:N", scale=alt.Scale(domain=list(CAT), range=list(CAT.valu
 base = alt.Chart(alt.Data(values=rows))
 ex = alt.X("price:Q", scale=alt.Scale(type="log", domain=[1e-2, 3e3]),
            axis=alt.Axis(format="$~r", grid=True, values=DECADES),
-           title="What you pay  (US$, log)")
+           title="What You Pay  (US$, log)")
 ey = alt.Y("carbon:Q", scale=alt.Scale(type="log", domain=[5e-3, 2e3]),
            axis=alt.Axis(format="~r", grid=True, values=DECADES),
-           title="Carbon footprint  (kg CO₂e GWP20, log)")
+           title="Carbon Footprint  (kg CO₂e GWP20, log)")
 pts = base.mark_circle(size=190, opacity=0.85, stroke="white", strokeWidth=1).encode(ex, ey, color=color)
-lab_l = base.transform_filter("datum.side == 'left'").mark_text(
-    align="left", dx=9, fontSize=f["label"], color=FG).encode(ex, ey, text="name:N")
-lab_r = base.transform_filter("datum.side == 'right'").mark_text(
-    align="right", dx=-9, fontSize=f["label"], color=FG).encode(ex, ey, text="name:N")
+# Per-point label placement: align, dx, dy(px), baseline. Vega-Lite can't vary a
+# text mark's dx/dy by encoding, so one layer per distinct placement — cheap here
+# since 15 curated points share a handful of offsets.
+PLACE = {
+    "r":  ("left",    9,   0, "middle"),   # right of point
+    "l":  ("right",  -9,   0, "middle"),   # left of point
+    "ra": ("left",    9, -11, "middle"),   # right + raised
+    "rb": ("left",    9,  12, "middle"),   # right + lowered
+    "la": ("right",  -9, -12, "middle"),   # left + raised
+}
+labels = [
+    alt.Chart(alt.Data(values=[r for r in rows if r["place"] == key])).mark_text(
+        align=align, dx=dx, dy=dy, baseline=baseline,
+        fontSize=f["label"], color=FG).encode(ex, ey, text="name:N")
+    for key, (align, dx, dy, baseline) in PLACE.items()
+    if any(r["place"] == key for r in rows)
+]
 trend = alt.Chart(alt.Data(values=line)).mark_line(
     strokeDash=[6, 4], color="#888", strokeWidth=1.5).encode(x="x:Q", y="y:Q")
-fig1 = (trend + pts + lab_l + lab_r).properties(
+fig1 = alt.layer(trend, pts, *labels).properties(
     width=720, height=560,
     # autosize=fit -> the 720x560 is the TOTAL image (chrome shrinks the plot to
     # fit inside), so this and the two food scatters end up identical pixel sizes
@@ -105,8 +121,10 @@ fig1 = (trend + pts + lab_l + lab_r).properties(
 save(fig1, "dollar_vs_carbon", 720)
 
 # ---------------------------------------------------------------- FIG 2
-G = {"staple": "#b5893b", "produce": "#6aa84f", "plant": "#3f8f5b",
-     "indulge": "#7a5fb0", "dairy": "#d98a1f", "meat": "#c1432e"}
+# Six well-separated hues (two greens / two golds were indistinguishable before):
+# gold, green, teal, purple, blue, red.
+G = {"staple": "#d9a441", "produce": "#6aa84f", "plant": "#3aa6a0",
+     "indulge": "#7a5fb0", "dairy": "#2e7dc1", "meat": "#c1432e"}
 # Everything here is normalized to ONE POUND of food, so the groceries compare
 # apples-to-apples with no portion-size artifact. portion_kg survives only to turn
 # the surveyed per-portion price into a price-per-lb; it no longer touches the y axes.
@@ -138,11 +156,11 @@ foods = {
 fp = np.array([v[0] / v[1] * LB for v in foods.values()])   # price per pound ($/lb)
 anchor = {"beef", "almonds", "coffee", "chocolate", "potato", "rice"}
 metrics = [
-    ("Carbon", "carbon per pound (kg CO₂e GWP20, log)",
+    ("Carbon", "Carbon per Pound (kg CO₂e GWP20, log)",
      {n: gwp20(n, v[2] * LB) for n, v in foods.items()}),
-    ("Water", "water per pound (litres, log)",
+    ("Water", "Water per Pound (Litres, log)",
      {n: v[3] * LB for n, v in foods.items()}),
-    ("Land", "land per pound (m², log)",
+    ("Land", "Land per Pound (m², log)",
      {n: v[4] * LB for n, v in foods.items()}),
 ]
 
@@ -167,7 +185,7 @@ def food_panel(label, ytitle, vals, legend, height=300, decades=False, width=660
     yaxis = alt.Axis(format="~r", grid=True, values=DEC_Y) if decades else PLAIN
     base = alt.Chart(alt.Data(values=rows))
     ex = alt.X("price:Q", scale=alt.Scale(type="log"), axis=xaxis,
-               title="price per pound  (US$, log)")
+               title="Price per Pound  (US$, log)")
     ey = alt.Y("y:Q", scale=alt.Scale(type="log"), axis=yaxis, title=ytitle)
     leg = alt.Legend(title="food group") if legend else None
     pts = base.mark_circle(size=120, opacity=0.85, stroke="white", strokeWidth=0.8).encode(

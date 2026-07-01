@@ -14,6 +14,7 @@ import { join } from "node:path";
 import MarkdownIt from "markdown-it";
 import footnote from "markdown-it-footnote";
 import katex from "@vscode/markdown-it-katex";
+import cite from "./cite.js";
 
 const SITE = {
   title: "Robbie Thompson",
@@ -23,7 +24,15 @@ const SITE = {
 
 const md = new MarkdownIt({ html: true, linkify: true, typographer: true })
   .use(footnote)
-  .use(katex.default ?? katex);
+  .use(katex.default ?? katex)
+  .use(cite);
+
+// Title the footnote section "Notes" (the commentary/aside stream), to sit
+// alongside the "Sources" section cite.js appends. Mirrors the default
+// markdown-it-footnote block markup, plus the heading.
+md.renderer.rules.footnote_block_open = () =>
+  '<hr class="footnotes-sep">\n<section class="footnotes">\n' +
+  '<h2 class="footnotes-title">Notes</h2>\n<ol class="footnotes-list">\n';
 
 // Give every markdown heading a stable id + a hover-visible "#" anchor, so
 // sections are linkable (like Substack). The slug is derived from the heading
@@ -267,6 +276,17 @@ function lint(body) {
     if (!defs.has(id)) issues.push(`footnote [^${id}] is referenced but never defined (renders as literal text)`);
   for (const id of defs)
     if (!refs.has(id)) issues.push(`footnote [^${id}] is defined but never referenced (silently dropped)`);
+
+  // Source citations (cite.js): every `[phrase](@id)` reference needs a matching
+  // `{@id}:` definition, and an unreferenced definition renders nothing.
+  const citeDefs = new Set();
+  const citeRefs = new Set();
+  for (const m of prose.matchAll(/^\{@([\w-]+)\}:/gm)) citeDefs.add(m[1]);
+  for (const m of prose.matchAll(/\]\(@([\w-]+)\)/g)) citeRefs.add(m[1]);
+  for (const id of citeRefs)
+    if (!citeDefs.has(id)) issues.push(`source (@${id}) is cited but never defined ({@${id}}: … is missing)`);
+  for (const id of citeDefs)
+    if (!citeRefs.has(id)) issues.push(`source {@${id}} is defined but never cited (renders nothing)`);
 
   // Math: with the dollar-sign delimiter, currency `$` is escaped as `\$`. Once
   // those are removed, every remaining `$` should pair up into a `$…$` / `$$…$$`

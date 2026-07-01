@@ -6,6 +6,7 @@
   --text: #ccd0d8;
   --muted: #8b919d;
   --link: #8ab4f8;
+  --cite: #b39ddb; /* faint purple for source citations */
   --rule: #2e333d;
   --popup-bg: #232830;
   --popup-border: #3a4049;
@@ -96,6 +97,21 @@ a {
 }
 
 a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Source citations: the cited phrase stays in the reading color and carries a
+   faint-purple underline that jumps to the Sources section. See cite.js. */
+a.cite {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--cite) 55%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a.cite:hover {
+  text-decoration-color: var(--cite);
   text-decoration-thickness: 2px;
 }
 
@@ -292,9 +308,16 @@ th {
   margin: 0.4rem 0 0;
 }
 
-/* --- footnotes (bottom of article) --- */
+/* --- Notes + Sources (bottom of article) --- */
 
-.footnotes {
+/* The section border-top is the divider; hide the plugins' <hr> separators. */
+.footnotes-sep,
+.sources-sep {
+  display: none;
+}
+
+.footnotes,
+.sources {
   margin-top: 3.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--rule);
@@ -302,17 +325,56 @@ th {
   color: var(--muted);
 }
 
-.footnotes ol {
+.sources {
+  margin-top: 2.5rem; /* sits under Notes, so a tighter gap */
+}
+
+.footnotes-title,
+.sources-title {
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  color: var(--text);
+  margin-bottom: 0.9rem;
+}
+
+.sources-note {
+  margin: -0.5rem 0 1rem;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.footnotes ol,
+.sources-list {
   margin-left: 1.2rem;
 }
 
-.footnotes p {
+.sources-list {
+  list-style-type: lower-alpha; /* a. b. c. */
+}
+
+.footnotes p,
+.source-item {
   margin-bottom: 0.5rem;
+}
+
+.source-item::marker {
+  color: var(--cite);
 }
 
 .footnote-item:target {
   background: rgba(138, 180, 248, 0.12);
   border-radius: 4px;
+}
+
+.source-item:target {
+  background: color-mix(in srgb, var(--cite) 14%, transparent);
+  border-radius: 4px;
+}
+
+.cite-backref {
+  text-decoration: none;
+  margin-left: 0.25rem;
 }
 
 .footnote-ref a {
@@ -354,6 +416,7 @@ th {
   margin: 0;
 }
 
-.fn-tooltip .footnote-backref {
+.fn-tooltip .footnote-backref,
+.fn-tooltip .cite-backref {
   display: none;
 }

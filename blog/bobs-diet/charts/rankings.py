@@ -60,11 +60,14 @@ def hbar(rows, unit, title, name, hue, domain):
 # 1. Suffering = neurons x lifespan / calories. Farmed animals only (animals
 #    with NA lifespan compute to #VALUE! in the sheet and are excluded, per the
 #    post). Human is not farmed, so it's excluded too.
+#    Salmon overrides the sheet: 5000 cal (post's 5/17 update, not 2400) and
+#    4e7 neurons (geometric midpoint of the ~1e7–1.3e8 estimate range, not the
+#    sheet's high-end 1.3e8). 4e7 x 2.25 / 5000 = 18,000 (was 122k).
 hbar([
     ("Scallop", 600), ("Oyster", 1250), ("Clam", 1430), ("Mussel", 1500),
     ("Snail", 2120), ("Prawn", 4000), ("Cow Milk", 5480), ("Shrimp", 5710),
-    ("Chicken Eggs", 12700), ("Chicken", 16700), ("Turkey", 26500),
-    ("Pig", 28000), ("Horsefly", 33300), ("Cow", 78900), ("Salmon", 122000),
+    ("Chicken Eggs", 12700), ("Chicken", 16700), ("Salmon", 18000),
+    ("Turkey", 26500), ("Pig", 28000), ("Horsefly", 33300), ("Cow", 78900),
 ], "neurons × lifespan / calorie  (log)", "Suffering per Calorie",
    "rankings-suffering", "carbon", domain=[200, 400000])
 
@@ -72,8 +75,8 @@ hbar([
 hbar([
     ("Scallop", 400), ("Lobster", 606), ("Clam", 714), ("Oyster", 833),
     ("Cow Milk", 913), ("Mussel", 1000), ("Crab", 1430), ("Snail", 3530),
-    ("Chicken Eggs", 6350), ("Prawn", 10000), ("Shrimp", 14300),
-    ("Cow", 52600), ("Salmon", 54200), ("Pig", 55900), ("Turkey", 75800),
+    ("Chicken Eggs", 6350), ("Salmon", 8000), ("Prawn", 10000),
+    ("Shrimp", 14300), ("Cow", 52600), ("Pig", 55900), ("Turkey", 75800),
     ("Tuna", 90900), ("Chicken", 111000), ("Mullet", 167000),
     ("Sea urchin", 167000), ("Horsefly", 333000), ("Cricket", 500000),
     ("Octopus", 625000), ("Human", 688000), ("Anchovy", 1000000),

@@ -7,7 +7,9 @@
 // still just jumps to the bottom — which is the right behavior there anyway.
 
 (function () {
-  const refs = document.querySelectorAll(".footnote-ref a");
+  // Both aside markers (.footnote-ref a -> #fnN) and source-cite phrases
+  // (a.cite -> #src-id) preview their target text on hover.
+  const refs = document.querySelectorAll(".footnote-ref a, a.cite");
   if (!refs.length) return;
 
   const tip = document.createElement("div");

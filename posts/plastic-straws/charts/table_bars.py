@@ -60,9 +60,9 @@ bars([
     ("5-min hot shower", 0.4), ("1 Ford F-150 mile", 0.44),
     ("daily household lighting", 0.65), ("1 dryer run", 1.1),
     ("month of Claude Max", (1, 11)), ("avg American daily food", 10),
-    ("daily home use (excl. food/driving)", 11),
+    ("daily home (ex. food/car)", 11),
     ("avg American daily driving", 14),
-], "kg CO₂e", "Quotidian Power Use", "bar_power_co2e", "carbon")
+], "kg CO₂e", "Quotidian Power — Carbon per Action", "bar_power_co2e", "carbon")
 
 # 2. Quotidian Water Use — per item, US gallons
 bars([
@@ -71,7 +71,7 @@ bars([
     ("1 bowl of rice", 30), ("1 loaf of bread", 200),
     ("1 cotton t-shirt", 700), ("1 steak (1 lb beef)", 1800),
     ("1 lb almonds", 1900),
-], "gallons", "Quotidian Water Use", "bar_water_item", "water")
+], "Gallons", "Quotidian Water Use", "bar_water_item", "water")
 
 # 3. US freshwater withdrawals by sector, Bgal/day
 bars([
@@ -95,7 +95,7 @@ bars([
 bars([
     ("paper & cardboard", 60), ("plastics", 27), ("aluminum", 11),
     ("glass", 2.3),
-], "MMT CO₂e", "Recycling — Total Carbon Lever if All of It Were Recycled",
+], "MMT CO₂e", "Recycling — Carbon Lever if All Recycled",
    "bar_recycle_total", "recycle",
    note="Plastics is an upper bound; most has no real recycling path.")
 
