@@ -17,6 +17,10 @@ this gives you license to fix his typos or edit his prose. And do not _hedge_ so
 you fill in a number. Robbie will often be editing at the same time as you: try to edit a file max
 five times before returning control to Robbie and asking him to stop editing.
 
+**Cross-posting** a published post to Substack (the default; not LessWrong unless asked, and never
+email subscribers) lives in the `/crosspost` skill — the import, the cleanup of its artifacts, and
+web-only publishing.
+
 ## Blog structure
 
 Static site built by `build.js` (`npm run build`). Source lives in `posts/`, generated HTML lands in
