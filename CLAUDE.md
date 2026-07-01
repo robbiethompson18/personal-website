@@ -65,6 +65,9 @@ cross-post, and an email newsletter later. Static images/diagrams go in with `![
 markdown-it runs with `html: true`, interactive JS/SVG charts can be embedded inline when a flat
 image isn't enough — so markdown doesn't cap what a post can hold.
 
+**Sources** If you're just adding a source, use that syntax for the nice purple underline, instead
+of creating a footnote. For example: `[40,000 Americans](@nhtsa)`
+
 ### Charts
 
 Charts are Altair (Python) → static dark PNG + SVG at build time. **All the how-to — the pipeline,
