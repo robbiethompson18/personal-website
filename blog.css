@@ -309,6 +309,19 @@ th {
   color: var(--link);
 }
 
+.draft-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: #e8c069;
+  background: rgba(232, 192, 105, 0.1);
+  border: 1px solid rgba(232, 192, 105, 0.3);
+  border-radius: 4px;
+  padding: 0.05rem 0.4rem;
+}
+
 .post-date {
   display: block;
   font-family: var(--sans);

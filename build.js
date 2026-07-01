@@ -76,6 +76,22 @@ md.renderer.rules.footnote_anchor = (tokens, idx, options, env, slf) => {
   return ` <a href="#fnref${id}" class="footnote-backref">↩︎</a>`;
 };
 
+// Glue every footnote marker to the word before it: strip any space in
+// "land. [5]" so the superscript hugs the word directly and can never wrap to
+// the next line on its own. Token-level (not a regex on source) so it only ever
+// touches real footnote refs, never a "[^...]" inside code or prose.
+md.core.ruler.after("inline", "footnote_nbsp", (state) => {
+  for (const blk of state.tokens) {
+    if (blk.type !== "inline") continue;
+    const kids = blk.children;
+    for (let i = 1; i < kids.length; i++) {
+      if (kids[i].type !== "footnote_ref") continue;
+      const prev = kids[i - 1];
+      if (prev.type === "text") prev.content = prev.content.replace(/\s+$/, "");
+    }
+  }
+});
+
 const MONTHS = [
   "January",
   "February",
@@ -181,11 +197,11 @@ function postPage(p) {
   });
 }
 
-function indexPage(posts) {
+function indexPage(posts, { drafts = false } = {}) {
   const items = posts
     .map(
       (p) => `        <li>
-          <a class="post-link" href="/blog/${p.slug}/">${esc(p.meta.title)}</a>
+          <a class="post-link" href="/blog/${p.slug}/">${esc(p.meta.title)}${p.draft ? ' <span class="draft-tag">draft</span>' : ""}</a>
           <span class="post-date"><time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time></span>
           ${p.meta.subtitle ? `<p class="post-sub">${esc(p.meta.subtitle)}</p>` : ""}
         </li>`,
@@ -193,7 +209,7 @@ function indexPage(posts) {
     .join("\n");
   const body = `    <main class="index">
       <header class="index-header">
-        <h1>Blog</h1>
+        <h1>Blog${drafts ? " (incl. drafts)" : ""}</h1>
         <p class="index-sub"><a href="/">robbiewmthompson.com</a></p>
       </header>
       <ul class="post-list">
@@ -201,9 +217,9 @@ ${items}
       </ul>
     </main>`;
   return layout({
-    title: `Blog — ${SITE.title}`,
+    title: `Blog${drafts ? " (incl. drafts)" : ""} — ${SITE.title}`,
     description: SITE.description,
-    canonical: `${SITE.url}/blog/`,
+    canonical: `${SITE.url}/blog/${drafts ? "drafts/" : ""}`,
     body,
   });
 }
@@ -336,6 +352,11 @@ const published = posts.filter((p) => !p.draft);
 mkdirSync("blog", { recursive: true });
 writeFileSync(join("blog", "index.html"), indexPage(published));
 writeFileSync("feed.xml", feed(published));
+
+// A private-ish index that also lists drafts. Not linked from anywhere and kept
+// out of feed.xml, but reachable at /blog/drafts/ so Robbie can eyeball drafts.
+mkdirSync(join("blog", "drafts"), { recursive: true });
+writeFileSync(join("blog", "drafts", "index.html"), indexPage(posts, { drafts: true }));
 
 const draftCount = posts.length - published.length;
 console.log(

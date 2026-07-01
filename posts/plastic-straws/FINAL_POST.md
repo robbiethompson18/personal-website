@@ -81,10 +81,10 @@ solar farm. Assume, conservatively[^generous], that one acre of new landfill is 
 of farmland.
 
 [^generous]:
-    It's very generous to the anti-trash side to say that creating an acre of landfill is
-    as bad as creating 100 acres of farmland: discount rates imply that one year of landfill in 2126
-    is $0.95^{100} = 0.6\%$ as bad as one year of landfill in 2026. And farmland is fertile land
-    that would counterfactually be biodiverse nature, which is not true of landfill.
+    It's very generous to the anti-trash side to say that creating an acre of landfill is as bad as
+    creating 100 acres of farmland: discount rates imply that one year of landfill in 2126 is
+    $0.95^{100} = 0.6\%$ as bad as one year of landfill in 2026. And farmland is fertile land that
+    would counterfactually be biodiverse nature, which is not true of landfill.
 
 The average American's annual landfill use is about 20 cubic feet, or $0.2\ \text{ft}^2$ of landfill
 area. It takes ~[1,590 sq ft to create a 1-lb steak](@steak), so your year of trash is
@@ -96,7 +96,7 @@ are worried about them, vanishingly little exposure comes from plastic that prop
 landfill.
 
 Warming is also negligible here: The average American's landfill methane emissions is ~0.53 t
-$\text{CO}_2\text{e}$, or about 1/5 of SF↔NYC round-trip flights.[^capture]
+$\text{CO}_2\text{e}$, or about 1/10 of an SF↔NYC round-trip flight.[^capture]
 
 If you do anything here, recycle your aluminum and cardboard (see [section III](#recycling)).
 
@@ -104,8 +104,7 @@ If you do anything here, recycle your aluminum and cardboard (see [section III](
 
 ## Organic Foods
 
-I am not convinced that organic food creates fewer externalities than normal produce. It might be
-worse:
+Organic food might create more externalities:
 
 - **Land:** [Organic yields run ~20-25% lower](@organicyield), so growing the same amount of food
   takes ~25-33% more farmland.
@@ -173,7 +172,8 @@ it grows easily.[^flyin] [^Barbaria]
 ### Pointless:
 
 - **Rainforest Alliance**: the premium that reaches the farmer is under a penny per chocolate bar.
-- **Fairtrade**: a little more ([~1–2¢/bar](@fairtrade)), but it goes to the co-op, not the farmer.
+- **Fairtrade**: a little more ([~0.5–1.5¢/bar](@fairtrade)), but it goes to the co-op, not the
+  farmer.
 - **"No bycatch" / seafood labels in general**: each one fixes a single narrow thing and leaks the
   harm elsewhere.[^seafood-labels]
 - **Many Animal Welfare Labels**: "Natural" on eggs / meat (meaningless); "No Hormones" on meat
@@ -260,8 +260,8 @@ if you're coding with it. A whole day of lighting is one mile in a truck, @mom.
 
 ## Recycling
 
-People will pay for recycled cardboard and aluminum, whereas recycled plastic and glass is
-mostly only used because of mandates or to please consumers.
+People will pay for recycled cardboard and aluminum, whereas recycled plastic and glass is mostly
+only used because of mandates or to please consumers.
 
 ![Total carbon lever if all landfilled material were recycled — linear scale](charts/bar_recycle_total.png)
 
