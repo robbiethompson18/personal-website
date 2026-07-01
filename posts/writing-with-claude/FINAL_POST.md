@@ -15,3 +15,6 @@ parts of my own writing (eg hedging and typos).[^skill]
 Now I get my own styling: faint purple citation links, last edited dates, dark mode.
 
 Approximately none of the prose on this blog is authored by Claude. They still suck at that.
+
+Check at my blog in its native, beautiful form at
+[robbiewmthompson.com/blog](https://robbiewmthompson.com/blog).
