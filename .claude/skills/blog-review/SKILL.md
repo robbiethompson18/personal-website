@@ -8,15 +8,14 @@ description:
 
 # Blog review
 
-**Read-only.** Report findings; never edit any file (except for the two exceptions mentioned).
-Robbie fixes his own prose.
+**Read-only.** Report findings; no edits by default. Robbie fixes his own prose.
 
 **Which post:** review `posts/<slug>/FINAL_POST.md` for the named slug/path. If none given, list
 `posts/` and ask.
 
-Read the whole post first. Then output the nine checks below, each as a `##` section, in order.
-Quote every finding with a `line:` ref. Zero findings → "None found" (no padding). No summary
-verdict.
+Read the whole post first. Then output results from the checks below. Show issues in the order they
+appear in the text, not categorized based on the check. Quote every finding with a `line:` ref. No
+summary verdict.
 
 ## Can Fix Yourself
 
@@ -26,7 +25,8 @@ verdict.
 
 ## Report Only, No Fixing
 
-1. **Filler Words** pretty (eg "pretty small") and actually (eg "actually good")
+1. **Filler Words** pretty (eg "pretty small"), just ("just doesn't count"), actually (eg "actually
+   good"), really ("doesn't really matter")
 2. **Em dashes** — list every `—` with its line. Count + locations only, no verdict.
 3. **Hedges** — seems, roughly, probably, maybe, might, I suspect, fairly, somewhat, basically, etc.
    Don't flag approximate numbers (eg "about 1 ton").

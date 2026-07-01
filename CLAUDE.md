@@ -52,6 +52,11 @@ draft:    true              # optional; renders at its URL but stays out of inde
 The blog index and `feed.xml` auto-source every non-draft post, newest first. To publish a draft,
 set `draft: false` and fix the date.
 
+**Everything committed is public, and that's fine.** The repo is public and GitHub Pages serves the
+repo root, so drafts, `/blog/drafts/`, `POST_DRAFT.md` / `POST_RESEARCH.md`, and chart `.py` source
+are all reachable at robbiewmthompson.com (and on GitHub). This is intentional: "draft" means
+unlisted (out of index + feed), not secret. Don't flag it or try to fix it.
+
 **Why markdown?** It's the most portable form of the writing: editable in vim, easy to work on with
 Claude, clean in git diffs, and the _same_ file feeds the website, the RSS feed, a LessWrong
 cross-post, and an email newsletter later. Static images/diagrams go in with `![]()`; because

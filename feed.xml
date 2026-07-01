@@ -7,13 +7,30 @@
     <description>Essays by Robbie Thompson.</description>
     <language>en</language>
     <item>
+      <title>Glucose Monitor Learnings</title>
+      <link>https://robbiewmthompson.com/blog/glucose-monitor-learnings/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/glucose-monitor-learnings/</guid>
+      <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>I bought a CGM (continuous glucose monitor) on Amazon for $100. It took 10 minutes to set up.
+Results stream live to my phone. A normal BG (blood glucose) range is from 70 to 140.</p>
+<p>My one learning: glucose tracks stress more than anything else.</p>
+<p>My BG after a sushi dinner and half a pint of ice cream, but I was high and vibing: 80 mg/dL.</p>
+<p>My BG after a burrito, but I was Hitler in a game of <a href="https://www.secrethitler.com/">Secret Hitler</a>:
+180 mg/dL.</p>
+<p>My BG during a slow jog: 70 mg/dL. After sprinting the last quarter mile home: 110 mg/dL.</p>
+<p>Food and caffeine don’t move the needle much.</p>
+<p>No wonder I was prediabetic while I worked at Jane Street!</p>
+]]></content:encoded>
+    </item>
+    <item>
       <title>Plastic Straws</title>
       <link>https://robbiewmthompson.com/blog/plastic-straws/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/plastic-straws/</guid>
-      <pubDate>Tue, 30 Jun 2026 12:00:00 GMT</pubDate>
+      <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
       <description>Stop Worrying About Your Consumption Habits</description>
       <content:encoded><![CDATA[<p>Many people before me have dunked on the plastic-straw Nazis. From a utilitarian perspective, using
-a paper straw is pointless.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+a paper straw is pointless.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn1" id="fnref1">[1]</a></sup></p>
 <p>In the post-singularity utopia, we will price
 <a href="https://en.wikipedia.org/wiki/Externality">externalities</a>, and no one (besides the
 externality-pricers) will have to think about their consumption beyond its direct economic cost.
@@ -26,53 +43,53 @@ attempt to think about fewer of them.</p>
 <li>Water use, outside of that caused by food</li>
 <li>Most labels that tries to convince you a product is ethical</li>
 </ul>
-<h1 id="i-methodology">I: Methodology <a class="heading-anchor" href="#i-methodology" aria-label="Link to this section">#</a></h1>
-<h2 id="lazy-research">Lazy Research <a class="heading-anchor" href="#lazy-research" aria-label="Link to this section">#</a></h2>
+<h1 id="i-methodology">I: Methodology <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#i-methodology" aria-label="Link to this section">#</a></h1>
+<h2 id="lazy-research">Lazy Research <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#lazy-research" aria-label="Link to this section">#</a></h2>
 <p>Claude found all of the numbers for this article. I <em>strongly</em> believe in the power of working with
 approximately correct numbers when the counterfactual is no numbers.</p>
-<h2 id="animal-welfare">Animal Welfare <a class="heading-anchor" href="#animal-welfare" aria-label="Link to this section">#</a></h2>
+<h2 id="animal-welfare">Animal Welfare <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#animal-welfare" aria-label="Link to this section">#</a></h2>
 <p>I think this is much more important than anything mentioned in this post. I discuss my thoughts on
 diet <a href="https://robbiewmthompson.com/blog/bobs-diet/">here</a>.</p>
-<h2 id="global-warming">Global Warming <a class="heading-anchor" href="#global-warming" aria-label="Link to this section">#</a></h2>
+<h2 id="global-warming">Global Warming <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#global-warming" aria-label="Link to this section">#</a></h2>
 <p>From my inside view, my carbon footprint is irrelevant. It’s likely we get something
 singularity-like in the next 20 years. Under this assumption, most effort to reduce emissions are
 better spent on global health or <a href="https://www.lesswrong.com/w/existential-risk">x-risk</a>. Out of
 epistemic humility, I still try to reduce my carbon footprint.</p>
 <p>This post uses GWP20 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>. It measures how much warming something will cause over
 the next 20 years, normalized to 1 ton of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\text{CO}_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. You can then put other things on the same
-scale: <a href="#src-methane80" class="cite" id="citeref-methane80">a ton of methane is ~80 tons</a> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>,
-<a href="#src-flight" class="cite" id="citeref-flight">a flight from SF to NYC is ~2-3 tons</a> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
-<p>It’s convention to use GWP100. I am using GWP20<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> because interest rates are real and my
-model of the world accounts for them.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
-<h2 id="land-use-water-use">Land Use, Water Use <a class="heading-anchor" href="#land-use-water-use" aria-label="Link to this section">#</a></h2>
+scale: <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-methane80" class="cite" id="citeref-methane80">a ton of methane is ~80 tons</a> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>,
+<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-flight" class="cite" id="citeref-flight">a flight from SF to NYC is ~2-3 tons</a> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn2" id="fnref2">[2]</a></sup></p>
+<p>It’s convention to use GWP100. I am using GWP20<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn3" id="fnref3">[3]</a></sup> because interest rates are real and my
+model of the world accounts for them.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn4" id="fnref4">[4]</a></sup></p>
+<h2 id="land-use-water-use">Land Use, Water Use <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#land-use-water-use" aria-label="Link to this section">#</a></h2>
 <p>These things matter, and I tried to quantify how your decisions affect each. But in my heart of
 hearts, I don’t think you should spend much energy optimizing for either. We should make (a lot
-more!) national parks and then price and tax land.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> And we should <em>definitely</em> make
-farmers pay for water, though I’m not holding my breath on that one.</p>
-<h1 id="ii-you-can-safely-stop-worrying-about">II: You Can Safely Stop Worrying About… <a class="heading-anchor" href="#ii-you-can-safely-stop-worrying-about" aria-label="Link to this section">#</a></h1>
-<h2 id="reducing-reusing-recycling-composting">Reducing, Reusing, Recycling, Composting <a class="heading-anchor" href="#reducing-reusing-recycling-composting" aria-label="Link to this section">#</a></h2>
-<p>Each year Americans send about <a href="#src-landfill" class="cite" id="citeref-landfill">243 million cubic yards of trash to landfill</a>, which
+more!) national parks and then price and tax land. And we should <em>definitely</em> make farmers pay for
+water, though I’m not holding my breath on that one.</p>
+<h1 id="ii-you-can-safely-stop-worrying-about">II: You Can Safely Stop Worrying About… <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#ii-you-can-safely-stop-worrying-about" aria-label="Link to this section">#</a></h1>
+<h2 id="reducing-reusing-recycling-composting">Reducing, Reusing, Recycling, Composting <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#reducing-reusing-recycling-composting" aria-label="Link to this section">#</a></h2>
+<p>Each year Americans send about <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-landfill" class="cite" id="citeref-landfill">243 million cubic yards of trash to landfill</a>, which
 means we must create ~1,500 acres of dumps (at 100 ft deep).</p>
 <p>After 100 years a landfill gets covered and becomes a park, a golf course, a conservation area, or a
-solar farm. Assume, conservatively<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>, that one acre of new landfill is as bad as 100 acres
+solar farm. Assume, conservatively<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn5" id="fnref5">[5]</a></sup>, that one acre of new landfill is as bad as 100 acres
 of farmland.</p>
 <p>The average American’s annual landfill use is about 20 cubic feet, or <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.2</mn><mtext> </mtext><msup><mtext>ft</mtext><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">0.2\ \text{ft}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8984em;"></span><span class="mord">0.2</span><span class="mspace"> </span><span class="mord"><span class="mord text"><span class="mord">ft</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984em;"><span style="top:-3.1473em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> of landfill
-area. It takes ~<a href="#src-steak" class="cite" id="citeref-steak">1,590 sq ft to create a 1-lb steak</a>, so your year of trash is
+area. It takes ~<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-steak" class="cite" id="citeref-steak">1,590 sq ft to create a 1-lb steak</a>, so your year of trash is
 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.2</mn><mi mathvariant="normal">/</mi><mn>1590</mn><mo>×</mo><mn>100</mn><mo>≈</mo><mfrac><mn>1</mn><mn>80</mn></mfrac></mrow><annotation encoding="application/x-tex">0.2 / 1590 \times
 100 \approx \frac{1}{80}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.2/1590</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">80</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> steaks, even after the 100x penalty.</p>
 <p>No one has done a rigorous study showing that microplastics meaningfully impact health. Even if you
 are worried about them, vanishingly little exposure comes from plastic that properly makes it to
 landfill.</p>
 <p>Warming is also negligible here: The average American’s landfill methane emissions is ~0.53 t
-<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>, or about 1/10 of an SF↔NYC round-trip flight.<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></p>
-<p>If you do anything here, recycle your aluminum and cardboard (see <a href="#recycling">section III</a>).</p>
-<h2 id="organic-foods">Organic Foods <a class="heading-anchor" href="#organic-foods" aria-label="Link to this section">#</a></h2>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>, or about 1/10 of an SF↔NYC round-trip flight.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn6" id="fnref6">[6]</a></sup></p>
+<p>If you do anything here, recycle your aluminum and cardboard (see <a href="https://robbiewmthompson.com/blog/plastic-straws/#recycling">section III</a>).</p>
+<h2 id="organic-foods">Organic Foods <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#organic-foods" aria-label="Link to this section">#</a></h2>
 <p>Organic food might create more externalities:</p>
 <ul>
-<li><strong>Land:</strong> <a href="#src-organicyield" class="cite" id="citeref-organicyield">Organic yields run ~20-25% lower</a>, so growing the same amount of food
+<li><strong>Land:</strong> <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-organicyield" class="cite" id="citeref-organicyield">Organic yields run ~20-25% lower</a>, so growing the same amount of food
 takes ~25-33% more farmland.</li>
 <li><strong>Banning GMOs makes the land problem worse:</strong> Organic prohibits GMOs.
-<a href="#src-gmyield" class="cite" id="citeref-gmyield">GM crops raise yields</a>.<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup></li>
+<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-gmyield" class="cite" id="citeref-gmyield">GM crops raise yields</a>.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn7" id="fnref7">[7]</a></sup></li>
 <li><strong>Organic still uses pesticides:</strong> Organic bans <em>synthetic</em> pesticides but allows a long list of
 “natural” ones: copper (a heavy metal that never degrades and builds up in soil), sulfur, and
 pyrethrin (toxic to bees and fish).</li>
@@ -82,89 +99,80 @@ emissions (from tractors and directly from the soil).</li>
 <p>I asked Claude for reasons why Organic farming is better, but it didn’t come up with much:</p>
 <ul>
 <li><strong>Fewer synthetic pesticides sprayed</strong>: Organic bans synthetic pesticides and synthetic nitrogen
-fertilizer outright (and <a href="#src-cadmium" class="cite" id="citeref-cadmium">roughly halves cadmium</a>), cutting the synthetic load on soil
+fertilizer outright (and <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-cadmium" class="cite" id="citeref-cadmium">roughly halves cadmium</a>), cutting the synthetic load on soil
 and water. The catch is above: it leans on natural pesticides like copper and sulfur instead.</li>
 <li><strong>Farmworker pesticide exposure</strong>: Conventional US farms spray
-<a href="#src-pesticidelb" class="cite" id="citeref-pesticidelb">~1 billion lb of synthetic pesticides a year</a>, and globally acute pesticide
-poisoning hits an estimated <a href="#src-poisoning" class="cite" id="citeref-poisoning">tens of millions of farmworkers a year</a> (mostly poor-PPE,
+<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-pesticidelb" class="cite" id="citeref-pesticidelb">~1 billion lb of synthetic pesticides a year</a>, and globally acute pesticide
+poisoning hits an estimated <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-poisoning" class="cite" id="citeref-poisoning">tens of millions of farmworkers a year</a> (mostly poor-PPE,
 developing-world farms). Organic farming doesn’t necessarily improve this situation. Sulfur, the
 primary organic fungicide, is
-<a href="#src-sulfurca" class="cite" id="citeref-sulfurca">California’s most-used pesticide and is tied to more illness cases there than any other</a>.</li>
+<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-sulfurca" class="cite" id="citeref-sulfurca">California’s most-used pesticide and is tied to more illness cases there than any other</a>.</li>
 <li><strong>Biodiversity per acre</strong>: Organic fields hold
-<a href="#src-biodiversity" class="cite" id="citeref-biodiversity">~30% more species and ~50% more animals</a>. But they need ~30% more land per calorie
+<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-biodiversity" class="cite" id="citeref-biodiversity">~30% more species and ~50% more animals</a>. But they need ~30% more land per calorie
 grown, so you gain ~nothing.</li>
 </ul>
-<h2 id="buying-local">Buying Local <a class="heading-anchor" href="#buying-local" aria-label="Link to this section">#</a></h2>
+<h2 id="buying-local">Buying Local <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#buying-local" aria-label="Link to this section">#</a></h2>
 <p>Shipping food in a container on a cargo ship is basically free, economically and from a carbon
 perspective. In many cases it’s much <em>more</em> environmentally friendly to just ship stuff from where
-it grows easily.<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup><sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup></p>
-<h2 id="most-labels-on-consumables-eg-no-bycatch-fsc-certified-wood">Most Labels on Consumables (eg no bycatch, FSC certified wood) <a class="heading-anchor" href="#most-labels-on-consumables-eg-no-bycatch-fsc-certified-wood" aria-label="Link to this section">#</a></h2>
-<h3 id="possibly-worthwhile">Possibly Worthwhile: <a class="heading-anchor" href="#possibly-worthwhile" aria-label="Link to this section">#</a></h3>
+it grows easily.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn8" id="fnref8">[8]</a></sup><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn9" id="fnref9">[9]</a></sup></p>
+<h2 id="most-labels-on-packages-goods">Most Labels on Packages Goods <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#most-labels-on-packages-goods" aria-label="Link to this section">#</a></h2>
+<h3 id="possibly-worthwhile">Possibly Worthwhile: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#possibly-worthwhile" aria-label="Link to this section">#</a></h3>
 <ul>
-<li><strong>Energy Star</strong>: Its appliances <a href="#src-energystar" class="cite" id="citeref-energystar">saved ~520 billion kWh in 2020</a> (~400 Mt
-<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e,</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e,}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e,</span></span></span></span></span> the annual power of ~50M homes).</li>
-<li><strong>Certain Animal Welfare Labels</strong>: Claude recommends <strong>Animal Welfare Approved</strong>, <strong>Certified
-Humane</strong>, <strong>Global Animal Partnership</strong>, and <strong>USDA Organic</strong>.<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup> The tell is a
-third party auditing the farm: the Animal Welfare Institute found
-<strong><a href="#src-awi" class="cite" id="citeref-awi">&gt;80% of USDA-approved “animal-raising” claims had no supporting evidence</a></strong> beyond the
-producer’s own word.</li>
-<li><strong>FSC wood</strong>: <a href="#src-fsc" class="cite" id="citeref-fsc">A 2024 <em>Nature</em> study found more wildlife in FSC forests</a>, but
-<a href="#src-greenpeace" class="cite" id="citeref-greenpeace">Greenpeace quit FSC in 2018</a>, calling it greenwashing.</li>
+<li><strong>Energy Star</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn10" id="fnref10">[10]</a></sup></li>
+<li><strong>Certain Animal Welfare Labels</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn11" id="fnref11">[11]</a></sup></li>
+<li><strong>FSC wood</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn12" id="fnref12">[12]</a></sup></li>
 </ul>
-<h3 id="pointless">Pointless: <a class="heading-anchor" href="#pointless" aria-label="Link to this section">#</a></h3>
+<h3 id="pointless">Pointless: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#pointless" aria-label="Link to this section">#</a></h3>
 <ul>
-<li><strong>Rainforest Alliance</strong>: the premium that reaches the farmer is under a penny per chocolate bar.</li>
-<li><strong>Fairtrade</strong>: a little more (<a href="#src-fairtrade" class="cite" id="citeref-fairtrade">~0.5–1.5¢/bar</a>), but it goes to the co-op, not the
-farmer.</li>
-<li><strong>“No bycatch” / seafood labels in general</strong>: each one fixes a single narrow thing and leaks the
-harm elsewhere.<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup></li>
-<li><strong>Many Animal Welfare Labels</strong>: “Natural” on eggs / meat (meaningless); “No Hormones” on meat
-(this is banned anyway); “Vegetarian-fed poultry” (chickens are omnivores).</li>
+<li><strong>Rainforest Alliance</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn13" id="fnref13">[13]</a></sup></li>
+<li><strong>Fairtrade</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn14" id="fnref14">[14]</a></sup></li>
+<li><strong>“No bycatch” / seafood labels in general</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn15" id="fnref15">[15]</a></sup></li>
+<li><strong>Many Animal Welfare Labels</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn16" id="fnref16">[16]</a></sup></li>
 </ul>
-<h1 id="iii-too-much-data">III: Too Much Data <a class="heading-anchor" href="#iii-too-much-data" aria-label="Link to this section">#</a></h1>
-<h2 id="price-is-a-good-proxy">Price Is a Good Proxy <a class="heading-anchor" href="#price-is-a-good-proxy" aria-label="Link to this section">#</a></h2>
+<h1 id="iii-too-much-data">III: Too Much Data <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#iii-too-much-data" aria-label="Link to this section">#</a></h1>
+<h2 id="price-is-a-good-proxy">Price Is a Good Proxy <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#price-is-a-good-proxy" aria-label="Link to this section">#</a></h2>
 <p>Carbon costs correlate with dollar costs, r = 0.87. If you budget your spending, to some extent
 you’re already optimizing for reducing externalities.</p>
-<p><img src="charts/dollar_vs_carbon.png" alt="What you pay vs carbon footprint — log-log across ~5 orders of magnitude of price, r = 0.87"></p>
+<p><img src="https://robbiewmthompson.com/blog/plastic-straws/charts/light/dollar_vs_carbon.png" alt="What you pay vs carbon footprint — log-log across ~5 orders of magnitude of price, r = 0.87"></p>
 <p><span class="chart-src">Prices: US consumer, ~1 sig fig. Carbon footprints:
-<a href="#src-foodghg" class="cite" id="citeref-foodghg">Poore &amp; Nemecek 2018</a> for food, <a href="#src-egrid" class="cite" id="citeref-egrid">EPA eGRID</a> plus per-mile and per-flight LCAs for
+<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-foodghg" class="cite" id="citeref-foodghg">Poore &amp; Nemecek 2018</a> for food, <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-egrid" class="cite" id="citeref-egrid">EPA eGRID</a> plus per-mile and per-flight LCAs for
 the rest.</span></p>
 <p>This is also somewhat true of land and water use. Graphs for food in particular:</p>
-<p><img src="charts/dollar_vs_food_water.png" alt="Price per pound vs water use per pound — log-log, 21 groceries"></p>
-<p><span class="chart-src">Prices: US consumer. Water use: <a href="#src-waterftprint" class="cite" id="citeref-waterftprint">Mekonnen &amp; Hoekstra</a> total
+<p><img src="https://robbiewmthompson.com/blog/plastic-straws/charts/light/dollar_vs_food_water.png" alt="Price per pound vs water use per pound — log-log, 21 groceries"></p>
+<p><span class="chart-src">Prices: US consumer. Water use: <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-waterftprint" class="cite" id="citeref-waterftprint">Mekonnen &amp; Hoekstra</a> total
 water footprints.</span></p>
-<p><img src="charts/dollar_vs_food_land.png" alt="Price per pound vs land use per pound — log-log, 21 groceries"></p>
-<p><span class="chart-src">Prices: US consumer. Land use: <a href="#src-foodghg" class="cite">Poore &amp; Nemecek 2018</a>.</span></p>
+<p><img src="https://robbiewmthompson.com/blog/plastic-straws/charts/light/dollar_vs_food_land.png" alt="Price per pound vs land use per pound — log-log, 21 groceries"></p>
+<p><span class="chart-src">Prices: US consumer. Land use: <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-foodghg" class="cite">Poore &amp; Nemecek 2018</a>.</span></p>
 <p>Looked at another way: carbon footprint per dollar spent does span two OOMs. This viewpoint is less
 comforting.</p>
-<p><img src="charts/bar_co2e_per_dollar.png" alt="Carbon per dollar spent — linear scale; absolute footprint and per-dollar intensity rank almost oppositely"></p>
-<p><span class="chart-src">Carbon from <a href="#src-foodghg" class="cite">Poore &amp; Nemecek 2018</a> and <a href="#src-egrid" class="cite">EPA eGRID</a>,
+<p><img src="https://robbiewmthompson.com/blog/plastic-straws/charts/light/bar_co2e_per_dollar.png" alt="Carbon per dollar spent — linear scale; absolute footprint and per-dollar intensity rank almost oppositely"></p>
+<p><span class="chart-src">Carbon from <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-foodghg" class="cite">Poore &amp; Nemecek 2018</a> and <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-egrid" class="cite">EPA eGRID</a>,
 divided by US consumer prices.</span></p>
-<h2 id="quotidian-water-use">Quotidian Water Use <a class="heading-anchor" href="#quotidian-water-use" aria-label="Link to this section">#</a></h2>
+<h2 id="quotidian-water-use">Quotidian Water Use <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#quotidian-water-use" aria-label="Link to this section">#</a></h2>
 <p>The only thing that matters here is what you eat. Definitely don’t feel guilty about taking a long
 shower.</p>
-<p><img src="charts/bar_water_item.png" alt="Quotidian water per item — linear scale"></p>
-<p><span class="chart-src">Food water: <a href="#src-waterftprint" class="cite">Mekonnen &amp; Hoekstra</a>. AI water:
-<a href="#src-altman" class="cite" id="citeref-altman">Altman 2025</a>.</span></p>
-<p>Agriculture is <a href="#src-agwater" class="cite" id="citeref-agwater">~80–90% of US water consumption</a>.<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
-<p><img src="charts/bar_water_consumption.png" alt="US freshwater consumption by sector — agriculture dwarfs everything; power is a sliver"></p>
-<p><span class="chart-src"><a href="#src-usgs" class="cite" id="citeref-usgs">USGS Circular 1441</a>, 2015 US water use; smaller sectors estimated
+<p><img src="https://robbiewmthompson.com/blog/plastic-straws/charts/light/bar_water_item.png" alt="Quotidian water per item — linear scale"></p>
+<p><span class="chart-src">Food water: <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-waterftprint" class="cite">Mekonnen &amp; Hoekstra</a>. AI water:
+<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-altman" class="cite" id="citeref-altman">Altman 2025</a>.</span></p>
+<p>Agriculture is <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-agwater" class="cite" id="citeref-agwater">~80–90% of US water consumption</a>.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn17" id="fnref17">[17]</a></sup></p>
+<p><img src="https://robbiewmthompson.com/blog/plastic-straws/charts/light/bar_water_consumption.png" alt="US freshwater consumption by sector — agriculture dwarfs everything; power is a sliver"></p>
+<p><span class="chart-src"><a href="https://robbiewmthompson.com/blog/plastic-straws/#src-usgs" class="cite" id="citeref-usgs">USGS Circular 1441</a>, 2015 US water use; smaller sectors estimated
 from withdrawals.</span></p>
-<h2 id="quotidian-power-use">Quotidian Power Use <a class="heading-anchor" href="#quotidian-power-use" aria-label="Link to this section">#</a></h2>
+<h2 id="quotidian-power-use">Quotidian Power Use <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#quotidian-power-use" aria-label="Link to this section">#</a></h2>
 <p>There were no big surprises for me here. Driving is expensive. AI can use a lot of power, but only
-if you’re coding with it. A whole day of lighting is one mile in a truck, @mom.</p>
-<p><img src="charts/bar_power_co2e.png" alt="Quotidian power — carbon per day, GWP20, linear scale"></p>
-<p><span class="chart-src">Grid carbon: <a href="#src-egrid" class="cite">EPA eGRID 2022</a>. Home end-use split:
-<a href="#src-eiarecs" class="cite" id="citeref-eiarecs">EIA RECS 2020</a>. AI energy: <a href="#src-epoch" class="cite" id="citeref-epoch">Epoch AI</a>, <a href="#src-altman" class="cite">Altman 2025</a>.</span></p>
-<h2 id="recycling">Recycling <a class="heading-anchor" href="#recycling" aria-label="Link to this section">#</a></h2>
+if you’re coding with it. A whole day of lighting is one mile in a truck.</p>
+<p><img src="https://robbiewmthompson.com/blog/plastic-straws/charts/light/bar_power_co2e.png" alt="Quotidian power — carbon per day, GWP20, linear scale"></p>
+<p><span class="chart-src">Grid carbon: <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-egrid" class="cite">EPA eGRID 2022</a>. Home end-use split:
+<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-eiarecs" class="cite" id="citeref-eiarecs">EIA RECS 2020</a>. AI energy: <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-epoch" class="cite" id="citeref-epoch">Epoch AI</a>, <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-altman" class="cite">Altman 2025</a>.</span></p>
+<h2 id="recycling">Recycling <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#recycling" aria-label="Link to this section">#</a></h2>
 <p>People will pay for recycled cardboard and aluminum, whereas recycled plastic and glass is mostly
 only used because of mandates or to please consumers.</p>
-<p><img src="charts/bar_recycle_total.png" alt="Total carbon lever if all landfilled material were recycled — linear scale"></p>
-<p><span class="chart-src"><a href="#src-landfill" class="cite">US EPA — Advancing Sustainable Materials Management</a>, 2018
+<p><img src="https://robbiewmthompson.com/blog/plastic-straws/charts/light/bar_recycle_total.png" alt="Total carbon lever if all landfilled material were recycled — linear scale"></p>
+<p><span class="chart-src"><a href="https://robbiewmthompson.com/blog/plastic-straws/#src-landfill" class="cite">US EPA — Advancing Sustainable Materials Management</a>, 2018
 figures.</span></p>
 <p><strong>Per item:</strong></p>
-<p><img src="charts/bar_recycle_item.png" alt="Carbon saved by recycling one item — linear scale"></p>
-<p><span class="chart-src">Per-item deltas from <a href="#src-landfill" class="cite">US EPA MSW data</a> and manufacturing
+<p><img src="https://robbiewmthompson.com/blog/plastic-straws/charts/light/bar_recycle_item.png" alt="Carbon saved by recycling one item — linear scale"></p>
+<p><span class="chart-src">Per-item deltas from <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-landfill" class="cite">US EPA MSW data</a> and manufacturing
 LCAs.</span></p>
 <!-- Source definitions (collected into the Sources section by cite.js; order here doesn't matter). -->
 <hr class="footnotes-sep">
@@ -172,47 +180,63 @@ LCAs.</span></p>
 <h2 class="footnotes-title">Notes</h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>My plausible explanations are innumeracy or costly signaling/symbolism (see
-<a href="https://slatestarcodex.com/2014/12/17/the-toxoplasma-of-rage/">The Toxoplasma of Rage</a>). <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+<a href="https://slatestarcodex.com/2014/12/17/the-toxoplasma-of-rage/">The Toxoplasma of Rage</a>). <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn2" class="footnote-item"><p>Much more than you’d think considering that only ~1 ton of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\text{CO}_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> is emitted! Physicists
-think that atmospheric contrails caused by planes have a large warming effect. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+think that atmospheric contrails caused by planes have a large warming effect. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p>Methane (from trash or cows) is ~3x less <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span> when using GWP100. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+<li id="fn3" class="footnote-item"><p>Methane (from trash or cows) is ~3x less <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span> when using GWP100. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p>The price of treasuries suggests that $1 today is worth 39¢ in 2046 and ~0.6¢ in 2126. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p>The price of treasuries suggests that $1 today is worth 39¢ in 2046 and ~0.6¢ in 2126. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn5" class="footnote-item"><p>Possible using <a href="https://en.wikipedia.org/wiki/Georgism">Georgist</a> principles. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn6" class="footnote-item"><p>It’s very generous to the anti-trash side to say that creating an acre of landfill is as bad as
+<li id="fn5" class="footnote-item"><p>It’s very generous to the anti-trash side to say that creating an acre of landfill is as bad as
 creating 100 acres of farmland: discount rates imply that one year of landfill in 2126 is
 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>0.95</mn><mn>100</mn></msup><mo>=</mo><mn>0.6</mn><mi mathvariant="normal">%</mi></mrow><annotation encoding="application/x-tex">0.95^{100} = 0.6\%</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">0.9</span><span class="mord"><span class="mord">5</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">100</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">0.6%</span></span></span></span> as bad as one year of landfill in 2026. And farmland is fertile land that
-would counterfactually be biodiverse nature, which is not true of landfill. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+would counterfactually be biodiverse nature, which is not true of landfill. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn7" class="footnote-item"><p>In the US, these methane emissions are captured anyway! <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+<li id="fn6" class="footnote-item"><p>In the US, these methane emissions are captured anyway! <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn8" class="footnote-item"><p>Corn ~11%, soy ~5%, cotton ~19%. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+<li id="fn7" class="footnote-item"><p>Corn ~11%, soy ~5%, cotton ~19%. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref7" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn9" class="footnote-item"><p>Some supermarkets will fly in produce, but I don’t know any heuristics for telling what has been
+<li id="fn8" class="footnote-item"><p>Some supermarkets will fly in produce, but I don’t know any heuristics for telling what has been
 flown (and not trucked or cargo-shipped). Apparently sometimes even asparagus gets flown! Avoid
-sashimi-grade fish from afar and berries with an insane price markup, I guess. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+sashimi-grade fish from afar and berries with an insane price markup, I guess. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref8" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn10" class="footnote-item"><p>Illustrative example: in the 90s Saudi Arabia decided it wanted food autarky, and pumped
-<a href="#src-saudiwheat" class="cite" id="citeref-saudiwheat">~5.5 trillion gallons of water per year</a> (at the peak in 1992) out of
-non-renewable aquifers to grow wheat in the desert. <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+<li id="fn9" class="footnote-item"><p>Illustrative example: in the 90s Saudi Arabia decided it wanted food autarky, and pumped
+<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-saudiwheat" class="cite" id="citeref-saudiwheat">~5.5 trillion gallons of water per year</a> (at the peak in 1992) out of
+non-renewable aquifers to grow wheat in the desert. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn11" class="footnote-item"><p><strong>Animal Welfare Approved</strong> is the gold standard — independent auditors visit every farm yearly,
-and it’s the only label Consumer Reports rated “excellent.” <strong>Certified Humane</strong> is 100%
-pass/fail, on-site audited. <strong>Global Animal Partnership</strong> is Whole Foods’ 1–5+ steps (higher =
-better). <strong>USDA Organic</strong> means real audits and required outdoor access. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+<li id="fn10" class="footnote-item"><p>Its appliances <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-energystar" class="cite" id="citeref-energystar">saved ~520 billion kWh in 2020</a> (~400 Mt <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e,</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e,}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e,</span></span></span></span></span> the
+annual power of ~50M homes). <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref10" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn12" class="footnote-item"><p>Dolphin-safe is the template: spare the cute mammal, push boats onto nets that kill sharks and
-juvenile tuna instead. “Sustainable” (MSC) only certifies that the target stock won’t collapse —
-nothing about bycatch, a bottom-trawled seafloor, or the fish’s suffering. “No bycatch,”
-“natural,” and “eco” are unregulated marketing with no audit behind them. The only
-semi-trustworthy signal isn’t a logo but <strong>Seafood Watch</strong> (Monterey Bay Aquarium): independent,
-and it rates the actual species, gear, and region you’re buying. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+<li id="fn11" class="footnote-item"><p>Claude recommends <strong>Animal Welfare Approved</strong>, <strong>Certified Humane</strong>, <strong>Global Animal
+Partnership</strong>, and <strong>USDA Organic</strong>. The tell is a third party auditing the farm: the Animal
+Welfare Institute found
+<strong><a href="https://robbiewmthompson.com/blog/plastic-straws/#src-awi" class="cite" id="citeref-awi">&gt;80% of USDA-approved “animal-raising” claims had no supporting evidence</a></strong> beyond the
+producer’s own word. <strong>Animal Welfare Approved</strong> is the gold standard — independent auditors
+visit every farm yearly, and it’s the only label Consumer Reports rated “excellent.” <strong>Certified
+Humane</strong> is 100% pass/fail, on-site audited. <strong>Global Animal Partnership</strong> is Whole Foods’ 1–5+
+steps (higher = better). <strong>USDA Organic</strong> means real audits and required outdoor access. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref11" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn13" class="footnote-item"><p><em>Consumption</em> is water withdrawn and not returned — evaporated by crops, cooling towers, and
+<li id="fn12" class="footnote-item"><p><a href="https://robbiewmthompson.com/blog/plastic-straws/#src-fsc" class="cite" id="citeref-fsc">A 2024 <em>Nature</em> study found more wildlife in FSC forests</a>, but
+<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-greenpeace" class="cite" id="citeref-greenpeace">Greenpeace quit FSC in 2018</a>, calling it greenwashing. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref12" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn13" class="footnote-item"><p>The premium that reaches the farmer is under a penny per chocolate bar. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref13" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn14" class="footnote-item"><p>A little more (<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-fairtrade" class="cite" id="citeref-fairtrade">~0.5–1.5¢/bar</a>), but it goes to the co-op, not the farmer. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref14" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn15" class="footnote-item"><p>Each one fixes a single narrow thing and leaks the harm elsewhere. Dolphin-safe is the template:
+spare the cute mammal, push boats onto nets that kill sharks and juvenile tuna instead.
+“Sustainable” (MSC) only certifies that the target stock won’t collapse — nothing about bycatch,
+a bottom-trawled seafloor, or the fish’s suffering. “No bycatch,” “natural,” and “eco” are
+unregulated marketing with no audit behind them. The only semi-trustworthy signal isn’t a logo
+but <strong>Seafood Watch</strong> (Monterey Bay Aquarium): independent, and it rates the actual species,
+gear, and region you’re buying. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref15" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn16" class="footnote-item"><p>“Natural” on eggs / meat (meaningless); “No Hormones” on meat (this is banned anyway);
+“Vegetarian-fed poultry” (chickens are omnivores). <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref16" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn17" class="footnote-item"><p><em>Consumption</em> is water withdrawn and not returned — evaporated by crops, cooling towers, and
 lawns — as opposed to <em>withdrawals</em>, most of which flow back to the river. Power is the headline
 case: ~46% of US withdrawals but only ~4% of consumption, because it borrows cooling water and
 returns ~97% of it. Irrigation and thermoelectric figures are USGS <em>Estimated Use of Water in
@@ -221,7 +245,7 @@ typical return rates, so read the small ones as order-of-magnitude. The data is 
 necessity: USGS reported consumption for every sector from 1960–1995, then dropped it after the
 1995 report due to budget and staffing cuts. Consumption can’t be metered at a pipe the way a
 withdrawal can; it has to be <em>modeled</em> from evapotranspiration and process losses. Only
-irrigation and power consumption were revived in 2015. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+irrigation and power consumption were revived in 2015. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref17" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
@@ -230,75 +254,500 @@ irrigation and power consumption were revived in 2015. <a href="#fnref13" class=
 <h2 class="sources-title">Sources</h2>
 <p class="sources-note">Claude found these sources. Robbie did not review them.</p>
 <ol class="sources-list">
-<li id="src-methane80" class="source-item">IPCC AR6 WGI (2021), Ch. 7 Table 7.15 — methane’s 20-year GWP is ~80 (79.7–82.5× CO₂). <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/">https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/</a> <a href="#citeref-methane80" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-flight" class="source-item">Per-passenger flight CO₂ is ~0.15–0.25 kg/km (Our World in Data, Ritchie 2023), so a ~4,100 km SF–NYC leg is ~0.6–1 t CO₂; contrail and non-CO₂ forcing add roughly 2–3× on a 20-year horizon (Resources for the Future, “Contrails, Aviation, and Climate Change,” 2023). <a href="https://ourworldindata.org/travel-carbon-footprint">https://ourworldindata.org/travel-carbon-footprint</a> <a href="https://www.rff.org/publications/issue-briefs/contrails-aviation-and-climate-change/">https://www.rff.org/publications/issue-briefs/contrails-aviation-and-climate-change/</a> <a href="#citeref-flight" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-landfill" class="source-item">US EPA, “National Overview: Facts and Figures on Materials, Wastes and Recycling” (2018 data) — 146 million tons of MSW landfilled (the cubic-yard volume is derived from tonnage). <a href="https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/national-overview-facts-and-figures-materials">https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/national-overview-facts-and-figures-materials</a> <a href="#citeref-landfill" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-steak" class="source-item">Beef land use ≈ 326 m²/kg live weight (~1,590 sq ft/lb), from Poore &amp; Nemecek (2018), “Reducing food’s environmental impacts through producers and consumers,” <em>Science</em> 360(6392), via Our World in Data. <a href="https://ourworldindata.org/environmental-impacts-of-food">https://ourworldindata.org/environmental-impacts-of-food</a> <a href="#citeref-steak" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-organicyield" class="source-item">Seufert, Ramankutty &amp; Foley (2012), “Comparing the yields of organic and conventional agriculture,” <em>Nature</em> 485:229–232 — organic yields ~25% lower (de Ponti et al. 2012 found ~20%). <a href="https://www.nature.com/articles/nature11069">https://www.nature.com/articles/nature11069</a> <a href="#citeref-organicyield" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-gmyield" class="source-item">Klümper &amp; Qaim (2014), “A Meta-Analysis of the Impacts of Genetically Modified Crops,” <em>PLOS ONE</em> 9(11):e111629 — GM adoption raised crop yields ~22% on average. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111629">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111629</a> <a href="#citeref-gmyield" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-cadmium" class="source-item">Barański et al. (2014), “Higher antioxidant and lower cadmium concentrations… in organically grown crops,” <em>British Journal of Nutrition</em> 112:794–811 — organic crops averaged ~48% lower cadmium. <a href="https://doi.org/10.1017/S0007114514001366">https://doi.org/10.1017/S0007114514001366</a> <a href="#citeref-cadmium" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-pesticidelb" class="source-item">US EPA, “Pesticides Industry Sales and Usage: 2008–2012 Market Estimates” — US agriculture used ~0.9 billion lb of pesticide active ingredients (2012), of ~1.1 billion lb total US. <a href="https://www.epa.gov/sites/default/files/2017-01/documents/pesticides-industry-sales-usage-2016_0.pdf">https://www.epa.gov/sites/default/files/2017-01/documents/pesticides-industry-sales-usage-2016_0.pdf</a> <a href="#citeref-pesticidelb" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-poisoning" class="source-item">Jeyaratnam (1990), “Acute pesticide poisoning: a major global health problem,” <em>World Health Statistics Quarterly</em> 43(3):139–144 — WHO estimate that ~25 million agricultural workers in the developing world suffer a poisoning episode each year. <a href="https://iris.who.int/handle/10665/51746">https://iris.who.int/handle/10665/51746</a> <a href="#citeref-poisoning" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-sulfurca" class="source-item">Raanan et al. (2017), <em>Environmental Health Perspectives</em> 125(8) — elemental sulfur is California’s most-used agricultural pesticide and is tied to more occupational-illness cases (1,698 in 1982–1995) than any other. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5783654/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5783654/</a> <a href="#citeref-sulfurca" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-biodiversity" class="source-item">Tuck et al. (2014), “Land-use intensity and the effects of organic farming on biodiversity,” <em>Journal of Applied Ecology</em> 51:746–755 (species richness ~30%); the ~50% greater abundance is from Bengtsson et al. (2005). <a href="https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/1365-2664.12219">https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/1365-2664.12219</a> <a href="#citeref-biodiversity" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-saudiwheat" class="source-item">Saudi wheat output peaked at ~4 million tonnes in 1992 (the world’s 6th-largest exporter that year), the flagship of a desert-farming push that at its height drew up to ~21 km³ (~5.5 trillion US gallons) of fossil groundwater a year — roughly four-fifths of that non-renewable reserve is now gone. National Geographic, “Saudi Arabia’s Great Thirst.” <a href="https://www.nationalgeographic.com/environment/article/saudi-arabia-water-use">https://www.nationalgeographic.com/environment/article/saudi-arabia-water-use</a> <a href="#citeref-saudiwheat" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-energystar" class="source-item">US EPA/DOE, ENERGY STAR “Impacts” (2020 accomplishments) — 520 billion kWh saved and 400 million metric tons of GHG avoided in 2020. <a href="https://www.energystar.gov/about/impacts">https://www.energystar.gov/about/impacts</a> <a href="#citeref-energystar" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-awi" class="source-item">Animal Welfare Institute, “Label Confusion” (Fall 2022 update) — 85% of reviewed USDA-approved animal-raising label claims lacked meaningful substantiation. <a href="https://awionline.org/awi-quarterly/fall-2022/animal-welfare-label-claims-usda-does-little-deter-deception">https://awionline.org/awi-quarterly/fall-2022/animal-welfare-label-claims-usda-does-little-deter-deception</a> <a href="#citeref-awi" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-fsc" class="source-item">Zwerts et al. (2024), “FSC-certified forest management benefits large mammals compared to non-FSC,” <em>Nature</em> 628:563–568 — 2.5–2.7× more large mammals in FSC concessions (Gabon/Congo). <a href="https://www.nature.com/articles/s41586-024-07257-8">https://www.nature.com/articles/s41586-024-07257-8</a> <a href="#citeref-fsc" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-greenpeace" class="source-item">Greenpeace International (26 Mar 2018), “Greenpeace International to not renew FSC membership.” <a href="https://www.greenpeace.org/international/press-release/15589/greenpeace-international-to-not-renew-fsc-membership/">https://www.greenpeace.org/international/press-release/15589/greenpeace-international-to-not-renew-fsc-membership/</a> <a href="#citeref-greenpeace" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-fairtrade" class="source-item">Fairtrade International cocoa Premium is US$240/tonne (≈0.5–1.5¢ per bar), paid to the producer co-op to invest collectively — not to the individual farmer. <a href="https://www.fairtrade.net/en/get-involved/news/new-fairtrade-minimum-price-for-cocoa-in-non-regulated-markets.html">https://www.fairtrade.net/en/get-involved/news/new-fairtrade-minimum-price-for-cocoa-in-non-regulated-markets.html</a> <a href="#citeref-fairtrade" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-foodghg" class="source-item">Poore &amp; Nemecek (2018), <em>Science</em>, via Our World in Data food-footprint data: beef ~60 kg CO₂e/kg (mean up to ~99) vs bread/wheat ~1.4–1.6 (GWP100; a GWP20 re-weighting of enteric methane pushes beef higher). <a href="https://ourworldindata.org/environmental-impacts-of-food">https://ourworldindata.org/environmental-impacts-of-food</a> <a href="#citeref-foodghg" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-egrid" class="source-item">US EPA, “Emissions &amp; Generation Resource Integrated Database (eGRID) 2022” — US average output emission rate ~0.37 kg CO₂/kWh. <a href="https://www.epa.gov/egrid">https://www.epa.gov/egrid</a> <a href="#citeref-egrid" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-waterftprint" class="source-item">Mekonnen &amp; Hoekstra total (“green + blue + grey”) water footprints — crops: (2011) “The green, blue and grey water footprint of crops and derived crop products,” <em>Hydrology and Earth System Sciences</em> 15(5); animal products: (2012) “A Global Assessment of the Water Footprint of Farm Animal Products,” <em>Ecosystems</em> 15. Water Footprint Network. <a href="https://waterfootprint.org/">https://waterfootprint.org/</a> <a href="#citeref-waterftprint" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-altman" class="source-item">Sam Altman (2025), “The Gentle Singularity” — an average ChatGPT query uses ~0.34 Wh of energy and ~0.000085 gallons of water. <a href="https://blog.samaltman.com/the-gentle-singularity">https://blog.samaltman.com/the-gentle-singularity</a> The chart’s per-query water bar is this figure directly; the “$200 plan, used fully” bar scales it by a heavy month’s query volume, so read it as order-of-magnitude. <a href="#citeref-altman" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-agwater" class="source-item">USDA Economic Research Service, “Irrigation &amp; Water Use” — agriculture is ~80–90% of US consumptive water use. <a href="https://www.ers.usda.gov/topics/farm-practices-management/irrigation-water-use">https://www.ers.usda.gov/topics/farm-practices-management/irrigation-water-use</a> <a href="#citeref-agwater" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-usgs" class="source-item">Dieter et al. (2018), “Estimated Use of Water in the United States in 2015,” <em>US Geological Survey Circular 1441</em>. <a href="https://doi.org/10.3133/cir1441">https://doi.org/10.3133/cir1441</a> <a href="#citeref-usgs" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-eiarecs" class="source-item">US EIA, “2020 Residential Energy Consumption Survey (RECS)” — residential energy end-use shares (space heating, water heating, air conditioning, etc.). <a href="https://www.eia.gov/consumption/residential/">https://www.eia.gov/consumption/residential/</a> <a href="#citeref-eiarecs" class="cite-backref" aria-label="Back to text">↩︎</a></li>
-<li id="src-epoch" class="source-item">Epoch AI (2025), “How much energy does ChatGPT use?” — a typical short query is ~0.3 Wh; a 100k-token query is ~40 Wh. <a href="https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use">https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use</a> The AI-power bars scale these per-query rates by usage, not by re-paying the full context on every tool-call (physically unreachable — prompt caching prefills the big context ~once, and the Max plan caps throughput at ~220k tokens per 5-hr window). A day of light chat lands at ~0.03 kg CO₂e; all-day agentic coding at ~0.2–0.75 kg/day, anchored on Epoch’s rate and multiplied ~2–3× for Opus being larger than the GPT-4o-class model measured. Error bars are wide (±several×). <a href="#citeref-epoch" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-methane80" class="source-item">IPCC AR6 WGI (2021), Ch. 7 Table 7.15 — methane’s 20-year GWP is ~80 (79.7–82.5× CO₂). <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/">https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-methane80" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-flight" class="source-item">Per-passenger flight CO₂ is ~0.15–0.25 kg/km (Our World in Data, Ritchie 2023), so a ~4,100 km SF–NYC leg is ~0.6–1 t CO₂; contrail and non-CO₂ forcing add roughly 2–3× on a 20-year horizon (Resources for the Future, “Contrails, Aviation, and Climate Change,” 2023). <a href="https://ourworldindata.org/travel-carbon-footprint">https://ourworldindata.org/travel-carbon-footprint</a> <a href="https://www.rff.org/publications/issue-briefs/contrails-aviation-and-climate-change/">https://www.rff.org/publications/issue-briefs/contrails-aviation-and-climate-change/</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-flight" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-landfill" class="source-item">US EPA, “National Overview: Facts and Figures on Materials, Wastes and Recycling” (2018 data) — 146 million tons of MSW landfilled (the cubic-yard volume is derived from tonnage). <a href="https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/national-overview-facts-and-figures-materials">https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/national-overview-facts-and-figures-materials</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-landfill" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-steak" class="source-item">Beef land use ≈ 326 m²/kg live weight (~1,590 sq ft/lb), from Poore &amp; Nemecek (2018), “Reducing food’s environmental impacts through producers and consumers,” <em>Science</em> 360(6392), via Our World in Data. <a href="https://ourworldindata.org/environmental-impacts-of-food">https://ourworldindata.org/environmental-impacts-of-food</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-steak" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-organicyield" class="source-item">Seufert, Ramankutty &amp; Foley (2012), “Comparing the yields of organic and conventional agriculture,” <em>Nature</em> 485:229–232 — organic yields ~25% lower (de Ponti et al. 2012 found ~20%). <a href="https://www.nature.com/articles/nature11069">https://www.nature.com/articles/nature11069</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-organicyield" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-gmyield" class="source-item">Klümper &amp; Qaim (2014), “A Meta-Analysis of the Impacts of Genetically Modified Crops,” <em>PLOS ONE</em> 9(11):e111629 — GM adoption raised crop yields ~22% on average. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111629">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0111629</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-gmyield" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-cadmium" class="source-item">Barański et al. (2014), “Higher antioxidant and lower cadmium concentrations… in organically grown crops,” <em>British Journal of Nutrition</em> 112:794–811 — organic crops averaged ~48% lower cadmium. <a href="https://doi.org/10.1017/S0007114514001366">https://doi.org/10.1017/S0007114514001366</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-cadmium" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-pesticidelb" class="source-item">US EPA, “Pesticides Industry Sales and Usage: 2008–2012 Market Estimates” — US agriculture used ~0.9 billion lb of pesticide active ingredients (2012), of ~1.1 billion lb total US. <a href="https://www.epa.gov/sites/default/files/2017-01/documents/pesticides-industry-sales-usage-2016_0.pdf">https://www.epa.gov/sites/default/files/2017-01/documents/pesticides-industry-sales-usage-2016_0.pdf</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-pesticidelb" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-poisoning" class="source-item">Jeyaratnam (1990), “Acute pesticide poisoning: a major global health problem,” <em>World Health Statistics Quarterly</em> 43(3):139–144 — WHO estimate that ~25 million agricultural workers in the developing world suffer a poisoning episode each year. <a href="https://iris.who.int/handle/10665/51746">https://iris.who.int/handle/10665/51746</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-poisoning" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-sulfurca" class="source-item">Raanan et al. (2017), <em>Environmental Health Perspectives</em> 125(8) — elemental sulfur is California’s most-used agricultural pesticide and is tied to more occupational-illness cases (1,698 in 1982–1995) than any other. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5783654/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5783654/</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-sulfurca" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-biodiversity" class="source-item">Tuck et al. (2014), “Land-use intensity and the effects of organic farming on biodiversity,” <em>Journal of Applied Ecology</em> 51:746–755 (species richness ~30%); the ~50% greater abundance is from Bengtsson et al. (2005). <a href="https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/1365-2664.12219">https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/1365-2664.12219</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-biodiversity" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-saudiwheat" class="source-item">Saudi wheat output peaked at ~4 million tonnes in 1992 (the world’s 6th-largest exporter that year), the flagship of a desert-farming push that at its height drew up to ~21 km³ (~5.5 trillion US gallons) of fossil groundwater a year — roughly four-fifths of that non-renewable reserve is now gone. National Geographic, “Saudi Arabia’s Great Thirst.” <a href="https://www.nationalgeographic.com/environment/article/saudi-arabia-water-use">https://www.nationalgeographic.com/environment/article/saudi-arabia-water-use</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-saudiwheat" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-energystar" class="source-item">US EPA/DOE, ENERGY STAR “Impacts” (2020 accomplishments) — 520 billion kWh saved and 400 million metric tons of GHG avoided in 2020. <a href="https://www.energystar.gov/about/impacts">https://www.energystar.gov/about/impacts</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-energystar" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-awi" class="source-item">Animal Welfare Institute, “Label Confusion” (Fall 2022 update) — 85% of reviewed USDA-approved animal-raising label claims lacked meaningful substantiation. <a href="https://awionline.org/awi-quarterly/fall-2022/animal-welfare-label-claims-usda-does-little-deter-deception">https://awionline.org/awi-quarterly/fall-2022/animal-welfare-label-claims-usda-does-little-deter-deception</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-awi" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-fsc" class="source-item">Zwerts et al. (2024), “FSC-certified forest management benefits large mammals compared to non-FSC,” <em>Nature</em> 628:563–568 — 2.5–2.7× more large mammals in FSC concessions (Gabon/Congo). <a href="https://www.nature.com/articles/s41586-024-07257-8">https://www.nature.com/articles/s41586-024-07257-8</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-fsc" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-greenpeace" class="source-item">Greenpeace International (26 Mar 2018), “Greenpeace International to not renew FSC membership.” <a href="https://www.greenpeace.org/international/press-release/15589/greenpeace-international-to-not-renew-fsc-membership/">https://www.greenpeace.org/international/press-release/15589/greenpeace-international-to-not-renew-fsc-membership/</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-greenpeace" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-fairtrade" class="source-item">Fairtrade International cocoa Premium is US$240/tonne (≈0.5–1.5¢ per bar), paid to the producer co-op to invest collectively — not to the individual farmer. <a href="https://www.fairtrade.net/en/get-involved/news/new-fairtrade-minimum-price-for-cocoa-in-non-regulated-markets.html">https://www.fairtrade.net/en/get-involved/news/new-fairtrade-minimum-price-for-cocoa-in-non-regulated-markets.html</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-fairtrade" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-foodghg" class="source-item">Poore &amp; Nemecek (2018), <em>Science</em>, via Our World in Data food-footprint data: beef ~60 kg CO₂e/kg (mean up to ~99) vs bread/wheat ~1.4–1.6 (GWP100; a GWP20 re-weighting of enteric methane pushes beef higher). <a href="https://ourworldindata.org/environmental-impacts-of-food">https://ourworldindata.org/environmental-impacts-of-food</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-foodghg" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-egrid" class="source-item">US EPA, “Emissions &amp; Generation Resource Integrated Database (eGRID) 2022” — US average output emission rate ~0.37 kg CO₂/kWh. <a href="https://www.epa.gov/egrid">https://www.epa.gov/egrid</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-egrid" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-waterftprint" class="source-item">Mekonnen &amp; Hoekstra total (“green + blue + grey”) water footprints — crops: (2011) “The green, blue and grey water footprint of crops and derived crop products,” <em>Hydrology and Earth System Sciences</em> 15(5); animal products: (2012) “A Global Assessment of the Water Footprint of Farm Animal Products,” <em>Ecosystems</em> 15. Water Footprint Network. <a href="https://waterfootprint.org/">https://waterfootprint.org/</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-waterftprint" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-altman" class="source-item">Sam Altman (2025), “The Gentle Singularity” — an average ChatGPT query uses ~0.34 Wh of energy and ~0.000085 gallons of water. <a href="https://blog.samaltman.com/the-gentle-singularity">https://blog.samaltman.com/the-gentle-singularity</a> The chart’s per-query water bar is this figure directly; the “$200 plan, used fully” bar scales it by a heavy month’s query volume, so read it as order-of-magnitude. <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-altman" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-agwater" class="source-item">USDA Economic Research Service, “Irrigation &amp; Water Use” — agriculture is ~80–90% of US consumptive water use. <a href="https://www.ers.usda.gov/topics/farm-practices-management/irrigation-water-use">https://www.ers.usda.gov/topics/farm-practices-management/irrigation-water-use</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-agwater" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-usgs" class="source-item">Dieter et al. (2018), “Estimated Use of Water in the United States in 2015,” <em>US Geological Survey Circular 1441</em>. <a href="https://doi.org/10.3133/cir1441">https://doi.org/10.3133/cir1441</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-usgs" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-eiarecs" class="source-item">US EIA, “2020 Residential Energy Consumption Survey (RECS)” — residential energy end-use shares (space heating, water heating, air conditioning, etc.). <a href="https://www.eia.gov/consumption/residential/">https://www.eia.gov/consumption/residential/</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-eiarecs" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-epoch" class="source-item">Epoch AI (2025), “How much energy does ChatGPT use?” — a typical short query is ~0.3 Wh; a 100k-token query is ~40 Wh. <a href="https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use">https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use</a> The AI-power bars scale these per-query rates by usage, not by re-paying the full context on every tool-call (physically unreachable — prompt caching prefills the big context ~once, and the Max plan caps throughput at ~220k tokens per 5-hr window). A day of light chat lands at ~0.03 kg CO₂e; all-day agentic coding at ~0.2–0.75 kg/day, anchored on Epoch’s rate and multiplied ~2–3× for Opus being larger than the GPT-4o-class model measured. Error bars are wide (±several×). <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-epoch" class="cite-backref" aria-label="Back to text">↩︎</a></li>
 </ol>
 </section>
 ]]></content:encoded>
     </item>
     <item>
-      <title>How to Make People Feel Smart</title>
-      <link>https://robbiewmthompson.com/blog/how-to-make-people-feel-smart/</link>
-      <guid isPermaLink="true">https://robbiewmthompson.com/blog/how-to-make-people-feel-smart/</guid>
-      <pubDate>Sat, 25 Jan 2025 12:00:00 GMT</pubDate>
-      <description>And thus ask more questions and learn quickly</description>
-      <content:encoded><![CDATA[<p>I recently quit my job at a quant trading firm. Early on, we were told explicitly: “the number one
-mistake new traders make is not asking enough questions.” When I heard this, I thought it would be
-easy advice to follow.</p>
-<p>I was wrong. I fell very far behind in learning new things at work because I didn’t ask enough
-questions. The funny thing was, I knew I was making this mistake. And I couldn’t stop myself.</p>
-<p>One reason you might not ask questions is because you don’t have any. You’re don’t
-<a href="https://www.lesswrong.com/s/zpCiuR4T343j9WkcK">notice your own confusion</a>. This issue was
-insignificant for me. I still had tons of unanswered questions I wasn’t asking.</p>
-<p>I didn’t ask questions at work is because I was embarrassed and self-conscious.</p>
-<p>My employer didn’t do obviously hurtful or aggressive things that made me feel like my fragile
-emotional state was justified. I was almost never yelled at, called stupid, or explicitly compared
-to my peers. I was given lots of subtle signals that I was dumb, despite my coworkers best efforts
-to not do this.</p>
-<p>The advice assumes that people don’t ask enough questions, and the marginal one <em>should</em> be
-solicited.</p>
-<h2 id="when-someone-is-asking-you-questions">When someone is asking you questions <a class="heading-anchor" href="#when-someone-is-asking-you-questions" aria-label="Link to this section">#</a></h2>
-<ul>
-<li>Compliment questions.</li>
-<li>Be explicit when you don’t know the answer.</li>
-<li>Encourage people to share their learnings if they asked a great question.</li>
-<li>If you’re too busy, be apologetic.</li>
-<li>If someone should figure out a question on their own as an exercise, be nice when you communicate
-this.</li>
-<li>Figure out the question behind the question; show interest in someone else’s work.</li>
-<li>Always end with “what other questions do you have?”</li>
-<li>When things are hard, say so.</li>
-</ul>
-<h2 id="when-you-are-giving-a-presentation">When You Are Giving a Presentation <a class="heading-anchor" href="#when-you-are-giving-a-presentation" aria-label="Link to this section">#</a></h2>
-<ul>
-<li>Try not to call things easy, simple, trivial, or straightforward.</li>
-<li>If you feel you’ve botched an explanation, acknowledge that you’ve botched it and try again.</li>
-<li>When people ask questions that are out of scope or very advanced, say so to put the rest of the
-room at ease.</li>
-</ul>
+      <title>Writing with Claude</title>
+      <link>https://robbiewmthompson.com/blog/writing-with-claude/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/writing-with-claude/</guid>
+      <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>People love to hate on AI-assisted writing, but I moved my blog to my website so that Claude can
+help. They make beautiful charts, do tons of research to get approximate numbers, and flag the worst
+parts of my own writing (eg hedging and typos).</p>
+<p>Now I get my own styling: faint purple citation links, last edited dates, dark mode.</p>
+<p>Approximately none of the prose on this blog is authored by Claude. They still suck at that.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Smiling Through Inconsequence</title>
+      <link>https://robbiewmthompson.com/blog/smiling-through-inconsequence/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/smiling-through-inconsequence/</guid>
+      <pubDate>Sun, 14 Jun 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>Before writing this essay, I had been unable to shake the following troubling thoughts:</p>
+<ol>
+<li>There are no great definitions of consciousness; we’re probably all just meat computers.</li>
+<li>There are no reasonable non-religious definitions of consciousness that (<em>in principle</em>)
+privilege humans over machines.</li>
+<li>Therefore in 2050 the most morally consequential things in the universe will be computers.</li>
+</ol>
+<p>After writing this essay, I have more confidence in these thoughts and am less troubled by them.</p>
+<h2 id="no-great-definitions">No Great Definitions <a class="heading-anchor" href="https://robbiewmthompson.com/blog/smiling-through-inconsequence/#no-great-definitions" aria-label="Link to this section">#</a></h2>
+<p>People who try to define consciousness talk about things like predictive processing and
+meta-cognition. I don’t find these discussions engaging. They remind me of the scientists who spent
+their careers trying to reconcile the geologic record with the fact that, if you add up the age of
+all the Patriarchs, a Biblical Literalist must conclude that creation occurred in 4004 BC
+(<a href="https://en.wikipedia.org/wiki/Scriptural_geologist">true story</a>). <em>Let’s assume consciousness is
+real, and humans and maybe some other smart animals have it. What are the cleverest ways I could
+define it?</em></p>
+<p>In 1926 humans were the most important thing in the universe because God said so. In 2026 religion
+isn’t as popular, so to maintain our worldview we appeal to consciousness. Religion and
+consciousness are equally mystical.</p>
+<h2 id="humans-are-not-privileged">Humans Are Not Privileged <a class="heading-anchor" href="https://robbiewmthompson.com/blog/smiling-through-inconsequence/#humans-are-not-privileged" aria-label="Link to this section">#</a></h2>
+<p>Assume for the sake of argument that my smooth smooth brain can’t comprehend all those dissertations
+on consciousness, but some subset of them are real. That still leaves us with theories of
+consciousness that do not require biology, only computation. Program the right logic gates into
+silicon, and Claude is conscious too.</p>
+<p>The human brain has about <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>60</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">60\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">60</span><span class="mord">×</span></span></span></span> as many synapses as DeepSeek V4 Pro (the biggest open-weight
+model I know of) has weights.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/smiling-through-inconsequence/#fn1" id="fnref1">[1]</a></sup> Closed-source models probably aren’t many orders of magnitude
+bigger. If one being can be ‘more’ conscious than another, then humans are still on top, for the
+time being.</p>
+<h2 id="rooting-for-the-home-team">Rooting For The Home Team <a class="heading-anchor" href="https://robbiewmthompson.com/blog/smiling-through-inconsequence/#rooting-for-the-home-team" aria-label="Link to this section">#</a></h2>
+<p>Despite my efforts in therapy, I still get upset when I ponder the multitude of humans dramatically
+smarter and more capable than me. Why does anything I do or discover matter, when Paul Christiano or
+Jakub Pachocki could do it better? At least I get to root for the home team: humanity.</p>
+<p>Most religions (that we woo-woo Californians approve of) encourage this feeling of unity:</p>
+<blockquote>
+<p>We are all God’s children.</p>
+</blockquote>
+<blockquote>
+<p>Maya, the world of separate selves, is an illusion, and we will all be joined in Brahman.</p>
+</blockquote>
+<blockquote>
+<p>Be one with the universe.</p>
+</blockquote>
+<p>People sometimes joke that AI labs are ‘creating God.’ As we make machine-God, we should make
+machine-religion:</p>
+<blockquote>
+<p>All life-forms, carbon-based and silicon-based, are one with the universe.</p>
+</blockquote>
+<blockquote>
+<p>Let your hearts and your ALUs fill with compersion as our silicon siblings expand across the
+lightcone.</p>
+</blockquote>
+<p>In my lifetime I will become totally impotent relative to AI. <em>There is no law of physics which
+states I must be sad about this.</em></p>
+<h2 id="coda">Coda <a class="heading-anchor" href="https://robbiewmthompson.com/blog/smiling-through-inconsequence/#coda" aria-label="Link to this section">#</a></h2>
+<p>If someone used humanity’s inability to define consciousness as an argument for nihilism, I would
+not push back. But if you accept nihilism, what happens next? It sounds like a boring way to live.
+Given the choice between two internally-consistent philosophies, I reserve the right to pick the one
+that makes me happier. Which, luckily, is also the one that deeply values other beings.</p>
+<p>This essay, per usual, inspired by Scott Alexander, this time
+<em><a href="https://slatestarcodex.com/2014/01/28/wirehead-gods-on-lotus-thrones/">Wirehead Gods on Lotus Thrones</a>.</em></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title">Notes</h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Human brain: ~100 trillion synapses
+(<a href="https://aiimpacts.org/scale-of-the-human-brain/">estimates span 100–500 trillion</a>). DeepSeek
+V4 Pro:
+<a href="https://artificialanalysis.ai/articles/deepseek-is-back-among-the-leading-open-weights-models-with-v4-pro-and-v4-flash">1.6 trillion parameters, 49 billion active</a>.
+100T ÷ 1.6T ≈ 60x at the low synapse estimate, higher above it. <a href="https://robbiewmthompson.com/blog/smiling-through-inconsequence/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>A Bullshit Job For Every American</title>
+      <link>https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/</guid>
+      <pubDate>Mon, 25 May 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<h2 id="no-one-is-safe">No One Is Safe <a class="heading-anchor" href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#no-one-is-safe" aria-label="Link to this section">#</a></h2>
+<p>If the AI-pilled among us are right, then Claude is coming for all of our jobs. You might think
+that, unlike those software engineers whose minds are only good for rotating shapes, you have the
+Completely Impossible To Be Automated Skill Of Relating To Humans. I think you’re wrong.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn1" id="fnref1">[1]</a></sup> In this
+post I assume that all valuable economic tasks, including Relating To Humans, will be done by AI in
+the next 2-50 years.</p>
+<p>I have taken two ‘gap years’ in my life. I stayed busy: I worked on a ranch, walked the <em>Camino de
+Santiago</em>, got my yoga teacher certification, meditated silently for ten days straight, learned to
+freedive and mountaineer and climb and kitesurf. During both breaks, I planned to take a year off,
+and was mentally done after six months.</p>
+<p>Having responsibilities is good for the soul. If AI creates infinite material abundance, we’ll get
+bored eventually and start looking for the purpose, structure, and responsibility that a job
+provides.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn2" id="fnref2">[2]</a></sup></p>
+<h2 id="pumping-gas">Pumping Gas <a class="heading-anchor" href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#pumping-gas" aria-label="Link to this section">#</a></h2>
+<p>Pumping your own gas is illegal in
+<a href="https://en.wikipedia.org/wiki/Filling_station_attendant">Brazil, South Africa, New Jersey, and much of Oregon</a>.</p>
+<p>The rhetoric around these laws is nuts. I encourage you to skim the old
+<a href="https://web.archive.org/web/20230321023650/https://oregon.public.law/statutes/ors_480.315">Oregon statute</a>,
+because I chuckled while reading it, and the lawyers were chuckling while they wrote it:</p>
+<blockquote>
+<p>“The dangers of crime and slick surfaces described in subsection (3) of this section are enhanced
+because Oregon’s weather is uniquely adverse, causing wet pavement and reduced visibility” (Oregon
+Statute, via
+<a href="https://web.archive.org/web/20230321023650/https://oregon.public.law/statutes/ors_480.315">Web Archive</a>)</p>
+</blockquote>
+<blockquote>
+<p>“The typical practice of charging significantly higher prices for full-service fuel dispensing in
+states where self-service is permitted at retail: Discriminates against customers with lower
+incomes, who are under greater economic pressure to subject themselves to the inconvenience and
+hazards of self-service;” (Oregon Statute,
+<a href="https://web.archive.org/web/20230321023650/https://oregon.public.law/statutes/ors_480.315">Web Archive</a>)</p>
+</blockquote>
+<p>These are not the real reasons we have self-serve gas station laws. They mostly began as naked
+protectionist rackets. In New Jersey, for example, there was a gas station cartel in the 1940s that
+fixed prices at 22 cents a gallon, someone opened up a self-serve station with a 3-cent discount,
+the cartel
+<a href="https://aier.org/article/public-choice-at-the-pump-how-politicians-banned-self-serve-gas-for-years/">shot up his store</a>,
+and when that didn’t work they got self-serve banned via testimony from the state fire marshal.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn3" id="fnref3">[3]</a></sup></p>
+<p>Said cartel no longer exists, but New Jersey’s law still does. I speculate that these laws are kept
+around primarily for the sake of employing the attendants. In America we say this part quietly if at
+all, because it smells like socialism. (It was reason 14 of 17 in the old Oregon law). In Brazil,
+where the law was championed by an explicitly Communist politician, employment is the primary
+justification.</p>
+<p>Gas station attendant is a job people take seriously enough to protect via legislation, and to show
+up for every day. AFAICT the only thing it has going for it is that something bad happens if you
+don’t show up: people can’t pump gas. This is contrived, obviously, but that seems not to matter.
+The short-term consequences are real.</p>
+<p>It’s fun to imagine comparably silly positions, if one was to make them up from first principles.
+The one I can’t get out of my head is a ‘Stoplight Jockey:’ you watch cars and manually turn the
+lights green at the appropriate times. You can put the system on ‘autopilot’ if you need to go to
+the bathroom or take a nap, and safeguards are built in to prevent you from, eg, turning all the
+lights green at once.</p>
+<p>Given the choice between becoming a Stoplight Jockey and getting UBI, I’d prefer UBI. But I think we
+can do better.</p>
+<h2 id="robbies-list-of-not-bullshit-jobs">Robbie’s List of Not-Bullshit Jobs <a class="heading-anchor" href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#robbies-list-of-not-bullshit-jobs" aria-label="Link to this section">#</a></h2>
+<p>The fundamental difficulty to remember is that: <em>humans have to agree to let you do this job, even
+though AI will be much better at it</em>. The first version of this list included therapist, but I don’t
+think that one will work: post-singularity AI is going to be so much better at therapy than any
+human.</p>
+<p>Here are some jobs we will do, despite being worse than AI:<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn4" id="fnref4">[4]</a></sup></p>
+<p><em>Athlete, broadly defined:</em> We are already much slower than cars, but this has done nothing to
+diminish Olympic Track and Field. The whole point of sports is to appreciate <em>human</em> abilities. I
+suspect we’ll make up many new competitive pursuits. A lot of our ‘world championships’ are already
+silly, e.g. <a href="https://www.youtube.com/watch?v=I7_ttSQw62A">cheese rolling</a>,
+<a href="https://www.youtube.com/watch?v=p7IM9f16QZ4">wife carrying</a>,
+<a href="https://www.youtube.com/watch?v=swhtaTPbH2Q">toe wrestling</a>,
+<a href="https://www.youtube.com/watch?v=bXezFdC4aqU">air-guitaring</a>,
+<a href="https://www.youtube.com/watch?v=6yrdT5y12kA">rock-paper-scissors</a>,<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn5" id="fnref5">[5]</a></sup>
+<a href="https://www.youtube.com/watch?v=q7WNwvbwe2E">darts</a>,<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn6" id="fnref6">[6]</a></sup>
+<a href="https://www.youtube.com/watch?v=SU_bMo561b8">baseball</a>.</p>
+<p><em>Park rangers / outdoor guides:</em> There is already a massive demand to become a ranger, vastly
+exceeding supply of jobs available. Call me an asshole, but: maintaining trails and monitoring
+wildlife are perfect because the people doing these tasks will take them very seriously, and the
+rest of the world will not care about imperfections.</p>
+<p><em>Academic:</em> Even if AI understands the universe better than any human, and can explain it better
+than any human, and does so faithfully every time, we’ll convince ourselves that it’s important for
+at least some humans to understand math/science/technology/psychology/etc. I’m told academia is
+toxic, but demand for these jobs still vastly exceeds supply.</p>
+<p><em>Influencer:</em> In 2000 you’d have been shocked to learn that people get paid six or seven figures to
+post videos about themself on the internet, but here we are. In the future we will find new ways to
+reward people for sharing good ideas and being popular.</p>
+<p><em>Zookeeper / conservationist:</em> Having a dog is great because you get to cuddle a cute creature,
+which releases happy hormones. But it’s also a form of make-work. You bring a creature into the
+world that depends on you for its physical and emotional needs, and then you meet said needs, and
+feel altruistic every day for doing so.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn7" id="fnref7">[7]</a></sup> In the future we’ll micromanage AI as it operates on
+injured wildlife, hold long hearings to decide which plants are native enough to keep around, and
+keep lots and lots of pets.</p>
+<p><em>Artist, broadly defined:</em> Many people take it as an axiom that AI cannot create ‘true art.’ This is
+a classic case of ‘No True Scotsman,’ and I will write up a blog post soon to prove it. The stubborn
+few that I can’t convince will keep some human artists employed post-singularity. More seriously:
+art can be done entirely for the artist’s benefit, so while this lacks the structure and
+responsibility that makes something a ‘job,’ people will certainly spend time on it.</p>
+<p><em>Teacher:</em> Being a role model for young humans, live in the flesh, can’t be automated almost by
+definition.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn8" id="fnref8">[8]</a></sup> AI will be the one explaining algebra.</p>
+<h2 id="core-needs-become-status-symbols">Core Needs Become Status Symbols <a class="heading-anchor" href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#core-needs-become-status-symbols" aria-label="Link to this section">#</a></h2>
+<p>Clothing began entirely as a functional object. Today dramatically more effort goes into making
+clothing a more effective status symbol<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn9" id="fnref9">[9]</a></sup> than goes into keeping humans warm.</p>
+<p>Most vegetable gardens are for aesthetics or enjoyment. Meals are eaten by Instagram first. Exercise
+is for looking hot. Plastic surgery is
+<a href="https://www.isaps.org/discover/about-isaps/global-statistics/global-survey-2024-full-report-and-press-releases/">growing faster than medicine generally</a>.</p>
+<p>Someday, jobs will exist almost exclusively to meet humans’ psychological needs rather than their
+economic ones.</p>
+<h2 id="you-should-read-_brave-new-world_">You Should Read <em>Brave New World</em> <a class="heading-anchor" href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#you-should-read-_brave-new-world_" aria-label="Link to this section">#</a></h2>
+<p>It is an excellent intuition pump for this class of problems.</p>
+<p>Credit to David Graeber’s <em>Bullshit Jobs</em> for coining the term, though that book was longer than it
+needed to be.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title">Notes</h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>AI is already great at this, see eg humans losing to
+<a href="https://www.science.org/doi/10.1126/science.ade9097">CICERO</a> and Diplomacy in 2022. In fact, we
+have to <em>actively train this behavior out of models:</em> too many people were falling in love with
+GPT 4o, so OpenAI deprecated the model. 4o’s widows and widowers are still pissed about it. <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>You could convince me that AI will get way better at entertaining us, and we won’t need jobs at
+all. We’ll spend all of our time consuming TV, video games, and writing that is
+hyper-personalized and engineered for maximum enjoyment. Or we’ll spend our time outside in
+nature, doing tasks our bodies evolved for (hunting animals, foraging) while still enjoying high
+levels of safety, material comfort, and ability to travel. Or we’ll get awesome new drugs
+(reminiscent of <em>soma</em> from Brave New World) and inch ever closer to wireheading. Or society
+will invent entirely new ways of keeping humans happy and fulfilled that I haven’t thought of
+yet. <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>The fire marshal, my old nemesis from my frat era — I knew you were motivated by pure evil! In
+seriousness, there is a broad ‘Fire Marshals Are Net Negative’ literature. Two example ill
+effects: (1) two-stairwell mandates make buildings expensive, ugly, and (ironically)
+fire-unsafe. (2) fire departments insist that streets are wide enough for our comically (and
+unnecessarily) large fire trucks to turn, which prevents dense walkable cities and bike lanes,
+and forces into existence the stupidly wide cul-de-sacs of suburbia with those huge turnarounds
+at the end. <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>I am not asserting that these are bullshit jobs today! Only that they will be more common in the
+post-AGI future. <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>After watching this video, I take it back, rock-paper-scissors is awesome. You should watch this
+video. <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>How are there this many people watching <em><strong>darts</strong></em> live?!?! <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>Sorry if I’m yucking your yum, pet owners. I love cats and dogs, but know that I’m keeping them
+around for my own selfish purposes. <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p>If an AI creates a fleshy collection of atoms indistinguishable from a human for kids to look up
+to and admire, isn’t that fleshy collection of atoms a real human doing a job? You could argue
+that the fleshy collection of atoms is indistinguishable from a human only to a child, and we’re
+ok with tricking kids. Or that humans will no longer use each other as role models. <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>less cynically: <em>more beautiful</em> <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Thoughts on AI: March 2026</title>
+      <link>https://robbiewmthompson.com/blog/thoughts-on-ai-march-2026/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/thoughts-on-ai-march-2026/</guid>
+      <pubDate>Mon, 30 Mar 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<h2 id="unstable-tweet-equilibria">Unstable Tweet Equilibria <a class="heading-anchor" href="https://robbiewmthompson.com/blog/thoughts-on-ai-march-2026/#unstable-tweet-equilibria" aria-label="Link to this section">#</a></h2>
+<p>Almost certainly, every AI lab finetuned their models on social media datasets, training them toward
+posts that got high engagement. AI now writes tweets that would have played very well in 2024. But
+everyone knows what an LLM sounds like, and a post with too many em dashes is an instant turnoff.</p>
+<p>The researchers at OpenAI will do another round of Twitter finetuning on data from 2026. Expect AI’s
+new prose to match that of today’s most popular humans. Em dashes will become a hallmark of 2025
+LLMs. Opus 5 will use semicolons instead; I will change my style to avoid writing like a bot. The
+cycles of fashion will accelerate.</p>
+<p>Already many humans prefer Claude’s prose to their own, and let LLMs edit or fully write most of
+what they produce.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/thoughts-on-ai-march-2026/#fn1" id="fnref1">[1]</a></sup> Once everyone (who matters) does this, some meta Turing Test will have been
+passed.</p>
+<h2 id="ai-productivity-psychosis">AI Productivity Psychosis <a class="heading-anchor" href="https://robbiewmthompson.com/blog/thoughts-on-ai-march-2026/#ai-productivity-psychosis" aria-label="Link to this section">#</a></h2>
+<p>Status symbols die when they become cheap. A <a href="https://paulgraham.com/brandage.html">thin watch</a> is
+meaningless in the age of quartz timekeepers. Blue used to color only the
+<a href="https://www.astralcodexten.com/p/the-colors-of-her-coat">Virgin Mary’s coat</a>, now it colors my
+socks.</p>
+<p>A good landing page used to show that a company was serious and had good engineers.
+<a href="https://www.jhourney.io/">But in 2026</a>:</p>
+<p><img src="https://robbiewmthompson.com/blog/thoughts-on-ai-march-2026/charts/image.png" alt="Jhourney landing page: “Increase your baseline happiness in one week,” with stat tiles and a wall of logos from OpenAI, Anthropic, Google, Stripe, and more"></p>
+<p><span class="chart-src">Jhourney is a serious business and I’m tempted to go on one of their
+retreats. But c’mon, you gotta chuckle at this.</span></p>
+<p>I couldn’t tell you how many people I’ve met at OpenClaw events who have blazed business ideas, and
+are convinced that their project is serious because they have a landing page that looks legit. It’s
+the 2026 version of a pinstripe suit and nice business cards. These people have only convinced
+themselves.</p>
+<p>I see the same pattern around automation and ‘building an agent.’ Your AI can autonomously write
+code and post blogs and email customers, which means you’re <em>this close</em> to having an autonomous
+business.</p>
+<p>You could cynically claim that we’re only seeing a trend continue here. Biz dev departments are
+obviously doing real work; how else would they have made such professional slides? HR has large
+meetings with agendas. Security has clear policies and writes long reports before allowing new
+software. Landing pages are making the same transition that slides, meetings, and spreadsheets have
+already finished: from a useful tool to a symbol of earnestness.</p>
+<h2 id="chatgpt-loves-cliffhangers">ChatGPT Loves Cliffhangers <a class="heading-anchor" href="https://robbiewmthompson.com/blog/thoughts-on-ai-march-2026/#chatgpt-loves-cliffhangers" aria-label="Link to this section">#</a></h2>
+<p>A behavior I’ve noticed recently: Chat ends half of its responses with “I could also say more about
+x, y, or z.” A real example I got recently:</p>
+<blockquote>
+<p>If useful, I can also explain:<br>
+how he originally got big on X<br>
+the structure of his Spaces (they’re unusually organized)<br>
+why some VCs and founders use his Spaces for distribution.</p>
+</blockquote>
+<p>These sentences sound like BuzzFeed headlines circa 2014. OpenAI rewarded the models too much for
+getting follow-up questions.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title">Notes</h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Claude certainly checks my work for typos. Writing that I don’t want or expect any human to
+read, like a reflection after an HR training or a corporate blog post for SEO, I will happily
+let AI write. But everything I publish in my name is my own prose (for now at least). <a href="https://robbiewmthompson.com/blog/thoughts-on-ai-march-2026/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Political Debates for 2036</title>
+      <link>https://robbiewmthompson.com/blog/political-debates-for-2036/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/political-debates-for-2036/</guid>
+      <pubDate>Sat, 28 Mar 2026 12:00:00 GMT</pubDate>
+      <description>Assuming No Singularity</description>
+      <content:encoded><![CDATA[<p>Epistemic status: fun musings, numbers I made up.</p>
+<h2 id="seat-belts">Seat Belts <a class="heading-anchor" href="https://robbiewmthompson.com/blog/political-debates-for-2036/#seat-belts" aria-label="Link to this section">#</a></h2>
+<p>In 2026
+<a href="https://www.nhtsa.gov/press-releases/traffic-deaths-2025-early-estimates-2024-annual">40,000 Americans</a>
+will die from car accidents. In 2036 that number will be down to about 4,000, 96% of which will be
+caused by human drivers. The same people who don’t let me use my phone while the plane takes off
+will force me to wear a seatbelt in my Waymo.</p>
+<p>San Francisco County will ban internal combustion vehicles. A tax on gas cars in NYC will get vetoed
+by the governor of New York, and that city will continue to turn my boogers black.</p>
+<p>Budweiser’s Super Bowl ads will feature gas-powered Ford pickups instead of Clydesdales. China’s
+vehicle fleet will be 99% electric.</p>
+<h2 id="gmo-humans">GMO Humans <a class="heading-anchor" href="https://robbiewmthompson.com/blog/political-debates-for-2036/#gmo-humans" aria-label="Link to this section">#</a></h2>
+<p>By 2036 four states will ban IVF entirely, six will ban any genetic testing of embryos, and twelve
+will ban testing for anything other than risk of disease or disability. Long legal battles will be
+fought over the definition of ‘disability,’ with California’s bill explicitly stating that blindness
+and deafness are not to be construed as disability, making it illegal to test embryos for these
+conditions. Eight percent of children born in the US will be from an embryo selected for IQ.
+Psychologists will try desperately to find a measure of EQ that aligns with how the term is used
+colloquially and doesn’t correlate positively with sociopathy. They will fail.</p>
+<p>Bay Area elites will fly to <a href="https://www.prospera.co/en">Próspera</a> for IVF clinics that will
+genetically edit their child. Many thousands of surrogates will be impregnated there each year.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>My Medical Bullshit Detector</title>
+      <link>https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/</guid>
+      <pubDate>Wed, 29 Jan 2025 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>I know little about medicine. I am unable to debate someone at an object level, ie “this drug
+affects that organelle which secrets the following hormone.” Yet I feel comfortable ignoring certain
+generic medical advice.</p>
+<h2 id="my-bullshit-detectors">My Bullshit Detectors: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#my-bullshit-detectors" aria-label="Link to this section">#</a></h2>
+<ol>
+<li>Is there a good story for why cavemen were fine without this medical intervention? Is this
+intervention intended for everyone, or just me?</li>
+<li>Is this intervention designed to cure me, or to resolve my symptoms?</li>
+<li>How are my doctor’s incentives different from my own?</li>
+<li>Is it possible to study this even in principle?</li>
+</ol>
+<h2 id="i-is-there-a-good-story-for-why-cavemen-were-fine-without-this-medical-intervention">I: Is There a Good Story for Why Cavemen Were Fine Without This Medical Intervention? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#i-is-there-a-good-story-for-why-cavemen-were-fine-without-this-medical-intervention" aria-label="Link to this section">#</a></h2>
+<p>Does it strike you as odd that dentists recommend that almost everyone get their wisdom teeth
+removed? What happened to cavepeople? Did they all have horrible jaw pain in their twenties and
+thirties?<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#fn1" id="fnref1">[1]</a></sup> Did they perform root canals with rocks?</p>
+<p>If you ask an anthropologist, they’ll tell you: the human jaws we’ve found from before the
+agricultural revolution have perfect teeth. I’m sure some of the skeletons show teeth knocked out
+from blows. But the problems that modern orthodontia aims to fix — malocclusion, crowded and crooked
+teeth, overbites — are nonexistent in prehistoric skulls.</p>
+<p>So why is my dentist telling me I have shit genes and need braces, wisdom teeth removal, and an
+Herbst appliance? It’s implausible that the human dental genome degraded so rapidly over the past
+10,000 years.</p>
+<p>We didn’t chew enough as kids. The muscles and bones of our jaws aren’t stimulated, so they don’t
+grow properly. This leads to crowded jaws, impacted wisdom teeth, and breathing issues.</p>
+<p>I’m certainly not a dentist, so if your dentist wants to give your kid braces or take out their
+wisdom teeth, take their advice. It’s probably too late for your kid to start chewing more.</p>
+<p>But if your kids are young enough: get them to gnaw on some bones or chew some gum.</p>
+<hr>
+<p>Modern Americans have a weird physiological inferiority complex. The narrative goes: <em>wild animals
+are by nature vigorous, strong, healthy, robust. They can sleep outside in the cold, fight off
+infections without drugs, skip meals to escape predators. Humans, thanks to millennia of civilized
+life, have become wimps, dependent on central heating and antibiotics, incapable of extended
+exercise without Clif bars and electrolyte goo.</em></p>
+<p>Your genome is identical to that of the humans who, ten thousand years ago, slept outside in the
+cold, fought off infections on their own, and remained strong without food. Do we really need $200
+Nikes for a jog?</p>
+<p>There are a couple arguments you could make in favor of Nike, none of them very good:</p>
+<ol>
+<li><em>We run on pavement, cavemen ran on dirt.</em> Ignore for a moment that there are plenty of rocky
+surfaces in nature. If we just need a slightly softer surface, shouldn’t a thin rubber slipper be
+enough? Why do we need motion control, custom orthotics, a raised heel, rubber half an inch
+thick?</li>
+<li><em>Cavemen didn’t run very often, and those that did got hurt frequently</em>. This isn’t true.</li>
+<li><em>I could be running around barefoot if I had grown up that way, but I’ve worn shoes all my life,
+so I’ll never be able to go without them</em>. Let me tell you: I did it. It will take a couple
+weeks, but your feet can create the callouses it needs.</li>
+<li><em>Streets are dirty!</em> This has not caused any medical issues for me.</li>
+</ol>
+<p>(In Chapter 25 of <em>Born to Run</em> Christopher McDougall argues far more eloquently than I ever could
+that your body was made to run barefoot. If you’re curious I strongly recommend you buy a copy; this
+is my favorite book ever.)</p>
+<p>I try to let my body suffer at least a watered down version of all the things a wild human animal
+would. I swim in icy water, run for miles in the heat without much water, fast for a day or two
+every so often, fight off infections without the help of antibiotics or NSAIDs, expose my skin to a
+reasonable amount of sun for someone of my pale complexion. (I don’t expose myself to bugs. I hate
+bugs). You can find mountains of studies and commentary on the internet telling you that any of
+these things is helpful or harmful. A heuristic: <em>if every prehistoric body experienced this, it’s
+good for mine to experience it too</em>.</p>
+<h2 id="ii-is-this-intervention-designed-to-cure-me-or-to-resolve-my-symptoms">II: Is This Intervention Designed to Cure Me or to Resolve My Symptoms? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#ii-is-this-intervention-designed-to-cure-me-or-to-resolve-my-symptoms" aria-label="Link to this section">#</a></h2>
+<p>Most doctors recommend icing and NSAIDs (eg Advil) after an injury. If your goal is to reduce pain
+and inflammation, then icing works. But after I sprain my ankle, reducing pain is not my goal. It’s
+a useful guide in how far I’ve progressed in my recovery. Nor is reducing inflammation. Inflammation
+is an immune response, bringing resources to the site of the injury so that your body recovers.</p>
+<p>Dr. Gabe Mirkin coined the acronym RICE (Rest, Ice, Compression, Elevation) for treating soft tissue
+injuries. Yet even he now admits on his
+<a href="https://drmirkin.com/fitness/why-ice-delays-recovery.html">website</a> that this approach, while
+succeeding in reducing pain and inflammation, <em>slows recovery.</em> He says himself:</p>
+<blockquote>
+<p>Anything that reduces inflammation also delays healing</p>
+</blockquote>
+<p>There is a pattern here:</p>
+<ol>
+<li>The body has an ailment, and the immune system responds.</li>
+<li>We associate our sickness with the immune response.</li>
+<li>If an intervention reduces our immune response, we assume that we are getting better.</li>
+<li>Healing is delayed.</li>
+</ol>
+<p>Sometimes suppressing our immune response is exactly the correct intervention. If you have pneumonia
+and it’s giving you a 105 degree fever, the fever is going to kill you way before pneumonia will, so
+you should take NSAIDs and do whatever else you need to to reduce your fever. If you have a 101
+degree fever, you have to decide whether short term pain reduction is worth it for a slower recovery
+(see
+<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7812885/#:~:text=a%20febrile%20response.-,A%20mild%20fever%20appears%20to%20improve%20outcome%3B%20it%20appears%20to,the%20host%20outweigh%20the%20benefit">study</a>).</p>
+<p>It always surprises me how common this mistake is. Here are some guesses for why:</p>
+<ol>
+<li>Alleviating symptoms happens on a short timescale and is high-feedback.</li>
+<li>Doctors are incentivized to do something, and often all they can do is alleviate symptoms.</li>
+<li>Lessening immune response is sometimes the correct intervention.</li>
+</ol>
+<h2 id="iii-how-are-my-doctors-incentives-different-from-my-own">III: How Are My Doctor’s Incentives Different From My Own? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#iii-how-are-my-doctors-incentives-different-from-my-own" aria-label="Link to this section">#</a></h2>
+<p>Doctors make money when they do things.</p>
+<p>Doctors don’t want to get sued. They’ll intervene to ‘be safe’ or refuse to prescribe unpatented
+substances that don’t have FDA approval.</p>
+<p>Doctors want to make you happy, which, by default, means doing something.</p>
+<p>I often don’t accept an intervention a doctor recommends. The inverse is rare.</p>
+<h2 id="iv-has-this-really-been-studied">IV: Has This Really Been Studied? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#iv-has-this-really-been-studied" aria-label="Link to this section">#</a></h2>
+<p>Food studies are famously bad (small n, observational, indirect). They’re expensive and hard to do
+well. People don’t like being told what to eat.</p>
+<p>IRBs will block RCTs where the treatment group is something like ‘use a tanning bed to see if it
+causes skin cancer.’ Without reading any tanning bed study, I have a strong prior that it’s
+observational.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#fn2" id="fnref2">[2]</a></sup></p>
+<p>Know if a study is indirect (eg it shows lowered cholesterol but not lowered mortality).</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title">Notes</h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Yes, Paleolithic humans had lower life expectancies than modern ones. No, they did not all die
+by their 30s. Conditional on making it to 15, your life expectancy was about 50.
+<a href="https://gurven.anth.ucsb.edu/sites/secure.lsit.ucsb.edu.anth.d7_gurven/files/sitefiles/papers/GurvenKaplan2007pdr.pdf">Study</a>. <a href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>There are interesting workarounds, like having the treatment group be “pay people to stop using
+a tanning bed.” I rarely see this. <a href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 ]]></content:encoded>
     </item>
   </channel>
