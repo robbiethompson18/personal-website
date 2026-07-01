@@ -1,7 +1,7 @@
 ---
 title: Plastic Straws
 subtitle: Stop Worrying About Your Consumption Habits
-date: 2026-06-30
+date: 2026-07-01
 draft: false
 ---
 
@@ -64,10 +64,8 @@ model of the world accounts for them.[^tbond]
 
 These things matter, and I tried to quantify how your decisions affect each. But in my heart of
 hearts, I don't think you should spend much energy optimizing for either. We should make (a lot
-more!) national parks and then price and tax land.[^Georgism] And we should _definitely_ make
-farmers pay for water, though I'm not holding my breath on that one.
-
-[^Georgism]: Possible using [Georgist](https://en.wikipedia.org/wiki/Georgism) principles.
+more!) national parks and then price and tax land. And we should _definitely_ make farmers pay for
+water, though I'm not holding my breath on that one.
 
 # II: You Can Safely Stop Worrying About...
 
@@ -149,43 +147,55 @@ it grows easily.[^flyin] [^Barbaria]
     [~5.5 trillion gallons of water per year](@saudiwheat) (at the peak in 1992) out of
     non-renewable aquifers to grow wheat in the desert.
 
-## Most Labels on Consumables (eg no bycatch, FSC certified wood)
+## Most Labels on Packages Goods
 
 ### Possibly Worthwhile:
 
-- **Energy Star**: Its appliances [saved ~520 billion kWh in 2020](@energystar) (~400 Mt
-  $\text{CO}_2\text{e,}$ the annual power of ~50M homes).
-- **Certain Animal Welfare Labels**: Claude recommends **Animal Welfare Approved**, **Certified
-  Humane**, **Global Animal Partnership**, and **USDA Organic**.[^welfare-labels] The tell is a
-  third party auditing the farm: the Animal Welfare Institute found
-  **[>80% of USDA-approved "animal-raising" claims had no supporting evidence](@awi)** beyond the
-  producer's own word.
-- **FSC wood**: [A 2024 _Nature_ study found more wildlife in FSC forests](@fsc), but
-  [Greenpeace quit FSC in 2018](@greenpeace), calling it greenwashing.
+- **Energy Star**[^energy-star]
+- **Certain Animal Welfare Labels**[^welfare-labels]
+- **FSC wood**[^fsc-wood]
+
+[^energy-star]:
+    Its appliances [saved ~520 billion kWh in 2020](@energystar) (~400 Mt $\text{CO}_2\text{e,}$ the
+    annual power of ~50M homes).
 
 [^welfare-labels]:
-    **Animal Welfare Approved** is the gold standard — independent auditors visit every farm yearly,
-    and it's the only label Consumer Reports rated "excellent." **Certified Humane** is 100%
-    pass/fail, on-site audited. **Global Animal Partnership** is Whole Foods' 1–5+ steps (higher =
-    better). **USDA Organic** means real audits and required outdoor access.
+    Claude recommends **Animal Welfare Approved**, **Certified Humane**, **Global Animal
+    Partnership**, and **USDA Organic**. The tell is a third party auditing the farm: the Animal
+    Welfare Institute found
+    **[>80% of USDA-approved "animal-raising" claims had no supporting evidence](@awi)** beyond the
+    producer's own word. **Animal Welfare Approved** is the gold standard — independent auditors
+    visit every farm yearly, and it's the only label Consumer Reports rated "excellent." **Certified
+    Humane** is 100% pass/fail, on-site audited. **Global Animal Partnership** is Whole Foods' 1–5+
+    steps (higher = better). **USDA Organic** means real audits and required outdoor access.
+
+[^fsc-wood]:
+    [A 2024 _Nature_ study found more wildlife in FSC forests](@fsc), but
+    [Greenpeace quit FSC in 2018](@greenpeace), calling it greenwashing.
 
 ### Pointless:
 
-- **Rainforest Alliance**: the premium that reaches the farmer is under a penny per chocolate bar.
-- **Fairtrade**: a little more ([~0.5–1.5¢/bar](@fairtrade)), but it goes to the co-op, not the
-  farmer.
-- **"No bycatch" / seafood labels in general**: each one fixes a single narrow thing and leaks the
-  harm elsewhere.[^seafood-labels]
-- **Many Animal Welfare Labels**: "Natural" on eggs / meat (meaningless); "No Hormones" on meat
-  (this is banned anyway); "Vegetarian-fed poultry" (chickens are omnivores).
+- **Rainforest Alliance**[^rainforest]
+- **Fairtrade**[^fairtrade]
+- **"No bycatch" / seafood labels in general**[^seafood-labels]
+- **Many Animal Welfare Labels**[^many-welfare]
+
+[^rainforest]: The premium that reaches the farmer is under a penny per chocolate bar.
+
+[^fairtrade]: A little more ([~0.5–1.5¢/bar](@fairtrade)), but it goes to the co-op, not the farmer.
+
+[^many-welfare]:
+    "Natural" on eggs / meat (meaningless); "No Hormones" on meat (this is banned anyway);
+    "Vegetarian-fed poultry" (chickens are omnivores).
 
 [^seafood-labels]:
-    Dolphin-safe is the template: spare the cute mammal, push boats onto nets that kill sharks and
-    juvenile tuna instead. "Sustainable" (MSC) only certifies that the target stock won't collapse —
-    nothing about bycatch, a bottom-trawled seafloor, or the fish's suffering. "No bycatch,"
-    "natural," and "eco" are unregulated marketing with no audit behind them. The only
-    semi-trustworthy signal isn't a logo but **Seafood Watch** (Monterey Bay Aquarium): independent,
-    and it rates the actual species, gear, and region you're buying.
+    Each one fixes a single narrow thing and leaks the harm elsewhere. Dolphin-safe is the template:
+    spare the cute mammal, push boats onto nets that kill sharks and juvenile tuna instead.
+    "Sustainable" (MSC) only certifies that the target stock won't collapse — nothing about bycatch,
+    a bottom-trawled seafloor, or the fish's suffering. "No bycatch," "natural," and "eco" are
+    unregulated marketing with no audit behind them. The only semi-trustworthy signal isn't a logo
+    but **Seafood Watch** (Monterey Bay Aquarium): independent, and it rates the actual species,
+    gear, and region you're buying.
 
 # III: Too Much Data
 
@@ -251,7 +261,7 @@ from withdrawals.</span>
 ## Quotidian Power Use
 
 There were no big surprises for me here. Driving is expensive. AI can use a lot of power, but only
-if you're coding with it. A whole day of lighting is one mile in a truck, @mom.
+if you're coding with it. A whole day of lighting is one mile in a truck.
 
 ![Quotidian power — carbon per day, GWP20, linear scale](charts/bar_power_co2e.png)
 

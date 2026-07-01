@@ -10,7 +10,7 @@ import textwrap
 
 import altair as alt
 
-from theme import HUE, FG, fmt, fonts, save
+from theme import HUE, FG, WHISK, fmt, fonts, save
 
 
 def _wrap(s, width=82):
@@ -43,7 +43,7 @@ def bars(rows, unit, title, name, hue, note=None, height=200):
         y=alt.Y("v:Q", title=unit,
                 scale=alt.Scale(domain=[0, ymax], nice=False)))
     whisker = base.transform_filter("datum.lo != null").mark_rule(
-        color="#cccccc", strokeWidth=1.3).encode(y="lo:Q", y2="hi:Q")
+        color=WHISK, strokeWidth=1.3).encode(y="lo:Q", y2="hi:Q")
     labels = base.mark_text(dy=-6, fontSize=f["label"], color=FG).encode(
         y="top:Q", text="label:N")
 

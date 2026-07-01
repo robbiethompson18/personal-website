@@ -22,9 +22,19 @@ Run a chart script from posts/plastic-straws/ so the charts/<name> paths and the
 `from theme import ...` sibling import both resolve:
     python3 charts/table_bars.py
 """
+import os
+
 import altair as alt
 
-BG, FG, MUTED, GRID = "#1a1d24", "#ccd0d8", "#8b919d", "#2e333d"
+# Two palettes. Dark is the site default (blog.css is dark); light is for
+# cross-posts to white-background platforms (Substack, LessWrong). Select with
+# CHART_THEME=light; the dark branch is byte-identical to before so the committed
+# site charts never change. WHISK is the range-whisker rule color (only the
+# bar_buy_absolute flight range uses it) — the old #cccccc vanishes on white.
+if os.environ.get("CHART_THEME") == "light":
+    BG, FG, MUTED, GRID, WHISK = "#ffffff", "#1a1d24", "#6b7280", "#e5e7eb", "#9aa0ab"
+else:
+    BG, FG, MUTED, GRID, WHISK = "#1a1d24", "#ccd0d8", "#8b919d", "#2e333d", "#cccccc"
 FONT = "system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif"
 
 # Category palettes carried over from the old charts so colors stay familiar.
@@ -73,6 +83,10 @@ def save(chart, name, width):
         .configure_legend(labelColor=FG, titleColor=FG,
                           labelFontSize=f["legend"], titleFontSize=f["legend"])
     )
-    styled.save(f"charts/{name}.svg")
-    styled.save(f"charts/{name}.png", scale_factor=2.0)
-    print(f"wrote charts/{name}.png + .svg")
+    # Light theme writes to charts/light/ so it sits alongside — never over —
+    # the dark charts the site serves.
+    sub = "charts/light" if os.environ.get("CHART_THEME") == "light" else "charts"
+    os.makedirs(sub, exist_ok=True)
+    styled.save(f"{sub}/{name}.svg")
+    styled.save(f"{sub}/{name}.png", scale_factor=2.0)
+    print(f"wrote {sub}/{name}.png + .svg")
