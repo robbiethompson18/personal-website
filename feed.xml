@@ -223,7 +223,8 @@ steps (higher = better). <strong>USDA Organic</strong> means real audits and req
 </li>
 <li id="fn13" class="footnote-item"><p>The premium that reaches the farmer is under a penny per chocolate bar. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref13" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn14" class="footnote-item"><p>A little more (<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-fairtrade" class="cite" id="citeref-fairtrade">~0.5–1.5¢/bar</a>), but it goes to the co-op, not the farmer. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref14" class="footnote-backref">↩︎</a></p>
+<li id="fn14" class="footnote-item"><p>A little more than Rainforest Alliance (<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-fairtrade" class="cite" id="citeref-fairtrade">~0.5–1.5¢/bar</a>), but it goes to the co-op,
+not the farmer. <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref14" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn15" class="footnote-item"><p>Each one fixes a single narrow thing and leaks the harm elsewhere. Dolphin-safe is the template:
 spare the cute mammal, push boats onto nets that kill sharks and juvenile tuna instead.
@@ -291,9 +292,18 @@ irrigation and power consumption were revived in 2015. <a href="https://robbiewm
       <description></description>
       <content:encoded><![CDATA[<p>People love to hate on AI-assisted writing, but I moved my blog to my website so that Claude can
 help. They make beautiful charts, do tons of research to get approximate numbers, and flag the worst
-parts of my own writing (eg hedging and typos).</p>
+parts of my own writing (eg hedging and typos).<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/writing-with-claude/#fn1" id="fnref1">[1]</a></sup></p>
 <p>Now I get my own styling: faint purple citation links, last edited dates, dark mode.</p>
 <p>Approximately none of the prose on this blog is authored by Claude. They still suck at that.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title">Notes</h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>This <a href="http://skill.md">skill.md</a> for Claude’s proofreading lives
+<a href="https://github.com/robbiethompson18/personal-website/blob/main/.claude/skills/blog-review/SKILL.md">here</a>. <a href="https://robbiewmthompson.com/blog/writing-with-claude/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 ]]></content:encoded>
     </item>
     <item>

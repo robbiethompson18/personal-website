@@ -6,7 +6,11 @@ draft: false
 
 People love to hate on AI-assisted writing, but I moved my blog to my website so that Claude can
 help. They make beautiful charts, do tons of research to get approximate numbers, and flag the worst
-parts of my own writing (eg hedging and typos).
+parts of my own writing (eg hedging and typos).[^skill]
+
+[^skill]:
+    This skill.md for Claude's proofreading lives
+    [here](https://github.com/robbiethompson18/personal-website/blob/main/.claude/skills/blog-review/SKILL.md).
 
 Now I get my own styling: faint purple citation links, last edited dates, dark mode.
 

@@ -4,7 +4,7 @@ date: 2026-07-01
 draft: false
 ---
 
-I bought a CGM (continuous glucose monitor) on Amazon for $100. It took 10 minutes to set up.
+I bought a CGM (continuous glucose monitor) on Amazon for \$100. It took 10 minutes to set up.
 Results stream live to my phone. A normal BG (blood glucose) range is from 70 to 140.
 
 My one learning: glucose tracks stress more than anything else.
