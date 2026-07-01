@@ -249,14 +249,53 @@ ed.view.dispatch(tr);
 Reload the editor and confirm: 0 `assetError` nodes, 0 heading `#` links, 0 raw-LaTeX text nodes, 0
 `#fn` links (footnotes converted to native nodes, no "Notes" heading), no "Sources" heading and 0
 relative `#src-` links (section replaced by the pointer paragraph), all chart `<img>`s have
-`naturalWidth > 0`, subtitle present. Then Continue → Publish (web-only).
+`naturalWidth > 0`, subtitle empty. Then Continue → Publish (web-only).
+
+## Resyncing repo edits into an existing Substack post
+
+When Robbie polishes a post in the repo that's already live on Substack, don't patch hunks
+node-by-node and don't delete/re-import (that loses the URL, likes, and comments). Resync wholesale:
+replace the doc body by pasting the live post's pre-cleaned HTML through the editor's paste
+pipeline, then run the normal cleanup suite.
+
+1. **Ship first.** The repo edits must be live on `robbiewmthompson.com/blog/<slug>/` — the resync
+   fetches from there (GitHub Pages sends `Access-Control-Allow-Origin: *`, so in-page `fetch`
+   works).
+2. **Open the existing post's editor** (find the post id under Publish → Posts → Published; editor
+   is `/publish/post/<id>`). Don't unpublish — published-post edits autosave to a pending revision,
+   NOT to the public page, so the interim mess is never visible.
+3. **Fetch + pre-clean + paste.** Two tool calls — do the `fetch` in its own call stashing to
+   `window.__syncHtml` (a single call's await can get GC'd), then:
+
+   ```js
+   const ed = document.querySelector("[contenteditable=true]").editor;
+   const dom = new DOMParser().parseFromString(window.__syncHtml, "text/html");
+   const article = dom.querySelector("main.post article");
+   article.querySelector("header.post-header")?.remove(); // title/date header
+   article.querySelectorAll("a.heading-anchor").forEach((a) => a.remove()); // hover "#"s
+   dom.querySelectorAll(".katex").forEach((k) => {
+     // KaTeX → Unicode from the LaTeX annotation; extend the replacements per post
+     const tex = k.querySelector('annotation[encoding="application/x-tex"]')?.textContent || "";
+     k.replaceWith(dom.createTextNode(tex.replace(/\\times/g, "×").replace(/\s+/g, "")));
+   });
+   ed.commands.selectAll();
+   ed.view.pasteHTML(article.innerHTML); // goes through paste rules → autosaves
+   ```
+
+4. **Run the cleanup suite** from "Cleaning up import artifacts" as applicable: footnotes → native
+   (the pasted Notes section matches that script), Sources → pointer + absolute cite links, chart
+   images. Plus one paste-specific fix: TipTap merges adjacent blockquotes — split any multi-child
+   `blockquote` node back into one node per paragraph.
+5. **Verify** (same checklist as above), reload, re-verify.
+6. **Push live: click "Update" → modal → "Update now".** Updating a published post does not email —
+   the modal has no send option (the "Email" chip under Language editions is a label, not a toggle).
+   Without this step the public post keeps serving the old revision.
 
 ## Appendix — LessWrong (ONLY if Robbie asks)
 
 - **Export:** `npm run export -- <slug>` → `export/<slug>.lesswrong.md`. Strips citations to plain
   text, drops the Sources defs, flattens chart-src captions to italics, points images at the live
-  `charts/light/` URLs, keeps footnotes and `$…$` math (LW renders MathJax). Prepend the subtitle as
-  an italic first line (LW has no subtitle field).
+  `charts/light/` URLs, keeps footnotes and `$…$` math (LW renders MathJax).
 - **Editor:** enable account setting **"Use Markdown editor"** (Account → Preferences → Save), then
   create a **new** post — editor type is fixed at creation, so pre-existing drafts stay rich-text.
 - **Persistence:** LW's autosave does **not** catch programmatic edits. Persist via GraphQL (flat
