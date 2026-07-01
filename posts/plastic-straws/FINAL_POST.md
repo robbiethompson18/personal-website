@@ -146,10 +146,10 @@ I asked Claude for reasons why Organic farming is better, but it didn't come up 
   and water. The catch is above: it leans on natural pesticides like copper and sulfur instead.
 - **Farmworker pesticide exposure**: Conventional US farms spray
   [~1 billion lb of synthetic pesticides a year](@pesticidelb), and globally acute pesticide
-  poisoning hits an estimated [hundreds of millions of farmworkers a year](@poisoning) (mostly
-  poor-PPE, developing-world farms). Organic farming doesn't necessarily improve this situation.
-  Sulfur, the primary organic fungicide, is
-  [the top reported cause of pesticide illness in California](@sulfurca).
+  poisoning hits an estimated [tens of millions of farmworkers a year](@poisoning) (mostly poor-PPE,
+  developing-world farms). Organic farming doesn't necessarily improve this situation. Sulfur, the
+  primary organic fungicide, is
+  [California's most-used pesticide and is tied to more illness cases there than any other](@sulfurca).
 - **Biodiversity per acre**: Organic fields hold
   [~30% more species and ~50% more animals](@biodiversity). But they need ~30% more land per calorie
   grown, so you gain ~nothing.
@@ -176,8 +176,7 @@ I asked Claude for reasons why Organic farming is better, but it didn't come up 
 
 ### Pointless:
 
-- **Rainforest Alliance**: the premium that reaches the farmer is under a penny per chocolate bar
-  (<1% of the cocoa price).
+- **Rainforest Alliance**: the premium that reaches the farmer is under a penny per chocolate bar.
 - **Fairtrade**: a little more ([~1–2¢/bar](@fairtrade)), but it goes to the co-op, not the farmer.
 - **"No bycatch" / seafood labels in general**: each one fixes a single narrow thing and leaks the
   harm elsewhere.[^seafood-labels]
@@ -299,10 +298,9 @@ agriculture used ~0.9 billion lb of pesticide active ingredients (2012), of ~1.1
 US.
 <https://www.epa.gov/sites/default/files/2017-01/documents/pesticides-industry-sales-usage-2016_0.pdf>
 
-{@poisoning}: Boedeker et al. (2020), "The global distribution of acute unintentional pesticide
-poisoning," _BMC Public Health_ 20:1875 — estimated ~385 million cases/year worldwide (retracted by
-the journal in 2024, but still the most-cited estimate).
-<https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-020-09939-0>
+{@poisoning}: Jeyaratnam (1990), "Acute pesticide poisoning: a major global health problem," _World
+Health Statistics Quarterly_ 43(3):139–144 — WHO estimate that ~25 million agricultural workers in
+the developing world suffer a poisoning episode each year. <https://iris.who.int/handle/10665/51746>
 
 {@sulfurca}: Raanan et al. (2017), _Environmental Health Perspectives_ 125(8) — elemental sulfur is
 California's most-used agricultural pesticide and is tied to more occupational-illness cases (1,698
