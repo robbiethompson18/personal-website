@@ -269,12 +269,18 @@ pipeline, then run the normal cleanup suite.
 
 1. **Ship first.** The repo edits must be live on `robbiewmthompson.com/blog/<slug>/` — the resync
    fetches from there (GitHub Pages sends `Access-Control-Allow-Origin: *`, so in-page `fetch`
-   works).
-2. **Open the existing post's editor** (find the post id under Publish → Posts → Published; editor
+   works). Skip posts whose frontmatter says `archive: true` or `draft: true`.
+2. **Open the existing post's editor** (post ids:
+   `fetch('/api/v1/post_management/published?offset=0&limit=30', {credentials:'include'})`; editor
    is `/publish/post/<id>`). Don't unpublish — published-post edits autosave to a pending revision,
    NOT to the public page, so the interim mess is never visible.
-3. **Fetch + pre-clean + paste.** Two tool calls — do the `fetch` in its own call stashing to
-   `window.__syncHtml` (a single call's await can get GC'd), then:
+3. **Fetch + stash.** Own tool call (a single call's await can get GC'd), and **bypass the browser
+   cache** or you'll paste a stale page:
+   `window.__syncHtml = await (await fetch(url, {cache: 'reload'})).text()` — then assert a marker
+   phrase from the fresh edit is present.
+4. **Pre-clean + paste** (sync title/subtitle in the same call — title is a separate field, and
+   subtitles must be empty per the no-subtitles rule; set React fields via the native value setter +
+   an `input` event):
 
    ```js
    const ed = document.querySelector("[contenteditable=true]").editor;
@@ -287,18 +293,31 @@ pipeline, then run the normal cleanup suite.
      const tex = k.querySelector('annotation[encoding="application/x-tex"]')?.textContent || "";
      k.replaceWith(dom.createTextNode(tex.replace(/\\times/g, "×").replace(/\s+/g, "")));
    });
+   // absolutize image srcs; Substack rehosts them to its CDN on save
+   article.querySelectorAll("img").forEach((img) => {
+     img.src = new URL(img.getAttribute("src"), "https://robbiewmthompson.com/blog/<slug>/").href;
+   });
+   ed.commands.focus(); // selectAll is a no-op without focus
    ed.commands.selectAll();
-   ed.view.pasteHTML(article.innerHTML); // goes through paste rules → autosaves
+   ed.view.pasteHTML(article.innerHTML);
    ```
 
-4. **Run the cleanup suite** from "Cleaning up import artifacts" as applicable: footnotes → native
-   (the pasted Notes section matches that script), Sources → pointer + absolute cite links, chart
-   images. Plus one paste-specific fix: TipTap merges adjacent blockquotes — split any multi-child
-   `blockquote` node back into one node per paragraph.
-5. **Verify** (same checklist as above), reload, re-verify.
-6. **Push live: click "Update" → modal → "Update now".** Updating a published post does not email —
+5. **STOP — the paste applies asynchronously.** Transactions dispatched in the same tool call race
+   it and get silently superseded. Wait a beat, then in a NEW tool call assert the marker phrase is
+   in `ed.state.doc.textContent` before running any cleanup.
+6. **Run the cleanup suite** from "Cleaning up import artifacts" as applicable: footnotes → native
+   (the pasted Notes section matches that script), Sources → pointer + absolute cite links. Plus one
+   paste-specific fix: TipTap merges adjacent blockquotes — split any multi-child `blockquote` node
+   back into one node per paragraph.
+7. **Wait for "Saved", reload the editor, re-verify.** Update pushes the SERVER revision, not your
+   local view — clicking it before autosave syncs publishes a half-cleaned post (this happened; the
+   fix is just to redo the cleanup, re-save, and Update again).
+8. **Push live: click "Update" → modal → "Update now".** Updating a published post does not email —
    the modal has no send option (the "Email" chip under Language editions is a label, not a toggle).
    Without this step the public post keeps serving the old revision.
+9. **Verify the public result** via `/api/v1/posts/<slug>` → `body_html`: marker present, footnote
+   anchors > 0, no `>Notes<`, title/subtitle right. (Don't trust `curl` of the public page —
+   footnotes render client-side.)
 
 ## Appendix — LessWrong (ONLY if Robbie asks)
 
