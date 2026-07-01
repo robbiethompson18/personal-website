@@ -10,5 +10,5 @@ flag the worst parts of my own writing (eg hedging and typos).
 
 Approximately none of the prose on this blog is authored by Claude. They still suck at that.
 
-I stand by my decision to have Claude do research, and only lightly sanity check the numbers.
-Using fake numbers
+I stand by my decision to have Claude do research, and only lightly sanity check the numbers. Using
+fake numbers

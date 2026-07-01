@@ -53,16 +53,27 @@ def bars(rows, unit, title, name, hue, note=None, height=200):
     save(chart, name, width)
 
 
-# 1. Quotidian Power Use — CO2e (the row-comparable column), kg
+# 1. Quotidian Power Use — CO2e per day (the row-comparable column), kg.
+# Everything is a day's worth. Driving is a day's driving, not one mile:
+# ~37 mi/day (US avg per driver) × 0.093 kg/mi Tesla → 3.4, × 0.44 F-150 → 16.
+# The AI bars are a day on a $200/mo Claude Max plan: light chat ~1 kg/mo and
+# all-day agentic coding ~11 kg/mo (÷30 → 0.03 and 0.37 kg/day, ~1 kWh/day).
 bars([
-    ("1 AI chat query", 0.0001), ("1 LED bulb-hour (9W)", 0.003),
-    ("1 Tesla mile", 0.093), ("1 washer run (cold)", 0.2),
-    ("5-min hot shower", 0.4), ("1 Ford F-150 mile", 0.44),
-    ("daily household lighting", 0.65), ("1 dryer run", 1.1),
-    ("month of Claude Max", (1, 11)), ("avg American daily food", 10),
-    ("daily home (ex. food/car)", 11),
-    ("avg American daily driving", 14),
-], "kg CO₂e", "Quotidian Power — Carbon per Action", "bar_power_co2e", "carbon")
+    ("AI chat, a day", 0.033), ("washer run", 0.2),
+    ("AI coding, maxed", 0.37), ("hot shower", 0.4),
+    ("lighting", 0.65), ("dryer run", 1.1),
+    ("Tesla, a day", 3.4), ("food", 10),
+    # "daily home (ex. food/car)" ~11 kg, split by end use. Carbon-weighted, NOT
+    # energy-weighted: EIA RECS 2020 site-energy end-use shares (space heat ~42%,
+    # water heat ~19%, AC ~9%, other ~30%) x delivered emission factors (gas ~0.18,
+    # electricity ~0.38 kg CO2/kWh), renormalized. Lighting stays its own bar above,
+    # so it's excluded from "home other"; the four pieces + lighting sum to ~11.
+    ("home heating", 3.8), ("home other", 3.4),
+    ("water heating", 1.9), ("cooling (AC)", 1.2),
+    ("F-150, a day", 16),
+], "kg CO₂e", "Quotidian Power — Carbon per Day", "bar_power_co2e", "carbon",
+   note="A day's worth of each. Driving = ~37 mi/day (US avg per driver); "
+        "\"AI coding, maxed\" = all-day agentic coding on a $200/mo Claude Max plan.")
 
 # 2. Quotidian Water Use — per item, US gallons
 bars([

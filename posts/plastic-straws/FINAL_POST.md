@@ -12,41 +12,37 @@ a paper straw is pointless. [^toxoplasma]
     My plausible explanations are innumeracy or costly signaling/symbolism (see
     [The Toxoplasma of Rage](https://slatestarcodex.com/2014/12/17/the-toxoplasma-of-rage/)).
 
-In the post-singularity utopia, we will price externalities, and no one (besides the
+In the post-singularity utopia, we will price
+[externalities](https://en.wikipedia.org/wiki/Externality), and no one (besides the
 externality-pricers) will have to think about their consumption beyond its direct economic cost.
 Today, I do think about some things, like how the food I eat affects animal welfare. This post is my
-attempt to think about fewer of them: to convince myself that (for example) how much trash I create
-is not (even remotely) important.
+attempt to think about fewer of them.
 
-TLDR: These things matter:
+TLDR - These are worth zero mental energy:
 
-- Eating meat
-- Traveling long distances[^travel]
-- Anything that costs a lot of money
-
-Worth zero mental energy:
-
-- Creating less trash, recycling, composting, buying fewer things
+- Reducing, reusing, recycing, and composting
 - Eating organic, eating local
 - Water use, outside of that caused by food
-- Any label that tries to convince me a product is ethical (aside from some animal welfare ones)
+- Most labels that tries to convince you a product is ethical
 
 # I: Methodology
 
-## Probably Approximately Correct
+## Lazy Research
 
-Claude found basically all of the numbers for this article. I _strongly_ believe in the power of
-working with approximately correct numbers.
+Claude found all of the numbers for this article. I _strongly_ believe in the power of working with
+approximately correct numbers when the counterfactual is no numbers.
 
 ## Animal Welfare
 
-See my thoughts [here](https://robbiewmthompson.com/blog/bobs-diet/).
+I think this is much more important than anything mentioned in this post. I discuss my thoughts on
+diet [here](https://robbiewmthompson.com/blog/bobs-diet/).
 
 ## Global Warming
 
 From my inside view, my carbon footprint is irrelevant. It's likely we get something
-singularity-like in the next 20 years. Under this assumption, most attempts to reduce emissions are
-cost efficient. Out of epistemic humility, I still try to reduce my carbon footprint.
+singularity-like in the next 20 years. Under this assumption, most effort to reduce emissions are
+better spent on global health or [x-risk](https://www.lesswrong.com/w/existential-risk). Out of
+epistemic humility, I still try to reduce my carbon footprint.
 
 This post uses GWP20 $\text{CO}_2\text{e}$. It measures how much warming something will cause over
 the next 20 years, normalized to 1 ton of $\text{CO}_2$. You can then put other things on the same
@@ -60,36 +56,20 @@ scale: [a ton of methane is ~80 tons](@methane80) $\text{CO}_2\text{e}$,
 It's convention to use GWP100. I am using GWP20[^methane] because interest rates are real and my
 model of the world accounts for them.[^tbond]
 
-[^tbond]: The price of treasuries suggests that \$1 today is worth 39¢ in 2046 and ~.6¢ in 2126.
+[^tbond]: The price of treasuries suggests that \$1 today is worth 39¢ in 2046 and ~0.6¢ in 2126.
 
 [^methane]: Methane (from trash or cows) is ~3x less $\text{CO}_2\text{e}$ when using GWP100.
 
 ## Land Use, Water Use
 
 These things matter, and I tried to quantify how your decisions affect each. But in my heart of
-hearts, I don't think you should spend much energy optimizing for either. We should just make (a lot
-more!) national parks and then price and tax land. [^Georgism]
+hearts, I don't think you should spend much energy optimizing for either. We should make (a lot
+more!) national parks and then price and tax land.[^Georgism] And we should _definitely_ make
+farmers pay for water, though I'm not holding my breath on that one.
 
 [^Georgism]: Possible using [Georgist](https://en.wikipedia.org/wiki/Georgism) principles.
 
 # II: You Can Safely Stop Worrying About...
-
-## Buying Local
-
-Shipping food in a container on a cargo ship is basically free, economically and from a carbon
-perspective. In many cases it's much _more_ environmentally friendly to just ship stuff from where
-it grows easily.[^flyin]
-
-[^flyin]:
-    Some supermarkets will fly in produce, but I don't know any heuristics for telling what has been
-    flown (and not trucked or cargo-shipped). Avoid sashimi-grade fish from afar and berries with an
-    insane price markup, I guess.
-
-## Wasting Vegan Food
-
-All of your food carbon footprint is in meat/dairy. Pound for pound, a loaf of bread is ~90× less
-bad than a steak ([~1.4 vs ~120–200 kg](@foodghg) $\text{CO}_2\text{e}$/kg at GWP20). Buy fresh
-loaves and toss them when they're stale.
 
 ## Reducing, Reusing, Recycling, Composting
 
@@ -101,7 +81,7 @@ solar farm. Assume, conservatively[^generous], that one acre of new landfill is 
 of farmland.
 
 [^generous]:
-    It's actually very generous to the anti-trash side to say that creating an acre of landfill is
+    It's very generous to the anti-trash side to say that creating an acre of landfill is
     as bad as creating 100 acres of farmland: discount rates imply that one year of landfill in 2126
     is $0.95^{100} = 0.6\%$ as bad as one year of landfill in 2026. And farmland is fertile land
     that would counterfactually be biodiverse nature, which is not true of landfill.
@@ -122,7 +102,7 @@ If you do anything here, recycle your aluminum and cardboard (see [section III](
 
 [^capture]: In the US, these methane emissions are captured anyway!
 
-## Organic foods
+## Organic Foods
 
 I am not convinced that organic food creates fewer externalities than normal produce. It might be
 worse:
@@ -134,7 +114,7 @@ worse:
 - **Organic still uses pesticides:** Organic bans _synthetic_ pesticides but allows a long list of
   "natural" ones: copper (a heavy metal that never degrades and builds up in soil), sulfur, and
   pyrethrin (toxic to bees and fish).
-- **More tillage:** No synthetic herbicides means more plowing for weeds, which causes erosion, and
+- **More tillage:** No synthetic herbicides means more plowing for weeds, which causes erosion and
   emissions (from tractors and directly from the soil).
 
 [^gmyields]: Corn ~11%, soy ~5%, cotton ~19%.
@@ -154,7 +134,23 @@ I asked Claude for reasons why Organic farming is better, but it didn't come up 
   [~30% more species and ~50% more animals](@biodiversity). But they need ~30% more land per calorie
   grown, so you gain ~nothing.
 
-## Most Labels On Consumables (eg no bycatch, FSC certified wood)
+## Buying Local
+
+Shipping food in a container on a cargo ship is basically free, economically and from a carbon
+perspective. In many cases it's much _more_ environmentally friendly to just ship stuff from where
+it grows easily.[^flyin] [^Barbaria]
+
+[^flyin]:
+    Some supermarkets will fly in produce, but I don't know any heuristics for telling what has been
+    flown (and not trucked or cargo-shipped). Apparently sometimes even asparagus gets flown! Avoid
+    sashimi-grade fish from afar and berries with an insane price markup, I guess.
+
+[^Barbaria]:
+    Illustrative example: in the 90s Saudi Arabia decided it wanted food autarky, and pumped
+    [~5.5 trillion gallons of water per year](@saudiwheat) (at the peak in 1992) out of
+    non-renewable aquifers to grow wheat in the desert.
+
+## Most Labels on Consumables (eg no bycatch, FSC certified wood)
 
 ### Possibly Worthwhile:
 
@@ -193,23 +189,35 @@ I asked Claude for reasons why Organic farming is better, but it didn't come up 
 
 # III: Too Much Data
 
-## Price is a good proxy
+## Price Is a Good Proxy
 
 Carbon costs correlate with dollar costs, r = 0.87. If you budget your spending, to some extent
 you're already optimizing for reducing externalities.
 
 ![What you pay vs carbon footprint — log-log across ~5 orders of magnitude of price, r = 0.87](charts/dollar_vs_carbon.png)
 
+<span class="chart-src">Prices: US consumer, ~1 sig fig. Carbon footprints:
+[Poore & Nemecek 2018](@foodghg) for food, [EPA eGRID](@egrid) plus per-mile and per-flight LCAs for
+the rest.</span>
+
 This is also somewhat true of land and water use. Graphs for food in particular:
 
 ![Price per pound vs water use per pound — log-log, 21 groceries](charts/dollar_vs_food_water.png)
 
+<span class="chart-src">Prices: US consumer. Water use: [Mekonnen & Hoekstra](@waterftprint) total
+water footprints.</span>
+
 ![Price per pound vs land use per pound — log-log, 21 groceries](charts/dollar_vs_food_land.png)
+
+<span class="chart-src">Prices: US consumer. Land use: [Poore & Nemecek 2018](@foodghg).</span>
 
 Looked at another way: carbon footprint per dollar spent does span two OOMs. This viewpoint is less
 comforting.
 
 ![Carbon per dollar spent — linear scale; absolute footprint and per-dollar intensity rank almost oppositely](charts/bar_co2e_per_dollar.png)
+
+<span class="chart-src">Carbon from [Poore & Nemecek 2018](@foodghg) and [EPA eGRID](@egrid),
+divided by US consumer prices.</span>
 
 ## Quotidian Water Use
 
@@ -218,10 +226,15 @@ shower.
 
 ![Quotidian water per item — linear scale](charts/bar_water_item.png)
 
-Zoom out to the whole country and it's the same story. Agriculture is
-[~80–90% of US water consumption](@agwater).[^water-consumption]
+<span class="chart-src">Food water: [Mekonnen & Hoekstra](@waterftprint). AI water:
+[Altman 2025](@altman).</span>
+
+Agriculture is [~80–90% of US water consumption](@agwater).[^water-consumption]
 
 ![US freshwater consumption by sector — agriculture dwarfs everything; power is a sliver](charts/bar_water_consumption.png)
+
+<span class="chart-src">[USGS Circular 1441](@usgs), 2015 US water use; smaller sectors estimated
+from withdrawals.</span>
 
 [^water-consumption]:
     _Consumption_ is water withdrawn and not returned — evaporated by crops, cooling towers, and
@@ -238,27 +251,59 @@ Zoom out to the whole country and it's the same story. Agriculture is
 ## Quotidian Power Use
 
 There were no big surprises for me here. Driving is expensive. AI can use a lot of power, but only
-if you're coding with it. Lightbulbs use small but nonzero energy.
+if you're coding with it. A whole day of lighting is one mile in a truck, @mom.
 
-![Quotidian power — carbon per action, GWP20, linear scale](charts/bar_power_co2e.png)
+![Quotidian power — carbon per day, GWP20, linear scale](charts/bar_power_co2e.png)
 
-[^travel]:
-    Cars and planes use a similar amount of carbon per human mile traveled, but certainly not per
-    human hour spent traveling. Electric trains on a clean grid are approximately free (a French TGV
-    is ~50× cleaner than driving solo); US Amtrak is mostly diesel and only ~2–3× better than a car.
+<span class="chart-src">Grid carbon: [EPA eGRID 2022](@egrid). Home end-use split:
+[EIA RECS 2020](@eiarecs). AI energy: [Epoch AI](@epoch), [Altman 2025](@altman).</span>
 
 ## Recycling
 
-People will actually pay for recycled cardboard and aluminum, whereas recycled plastic and glass is
+People will pay for recycled cardboard and aluminum, whereas recycled plastic and glass is
 mostly only used because of mandates or to please consumers.
 
 ![Total carbon lever if all landfilled material were recycled — linear scale](charts/bar_recycle_total.png)
+
+<span class="chart-src">[US EPA — Advancing Sustainable Materials Management](@landfill), 2018
+figures.</span>
 
 **Per item:**
 
 ![Carbon saved by recycling one item — linear scale](charts/bar_recycle_item.png)
 
+<span class="chart-src">Per-item deltas from [US EPA MSW data](@landfill) and manufacturing
+LCAs.</span>
+
 <!-- Source definitions (collected into the Sources section by cite.js; order here doesn't matter). -->
+
+{@waterftprint}: Mekonnen & Hoekstra total ("green + blue + grey") water footprints — crops: (2011)
+"The green, blue and grey water footprint of crops and derived crop products," _Hydrology and Earth
+System Sciences_ 15(5); animal products: (2012) "A Global Assessment of the Water Footprint of Farm
+Animal Products," _Ecosystems_ 15. Water Footprint Network. <https://waterfootprint.org/>
+
+{@usgs}: Dieter et al. (2018), "Estimated Use of Water in the United States in 2015," _US Geological
+Survey Circular 1441_. <https://doi.org/10.3133/cir1441>
+
+{@egrid}: US EPA, "Emissions & Generation Resource Integrated Database (eGRID) 2022" — US average
+output emission rate ~0.37 kg CO₂/kWh. <https://www.epa.gov/egrid>
+
+{@eiarecs}: US EIA, "2020 Residential Energy Consumption Survey (RECS)" — residential energy end-use
+shares (space heating, water heating, air conditioning, etc.).
+<https://www.eia.gov/consumption/residential/>
+
+{@epoch}: Epoch AI (2025), "How much energy does ChatGPT use?" — a typical short query is ~0.3 Wh; a
+100k-token query is ~40 Wh. <https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use> The
+AI-power bars scale these per-query rates by usage, not by re-paying the full context on every
+tool-call (physically unreachable — prompt caching prefills the big context ~once, and the Max plan
+caps throughput at ~220k tokens per 5-hr window). A day of light chat lands at ~0.03 kg CO₂e;
+all-day agentic coding at ~0.2–0.75 kg/day, anchored on Epoch's rate and multiplied ~2–3× for Opus
+being larger than the GPT-4o-class model measured. Error bars are wide (±several×).
+
+{@altman}: Sam Altman (2025), "The Gentle Singularity" — an average ChatGPT query uses ~0.34 Wh of
+energy and ~0.000085 gallons of water. <https://blog.samaltman.com/the-gentle-singularity> The
+chart's per-query water bar is this figure directly; the "\$200 plan, used fully" bar scales it by a
+heavy month's query volume, so read it as order-of-magnitude.
 
 {@steak}: Beef land use ≈ 326 m²/kg live weight (~1,590 sq ft/lb), from Poore & Nemecek (2018),
 "Reducing food's environmental impacts through producers and consumers," _Science_ 360(6392), via
@@ -333,3 +378,9 @@ the producer co-op to invest collectively — not to the individual farmer.
 {@agwater}: USDA Economic Research Service, "Irrigation & Water Use" — agriculture is ~80–90% of US
 consumptive water use.
 <https://www.ers.usda.gov/topics/farm-practices-management/irrigation-water-use>
+
+{@saudiwheat}: Saudi wheat output peaked at ~4 million tonnes in 1992 (the world's 6th-largest
+exporter that year), the flagship of a desert-farming push that at its height drew up to ~21 km³
+(~5.5 trillion US gallons) of fossil groundwater a year — roughly four-fifths of that non-renewable
+reserve is now gone. National Geographic, "Saudi Arabia's Great Thirst."
+<https://www.nationalgeographic.com/environment/article/saudi-arabia-water-use>

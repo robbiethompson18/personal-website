@@ -34,8 +34,10 @@
     let left = window.scrollX + r.left + r.width / 2 - tr.width / 2;
     left = Math.max(margin, Math.min(left, window.scrollX + window.innerWidth - tr.width - margin));
 
-    let top = window.scrollY + r.top - tr.height - margin;
-    if (r.top - tr.height - margin < 0) top = window.scrollY + r.bottom + margin; // flip below if no room above
+    // Flip below the marker when there's no room above; the CSS bridge follows.
+    const flipBelow = r.top - tr.height - margin < 0;
+    const top = flipBelow ? window.scrollY + r.bottom + margin : window.scrollY + r.top - tr.height - margin;
+    tip.classList.toggle("below", flipBelow);
 
     tip.style.left = `${left}px`;
     tip.style.top = `${top}px`;

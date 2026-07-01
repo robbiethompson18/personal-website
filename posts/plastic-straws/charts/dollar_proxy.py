@@ -194,9 +194,9 @@ PLACE_FOOD = {
 }
 # metric: (foods-tuple index, title, y-axis title, filename, y-domain).
 FOOD_META = [
-    ("water", 3, "Dollar Cost vs Water Use: Log-Log",
+    ("water", 3, "Dollar Cost vs Water Use for 1lb of Food: Log-Log",
      "Water per Pound  (Litres, log)", "dollar_vs_food_water", [70, 1.2e4]),
-    ("land", 4, "Dollar Cost vs Land Use: Log-Log",
+    ("land", 4, "Dollar Cost vs Land Use for 1lb of Food: Log-Log",
      "Land per Pound  (m², log)", "dollar_vs_food_land", [0.15, 500]),
 ]
 for metric, idx, title, ytitle, fname, y_domain in FOOD_META:

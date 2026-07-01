@@ -139,6 +139,21 @@ img {
   margin: 1.5rem 0;
 }
 
+/* Source/caption line under a chart. Authored inline in the markdown as
+   <span class="chart-src">Source: [label](@id)</span> — an inline tag, so the
+   `[..](@id)` cite links inside still get parsed and flow into the Sources
+   section (a block tag like <p> would swallow the markdown verbatim). */
+p:has(> .chart-src) {
+  margin-top: -0.75rem;
+  margin-bottom: 2rem;
+}
+.chart-src {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+}
+
 hr {
   border: none;
   border-top: 1px solid var(--rule);
@@ -410,6 +425,25 @@ th {
 
 .fn-tooltip.visible {
   opacity: 1;
+  pointer-events: auto;
+}
+
+/* Bridge the 8px gap between the marker and the popup (see footnotes.js) so the
+   cursor never crosses dead space on its way up to click a link inside. The
+   pseudo-element is a transparent hit-area extending toward the marker; JS adds
+   `.below` when the popup is flipped under the marker, so the bridge flips too.
+   Inherits the parent's pointer-events, so it's only live while `.visible`. */
+.fn-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  top: 100%;
+}
+.fn-tooltip.below::after {
+  top: auto;
+  bottom: 100%;
 }
 
 .fn-tooltip p {
