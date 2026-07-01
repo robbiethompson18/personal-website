@@ -213,11 +213,11 @@ Then verify: count `footnoteAnchor` == count `footnote` == the post's footnote c
 
 ### Citations / Sources — drop the section, keep the links
 
-Don't include the Sources section on Substack. Delete it (hr + "Sources" heading + intro paragraph
-
-- ordered list — everything up to the first `footnote` block) and replace with an hr + pointer
-  paragraph: `Sources listed on robbiewmthompson.com/blog/<slug>` (link the text to
-  `https://robbiewmthompson.com/blog/<slug>/#sources`).
+Don't include the Sources section on Substack. Delete it (the hr, the "Sources" heading, the intro
+paragraph, and the ordered list — everything up to the first `footnote` block) and replace with an
+hr plus a pointer paragraph: `Full source list on robbiewmthompson.com/blog/<slug>/#sources` (the
+URL, anchor included, is the visible link text; href
+`https://robbiewmthompson.com/blog/<slug>/#sources`).
 
 Keep the in-body citation links, but make sure they're absolute. Recent feed builds emit absolute
 `https://robbiewmthompson.com/blog/<slug>/#src-…` hrefs already; older imports have relative
