@@ -17,7 +17,7 @@ def _wrap(s, width=82):
     return textwrap.wrap(s, width) if s else ""
 
 
-def bars(rows, unit, title, name, hue, note=None):
+def bars(rows, unit, title, name, hue, note=None, height=200):
     """rows: list of (label, value) or (label, (lo, hi))."""
     data = []
     for label, v in rows:
@@ -40,7 +40,7 @@ def bars(rows, unit, title, name, hue, note=None):
         x=alt.X("item:N", sort=order, title=None,
                 axis=alt.Axis(labelAngle=-35, labelLimit=220)))
     bar = base.mark_bar(color=HUE[hue], opacity=0.9).encode(
-        y=alt.Y("v:Q", title=f"{unit}  (linear)",
+        y=alt.Y("v:Q", title=unit,
                 scale=alt.Scale(domain=[0, ymax], nice=False)))
     whisker = base.transform_filter("datum.lo != null").mark_rule(
         color="#cccccc", strokeWidth=1.3).encode(y="lo:Q", y2="hi:Q")
@@ -48,7 +48,7 @@ def bars(rows, unit, title, name, hue, note=None):
         y="top:Q", text="label:N")
 
     chart = (bar + whisker + labels).properties(
-        width=width, height=340,
+        width=width, height=height,
         title=alt.TitleParams(text=title, subtitle=_wrap(note)))
     save(chart, name, width)
 
@@ -62,8 +62,7 @@ bars([
     ("month of Claude Max", (1, 11)), ("avg American daily food", 10),
     ("daily home use (excl. food/driving)", 11),
     ("avg American daily driving", 14),
-], "kg CO₂e", "Quotidian power — carbon per action", "bar_power_co2e", "carbon",
-   note="GWP20. Linear scale — sub-kg actions vanish next to driving; that's the point.")
+], "kg CO₂e", "Quotidian Power Use", "bar_power_co2e", "carbon")
 
 # 2. Quotidian Water Use — per item, US gallons
 bars([
@@ -72,21 +71,31 @@ bars([
     ("1 bowl of rice", 30), ("1 loaf of bread", 200),
     ("1 cotton t-shirt", 700), ("1 steak (1 lb beef)", 1800),
     ("1 lb almonds", 1900),
-], "gallons", "Quotidian water — per item", "bar_water_item", "water",
-   note="Food/textile = lifecycle (virtual) water; on a linear axis only they show.")
+], "gallons", "Quotidian Water Use", "bar_water_item", "water")
 
 # 3. US freshwater withdrawals by sector, Bgal/day
 bars([
     ("agriculture", 118), ("homes", 29), ("manufacturing", 15),
     ("landscaping", 9), ("golf courses", 2), ("software / datacenters", 0.1),
-], "Bgal/day", "US freshwater withdrawals by sector", "bar_water_sector",
+], "Bgal/day", "US Freshwater Withdrawals by Sector", "bar_water_sector",
    "water", note="USGS Circular 1441, ~2015. Excludes thermoelectric cooling (~130 Bgal/day, mostly returned).")
+
+# 3b. US freshwater CONSUMPTION by sector, Bgal/day — water withdrawn but not
+# returned to the source. Irrigation & thermoelectric are USGS Circular 1441
+# (2015); the rest are estimated (withdrawal x typical return rate). The point:
+# power drops from ~46% of withdrawals to ~4% of consumption (it returns ~97%).
+bars([
+    ("agriculture", 85), ("landscaping", 6), ("power (thermoelectric)", 4.3),
+    ("homes", 3), ("manufacturing", 3), ("golf courses", 1),
+    ("software / datacenters", 0.1),
+], "Bgal/day", "US Freshwater Consumption by Sector", "bar_water_consumption",
+   "water", note="Water withdrawn but not returned. Irrigation & power: USGS 2015; other sectors estimated. Power is ~46% of withdrawals but ~4% of consumption.")
 
 # 4. Recycling — aggregate CO2e if all landfilled were recycled, MMT
 bars([
     ("paper & cardboard", 60), ("plastics", 27), ("aluminum", 11),
     ("glass", 2.3),
-], "MMT CO₂e", "Recycling — total carbon lever if all of it were recycled",
+], "MMT CO₂e", "Recycling — Total Carbon Lever if All of It Were Recycled",
    "bar_recycle_total", "recycle",
    note="Plastics is an upper bound; most has no real recycling path.")
 
@@ -94,25 +103,23 @@ bars([
 bars([
     ("1 cardboard box (1 cu-ft)", 0.84), ("1 aluminum can (12 oz)", 0.13),
     ("1 glass bottle (12 oz)", 0.07), ("1 PET bottle (12 oz)", 0.02),
-], "kg CO₂e", "Recycling — carbon saved per item", "bar_recycle_item", "recycle")
+], "kg CO₂e", "Recycling — Carbon Saved per Item", "bar_recycle_item", "recycle")
 
 # 6. Buying Fewer Things — lifetime CO2e per purchase, kg
 bars([
     ("rubber ducky", 0.3), ("bowl of rice", 0.42), ("t-shirt", 5),
     ("steak", 30), ("new MacBook Air", 135),
     ("SF→NYC flight (1-way)", (500, 900)),
-], "kg CO₂e", "Stuff you buy — total carbon per purchase", "bar_buy_absolute",
+], "kg CO₂e", "Stuff You Buy — Total Carbon per Purchase", "bar_buy_absolute",
    "carbon")
 
 # 7. CO2e per dollar (fills the [co2e per dollar] placeholder), kg/$ (GWP20).
 bars([
-    ("cup of milk", 4.9), ("SF→NYC flight (1-way)", 3), ("bowl of rice", 2.8),
+    ("cup of milk", 4.9), ("SF→NYC flight 1-way", 3), ("bowl of rice", 2.8),
     ("lamb chop", 2.8), ("cheese", 2.6), ("gallon of gas", 2.5), ("steak", 2.4),
     ("Tesla mile", 1.9), ("chicken breast", 1.3), ("40g chocolate", 0.93),
     ("cup of coffee", 0.67), ("t-shirt", 0.3), ("new MacBook Air", 0.12),
     ("rubber ducky", 0.1), ("oz almonds", 0.04),
-], "kg CO₂e / $", "Carbon per dollar spent", "bar_co2e_per_dollar", "dollar",
-   note="Cheap animal foods, flights and flooded-crop rice cost the most carbon "
-        "per dollar; electronics and plastic the least (they're absolute-footprint kings).")
+], "kg CO₂e / $", "Carbon per Dollar Spent", "bar_co2e_per_dollar", "dollar")
 
 print("done — 7 linear bar charts (Altair)")

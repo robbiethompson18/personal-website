@@ -2,7 +2,7 @@
 
 ## Linting
 
-Run `./lint.sh` after editing HTML files to format them with Prettier.
+Run `./lint.sh` after editing HTML **or a post's Markdown** — Prettier reflows markdown prose + lists to 100 cols, so **don't hand-wrap markdown** (write long lines; lint rewraps them). Skips `POST_DRAFT.md` / `POST_RESEARCH.md`.
 
 Agents underuse `CODE_SMELL.md`; when you notice or leave debt, add a dated note there instead of relying on memory.
 

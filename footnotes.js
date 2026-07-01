@@ -57,13 +57,35 @@
   const anchors = document.querySelectorAll(".heading-anchor");
   if (!anchors.length) return;
 
+  // navigator.clipboard is unavailable on plain http (non-localhost) and can
+  // silently reject even where present, so fall back to the execCommand hack.
+  function copy(text) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).catch(legacyCopy);
+    } else {
+      legacyCopy();
+    }
+    function legacyCopy() {
+      const el = document.createElement("textarea");
+      el.value = text;
+      el.style.position = "fixed";
+      el.style.opacity = "0";
+      document.body.appendChild(el);
+      el.select();
+      try {
+        document.execCommand("copy");
+      } catch {}
+      document.body.removeChild(el);
+    }
+  }
+
   anchors.forEach((a) => {
     a.addEventListener("click", (e) => {
       e.preventDefault();
       const hash = a.getAttribute("href"); // "#some-slug"
       const url = location.origin + location.pathname + hash;
       history.replaceState(null, "", hash); // update the URL bar without a scroll jump
-      navigator.clipboard?.writeText(url);
+      copy(url);
       a.textContent = "✓"; // brief confirmation; mouse is still over the heading so it stays visible
       setTimeout(() => (a.textContent = "#"), 1000);
     });
