@@ -182,7 +182,9 @@ it grows easily.[^flyin] [^Barbaria]
 
 [^rainforest]: The premium that reaches the farmer is under a penny per chocolate bar.
 
-[^fairtrade]: A little more ([~0.5–1.5¢/bar](@fairtrade)), but it goes to the co-op, not the farmer.
+[^fairtrade]:
+    A little more than Rainforest Alliance ([~0.5–1.5¢/bar](@fairtrade)), but it goes to the co-op,
+    not the farmer.
 
 [^many-welfare]:
     "Natural" on eggs / meat (meaningless); "No Hormones" on meat (this is banned anyway);
