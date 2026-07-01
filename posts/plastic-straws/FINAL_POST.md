@@ -45,9 +45,10 @@ See my thoughts [here](robbiewmthompson.com/blog/bobs-diet).
 
 ## Global Warming
 
-
-think it's quite likely we get something singularity-like in the next 20 years. In that time global
-warming won't do much harm. But out of epistemic humility, I still try to reduct my carbon
+When I take an inside view, I think my carbon footprint is irrelevant.
+It's quite likely we get something singularity-like in the next 20 years. Until then, global
+warming won't do to
+But out of epistemic humility, I still try to reduct my carbon
 footprint.
 
 This post uses GWP20 C02e to model carbon footprint. The gist of it is: how much warming will be
