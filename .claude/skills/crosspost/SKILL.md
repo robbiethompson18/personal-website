@@ -76,8 +76,7 @@ while (guard++ < 40) {
 ```
 
 Note: the browser `file_upload` tool refuses local files, so you **cannot** upload PNGs from disk —
-this hotlink-then-Substack-rehosts trick is the way. (Alternatively Robbie can drag PNGs in by
-hand.)
+this hotlink-then-Substack-rehosts trick is the way.
 
 ### Heading "#" artifacts
 
@@ -128,6 +127,90 @@ Typical replacements: `CO₂e`, `CO₂`, `0.2 ft²`, `0.2/1590 × 100 ≈ 1/80`,
 surrounding whitespace is a weird KaTeX space, anchor the regex on the neighbouring prose words
 instead of the blob. After fixing, re-scan for the same LaTeX pattern → expect 0.
 
+### Footnotes → native Substack footnotes
+
+The import turns markdown footnotes into plain `[N]` links (`href="#fnN"`) plus an hr + "Notes"
+heading + ordered list with `↩︎` backrefs. Substack has native footnote nodes — `footnoteAnchor`
+(inline, `{number}`) and `footnote` (block, `{number}`, content `block+`) — so convert. This script
+replaces each ref with a `footnoteAnchor`, rebuilds each list item as a `footnote` block appended at
+doc end (Substack's native placement), strips the backrefs, and deletes the imported Notes section.
+All edits use original-doc positions applied bottom-up in one transaction:
+
+```js
+const ed = document.querySelector("[contenteditable=true]").editor,
+  schema = ed.schema;
+const st = ed.state,
+  doc = st.doc;
+let hrStart = null,
+  listEnd = null,
+  listNode = null;
+{
+  const blocks = [];
+  doc.forEach((n, offset) => blocks.push({ n, offset }));
+  for (let i = 0; i < blocks.length; i++) {
+    const b = blocks[i];
+    if (b.n.type.name === "heading" && b.n.textContent.trim() === "Notes") {
+      const prev = blocks[i - 1],
+        next = blocks[i + 1];
+      if (next && next.n.type.name === "orderedList") {
+        hrStart = prev && prev.n.type.name === "horizontalRule" ? prev.offset : b.offset;
+        listNode = next.n;
+        listEnd = next.offset + next.n.nodeSize;
+      }
+    }
+  }
+}
+const isBackref = (ch) =>
+  ch.isText &&
+  ch.marks.some((m) => m.type.name === "link" && (m.attrs.href || "").startsWith("#fnref"));
+function cleanBlock(b) {
+  if (b.isTextblock) {
+    const inline = [];
+    b.forEach((ch) => {
+      if (!isBackref(ch)) inline.push(ch);
+    });
+    while (inline.length) {
+      const last = inline[inline.length - 1];
+      if (last.isText && /^\s+$/.test(last.text)) {
+        inline.pop();
+        continue;
+      }
+      if (last.isText && /\s+$/.test(last.text))
+        inline[inline.length - 1] = schema.text(last.text.replace(/\s+$/, ""), last.marks);
+      break;
+    }
+    return b.type.create(b.attrs, inline, b.marks);
+  }
+  const kids = [];
+  b.forEach((ch) => kids.push(cleanBlock(ch)));
+  return b.type.create(b.attrs, kids, b.marks);
+}
+const footnotes = [];
+listNode.forEach((li) => {
+  const blocks = [];
+  li.forEach((ch) => blocks.push(cleanBlock(ch)));
+  footnotes.push(schema.nodes.footnote.create({ number: footnotes.length + 1 }, blocks));
+});
+const refs = [];
+doc.descendants((n, pos) => {
+  if (!n.isText) return;
+  const link = n.marks.find((m) => m.type.name === "link");
+  if (link && /^#fn\d+$/.test(link.attrs.href || ""))
+    refs.push({ pos, size: n.nodeSize, num: +link.attrs.href.slice(3) });
+});
+let tr = st.tr;
+tr = tr.insert(doc.content.size, footnotes);
+tr = tr.delete(hrStart, listEnd);
+refs.sort((a, b) => b.pos - a.pos);
+for (const r of refs)
+  tr = tr.replaceWith(r.pos, r.pos + r.size, schema.nodes.footnoteAnchor.create({ number: r.num }));
+ed.view.dispatch(tr);
+```
+
+Then verify: count `footnoteAnchor` == count `footnote` == the post's footnote count, 0 remaining
+`#fn` links, no "Notes" heading. (A footnote cited twice on-site produces two anchors with the same
+`number` — untested in Substack's renderer; check the preview if a post ever does that.)
+
 ### Citations / Sources — leave them
 
 The import keeps the `[phrase](@id)` links and the "Sources" section as a complete, working sourced
@@ -136,8 +219,9 @@ it reads fine. (The LW exporter strips them; Substack keeps them. This asymmetry
 
 ## Verify before publishing
 
-Reload the editor and confirm: 0 `assetError` nodes, 0 heading `#` links, 0 raw-LaTeX text nodes,
-all chart `<img>`s have `naturalWidth > 0`, subtitle present. Then Continue → Publish (web-only).
+Reload the editor and confirm: 0 `assetError` nodes, 0 heading `#` links, 0 raw-LaTeX text nodes, 0
+`#fn` links (footnotes converted to native nodes, no "Notes" heading), all chart `<img>`s have
+`naturalWidth > 0`, subtitle present. Then Continue → Publish (web-only).
 
 ## Appendix — LessWrong (ONLY if Robbie asks)
 
