@@ -1,6 +1,5 @@
 ---
 title: Plastic Straws
-subtitle: Stop Worrying About Your Consumption Habits
 date: 2026-07-01
 draft: false
 ---

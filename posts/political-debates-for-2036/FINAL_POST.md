@@ -1,6 +1,5 @@
 ---
 title: Political Debates for 2036
-subtitle: Assuming No Singularity
 date: 2026-03-28
 draft: false
 ---
