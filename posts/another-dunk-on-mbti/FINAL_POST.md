@@ -1,7 +1,7 @@
 ---
 title: Another Dunk on MBTI
 date: 2026-04-15
-draft: true
+draft: false
 ---
 
 In one of

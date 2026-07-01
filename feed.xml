@@ -177,7 +177,7 @@ LCAs.</span></p>
 <!-- Source definitions (collected into the Sources section by cite.js; order here doesn't matter). -->
 <hr class="footnotes-sep">
 <section class="footnotes">
-<h2 class="footnotes-title" id="notes">Notes</h2>
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#notes" aria-label="Link to this section">#</a></h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>My plausible explanations are innumeracy or costly signaling/symbolism (see
 <a href="https://slatestarcodex.com/2014/12/17/the-toxoplasma-of-rage/">The Toxoplasma of Rage</a>). <a href="https://robbiewmthompson.com/blog/plastic-straws/#fnref1" class="footnote-backref">↩︎</a></p>
@@ -252,7 +252,7 @@ irrigation and power consumption were revived in 2015. <a href="https://robbiewm
 </section>
 <hr class="sources-sep">
 <section class="sources">
-<h2 class="sources-title" id="sources">Sources</h2>
+<h2 class="sources-title" id="sources">Sources <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#sources" aria-label="Link to this section">#</a></h2>
 <p class="sources-note">Claude found these sources. Robbie did not review them.</p>
 <ol class="sources-list">
 <li id="src-methane80" class="source-item">IPCC AR6 WGI (2021), Ch. 7 Table 7.15 — methane’s 20-year GWP is ~80 (79.7–82.5× CO₂). <a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/">https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/</a> <a href="https://robbiewmthompson.com/blog/plastic-straws/#citeref-methane80" class="cite-backref" aria-label="Back to text">↩︎</a></li>
@@ -299,7 +299,7 @@ parts of my own writing (eg hedging and typos).<sup class="footnote-ref"><a href
 <a href="https://robbiewmthompson.com/blog">robbiewmthompson.com/blog</a>.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
-<h2 class="footnotes-title" id="notes">Notes</h2>
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/writing-with-claude/#notes" aria-label="Link to this section">#</a></h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>This skill.md for Claude’s proofreading lives
 <a href="https://github.com/robbiethompson18/personal-website/blob/main/.claude/skills/blog-review/SKILL.md">here</a>. <a href="https://robbiewmthompson.com/blog/writing-with-claude/#fnref1" class="footnote-backref">↩︎</a></p>
@@ -376,7 +376,7 @@ that makes me happier. Which, luckily, is also the one that deeply values other 
 <em><a href="https://slatestarcodex.com/2014/01/28/wirehead-gods-on-lotus-thrones/">Wirehead Gods on Lotus Thrones</a>.</em></p>
 <hr class="footnotes-sep">
 <section class="footnotes">
-<h2 class="footnotes-title" id="notes">Notes</h2>
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/smiling-through-inconsequence/#notes" aria-label="Link to this section">#</a></h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>Human brain: ~100 trillion synapses
 (<a href="https://aiimpacts.org/scale-of-the-human-brain/">estimates span 100–500 trillion</a>). DeepSeek
@@ -502,7 +502,7 @@ economic ones.</p>
 needed to be.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
-<h2 class="footnotes-title" id="notes">Notes</h2>
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#notes" aria-label="Link to this section">#</a></h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>AI is already great at this, see eg humans losing to
 <a href="https://www.science.org/doi/10.1126/science.ade9097">CICERO</a> and Diplomacy in 2022. In fact, we
@@ -544,6 +544,153 @@ ok with tricking kids. Or that humans will no longer use each other as role mode
 </li>
 <li id="fn9" class="footnote-item"><p>less cynically: <em>more beautiful</em> <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
+</ol>
+</section>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Another Dunk on MBTI</title>
+      <link>https://robbiewmthompson.com/blog/another-dunk-on-mbti/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/another-dunk-on-mbti/</guid>
+      <pubDate>Wed, 15 Apr 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>In one of
+<a href="https://aella.substack.com/p/what-if-we-looked-at-all-of-questionspace">Aella’s recent posts</a>, she
+crowd-sources a ton of personal questions from the internet, gives them in a survey, and then does
+<a href="https://en.wikipedia.org/wiki/Factor_analysis">factor analysis</a> on the data. Most of the time,
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">F_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1389em;">F</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (the biggest explanatory factor) is … politics (see for <a href="https://chaosfactor.xyz/">yourself</a>).</p>
+<p>The cynical explanation is: <em>Twitter is full of boneheads, they were probably asking questions like
+“is Elon Musk cool.&quot;</em> But anecdotally, it seems people’s political opinions have much more
+information value than their personality test scores.</p>
+<p>My half-baked take: psychologists purposefully remove politics from their ‘personality’ tests. Some
+of the biggest uses for MBTI are team-building and get-to-know-you activities. “I’m an INTJ” is a
+good icebreaker <em>because</em> it’s milquetoast. Imagine the counterfactual: “I’m 85th percentile
+economically conservative, 91st percentile socially conservative, and I’m not going to dignify your
+request for my pronouns with a response.”</p>
+<p>In nerd land, what makes a test ‘real’ is its predictive power. So let’s put
+<a href="https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator">MBTI</a> and
+<a href="https://en.wikipedia.org/wiki/Big_Five_personality_traits">OCEAN (Big 5)</a> to the test. Can they
+predict, or are they at least correlated with, things like your income and who you marry? How strong
+are the correlations relative to other possible predictors like race or IQ?</p>
+<!-- @robbie done (claude3) -->
+<p><img src="https://robbiewmthompson.com/blog/another-dunk-on-mbti/charts/heatmap.png" alt=""></p>
+<p><span class="chart-src">Sources by predictor. <em>Spouse similarity</em>: <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-horwitz" class="cite" id="citeref-horwitz">Horwitz 2023</a>. <em>IQ</em>:
+<a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-strenze" class="cite" id="citeref-strenze">Strenze 2007</a>, <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-sackett" class="cite" id="citeref-sackett">Sackett 2022</a>, <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-calvin" class="cite" id="citeref-calvin">Calvin 2011</a>. <em>Big Five</em>: framework
+<a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-ozer" class="cite" id="citeref-ozer">Ozer 2006</a>; grades <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-poropat" class="cite" id="citeref-poropat">Poropat 2009</a>; “job type” = RIASEC interest fit
+<a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-mount" class="cite" id="citeref-mount">Mount 2005</a>; job performance <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-zell" class="cite" id="citeref-zell">Zell &amp; Lesick 2022</a>; income <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-ng" class="cite" id="citeref-ng">Ng 2005</a>; divorce &amp;
+mortality <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-roberts" class="cite" id="citeref-roberts">Roberts 2007</a>. <em>MBTI</em>: <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-pittenger" class="cite" id="citeref-pittenger">Pittenger 2005</a>. <em>Astrology</em>:
+<a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-carlson" class="cite" id="citeref-carlson">Carlson 1985</a>; season-of-birth <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-doblhammer" class="cite" id="citeref-doblhammer">Doblhammer 2001</a>. <em>Race</em>:
+<a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-roth" class="cite" id="citeref-roth">Roth 2003</a>, <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-pew" class="cite" id="citeref-pew">Pew 2017</a>, plus US Census &amp; CDC gaps. <em>Parental SES</em>:
+<a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-chetty" class="cite" id="citeref-chetty">Chetty 2014</a>, <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-sirin" class="cite" id="citeref-sirin">Sirin 2005</a>. <em>Politics</em>: <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-alford" class="cite" id="citeref-alford">Alford 2011</a>,
+<a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-gallup" class="cite" id="citeref-gallup">Gallup 2024</a>, <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-warraich" class="cite" id="citeref-warraich">Warraich 2022</a>.</span></p>
+<p>Methodology: lazy. I asked Claude, and Claude looked up the answers from previous studies. The
+numbers pass my sniff test.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#fn1" id="fnref1">[1]</a></sup></p>
+<p><em>Takeaways:</em></p>
+<ol>
+<li>Personality tests are bad at predicting life outcomes.</li>
+<li>MBTI is better than your Zodiac, but not by much. This is not true of OCEAN.</li>
+<li>One sees IQ at the top of the chart and is happy for meritocracy, but then sees race #2, and
+sighs. Then one notices that the best predictor of income is parental SES, and sighs again.</li>
+</ol>
+<p>Before you dunk on me in the comments - “<em>your income causes your political opinions, not the other
+way around!</em>”<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#fn2" id="fnref2">[2]</a></sup> - I know. The causal arrow goes both ways.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#fn3" id="fnref3">[3]</a></sup> The data is still interesting! And
+the causal arrow <em>does not</em> flip for race and parental SES.</p>
+<h2 id="b-roll">B Roll <a class="heading-anchor" href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#b-roll" aria-label="Link to this section">#</a></h2>
+<p>You live a couple months longer if you were <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-doblhammer" class="cite">born in Autumn</a>, so your Zodiac does
+predict something.</p>
+<p>I had two copies of Claude crunch the numbers in this table, then had them compare their results.
+Both Claudes immediately said “well, the other agent is probably right about OCEAN and income.”
+Claude scores high on agreeableness.</p>
+<p>OCEAN was constructed by pulling personality words from the dictionary, culling some based on vibes,
+then asking people to rate themselves on a scale from 1 to x for each of these words, then doing
+factor analysis on the data. But the culling purposefully excluded words that were ‘evaluative’
+which is why we don’t see political affiliation in the data. This was a conscious decision, and
+‘values’ ended up as a separate category.</p>
+<p>A million different people have come up with their ‘n personality factors’ based on a lexical
+approach similar to OCEAN. I would love to see a paper that does factor analysis without excluding
+IQ-loaded or politics-loaded questions.</p>
+<p>Some of the most creative survey questions from Aella’s respondents:</p>
+<blockquote>
+<p>Sometimes it’s good to murder. Not self-defense when under attack, but premeditated murder.</p>
+</blockquote>
+<blockquote>
+<p>I would feel inclined to engage in sexual behavior with a clone of myself, given the opportunity.</p>
+</blockquote>
+<blockquote>
+<p>In group chats, I lurk more than I comment</p>
+</blockquote>
+<blockquote>
+<p>I am more sentient than most people</p>
+</blockquote>
+<blockquote>
+<p>It’s a disappointment if a person needs light to go to the bathroom in their own home</p>
+</blockquote>
+<blockquote>
+<p>Help I’m trapped in the server room hosting this survey! Only selecting strongly agree will free
+me</p>
+</blockquote>
+<!-- @robbie done (claude4) -->
+<p><a href="https://chaosfactor.xyz/averages/">Full list of questions</a> from Aella’s survey.</p>
+<!-- Source definitions for the heatmap (collected into the Sources section by cite.js; order here doesn't matter). -->
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#notes" aria-label="Link to this section">#</a></h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Claude wants to include this methodological note on the heatmap values: The numbers in this
+table are absolute values of correlation coefficients (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><mi>r</mi><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|r|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mord">∣</span></span></span></span>), but not every cell is a pure
+Pearson <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span></span></span></span>. Most cells — anything with a continuous predictor (IQ, Big Five scores, political
+orientation) and a continuous outcome (income, mortality) — are standard Pearson correlations
+drawn from meta-analyses. When the predictor is categorical but binary (e.g., comparing two
+racial groups on income), the statistic is a point-biserial correlation, which is mathematically
+identical to Pearson <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span></span></span></span>. When the predictor is categorical with multiple groups (e.g., race
+with 5 categories predicting income), the reported values are typically eta coefficients
+(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi></mrow><annotation encoding="application/x-tex">\eta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">η</span></span></span></span>), which represent the square root of variance explained by group membership —
+functionally analogous to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span></span></span></span> but not identical. The most problematic cell is race → spouse
+similarity, where both variables are multi-category nominal. No version of Pearson <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span></span></span></span> applies
+here. The technically correct statistic is Cramér’s <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>≈</mo><mn>0.60</mn></mrow><annotation encoding="application/x-tex">V \approx 0.60</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.2222em;">V</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.60</span></span></span></span>, but <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.2222em;">V</span></span></span></span> is normalized by
+the number of categories and systematically produces lower values for larger tables — the same
+data collapsed to a <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">2 \times 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span> table yields <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϕ</mi><mo>≈</mo><mn>0.90</mn></mrow><annotation encoding="application/x-tex">\phi \approx 0.90</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">ϕ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.90</span></span></span></span>. We report 0.90 because every
+other cell uses a Pearson-scale metric, and placing 0.60 next to (say) politics → spouse at
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>0.58</mn></mrow><annotation encoding="application/x-tex">r = 0.58</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.58</span></span></span></span> would falsely imply comparable sorting strength, when racial endogamy
+(<a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-pew" class="cite">83–95% of marriages are same-race</a>) is far stronger than partisan sorting. IQ → job
+performance (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>0.31</mn></mrow><annotation encoding="application/x-tex">r = 0.31</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.31</span></span></span></span>) is the post-Sackett (2022) corrected consensus, well below the older
+Schmidt &amp; Hunter estimate (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>0.51</mn></mrow><annotation encoding="application/x-tex">r = 0.51</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.51</span></span></span></span>) that still appears in textbooks. All values should be
+read as approximate effect sizes for comparison across the table, not as precise estimates for
+any individual cell. <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Or any other iteration of “<em>But x causes y, not vice versa,</em>”. <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>A <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-powdthavee" class="cite" id="citeref-powdthavee">British paper</a> found that winning the lottery makes you more conservative. This
+was in-line with British politics at the time: rich people were right wing. <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+<hr class="sources-sep">
+<section class="sources">
+<h2 class="sources-title" id="sources">Sources <a class="heading-anchor" href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#sources" aria-label="Link to this section">#</a></h2>
+<p class="sources-note">Claude found these sources. Robbie did not review them.</p>
+<ol class="sources-list">
+<li id="src-horwitz" class="source-item">Horwitz, Smith, et al. (2023), “Evidence of correlations between human partners based on systematic reviews and meta-analyses of 22 traits,” <em>Nature Human Behaviour</em> 7:1568–1583 — the assortative-mating (spouse-similarity) correlations for every trait and IQ. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10967253/">https://pmc.ncbi.nlm.nih.gov/articles/PMC10967253/</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-horwitz" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-strenze" class="source-item">Strenze (2007), “Intelligence and socioeconomic success: A meta-analytic review of longitudinal research,” <em>Intelligence</em> 35:401–426 — IQ vs education (.56), occupational status (.45), income (.23). <a href="https://gwern.net/doc/iq/ses/2007-strenze.pdf">https://gwern.net/doc/iq/ses/2007-strenze.pdf</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-strenze" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-sackett" class="source-item">Sackett, Zhang, Berry &amp; Lievens (2022), “Revisiting meta-analytic estimates of validity in personnel selection,” <em>Journal of Applied Psychology</em> 107(11):2040–2068 — cognitive-ability job performance operational validity ≈ .31 (observed ≈ .22), down from Schmidt &amp; Hunter’s .51 once the range-restriction corrections are fixed. <a href="https://pubmed.ncbi.nlm.nih.gov/34968080/">https://pubmed.ncbi.nlm.nih.gov/34968080/</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-sackett" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-calvin" class="source-item">Calvin, Deary, Batty, et al. (2011), “Intelligence in youth and all-cause mortality: systematic review with meta-analysis,” <em>International Journal of Epidemiology</em> 40(3):626–644. <a href="https://academic.oup.com/ije/article/40/3/626/742085">https://academic.oup.com/ije/article/40/3/626/742085</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-calvin" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-ozer" class="source-item">Ozer &amp; Benet-Martínez (2006), “Personality and the Prediction of Consequential Outcomes,” <em>Annual Review of Psychology</em> 57:401–421 — the predictor × outcome column framework (directional, not numeric). <a href="https://gwern.net/doc/psychology/personality/2006-ozer.pdf">https://gwern.net/doc/psychology/personality/2006-ozer.pdf</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-ozer" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-poropat" class="source-item">Poropat (2009), “A meta-analysis of the five-factor model of personality and academic performance,” <em>Psychological Bulletin</em> 135(2):322–338 — the “education” column is school grades (GPA), where conscientiousness leads. <a href="https://pubmed.ncbi.nlm.nih.gov/19254083/">https://pubmed.ncbi.nlm.nih.gov/19254083/</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-poropat" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-mount" class="source-item">Mount, Barrick, Scullen &amp; Rounds (2005), “Higher-order dimensions of the Big Five and the Big Six vocational interest types,” <em>Personnel Psychology</em> 58:447–478 — the “job type” column is occupational-interest (RIASEC) fit, not status; openness↔artistic ≈ .48, extraversion↔enterprising ≈ .41. <a href="http://www.sitesbysarah.com/mbwp/Pubs/2005_Mount_Barrick_Scullen_Rounds_PP.pdf">http://www.sitesbysarah.com/mbwp/Pubs/2005_Mount_Barrick_Scullen_Rounds_PP.pdf</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-mount" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-zell" class="source-item">Zell &amp; Lesick (2022), “Big five personality traits and performance: A quantitative synthesis of 50+ meta-analyses,” <em>Journal of Personality</em> 90(4):559–573 — Big Five vs job performance. <a href="https://pubmed.ncbi.nlm.nih.gov/34687041/">https://pubmed.ncbi.nlm.nih.gov/34687041/</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-zell" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-ng" class="source-item">Ng, Eby, Sorensen &amp; Feldman (2005), “Predictors of objective and subjective career success: A meta-analysis,” <em>Personnel Psychology</em> 58:367–408 — personality vs income/salary. <a href="https://doi.org/10.1111/j.1744-6570.2005.00515.x">https://doi.org/10.1111/j.1744-6570.2005.00515.x</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-ng" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-roberts" class="source-item">Roberts, Kuncel, Shiner, Caspi &amp; Goldberg (2007), “The Power of Personality,” <em>Perspectives on Psychological Science</em> 2(4):313–345 — Big Five vs divorce and mortality (e.g. neuroticism → divorce ≈ .17). <a href="https://projects.ori.org/lrg/PDFs_papers/Roberts_etal_2007_Power_of_personality_PPS.pdf">https://projects.ori.org/lrg/PDFs_papers/Roberts_etal_2007_Power_of_personality_PPS.pdf</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-roberts" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-pittenger" class="source-item">Pittenger (2005), “Cautionary Comments Regarding the Myers-Briggs Type Indicator,” <em>Consulting Psychology Journal</em> 57(3):210–221 — MBTI’s poor test-retest reliability and predictive validity; the small MBTI cells are ceilings borrowed from the Big Five trait each dimension proxies. <a href="https://www.researchgate.net/publication/232494957_Cautionary_comments_regarding_the_Myers-Briggs_Type_Indicator">https://www.researchgate.net/publication/232494957_Cautionary_comments_regarding_the_Myers-Briggs_Type_Indicator</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-pittenger" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-carlson" class="source-item">Carlson (1985), “A double-blind test of astrology,” <em>Nature</em> 318:419–425 — astrologers matched natal charts to personality profiles at chance. <a href="https://www.nature.com/articles/318419a0">https://www.nature.com/articles/318419a0</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-carlson" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-doblhammer" class="source-item">Doblhammer &amp; Vaupel (2001), “Lifespan depends on month of birth,” <em>PNAS</em> 98(5):2934–2939 — autumn-born (Austria/Denmark) outlive spring-born by ~3–7 months; a prenatal/seasonal effect, not astrology. <a href="https://www.pnas.org/doi/10.1073/pnas.041431898">https://www.pnas.org/doi/10.1073/pnas.041431898</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-doblhammer" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-roth" class="source-item">Roth, Huffcutt &amp; Bobko (2003), “Ethnic Group Differences in Measures of Job Performance: A New Meta-Analysis,” <em>Journal of Applied Psychology</em> 88(4):694–706 — Black–White job-performance d ≈ 0.27 (≈ r .13). <a href="https://doi.org/10.1037/0021-9010.88.4.694">https://doi.org/10.1037/0021-9010.88.4.694</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-roth" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-pew" class="source-item">Pew Research Center (2017), “Intermarriage in the U.S. 50 Years After Loving v. Virginia” — 17% of 2015 newlyweds (and 10% of all married people) are intermarried, i.e. ~83–90%+ same-race. <a href="https://www.pewresearch.org/short-reads/2017/06/12/key-facts-about-race-and-marriage-50-years-after-loving-v-virginia/">https://www.pewresearch.org/short-reads/2017/06/12/key-facts-about-race-and-marriage-50-years-after-loving-v-virginia/</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-pew" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-chetty" class="source-item">Chetty, Hendren, Kline &amp; Saez (2014), “Where is the Land of Opportunity? The Geography of Intergenerational Mobility in the United States,” <em>Quarterly Journal of Economics</em> 129(4) — US parent–child income rank correlation ≈ 0.34. <a href="https://opportunityinsights.org/paper/land-of-opportunity/">https://opportunityinsights.org/paper/land-of-opportunity/</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-chetty" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-sirin" class="source-item">Sirin (2005), “Socioeconomic Status and Academic Achievement: A Meta-Analytic Review of Research,” <em>Review of Educational Research</em> 75(3):417–453 — SES ↔ achievement r ≈ .29. <a href="https://doi.org/10.3102/00346543075003417">https://doi.org/10.3102/00346543075003417</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-sirin" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-alford" class="source-item">Alford, Hatemi, Hibbing, Martin &amp; Eaves (2011), “The Politics of Mate Choice,” <em>Journal of Politics</em> 73(2):362–379 — spousal political concordance r ≈ .58–.65, higher than personality or physical traits. <a href="https://digitalcommons.unl.edu/poliscifacpub/108/">https://digitalcommons.unl.edu/poliscifacpub/108/</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-alford" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-gallup" class="source-item">Gallup (2024), “When and Why Marriage Became Partisan” — 65% of Republicans vs 50% of Democrats are married. <a href="https://news.gallup.com/poll/646793/why-marriage-became-partisan.aspx">https://news.gallup.com/poll/646793/why-marriage-became-partisan.aspx</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-gallup" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-warraich" class="source-item">Warraich, Kaltenboeck, et al. (2022), “Political environment and mortality rates in the United States, 2001–19,” <em>BMJ</em> 377:e069308 — a ~15% red/blue county mortality gap; ecological, so the individual-level correlation is far smaller than the gap suggests. <a href="https://www.bmj.com/content/377/bmj.e069308">https://www.bmj.com/content/377/bmj.e069308</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-warraich" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-powdthavee" class="source-item">Powdthavee &amp; Oswald (2014), “Does Money Make People Right-Wing and Inegalitarian? A Longitudinal Study of Lottery Winners,” IZA Discussion Paper 7934 — British panel data; lottery winners shift right and become less egalitarian, scaling with win size. <a href="https://www.iza.org/publications/dp/7934">https://www.iza.org/publications/dp/7934</a> <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#citeref-powdthavee" class="cite-backref" aria-label="Back to text">↩︎</a></li>
 </ol>
 </section>
 ]]></content:encoded>
@@ -600,7 +747,7 @@ why some VCs and founders use his Spaces for distribution.</p>
 getting follow-up questions.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
-<h2 class="footnotes-title" id="notes">Notes</h2>
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/thoughts-on-ai-march-2026/#notes" aria-label="Link to this section">#</a></h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>Claude certainly checks my work for typos. Writing that I don’t want or expect any human to
 read, like a reflection after an HR training or a corporate blog post for SEO, I will happily
@@ -749,7 +896,7 @@ observational.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/bl
 <p>Know if a study is indirect (eg it shows lowered cholesterol but not lowered mortality).</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
-<h2 class="footnotes-title" id="notes">Notes</h2>
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#notes" aria-label="Link to this section">#</a></h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>Yes, Paleolithic humans had lower life expectancies than modern ones. No, they did not all die
 by their 30s. Conditional on making it to 15, your life expectancy was about 50.
