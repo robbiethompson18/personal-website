@@ -50,3 +50,22 @@
   tip.addEventListener("mouseenter", () => clearTimeout(hideTimer));
   tip.addEventListener("mouseleave", hide);
 })();
+
+// Click a heading's "#" to copy a direct link to that section (Substack-style).
+// Own IIFE so it still runs on posts that have no footnotes.
+(function () {
+  const anchors = document.querySelectorAll(".heading-anchor");
+  if (!anchors.length) return;
+
+  anchors.forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const hash = a.getAttribute("href"); // "#some-slug"
+      const url = location.origin + location.pathname + hash;
+      history.replaceState(null, "", hash); // update the URL bar without a scroll jump
+      navigator.clipboard?.writeText(url);
+      a.textContent = "✓"; // brief confirmation; mouse is still over the heading so it stays visible
+      setTimeout(() => (a.textContent = "#"), 1000);
+    });
+  });
+})();

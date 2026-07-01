@@ -25,34 +25,39 @@ const md = new MarkdownIt({ html: true, linkify: true, typographer: true })
   .use(footnote)
   .use(katex.default ?? katex);
 
+// Give every markdown heading a stable id + a hover-visible "#" anchor, so
+// sections are linkable (like Substack). The slug is derived from the heading
+// text; duplicate slugs get -2, -3, … suffixes so ids stay unique per page.
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "") // drop punctuation
+    .trim()
+    .replace(/\s+/g, "-");
+}
+md.core.ruler.push("heading_anchors", (state) => {
+  const seen = new Map();
+  const tokens = state.tokens;
+  for (let i = 0; i < tokens.length; i++) {
+    if (tokens[i].type !== "heading_open") continue;
+    const inline = tokens[i + 1]; // heading_open, inline, heading_close
+    let slug = slugify(inline.content);
+    if (!slug) continue;
+    const n = (seen.get(slug) ?? 0) + 1;
+    seen.set(slug, n);
+    if (n > 1) slug = `${slug}-${n}`;
+    tokens[i].attrSet("id", slug);
+    // Append a "#" link as the last child of the heading's inline content.
+    const link = new state.Token("html_inline", "", 0);
+    link.content = ` <a class="heading-anchor" href="#${slug}" aria-label="Link to this section">#</a>`;
+    inline.children.push(link);
+  }
+});
+
 // Show a reused footnote as [1] [1] instead of [1] [1:1]. Only the visible
 // caption changes; the anchor IDs (fnref1 vs fnref1:1) stay unique, so each
 // citation's back-link still returns to the right spot.
 md.renderer.rules.footnote_caption = (tokens, idx) => `[${tokens[idx].meta.id + 1}]`;
-
-// A ```chart fenced block (JSON body) becomes a <figure> that charts.js renders
-// with Observable Plot in the browser. We validate the JSON at build time, and
-// flag the post so its page pulls in charts.js only when it actually has a chart.
-let renderHasChart = false;
-const defaultFence = md.renderer.rules.fence;
-md.renderer.rules.fence = (tokens, idx, options, env, self) => {
-  const token = tokens[idx];
-  if (token.info.trim() === "chart") {
-    let spec;
-    try {
-      spec = JSON.parse(token.content);
-    } catch (e) {
-      throw new Error(`Invalid \`\`\`chart JSON: ${e.message}`);
-    }
-    renderHasChart = true;
-    const json = JSON.stringify(spec)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/'/g, "&#39;");
-    return `<figure class="chart" data-spec='${json}'><noscript>(interactive chart — enable JavaScript)</noscript></figure>\n`;
-  }
-  return defaultFence(tokens, idx, options, env, self);
-};
 
 // A reused footnote otherwise gets one bare ↩︎ per citation (↩︎ ↩︎), which are
 // indistinguishable. Emit a single back-arrow that returns to the first citation.
@@ -113,7 +118,7 @@ function parse(raw) {
 
 // --- templates -----------------------------------------------------------
 
-function layout({ title, description, canonical, body, hasChart, hasMath }) {
+function layout({ title, description, canonical, body, hasMath }) {
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -127,11 +132,14 @@ function layout({ title, description, canonical, body, hasChart, hasMath }) {
     <meta property="og:type" content="article" />
     <meta property="og:url" content="${canonical}" />
     <link rel="alternate" type="application/rss+xml" title="${esc(SITE.title)}" href="/feed.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/blog.css" />${hasMath ? '\n    <link rel="stylesheet" href="/vendor/katex/katex.min.css" />' : ""}
   </head>
   <body>
 ${body}
-    <script src="/footnotes.js" defer></script>${hasChart ? '\n    <script defer src="/vendor/d3.min.js"></script>\n    <script defer src="/vendor/plot.umd.min.js"></script>\n    <script type="module" src="/charts.js"></script>' : ""}
+    <script src="/footnotes.js" defer></script>
   </body>
 </html>
 `;
@@ -144,9 +152,10 @@ function postPage(p) {
   const body = `    <main class="post">
       <article>
         <header class="post-header">
-          ${draftBanner}<p class="post-meta"><a href="/blog/">&larr; Writing</a> &middot; <time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time></p>
+          ${draftBanner}<p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
           <h1>${esc(p.meta.title)}</h1>
           ${p.meta.subtitle ? `<p class="subtitle">${esc(p.meta.subtitle)}</p>` : ""}
+          <p class="post-dates"><span>Published <time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time></span><span>Last edited <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span></p>
         </header>
         ${p.html}
       </article>
@@ -159,7 +168,6 @@ function postPage(p) {
     description: p.meta.subtitle || SITE.description,
     canonical: `${SITE.url}/blog/${p.slug}/`,
     body,
-    hasChart: p.hasChart,
     hasMath: p.hasMath,
   });
 }
@@ -176,15 +184,15 @@ function indexPage(posts) {
     .join("\n");
   const body = `    <main class="index">
       <header class="index-header">
-        <h1>Writing</h1>
-        <p class="index-sub"><a href="/">robbiewmthompson.com</a> &middot; <a href="/feed.xml">RSS</a></p>
+        <h1>Blog</h1>
+        <p class="index-sub"><a href="/">robbiewmthompson.com</a></p>
       </header>
       <ul class="post-list">
 ${items}
       </ul>
     </main>`;
   return layout({
-    title: `Writing — ${SITE.title}`,
+    title: `Blog — ${SITE.title}`,
     description: SITE.description,
     canonical: `${SITE.url}/blog/`,
     body,
@@ -235,18 +243,57 @@ function copyAssets(srcDir, destDir) {
   }
 }
 
+// markdown-it renders broken footnotes and unclosed math as *literal text*
+// without ever throwing, so a typo'd `[^foo]` or a stray `$` would otherwise
+// sail through as a "successful" build with mangled output. These checks catch
+// the common silent degradations and surface them as build warnings.
+function lint(body) {
+  const issues = [];
+
+  // Strip the zones where `$` and `[^...]` are legitimately literal, so we don't
+  // false-alarm on code samples, editor notes, etc.
+  const prose = body
+    .replace(/```[\s\S]*?```/g, "") // fenced code blocks
+    .replace(/`[^`]*`/g, "") // inline code spans
+    .replace(/<!--[\s\S]*?-->/g, ""); // HTML comments (@claude/@robbie notes)
+
+  // Footnotes: every `[^id]` reference needs a matching `[^id]:` definition, and
+  // an unreferenced definition is silently dropped from the output entirely.
+  const defs = new Set();
+  const refs = new Set();
+  for (const m of prose.matchAll(/^\[\^([^\]]+)\]:/gm)) defs.add(m[1]);
+  for (const m of prose.matchAll(/\[\^([^\]]+)\](?!:)/g)) refs.add(m[1]);
+  for (const id of refs)
+    if (!defs.has(id)) issues.push(`footnote [^${id}] is referenced but never defined (renders as literal text)`);
+  for (const id of defs)
+    if (!refs.has(id)) issues.push(`footnote [^${id}] is defined but never referenced (silently dropped)`);
+
+  // Math: with the dollar-sign delimiter, currency `$` is escaped as `\$`. Once
+  // those are removed, every remaining `$` should pair up into a `$…$` / `$$…$$`
+  // span — an odd count means an unclosed span or a currency `$` missing its `\`.
+  const dollars = prose.replace(/\\\$/g, "").match(/\$/g)?.length ?? 0;
+  if (dollars % 2 !== 0)
+    issues.push(
+      `odd number of unescaped '$' (${dollars}) — an unclosed $…$ math span, or a currency $ that needs escaping as \\$`,
+    );
+
+  return issues;
+}
+
 // Every post is a folder: posts/<slug>/FINAL_POST.md is the published body,
 // with co-located assets (charts/, images) copied to the output. Other .md
 // files in the folder (POST_DRAFT.md, POST_RESEARCH.md) are ignored by the build.
 function loadPost(slug, mdPath, assetDir) {
   const { meta, body } = parse(readFileSync(mdPath, "utf8"));
   if (!meta.title || !meta.date) throw new Error(`${mdPath}: frontmatter needs title and date`);
-  renderHasChart = false;
   const html = md.render(body);
   // KaTeX always emits <span class="katex">; use that to pull in its stylesheet
   // only on pages that actually render math (same lazy-load spirit as charts).
   const hasMath = html.includes('class="katex"');
-  return { slug, meta, html, draft: meta.draft === "true", hasChart: renderHasChart, hasMath, assetDir };
+  // "Last edited" is an editorial statement, not a file-touch: it mirrors the
+  // published date until you opt in with an `updated: YYYY-MM-DD` frontmatter field.
+  const updated = meta.updated || meta.date;
+  return { slug, meta, html, updated, draft: meta.draft === "true", hasMath, assetDir, issues: lint(body) };
 }
 
 const posts = [];
@@ -275,3 +322,12 @@ console.log(
   `Built ${posts.length} post(s) -> blog/, feed.xml` +
     (draftCount ? ` (${draftCount} draft excluded from index/feed)` : ""),
 );
+
+// Content warnings are non-fatal: the HTML is already written (so previews still
+// work), but we flag the silent degradations and exit non-zero so `npm run build`
+// in CI / a `&&` chain — and the watch terminal — visibly fail.
+const warnings = posts.flatMap((p) => p.issues.map((i) => `  ⚠️  ${p.slug}: ${i}`));
+if (warnings.length) {
+  console.error(`\n${warnings.length} content warning(s):\n${warnings.join("\n")}`);
+  process.exitCode = 1;
+}

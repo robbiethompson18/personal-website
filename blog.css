@@ -2,13 +2,13 @@
  * style.css and is intentionally untouched by this file. */
 
 :root {
-  --bg: #0b0b0b;
-  --text: #e8e8e8;
-  --muted: #9a9a9a;
+  --bg: #1a1d24;
+  --text: #ccd0d8;
+  --muted: #8b919d;
   --link: #8ab4f8;
-  --rule: #2a2a2a;
-  --popup-bg: #161616;
-  --popup-border: #333;
+  --rule: #2e333d;
+  --popup-bg: #232830;
+  --popup-border: #3a4049;
   /* serif for reading, sans for headings/UI — flip these two to taste */
   --serif: Charter, "Charter BT", Georgia, Cambria, "Times New Roman", serif;
   --sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -61,6 +61,29 @@ h3 {
   margin: 2rem 0 0.5rem;
 }
 
+/* Substack-style section anchors: the "#" hides until you hover the heading,
+   and scroll-margin keeps the target from tucking under the top of the viewport. */
+h2,
+h3 {
+  scroll-margin-top: 1.5rem;
+}
+.heading-anchor {
+  margin-left: 0.35rem;
+  color: var(--link);
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+.heading-anchor:focus {
+  opacity: 0.5;
+}
+.heading-anchor:hover {
+  opacity: 1;
+}
+
 p {
   margin: 0 0 1.2rem;
 }
@@ -109,13 +132,13 @@ hr {
 code {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.88em;
-  background: #1a1a1a;
+  background: #23272f;
   padding: 0.1em 0.35em;
   border-radius: 4px;
 }
 
 pre {
-  background: #141414;
+  background: #202430;
   border: 1px solid var(--rule);
   border-radius: 6px;
   padding: 1rem;
@@ -146,31 +169,7 @@ td {
 
 th {
   font-weight: 600;
-  background: #141414;
-}
-
-/* --- charts (Observable Plot, rendered by charts.js) --- */
-
-figure.chart {
-  margin: 1.75rem 0;
-  overflow-x: auto;
-}
-
-figure.chart figcaption {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-top: 0.5rem;
-}
-
-/* Dark hover tooltip (Plot's default tip is light). */
-figure.chart [aria-label="tip"] path {
-  fill: var(--popup-bg);
-  stroke: var(--popup-border);
-}
-
-figure.chart [aria-label="tip"] text {
-  fill: var(--text);
+  background: #21262f;
 }
 
 /* --- post chrome --- */
@@ -191,6 +190,19 @@ figure.chart [aria-label="tip"] text {
   color: var(--muted);
   font-style: italic;
   margin-bottom: 2.5rem;
+}
+
+.post-dates {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: -1.5rem; /* tuck under the subtitle's bottom margin */
+  margin-bottom: 0;
+}
+
+.post-dates span {
+  display: block;
 }
 
 .post-header {

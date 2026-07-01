@@ -57,18 +57,23 @@ image isn't enough — so markdown doesn't cap what a post can hold.
 
 ### Charts
 
-Interactive charts use **Observable Plot**, rendered client-side by `charts.js`. Add one to any post
-with a fenced ` ```chart ` block whose body is JSON — the data lives in the post, no extra files:
+**One system: Altair (Python), rendered to static dark PNG + SVG at build time via `vl-convert`.**
+No interactivity, no client JS. Vega-Lite sizes in CSS pixels, so label sizes are honest at the
+~720px column — matplotlib's inches→raster→squished-to-column is why the old charts had tiny text,
+so **don't use matplotlib/seaborn** for post charts.
 
-    ```chart
-    { "type": "dotplot", "scale": "log", "axisLabel": "gallons of water →",
-      "caption": "…", "data": [ { "item": "one steak", "value": 1800 }, ... ] }
-    ```
-
-- `build.js` validates the JSON at build time (a bad block **fails the build**) and turns it into a
-  `<figure class="chart" data-spec="…">`; `charts.js` is pulled in only on pages that have a chart.
-- Chart types live in `charts.js` (`RENDERERS`). So far: **`dotplot`** — horizontal dot plot,
-  auto-sorted largest→top, `scale: "log"` or `"linear"`. Add new types there.
-- Charts theme themselves from `blog.css` CSS vars, and the plain markdown table stays as the
-  no-JS fallback — so keep the table.
-- Observable Plot is vendored (self-hosted) at `vendor/plot.umd.min.js`, loaded before `charts.js`; no external CDN.
+- Chart scripts live in the post's `charts/` folder (e.g. `posts/plastic-straws/charts/*.py`). Run
+  them **from the post dir** so the `charts/<name>` output paths and the `from theme import …`
+  sibling import both resolve: `cd posts/plastic-straws && python3 charts/table_bars.py`.
+- `charts/theme.py` holds the shared dark theme, the color palettes, `fonts(width)`, and
+  `save(chart, name, width)` (writes `charts/<name>.svg` + `.png` @2x). Every chart ends with `save(...)`.
+- Embed as a normal image: `![alt](charts/<name>.png)`. The build copies `charts/` to the output, so
+  re-rendering needs **no `FINAL_POST.md` change**.
+- **Text-size rule (important) — never hardcode font sizes.** A chart authored `width` px wide is
+  scaled to fit the content column, so on-screen text = `font × column/width`: a *narrow* chart's
+  text looks *bigger*. So fonts scale with width. In every chart: `f = fonts(width)`, use
+  `f["label"]` for any in-chart `mark_text`, and pass the same `width` to `save()` (it sizes the
+  axis/title/legend chrome). Result: every chart's text is identical on screen, matched to the
+  Quotidian-water bar chart (the reference in `theme.py`).
+- Deps: `altair` + `vl-convert-python` (`pip install --break-system-packages …`, same env as
+  matplotlib). Keep numbers ~1 sig fig / OOM (see the post's "Probably Approximately Correct" note).

@@ -1,88 +1,56 @@
-"""
-Linear vertical bar charts for the post's 1-D tables.
+"""Linear vertical bar charts for the post's 1-D tables (Altair).
 
-Item on x-axis, metric on y-axis, LINEAR scale (Robbie's call). Caveat baked in:
-on a linear axis anything ~>1 order of magnitude below the tallest bar is an
-invisible sliver, so every bar gets a value label on top — the number survives
-even when the bar doesn't. Sorted tallest-first. Ranges ("1-11 kg") draw the bar
-at the geometric mean with an error whisker. Dark theme to match the blog.
+Same data + design as before: linear y-axis, a value label on top of every bar
+(so a sub-order-of-magnitude bar keeps its number even when the bar is an
+invisible sliver), sorted tallest-first, ranges ("1-11 kg") drawn at the
+geometric mean with a lo..hi whisker. Dark theme via theme.save().
 Numbers copied verbatim from FINAL_POST.md tables.
 """
-import numpy as np
-import matplotlib.pyplot as plt
+import textwrap
 
-plt.style.use("dark_background")
-plt.rcParams.update({
-    "figure.facecolor": "#0b0b0b",
-    "axes.facecolor": "#0b0b0b",
-    "savefig.facecolor": "#0b0b0b",
-})
+import altair as alt
 
-HUE = {"carbon": "#c1432e", "water": "#2e7dc1",
-       "recycle": "#3f8f5b", "dollar": "#7a5fb0"}
+from theme import HUE, FG, fmt, fonts, save
 
 
-def fmt(v):
-    if v >= 100:
-        return f"{v:,.0f}"
-    if v >= 1:
-        return f"{v:g}"
-    return f"{v:.4g}"
+def _wrap(s, width=82):
+    return textwrap.wrap(s, width) if s else ""
 
 
-def bars(rows, unit, title, fname, hue, note=None):
+def bars(rows, unit, title, name, hue, note=None):
     """rows: list of (label, value) or (label, (lo, hi))."""
-    labels, reps, ranges = [], [], []
+    data = []
     for label, v in rows:
         if isinstance(v, tuple):
             lo, hi = v
-            reps.append((lo * hi) ** 0.5)
-            ranges.append((lo, hi))
+            rep = (lo * hi) ** 0.5
+            data.append({"item": label, "v": rep, "lo": lo, "hi": hi,
+                         "top": hi, "label": f"{fmt(lo)}–{fmt(hi)}"})
         else:
-            reps.append(float(v))
-            ranges.append(None)
-        labels.append(label)
-    order = np.argsort(reps)[::-1]            # tallest first
-    labels = [labels[i] for i in order]
-    reps = [reps[i] for i in order]
-    ranges = [ranges[i] for i in order]
-    color = HUE[hue]
-    n = len(rows)
+            v = float(v)
+            data.append({"item": label, "v": v, "lo": None, "hi": None,
+                         "top": v, "label": fmt(v)})
+    n = len(data)
+    order = [d["item"] for d in sorted(data, key=lambda d: -d["v"])]
+    ymax = max(d["top"] for d in data) * 1.16
+    width = max(360, min(720, 50 * n))
+    f = fonts(width)
 
-    fig, ax = plt.subplots(figsize=(max(6.5, 0.95 * n + 1.5), 5.6))
-    x = np.arange(n)
-    yerr = None
-    if any(ranges):
-        yerr = np.array([[v - (rg[0] if rg else v) for v, rg in zip(reps, ranges)],
-                         [(rg[1] if rg else v) - v for v, rg in zip(reps, ranges)]])
-    ax.bar(x, reps, width=0.72, color=color, alpha=0.9,
-           edgecolor="#0b0b0b", linewidth=0.5, zorder=2,
-           yerr=yerr, ecolor="#cccccc", capsize=3, error_kw={"lw": 1.2})
+    base = alt.Chart(alt.Data(values=data)).encode(
+        x=alt.X("item:N", sort=order, title=None,
+                axis=alt.Axis(labelAngle=-35, labelLimit=220)))
+    bar = base.mark_bar(color=HUE[hue], opacity=0.9).encode(
+        y=alt.Y("v:Q", title=f"{unit}  (linear)",
+                scale=alt.Scale(domain=[0, ymax], nice=False)))
+    whisker = base.transform_filter("datum.lo != null").mark_rule(
+        color="#cccccc", strokeWidth=1.3).encode(y="lo:Q", y2="hi:Q")
+    labels = base.mark_text(dy=-6, fontSize=f["label"], color=FG).encode(
+        y="top:Q", text="label:N")
 
-    top = max((rg[1] if rg else v) for v, rg in zip(reps, ranges))
-    for xi, (v, rg) in enumerate(zip(reps, ranges)):
-        txt = fmt(v) if not rg else f"{fmt(rg[0])}–{fmt(rg[1])}"
-        yt = (rg[1] if rg else v) + top * 0.015
-        ax.text(xi, yt, txt, ha="center", va="bottom", fontsize=8.5,
-                color="#e8e8e8", zorder=4)
-
-    ax.set_xticks(x)
-    ax.set_xticklabels(labels, rotation=35, ha="right", fontsize=9)
-    ax.set_ylabel(f"{unit}  (linear)", fontsize=11)
-    ax.set_ylim(0, top * 1.16)
-    ax.set_title(title, fontsize=13, fontweight="bold", pad=26 if note else 10)
-    ax.grid(True, axis="y", ls="-", lw=0.5, alpha=0.18)
-    ax.set_axisbelow(True)
-    for s in ("top", "right"):
-        ax.spines[s].set_visible(False)
-    if note:
-        ax.text(0, 1.015, note, transform=ax.transAxes, fontsize=8,
-                style="italic", color="#999", va="bottom", ha="left")
-    fig.tight_layout()
-    fig.savefig(f"charts/{fname}.png", dpi=150, bbox_inches="tight")
-    fig.savefig(f"charts/{fname}.svg", bbox_inches="tight")
-    plt.close(fig)
-    print(f"wrote charts/{fname}.png  (n={n})")
+    chart = (bar + whisker + labels).properties(
+        width=width, height=340,
+        title=alt.TitleParams(text=title, subtitle=_wrap(note)))
+    save(chart, name, width)
 
 
 # 1. Quotidian Power Use — CO2e (the row-comparable column), kg
@@ -125,7 +93,7 @@ bars([
 # 5. Recycling — CO2e saved per item, kg
 bars([
     ("1 cardboard box (1 cu-ft)", 0.84), ("1 aluminum can (12 oz)", 0.13),
-    ("1 glass bottle (12 oz)", 0.07), ("1 PET bottle (2 L)", 0.06),
+    ("1 glass bottle (12 oz)", 0.07), ("1 PET bottle (12 oz)", 0.02),
 ], "kg CO₂e", "Recycling — carbon saved per item", "bar_recycle_item", "recycle")
 
 # 6. Buying Fewer Things — lifetime CO2e per purchase, kg
@@ -136,12 +104,15 @@ bars([
 ], "kg CO₂e", "Stuff you buy — total carbon per purchase", "bar_buy_absolute",
    "carbon")
 
-# 7. CO2e per dollar (fills the [co2e per dollar] placeholder), kg/$
+# 7. CO2e per dollar (fills the [co2e per dollar] placeholder), kg/$ (GWP20).
 bars([
-    ("SF→NYC flight (1-way)", 3), ("bowl of rice", 2.8), ("steak", 2.4),
-    ("t-shirt", 0.3), ("new MacBook Air", 0.12), ("rubber ducky", 0.1),
+    ("cup of milk", 4.9), ("SF→NYC flight (1-way)", 3), ("bowl of rice", 2.8),
+    ("lamb chop", 2.8), ("cheese", 2.6), ("gallon of gas", 2.5), ("steak", 2.4),
+    ("Tesla mile", 1.9), ("chicken breast", 1.3), ("40g chocolate", 0.93),
+    ("cup of coffee", 0.67), ("t-shirt", 0.3), ("new MacBook Air", 0.12),
+    ("rubber ducky", 0.1), ("oz almonds", 0.04),
 ], "kg CO₂e / $", "Carbon per dollar spent", "bar_co2e_per_dollar", "dollar",
-   note="Absolute footprint and per-dollar intensity rank almost oppositely: "
-        "the MacBook is the biggest single hit but the cheapest per dollar.")
+   note="Cheap animal foods, flights and flooded-crop rice cost the most carbon "
+        "per dollar; electronics and plastic the least (they're absolute-footprint kings).")
 
-print("done — 7 linear bar charts")
+print("done — 7 linear bar charts (Altair)")
