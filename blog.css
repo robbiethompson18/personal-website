@@ -322,6 +322,12 @@ th {
   padding: 0.05rem 0.4rem;
 }
 
+.archive-tag {
+  color: var(--muted);
+  background: rgba(148, 148, 148, 0.1);
+  border-color: rgba(148, 148, 148, 0.35);
+}
+
 .post-date {
   display: block;
   font-family: var(--sans);

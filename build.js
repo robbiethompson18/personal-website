@@ -173,7 +173,9 @@ ${body}
 function postPage(p) {
   const draftBanner = p.draft
     ? `<p class="draft-banner">Draft — not in the index or feed</p>\n          `
-    : "";
+    : p.archive
+      ? `<p class="draft-banner">Archived — not in the index or feed</p>\n          `
+      : "";
   const body = `    <main class="post">
       <article>
         <header class="post-header">
@@ -197,19 +199,22 @@ function postPage(p) {
   });
 }
 
-function indexPage(posts, { drafts = false } = {}) {
+function indexPage(posts, { heading = "Blog", subpath = "" } = {}) {
   const items = posts
-    .map(
-      (p) => `        <li>
-          <a class="post-link" href="/blog/${p.slug}/">${esc(p.meta.title)}${p.draft ? ' <span class="draft-tag">draft</span>' : ""}</a>
+    .map((p) => {
+      const tags =
+        (p.draft ? ' <span class="draft-tag">draft</span>' : "") +
+        (p.archive ? ' <span class="draft-tag archive-tag">archive</span>' : "");
+      return `        <li>
+          <a class="post-link" href="/blog/${p.slug}/">${esc(p.meta.title)}${tags}</a>
           <span class="post-date"><time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time></span>
           ${p.meta.subtitle ? `<p class="post-sub">${esc(p.meta.subtitle)}</p>` : ""}
-        </li>`,
-    )
+        </li>`;
+    })
     .join("\n");
   const body = `    <main class="index">
       <header class="index-header">
-        <h1>Blog${drafts ? " (incl. drafts)" : ""}</h1>
+        <h1>${esc(heading)}</h1>
         <p class="index-sub"><a href="/">robbiewmthompson.com</a></p>
       </header>
       <ul class="post-list">
@@ -217,9 +222,9 @@ ${items}
       </ul>
     </main>`;
   return layout({
-    title: `Blog${drafts ? " (incl. drafts)" : ""} — ${SITE.title}`,
+    title: `${heading} — ${SITE.title}`,
     description: SITE.description,
-    canonical: `${SITE.url}/blog/${drafts ? "drafts/" : ""}`,
+    canonical: `${SITE.url}/blog/${subpath}`,
     body,
   });
 }
@@ -329,7 +334,17 @@ function loadPost(slug, mdPath, assetDir) {
   // "Last edited" is an editorial statement, not a file-touch: it mirrors the
   // published date until you opt in with an `updated: YYYY-MM-DD` frontmatter field.
   const updated = meta.updated || meta.date;
-  return { slug, meta, html, updated, draft: meta.draft === "true", hasMath, assetDir, issues: lint(body) };
+  return {
+    slug,
+    meta,
+    html,
+    updated,
+    draft: meta.draft === "true",
+    archive: meta.archive === "true",
+    hasMath,
+    assetDir,
+    issues: lint(body),
+  };
 }
 
 const posts = [];
@@ -347,21 +362,34 @@ for (const p of posts) {
   if (p.assetDir) copyAssets(p.assetDir, dir);
 }
 
-// Drafts render at their own URL but stay out of the index and the feed.
-const published = posts.filter((p) => !p.draft);
+// Drafts and archived posts render at their own URL but stay out of the public
+// index and the feed.
+const published = posts.filter((p) => !p.draft && !p.archive);
 mkdirSync("blog", { recursive: true });
 writeFileSync(join("blog", "index.html"), indexPage(published));
 writeFileSync("feed.xml", feed(published));
 
-// A private-ish index that also lists drafts. Not linked from anywhere and kept
-// out of feed.xml, but reachable at /blog/drafts/ so Robbie can eyeball drafts.
+// Two private-ish indexes, unlinked from anywhere and kept out of feed.xml:
+//   /blog/drafts/  — every post (drafts + archive included), for eyeballing.
+//   /blog/archive/ — just the archived (retired) posts.
 mkdirSync(join("blog", "drafts"), { recursive: true });
-writeFileSync(join("blog", "drafts", "index.html"), indexPage(posts, { drafts: true }));
+writeFileSync(
+  join("blog", "drafts", "index.html"),
+  indexPage(posts, { heading: "Blog (incl. drafts)", subpath: "drafts/" }),
+);
+mkdirSync(join("blog", "archive"), { recursive: true });
+writeFileSync(
+  join("blog", "archive", "index.html"),
+  indexPage(
+    posts.filter((p) => p.archive),
+    { heading: "Archive", subpath: "archive/" },
+  ),
+);
 
-const draftCount = posts.length - published.length;
+const excluded = posts.length - published.length;
 console.log(
   `Built ${posts.length} post(s) -> blog/, feed.xml` +
-    (draftCount ? ` (${draftCount} draft excluded from index/feed)` : ""),
+    (excluded ? ` (${excluded} draft/archived excluded from index/feed)` : ""),
 );
 
 // Content warnings are non-fatal: the HTML is already written (so previews still
