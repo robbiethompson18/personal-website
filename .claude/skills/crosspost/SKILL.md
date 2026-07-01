@@ -39,7 +39,8 @@ screenshot before assuming.
 2. **Unpublish to draft** while you clean: post "…" menu → **Unpublish** → confirm. Keeps the messy
    interim off the public archive. (Still no email either way.)
 3. **Clean up the import artifacts** — see next section.
-4. **Re-add the subtitle** — the import drops it (there's an "Add a subtitle…" field).
+4. **No subtitle** — Robbie doesn't like them. Leave the "Add a subtitle…" field empty, and clear it
+   if the import brought one in.
 5. **Publish web-only** — Continue → Publish. Never "Send to everyone".
 
 ## Cleaning up import artifacts
