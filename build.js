@@ -229,6 +229,20 @@ ${items}
   });
 }
 
+// The feed's <content:encoded> is consumed out of context — RSS readers, email,
+// and cross-post importers (e.g. Substack) have no base URL, so a relative image
+// src like "charts/foo.png" resolves to nothing and renders broken. Absolute-ize
+// every relative src against the post's live URL. For charts we prefer the
+// light-theme variant ("charts/light/foo.png") when it exists: unlike the dark
+// on-site pages, feed / email / cross-post surfaces are light backgrounds.
+function feedHtml(p) {
+  return p.html.replace(/\bsrc="(?!https?:|\/)([^"]+)"/g, (_m, rel) => {
+    const light = rel.replace(/^charts\//, "charts/light/");
+    if (light !== rel && existsSync(join(p.assetDir, light))) rel = light;
+    return `src="${SITE.url}/blog/${p.slug}/${rel}"`;
+  });
+}
+
 function feed(posts) {
   const items = posts
     .map(
@@ -238,7 +252,7 @@ function feed(posts) {
       <guid isPermaLink="true">${SITE.url}/blog/${p.slug}/</guid>
       <pubDate>${rfc822(p.meta.date)}</pubDate>
       <description>${esc(p.meta.subtitle || "")}</description>
-      <content:encoded><![CDATA[${p.html}]]></content:encoded>
+      <content:encoded><![CDATA[${feedHtml(p)}]]></content:encoded>
     </item>`,
     )
     .join("\n");
