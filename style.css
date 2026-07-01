@@ -6,8 +6,8 @@
 
 body {
   font-family: system-ui, -apple-system, sans-serif;
-  background: #fafafa;
-  color: #222;
+  background: #0b0b0b;
+  color: #e8e8e8;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -45,16 +45,16 @@ ul {
 }
 
 .links a {
-  color: #222;
+  color: #e8e8e8;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid #2a2a2a;
   border-radius: 4px;
   transition: border-color 0.2s;
 }
 
 .links a:hover {
-  border-color: #222;
+  border-color: #e8e8e8;
 }
 
 .contact li {
@@ -62,12 +62,12 @@ ul {
 }
 
 .contact a {
-  color: #555;
+  color: #9a9a9a;
   text-decoration: none;
 }
 
 .contact a:hover {
-  color: #222;
+  color: #e8e8e8;
 }
 
 .bio {
@@ -81,11 +81,11 @@ ul {
 .bio p {
   margin-bottom: 0.75rem;
   line-height: 1.5;
-  color: #444;
+  color: #c8c8c8;
 }
 
 .bio a {
-  color: #222;
+  color: #e8e8e8;
   text-decoration: underline;
 }
 

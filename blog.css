@@ -1,0 +1,342 @@
+/* Dark reading theme for the blog. The landing page (index.html) uses its own
+ * style.css and is intentionally untouched by this file. */
+
+:root {
+  --bg: #0b0b0b;
+  --text: #e8e8e8;
+  --muted: #9a9a9a;
+  --link: #8ab4f8;
+  --rule: #2a2a2a;
+  --popup-bg: #161616;
+  --popup-border: #333;
+  /* serif for reading, sans for headings/UI — flip these two to taste */
+  --serif: Charter, "Charter BT", Georgia, Cambria, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+/* --- headings / typography --- */
+
+h1,
+h2,
+h3 {
+  font-family: var(--sans);
+  line-height: 1.25;
+  font-weight: 650;
+}
+
+.post-header h1 {
+  font-size: 2.1rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 2.5rem 0 0.75rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin: 2rem 0 0.5rem;
+}
+
+p {
+  margin: 0 0 1.2rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+blockquote {
+  border-left: 2px solid var(--rule);
+  padding-left: 1.2rem;
+  margin: 1.5rem 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+ul,
+ol {
+  margin: 0 0 1.2rem 1.4rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem 0;
+}
+
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: #1a1a1a;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+pre {
+  background: #141414;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+}
+
+th,
+td {
+  border: 1px solid var(--rule);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  background: #141414;
+}
+
+/* --- charts (Observable Plot, rendered by charts.js) --- */
+
+figure.chart {
+  margin: 1.75rem 0;
+  overflow-x: auto;
+}
+
+figure.chart figcaption {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+/* Dark hover tooltip (Plot's default tip is light). */
+figure.chart [aria-label="tip"] path {
+  fill: var(--popup-bg);
+  stroke: var(--popup-border);
+}
+
+figure.chart [aria-label="tip"] text {
+  fill: var(--text);
+}
+
+/* --- post chrome --- */
+
+.post-meta {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.post-meta a {
+  color: var(--muted);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 2.5rem;
+}
+
+.post-header {
+  margin-bottom: 2.5rem;
+}
+
+.post-footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+
+.draft-banner {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #e8c069;
+  background: rgba(232, 192, 105, 0.1);
+  border: 1px solid rgba(232, 192, 105, 0.3);
+  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+/* --- blog index --- */
+
+.index-header {
+  margin-bottom: 3rem;
+}
+
+.index-header h1 {
+  font-size: 2.2rem;
+}
+
+.index-sub {
+  font-family: var(--sans);
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.index-sub a {
+  color: var(--muted);
+}
+
+.post-list {
+  list-style: none;
+  margin: 0;
+}
+
+.post-list li {
+  margin-bottom: 2rem;
+}
+
+.post-link {
+  font-family: var(--sans);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.post-link:hover {
+  color: var(--link);
+}
+
+.post-date {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+.post-sub {
+  color: var(--muted);
+  font-style: italic;
+  margin: 0.4rem 0 0;
+}
+
+/* --- footnotes (bottom of article) --- */
+
+.footnotes {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.footnotes ol {
+  margin-left: 1.2rem;
+}
+
+.footnotes p {
+  margin-bottom: 0.5rem;
+}
+
+.footnote-item:target {
+  background: rgba(138, 180, 248, 0.12);
+  border-radius: 4px;
+}
+
+.footnote-ref a {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0 1px;
+}
+
+.footnote-backref {
+  text-decoration: none;
+  margin-left: 0.25rem;
+}
+
+/* --- footnote hover popup (desktop; mobile falls back to anchor jump) --- */
+
+.fn-tooltip {
+  position: absolute;
+  z-index: 50;
+  max-width: 22rem;
+  background: var(--popup-bg);
+  border: 1px solid var(--popup-border);
+  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--text);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+}
+
+.fn-tooltip.visible {
+  opacity: 1;
+}
+
+.fn-tooltip p {
+  margin: 0;
+}
+
+.fn-tooltip .footnote-backref {
+  display: none;
+}
