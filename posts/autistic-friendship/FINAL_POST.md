@@ -5,14 +5,15 @@ updated: 2026-01-29
 draft: true
 ---
 
-I find it easier to develop deep, vulnerable, loving friendships with people who have just a touch
-of autism.
+I find it easier to develop deep, vulnerable, loving friendships with people who have a touch of
+autism.
 
-Autism, along with a host of other diagnoses, has recently been rebranded from a cognitive or
-behavioral disorder to a neurodivergence. The neurodiversity worldview reframes autism not as a
-problem to fix or work around, but instead as one among many ways that normal, healthy brains work.
-I’m all for this. There are three common explanations for why autists seem maladjusted when in fact
-they are not, each of which I ignore in this essay:
+Psychiatry has rebranded autism (and a lot of other diagnoses) from disorders to neurodivergences.
+This reframes autism not as a problem to fix or work around, but instead as one among many ways that
+normal, healthy brains work. I'm in favor of this.
+
+Three common explanations for why autists seem maladjusted when in fact they are not, each of which
+I ignore in this essay:
 
 1. _Person-environment mismatch_. You might claim that I have autism because I hate cocktail
    parties. But the human mind did not evolve under circumstances in which we were meeting strangers
@@ -36,24 +37,23 @@ Autists use these superpowers poorly or not at all. Specifically:
 3. Autists can’t hide their emotions.
 4. Autists can’t tell when they (or others) don’t fit in.
 
-You probably saw this coming, but: I probably eek my way just onto the autistic spectrum. When I
-take online autism tests they usually tell me something like “we’re not sure, you should check with
-a psychiatrist” or “you’re just really awkward bro.” My siblings call me Robotie (my real name is
-Robbie) because of how shy and nerdy I was as a child. In my teens I read a fascinating book about
-the universality of human facial expressions, but unfortunately it was called “Emotions Revealed,”
-which gave my sisters years of comedic ammunition. When I asked my therapist if she thinks I’m
-autistic she gave me a legalese answer of the form “I’m not allowed to diagnose that.” I don’t care
-enough to see a specialist and be sure one way or the other.[^1]
+You saw this coming, but: I eke my way onto the autistic spectrum. When I take online autism
+tests they usually tell me something like “we’re not sure, you should check with a psychiatrist” or
+“you’re just really awkward bro.” My siblings call me Robotie (instead of Robbie) because of how shy
+and nerdy I was as a child. In my teens I read a fascinating book about the universality of human
+facial expressions, but unfortunately it was called “Emotions Revealed,” which gave my sisters years
+of comedic ammunition. When I asked my therapist if she thinks I’m autistic she gave me a legalese
+answer of the form “I’m not allowed to diagnose that.”
 
-I don’t want you to think this essay is written only for other autists, nor that the benefits of
-hanging out with autists applies to fellow autists. To give myself a shred of credibility: people
-who know me at arms length think I’m anything but autistic, and 90% of the time assume I’m an
-extrovert. This was not true before the age of 16. I was painfully awkward and shy as a freshman and
-sophomore in high school. But since then I’ve been very successful at inserting myself within the
-most ‘popular’ social circles — popular in the vain sense of the word. Popular in the way that gets
-you invitations to parties and bids to fraternities and followers on Instagram. I’m not claiming
-lots of people actually liked me or that I had close friendships. You understand the difference,
-dear reader.
+This essay applies to everyone.
+with autists applies only to fellow autists. To give myself a shred of credibility: people who know
+me at arm’s length think I’m anything but autistic, and 90% of the time assume I’m an extrovert.
+This was not true before the age of 16. I was painfully awkward and shy as a freshman and sophomore
+in high school. But since then I’ve been very successful at inserting myself within the most
+‘popular’ social circles — popular in the vain sense of the word. Popular in the way that gets you
+invitations to parties and bids to fraternities and followers on Instagram. I’m not claiming lots of
+people actually liked me or that I had close friendships. You understand the difference, dear
+reader.
 
 I followed a tried and true recipe for popularity:
 
@@ -68,17 +68,24 @@ popular and unpopular, autist and non-autist friends.[^2] For many years I chose
 with people who exhibited autistic tendencies, for no other reason than that they generally weren’t
 popular and I was so enamored with my newfound popularity.
 
+[^2]: Being unpopular does not imply that you are autistic. Nor are the converse or inverse true.
+
 But for the last three years or so, I’ve learned to stop caring as much about being popular.[^3] In
 doing so I’ve realized the treasures of friendships with people like me — people who are just a
 little autistic. They aren’t diagnosed as autistic, and most wouldn’t self-identify as autistic
 either. But their behavior puts them just barely onto the spectrum from my admittedly unscientific
 perspective.
 
+[^3]:
+    I rarely admitted this to myself, certainly not after the age of 18. But that doesn’t change the
+    fact that I did care subconsciously, and acted on a craving of popularity (again, in the vain
+    sense of the term).
+
 Some of my friends wouldn’t want to see their name in this essay as someone I think is slightly
 autistic. So I’m instead going to use real stories, but always with placeholder names: Austin, for a
 slightly autistic person; and Norbert, for a ‘normal,’ not-on-the-autism-spectrum person. Austin and
 Norbert each represent several different people. These stories have been modified only enough to
-give me plausible deniability regarding the true identities of Austin and Norbert.
+give me plausible deniability regarding each story's true subjects.
 
 ## I: Autists Can Be Trusted
 
@@ -113,7 +120,7 @@ corporate jobs out there that are less intense, you know.” But I didn’t hate
 much, and I don’t want a different corporate job. Austin doesn’t try to assume how I’m feeling:
 he’ll just ask “why did you quit?” or even “what type of teacher?”
 
-## III: Autists are Vulnerable
+## III: Autists Are Vulnerable
 
 Not necessarily in a “I’m self-aware of my feelings and will intentionally talk about them in the
 abstract” way. More often in a “I couldn’t hide my emotions if I tried” way.
@@ -135,10 +142,10 @@ would know to comfort him.
 
 I once overheard Austin get asked at a formal cocktail party “what do you do for work?” Based on the
 length and emotional honesty of his response, you’d have thought it was his therapist that asked
-him, not a stranger he’d never met. He was oblivious to the convention of answering this question in
-about three words and waiting for a follow-up.
+him. He was oblivious to the convention of answering this question in about three words and waiting
+for a follow-up.
 
-## IV: Autists are Weird
+## IV: Autists Are Weird
 
 I’ve been a barefoot runner for the past six years. For all but the first week the most painful part
 hasn’t been my feet, it’s been the dirty looks. The looks that say “how dare you sully my pavement
@@ -148,19 +155,23 @@ of self-confidence and gumption for going around barefoot and stomaching others�
 asked myself why other people don’t go barefoot like me despite how amazing it feels, my unique
 gumption was the answer.
 
+[^4]:
+    Someone once came up to me as I was playing with their unleashed dog in the park and told me
+    “sorry, you look crazy, so I’m going to have to take him back.”
+
 But on a walk recently with Norbert in Manhattan, I realized that much of my gumption is actually
 just ignorance. Every couple minutes he would say something like “did you notice that group of
 tourists pointing at you back there?” and I would shrug. I thought I noticed most of the stares I
 got, but I was wrong. I think Norbert noticed more people judging him for walking next to a barefoot
 person than I noticed judging me for being the barefoot person. No wonder no one ever wants to go on
-a barefoot jog with me.
+a jog with me.
 
 It’s hard to talk about Austin’s weird habits while simultaneously obfuscating his identities, but
 I’ll try. He hugs you like you’re his grandma. He sees so much emotion, intentionality, and wisdom
 in animals and trees. He’ll talk your ear off about whatever he’s thinking about right now, so if
 you’re on a long car ride and don’t feel like talking you can just sit back and listen to him rattle
 off a podcast-worthy monologue. He treats kids, boomers, bosses, and employees as if they are his
-equals and natural peers.
+peers and equals.
 
 ## Inner Children
 
@@ -170,19 +181,3 @@ weird stuff by accident. Maybe the people I’m claiming are ‘a little autisti
 all, they just had childhoods full of loving caretakers and never learned to be guarded or cynical.
 Whatever the truth is, I will continue to treasure the many Austins in my life, and will keep
 looking for more.
-
-[^1]:
-    If you’re an autist and you’re pissed that I’m stealing your word or have some other
-    disagreement with the language I’m using, please write me hatemail in the comments. I tried my
-    best to use language that is descriptive and non-offensive.
-
-[^2]: Being unpopular does not imply that you are autistic. Nor are the converse or inverse true.
-
-[^3]:
-    I rarely admitted this to myself, certainly not after the age of 18. But that doesn’t change the
-    fact that I did care subconsciously, and acted on a craving of popularity (again, in the vain
-    sense of the term).
-
-[^4]:
-    Someone once came up to me as I was playing with their unleashed dog in the park and told me
-    “sorry, you look crazy, so I’m going to have to take him back.”

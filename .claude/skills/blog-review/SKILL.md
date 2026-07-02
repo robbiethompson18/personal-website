@@ -22,6 +22,7 @@ summary verdict.
 1. **Typos** — real misspellings, doubled words, wrong homophones, broken markdown/links. Obvious
    only; never flag style or US/UK spelling.
 2. **Casing** - Title Case on graphs and headings.
+3. Any @claudereview comment: those are specifically left for the reviewer to handle.
 
 ## Report Only, No Fixing
 
