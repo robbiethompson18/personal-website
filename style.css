@@ -39,6 +39,7 @@ ul {
 
 .links {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: center;
   margin-bottom: 2rem;
@@ -87,6 +88,39 @@ ul {
 .bio a {
   color: #ccd0d8;
   text-decoration: underline;
+}
+
+.tutoring-page {
+  width: min(100%, 640px);
+  text-align: left;
+}
+
+.tutoring-page h1 {
+  margin-bottom: 1.5rem;
+}
+
+.tutoring-page p {
+  margin-bottom: 1rem;
+  color: #c2c6ce;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.tutoring-page a {
+  color: #ccd0d8;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.tutoring-page .back-link {
+  display: inline-block;
+  margin-bottom: 3rem;
+  color: #8b919d;
+  text-decoration: none;
+}
+
+.tutoring-page .back-link:hover {
+  color: #ccd0d8;
 }
 
 /* used this to add hidden content to my page to try
