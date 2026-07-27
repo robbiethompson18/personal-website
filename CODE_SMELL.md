@@ -17,3 +17,7 @@ chart PNG lands as a new git blob twice (posts/ + blog/), growing history monoto
 moving the build to CI (Actions → gh-pages branch); decided against for now: it adds a deploy moving
 part and breaks "what's committed is what's live". Revisit if repo size or multi-agent
 ship-only-my-code conflicts get painful.
+
+Jul 27, 2026: lint.sh claims to format HTML but its `*.html` glob only reaches root-level files, so
+nested standalone pages such as tutoring/index.html are skipped. Expand the Prettier inputs if more
+nested HTML pages are added.
