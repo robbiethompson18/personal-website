@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getting an LLM to Run Really Fast on My Machine</title>
+    <meta name="description" content="Essays by Robbie Thompson." />
+    <link rel="canonical" href="https://robbiewmthompson.com/blog/getting-an-llm-to-run-really-fast-on-my-machine/" />
+    <meta property="og:title" content="Getting an LLM to Run Really Fast on My Machine" />
+    <meta property="og:description" content="Essays by Robbie Thompson." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://robbiewmthompson.com/blog/getting-an-llm-to-run-really-fast-on-my-machine/" />
+    <link rel="alternate" type="application/rss+xml" title="Robbie Thompson" href="/feed.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/blog.css" />
+  </head>
+  <body>
+    <main class="post">
+      <article>
+        <header class="post-header">
+          <p class="draft-banner">Draft — not in the index or feed</p>
+          <p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
+          <h1>Getting an LLM to Run Really Fast on My Machine</h1>
+          
+          <p class="post-dates"><span>Published <time datetime="2026-07-23">July 23, 2026</time></span><span>Last edited <time datetime="2026-07-23">July 23, 2026</time></span></p>
+        </header>
+        <p>After finishing The Scaling Book (@claude include link) I set up a final exam for myself: find
+whatever the SOTA &lt;45B Open-weights LLM is, predict how fast it will run on my MAC using and on a
+pod of eight v5es. Then run it both places and see how close I can get.</p>
+<h2 id="model-qwen-36b">Model: Qwen 3.6B <a class="heading-anchor" href="#model-qwen-36b" aria-label="Link to this section">#</a></h2>
+<p><a href="https://huggingface.co/Qwen/Qwen3.6-35B-A3B">https://huggingface.co/Qwen/Qwen3.6-35B-A3B</a></p>
+<h2 id="botec-how-fast-will-this-run-on-tpu">BOTEC: How Fast Will This Run on TPU? <a class="heading-anchor" href="#botec-how-fast-will-this-run-on-tpu" aria-label="Link to this section">#</a></h2>
+<p>My 8x v5e pod does 8 _ 2e14 = 1.6e15 flops/s in bf16. Qwen 3.6 35B is sparse, meaning that only 3B
+params are active each forward pass. We two two flops per param per forward pass, so I expect a
+minimum time of 2 * 3e9 / 1.6e15 = 4e-6 = 4us per forward pass per token on flops.</p>
+<p>My 8x v5e pod has 8 * 8.2e11 of HBM bandwidth. At 16 bit quantization Qwen 35B is ~70GB, again only
+6GB of which are active. So we should expect a minimum of 6e9 / 8.2e11 = 8e-3 = 8ms per forward pass
+on memory, if we’re generating only a single token.</p>
+<p>Given that this all fits on one TPU, I will run just run it there for now.</p>
+<p>TODO: pick a B to run this at, probably 2k? And decide what throughput there will be.</p>
+<h2 id="botec-how-fast-will-_-run-on-mac">BOTEC: How Fast Will _ Run on Mac? <a class="heading-anchor" href="#botec-how-fast-will-_-run-on-mac" aria-label="Link to this section">#</a></h2>
+<p>My mac is an M4 with 48GB of RAM and _ of memory bandwidth. It can do _ flops.</p>
+<p>On flops, for a single token, I expect to spend 6e9 / _ = xus on flops, and 6e9 / _ on memory.</p>
+<p>----- must get to here by 10am morning of July 24 -----</p>
+<h2 id="increasing-batch-size">Increasing Batch Size <a class="heading-anchor" href="#increasing-batch-size" aria-label="Link to this section">#</a></h2>
+<p>…</p>
+<h2 id="0-benchmarking">0: Benchmarking <a class="heading-anchor" href="#0-benchmarking" aria-label="Link to this section">#</a></h2>
+<ul>
+<li>benchmark written: xyz</li>
+<li>benchmark code: xyz</li>
+<li>written text: xyz</li>
+<li>code: xyz</li>
+</ul>
+<h2 id="improvement-i-analyzing-the-kernels">Improvement I: Analyzing the Kernels <a class="heading-anchor" href="#improvement-i-analyzing-the-kernels" aria-label="Link to this section">#</a></h2>
+<h2 id="improvement-ii-speculative-decoding">Improvement II: Speculative Decoding <a class="heading-anchor" href="#improvement-ii-speculative-decoding" aria-label="Link to this section">#</a></h2>
+<h2 id="improvement-iii-predicting-the-expert">Improvement III: Predicting The Expert <a class="heading-anchor" href="#improvement-iii-predicting-the-expert" aria-label="Link to this section">#</a></h2>
+<h2 id="improvement-iv">Improvement IV: <a class="heading-anchor" href="#improvement-iv" aria-label="Link to this section">#</a></h2>
+
+      </article>
+      <footer class="post-footer">
+        <p><a href="/blog/">&larr; More writing</a></p>
+      </footer>
+    </main>
+    <script src="/footnotes.js" defer></script>
+  </body>
+</html>
