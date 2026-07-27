@@ -145,9 +145,9 @@ _Mindset_
   to accomplish this week and underestimate the importance of learning things and improving
   processes.[^learning]
 
-  [^learning]:
-      This applies more broadly. Neuroplasticity declines after 25, but you'll want to know a lot of
-      things for much longer than that.
+[^learning]:
+    This applies more broadly. Neuroplasticity declines after 25, but you'll want to know a lot of
+    things for much longer than that.
 
 _Negotiation_
 
