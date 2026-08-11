@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why It Didn&#39;t Work: Browser Agents</title>
+    <meta name="description" content="Essays by Robbie Thompson." />
+    <link rel="canonical" href="https://robbiewmthompson.com/blog/why-it-didnt-work-browser-agents/" />
+    <meta property="og:title" content="Why It Didn&#39;t Work: Browser Agents" />
+    <meta property="og:description" content="Essays by Robbie Thompson." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://robbiewmthompson.com/blog/why-it-didnt-work-browser-agents/" />
+    <link rel="alternate" type="application/rss+xml" title="Robbie Thompson" href="/feed.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/blog.css" />
+  </head>
+  <body>
+    <main class="post">
+      <article>
+        <header class="post-header">
+          <p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
+          <h1>Why It Didn&#39;t Work: Browser Agents</h1>
+          
+          <p class="post-dates"><span>Published <time datetime="2026-08-09">August 9, 2026</time></span><span>Last edited <time datetime="2026-08-09">August 9, 2026</time></span></p>
+        </header>
+        <p>Bailey and I spent a little more than a month building better browser agents before pivoting away.
+Our initial thesis was:</p>
+<ul>
+<li>clearly people wanted browser agents: Manus was very popular, this was a hot area of research at
+the labs</li>
+<li>we had simple ways to improve on existing techniques (eg giving it better pre-processing of the
+DOM)</li>
+</ul>
+<h2 id="tech-searching-for-a-problem">Tech Searching for a Problem <a class="heading-anchor" href="#tech-searching-for-a-problem" aria-label="Link to this section">#</a></h2>
+<p>We made a canonical startup mistake: decide what tech you want to build, then figure out who will
+use it. In our defense, we had a first customer who trialed our product from almost day one, but ACV
+would’ve been four digits, and there weren’t obviously thousands of customers with their same
+problem.</p>
+<h2 id="people-wanted-illegal-things">People Wanted Illegal Things <a class="heading-anchor" href="#people-wanted-illegal-things" aria-label="Link to this section">#</a></h2>
+<p>When I did get around to doing more sales, people wanted to use our agents to access websites that
+either had a paid API (X, Epic) or very intentionally had no API (LinkedIn). We were on track to get
+sued the second we found success.</p>
+<h2 id="no-defensibility">No Defensibility <a class="heading-anchor" href="#no-defensibility" aria-label="Link to this section">#</a></h2>
+<p>Several customers told us our browser agents were much better than what others offered out of the
+box at the time. This was entirely a result of using cute tricks like parsing the accessibility tree
+well. It took Anthropic ~4x longer to catch up than I expected. But that was still 10x too little
+time to build a durable business.</p>
+
+      </article>
+      <footer class="post-footer">
+        <p><a href="/blog/">&larr; More writing</a></p>
+      </footer>
+    </main>
+    <script src="/footnotes.js" defer></script>
+  </body>
+</html>
