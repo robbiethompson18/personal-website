@@ -17,6 +17,10 @@ import katex from "@vscode/markdown-it-katex";
 import cite from "./cite.js";
 import { SITE, liveAssetUrl } from "./site.js";
 
+// Set by `npm run dev`/`watch` so post pages link back to the drafts index
+// locally, where you actually want to land on the thing you're editing.
+const DEV = !!process.env.DEV;
+
 const md = new MarkdownIt({ html: true, linkify: true, typographer: true })
   .use(footnote)
   .use(katex.default ?? katex)
@@ -175,10 +179,11 @@ function postPage(p) {
     : p.archive
       ? `<p class="draft-banner">Archived — not in the index or feed</p>\n          `
       : "";
+  const blogHref = DEV ? "/blog/drafts/" : "/blog/";
   const body = `    <main class="post">
       <article>
         <header class="post-header">
-          ${draftBanner}<p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
+          ${draftBanner}<p class="post-meta"><a href="${blogHref}">&larr; Blog</a></p>
           <h1>${esc(p.meta.title)}</h1>
           ${p.meta.subtitle ? `<p class="subtitle">${esc(p.meta.subtitle)}</p>` : ""}
           <p class="post-dates"><span>Published <time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time></span><span>Last edited <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span></p>
@@ -186,7 +191,7 @@ function postPage(p) {
         ${p.html}
       </article>
       <footer class="post-footer">
-        <p><a href="/blog/">&larr; More writing</a></p>
+        <p><a href="${blogHref}">&larr; More writing</a></p>
       </footer>
     </main>`;
   return layout({

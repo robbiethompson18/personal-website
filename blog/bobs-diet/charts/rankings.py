@@ -59,15 +59,20 @@ def hbar(rows, unit, title, name, hue, domain):
 
 # 1. Suffering = neurons x lifespan / calories. Farmed animals only (animals
 #    with NA lifespan compute to #VALUE! in the sheet and are excluded, per the
-#    post). Human is not farmed, so it's excluded too.
+#    post). Human is not farmed, so it's excluded too. Lobster stays excluded:
+#    commercial "lobster farms" are mostly wild-caught fattening/holding
+#    pounds, not egg-to-market aquaculture, same bucket as Tuna below.
 #    Salmon overrides the sheet: 5000 cal (post's 5/17 update, not 2400) and
 #    4e7 neurons (geometric midpoint of the ~1e7–1.3e8 estimate range, not the
 #    sheet's high-end 1.3e8). 4e7 x 2.25 / 5000 = 18,000 (was 122k).
+#    Crab added post-8/11 edit: mud crab (Scylla serrata) grow-out farming is
+#    real, ~5.5mo stocking-to-harvest. 1430 neurons/cal x (5.5/12) yr = 655.
 hbar([
-    ("Scallop", 600), ("Oyster", 1250), ("Clam", 1430), ("Mussel", 1500),
-    ("Snail", 2120), ("Prawn", 4000), ("Cow Milk", 5480), ("Shrimp", 5710),
-    ("Chicken Eggs", 12700), ("Chicken", 16700), ("Salmon", 18000),
-    ("Turkey", 26500), ("Pig", 28000), ("Horsefly", 33300), ("Cow", 78900),
+    ("Scallop", 600), ("Crab", 655), ("Oyster", 1250), ("Clam", 1430),
+    ("Mussel", 1500), ("Snail", 2120), ("Prawn", 4000), ("Cow Milk", 5480),
+    ("Shrimp", 5710), ("Chicken Eggs", 12700), ("Chicken", 16700),
+    ("Salmon", 18000), ("Turkey", 26500), ("Pig", 28000), ("Horsefly", 33300),
+    ("Cow", 78900),
 ], "neurons × lifespan / calorie  (log)", "Suffering per Calorie",
    "rankings-suffering", "carbon", domain=[200, 400000])
 

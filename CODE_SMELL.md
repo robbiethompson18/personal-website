@@ -21,3 +21,11 @@ ship-only-my-code conflicts get painful.
 Jul 27, 2026: lint.sh claims to format HTML but its `*.html` glob only reaches root-level files, so
 nested standalone pages such as tutoring/index.html are skipped. Expand the Prettier inputs if more
 nested HTML pages are added.
+
+Aug 11, 2026: build.js's footnote-definition checker (`/^\[\^([^\]]+)\]:/gm`) requires the `[^id]:`
+line to start at column 0, so a footnote defined under an indented list item (e.g.
+`posts/bobs-diet/FINAL_POST.md`'s `[^CFF]`, nested two spaces under a bullet) gets flagged as
+"referenced but never defined" even though markdown-it-footnote renders it correctly. False
+positive, not a real bug — the regex just doesn't account for list-item indentation. Fix by
+stripping leading whitespace before matching, or documenting that footnote defs should stay
+flush-left.

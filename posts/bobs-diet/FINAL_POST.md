@@ -4,11 +4,49 @@ date: 2025-12-08
 draft: false
 ---
 
-_Update 1/31/26: This
+_Update 8/11/26:_
+[Rethink Priorities](https://rethinkpriorities.org/research-area/an-introduction-to-the-moral-weight-project/)
+tried much harder than me to answer these questions several years before I wrote. They
+[explicitly argue against using neurons as a proxy for moral weight](@rp-neurons). But their
+arguments are sufficiently galaxy-brained that I prefer my simpler ones:
+
+- Their confidence intervals include the possibility that octopi have higher moral weight than
+  humans, because octopi have a higher Critical Flicker-fusion Frequency.[^CFF] But humans have ~1.5
+  OOMs greater [temporal resolution in hearing](@cff-audio) (via pitch) than sight.[^KISS]
+
+  [^KISS]:
+      My KISS approach would be to estimate clock speed (frequency at which neurons fire) and assume
+      that the 'number of sequential neuron firings it takes to produce a perceptually discrete
+      event' term cancels with the 'richness/magnitude of said event' term, because the latter is
+      probably higher if it's the result of more neurons firing. I have not thought about this hard.
+
+  [^CFF]:
+      CFF: how close together flashes of light are temporally for you to start perceiving them one
+      as one flash.
+
+- They try to measure ~90 different proxies for sentience, and about half of (species, sentience
+  measurement) pairs are unknown. How you deal with this is a nasty statistical problem. It sounds
+  like they made a reasonable adjustment[^adjustment], but I worry that by casting such a broad net
+  they added more noise than signal.
+
+  [^adjustment]:
+      Their adjustment: a prior that no evidence for a trait implies that the trait is not present.
+
+- They only use binary measurements! That's throwing away so much good data.
+
+I worry that this criticism is 'sour grapes' towards a document much better-researched than my own.
+But my judgement is that their complex model introduces too much error surface area to pay for its
+advantage in detail and comprehensiveness.
+
+These days I eat everything. My subjective guilt for eating any given animal product is strongly
+positively correlated to the metrics you'll learn about below; frequency of consumption is
+negatively correlated.
+
+_Update 1/31/26:_ This
 [ACX post](https://slatestarcodex.com/2019/12/11/acc-is-eating-meat-a-net-harm/) does most of the
 data deep dive I have been postponing. They claim fish aren't conscious. I don't think consciousness
 is well-defined, but I have updated down on the moral weight of fish. Today I am pescatarian and
-trying to kick my egg habit._
+trying to kick my egg habit.
 
 Epistemic Status: Every two years God bestows upon me dietary wisdom which I am compelled to share
 with the world. Unfortunately, God's new revelations tend to contradict his previous ones, just like
@@ -213,7 +251,8 @@ UPDATE 4/10/2026: I eat everything and feel guilty about it :(.
 
 # V. B-roll
 
-No one farms lobster or crab because they're cannibals, so you can't leave them in a shared pen.
+~~No one farms lobster or crab because they're cannibals, so you can't leave them in a shared pen.~~
+Edit: totally a thing, they just keep the animals in cages.
 
 A dairy cow produces [_35!_ liters of milk per day](@cow-milk).
 
@@ -233,3 +272,12 @@ averages ~80 lb (~35 L) of milk a day. <https://www.holsteinusa.com/pdf/fact_she
 {@broiler}: The Humane League, "What Are Broiler Chickens and How Long Do They Live?" — modern
 broilers reach ~6.5 lb at ~47 days (about 6-7 weeks).
 <https://thehumaneleague.org/article/broiler-chickens>
+
+{@cff-audio}: Verschooten et al., "The upper frequency limit for the use of phase locking to code
+temporal fine structure in humans: A compilation of viewpoints," _Hearing Research_ 377 (2019):
+109–121 — binaural phase-locking confirmed to ~1,500 Hz, contributors' upper-limit estimates range
+1,500–10,000 Hz, vs. visual CFF's ~60–90 Hz. <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6524635/>
+
+{@rp-neurons}: Rethink Priorities, "Why Neuron Counts Shouldn't Be Used as Proxies for Moral Weight"
+(2021).
+<https://rethinkpriorities.org/research-area/why-neuron-counts-shouldnt-be-used-as-proxies-for-moral-weight/>
