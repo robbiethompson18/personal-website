@@ -1,0 +1,185 @@
+---
+title: Track the Kids Pt. 2
+date: 2026-08-07
+draft: true
+---
+
+Content warning: humble bragging, old man shouting at a cloud
+
+I am upset that I didn't get tracked more strongly in school as a child. Academics were an absolute
+cake walk for me until college. I know much less than I might if I was tracked harder, especially
+within math and science. And I suspect I would be emotionally stronger: I never had to work hard
+until college.
+
+For a couple months I have been very excited about using LLMs in schools. 'Personalized Learning'
+has been a buzzword associated with edtech failures for a decade. But with LLMs it appears trivial
+to implement. I vibe-coded the 'product'[^wrapper]in an hour, and I use it every day to learn
+information theory and differential equations. I love it.
+
+I built this product for my current self, but also for my 10-year-old self. I remember finally
+getting to have a special gifted kids math time in fourth grade, only to have the parent teaching it
+not understand the problems. I was smart enough to solve them, but not enough to convince the parent
+in charge that she was wrong and I was right. I also remember spending every math class alone in the
+library in eigth grade, struggling through my online EPGY curriculum. It was a worse version of Khan
+Academy. I still viscerally dislike solving systems of three equations, because I spent so many
+hours thinking I had some great conceptual misunderstanding, when really I could just never string
+together enough error-free arithmetic to get the right answer and make the program progress.
+
+All throughout middle school, I would've been dramatically happier if I'd been able to work through
+a math textbook together with Claude.
+
+Ok what do I actually believe?
+
+1. School is barely necessary for most people. We see a ton of growth because kids get older, than
+   none becase school doesn't work. We could grind way less hard on academics
+2. But for people who are able - it's pretty important. I would never have leared probability theory
+   on my own, but I'm so glad I know it.
+
+   This is the central contradiction: school doesn't matter that much for most people because
+   they're too dumb; but if you're smart enough then it's super important and you're being held
+   back. I guess that's my honest to goodness take. We treat school as if it's a product for the
+   idiots. But it's way more important for the smart kids! If I do anything in education, it should
+   be for the smart kids. And the most important thing you can do for them is get them out of public
+   school and amongst talented peers.
+
+   I'm very emotionally tied up in this. I feel stupid. Probably the braindead conclusions are true.
+   - School works. You can be taught things.
+   - But only so many things. There is a hard cap based on age x ability
+   - Dumber people stop being able to absorb more things sooner, probably. They should go to trade
+     school at 16. Smart people should go do their PhD to learn TCS.
+   - the most important thing we aren't doing is tracking
+   - It's unclear if it's worth pursuing 'claude teaches you everyting' if it doesn't let you track.
+     It probably is worth someone doing? But also probably doesn't help much.
+   - the important thing is getting more kids into environments like Alpha School and doing more
+     tracking
+   - even that probably matters not that much. Do it with fake math: when kids are young MAP scores
+     stddevs are about 1 grade. And moving the most talented kids up a grade gets you about .2
+     stddevs. The most talented kids are probably 2 grades ahead. So maybe we naively expect .1
+     stddevs?
+
+Think about it from first principles: what would that school even look like? It would look like
+Alpha School, probably. Is there any way to do Alpha School by half measure? To let kids skip ahead
+like this? I am not sure. Brainstorm:
+
+- get G&T kids into special math, where they learn via iPad.
+
+This sort of only works for math? Not for anything else really? Because math has no projects. It's
+just tests. I guess it could plausibly work for English too. That's just book reports. You'd need
+some peer to talk about the book with though that is important.
+
+Ok you want to be pesimistic. Be pesimistic. American is _not_ going to do this in public schools.
+Private schools might do this. Maybe red states will do it? Maybe other countries will do it? It
+will only matter for gifted and talented kids. They were the only kids who ever mattered (eek).
+
+Ok reword differently: this is just a hustle issue on my part. If I was going to do this, I would
+need to _commit_ to the fucking bit. Go be a reformer. Start a school. I don't want to do that.
+That's OK. Exist from a position of power. I wanted to see if the easy path was there. There's only
+a hard path. I might come back to it later in life. But I will not do it right now. Because right
+now I only want to do this if I can avoid starting a school or working for Alpha. And those seem
+like pre-reqs.
+
+I just don't want to do this. That's the truth. I don't have the patience to fight for this. I
+believe it is a noble crusade. I believe I could do better than Mackenzie Price. I should sit down
+and think about _that_ in the sauna. _Do I want to do this?_ Everyone fucking knows that another
+startup existing is _not_ a reason to not do something. Do I want to absolutely _commit_ to the bit
+of being Alpha fucking school? It would be so hard and I would probably fail.
+
+I do think I need to sit down and do the math on how much I care. I value a stddev of academic
+achievement (or a year of it) at... 1 whole year for your whole life? Idk people spend a full year
+in the prime in school. It has to be about a QALY. Call it 1 QALY.
+
+How much value do kids get from not suffering through being bored or given an impossible task? 1
+grade level closer to true ability level \* 1 year of life is... maybe .1 QALYs? School is 50% of
+your waking hours and this probably makes it ~20% better; I'm sure a lot of other happiness has to
+do with health, girls, social lives, etc.
+
+I think I can get each kid to have about 1 grade-level of 'close to true ability level' per kid.
+Young kids are about a grade apart on average and barely sort as is. And a grade level is
+meaningful. For older kids, a grade level is meaningless because it's such a tiny portion of a
+stddev in ability, and because average scores barely move after ninth grade. Let's round it to 1
+grade-level anyway.
+
+The extra years of educational attainment is much harder to quantify. There's probably some effect
+for 'kids graduate early and can thus do a masters, etc.' but I bet that's small. I will round to:
+10% more learning per year.
+
+People are in school from 6-22 (ignoring skipping college and grad degrees). This means we get 16
+years \* .2 = 3.2 QALYs per American schoolchild who does this program through and through. So if we
+reached full saturation: 4mm 18year olds \* 3.2 QALYs is about 12mm QALYs. A QALY is 1/70 of a life.
+Call it 180k lives a year at full saturation.
+
+realistically I reach 10% of kids x age range. So 18k lives. In dollars, assuming
+$5k per life from
+Givewell: $90mm per year. I know American lives are much more expensive than this
+empirically. I am shamelessly and un-woke-ly going to value American lives at 5x the Givewell
+marginal cost. (Probably the $5k a life lives are all saved soon?)
+
+This argues for a goodness to humanity of this endeavour at about 18k \* 5 \* $5k = $325mm per year.
+Assume 10 yr 'half life', maybe $3.25B total. Obviously I don't get all the credit, other people
+would join me. Also I would make money and donate some of it which is positive (and employ people
+happily, etc.) Finally: counterfactual impact. Conditioned on me succeeding, would someone else have
+succeeded? I think that applies to almost _anything_ I would attempt, and maybe is _less_ true of
+this idea than of most counterfactual things I work on. Not that many people share my worldview on
+this problem. I think dollars made is same OOM as value of the QALYs (both are conditional on
+massive success).
+
+I would totally say that it's worthwhile to devote my next 10 years to making $7.5B of cold hard
+cash. What probability of success would I need for it to be worth it?
+
+Generic meta-type SWE job: call it $1mm a year, so $10mm.
+
+Anthropic-type job: easily more money and happier for me. Call it $30mm
+
+Would I at least get gradient quickly? Like if I could collapse state to (>25% chance of success, 0%
+chance of success) in a year it would be worth it. But I don't think I could do that. I think it
+actually looks like:
+
+now: 10bps chance of success
+
+next year, conditioned on going well: 1% chance
+
+2yrs: 3%
+
+3yrs: 8%?
+
+5yrs: 25%? So many worlds in which I've won, so many in which I'm struggling and committed to a
+_horrible_ choice
+
+10yrs: should be decided.
+
+Conclusion: I think there is a <1% chance I succeed at this; I won't make meaningful progress in
+finding out next year. So this path is like $7mm of EV, less than a job at A\ or Meta.
+
+The 10bps number assumes that I'm right: tracking works and LLM teachers would work. AI teaching
+could even be way better than .2 QALYs per year of instruction.
+
+Finally: there are probably massively good knock-on effects to have a better-educated population. x
+more points on the PISA corresponds to y in GDP. If we get 1.6 more years of schooling that's
+plausibly _ points on the PISA which is _ GDP per annum in the US.
+
+## Issues
+
+1. I am obviously a massive outlier: a. I think I addressed this in my fermi estimates
+2. Is there more to this product than Claude plus a textbook? a. No, not in SAAS form. That's why
+   you _need_ to own and run the school. Which means 10bps is probably generous. And the timelines
+   are too short.
+3. tracking has horrible vibes a. hence why I gave myself such a low chance of success.
+
+## Attempting to imagine this software as SAAS only:
+
+- schools decide for themselves to implement a '\_\_\_ed' classroom. A 'mixed-level classroom.' It's
+  just the way things are done in the AI era. An 'Alpha-ed' classroom. They figure out the
+  enrichment themslves. I think I would be early in this case. 3hr learning is a massive shift, esp
+  in high schools, which probably stand to benefit the most.
+- We could help schools implement the alpha-ed classroom. That makes GTM impossible. Much harder for
+  teachers to try you out. And other teachers in the next grade would be pissed if you didn't even
+  try to teach to grade level. Though maybe it forces teachers in the next grade to also adopt this
+  model?
+- Schools shunt certain kids into the alpha model one by one. The dumbest and smartest kids go to a
+  special library room to get alpha-ed up. Also makes GTM very hard.
+- Sell to homeschools and micro schools for a long time before this software really takes off.
+
+All of these sound not impossible but so far from ideal.
+
+[^wrapper]:
+    A thin Fable wrapper with some mechanics for spaced repetition and branching conversations.
