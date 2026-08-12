@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track the Kids</title>
+    <meta name="description" content="Essays by Robbie Thompson." />
+    <link rel="canonical" href="https://robbiewmthompson.com/blog/track-the-kids/" />
+    <meta property="og:title" content="Track the Kids" />
+    <meta property="og:description" content="Essays by Robbie Thompson." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://robbiewmthompson.com/blog/track-the-kids/" />
+    <link rel="alternate" type="application/rss+xml" title="Robbie Thompson" href="/feed.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/blog.css" />
+    <link rel="stylesheet" href="/vendor/katex/katex.min.css" />
+  </head>
+  <body>
+    <main class="post">
+      <article>
+        <header class="post-header">
+          <p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
+          <h1>Track the Kids</h1>
+          
+          <p class="post-dates"><span>Published <time datetime="2026-08-11">August 11, 2026</time></span><span>Last edited <time datetime="2026-08-11">August 11, 2026</time></span></p>
+        </header>
+        <p>LLMs are magical tools for learning. They can teach any subject at exactly your level, with infinite
+patience and practice problems. Add a small harness, and they’re close to those
+<a href="https://www.youtube.com/watch?v=KvMxLpce3Xw">learning pods</a> from Star Trek. Is <em>personalized
+learning</em> finally here? I spent some time investigating.</p>
+<h2 id="teachers">Teachers <a class="heading-anchor" href="#teachers" aria-label="Link to this section">#</a></h2>
+<p>Before I started shilling an AI wrapper, I interviewed ~10 teachers. English teachers mostly
+discussed how bad LLM cheating is. Math teachers were more open to tooling; they used things like
+DeltaMath and MagicSchool.</p>
+<p>Most teachers did not love their job. I always asked them about a hypothetical future where they
+were much happier at work: how could this come to be? The universal answer: fewer students, so that
+they can spend one-on-one time with kids.</p>
+<p>Huzzah! In the GTF<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> teachers won’t wrangle 30 kids into doing the same activity. They’ll glue
+25 of them to iPads (or better yet, Star Trek Pods) and have intimate socratic seminars with the
+other 5. All I need to do is build the Pods.</p>
+<h2 id="alpha-school">Alpha School <a class="heading-anchor" href="#alpha-school" aria-label="Link to this section">#</a></h2>
+<p>The Pods have existed at Alpha School for at least a decade. Hook the kids up to an iPad that
+delivers material via spaced repetition, and (Alpha claims) they’ll learn twice as much as at normal
+school in only three hours. Part of Alpha’s results are explained by selection effects, low
+student-to-teacher-ratios<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> and paying the kids in ‘Alpha Bucks.’<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> But after going to
+one of Alpha’s events in San Francisco and talking to some students and parents, my finger in the
+air estimation is: it works.</p>
+<p>Interestingly, Alpha’s marketing is all in on ‘AI school,’ but their product has no AI. One of
+founder Mackenzie Price’s schticks was ‘chatbots are cheatbots.’ Everything works on the software
+of 2015.</p>
+<h2 id="homeschoolers">Homeschoolers <a class="heading-anchor" href="#homeschoolers" aria-label="Link to this section">#</a></h2>
+<p>Does the Alpha model work outside their extremely selective cohort? To (partially) answer that
+question I interviewed homeschool parents. They were universally <em>extremely</em> happy with their
+decision to homeschool. All believed that their kids were getting a far better education. I can’t be
+certain the kids were happy, but the moms sure as hell were.</p>
+<p>There are countless tools that provide content for homeschoolers. The moms liked them. They managed
+their kids’s schedules but did little direct teaching or tutoring. Everyone was at or above grade
+level despite spending ~3 hours a day on acaedemics, just like at Alpha.</p>
+<h2 id="content-is-a-solved-problem">Content Is a Solved Problem <a class="heading-anchor" href="#content-is-a-solved-problem" aria-label="Link to this section">#</a></h2>
+<p>One teacher wanted to shake me through the screen to deliver this message. My inner egotistic Steve
+Jobs wanted to shake him in return: but your content could be so much better! You could have
+practice embedded in the text, interactive visuals, games, adaptive homework with instant grading…
+no one was interested.</p>
+<h2 id="track-the-kids">Track the Kids <a class="heading-anchor" href="#track-the-kids" aria-label="Link to this section">#</a></h2>
+<p>I’m skeptical of the claim that age-based cohorts help kids socially (see <em>Lord of the Flies</em>). They
+seem <em>catastrophic</em> academically. Every schoolteacher said they spent most of their time on the
+bottom ten percent of students and struggled to spare the top 10% from boredom.</p>
+<p>There is strong empirical evidence for “kids are not equally able”:
+<a href="https://www.nwea.org/resource-center/fact-sheet/87992/MAP-Growth-2025-norms-quick-reference_NWEA_onesheet.pdf/">MAP scores</a>.<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>
+In elementary school, the stddev of student ability is about the same as one grade level worth of
+learning. About 1/3rd of your students will be at least one grade ahead or behind. By the time you
+get to high school, a stddev is 10x the difference between the average ninth and tenth grader. ~15%
+of high school seniors read at a fourth grade level.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup><sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<p>Every homeschool parent finds curriculum for their kids for only a couple hundred bucks a year. Can
+we really not figure out a way to let precocious third-graders learn algebra? I haven’t spent nearly
+enough time in this space to convince myself I’m not missing something, but these are my hunches for
+why personalized learning has failed:</p>
+<ul>
+<li>screen time has bad vibes</li>
+<li>personalized learning is organizationally hard (how do you grade? what do you do together?)</li>
+<li><em>tracking has bad vibes</em></li>
+</ul>
+<p>I couldn’t tell you how many people in how many contexts have tried to tell me that IQ is ‘not real’
+(<a href="https://slatestarcodex.com/2015/01/31/the-parable-of-the-talents/">it definitely is!</a>).</p>
+<p>If half of your third grade class is doing Algebra while the other half learns addition, that second
+half is a skill issue on your behalf. You are a Bad Teacher Who is Leaving Children Behind. If all
+of your third grade class is learning addition, then… there’s nothing to see here 😗🎶.</p>
+<p>Even some homeschooled parents had internalized the belief that minds are homogenous. The one mom
+who asked for curriculum wanted reading material for five-year-olds, because none of her kids could
+read at 5. I asked how they learned to read. “They all figured it when they turned 7.” Then teach
+them to read at 7! I assume some board of education standards has made this strategy illegal.</p>
+<p>Society is warming to the idea that some kids find book learning hard. One never says this outright;
+students instead have a clinical diagnosis and an IEP. I am fine with riding the euphemism treadmill
+for the sake of protecting kid’s feelings. We should find a similar euphemism that lets some kids
+skip several grades while preserving everyone else’s feelings. At present the best we manage is
+shipping some tiny percentage of the talented ones off to the Philipp’s Exeters of the world.</p>
+<h2 id="what-to-be-done">What to Be Done <a class="heading-anchor" href="#what-to-be-done" aria-label="Link to this section">#</a></h2>
+<p>This problem still bothers me personally. I am certain this will come across as obnoxious, but: I am
+sad about how little my own learning was accelerated in math and science. I suspect I could’ve
+absorbed 2x to 8x more material in another environment. I deeply wish that I knew more math.</p>
+<p>If the tracking vibes problem was magically fixed (I am not hopeful), we’d see a bit more
+personalized learning software. But the far bigger and more important impact would be students that
+are much more sorted by ability, both within and between schools.</p>
+<p>Institutions like <a href="https://alpha.school/">Alpha School</a> and
+<a href="https://www.thelevittlab.org/">The Levitt Lab</a> are making personalized, mastery-based learning a
+reality today. I am sufficiently bought in to send my future kids to one of these schools; I am not
+sufficiently bought in to found a competing school or work for them.<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup> I doubt whether better
+software will move the needle, which is why I’m abandoning this startup idea.</p>
+<p>I will at least make a tiny contribution to the vibes by boosting a favorite SSC essay,
+<a href="https://slatestarcodex.com/2015/01/31/the-parable-of-the-talents/">The Parable of The Talents</a>.</p>
+<h2 id="coda">Coda <a class="heading-anchor" href="#coda" aria-label="Link to this section">#</a></h2>
+<p>I probably should’ve known. When I was in eighth grade I had taken every math class my middle school
+offered, so I took precalc online via EPGY.<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> I was all alone in a library, no teacher ever
+checked in on me. I had no homework. The course was just multiple choice quizzes and pre-recorded
+videos of someone drawing on an e-whiteboard, like Khan Academy but worse. Still, I passed.<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="#notes" aria-label="Link to this section">#</a></h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Glorious Transhumanist Future <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Despite the teachers being ‘guides’ who deliver no curriculum! <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>For a fuller treatment of Alpha School I recommend
+<a href="https://www.astralcodexten.com/p/your-review-alpha-school">https://www.astralcodexten.com/p/your-review-alpha-school</a>. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>I am not addressing the rebuttal of: ‘some kids just got a better education.’ <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>There are national averages under the current school system, where we don’t do much tracking. If
+we did, we’d expect even higher stddevs. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>Scores seem to not move at all after ninth grade, which is both depressing and a strong
+datapoint in favor of letting people start trade school earlier like they do in Germany. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>A very hastily-constructed BOTEC on whether founding an Alpha School competitor is a sensible
+career choice:</p>
+<p>How much value do kids get from not suffering through being bored or given an impossible task?
+I’m going to assume that one grade level closer to true ability level is .1 QALYs per student
+per year. School is 50% of your waking hours and this probably makes it ~20% better; I’m sure a
+lot of other happiness has to do with health, social life, etc.</p>
+<p>I estimate I can make each kid’s material about one ‘grade level’ closer to their true ability.
+Young kids are about a grade apart on average and barely sort today. For older kids, a grade
+level is meaningless because it’s such a tiny portion of a stddev in ability, and because
+average scores barely move after ninth grade. Let’s round it to 1 grade-level (or .1
+QALYS/student/year) anyway.</p>
+<p>The extra years of educational attainment is much harder to quantify. I will round to: 10% more
+learning per year. I will value one additional year of academic achievement at one QALY: people
+go into debt and spend a full year in their prime in school.</p>
+<p>We go to school from about 6 to 22. This means we get 16 years * .2 = 3.2 QALYs per American
+schoolchild who does this program through and through. So if we reached full saturation: 4mm
+18year olds * 3.2 QALYs is about 12mm QALYs. A QALY is 1/70 of a life. Call it 180k lives a
+year at full saturation.</p>
+<p>A wildly successful effort in thie domain would reach 10% of American schoolkids any given year.
+So 18k lives. In dollars, assuming $5k per life from Givewell: $90mm per year. I know American
+lives are much more expensive than this empirically. I am going with the Givewell marginal cost
+anyway.</p>
+<p>This argues for a goodness to humanity of this endeavour at about 18k * $5k = $90mm per year.
+Assume 10 yr ‘half life’, maybe $900mm total. Obviously I don’t get all the credit, other
+people would join me. Also I would make money and donate some of it which is positive (and
+employ people happily, etc.) Finally: counterfactual impact. Conditioned on me succeeding, would
+someone else have succeeded? That applies to almost <em>anything</em> I would attempt, and maybe is
+<em>less</em> true of this idea than of most counterfactual things I work on. Not that many people
+share my worldview on this problem.</p>
+<p>I suspect dollars made is same OOM as value of the QALYs (both are conditional on massive
+success). So call it $2B in ‘altrustic value created’ total.</p>
+<p>It’s absolutely worthwhile to devote my next 10 years to making $2B of cold hard cash. What
+probability of success would I need for this endeavour to be worthwhile?</p>
+<p>Working a generic corporate job, I’d expect to make about $1mm a year on average, so $10mm
+total. That could easily be ~2x higher if I worked very hard to get a job at a lab.</p>
+<p>Would I at least get gradient quickly? If I could collapse state to (&gt;25% chance of success, 0%
+chance of success) in a year it would be worth it. But I couldn’t. Realistically:</p>
+<p>now: 10bps chance of success</p>
+<p>next year, conditioned on going well: 1% chance</p>
+<p>2yrs: 3%</p>
+<p>5yrs: 25%?</p>
+<p>10yrs: should be decided.</p>
+<p>Conclusion: There is a &lt;1% chance I succeed at this; I won’t make meaningful progress in finding
+out next year. This path is like $2mm of EV, less than a job at A\ or Meta.</p>
+<p>The 10bps number assumes that I’m right: tracking works and LLM teachers would work. AI teaching
+could be way better than .2 QALYs per year of instruction so I’m ignoring this.</p>
+<p>Finally: there are probably massively good knock-on effects to have a better-educated
+population.
+<a href="#src-hw-growth" class="cite" id="citeref-hw-growth">100 more points on the PISA corresponds to ~2 percentage points more annual GDP growth</a>,
+compounded over decades. If we get 1.6 more years of schooling that’s plausibly
+<a href="#src-pisa-year" class="cite" id="citeref-pisa-year">~32 points on the PISA</a>, which is ~0.6 percentage points more GDP per annum in the
+US. Even in the next ten years, given that GDP is about $34T and will be about
+<a href="#src-cbo-gdp" class="cite" id="citeref-cbo-gdp">~$47T in a decade</a>, that is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msup><mn>1.006</mn><mn>10</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><mi mathvariant="normal">$</mi><mn>47</mn><mtext>T</mtext><mo>≈</mo><mi mathvariant="normal">$</mi><mn>2.9</mn><mtext>T</mtext></mrow><annotation encoding="application/x-tex">(1.006^{10} - 1) \times \$47\text{T} \approx
+\$2.9\text{T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1.00</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">$47</span><span class="mord text"><span class="mord">T</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">$2.9</span><span class="mord text"><span class="mord">T</span></span></span></span></span> — about $3T more GDP per year. I don’t think this chain of causation is robust
+or that I should give myself (hypothetical) credit for increased GDP. But it sure as hell makes
+every other number in this BOTEC tiny. <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Education_Program_for_Gifted_Youth">Education Program for Gifted Youth</a>. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>I still tweak out every time I have to solve a system of three equations. Doing this is
+conceptually easy, but avoiding arithmetic errors would give me fits. I would constantly make
+one, get a problem wrong with no explanation, and have to stare at my page trying to see where I
+flipped a sign. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+<hr class="sources-sep">
+<section class="sources">
+<h2 class="sources-title" id="sources">Sources <a class="heading-anchor" href="#sources" aria-label="Link to this section">#</a></h2>
+<p class="sources-note">Claude found these sources. Robbie did not review them.</p>
+<ol class="sources-list">
+<li id="src-hw-growth" class="source-item">Hanushek &amp; Woessmann, “Do Better Schools Lead to More Growth? Cognitive Skills, Economic Outcomes, and Causation,” <em>Journal of Economic Growth</em> 17 (2012): 267–321 — a 100-point gain on international test scores is associated with ~1.98 percentage points higher average annual GDP growth over 40 years. <a href="https://hanushek.stanford.edu/sites/default/files/publications/Hanushek+Woessmann%202012%20JEconGrowth%2017(4).pdf">https://hanushek.stanford.edu/sites/default/files/publications/Hanushek+Woessmann 2012 JEconGrowth 17(4).pdf</a> <a href="#citeref-hw-growth" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-pisa-year" class="source-item">OECD, “How Much Do 15-Year-Olds Learn over One Year of Schooling?,” PISA in Focus No. 115 (2021) — ~20 PISA points is the typical learning gain from one year of schooling across OECD countries. <a href="https://eric.ed.gov/?id=ED616260">https://eric.ed.gov/?id=ED616260</a> <a href="#citeref-pisa-year" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-cbo-gdp" class="source-item">CBO, <em>The Budget and Economic Outlook: 2026 to 2036</em> (Feb. 2026) — implied nominal GDP of ~$46.7T in 2036, back-calculated from CBO’s own stated 2036 spending ($11.4T = 24.4% of GDP) and revenue ($8.3T = 17.8% of GDP) figures. <a href="https://www.cbo.gov/publication/61882">https://www.cbo.gov/publication/61882</a> <a href="#citeref-cbo-gdp" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+</ol>
+</section>
+
+      </article>
+      <footer class="post-footer">
+        <p><a href="/blog/">&larr; More writing</a></p>
+      </footer>
+    </main>
+    <script src="/footnotes.js" defer></script>
+  </body>
+</html>
