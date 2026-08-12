@@ -7,6 +7,289 @@
     <description>Essays by Robbie Thompson.</description>
     <language>en</language>
     <item>
+      <title>Track the Kids</title>
+      <link>https://robbiewmthompson.com/blog/track-the-kids/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/track-the-kids/</guid>
+      <pubDate>Tue, 11 Aug 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>LLMs are magical tools for learning. They can teach any subject at exactly your level, with infinite
+patience and practice problems. Add a small harness, and they’re close to those
+<a href="https://www.youtube.com/watch?v=KvMxLpce3Xw">learning pods</a> from Star Trek. Is <em>personalized
+learning</em> finally here? I spent some time investigating.</p>
+<h2 id="teachers">Teachers <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#teachers" aria-label="Link to this section">#</a></h2>
+<p>Before I started shilling an AI wrapper, I interviewed ~10 teachers. English teachers mostly
+discussed how bad LLM cheating is. Math teachers were more open to tooling; they used things like
+DeltaMath and MagicSchool.</p>
+<p>Most teachers did not love their job. I always asked them about a hypothetical future where they
+were much happier at work: how could this come to be? The universal answer: fewer students, so that
+they can spend one-on-one time with kids.</p>
+<p>Huzzah! In the GTF<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn1" id="fnref1">[1]</a></sup> teachers won’t wrangle 30 kids into doing the same activity. They’ll glue
+25 of them to iPads (or better yet, Star Trek Pods) and have intimate socratic seminars with the
+other 5. All I need to do is build the Pods.</p>
+<h2 id="alpha-school">Alpha School <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#alpha-school" aria-label="Link to this section">#</a></h2>
+<p>The Pods have existed at Alpha School for at least a decade. Hook the kids up to an iPad that
+delivers material via spaced repetition, and (Alpha claims) they’ll learn twice as much as at normal
+school in only three hours. Part of Alpha’s results are explained by selection effects, low
+student-to-teacher-ratios<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn2" id="fnref2">[2]</a></sup> and paying the kids in ‘Alpha Bucks.’<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn3" id="fnref3">[3]</a></sup> But after going to
+one of Alpha’s events in San Francisco and talking to some students and parents, my finger in the
+air estimation is: it works.</p>
+<p>Interestingly, Alpha’s marketing is all in on ‘AI school,’ but their product has no AI. One of
+founder Mackenzie Price’s schticks was ‘chatbots are cheatbots.’ Everything works on the software
+of 2015.</p>
+<h2 id="homeschoolers">Homeschoolers <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#homeschoolers" aria-label="Link to this section">#</a></h2>
+<p>Does the Alpha model work outside their extremely selective cohort? To (partially) answer that
+question I interviewed homeschool parents. They were universally <em>extremely</em> happy with their
+decision to homeschool. All believed that their kids were getting a far better education. I can’t be
+certain the kids were happy, but the moms sure as hell were.</p>
+<p>There are countless tools that provide content for homeschoolers. The moms liked them. They managed
+their kids’s schedules but did little direct teaching or tutoring. Everyone was at or above grade
+level despite spending ~3 hours a day on acaedemics, just like at Alpha.</p>
+<h2 id="content-is-a-solved-problem">Content Is a Solved Problem <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#content-is-a-solved-problem" aria-label="Link to this section">#</a></h2>
+<p>One teacher wanted to shake me through the screen to deliver this message. My inner egotistic Steve
+Jobs wanted to shake him in return: but your content could be so much better! You could have
+practice embedded in the text, interactive visuals, games, adaptive homework with instant grading…
+no one was interested.</p>
+<h2 id="track-the-kids">Track the Kids <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#track-the-kids" aria-label="Link to this section">#</a></h2>
+<p>I’m skeptical of the claim that age-based cohorts help kids socially (see <em>Lord of the Flies</em>). They
+seem <em>catastrophic</em> academically. Every schoolteacher said they spent most of their time on the
+bottom ten percent of students and struggled to spare the top 10% from boredom.</p>
+<p>There is strong empirical evidence for “kids are not equally able”:
+<a href="https://www.nwea.org/resource-center/fact-sheet/87992/MAP-Growth-2025-norms-quick-reference_NWEA_onesheet.pdf/">MAP scores</a>.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn4" id="fnref4">[4]</a></sup>
+In elementary school, the stddev of student ability is about the same as one grade level worth of
+learning. About 1/3rd of your students will be at least one grade ahead or behind. By the time you
+get to high school, a stddev is 10x the difference between the average ninth and tenth grader. ~15%
+of high school seniors read at a fourth grade level.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn5" id="fnref5">[5]</a></sup><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn6" id="fnref6">[6]</a></sup></p>
+<p>Every homeschool parent finds curriculum for their kids for only a couple hundred bucks a year. Can
+we really not figure out a way to let precocious third-graders learn algebra? I haven’t spent nearly
+enough time in this space to convince myself I’m not missing something, but these are my hunches for
+why personalized learning has failed:</p>
+<ul>
+<li>screen time has bad vibes</li>
+<li>personalized learning is organizationally hard (how do you grade? what do you do together?)</li>
+<li><em>tracking has bad vibes</em></li>
+</ul>
+<p>I couldn’t tell you how many people in how many contexts have tried to tell me that IQ is ‘not real’
+(<a href="https://slatestarcodex.com/2015/01/31/the-parable-of-the-talents/">it definitely is!</a>).</p>
+<p>If half of your third grade class is doing Algebra while the other half learns addition, that second
+half is a skill issue on your behalf. You are a Bad Teacher Who is Leaving Children Behind. If all
+of your third grade class is learning addition, then… there’s nothing to see here 😗🎶.</p>
+<p>Even some homeschooled parents had internalized the belief that minds are homogenous. The one mom
+who asked for curriculum wanted reading material for five-year-olds, because none of her kids could
+read at 5. I asked how they learned to read. “They all figured it when they turned 7.” Then teach
+them to read at 7! I assume some board of education standards has made this strategy illegal.</p>
+<p>Society is warming to the idea that some kids find book learning hard. One never says this outright;
+students instead have a clinical diagnosis and an IEP. I am fine with riding the euphemism treadmill
+for the sake of protecting kid’s feelings. We should find a similar euphemism that lets some kids
+skip several grades while preserving everyone else’s feelings. At present the best we manage is
+shipping some tiny percentage of the talented ones off to the Philipp’s Exeters of the world.</p>
+<h2 id="what-to-be-done">What to Be Done <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#what-to-be-done" aria-label="Link to this section">#</a></h2>
+<p>This problem still bothers me personally. I am certain this will come across as obnoxious, but: I am
+sad about how little my own learning was accelerated in math and science. I suspect I could’ve
+absorbed 2x to 8x more material in another environment. I deeply wish that I knew more math.</p>
+<p>If the tracking vibes problem was magically fixed (I am not hopeful), we’d see a bit more
+personalized learning software. But the far bigger and more important impact would be students that
+are much more sorted by ability, both within and between schools.</p>
+<p>Institutions like <a href="https://alpha.school/">Alpha School</a> and
+<a href="https://www.thelevittlab.org/">The Levitt Lab</a> are making personalized, mastery-based learning a
+reality today. I am sufficiently bought in to send my future kids to one of these schools; I am not
+sufficiently bought in to found a competing school or work for them.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn7" id="fnref7">[7]</a></sup> I doubt whether better
+software will move the needle, which is why I’m abandoning this startup idea.</p>
+<p>I will at least make a tiny contribution to the vibes by boosting a favorite SSC essay,
+<a href="https://slatestarcodex.com/2015/01/31/the-parable-of-the-talents/">The Parable of The Talents</a>.</p>
+<h2 id="coda">Coda <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#coda" aria-label="Link to this section">#</a></h2>
+<p>I probably should’ve known. When I was in eighth grade I had taken every math class my middle school
+offered, so I took precalc online via EPGY.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn8" id="fnref8">[8]</a></sup> I was all alone in a library, no teacher ever
+checked in on me. I had no homework. The course was just multiple choice quizzes and pre-recorded
+videos of someone drawing on an e-whiteboard, like Khan Academy but worse. Still, I passed.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn9" id="fnref9">[9]</a></sup></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#notes" aria-label="Link to this section">#</a></h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Glorious Transhumanist Future <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Despite the teachers being ‘guides’ who deliver no curriculum! <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>For a fuller treatment of Alpha School I recommend
+<a href="https://www.astralcodexten.com/p/your-review-alpha-school">https://www.astralcodexten.com/p/your-review-alpha-school</a>. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>I am not addressing the rebuttal of: ‘some kids just got a better education.’ <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>There are national averages under the current school system, where we don’t do much tracking. If
+we did, we’d expect even higher stddevs. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>Scores seem to not move at all after ninth grade, which is both depressing and a strong
+datapoint in favor of letting people start trade school earlier like they do in Germany. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>A very hastily-constructed BOTEC on whether founding an Alpha School competitor is a sensible
+career choice:</p>
+<p>How much value do kids get from not suffering through being bored or given an impossible task?
+I’m going to assume that one grade level closer to true ability level is .1 QALYs per student
+per year. School is 50% of your waking hours and this probably makes it ~20% better; I’m sure a
+lot of other happiness has to do with health, social life, etc.</p>
+<p>I estimate I can make each kid’s material about one ‘grade level’ closer to their true ability.
+Young kids are about a grade apart on average and barely sort today. For older kids, a grade
+level is meaningless because it’s such a tiny portion of a stddev in ability, and because
+average scores barely move after ninth grade. Let’s round it to 1 grade-level (or .1
+QALYS/student/year) anyway.</p>
+<p>The extra years of educational attainment is much harder to quantify. I will round to: 10% more
+learning per year. I will value one additional year of academic achievement at one QALY: people
+go into debt and spend a full year in their prime in school.</p>
+<p>We go to school from about 6 to 22. This means we get 16 years * .2 = 3.2 QALYs per American
+schoolchild who does this program through and through. So if we reached full saturation: 4mm
+18year olds * 3.2 QALYs is about 12mm QALYs. A QALY is 1/70 of a life. Call it 180k lives a
+year at full saturation.</p>
+<p>A wildly successful effort in thie domain would reach 10% of American schoolkids any given year.
+So 18k lives. In dollars, assuming $5k per life from Givewell: $90mm per year. I know American
+lives are much more expensive than this empirically. I am going with the Givewell marginal cost
+anyway.</p>
+<p>This argues for a goodness to humanity of this endeavour at about 18k * $5k = $90mm per year.
+Assume 10 yr ‘half life’, maybe $900mm total. Obviously I don’t get all the credit, other
+people would join me. Also I would make money and donate some of it which is positive (and
+employ people happily, etc.) Finally: counterfactual impact. Conditioned on me succeeding, would
+someone else have succeeded? That applies to almost <em>anything</em> I would attempt, and maybe is
+<em>less</em> true of this idea than of most counterfactual things I work on. Not that many people
+share my worldview on this problem.</p>
+<p>I suspect dollars made is same OOM as value of the QALYs (both are conditional on massive
+success). So call it $2B in ‘altrustic value created’ total.</p>
+<p>It’s absolutely worthwhile to devote my next 10 years to making $2B of cold hard cash. What
+probability of success would I need for this endeavour to be worthwhile?</p>
+<p>Working a generic corporate job, I’d expect to make about $1mm a year on average, so $10mm
+total. That could easily be ~2x higher if I worked very hard to get a job at a lab.</p>
+<p>Would I at least get gradient quickly? If I could collapse state to (&gt;25% chance of success, 0%
+chance of success) in a year it would be worth it. But I couldn’t. Realistically:</p>
+<p>now: 10bps chance of success</p>
+<p>next year, conditioned on going well: 1% chance</p>
+<p>2yrs: 3%</p>
+<p>5yrs: 25%?</p>
+<p>10yrs: should be decided.</p>
+<p>Conclusion: There is a &lt;1% chance I succeed at this; I won’t make meaningful progress in finding
+out next year. This path is like $2mm of EV, less than a job at A\ or Meta.</p>
+<p>The 10bps number assumes that I’m right: tracking works and LLM teachers would work. AI teaching
+could be way better than .2 QALYs per year of instruction so I’m ignoring this.</p>
+<p>Finally: there are probably massively good knock-on effects to have a better-educated
+population.
+<a href="https://robbiewmthompson.com/blog/track-the-kids/#src-hw-growth" class="cite" id="citeref-hw-growth">100 more points on the PISA corresponds to ~2 percentage points more annual GDP growth</a>,
+compounded over decades. If we get 1.6 more years of schooling that’s plausibly
+<a href="https://robbiewmthompson.com/blog/track-the-kids/#src-pisa-year" class="cite" id="citeref-pisa-year">~32 points on the PISA</a>, which is ~0.6 percentage points more GDP per annum in the
+US. Even in the next ten years, given that GDP is about $34T and will be about
+<a href="https://robbiewmthompson.com/blog/track-the-kids/#src-cbo-gdp" class="cite" id="citeref-cbo-gdp">~$47T in a decade</a>, that is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msup><mn>1.006</mn><mn>10</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><mi mathvariant="normal">$</mi><mn>47</mn><mtext>T</mtext><mo>≈</mo><mi mathvariant="normal">$</mi><mn>2.9</mn><mtext>T</mtext></mrow><annotation encoding="application/x-tex">(1.006^{10} - 1) \times \$47\text{T} \approx
+\$2.9\text{T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1.00</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">$47</span><span class="mord text"><span class="mord">T</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">$2.9</span><span class="mord text"><span class="mord">T</span></span></span></span></span> — about $3T more GDP per year. I don’t think this chain of causation is robust
+or that I should give myself (hypothetical) credit for increased GDP. But it sure as hell makes
+every other number in this BOTEC tiny. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Education_Program_for_Gifted_Youth">Education Program for Gifted Youth</a>. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>I still tweak out every time I have to solve a system of three equations. Doing this is
+conceptually easy, but avoiding arithmetic errors would give me fits. I would constantly make
+one, get a problem wrong with no explanation, and have to stare at my page trying to see where I
+flipped a sign. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+<hr class="sources-sep">
+<section class="sources">
+<h2 class="sources-title" id="sources">Sources <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#sources" aria-label="Link to this section">#</a></h2>
+<p class="sources-note">Claude found these sources. Robbie did not review them.</p>
+<ol class="sources-list">
+<li id="src-hw-growth" class="source-item">Hanushek &amp; Woessmann, “Do Better Schools Lead to More Growth? Cognitive Skills, Economic Outcomes, and Causation,” <em>Journal of Economic Growth</em> 17 (2012): 267–321 — a 100-point gain on international test scores is associated with ~1.98 percentage points higher average annual GDP growth over 40 years. <a href="https://hanushek.stanford.edu/sites/default/files/publications/Hanushek+Woessmann%202012%20JEconGrowth%2017(4).pdf">https://hanushek.stanford.edu/sites/default/files/publications/Hanushek+Woessmann 2012 JEconGrowth 17(4).pdf</a> <a href="https://robbiewmthompson.com/blog/track-the-kids/#citeref-hw-growth" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-pisa-year" class="source-item">OECD, “How Much Do 15-Year-Olds Learn over One Year of Schooling?,” PISA in Focus No. 115 (2021) — ~20 PISA points is the typical learning gain from one year of schooling across OECD countries. <a href="https://eric.ed.gov/?id=ED616260">https://eric.ed.gov/?id=ED616260</a> <a href="https://robbiewmthompson.com/blog/track-the-kids/#citeref-pisa-year" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-cbo-gdp" class="source-item">CBO, <em>The Budget and Economic Outlook: 2026 to 2036</em> (Feb. 2026) — implied nominal GDP of ~$46.7T in 2036, back-calculated from CBO’s own stated 2036 spending ($11.4T = 24.4% of GDP) and revenue ($8.3T = 17.8% of GDP) figures. <a href="https://www.cbo.gov/publication/61882">https://www.cbo.gov/publication/61882</a> <a href="https://robbiewmthompson.com/blog/track-the-kids/#citeref-cbo-gdp" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+</ol>
+</section>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Why It Didn&#39;t Work: Browser Agents</title>
+      <link>https://robbiewmthompson.com/blog/why-it-didnt-work-browser-agents/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/why-it-didnt-work-browser-agents/</guid>
+      <pubDate>Sun, 09 Aug 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>Bailey and I spent a little more than a month building better browser agents before pivoting away.
+Our initial thesis was:</p>
+<ul>
+<li>clearly people wanted browser agents: Manus was very popular, this was a hot area of research at
+the labs</li>
+<li>we had simple ways to improve on existing techniques (eg giving it better pre-processing of the
+DOM)</li>
+</ul>
+<h2 id="tech-searching-for-a-problem">Tech Searching for a Problem <a class="heading-anchor" href="https://robbiewmthompson.com/blog/why-it-didnt-work-browser-agents/#tech-searching-for-a-problem" aria-label="Link to this section">#</a></h2>
+<p>We made a canonical startup mistake: decide what tech you want to build, then figure out who will
+use it. In our defense, we had a first customer who trialed our product from almost day one, but ACV
+would’ve been four digits, and there weren’t obviously thousands of customers with their same
+problem.</p>
+<h2 id="people-wanted-illegal-things">People Wanted Illegal Things <a class="heading-anchor" href="https://robbiewmthompson.com/blog/why-it-didnt-work-browser-agents/#people-wanted-illegal-things" aria-label="Link to this section">#</a></h2>
+<p>When I did get around to doing more sales, people wanted to use our agents to access websites that
+either had a paid API (X, Epic) or very intentionally had no API (LinkedIn). We were on track to get
+sued the second we found success.</p>
+<h2 id="no-defensibility">No Defensibility <a class="heading-anchor" href="https://robbiewmthompson.com/blog/why-it-didnt-work-browser-agents/#no-defensibility" aria-label="Link to this section">#</a></h2>
+<p>Several customers told us our browser agents were much better than what others offered out of the
+box at the time. This was entirely a result of using cute tricks like parsing the accessibility tree
+well. It took Anthropic ~4x longer to catch up than I expected. But that was still 10x too little
+time to build a durable business.</p>
+]]></content:encoded>
+    </item>
+    <item>
+      <title>Why It Didn&#39;t Work: OpenClaw Hosting</title>
+      <link>https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/</guid>
+      <pubDate>Fri, 07 Aug 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>I’m going to start writing up why various startups of mine have failed.</p>
+<p>You might think this one is obvious (OpenClaw, lol), but I’m going to write up anyway to better tune
+my BS detector.</p>
+<h2 id="startup-incest">Startup Incest <a class="heading-anchor" href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#startup-incest" aria-label="Link to this section">#</a></h2>
+<p>About a year ago haters would post on Twitter that AI spending was one giant circle. OpenAI forks
+over billions for GPUs from Nvidia to sell tokens to startups that get their money from credulous
+VCs and … Nvidia. This criticism is usually stupid, but possibly not in the case of OpenClaw. We
+got VC money to sell OpenClaw hosting to other startups. What did those startups do? Also try to
+sell startups OpenClaw-related services! Payment rails, or browser agents, or skills, or
+integrations. The few non-startup customers we had were, ironically, VCs.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#fn1" id="fnref1">[1]</a></sup> The buck
+stopped nowhere.</p>
+<p><img src="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/charts/selling-you-my-saas.jpg" alt="You buy my SaaS"></p>
+<p><span class="chart-src">Clawcon NYC 2026, Stylized</span></p>
+<h2 id="productivity-porn">Productivity Porn <a class="heading-anchor" href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#productivity-porn" aria-label="Link to this section">#</a></h2>
+<p>Our customers were enamored with the possibility of agents. There was so much they wanted to do and
+now they could finally execute. Those six business ideas you’d been sitting on? Klaus had worked all
+night to build landing pages and outbound campaigns. Our customers had big dreams. The happy ones
+were blissfully unaware that their emails were getting spam-blocked, their websites were broken, and
+their 4GB VM could not run Kimi locally.</p>
+<h2 id="the-grifters">The Grifters <a class="heading-anchor" href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#the-grifters" aria-label="Link to this section">#</a></h2>
+<p>I’ve seen a lot of larping and incompetence in the SF startup scene:</p>
+<ul>
+<li>Crypto founders describing brazen fraud as normal accounting</li>
+<li>Peptide salespeople confusing milligrams and micrograms and not even pretending to know the
+mechanisms behind their product</li>
+<li>People with no finance background founding trading startups and with no strategy besides “Claude
+looked into macro trends”</li>
+</ul>
+<p>These three scenes (crypto, peptides, trading) attract a disproportionate number of grifters.
+<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#fn2" id="fnref2">[2]</a></sup> I don’t know whether these people are dishonest or incompetent, but a ton of them sure
+loved OpenClaw. The hype was manufactured, as has become obvious in the past couple months.</p>
+<h2 id="yolo-mode">YOLO Mode <a class="heading-anchor" href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#yolo-mode" aria-label="Link to this section">#</a></h2>
+<p>The OpenClaw codebase was a vibe-coded mess. An example: changing settings required restarting the
+entire OpenClaw process, and restarts took 30 seconds. Our users got really annoyed by this.</p>
+<p>After OpenClaw blew up, Peter backtracked on the project’s YOLO Mode ethos and added ridiculously
+overzealous safeguards, like banning certain terminal commands by default.</p>
+<h2 id="not-hard-enough">Not Hard Enough <a class="heading-anchor" href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#not-hard-enough" aria-label="Link to this section">#</a></h2>
+<p>Canonical startup advice: the thing you’re working on must be ambitious.</p>
+<ul>
+<li>VCs funds rely on the possibility of a 100x return.</li>
+<li>Unambitious companies are boring. No one will work for you, advise you, or try your demo.</li>
+<li>Anthropic will clone simple products.</li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#notes" aria-label="Link to this section">#</a></h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>And some tiny number of brick and mortar businesses. <a href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Certainly not everyone who works in one of these fields is a grifter. <a href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content:encoded>
+    </item>
+    <item>
       <title>Glucose Monitor Learnings</title>
       <link>https://robbiewmthompson.com/blog/glucose-monitor-learnings/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/glucose-monitor-learnings/</guid>
@@ -836,11 +1119,38 @@ humidity inside in winter is not thought about enough.</p>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/bobs-diet/</guid>
       <pubDate>Mon, 08 Dec 2025 12:00:00 GMT</pubDate>
       <description></description>
-      <content:encoded><![CDATA[<p><em>Update 1/31/26: This
+      <content:encoded><![CDATA[<p><em>Update 8/11/26:</em>
+<a href="https://rethinkpriorities.org/research-area/an-introduction-to-the-moral-weight-project/">Rethink Priorities</a>
+tried much harder than me to answer these questions several years before I wrote. They
+<a href="https://robbiewmthompson.com/blog/bobs-diet/#src-rp-neurons" class="cite" id="citeref-rp-neurons">explicitly argue against using neurons as a proxy for moral weight</a>. But their
+arguments are sufficiently galaxy-brained that I prefer my simpler ones:</p>
+<ul>
+<li>
+<p>Their confidence intervals include the possibility that octopi have higher moral weight than
+humans, because octopi have a higher Critical Flicker-fusion Frequency.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn1" id="fnref1">[1]</a></sup> But humans have ~1.5
+OOMs greater <a href="https://robbiewmthompson.com/blog/bobs-diet/#src-cff-audio" class="cite" id="citeref-cff-audio">temporal resolution in hearing</a> (via pitch) than sight.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn2" id="fnref2">[2]</a></sup></p>
+</li>
+<li>
+<p>They try to measure ~90 different proxies for sentience, and about half of (species, sentience
+measurement) pairs are unknown. How you deal with this is a nasty statistical problem. It sounds
+like they made a reasonable adjustment<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn3" id="fnref3">[3]</a></sup>, but I worry that by casting such a broad net
+they added more noise than signal.</p>
+</li>
+<li>
+<p>They only use binary measurements! That’s throwing away so much good data.</p>
+</li>
+</ul>
+<p>I worry that this criticism is ‘sour grapes’ towards a document much better-researched than my own.
+But my judgement is that their complex model introduces too much error surface area to pay for its
+advantage in detail and comprehensiveness.</p>
+<p>These days I eat everything. My subjective guilt for eating any given animal product is strongly
+positively correlated to the metrics you’ll learn about below; frequency of consumption is
+negatively correlated.</p>
+<p><em>Update 1/31/26:</em> This
 <a href="https://slatestarcodex.com/2019/12/11/acc-is-eating-meat-a-net-harm/">ACX post</a> does most of the
 data deep dive I have been postponing. They claim fish aren’t conscious. I don’t think consciousness
 is well-defined, but I have updated down on the moral weight of fish. Today I am pescatarian and
-trying to kick my egg habit.</em></p>
+trying to kick my egg habit.</p>
 <p>Epistemic Status: Every two years God bestows upon me dietary wisdom which I am compelled to share
 with the world. Unfortunately, God’s new revelations tend to contradict his previous ones, just like
 in the real Bible. You are reading the gospel of Bob 2025 edition, predicted half life 2 years.</p>
@@ -881,7 +1191,7 @@ and never seeing the light of day. Maybe there’s a meaningful food label out t
 guarantees that the animal I’m eating lived a happy life, but I have not found it.</li>
 <li>I wasn’t prepared to quiz friends and restaurants who cooked for me on the origin of the meat I
 was eating. Not eating meat ever is a thing; you call yourself a vegetarian. Not eating meat that
-was produced in a factory farm isn’t a thing; people call you obnoxious.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn1" id="fnref1">[1]</a></sup></li>
+was produced in a factory farm isn’t a thing; people call you obnoxious.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn4" id="fnref4">[4]</a></sup></li>
 </ul>
 <p>No rational discourse was going to change my meat-eating habits at that point in time. I could not
 become part of the soy-eating blue tribe. Luckily, in 2021 while walking the Camino de Santiago, I
@@ -932,7 +1242,7 @@ meantime I will use my flawed-but-plausible one.</p>
 <h2 id="the-rankings">The Rankings <a class="heading-anchor" href="https://robbiewmthompson.com/blog/bobs-diet/#the-rankings" aria-label="Link to this section">#</a></h2>
 <p>I pulled the numbers here from Google / Claude / ChatGPT and did some light sanity checking. I hope
 they are all within one or two orders of magnitude of the true answer.
-(<a href="https://github.com/robbiethompson18/personal-website/blob/main/posts/bobs-diet/rankings.csv">Link</a>)<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn2" id="fnref2">[2]</a></sup></p>
+(<a href="https://github.com/robbiethompson18/personal-website/blob/main/posts/bobs-diet/rankings.csv">Link</a>)<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn5" id="fnref5">[5]</a></sup></p>
 <p><img src="https://robbiewmthompson.com/blog/bobs-diet/charts/light/rankings-suffering.png" alt=""></p>
 <p>Lifespan reflects the amount of time we can expect the animal to spend on a factory farm, so animals
 which aren’t farmed don’t appear in this graph.</p>
@@ -971,7 +1281,7 @@ environment.</li>
 </ol>
 <h3 id="dont-you-care-about-the-environment">Don’t You Care About The Environment? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/bobs-diet/#dont-you-care-about-the-environment" aria-label="Link to this section">#</a></h3>
 <p>Yes, I do, and I wrote about this a bit more
-<a href="https://robbiewmthompson.com/blog/plastic-straws">here</a><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn3" id="fnref3">[3]</a></sup></p>
+<a href="https://robbiewmthompson.com/blog/plastic-straws">here</a><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn6" id="fnref6">[6]</a></sup></p>
 <h3 id="farmed-shrimp-eat-fishmeal">Farmed Shrimp Eat Fishmeal <a class="heading-anchor" href="https://robbiewmthompson.com/blog/bobs-diet/#farmed-shrimp-eat-fishmeal" aria-label="Link to this section">#</a></h3>
 <p>Correct. And fishmeal normally comes from anchovies, which are much smarter than shrimp. ChatGPT
 wants me to believe that 1 pound of shrimp production requires ~.2 pounds of fishmeal. These
@@ -990,7 +1300,8 @@ determine what is, I will have to answer the open questions in the free range se
 be eating natant decapods, bivalves, dairy, and (guiltily) some eggs.</p>
 <p>UPDATE 4/10/2026: I eat everything and feel guilty about it :(.</p>
 <h1 id="v-b-roll">V. B-roll <a class="heading-anchor" href="https://robbiewmthompson.com/blog/bobs-diet/#v-b-roll" aria-label="Link to this section">#</a></h1>
-<p>No one farms lobster or crab because they’re cannibals, so you can’t leave them in a shared pen.</p>
+<p><s>No one farms lobster or crab because they’re cannibals, so you can’t leave them in a shared pen.</s>
+Edit: totally a thing, they just keep the animals in cages.</p>
 <p>A dairy cow produces <a href="https://robbiewmthompson.com/blog/bobs-diet/#src-cow-milk" class="cite" id="citeref-cow-milk"><em>35!</em> liters of milk per day</a>.</p>
 <p>A chicken can go <a href="https://robbiewmthompson.com/blog/bobs-diet/#src-broiler" class="cite" id="citeref-broiler">from birth to six pounds and slaughtered in 5-7 weeks</a>. They are kept
 under constant light so that they keep eating, and cages are heated so that no calories are wasted
@@ -1003,15 +1314,25 @@ table below. Humans fall between anchovies and octopi.</p>
 <section class="footnotes">
 <h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/bobs-diet/#notes" aria-label="Link to this section">#</a></h2>
 <ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>I know it’s counterproductive, but to this day, people calling themselves flexitarians or
+<li id="fn1" class="footnote-item"><p>CFF: how close together flashes of light are temporally for you to start perceiving them one
+as one flash. <a href="https://robbiewmthompson.com/blog/bobs-diet/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>My KISS approach would be to estimate clock speed (frequency at which neurons fire) and assume
+that the ‘number of sequential neuron firings it takes to produce a perceptually discrete
+event’ term cancels with the ‘richness/magnitude of said event’ term, because the latter is
+probably higher if it’s the result of more neurons firing. I have not thought about this hard. <a href="https://robbiewmthompson.com/blog/bobs-diet/#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Their adjustment: a prior that no evidence for a trait implies that the trait is not present. <a href="https://robbiewmthompson.com/blog/bobs-diet/#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>I know it’s counterproductive, but to this day, people calling themselves flexitarians or
 claiming the title vegetarian when they do sometimes eat meat annoys me. I appreciate that you
-eat less meat, but making up a title for this fact comes across as self-aggrandizing. <a href="https://robbiewmthompson.com/blog/bobs-diet/#fnref1" class="footnote-backref">↩︎</a></p>
+eat less meat, but making up a title for this fact comes across as self-aggrandizing. <a href="https://robbiewmthompson.com/blog/bobs-diet/#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn2" class="footnote-item"><p>The internet cannot agree on how many calories or neurons there are in a tuna or salmon. I have
-low confidence in the numbers for vertebrate fish. <a href="https://robbiewmthompson.com/blog/bobs-diet/#fnref2" class="footnote-backref">↩︎</a></p>
+<li id="fn5" class="footnote-item"><p>The internet cannot agree on how many calories or neurons there are in a tuna or salmon. I have
+low confidence in the numbers for vertebrate fish. <a href="https://robbiewmthompson.com/blog/bobs-diet/#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p>I don’t know how to perform any calculation that converts kg of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\text{CO}_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> emitted to units
-of suffering experienced by sentient beings. If you can, please let me know! <a href="https://robbiewmthompson.com/blog/bobs-diet/#fnref3" class="footnote-backref">↩︎</a></p>
+<li id="fn6" class="footnote-item"><p>I don’t know how to perform any calculation that converts kg of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\text{CO}_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> emitted to units
+of suffering experienced by sentient beings. If you can, please let me know! <a href="https://robbiewmthompson.com/blog/bobs-diet/#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
@@ -1020,6 +1341,8 @@ of suffering experienced by sentient beings. If you can, please let me know! <a 
 <h2 class="sources-title" id="sources">Sources <a class="heading-anchor" href="https://robbiewmthompson.com/blog/bobs-diet/#sources" aria-label="Link to this section">#</a></h2>
 <p class="sources-note">Claude found these sources. Robbie did not review them.</p>
 <ol class="sources-list">
+<li id="src-rp-neurons" class="source-item">Rethink Priorities, “Why Neuron Counts Shouldn’t Be Used as Proxies for Moral Weight” (2021). <a href="https://rethinkpriorities.org/research-area/why-neuron-counts-shouldnt-be-used-as-proxies-for-moral-weight/">https://rethinkpriorities.org/research-area/why-neuron-counts-shouldnt-be-used-as-proxies-for-moral-weight/</a> <a href="https://robbiewmthompson.com/blog/bobs-diet/#citeref-rp-neurons" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-cff-audio" class="source-item">Verschooten et al., “The upper frequency limit for the use of phase locking to code temporal fine structure in humans: A compilation of viewpoints,” <em>Hearing Research</em> 377 (2019): 109–121 — binaural phase-locking confirmed to ~1,500 Hz, contributors’ upper-limit estimates range 1,500–10,000 Hz, vs. visual CFF’s ~60–90 Hz. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6524635/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6524635/</a> <a href="https://robbiewmthompson.com/blog/bobs-diet/#citeref-cff-audio" class="cite-backref" aria-label="Back to text">↩︎</a></li>
 <li id="src-cow-milk" class="source-item">Holstein Association USA, <em>Do You Know This About Holstein Cattle?</em> — a US Holstein averages ~80 lb (~35 L) of milk a day. <a href="https://www.holsteinusa.com/pdf/fact_sheet_cattle.pdf">https://www.holsteinusa.com/pdf/fact_sheet_cattle.pdf</a> <a href="https://robbiewmthompson.com/blog/bobs-diet/#citeref-cow-milk" class="cite-backref" aria-label="Back to text">↩︎</a></li>
 <li id="src-broiler" class="source-item">The Humane League, “What Are Broiler Chickens and How Long Do They Live?” — modern broilers reach ~6.5 lb at ~47 days (about 6-7 weeks). <a href="https://thehumaneleague.org/article/broiler-chickens">https://thehumaneleague.org/article/broiler-chickens</a> <a href="https://robbiewmthompson.com/blog/bobs-diet/#citeref-broiler" class="cite-backref" aria-label="Back to text">↩︎</a></li>
 </ol>
