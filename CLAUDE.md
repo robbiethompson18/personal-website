@@ -4,7 +4,7 @@
 
 Run `./lint.sh` after editing HTML **or any Markdown** (posts, skills, `CLAUDE.md`, notes) —
 Prettier reflows markdown prose + lists to 100 cols, so **don't hand-wrap markdown** (write long
-lines; lint rewraps them). Skips `POST_DRAFT.md` / `POST_RESEARCH.md`.
+lines; lint rewraps them).
 
 Agents underuse `CODE_SMELL.md`; when you notice or leave debt, add a dated note there instead of
 relying on memory.
