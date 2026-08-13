@@ -1,24 +1,24 @@
 ---
-title: IQ Is Definitely Real
+title: IQ Is 'Real'
 date: 2026-08-12
 rating: 2
 ---
 
-This is an argument I've had too many times, so I'm going to write it down here once and for all. If
-you already think IQ tests do an imperfect but decent job measuring the thing we casually refer to
-as 'being smart' then you can skip this post. I claim zero novel contributions to this topic.
+'IQ isn't real' is a claim I've argued against too many times, so I'm going to write it down my
+opinion once and for all. I claim zero novel contributions to this topic.
 
-B: IQ only measures one thing. How could that possibly be useful?
+If you already think IQ tests do an imperfect but decent job measuring the thing we casually refer
+to as 'being smart' then you can skip this post.
+
+B: IQ only measures your score on one test. How could that possibly be useful?
 
 A: Scientists first proposed IQ (back then 'g') because they found that mathematical reasoning
-correlates with verbal reasoning correlates with reaction time, etc. Given this, IQ is a useful
-metric, and 'smart' is a useful linguistic concept. See
-[Neural Categories](https://www.lesswrong.com/posts/yFDKvfN6D87Tf5J9f/neural-categories).
+correlates with verbal reasoning correlates with reaction time, etc. The IQ test is engineered to be
+maximally informative about all these related attributes in one short test.
 
-B: But there are other ways of being smart. There are so many ways to be smart.
+B: But there are other ways of being smart. Isn't one score close to useless?
 
-A: Agreed. One way to be big is to be tall. Another way is to be short and bulky. Big is still a
-useful word. Name your way of being 'smart' that doesn't correlate positively with IQ.
+A: Name your way of being 'smart' that doesn't correlate positively with IQ.
 
 B: Being emotionally intelligent. Being wise. Being virtuous.
 
@@ -48,8 +48,8 @@ A: If you take a second IQ test, your score improves by [about 5 points](@scharf
 [1-5 points](@ritchie-2018). It is weakly gamable.
 
 Even if it was totally gamable: who cares! One can still make apples-to-apples comparisons, eg two
-kids who take the test with similar amounts of prep. In practice, one make reasonable comparisons
-between different test-takers because the phenomenon is so well-studied.
+kids who take the test with similar amounts of prep. In practice, one can make reasonable
+comparisons between different test-takers because the phenomenon is so well-studied.
 
 B: If IQ is real, you've wrecked growth mindset.
 

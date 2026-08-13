@@ -7,22 +7,21 @@
     <description>Essays by Robbie Thompson.</description>
     <language>en</language>
     <item>
-      <title>IQ Is Definitely Real</title>
+      <title>IQ Is &#39;Real&#39;</title>
       <link>https://robbiewmthompson.com/blog/iq-is-definitely-real/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/iq-is-definitely-real/</guid>
       <pubDate>Wed, 12 Aug 2026 12:00:00 GMT</pubDate>
       <description></description>
-      <content:encoded><![CDATA[<p>This is an argument I’ve had too many times, so I’m going to write it down here once and for all. If
-you already think IQ tests do an imperfect but decent job measuring the thing we casually refer to
-as ‘being smart’ then you can skip this post. I claim zero novel contributions to this topic.</p>
-<p>B: IQ only measures one thing. How could that possibly be useful?</p>
+      <content:encoded><![CDATA[<p>‘IQ isn’t real’ is a claim I’ve argued against too many times, so I’m going to write it down my
+opinion once and for all. I claim zero novel contributions to this topic.</p>
+<p>If you already think IQ tests do an imperfect but decent job measuring the thing we casually refer
+to as ‘being smart’ then you can skip this post.</p>
+<p>B: IQ only measures your score on one test. How could that possibly be useful?</p>
 <p>A: Scientists first proposed IQ (back then ‘g’) because they found that mathematical reasoning
-correlates with verbal reasoning correlates with reaction time, etc. Given this, IQ is a useful
-metric, and ‘smart’ is a useful linguistic concept. See
-<a href="https://www.lesswrong.com/posts/yFDKvfN6D87Tf5J9f/neural-categories">Neural Categories</a>.</p>
-<p>B: But there are other ways of being smart. There are so many ways to be smart.</p>
-<p>A: Agreed. One way to be big is to be tall. Another way is to be short and bulky. Big is still a
-useful word. Name your way of being ‘smart’ that doesn’t correlate positively with IQ.</p>
+correlates with verbal reasoning correlates with reaction time, etc. The IQ test is engineered to be
+maximally informative about all these related attributes in one short test.</p>
+<p>B: But there are other ways of being smart. Isn’t one score close to useless?</p>
+<p>A: Name your way of being ‘smart’ that doesn’t correlate positively with IQ.</p>
 <p>B: Being emotionally intelligent. Being wise. Being virtuous.</p>
 <p>A: Emotional intelligence is <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-maccann-2014" class="cite" id="citeref-maccann-2014">positively correlated with IQ</a>. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>.8</mn></mrow><annotation encoding="application/x-tex">r=.8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">.8</span></span></span></span>.</p>
 <p>I suspect you would define wise in a way that isn’t measurable. If this argument ends in us agreeing
@@ -42,14 +41,14 @@ range from <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src
 <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-hausknecht-2007" class="cite" id="citeref-hausknecht-2007">7-8 points</a>. An extra year of schooling improves your score by
 <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-ritchie-2018" class="cite" id="citeref-ritchie-2018">1-5 points</a>. It is weakly gamable.</p>
 <p>Even if it was totally gamable: who cares! One can still make apples-to-apples comparisons, eg two
-kids who take the test with similar amounts of prep. In practice, one make reasonable comparisons
-between different test-takers because the phenomenon is so well-studied.</p>
+kids who take the test with similar amounts of prep. In practice, one can make reasonable
+comparisons between different test-takers because the phenomenon is so well-studied.</p>
 <p>B: If IQ is real, you’ve wrecked growth mindset.</p>
 <p>A: Growth mindset works with <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-sisk-2018" class="cite" id="citeref-sisk-2018">effect size <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo><mn>.1</mn></mrow><annotation encoding="application/x-tex">\approx .1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4831em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">.1</span></span></span></span></a>. To the extent that believing IQ
 is heritable inhibits growth mindset, I’m sad.</p>
 <p>Believing certain true things is sometimes detrimental. IQ does not fall in this bucket. Knowing
 that IQ is real lets one make better choices, by, eg,
-<a href="/blog/track-the-kids/">acknowledging that tracking makes sense and implementing it</a>.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#fn1" id="fnref1">[1]</a></sup></p>
+<a href="/blog/track-the-kids/">acknowledging that tracking makes sense and implementing it</a>.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#fn1" id="fnref1">[1]</a></sup></p>
 <p>B: If IQ is real, then some people are better than others.</p>
 <p>A: I disagree. Some humans are taller than others. Heightists value tall humans more than short
 humans, even though height is genetic. Morality issue on behalf of the heightists. I choose to value
@@ -100,14 +99,14 @@ DeltaMath and MagicSchool.</p>
 <p>Most teachers did not love their job. I always asked them about a hypothetical future where they
 were much happier at work: how could this come to be? The universal answer: fewer students, so that
 they can spend one-on-one time with kids.</p>
-<p>Huzzah! In the GTF<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn1" id="fnref1">[1]</a></sup> teachers won’t wrangle 30 kids into doing the same activity. They’ll glue
+<p>Huzzah! In the GTF⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn1" id="fnref1">[1]</a></sup> teachers won’t wrangle 30 kids into doing the same activity. They’ll glue
 25 of them to iPads (or better yet, Star Trek Pods) and have intimate socratic seminars with the
 other 5. All I need to do is build the Pods.</p>
 <h2 id="alpha-school">Alpha School <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#alpha-school" aria-label="Link to this section">#</a></h2>
 <p>The Pods have existed at Alpha School for at least a decade. Hook the kids up to an iPad that
 delivers material via spaced repetition, and (Alpha claims) they’ll learn twice as much as at normal
 school in only three hours. Part of Alpha’s results are explained by selection effects, low
-student-to-teacher-ratios<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn2" id="fnref2">[2]</a></sup> and paying the kids in ‘Alpha Bucks.’<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn3" id="fnref3">[3]</a></sup> But after going to
+student-to-teacher-ratios⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn2" id="fnref2">[2]</a></sup> and paying the kids in ‘Alpha Bucks.’⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn3" id="fnref3">[3]</a></sup> But after going to
 one of Alpha’s events in San Francisco and talking to some students and parents, my finger in the
 air estimation is: it works.</p>
 <p>Interestingly, Alpha’s marketing is all in on ‘AI school,’ but their product has no AI. One of
@@ -116,33 +115,32 @@ of 2015.</p>
 <h2 id="homeschoolers">Homeschoolers <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#homeschoolers" aria-label="Link to this section">#</a></h2>
 <p>Does the Alpha model work outside their extremely selective cohort? To (partially) answer that
 question I interviewed homeschool parents. They were universally <em>extremely</em> happy with their
-decision to homeschool. All believed that their kids were getting a far better education. I can’t be
-certain the kids were happy, but the moms sure as hell were.</p>
+decision to homeschool. All believed that their kids were getting a far better education.</p>
 <p>There are countless tools that provide content for homeschoolers. The moms liked them. They managed
-their kids’s schedules but did little direct teaching or tutoring. Everyone was at or above grade
-level despite spending ~3 hours a day on acaedemics, just like at Alpha.</p>
+their kids’ schedules but did little direct teaching or tutoring. Everyone was at or above grade
+level despite spending ~3 hours a day on academics, just like at Alpha.</p>
 <h2 id="content-is-a-solved-problem">Content Is a Solved Problem <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#content-is-a-solved-problem" aria-label="Link to this section">#</a></h2>
 <p>One teacher wanted to shake me through the screen to deliver this message. My inner egotistic Steve
 Jobs wanted to shake him in return: but your content could be so much better! You could have
 practice embedded in the text, interactive visuals, games, adaptive homework with instant grading…
 no one was interested.</p>
-<h2 id="track-the-kids">Track the Kids <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#track-the-kids" aria-label="Link to this section">#</a></h2>
+<h2 id="tracking-works">Tracking Works <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#tracking-works" aria-label="Link to this section">#</a></h2>
 <p>I’m skeptical of the claim that age-based cohorts help kids socially (see <em>Lord of the Flies</em>). They
 seem <em>catastrophic</em> academically. Every schoolteacher said they spent most of their time on the
 bottom ten percent of students and struggled to spare the top 10% from boredom.</p>
 <p>There is strong empirical evidence for “kids are not equally able”:
-<a href="https://www.nwea.org/resource-center/fact-sheet/87992/MAP-Growth-2025-norms-quick-reference_NWEA_onesheet.pdf/">MAP scores</a>.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn4" id="fnref4">[4]</a></sup>
+<a href="https://www.nwea.org/resource-center/fact-sheet/87992/MAP-Growth-2025-norms-quick-reference_NWEA_onesheet.pdf/">MAP scores</a>.
 In elementary school, the stddev of student ability is about the same as one grade level worth of
 learning. About 1/3rd of your students will be at least one grade ahead or behind. By the time you
 get to high school, a stddev is 10x the difference between the average ninth and tenth grader. ~15%
-of high school seniors read at a fourth grade level.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn5" id="fnref5">[5]</a></sup><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn6" id="fnref6">[6]</a></sup></p>
-<p>My belief that tracking improves learning is rooted in a strong prior, buttressed by Fable agreeing
-with me. The claim “if your instructor is teaching to a level way above or below your own, you’ll
-learn less quickly” only gets disputed in contexts like “therefore we should track kids in school,”
-hence my prior and my impatience in reading studies.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn7" id="fnref7">[7]</a></sup> Skimming summaries of studies,
-tracked kids that are taught material of differing difficulty perform about
-<a href="https://robbiewmthompson.com/blog/track-the-kids/#src-steenbergen-hu-2016" class="cite" id="citeref-steenbergen-hu-2016">.5 stddevs better</a> than their <a href="https://robbiewmthompson.com/blog/track-the-kids/#src-ddk-2011" class="cite" id="citeref-ddk-2011">counterfactually-untracked selves</a>
-after 1-2 years.</p>
+of high school seniors read at a fourth grade level.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn4" id="fnref4">[4]</a></sup>⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn5" id="fnref5">[5]</a></sup>
+<a href="https://robbiewmthompson.com/blog/track-the-kids/#src-hedges-hedberg-2007" class="cite" id="citeref-hedges-hedberg-2007">Only ~20% of variance</a> is explained by the school someone attends.</p>
+<p>I have a strong prior that tracking works. The claim “if your instructor is teaching to a level way
+above or below your own, you’ll learn less quickly” only gets disputed in contexts like “therefore
+we should track kids in school.”⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn6" id="fnref6">[6]</a></sup> In the studies I skimmed with Fable, tracked kids that
+are taught material of differing difficulty perform about <a href="https://robbiewmthompson.com/blog/track-the-kids/#src-steenbergen-hu-2016" class="cite" id="citeref-steenbergen-hu-2016">.5 stddevs better</a>
+than their <a href="https://robbiewmthompson.com/blog/track-the-kids/#src-ddk-2011" class="cite" id="citeref-ddk-2011">counterfactually-untracked selves</a> after 1-2 years.</p>
+<h2 id="why-dont-we-track">Why Don’t We Track? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#why-dont-we-track" aria-label="Link to this section">#</a></h2>
 <p>Every homeschool parent finds curriculum for their kids for only a couple hundred bucks a year. Can
 we really not figure out a way to let precocious third-graders learn algebra? I haven’t spent nearly
 enough time in this space to convince myself I’m not missing something, but these are my hunches for
@@ -157,34 +155,35 @@ why personalized learning has failed:</p>
 <p>If half of your third grade class is doing Algebra while the other half learns addition, that second
 half is a skill issue on your behalf. You are a Bad Teacher Who is Leaving Children Behind. If all
 of your third grade class is learning addition, then… there’s nothing to see here 😗🎶.</p>
-<p>Even some homeschooled parents had internalized the belief that minds are homogenous. The one mom
+<p>Even the homeschooled parents had internalized the belief that minds are homogenous. The only mom
 who asked for curriculum wanted reading material for five-year-olds, because none of her kids could
 read at 5. I asked how they learned to read. “They all figured it when they turned 7.” Then teach
-them to read at 7! I assume some board of education standards has made this strategy illegal.</p>
+them to read at 7!⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn7" id="fnref7">[7]</a></sup> I assume some board of education standards has made this strategy
+illegal.</p>
 <p>Society is warming to the idea that some kids find book learning hard. One never says this outright;
 students instead have a clinical diagnosis and an IEP. I am fine with riding the euphemism treadmill
-for the sake of protecting kid’s feelings. We should find a similar euphemism that lets some kids
+for the sake of protecting kids’ feelings. We should find a similar euphemism that lets some kids
 skip several grades while preserving everyone else’s feelings. At present the best we manage is
-shipping some tiny percentage of the talented ones off to the Philipp’s Exeters of the world.</p>
+shipping some tiny percentage of the talented ones off to the Phillips Exeters of the world.</p>
 <h2 id="what-to-be-done">What to Be Done <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#what-to-be-done" aria-label="Link to this section">#</a></h2>
 <p>This problem still bothers me personally. I am certain this will come across as obnoxious, but: I am
 sad about how little my own learning was accelerated in math and science. I suspect I could’ve
-absorbed 2x to 8x more material in another environment. I deeply wish that I knew more math.</p>
-<p>If the tracking vibes problem was magically fixed (I am not hopeful), we’d see a bit more
-personalized learning software. But the far bigger and more important impact would be students that
-are much more sorted by ability, both within and between schools.</p>
+absorbed ~4x more material in another environment. I deeply wish that I knew more math.</p>
+<p>If the tracking vibes problem was magically fixed (I am not hopeful), we’d see more personalized
+learning software. We could get a similar benefit via sorting students by ability, both within and
+between schools.</p>
 <p>Institutions like <a href="https://alpha.school/">Alpha School</a> and
 <a href="https://www.thelevittlab.org/">The Levitt Lab</a> are making personalized, mastery-based learning a
 reality today. I am sufficiently bought in to send my future kids to one of these schools; I am not
-sufficiently bought in to found a competing school or work for them.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn8" id="fnref8">[8]</a></sup> I doubt whether better
-software will move the needle, which is why I’m abandoning this startup idea.</p>
+sufficiently bought in to found a competing school or work for them.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn8" id="fnref8">[8]</a></sup> I doubt whether better
+software will move the needle, which is why I’m putting this idea on ice.</p>
 <p>I will at least make a tiny contribution to the vibes by boosting a favorite SSC essay,
 <a href="https://slatestarcodex.com/2015/01/31/the-parable-of-the-talents/">The Parable of The Talents</a>.</p>
 <h2 id="coda">Coda <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#coda" aria-label="Link to this section">#</a></h2>
 <p>I probably should’ve known. When I was in eighth grade I had taken every math class my middle school
-offered, so I took precalc online via EPGY.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn9" id="fnref9">[9]</a></sup> I was all alone in a library, no teacher ever
+offered, so I took precalc online via EPGY.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn9" id="fnref9">[9]</a></sup> I was all alone in a library, no teacher ever
 checked in on me. I had no homework. The course was just multiple choice quizzes and pre-recorded
-videos of someone drawing on an e-whiteboard, like Khan Academy but worse. Still, I passed.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn10" id="fnref10">[10]</a></sup></p>
+videos of someone drawing on an e-whiteboard, like Khan Academy but worse. Still, I passed.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn10" id="fnref10">[10]</a></sup></p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#notes" aria-label="Link to this section">#</a></h2>
@@ -196,16 +195,18 @@ videos of someone drawing on an e-whiteboard, like Khan Academy but worse. Still
 <li id="fn3" class="footnote-item"><p>For a fuller treatment of Alpha School I recommend
 <a href="https://www.astralcodexten.com/p/your-review-alpha-school">https://www.astralcodexten.com/p/your-review-alpha-school</a>. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><p>I am not addressing the rebuttal of: ‘some kids just got a better education.’ <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref4" class="footnote-backref">↩︎</a></p>
+<li id="fn4" class="footnote-item"><p>There are national averages under the current school system, where we don’t do much tracking. If
+we did, we’d expect even higher stddevs. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn5" class="footnote-item"><p>There are national averages under the current school system, where we don’t do much tracking. If
-we did, we’d expect even higher stddevs. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref5" class="footnote-backref">↩︎</a></p>
+<li id="fn5" class="footnote-item"><p>Scores seem to not move at all after ninth grade, which is both depressing and a strong
+datapoint in favor of letting people start trade school earlier like they do in Germany. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn6" class="footnote-item"><p>Scores seem to not move at all after ninth grade, which is both depressing and a strong
-datapoint in favor of letting people start trade school earlier like they do in Germany. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref6" class="footnote-backref">↩︎</a></p>
+<li id="fn6" class="footnote-item"><p>Shouldn’t I also have some prior of the form “this statement is controversial and therefore
+deserves close examination”? Not when the controversy is easily explained by tribal politics. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn7" class="footnote-item"><p>Shouldn’t I also have some prior of the form “this statement is controversial and therefore
-deserves close examination”? Not when the controversy is easily explained by tribal politics. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref7" class="footnote-backref">↩︎</a></p>
+<li id="fn7" class="footnote-item"><p>Probably phonics would help here too. I am all for trying very hard to get your kids the best
+education. What interested me is that four kids all got over this hump in a predictable way, yet
+mom was no less stressed that kid number 5 was behind and would never learn to read. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref7" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn8" class="footnote-item"><p>A very hastily-constructed BOTEC on whether founding an Alpha School competitor is a sensible
 career choice:</p>
@@ -223,9 +224,9 @@ learning per year. I will value one additional year of academic achievement at o
 go into debt and spend a full year in their prime in school.</p>
 <p>We go to school from about 6 to 22. This means we get 16 years * .2 = 3.2 QALYs per American
 schoolchild who does this program through and through. So if we reached full saturation: 4mm
-18year olds * 3.2 QALYs is about 12mm QALYs. A QALY is 1/70 of a life. Call it 180k lives a
+18-year-olds * 3.2 QALYs is about 12mm QALYs. A QALY is 1/70 of a life. Call it 180k lives a
 year at full saturation.</p>
-<p>A wildly successful effort in thie domain would reach 10% of American schoolkids any given year.
+<p>A wildly successful effort in this domain would reach 10% of American schoolkids any given year.
 So 18k lives. In dollars, assuming $5k per life from Givewell: $90mm per year. I know American
 lives are much more expensive than this empirically. I am going with the Givewell marginal cost
 anyway.</p>
@@ -237,7 +238,7 @@ someone else have succeeded? That applies to almost <em>anything</em> I would at
 <em>less</em> true of this idea than of most counterfactual things I work on. Not that many people
 share my worldview on this problem.</p>
 <p>I suspect dollars made is same OOM as value of the QALYs (both are conditional on massive
-success). So call it $2B in ‘altrustic value created’ total.</p>
+success). So call it $2B in ‘altruistic value created’ total.</p>
 <p>It’s absolutely worthwhile to devote my next 10 years to making $2B of cold hard cash. What
 probability of success would I need for this endeavour to be worthwhile?</p>
 <p>Working a generic corporate job, I’d expect to make about $1mm a year on average, so $10mm
@@ -250,7 +251,7 @@ chance of success) in a year it would be worth it. But I couldn’t. Realistical
 <p>5yrs: 25%?</p>
 <p>10yrs: should be decided.</p>
 <p>Conclusion: There is a &lt;1% chance I succeed at this; I won’t make meaningful progress in finding
-out next year. This path is like $2mm of EV, less than a job at A\ or Meta.</p>
+out next year. This path is like $2mm of EV, less than a job at Anthropic or Meta.</p>
 <p>The 10bps number assumes that I’m right: tracking works and LLM teachers would work. AI teaching
 could be way better than .2 QALYs per year of instruction so I’m ignoring this.</p>
 <p>Finally: there are probably massively good knock-on effects to have a better-educated
@@ -278,6 +279,7 @@ flipped a sign. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref
 <h2 class="sources-title" id="sources">Sources <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#sources" aria-label="Link to this section">#</a></h2>
 <p class="sources-note">Claude found these sources. Robbie did not review them.</p>
 <ol class="sources-list">
+<li id="src-hedges-hedberg-2007" class="source-item">Hedges &amp; Hedberg, “Intraclass Correlation Values for Planning Group-Randomized Trials in Education,” <em>Educational Evaluation and Policy Analysis</em> 29(1) (2007): 60–87 — across national K–12 samples, the mean school-level intraclass correlation is 0.22 in both math and reading: ~78% of US achievement variance lives within schools, so a single school’s stddev is ~88% of the national one. <a href="https://journals.sagepub.com/doi/10.3102/0162373707299706">https://journals.sagepub.com/doi/10.3102/0162373707299706</a> <a href="https://robbiewmthompson.com/blog/track-the-kids/#citeref-hedges-hedberg-2007" class="cite-backref" aria-label="Back to text">↩︎</a></li>
 <li id="src-steenbergen-hu-2016" class="source-item">Steenbergen-Hu, Makel &amp; Olszewski-Kubilius, “What One Hundred Years of Research Says About the Effects of Ability Grouping and Acceleration on K–12 Students’ Academic Achievement,” <em>Review of Educational Research</em> 86(4) (2016): 849–899 — second-order meta-analysis of 19 meta-analyses. Grouping with a differentiated curriculum: g ≈ 0.2–0.4; acceleration: g = 0.70 vs. same-age peers; between-class tracking with an unchanged curriculum: g ≈ 0.04 (nothing). <a href="https://eric.ed.gov/?id=EJ1121483">https://eric.ed.gov/?id=EJ1121483</a> <a href="https://robbiewmthompson.com/blog/track-the-kids/#citeref-steenbergen-hu-2016" class="cite-backref" aria-label="Back to text">↩︎</a></li>
 <li id="src-ddk-2011" class="source-item">Duflo, Dupas &amp; Kremer, “Peer Effects, Teacher Incentives, and the Impact of Tracking: Evidence from a Randomized Evaluation in Kenya,” <em>American Economic Review</em> 101(5) (2011): 1739–74 — the one clean RCT of tracking itself. +0.14–0.18 SD after 18 months, gains at all quantiles including the bottom half, still +0.16 SD a year after the program ended. <a href="https://www.nber.org/papers/w14475">https://www.nber.org/papers/w14475</a> <a href="https://robbiewmthompson.com/blog/track-the-kids/#citeref-ddk-2011" class="cite-backref" aria-label="Back to text">↩︎</a></li>
 <li id="src-hw-growth" class="source-item">Hanushek &amp; Woessmann, “Do Better Schools Lead to More Growth? Cognitive Skills, Economic Outcomes, and Causation,” <em>Journal of Economic Growth</em> 17 (2012): 267–321 — a 100-point gain on international test scores is associated with ~1.98 percentage points higher average annual GDP growth over 40 years. <a href="https://hanushek.stanford.edu/sites/default/files/publications/Hanushek+Woessmann%202012%20JEconGrowth%2017(4).pdf">https://hanushek.stanford.edu/sites/default/files/publications/Hanushek+Woessmann 2012 JEconGrowth 17(4).pdf</a> <a href="https://robbiewmthompson.com/blog/track-the-kids/#citeref-hw-growth" class="cite-backref" aria-label="Back to text">↩︎</a></li>
@@ -332,7 +334,7 @@ over billions for GPUs from Nvidia to sell tokens to startups that get their mon
 VCs and … Nvidia. This criticism is usually stupid, but possibly not in the case of OpenClaw. We
 got VC money to sell OpenClaw hosting to other startups. What did those startups do? Also try to
 sell startups OpenClaw-related services! Payment rails, or browser agents, or skills, or
-integrations. The few non-startup customers we had were, ironically, VCs.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#fn1" id="fnref1">[1]</a></sup> The buck
+integrations. The few non-startup customers we had were, ironically, VCs.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#fn1" id="fnref1">[1]</a></sup> The buck
 stopped nowhere.</p>
 <p><img src="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/charts/selling-you-my-saas.jpg" alt="You buy my SaaS"></p>
 <p><span class="chart-src">Clawcon NYC 2026, Stylized</span></p>
@@ -352,7 +354,7 @@ mechanisms behind their product</li>
 looked into macro trends”</li>
 </ul>
 <p>These three scenes (crypto, peptides, trading) attract a disproportionate number of grifters.
-<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#fn2" id="fnref2">[2]</a></sup> I don’t know whether these people are dishonest or incompetent, but a ton of them sure
+⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#fn2" id="fnref2">[2]</a></sup> I don’t know whether these people are dishonest or incompetent, but a ton of them sure
 loved OpenClaw. The hype was manufactured, as has become obvious in the past couple months.</p>
 <h2 id="yolo-mode">YOLO Mode <a class="heading-anchor" href="https://robbiewmthompson.com/blog/why-it-didnt-work-openclaw-hosting/#yolo-mode" aria-label="Link to this section">#</a></h2>
 <p>The OpenClaw codebase was a vibe-coded mess. An example: changing settings required restarting the
@@ -402,7 +404,7 @@ Results stream live to my phone. A normal BG (blood glucose) range is from 70 to
       <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
       <description></description>
       <content:encoded><![CDATA[<p>Many people before me have dunked on the plastic-straw Nazis. From a utilitarian perspective, using
-a paper straw is pointless.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn1" id="fnref1">[1]</a></sup></p>
+a paper straw is pointless.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn1" id="fnref1">[1]</a></sup></p>
 <p>In the post-singularity utopia, we will price
 <a href="https://en.wikipedia.org/wiki/Externality">externalities</a>, and no one (besides the
 externality-pricers) will have to think about their consumption beyond its direct economic cost.
@@ -430,9 +432,9 @@ epistemic humility, I still try to reduce my carbon footprint.</p>
 <p>This post uses GWP20 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>. It measures how much warming something will cause over
 the next 20 years, normalized to 1 ton of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\text{CO}_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. You can then put other things on the same
 scale: <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-methane80" class="cite" id="citeref-methane80">a ton of methane is ~80 tons</a> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>,
-<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-flight" class="cite" id="citeref-flight">a flight from SF to NYC is ~2-3 tons</a> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn2" id="fnref2">[2]</a></sup></p>
-<p>It’s convention to use GWP100. I am using GWP20<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn3" id="fnref3">[3]</a></sup> because interest rates are real and my
-model of the world accounts for them.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn4" id="fnref4">[4]</a></sup></p>
+<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-flight" class="cite" id="citeref-flight">a flight from SF to NYC is ~2-3 tons</a> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn2" id="fnref2">[2]</a></sup></p>
+<p>It’s convention to use GWP100. I am using GWP20⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn3" id="fnref3">[3]</a></sup> because interest rates are real and my
+model of the world accounts for them.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn4" id="fnref4">[4]</a></sup></p>
 <h2 id="land-use-water-use">Land Use, Water Use <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#land-use-water-use" aria-label="Link to this section">#</a></h2>
 <p>These things matter, and I tried to quantify how your decisions affect each. But in my heart of
 hearts, I don’t think you should spend much energy optimizing for either. We should make (a lot
@@ -443,7 +445,7 @@ water, though I’m not holding my breath on that one.</p>
 <p>Each year Americans send about <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-landfill" class="cite" id="citeref-landfill">243 million cubic yards of trash to landfill</a>, which
 means we must create ~1,500 acres of dumps (at 100 ft deep).</p>
 <p>After 100 years a landfill gets covered and becomes a park, a golf course, a conservation area, or a
-solar farm. Assume, conservatively<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn5" id="fnref5">[5]</a></sup>, that one acre of new landfill is as bad as 100 acres
+solar farm. Assume, conservatively⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn5" id="fnref5">[5]</a></sup>, that one acre of new landfill is as bad as 100 acres
 of farmland.</p>
 <p>The average American’s annual landfill use is about 20 cubic feet, or <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.2</mn><mtext> </mtext><msup><mtext>ft</mtext><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">0.2\ \text{ft}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8984em;"></span><span class="mord">0.2</span><span class="mspace"> </span><span class="mord"><span class="mord text"><span class="mord">ft</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984em;"><span style="top:-3.1473em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> of landfill
 area. It takes ~<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-steak" class="cite" id="citeref-steak">1,590 sq ft to create a 1-lb steak</a>, so your year of trash is
@@ -453,7 +455,7 @@ area. It takes ~<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-s
 are worried about them, vanishingly little exposure comes from plastic that properly makes it to
 landfill.</p>
 <p>Warming is also negligible here: The average American’s landfill methane emissions is ~0.53 t
-<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>, or about 1/10 of an SF↔NYC round-trip flight.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn6" id="fnref6">[6]</a></sup></p>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mtext>CO</mtext><mn>2</mn></msub><mtext>e</mtext></mrow><annotation encoding="application/x-tex">\text{CO}_2\text{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord text"><span class="mord">CO</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord text"><span class="mord">e</span></span></span></span></span>, or about 1/10 of an SF↔NYC round-trip flight.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn6" id="fnref6">[6]</a></sup></p>
 <p>If you do anything here, recycle your aluminum and cardboard (see <a href="https://robbiewmthompson.com/blog/plastic-straws/#recycling">section III</a>).</p>
 <h2 id="organic-foods">Organic Foods <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#organic-foods" aria-label="Link to this section">#</a></h2>
 <p>Organic food might create more externalities:</p>
@@ -461,7 +463,7 @@ landfill.</p>
 <li><strong>Land:</strong> <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-organicyield" class="cite" id="citeref-organicyield">Organic yields run ~20-25% lower</a>, so growing the same amount of food
 takes ~25-33% more farmland.</li>
 <li><strong>Banning GMOs makes the land problem worse:</strong> Organic prohibits GMOs.
-<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-gmyield" class="cite" id="citeref-gmyield">GM crops raise yields</a>.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn7" id="fnref7">[7]</a></sup></li>
+<a href="https://robbiewmthompson.com/blog/plastic-straws/#src-gmyield" class="cite" id="citeref-gmyield">GM crops raise yields</a>.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn7" id="fnref7">[7]</a></sup></li>
 <li><strong>Organic still uses pesticides:</strong> Organic bans <em>synthetic</em> pesticides but allows a long list of
 “natural” ones: copper (a heavy metal that never degrades and builds up in soil), sulfur, and
 pyrethrin (toxic to bees and fish).</li>
@@ -486,20 +488,20 @@ grown, so you gain ~nothing.</li>
 <h2 id="buying-local">Buying Local <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#buying-local" aria-label="Link to this section">#</a></h2>
 <p>Shipping food in a container on a cargo ship is basically free, economically and from a carbon
 perspective. In many cases it’s much <em>more</em> environmentally friendly to just ship stuff from where
-it grows easily.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn8" id="fnref8">[8]</a></sup><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn9" id="fnref9">[9]</a></sup></p>
+it grows easily.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn8" id="fnref8">[8]</a></sup>⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn9" id="fnref9">[9]</a></sup></p>
 <h2 id="most-labels-on-packages-goods">Most Labels on Packages Goods <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#most-labels-on-packages-goods" aria-label="Link to this section">#</a></h2>
 <h3 id="possibly-worthwhile">Possibly Worthwhile: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#possibly-worthwhile" aria-label="Link to this section">#</a></h3>
 <ul>
-<li><strong>Energy Star</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn10" id="fnref10">[10]</a></sup></li>
-<li><strong>Certain Animal Welfare Labels</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn11" id="fnref11">[11]</a></sup></li>
-<li><strong>FSC wood</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn12" id="fnref12">[12]</a></sup></li>
+<li><strong>Energy Star</strong>⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn10" id="fnref10">[10]</a></sup></li>
+<li><strong>Certain Animal Welfare Labels</strong>⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn11" id="fnref11">[11]</a></sup></li>
+<li><strong>FSC wood</strong>⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn12" id="fnref12">[12]</a></sup></li>
 </ul>
 <h3 id="pointless">Pointless: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#pointless" aria-label="Link to this section">#</a></h3>
 <ul>
-<li><strong>Rainforest Alliance</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn13" id="fnref13">[13]</a></sup></li>
-<li><strong>Fairtrade</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn14" id="fnref14">[14]</a></sup></li>
-<li><strong>“No bycatch” / seafood labels in general</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn15" id="fnref15">[15]</a></sup></li>
-<li><strong>Many Animal Welfare Labels</strong><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn16" id="fnref16">[16]</a></sup></li>
+<li><strong>Rainforest Alliance</strong>⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn13" id="fnref13">[13]</a></sup></li>
+<li><strong>Fairtrade</strong>⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn14" id="fnref14">[14]</a></sup></li>
+<li><strong>“No bycatch” / seafood labels in general</strong>⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn15" id="fnref15">[15]</a></sup></li>
+<li><strong>Many Animal Welfare Labels</strong>⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn16" id="fnref16">[16]</a></sup></li>
 </ul>
 <h1 id="iii-too-much-data">III: Too Much Data <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#iii-too-much-data" aria-label="Link to this section">#</a></h1>
 <h2 id="price-is-a-good-proxy">Price Is a Good Proxy <a class="heading-anchor" href="https://robbiewmthompson.com/blog/plastic-straws/#price-is-a-good-proxy" aria-label="Link to this section">#</a></h2>
@@ -526,7 +528,7 @@ shower.</p>
 <p><img src="https://robbiewmthompson.com/blog/plastic-straws/charts/light/bar_water_item.png" alt="Quotidian water per item — linear scale"></p>
 <p><span class="chart-src">Food water: <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-waterftprint" class="cite">Mekonnen &amp; Hoekstra</a>. AI water:
 <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-altman" class="cite" id="citeref-altman">Altman 2025</a>.</span></p>
-<p>Agriculture is <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-agwater" class="cite" id="citeref-agwater">~80–90% of US water consumption</a>.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn17" id="fnref17">[17]</a></sup></p>
+<p>Agriculture is <a href="https://robbiewmthompson.com/blog/plastic-straws/#src-agwater" class="cite" id="citeref-agwater">~80–90% of US water consumption</a>.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/plastic-straws/#fn17" id="fnref17">[17]</a></sup></p>
 <p><img src="https://robbiewmthompson.com/blog/plastic-straws/charts/light/bar_water_consumption.png" alt="US freshwater consumption by sector — agriculture dwarfs everything; power is a sliver"></p>
 <p><span class="chart-src"><a href="https://robbiewmthompson.com/blog/plastic-straws/#src-usgs" class="cite" id="citeref-usgs">USGS Circular 1441</a>, 2015 US water use; smaller sectors estimated
 from withdrawals.</span></p>
@@ -664,9 +666,9 @@ irrigation and power consumption were revived in 2015. <a href="https://robbiewm
       <description></description>
       <content:encoded><![CDATA[<p>People love to hate on AI-assisted writing, but I moved my blog to my website so that Claude can
 help. They make beautiful charts, do tons of research to get approximate numbers, and flag the worst
-parts of my own writing (eg hedging and typos).<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/writing-with-claude/#fn1" id="fnref1">[1]</a></sup></p>
+parts of my own writing (eg hedging and typos).⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/writing-with-claude/#fn1" id="fnref1">[1]</a></sup></p>
 <p>I’m now able to use my own styling: faint purple citation links, last edited dates, dark mode.</p>
-<p>Approximately none of the prose on this blog is authored by Claude.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/writing-with-claude/#fn2" id="fnref2">[2]</a></sup></p>
+<p>Approximately none of the prose on this blog is authored by Claude.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/writing-with-claude/#fn2" id="fnref2">[2]</a></sup></p>
 <p>Check at my blog in its native, beautiful form at
 <a href="https://robbiewmthompson.com/blog">robbiewmthompson.com/blog</a>.</p>
 <hr class="footnotes-sep">
@@ -715,7 +717,7 @@ on consciousness, but some subset of them are real. That still leaves us with th
 consciousness that do not require biology, only computation. Program the right logic gates into
 silicon, and Claude is conscious too.</p>
 <p>The human brain has about <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>60</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">60\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">60</span><span class="mord">×</span></span></span></span> as many synapses as DeepSeek V4 Pro (the biggest open-weight
-model I know of) has weights.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/smiling-through-inconsequence/#fn1" id="fnref1">[1]</a></sup> Closed-source models probably aren’t many orders of magnitude
+model I know of) has weights.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/smiling-through-inconsequence/#fn1" id="fnref1">[1]</a></sup> Closed-source models probably aren’t many orders of magnitude
 bigger. If one being can be ‘more’ conscious than another, then humans are still on top, for the
 time being.</p>
 <h2 id="rooting-for-the-home-team">Rooting For The Home Team <a class="heading-anchor" href="https://robbiewmthompson.com/blog/smiling-through-inconsequence/#rooting-for-the-home-team" aria-label="Link to this section">#</a></h2>
@@ -773,7 +775,7 @@ V4 Pro:
       <content:encoded><![CDATA[<h2 id="no-one-is-safe">No One Is Safe <a class="heading-anchor" href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#no-one-is-safe" aria-label="Link to this section">#</a></h2>
 <p>If the AI-pilled among us are right, then Claude is coming for all of our jobs. You might think
 that, unlike those software engineers whose minds are only good for rotating shapes, you have the
-Completely Impossible To Be Automated Skill Of Relating To Humans. I think you’re wrong.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn1" id="fnref1">[1]</a></sup> In this
+Completely Impossible To Be Automated Skill Of Relating To Humans. I think you’re wrong.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn1" id="fnref1">[1]</a></sup> In this
 post I assume that all valuable economic tasks, including Relating To Humans, will be done by AI in
 the next 2-50 years.</p>
 <p>I have taken two ‘gap years’ in my life. I stayed busy: I worked on a ranch, walked the <em>Camino de
@@ -782,7 +784,7 @@ freedive and mountaineer and climb and kitesurf. During both breaks, I planned t
 and was mentally done after six months.</p>
 <p>Having responsibilities is good for the soul. If AI creates infinite material abundance, we’ll get
 bored eventually and start looking for the purpose, structure, and responsibility that a job
-provides.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn2" id="fnref2">[2]</a></sup></p>
+provides.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn2" id="fnref2">[2]</a></sup></p>
 <h2 id="pumping-gas">Pumping Gas <a class="heading-anchor" href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#pumping-gas" aria-label="Link to this section">#</a></h2>
 <p>Pumping your own gas is illegal in
 <a href="https://en.wikipedia.org/wiki/Filling_station_attendant">Brazil, South Africa, New Jersey, and much of Oregon</a>.</p>
@@ -807,7 +809,7 @@ protectionist rackets. In New Jersey, for example, there was a gas station carte
 fixed prices at 22 cents a gallon, someone opened up a self-serve station with a 3-cent discount,
 the cartel
 <a href="https://aier.org/article/public-choice-at-the-pump-how-politicians-banned-self-serve-gas-for-years/">shot up his store</a>,
-and when that didn’t work they got self-serve banned via testimony from the state fire marshal.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn3" id="fnref3">[3]</a></sup></p>
+and when that didn’t work they got self-serve banned via testimony from the state fire marshal.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn3" id="fnref3">[3]</a></sup></p>
 <p>Said cartel no longer exists, but New Jersey’s law still does. I speculate that these laws are kept
 around primarily for the sake of employing the attendants. In America we say this part quietly if at
 all, because it smells like socialism. (It was reason 14 of 17 in the old Oregon law). In Brazil,
@@ -828,7 +830,7 @@ can do better.</p>
 though AI will be much better at it</em>. The first version of this list included therapist, but I don’t
 think that one will work: post-singularity AI is going to be so much better at therapy than any
 human.</p>
-<p>Here are some jobs we will do, despite being worse than AI:<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn4" id="fnref4">[4]</a></sup></p>
+<p>Here are some jobs we will do, despite being worse than AI:⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn4" id="fnref4">[4]</a></sup></p>
 <p><em>Athlete, broadly defined:</em> We are already much slower than cars, but this has done nothing to
 diminish Olympic Track and Field. The whole point of sports is to appreciate <em>human</em> abilities. I
 suspect we’ll make up many new competitive pursuits. A lot of our ‘world championships’ are already
@@ -836,8 +838,8 @@ silly, e.g. <a href="https://www.youtube.com/watch?v=I7_ttSQw62A">cheese rolling
 <a href="https://www.youtube.com/watch?v=p7IM9f16QZ4">wife carrying</a>,
 <a href="https://www.youtube.com/watch?v=swhtaTPbH2Q">toe wrestling</a>,
 <a href="https://www.youtube.com/watch?v=bXezFdC4aqU">air-guitaring</a>,
-<a href="https://www.youtube.com/watch?v=6yrdT5y12kA">rock-paper-scissors</a>,<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn5" id="fnref5">[5]</a></sup>
-<a href="https://www.youtube.com/watch?v=q7WNwvbwe2E">darts</a>,<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn6" id="fnref6">[6]</a></sup>
+<a href="https://www.youtube.com/watch?v=6yrdT5y12kA">rock-paper-scissors</a>,⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn5" id="fnref5">[5]</a></sup>
+<a href="https://www.youtube.com/watch?v=q7WNwvbwe2E">darts</a>,⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn6" id="fnref6">[6]</a></sup>
 <a href="https://www.youtube.com/watch?v=SU_bMo561b8">baseball</a>.</p>
 <p><em>Park rangers / outdoor guides:</em> There is already a massive demand to become a ranger, vastly
 exceeding supply of jobs available. Call me an asshole, but: maintaining trails and monitoring
@@ -853,7 +855,7 @@ reward people for sharing good ideas and being popular.</p>
 <p><em>Zookeeper / conservationist:</em> Having a dog is great because you get to cuddle a cute creature,
 which releases happy hormones. But it’s also a form of make-work. You bring a creature into the
 world that depends on you for its physical and emotional needs, and then you meet said needs, and
-feel altruistic every day for doing so.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn7" id="fnref7">[7]</a></sup> In the future we’ll micromanage AI as it operates on
+feel altruistic every day for doing so.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn7" id="fnref7">[7]</a></sup> In the future we’ll micromanage AI as it operates on
 injured wildlife, hold long hearings to decide which plants are native enough to keep around, and
 keep lots and lots of pets.</p>
 <p><em>Artist, broadly defined:</em> Many people take it as an axiom that AI cannot create ‘true art.’ This is
@@ -861,7 +863,7 @@ a classic case of ‘No True Scotsman,’ and I will write up a blog post soon t
 art can be done entirely for the artist’s benefit, so while this lacks the structure and
 responsibility that makes something a ‘job,’ people will certainly spend time on it.</p>
 <p><em>Teacher:</em> Being a role model for young humans, live in the flesh, can’t be automated almost by
-definition.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn8" id="fnref8">[8]</a></sup> AI will be the one explaining algebra.</p>
+definition.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn8" id="fnref8">[8]</a></sup> AI will be the one explaining algebra.</p>
 <h2 id="core-needs-become-status-symbols">Core Needs Become Status Symbols <a class="heading-anchor" href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#core-needs-become-status-symbols" aria-label="Link to this section">#</a></h2>
 <p>Clothing began entirely as a functional object. Today dramatically more effort goes into making
 clothing more beautiful (and a more effective status symbol) than goes into keeping humans warm.</p>
@@ -956,7 +958,7 @@ mortality <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-r
 <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-chetty" class="cite" id="citeref-chetty">Chetty 2014</a>, <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-sirin" class="cite" id="citeref-sirin">Sirin 2005</a>. <em>Politics</em>: <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-alford" class="cite" id="citeref-alford">Alford 2011</a>,
 <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-gallup" class="cite" id="citeref-gallup">Gallup 2024</a>, <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-warraich" class="cite" id="citeref-warraich">Warraich 2022</a>.</span></p>
 <p>Methodology: lazy. I asked Claude, and Claude looked up the answers from previous studies. The
-numbers pass my sniff test.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#fn1" id="fnref1">[1]</a></sup></p>
+numbers pass my sniff test.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#fn1" id="fnref1">[1]</a></sup></p>
 <p><em>Takeaways:</em></p>
 <ol>
 <li>Personality tests are bad at predicting life outcomes.</li>
@@ -965,7 +967,7 @@ numbers pass my sniff test.<sup class="footnote-ref"><a href="https://robbiewmth
 sighs. Then one notices that the best predictor of income is parental SES, and sighs again.</li>
 </ol>
 <p>Before you dunk on me in the comments - “<em>your income causes your political opinions, not the other
-way around!</em>”<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#fn2" id="fnref2">[2]</a></sup> - I know. The causal arrow goes both ways.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#fn3" id="fnref3">[3]</a></sup> The data is still interesting! And
+way around!</em>”⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#fn2" id="fnref2">[2]</a></sup> - I know. The causal arrow goes both ways.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#fn3" id="fnref3">[3]</a></sup> The data is still interesting! And
 the causal arrow <em>does not</em> flip for race and parental SES.</p>
 <h2 id="b-roll">B Roll <a class="heading-anchor" href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#b-roll" aria-label="Link to this section">#</a></h2>
 <p>You live a couple months longer if you were <a href="https://robbiewmthompson.com/blog/another-dunk-on-mbti/#src-doblhammer" class="cite">born in Autumn</a>, so your Zodiac does
@@ -1082,7 +1084,7 @@ new prose to match that of today’s most popular humans. Em dashes will become 
 LLMs. Opus 5 will use semicolons instead; I will change my style to avoid writing like a bot. The
 cycles of fashion will accelerate.</p>
 <p>Already many humans prefer Claude’s prose to their own, and let LLMs edit or fully write most of
-what they produce.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/thoughts-on-ai-march-2026/#fn1" id="fnref1">[1]</a></sup> Once everyone (who matters) does this, some meta Turing Test will have been
+what they produce.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/thoughts-on-ai-march-2026/#fn1" id="fnref1">[1]</a></sup> Once everyone (who matters) does this, some meta Turing Test will have been
 passed.</p>
 <h2 id="ai-productivity-psychosis">AI Productivity Psychosis <a class="heading-anchor" href="https://robbiewmthompson.com/blog/thoughts-on-ai-march-2026/#ai-productivity-psychosis" aria-label="Link to this section">#</a></h2>
 <p>Status symbols die when they become cheap. A <a href="https://paulgraham.com/brandage.html">thin watch</a> is
@@ -1216,13 +1218,13 @@ arguments are sufficiently galaxy-brained that I prefer my simpler ones:</p>
 <ul>
 <li>
 <p>Their confidence intervals include the possibility that octopi have higher moral weight than
-humans, because octopi have a higher Critical Flicker-fusion Frequency.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn1" id="fnref1">[1]</a></sup> But humans have ~1.5
-OOMs greater <a href="https://robbiewmthompson.com/blog/bobs-diet/#src-cff-audio" class="cite" id="citeref-cff-audio">temporal resolution in hearing</a> (via pitch) than sight.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn2" id="fnref2">[2]</a></sup></p>
+humans, because octopi have a higher Critical Flicker-fusion Frequency.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn1" id="fnref1">[1]</a></sup> But humans have ~1.5
+OOMs greater <a href="https://robbiewmthompson.com/blog/bobs-diet/#src-cff-audio" class="cite" id="citeref-cff-audio">temporal resolution in hearing</a> (via pitch) than sight.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn2" id="fnref2">[2]</a></sup></p>
 </li>
 <li>
 <p>They try to measure ~90 different proxies for sentience, and about half of (species, sentience
 measurement) pairs are unknown. How you deal with this is a nasty statistical problem. It sounds
-like they made a reasonable adjustment<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn3" id="fnref3">[3]</a></sup>, but I worry that by casting such a broad net
+like they made a reasonable adjustment⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn3" id="fnref3">[3]</a></sup>, but I worry that by casting such a broad net
 they added more noise than signal.</p>
 </li>
 <li>
@@ -1280,7 +1282,7 @@ and never seeing the light of day. Maybe there’s a meaningful food label out t
 guarantees that the animal I’m eating lived a happy life, but I have not found it.</li>
 <li>I wasn’t prepared to quiz friends and restaurants who cooked for me on the origin of the meat I
 was eating. Not eating meat ever is a thing; you call yourself a vegetarian. Not eating meat that
-was produced in a factory farm isn’t a thing; people call you obnoxious.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn4" id="fnref4">[4]</a></sup></li>
+was produced in a factory farm isn’t a thing; people call you obnoxious.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn4" id="fnref4">[4]</a></sup></li>
 </ul>
 <p>No rational discourse was going to change my meat-eating habits at that point in time. I could not
 become part of the soy-eating blue tribe. Luckily, in 2021 while walking the Camino de Santiago, I
@@ -1331,7 +1333,7 @@ meantime I will use my flawed-but-plausible one.</p>
 <h2 id="the-rankings">The Rankings <a class="heading-anchor" href="https://robbiewmthompson.com/blog/bobs-diet/#the-rankings" aria-label="Link to this section">#</a></h2>
 <p>I pulled the numbers here from Google / Claude / ChatGPT and did some light sanity checking. I hope
 they are all within one or two orders of magnitude of the true answer.
-(<a href="https://github.com/robbiethompson18/personal-website/blob/main/posts/bobs-diet/rankings.csv">Link</a>)<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn5" id="fnref5">[5]</a></sup></p>
+(<a href="https://github.com/robbiethompson18/personal-website/blob/main/posts/bobs-diet/rankings.csv">Link</a>)⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn5" id="fnref5">[5]</a></sup></p>
 <p><img src="https://robbiewmthompson.com/blog/bobs-diet/charts/light/rankings-suffering.png" alt=""></p>
 <p>Lifespan reflects the amount of time we can expect the animal to spend on a factory farm, so animals
 which aren’t farmed don’t appear in this graph.</p>
@@ -1370,7 +1372,7 @@ environment.</li>
 </ol>
 <h3 id="dont-you-care-about-the-environment">Don’t You Care About The Environment? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/bobs-diet/#dont-you-care-about-the-environment" aria-label="Link to this section">#</a></h3>
 <p>Yes, I do, and I wrote about this a bit more
-<a href="https://robbiewmthompson.com/blog/plastic-straws">here</a><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn6" id="fnref6">[6]</a></sup></p>
+<a href="https://robbiewmthompson.com/blog/plastic-straws">here</a>⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/bobs-diet/#fn6" id="fnref6">[6]</a></sup></p>
 <h3 id="farmed-shrimp-eat-fishmeal">Farmed Shrimp Eat Fishmeal <a class="heading-anchor" href="https://robbiewmthompson.com/blog/bobs-diet/#farmed-shrimp-eat-fishmeal" aria-label="Link to this section">#</a></h3>
 <p>Correct. And fishmeal normally comes from anchovies, which are much smarter than shrimp. ChatGPT
 wants me to believe that 1 pound of shrimp production requires ~.2 pounds of fishmeal. These
@@ -1557,7 +1559,7 @@ never tell you in which situations they think lying is OK unless you ask. <em>Yo
       <content:encoded><![CDATA[<p>“I slept and dreamt that life was joy. I awoke and saw that life was service. I acted—and behold,
 service was joy.” - Rabindranath Tagore, maybe</p>
 <p>I spent the last two weeks on the Nelchina Glacier in Alaska with <a href="https://www.nols.edu/en/">NOLS</a>.</p>
-<p>The weather was some of the worst our instructors had seen on a course. On a seven mile trek<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/nols-alaska-and-drowning-children/#fn1" id="fnref1">[1]</a></sup> to
+<p>The weather was some of the worst our instructors had seen on a course. On a seven mile trek⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/nols-alaska-and-drowning-children/#fn1" id="fnref1">[1]</a></sup> to
 a new campsite we got caught in a whiteout storm with 40mph wind blowing headlong into us. We
 navigated a featureless landscape using a compass, dead reckoning, and the instructors’ memory of
 the glacier’s topology.</p>
@@ -1571,13 +1573,13 @@ bucket brigade style, further and further down the campsite. On some nights I sp
 unburying my tent than I did sleeping in it.</p>
 <p>This on top of all the ways we planned on suffering, like eating powdered dehydrated food and being
 wet and cold all the time and wearing the same socks for two weeks and tediously melting snow for
-water and getting sunburnt.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/nols-alaska-and-drowning-children/#fn2" id="fnref2">[2]</a></sup></p>
+water and getting sunburnt.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/nols-alaska-and-drowning-children/#fn2" id="fnref2">[2]</a></sup></p>
 <p>I <em>loved</em> this NOLS course. I remember crawling back into the tent in the middle of the night after
 shoveling, back sore, sleeping bag and clothes wet, hungry because we didn’t have the time to cook a
 hot meal. I closed my eyes and prepared to meditate as a means of self-soothing, only to realize
 that I was already grinning.</p>
 <hr>
-<p>Singer’s drowning children thought experiment<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/nols-alaska-and-drowning-children/#fn3" id="fnref3">[3]</a></sup> makes me feel guilty every time I think about it.
+<p>Singer’s drowning children thought experiment⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/nols-alaska-and-drowning-children/#fn3" id="fnref3">[3]</a></sup> makes me feel guilty every time I think about it.
 By any straightforward utilitarian calculation, the optimal way to spend all my time is by founding
 a startup so that I can donate the proceeds to humanitarian efforts in Sub-Saharan Africa or working
 on AI alignment or something similarly altruistic, with no time in between for mountaineering trips
@@ -1658,10 +1660,10 @@ and raw onions and gave up toothpaste for a year on a hunch that nothing bad wou
 me when I tell you that the nerdy and bizarre responses of my fellow interns on our get-to-know-you
 questionnaire elated me. At Jane Street I was downright mainstream. I would later learn that a
 fellow intern said this about me: “That kid Robbie, he doesn’t wear shoes, yet somehow he’s like the
-third most-normal guy here.”<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn1" id="fnref1">[1]</a></sup></p>
-<p>Here are some “hobbies and interests” from our questionnaire.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn2" id="fnref2">[2]</a></sup></p>
+third most-normal guy here.”⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn1" id="fnref1">[1]</a></sup></p>
+<p>Here are some “hobbies and interests” from our questionnaire.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn2" id="fnref2">[2]</a></sup></p>
 <ul>
-<li>“CTFs<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn3" id="fnref3">[3]</a></sup>, video games (CSGO, Final Fantasy, Last of Us, etc.), drinking OJ”</li>
+<li>“CTFs⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn3" id="fnref3">[3]</a></sup>, video games (CSGO, Final Fantasy, Last of Us, etc.), drinking OJ”</li>
 <li>“Hackathons, Chores (e.g. cleaning floor), cooking, playing table tennis”</li>
 <li>“AR/VR, Retrocomputing, Cooking/Baking and video production”</li>
 <li>“Sport Climbing, Custom Keyboards, Crypto”</li>
@@ -1675,23 +1677,23 @@ crunchy-granola.”</p>
 <li>“I set up a Ethereum mining setup with over 30 GPUs in our house once”</li>
 <li>“I have a running tier list of every single place I’ve eaten at over the past 5 years (I also have
 separate ranking lists for every single Dorito flavor, Poptart flavor, and other snacks)”</li>
-<li>“I can play chess blindfolded”<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn4" id="fnref4">[4]</a></sup></li>
+<li>“I can play chess blindfolded”⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn4" id="fnref4">[4]</a></sup></li>
 <li>“I am anosmic and I speak 9 languages”</li>
 <li>“At the beginning of quarantine, I (accidentally?) stayed indoors for 90 consecutive days.”</li>
 <li>“Tried to drop out school and become a professional E-sports player but failed”</li>
 <li>“At one point in my life I could solve a Rubik’s cube in less than 10 seconds”</li>
 </ul>
 <p>Again, my response: “Three years ago I started running barefoot and I’ve never gone back. I’ve done
-a couple half marathons with a full one coming soon I hope!”<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn5" id="fnref5">[5]</a></sup></p>
+a couple half marathons with a full one coming soon I hope!”⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn5" id="fnref5">[5]</a></sup></p>
 <h2 id="its-plus-ev">It’s Plus EV <a class="heading-anchor" href="https://robbiewmthompson.com/blog/jane-street-archives/#its-plus-ev" aria-label="Link to this section">#</a></h2>
 <p>The first thing you learn as an intern is that the only important thing about a bet is its
 <a href="https://en.wikipedia.org/wiki/Expected_value">expected value</a> (almost). For small amounts of money,
 risk is irrelevant. And that’s ‘small’ by Jane Street standards. There’s a man who walks around the
 Christmas party every year with about
 $40k in hundred dollar bills who will flip a coin for as much
-money as you like,<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn6" id="fnref6">[6]</a></sup> with an informal minimum of $100.
+money as you like,⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn6" id="fnref6">[6]</a></sup> with an informal minimum of $100.
 He gets hundreds of takers.</p>
-<p>Tyler’s birthday fell on the third day of the internship.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn7" id="fnref7">[7]</a></sup> We sang him happy birthday at dinner.
+<p>Tyler’s birthday fell on the third day of the internship.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn7" id="fnref7">[7]</a></sup> We sang him happy birthday at dinner.
 Doug, a fulltimer, had a Cheshire Cat grin on his face as soon as the singing began. Once the final
 note sounded he promptly got up, telling our table “I’m going to go give that kid some money.”</p>
 <p>Doug sauntered over to Tyler and told him the deal: “I’m going to flip a coin. If it’s heads, you’ll
@@ -1728,7 +1730,7 @@ projects. But the most fun part by far is mock trading.</p>
 <p>If you want a taste of what mock trading games are like, I suggest you go to
 <a href="http://figgie.com">figgie.com</a>. There you can learn and play a card game designed to teach Jane
 Street interns how to trade. It will only take you ten minutes to learn the rules, but there’s
-enough complexity in strategy to keep interns thinking for weeks.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn8" id="fnref8">[8]</a></sup></p>
+enough complexity in strategy to keep interns thinking for weeks.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn8" id="fnref8">[8]</a></sup></p>
 <p>As the summer goes on, games more and more resemble real markets. You play in a team of four on a
 simulated electronic exchange, with both bots and other Jane Street teams trading against you. The
 rules are different every time, but usually your job is to figure out which bot is making bad trades
@@ -1741,11 +1743,11 @@ from over the loudspeaker, a sigh of displeasure from a coach. In the mock tradi
 sound, and everything else about the experience, induces panic.</p>
 <p>Many a genius has been humbled by mock. I once sat down excited to trade, until a teammate pointed
 behind us and said “you see that team we’re up against? Three out of four won a gold medal at the
-IMO.”<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn9" id="fnref9">[9]</a></sup> During my internship, someone looked up the top 100 eighth graders at math when we were
+IMO.”⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn9" id="fnref9">[9]</a></sup> During my internship, someone looked up the top 100 eighth graders at math when we were
 all in eighth grade, and discovered that 35 of them were current interns.</p>
 <h2 id="think-like-a-streeter">Think Like a Streeter <a class="heading-anchor" href="https://robbiewmthompson.com/blog/jane-street-archives/#think-like-a-streeter" aria-label="Link to this section">#</a></h2>
 <p>When trading, you almost always think in terms of expected value, not risk. So I’ve never split the
-bill at a dinner with Streeters. We pull straws<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn10" id="fnref10">[10]</a></sup>, and the loser pays. You pay the same amount as
+bill at a dinner with Streeters. We pull straws⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/jane-street-archives/#fn10" id="fnref10">[10]</a></sup>, and the loser pays. You pay the same amount as
 you would splitting the bill, on average.</p>
 <p>Trading requires paranoia. If a stock is trading below its true value, why hasn’t someone else
 bought it already? And who is stupid enough to sell it to you below market value? Are you the
@@ -1850,10 +1852,10 @@ performatively displaying my athleticism by, for example, climbing light poles.<
 <li>Don’t say anything too controversial.</li>
 </ol>
 <p>I say this not to brag about being popular, but to contend that I did and do have my choice between
-popular and unpopular, autist and non-autist friends.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/autistic-friendship/#fn1" id="fnref1">[1]</a></sup> For many years I chose not to be close
+popular and unpopular, autist and non-autist friends.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/autistic-friendship/#fn1" id="fnref1">[1]</a></sup> For many years I chose not to be close
 with people who exhibited autistic tendencies, for no other reason than that they generally weren’t
 popular and I was so enamored with my newfound popularity.</p>
-<p>But for the last three years or so, I’ve learned to stop caring as much about being popular.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/autistic-friendship/#fn2" id="fnref2">[2]</a></sup> In
+<p>But for the last three years or so, I’ve learned to stop caring as much about being popular.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/autistic-friendship/#fn2" id="fnref2">[2]</a></sup> In
 doing so I’ve realized the treasures of friendships with people like me — people who are a little
 autistic. They aren’t diagnosed as autistic, and most wouldn’t self-identify as autistic either. But
 their behavior puts them just barely onto the spectrum from my admittedly unscientific perspective.</p>
@@ -1907,7 +1909,7 @@ for a follow-up.</p>
 <p>I’ve been a barefoot runner for the past six years. For all but the first week the most painful part
 hasn’t been my feet, it’s been the dirty looks. The looks that say “how dare you sully my pavement
 with your germ-ridden toes” or “I can’t believe his wolf-mother lets him out of the den like that”
-or “I’m going to have to wash my dog now that he’s played with it.”<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/autistic-friendship/#fn3" id="fnref3">[3]</a></sup> I credit myself with a lot
+or “I’m going to have to wash my dog now that he’s played with it.”⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/autistic-friendship/#fn3" id="fnref3">[3]</a></sup> I credit myself with a lot
 of self-confidence and gumption for going around barefoot and stomaching others’ stares. And when I
 asked myself why other people don’t go barefoot like me despite how amazing it feels, my unique
 gumption was the answer.</p>
@@ -1967,7 +1969,7 @@ intervention intended for everyone, or just me?</li>
 <h2 id="i-is-there-a-good-story-for-why-cavemen-were-fine-without-this-medical-intervention">I: Is There a Good Story for Why Cavemen Were Fine Without This Medical Intervention? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#i-is-there-a-good-story-for-why-cavemen-were-fine-without-this-medical-intervention" aria-label="Link to this section">#</a></h2>
 <p>Does it strike you as odd that dentists recommend that almost everyone get their wisdom teeth
 removed? What happened to cavepeople? Did they all have horrible jaw pain in their twenties and
-thirties?<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#fn1" id="fnref1">[1]</a></sup> Did they perform root canals with rocks?</p>
+thirties?⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#fn1" id="fnref1">[1]</a></sup> Did they perform root canals with rocks?</p>
 <p>If you ask an anthropologist, they’ll tell you: the human jaws we’ve found from before the
 agricultural revolution have perfect teeth. I’m sure some of the skeletons show teeth knocked out
 from blows. But the problems that modern orthodontia aims to fix — malocclusion, crowded and crooked
@@ -2053,7 +2055,7 @@ substances that don’t have FDA approval.</p>
 well. People don’t like being told what to eat.</p>
 <p>IRBs will block RCTs where the treatment group is something like ‘use a tanning bed to see if it
 causes skin cancer.’ Without reading any tanning bed study, I have a strong prior that it’s
-observational.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#fn2" id="fnref2">[2]</a></sup></p>
+observational.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/the-medical-advice-i-feel-comfortable/#fn2" id="fnref2">[2]</a></sup></p>
 <p>Know if a study is indirect (eg it shows lowered cholesterol but not lowered mortality).</p>
 <hr class="footnotes-sep">
 <section class="footnotes">

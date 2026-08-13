@@ -48,12 +48,11 @@ of 2015.
 
 Does the Alpha model work outside their extremely selective cohort? To (partially) answer that
 question I interviewed homeschool parents. They were universally _extremely_ happy with their
-decision to homeschool. All believed that their kids were getting a far better education. I can't be
-certain the kids were happy, but the moms sure as hell were.
+decision to homeschool. All believed that their kids were getting a far better education.
 
 There are countless tools that provide content for homeschoolers. The moms liked them. They managed
-their kids's schedules but did little direct teaching or tutoring. Everyone was at or above grade
-level despite spending ~3 hours a day on acaedemics, just like at Alpha.
+their kids' schedules but did little direct teaching or tutoring. Everyone was at or above grade
+level despite spending ~3 hours a day on academics, just like at Alpha.
 
 ## Content Is a Solved Problem
 
@@ -62,20 +61,19 @@ Jobs wanted to shake him in return: but your content could be so much better! Yo
 practice embedded in the text, interactive visuals, games, adaptive homework with instant grading...
 no one was interested.
 
-## Track the Kids
+## Tracking Works
 
 I'm skeptical of the claim that age-based cohorts help kids socially (see _Lord of the Flies_). They
 seem _catastrophic_ academically. Every schoolteacher said they spent most of their time on the
 bottom ten percent of students and struggled to spare the top 10% from boredom.
 
 There is strong empirical evidence for "kids are not equally able":
-[MAP scores](https://www.nwea.org/resource-center/fact-sheet/87992/MAP-Growth-2025-norms-quick-reference_NWEA_onesheet.pdf/).[^elide]
+[MAP scores](https://www.nwea.org/resource-center/fact-sheet/87992/MAP-Growth-2025-norms-quick-reference_NWEA_onesheet.pdf/).
 In elementary school, the stddev of student ability is about the same as one grade level worth of
 learning. About 1/3rd of your students will be at least one grade ahead or behind. By the time you
 get to high school, a stddev is 10x the difference between the average ninth and tenth grader. ~15%
 of high school seniors read at a fourth grade level.[^bias] [^depressing]
-
-[^elide]: I am not addressing the rebuttal of: 'some kids just got a better education.'
+[Only ~20% of variance](@hedges-hedberg-2007) is explained by the school someone attends.
 
 [^bias]:
     There are national averages under the current school system, where we don't do much tracking. If
@@ -85,17 +83,17 @@ of high school seniors read at a fourth grade level.[^bias] [^depressing]
     Scores seem to not move at all after ninth grade, which is both depressing and a strong
     datapoint in favor of letting people start trade school earlier like they do in Germany.
 
-My belief that tracking improves learning is rooted in a strong prior, buttressed by Fable agreeing
-with me. The claim "if your instructor is teaching to a level way above or below your own, you'll
-learn less quickly" only gets disputed in contexts like "therefore we should track kids in school,"
-hence my prior and my impatience in reading studies.[^converse] Skimming summaries of studies,
-tracked kids that are taught material of differing difficulty perform about
-[.5 stddevs better](@steenbergen-hu-2016) than their [counterfactually-untracked selves](@ddk-2011)
-after 1-2 years.
+I have a strong prior that tracking works. The claim "if your instructor is teaching to a level way
+above or below your own, you'll learn less quickly" only gets disputed in contexts like "therefore
+we should track kids in school."[^converse] In the studies I skimmed with Fable, tracked kids that
+are taught material of differing difficulty perform about [.5 stddevs better](@steenbergen-hu-2016)
+than their [counterfactually-untracked selves](@ddk-2011) after 1-2 years.
 
 [^converse]:
     Shouldn't I also have some prior of the form "this statement is controversial and therefore
     deserves close examination"? Not when the controversy is easily explained by tribal politics.
+
+## Why Don't We Track?
 
 Every homeschool parent finds curriculum for their kids for only a couple hundred bucks a year. Can
 we really not figure out a way to let precocious third-graders learn algebra? I haven't spent nearly
@@ -113,32 +111,38 @@ If half of your third grade class is doing Algebra while the other half learns a
 half is a skill issue on your behalf. You are a Bad Teacher Who is Leaving Children Behind. If all
 of your third grade class is learning addition, then... there's nothing to see here 😗🎶.
 
-Even some homeschooled parents had internalized the belief that minds are homogenous. The one mom
+Even the homeschooled parents had internalized the belief that minds are homogenous. The only mom
 who asked for curriculum wanted reading material for five-year-olds, because none of her kids could
 read at 5. I asked how they learned to read. "They all figured it when they turned 7." Then teach
-them to read at 7! I assume some board of education standards has made this strategy illegal.
+them to read at 7![^phonics] I assume some board of education standards has made this strategy
+illegal.
+
+[^phonics]:
+    Probably phonics would help here too. I am all for trying very hard to get your kids the best
+    education. What interested me is that four kids all got over this hump in a predictable way, yet
+    mom was no less stressed that kid number 5 was behind and would never learn to read.
 
 Society is warming to the idea that some kids find book learning hard. One never says this outright;
 students instead have a clinical diagnosis and an IEP. I am fine with riding the euphemism treadmill
-for the sake of protecting kid's feelings. We should find a similar euphemism that lets some kids
+for the sake of protecting kids' feelings. We should find a similar euphemism that lets some kids
 skip several grades while preserving everyone else's feelings. At present the best we manage is
-shipping some tiny percentage of the talented ones off to the Philipp's Exeters of the world.
+shipping some tiny percentage of the talented ones off to the Phillips Exeters of the world.
 
 ## What to Be Done
 
 This problem still bothers me personally. I am certain this will come across as obnoxious, but: I am
 sad about how little my own learning was accelerated in math and science. I suspect I could've
-absorbed 2x to 8x more material in another environment. I deeply wish that I knew more math.
+absorbed ~4x more material in another environment. I deeply wish that I knew more math.
 
-If the tracking vibes problem was magically fixed (I am not hopeful), we'd see a bit more
-personalized learning software. But the far bigger and more important impact would be students that
-are much more sorted by ability, both within and between schools.
+If the tracking vibes problem was magically fixed (I am not hopeful), we'd see more personalized
+learning software. We could get a similar benefit via sorting students by ability, both within and
+between schools.
 
 Institutions like [Alpha School](https://alpha.school/) and
 [The Levitt Lab](https://www.thelevittlab.org/) are making personalized, mastery-based learning a
 reality today. I am sufficiently bought in to send my future kids to one of these schools; I am not
 sufficiently bought in to found a competing school or work for them.[^BOTEC] I doubt whether better
-software will move the needle, which is why I'm abandoning this startup idea.
+software will move the needle, which is why I'm putting this idea on ice.
 
 [^BOTEC]:
     A very hastily-constructed BOTEC on whether founding an Alpha School competitor is a sensible
@@ -161,10 +165,10 @@ software will move the needle, which is why I'm abandoning this startup idea.
 
     We go to school from about 6 to 22. This means we get 16 years \* .2 = 3.2 QALYs per American
     schoolchild who does this program through and through. So if we reached full saturation: 4mm
-    18year olds \* 3.2 QALYs is about 12mm QALYs. A QALY is 1/70 of a life. Call it 180k lives a
+    18-year-olds \* 3.2 QALYs is about 12mm QALYs. A QALY is 1/70 of a life. Call it 180k lives a
     year at full saturation.
 
-    A wildly successful effort in thie domain would reach 10% of American schoolkids any given year.
+    A wildly successful effort in this domain would reach 10% of American schoolkids any given year.
     So 18k lives. In dollars, assuming \$5k per life from Givewell: \$90mm per year. I know American
     lives are much more expensive than this empirically. I am going with the Givewell marginal cost
     anyway.
@@ -178,7 +182,7 @@ software will move the needle, which is why I'm abandoning this startup idea.
     share my worldview on this problem.
 
     I suspect dollars made is same OOM as value of the QALYs (both are conditional on massive
-    success). So call it \$2B in 'altrustic value created' total.
+    success). So call it \$2B in 'altruistic value created' total.
 
     It's absolutely worthwhile to devote my next 10 years to making \$2B of cold hard cash. What
     probability of success would I need for this endeavour to be worthwhile?
@@ -200,7 +204,7 @@ software will move the needle, which is why I'm abandoning this startup idea.
     10yrs: should be decided.
 
     Conclusion: There is a <1% chance I succeed at this; I won't make meaningful progress in finding
-    out next year. This path is like \$2mm of EV, less than a job at A\ or Meta.
+    out next year. This path is like \$2mm of EV, less than a job at Anthropic or Meta.
 
     The 10bps number assumes that I'm right: tracking works and LLM teachers would work. AI teaching
     could be way better than .2 QALYs per year of instruction so I'm ignoring this.
@@ -228,6 +232,12 @@ Evidence from a Randomized Evaluation in Kenya," _American Economic Review_ 101(
 the one clean RCT of tracking itself. +0.14–0.18 SD after 18 months, gains at all quantiles
 including the bottom half, still +0.16 SD a year after the program ended.
 <https://www.nber.org/papers/w14475>
+
+{@hedges-hedberg-2007}: Hedges & Hedberg, "Intraclass Correlation Values for Planning
+Group-Randomized Trials in Education," _Educational Evaluation and Policy Analysis_ 29(1) (2007):
+60–87 — across national K–12 samples, the mean school-level intraclass correlation is 0.22 in both
+math and reading: ~78% of US achievement variance lives within schools, so a single school's stddev
+is ~88% of the national one. <https://journals.sagepub.com/doi/10.3102/0162373707299706>
 
 {@pisa-year}: OECD, "How Much Do 15-Year-Olds Learn over One Year of Schooling?," PISA in Focus No.
 115 (2021) — ~20 PISA points is the typical learning gain from one year of schooling across OECD

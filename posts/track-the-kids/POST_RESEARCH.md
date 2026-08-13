@@ -318,3 +318,22 @@ direction.
 - **Park, Lubinski & Benbow (2013)** — grade-skippers ~2x STEM PhDs.
 - **Huffaker, Novicoff & Dee (2025) + Loveless (2022)** — SFUSD detracking failed on its own equity
   goals and was reversed.
+
+## Addendum (2026-08-13): how much does the stddev shrink within a school?
+
+Barely. The variance-decomposition / intraclass-correlation literature:
+
+- **Hedges & Hedberg (2007).** "Intraclass Correlation Values for Planning Group-Randomized Trials
+  in Education," _Educational Evaluation and Policy Analysis_ 29(1): 60–87.
+  <https://journals.sagepub.com/doi/10.3102/0162373707299706> — national probability samples (ECLS,
+  Prospects, LSAY, NELS), K–12. Mean unconditional school-level ICC: **math 0.220, reading 0.224** —
+  only ~22% of US achievement variance is between schools. Within-school SD = sqrt(1 − 0.22) ≈ **88%
+  of the national SD**. ICC declines with grade (fitted: 0.242 − 0.004×grade), so high schools
+  filter even less (math ICC ~0.14–0.19 in grades 7–11). Within **low-achievement schools** (bottom
+  half by school mean): ICC 0.087 math / 0.093 reading — nearly as heterogeneous as their whole
+  stratum. (Numbers read from Tables 2, 3, 6, 7 of the article PDF.)
+- Implication for the MAP paragraph: if national SD ≈ 1 grade level in elementary, within-school SD
+  ≈ 0.88 grade levels; "1/3 of students at least a grade ahead/behind" becomes ~1/4 within a single
+  school.
+- Classroom-level (three-level) decomposition not verified here; candidate source: Hedberg (2013),
+  within-district ICCs, <https://files.eric.ed.gov/fulltext/ED557572.pdf>.
