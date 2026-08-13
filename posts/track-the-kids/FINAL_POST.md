@@ -210,11 +210,10 @@ software will move the needle, which is why I'm abandoning this startup idea.
     compounded over decades. If we get 1.6 more years of schooling that's plausibly
     [~32 points on the PISA](@pisa-year), which is ~0.6 percentage points more GDP per annum in the
     US. Even in the next ten years, given that GDP is about \$34T and will be about
-    [~\$47T in a decade](@cbo-gdp), that is
-    $(1.006^{10} - 1) \times \$47\text{T} \approx
-    \$2.9\text{T}$ — about \$3T more GDP per year.
-    I don't think this chain of causation is robust or that I should give myself (hypothetical)
-    credit for increased GDP. But it sure as hell makes every other number in this BOTEC tiny.
+    [~\$47T in a decade](@cbo-gdp), that is $(1.006^{10} - 1) \times \$47\text{T} \approx
+    \$2.9\text{T}$ — about \$3T more GDP per year. I don't think this chain of causation is robust
+    or that I should give myself (hypothetical) credit for increased GDP. But it sure as hell makes
+    every other number in this BOTEC tiny.
 
 {@steenbergen-hu-2016}: Steenbergen-Hu, Makel & Olszewski-Kubilius, "What One Hundred Years of
 Research Says About the Effects of Ability Grouping and Acceleration on K–12 Students' Academic
