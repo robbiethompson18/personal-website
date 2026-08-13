@@ -7,6 +7,83 @@
     <description>Essays by Robbie Thompson.</description>
     <language>en</language>
     <item>
+      <title>IQ Is Definitely Real</title>
+      <link>https://robbiewmthompson.com/blog/iq-is-definitely-real/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/iq-is-definitely-real/</guid>
+      <pubDate>Wed, 12 Aug 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>This is an argument I’ve had too many times, so I’m going to write it down here once and for all. If
+you already think IQ tests do an imperfect but decent job measuring the thing we casually refer to
+as ‘being smart’ then you can skip this post. I claim 0 novel contributions to this discussion.</p>
+<p>B: IQ only measures one thing. How could that possibly be useful?</p>
+<p>A: Scientists first proposed IQ (back then ‘g’) because they found that mathematical reasoning
+correlates with verbal reasoning correlates with reaction time, etc. Given this, IQ is a useful
+metric, and ‘smart’ is a useful linguistic concept. See
+<a href="https://www.lesswrong.com/posts/yFDKvfN6D87Tf5J9f/neural-categories">Neural Categories</a>.</p>
+<p>B: But there are other ways of being smart. There are so many ways to be smart.</p>
+<p>A: Agreed. One way to be big is to be tall. Another way is to be short and bulky. Big is still a
+useful word. Name your way of being ‘smart’ that doesn’t correlate positively with IQ.</p>
+<p>B: Being emotionally intelligent. Being wise. Being virtuous.</p>
+<p>A: Emotional intelligence is <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-maccann-2014" class="cite" id="citeref-maccann-2014">positively correlated with IQ</a>. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>.8</mn></mrow><annotation encoding="application/x-tex">r=.8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">.8</span></span></span></span>.</p>
+<p>I suspect you would define wise in a way that isn’t measurable. If this argument ends in us agreeing
+“all measurable traits which one would describe as ‘smart’ are positively correlated with IQ” then
+one should have the prior that the non-measurable ones correlate positively too.</p>
+<p>Being virtuous is definitely not the same thing as being smart. I accuse you of trying to paint me
+into the corner of ‘all good human traits are positively correlated,’ which isn’t what we’re
+discussing.</p>
+<p>B: IQ only measures your upbringing and your education.</p>
+<p>A: IQ is most strongly correlated with your environment when you’re younger and gradually decouples.
+Reasonable estimates for what % of IQ variance in adults is caused by education / upbringing vary
+from <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-plomin-deary-2015" class="cite" id="citeref-plomin-deary-2015">0% to 20%</a>. Reasonable estimates for what % is genetically determined
+range from <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-plomin-deary-2015" class="cite">60% to 80%</a>.</p>
+<p>Words can be useful descriptors even if they entirely result from our environment.</p>
+<p>B: IQ is a test that can be gamed.</p>
+<p>A: If you take a second IQ test, your score improves by <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-scharfen-2018" class="cite" id="citeref-scharfen-2018">about 5 points</a>. After
+<a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-scharfen-2018" class="cite">three tests</a>, your score stops improving with practice, for a total boost of
+<a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-hausknecht-2007" class="cite" id="citeref-hausknecht-2007">7-8 points</a>. An extra year of schooling improves your score by
+<a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-ritchie-2018" class="cite" id="citeref-ritchie-2018">1-5 points</a>. It is weakly gamable.</p>
+<p>Even if it was totally gamable via practice: who cares! It’s still useful to compare apples to
+apples, eg two kids who take the test with similar amounts of prep.</p>
+<p>B: If IQ is real, you’ve wrecked growth mindset.</p>
+<p>A: Growth mindset works with <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-sisk-2018" class="cite" id="citeref-sisk-2018">effect size <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo><mn>.1</mn></mrow><annotation encoding="application/x-tex">\approx .1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4831em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">.1</span></span></span></span></a>. To the extent that believing IQ
+is heritable inhibits growth mindset, I’m sad.</p>
+<p>Believing certain true things is sometimes detrimental. IQ does not fall in this bucket. Knowing
+that IQ is real lets one make better choices, by, eg,
+<a href="/blog/track-the-kids/">acknowledging that tracking makes sense and implementing it</a>.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#fn1" id="fnref1">[1]</a></sup></p>
+<p>B: If IQ is real, then some people are better than others.</p>
+<p>A: I disagree. Some humans are taller than others. Heightists value tall humans more than short
+humans, even though height is genetic. Morality issue on behalf of the heightists. I choose to value
+everyone equally, regardless of their IQ or height.</p>
+<p>B: My IQ is low, and I feel inferior.</p>
+<p>A: You shouldn’t! Read
+<a href="https://slatestarcodex.com/2015/01/31/the-parable-of-the-talents/">The Parable of the Talents (SSC)</a>.
+In short: we are compassionate to people who are overweight or balding or unathletic, because these
+things are largely genetically determined and there’s no point in shaming people for things outside
+their control. The same should apply to intelligence.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#notes" aria-label="Link to this section">#</a></h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>And tracking has a ~5x bigger effect size than growth mindset interventions! <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+<hr class="sources-sep">
+<section class="sources">
+<h2 class="sources-title" id="sources">Sources <a class="heading-anchor" href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#sources" aria-label="Link to this section">#</a></h2>
+<p class="sources-note">Claude found these sources. Robbie did not review them.</p>
+<ol class="sources-list">
+<li id="src-maccann-2014" class="source-item">MacCann, Joseph, Newman &amp; Roberts, “Emotional Intelligence Is a Second-Stratum Factor of Intelligence: Evidence From Hierarchical and Bifactor Models,” <em>Emotion</em> 14(2) (2014): 358–374 — ability-measured EI loads on general intelligence at 0.80 in hierarchical models. <a href="https://pubmed.ncbi.nlm.nih.gov/24341786/">https://pubmed.ncbi.nlm.nih.gov/24341786/</a> <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#citeref-maccann-2014" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-plomin-deary-2015" class="source-item">Plomin &amp; Deary, “Genetics and Intelligence Differences: Five Special Findings,” <em>Molecular Psychiatry</em> 20 (2015): 98–108 — heritability of intelligence rises linearly from ~20% in infancy to ~60% in adulthood (up to ~80% in later adulthood), with shared-environment effects shrinking correspondingly. <a href="https://www.nature.com/articles/mp2014105">https://www.nature.com/articles/mp2014105</a> <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#citeref-plomin-deary-2015" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-scharfen-2018" class="source-item">Scharfen, Peters &amp; Holling, “Retest Effects in Cognitive Ability Tests: A Meta-Analysis,” <em>Intelligence</em> 67 (2018): 44–66 — scores rise ~0.33 SD (about 5 IQ points) from first to second administration and ~0.5 SD by the third, then plateau. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0160289617303276">https://www.sciencedirect.com/science/article/abs/pii/S0160289617303276</a> <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#citeref-scharfen-2018" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-hausknecht-2007" class="source-item">Hausknecht, Halpert, Di Paolo &amp; Moriarty Gerrard, “Retesting in Selection: A Meta-Analysis of Coaching and Practice Effects for Tests of Cognitive Ability,” <em>Journal of Applied Psychology</em> 92(2) (2007): 373–385 — d = 0.24 by the second administration, 0.51 by the third; gains are larger with coaching and identical test forms. <a href="https://pubmed.ncbi.nlm.nih.gov/17371085/">https://pubmed.ncbi.nlm.nih.gov/17371085/</a> <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#citeref-hausknecht-2007" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-ritchie-2018" class="source-item">Ritchie &amp; Tucker-Drob, “How Much Does Education Improve Intelligence? A Meta-Analysis,” <em>Psychological Science</em> 29(8) (2018): 1358–1369 — 1–5 IQ points per additional year of education, from compulsory-schooling law changes, school-entry regression discontinuities, and prior-IQ-controlled longitudinal designs; effects persist across the lifespan. <a href="https://journals.sagepub.com/doi/abs/10.1177/0956797618774253">https://journals.sagepub.com/doi/abs/10.1177/0956797618774253</a> <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#citeref-ritchie-2018" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-sisk-2018" class="source-item">Sisk, Burgoyne, Sun, Butler &amp; Macnamara, “To What Extent and Under Which Circumstances Are Growth Mind-Sets Important to Academic Achievement? Two Meta-Analyses,” <em>Psychological Science</em> 29(4) (2018): 549–571 — mindset–achievement correlation r ≈ 0.10; average intervention effect d ≈ 0.08, near zero for typical students. <a href="https://journals.sagepub.com/doi/abs/10.1177/0956797617739704">https://journals.sagepub.com/doi/abs/10.1177/0956797617739704</a> <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#citeref-sisk-2018" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+</ol>
+</section>
+]]></content:encoded>
+    </item>
+    <item>
       <title>Track the Kids</title>
       <link>https://robbiewmthompson.com/blog/track-the-kids/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/track-the-kids/</guid>
@@ -182,11 +259,10 @@ population.
 compounded over decades. If we get 1.6 more years of schooling that’s plausibly
 <a href="https://robbiewmthompson.com/blog/track-the-kids/#src-pisa-year" class="cite" id="citeref-pisa-year">~32 points on the PISA</a>, which is ~0.6 percentage points more GDP per annum in the
 US. Even in the next ten years, given that GDP is about $34T and will be about
-<a href="https://robbiewmthompson.com/blog/track-the-kids/#src-cbo-gdp" class="cite" id="citeref-cbo-gdp">~$47T in a decade</a>, that is
-<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msup><mn>1.006</mn><mn>10</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><mi mathvariant="normal">$</mi><mn>47</mn><mtext>T</mtext><mo>≈</mo><mi mathvariant="normal">$</mi><mn>2.9</mn><mtext>T</mtext></mrow><annotation encoding="application/x-tex">(1.006^{10} - 1) \times \$47\text{T} \approx
-\$2.9\text{T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1.00</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">$47</span><span class="mord text"><span class="mord">T</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">$2.9</span><span class="mord text"><span class="mord">T</span></span></span></span></span> — about $3T more GDP per year.
-I don’t think this chain of causation is robust or that I should give myself (hypothetical)
-credit for increased GDP. But it sure as hell makes every other number in this BOTEC tiny. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref8" class="footnote-backref">↩︎</a></p>
+<a href="https://robbiewmthompson.com/blog/track-the-kids/#src-cbo-gdp" class="cite" id="citeref-cbo-gdp">~$47T in a decade</a>, that is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msup><mn>1.006</mn><mn>10</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><mi mathvariant="normal">$</mi><mn>47</mn><mtext>T</mtext><mo>≈</mo><mi mathvariant="normal">$</mi><mn>2.9</mn><mtext>T</mtext></mrow><annotation encoding="application/x-tex">(1.006^{10} - 1) \times \$47\text{T} \approx
+\$2.9\text{T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1.00</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">$47</span><span class="mord text"><span class="mord">T</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">$2.9</span><span class="mord text"><span class="mord">T</span></span></span></span></span> — about $3T more GDP per year. I don’t think this chain of causation is robust
+or that I should give myself (hypothetical) credit for increased GDP. But it sure as hell makes
+every other number in this BOTEC tiny. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref8" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn9" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Education_Program_for_Gifted_Youth">Education Program for Gifted Youth</a>. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
