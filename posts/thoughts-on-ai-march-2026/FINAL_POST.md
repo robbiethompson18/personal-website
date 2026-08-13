@@ -2,6 +2,7 @@
 title: Thoughts on AI: March 2026
 date: 2026-03-30
 draft: false
+rating: 3
 ---
 
 ## Unstable Tweet Equilibria

@@ -2,6 +2,7 @@
 title: Plastic Straws
 date: 2026-07-01
 draft: false
+rating: 3
 ---
 
 Many people before me have dunked on the plastic-straw Nazis. From a utilitarian perspective, using
