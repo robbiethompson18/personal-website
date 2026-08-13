@@ -94,6 +94,12 @@ md.core.ruler.after("inline", "footnote_nbsp", (state) => {
   }
 });
 
+// Stripping spaces isn't enough: UAX #14 allows a line break between "." and
+// "[", so "scores.[4]" can still wrap. A WORD JOINER (U+2060) before the
+// marker forbids the break.
+const footnoteRefRenderer = md.renderer.rules.footnote_ref;
+md.renderer.rules.footnote_ref = (...args) => "⁠" + footnoteRefRenderer(...args);
+
 const MONTHS = [
   "January",
   "February",
