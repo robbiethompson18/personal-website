@@ -17,12 +17,14 @@ Read the whole post first. Then output results from the checks below. Show issue
 appear in the text, not categorized based on the check. Quote every finding with a `line:` ref. No
 summary verdict.
 
-## Can Fix Yourself
+## Should fix yourself
 
 1. **Typos** — real misspellings, doubled words, wrong homophones, broken markdown/links. Obvious
    only; never flag style or US/UK spelling.
 2. **Casing** - Title Case on graphs and headings.
 3. Any @claudereview comment: those are specifically left for the reviewer to handle.
+4. A footnote before closing punctuation, eg (BAD:) `...end of sentence[^EPGY].` instead of (GOOD:)
+   `..end of sentence.[^EPGY]`
 
 ## Report Only, No Fixing
 
