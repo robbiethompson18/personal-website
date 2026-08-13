@@ -84,6 +84,18 @@ of high school seniors read at a fourth grade level.[^bias] [^depressing]
     Scores seem to not move at all after ninth grade, which is both depressing and a strong
     datapoint in favor of letting people start trade school earlier like they do in Germany.
 
+My belief that tracking improves learning is rooted in a strong prior, buttressed by Fable agreeing
+with me. The claim "if your instructor is teaching to a level way above or below your own, you'll
+learn less quickly" only gets disputed in contexts like "therefore we should track kids in school,"
+hence my prior and my impatience in reading studies.[^converse] Skimming summaries of studies,
+tracked kids that are taught material of differing difficulty perform about
+[.5 stddevs better](@steenbergen-hu-2016) than their [counterfactually-untracked selves](@ddk-2011)
+after 1-2 years.
+
+[^converse]:
+    Shouldn't I also have some prior of the form "this statement is controversial and therefore
+    deserves close examination"? Not when the controversy is easily explained by tribal politics.
+
 Every homeschool parent finds curriculum for their kids for only a couple hundred bucks a year. Can
 we really not figure out a way to let precocious third-graders learn algebra? I haven't spent nearly
 enough time in this space to convince myself I'm not missing something, but these are my hunches for
@@ -198,10 +210,24 @@ software will move the needle, which is why I'm abandoning this startup idea.
     compounded over decades. If we get 1.6 more years of schooling that's plausibly
     [~32 points on the PISA](@pisa-year), which is ~0.6 percentage points more GDP per annum in the
     US. Even in the next ten years, given that GDP is about \$34T and will be about
-    [~\$47T in a decade](@cbo-gdp), that is $(1.006^{10} - 1) \times \$47\text{T} \approx
-    \$2.9\text{T}$ — about \$3T more GDP per year. I don't think this chain of causation is robust
-    or that I should give myself (hypothetical) credit for increased GDP. But it sure as hell makes
-    every other number in this BOTEC tiny.
+    [~\$47T in a decade](@cbo-gdp), that is
+    $(1.006^{10} - 1) \times \$47\text{T} \approx
+    \$2.9\text{T}$ — about \$3T more GDP per year.
+    I don't think this chain of causation is robust or that I should give myself (hypothetical)
+    credit for increased GDP. But it sure as hell makes every other number in this BOTEC tiny.
+
+{@steenbergen-hu-2016}: Steenbergen-Hu, Makel & Olszewski-Kubilius, "What One Hundred Years of
+Research Says About the Effects of Ability Grouping and Acceleration on K–12 Students' Academic
+Achievement," _Review of Educational Research_ 86(4) (2016): 849–899 — second-order meta-analysis of
+19 meta-analyses. Grouping with a differentiated curriculum: g ≈ 0.2–0.4; acceleration: g = 0.70 vs.
+same-age peers; between-class tracking with an unchanged curriculum: g ≈ 0.04 (nothing).
+<https://eric.ed.gov/?id=EJ1121483>
+
+{@ddk-2011}: Duflo, Dupas & Kremer, "Peer Effects, Teacher Incentives, and the Impact of Tracking:
+Evidence from a Randomized Evaluation in Kenya," _American Economic Review_ 101(5) (2011): 1739–74 —
+the one clean RCT of tracking itself. +0.14–0.18 SD after 18 months, gains at all quantiles
+including the bottom half, still +0.16 SD a year after the program ended.
+<https://www.nber.org/papers/w14475>
 
 {@pisa-year}: OECD, "How Much Do 15-Year-Olds Learn over One Year of Schooling?," PISA in Focus No.
 115 (2021) — ~20 PISA points is the typical learning gain from one year of schooling across OECD

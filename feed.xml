@@ -59,6 +59,13 @@ In elementary school, the stddev of student ability is about the same as one gra
 learning. About 1/3rd of your students will be at least one grade ahead or behind. By the time you
 get to high school, a stddev is 10x the difference between the average ninth and tenth grader. ~15%
 of high school seniors read at a fourth grade level.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn5" id="fnref5">[5]</a></sup><sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn6" id="fnref6">[6]</a></sup></p>
+<p>My belief that tracking improves learning is rooted in a strong prior, buttressed by Fable agreeing
+with me. The claim “if your instructor is teaching to a level way above or below your own, you’ll
+learn less quickly” only gets disputed in contexts like “therefore we should track kids in school,”
+hence my prior and my impatience in reading studies.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn7" id="fnref7">[7]</a></sup> Skimming summaries of studies,
+tracked kids that are taught material of differing difficulty perform about
+<a href="https://robbiewmthompson.com/blog/track-the-kids/#src-steenbergen-hu-2016" class="cite" id="citeref-steenbergen-hu-2016">.5 stddevs better</a> than their <a href="https://robbiewmthompson.com/blog/track-the-kids/#src-ddk-2011" class="cite" id="citeref-ddk-2011">counterfactually-untracked selves</a>
+after 1-2 years.</p>
 <p>Every homeschool parent finds curriculum for their kids for only a couple hundred bucks a year. Can
 we really not figure out a way to let precocious third-graders learn algebra? I haven’t spent nearly
 enough time in this space to convince myself I’m not missing something, but these are my hunches for
@@ -92,15 +99,15 @@ are much more sorted by ability, both within and between schools.</p>
 <p>Institutions like <a href="https://alpha.school/">Alpha School</a> and
 <a href="https://www.thelevittlab.org/">The Levitt Lab</a> are making personalized, mastery-based learning a
 reality today. I am sufficiently bought in to send my future kids to one of these schools; I am not
-sufficiently bought in to found a competing school or work for them.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn7" id="fnref7">[7]</a></sup> I doubt whether better
+sufficiently bought in to found a competing school or work for them.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn8" id="fnref8">[8]</a></sup> I doubt whether better
 software will move the needle, which is why I’m abandoning this startup idea.</p>
 <p>I will at least make a tiny contribution to the vibes by boosting a favorite SSC essay,
 <a href="https://slatestarcodex.com/2015/01/31/the-parable-of-the-talents/">The Parable of The Talents</a>.</p>
 <h2 id="coda">Coda <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#coda" aria-label="Link to this section">#</a></h2>
 <p>I probably should’ve known. When I was in eighth grade I had taken every math class my middle school
-offered, so I took precalc online via EPGY.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn8" id="fnref8">[8]</a></sup> I was all alone in a library, no teacher ever
+offered, so I took precalc online via EPGY.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn9" id="fnref9">[9]</a></sup> I was all alone in a library, no teacher ever
 checked in on me. I had no homework. The course was just multiple choice quizzes and pre-recorded
-videos of someone drawing on an e-whiteboard, like Khan Academy but worse. Still, I passed.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn9" id="fnref9">[9]</a></sup></p>
+videos of someone drawing on an e-whiteboard, like Khan Academy but worse. Still, I passed.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/track-the-kids/#fn10" id="fnref10">[10]</a></sup></p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#notes" aria-label="Link to this section">#</a></h2>
@@ -120,7 +127,10 @@ we did, we’d expect even higher stddevs. <a href="https://robbiewmthompson.com
 <li id="fn6" class="footnote-item"><p>Scores seem to not move at all after ninth grade, which is both depressing and a strong
 datapoint in favor of letting people start trade school earlier like they do in Germany. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn7" class="footnote-item"><p>A very hastily-constructed BOTEC on whether founding an Alpha School competitor is a sensible
+<li id="fn7" class="footnote-item"><p>Shouldn’t I also have some prior of the form “this statement is controversial and therefore
+deserves close examination”? Not when the controversy is easily explained by tribal politics. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p>A very hastily-constructed BOTEC on whether founding an Alpha School competitor is a sensible
 career choice:</p>
 <p>How much value do kids get from not suffering through being bored or given an impossible task?
 I’m going to assume that one grade level closer to true ability level is .1 QALYs per student
@@ -172,17 +182,18 @@ population.
 compounded over decades. If we get 1.6 more years of schooling that’s plausibly
 <a href="https://robbiewmthompson.com/blog/track-the-kids/#src-pisa-year" class="cite" id="citeref-pisa-year">~32 points on the PISA</a>, which is ~0.6 percentage points more GDP per annum in the
 US. Even in the next ten years, given that GDP is about $34T and will be about
-<a href="https://robbiewmthompson.com/blog/track-the-kids/#src-cbo-gdp" class="cite" id="citeref-cbo-gdp">~$47T in a decade</a>, that is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msup><mn>1.006</mn><mn>10</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><mi mathvariant="normal">$</mi><mn>47</mn><mtext>T</mtext><mo>≈</mo><mi mathvariant="normal">$</mi><mn>2.9</mn><mtext>T</mtext></mrow><annotation encoding="application/x-tex">(1.006^{10} - 1) \times \$47\text{T} \approx
-\$2.9\text{T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1.00</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">$47</span><span class="mord text"><span class="mord">T</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">$2.9</span><span class="mord text"><span class="mord">T</span></span></span></span></span> — about $3T more GDP per year. I don’t think this chain of causation is robust
-or that I should give myself (hypothetical) credit for increased GDP. But it sure as hell makes
-every other number in this BOTEC tiny. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref7" class="footnote-backref">↩︎</a></p>
+<a href="https://robbiewmthompson.com/blog/track-the-kids/#src-cbo-gdp" class="cite" id="citeref-cbo-gdp">~$47T in a decade</a>, that is
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msup><mn>1.006</mn><mn>10</mn></msup><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><mi mathvariant="normal">$</mi><mn>47</mn><mtext>T</mtext><mo>≈</mo><mi mathvariant="normal">$</mi><mn>2.9</mn><mtext>T</mtext></mrow><annotation encoding="application/x-tex">(1.006^{10} - 1) \times \$47\text{T} \approx
+\$2.9\text{T}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1.00</span><span class="mord"><span class="mord">6</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">$47</span><span class="mord text"><span class="mord">T</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">$2.9</span><span class="mord text"><span class="mord">T</span></span></span></span></span> — about $3T more GDP per year.
+I don’t think this chain of causation is robust or that I should give myself (hypothetical)
+credit for increased GDP. But it sure as hell makes every other number in this BOTEC tiny. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref8" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn8" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Education_Program_for_Gifted_Youth">Education Program for Gifted Youth</a>. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref8" class="footnote-backref">↩︎</a></p>
+<li id="fn9" class="footnote-item"><p><a href="https://en.wikipedia.org/wiki/Education_Program_for_Gifted_Youth">Education Program for Gifted Youth</a>. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn9" class="footnote-item"><p>I still tweak out every time I have to solve a system of three equations. Doing this is
+<li id="fn10" class="footnote-item"><p>I still tweak out every time I have to solve a system of three equations. Doing this is
 conceptually easy, but avoiding arithmetic errors would give me fits. I would constantly make
 one, get a problem wrong with no explanation, and have to stare at my page trying to see where I
-flipped a sign. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref9" class="footnote-backref">↩︎</a></p>
+flipped a sign. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref10" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
@@ -191,6 +202,8 @@ flipped a sign. <a href="https://robbiewmthompson.com/blog/track-the-kids/#fnref
 <h2 class="sources-title" id="sources">Sources <a class="heading-anchor" href="https://robbiewmthompson.com/blog/track-the-kids/#sources" aria-label="Link to this section">#</a></h2>
 <p class="sources-note">Claude found these sources. Robbie did not review them.</p>
 <ol class="sources-list">
+<li id="src-steenbergen-hu-2016" class="source-item">Steenbergen-Hu, Makel &amp; Olszewski-Kubilius, “What One Hundred Years of Research Says About the Effects of Ability Grouping and Acceleration on K–12 Students’ Academic Achievement,” <em>Review of Educational Research</em> 86(4) (2016): 849–899 — second-order meta-analysis of 19 meta-analyses. Grouping with a differentiated curriculum: g ≈ 0.2–0.4; acceleration: g = 0.70 vs. same-age peers; between-class tracking with an unchanged curriculum: g ≈ 0.04 (nothing). <a href="https://eric.ed.gov/?id=EJ1121483">https://eric.ed.gov/?id=EJ1121483</a> <a href="https://robbiewmthompson.com/blog/track-the-kids/#citeref-steenbergen-hu-2016" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-ddk-2011" class="source-item">Duflo, Dupas &amp; Kremer, “Peer Effects, Teacher Incentives, and the Impact of Tracking: Evidence from a Randomized Evaluation in Kenya,” <em>American Economic Review</em> 101(5) (2011): 1739–74 — the one clean RCT of tracking itself. +0.14–0.18 SD after 18 months, gains at all quantiles including the bottom half, still +0.16 SD a year after the program ended. <a href="https://www.nber.org/papers/w14475">https://www.nber.org/papers/w14475</a> <a href="https://robbiewmthompson.com/blog/track-the-kids/#citeref-ddk-2011" class="cite-backref" aria-label="Back to text">↩︎</a></li>
 <li id="src-hw-growth" class="source-item">Hanushek &amp; Woessmann, “Do Better Schools Lead to More Growth? Cognitive Skills, Economic Outcomes, and Causation,” <em>Journal of Economic Growth</em> 17 (2012): 267–321 — a 100-point gain on international test scores is associated with ~1.98 percentage points higher average annual GDP growth over 40 years. <a href="https://hanushek.stanford.edu/sites/default/files/publications/Hanushek+Woessmann%202012%20JEconGrowth%2017(4).pdf">https://hanushek.stanford.edu/sites/default/files/publications/Hanushek+Woessmann 2012 JEconGrowth 17(4).pdf</a> <a href="https://robbiewmthompson.com/blog/track-the-kids/#citeref-hw-growth" class="cite-backref" aria-label="Back to text">↩︎</a></li>
 <li id="src-pisa-year" class="source-item">OECD, “How Much Do 15-Year-Olds Learn over One Year of Schooling?,” PISA in Focus No. 115 (2021) — ~20 PISA points is the typical learning gain from one year of schooling across OECD countries. <a href="https://eric.ed.gov/?id=ED616260">https://eric.ed.gov/?id=ED616260</a> <a href="https://robbiewmthompson.com/blog/track-the-kids/#citeref-pisa-year" class="cite-backref" aria-label="Back to text">↩︎</a></li>
 <li id="src-cbo-gdp" class="source-item">CBO, <em>The Budget and Economic Outlook: 2026 to 2036</em> (Feb. 2026) — implied nominal GDP of ~$46.7T in 2036, back-calculated from CBO’s own stated 2036 spending ($11.4T = 24.4% of GDP) and revenue ($8.3T = 17.8% of GDP) figures. <a href="https://www.cbo.gov/publication/61882">https://www.cbo.gov/publication/61882</a> <a href="https://robbiewmthompson.com/blog/track-the-kids/#citeref-cbo-gdp" class="cite-backref" aria-label="Back to text">↩︎</a></li>
