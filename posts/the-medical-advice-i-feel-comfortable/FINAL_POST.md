@@ -3,6 +3,7 @@ title: My Medical Bullshit Detector
 date: 2025-01-29
 updated: 2026-07-01
 draft: false
+rating: 2
 ---
 
 I know little about medicine. I am unable to debate someone at an object level, ie “this drug

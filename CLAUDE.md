@@ -45,11 +45,12 @@ for Robbie, not the reader:
 title:    Post Title        # required
 date:     2026-06-30        # required; sorts the index, sets the RSS pubDate
 draft:    true              # optional; renders at its URL but stays out of index + feed
+rating:   5                 # optional; 1-5, shown as stars next to the date on the index (default 3)
 ---
 ```
 
-**No subtitles.** The builder still supports a `subtitle:` field, but don't add one anywhere (posts,
-Substack drafts) — Robbie doesn't like them.
+**No subtitles.** The builder doesn't support them and Robbie doesn't like them — don't add a
+subtitle anywhere (posts, Substack drafts).
 
 The blog index and `feed.xml` auto-source every non-draft post, newest first. To publish a draft,
 set `draft: false` and fix the date.

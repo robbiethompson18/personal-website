@@ -2,6 +2,7 @@
 title: Smiling Through Inconsequence
 date: 2026-06-14
 draft: false
+rating: 5
 ---
 
 Before writing this essay, I had been unable to shake the following troubling thoughts:
@@ -71,7 +72,7 @@ not push back. But if you accept nihilism, what happens next? It sounds like a b
 Given the choice between two internally-consistent philosophies, I reserve the right to pick the one
 that makes me happier. Which, luckily, is also the one that deeply values other beings.
 
-This essay, per usual, inspired by Scott Alexander, this time
+This essay inspired by Scott Alexander,
 _[Wirehead Gods on Lotus Thrones](https://slatestarcodex.com/2014/01/28/wirehead-gods-on-lotus-thrones/)._
 
 [^1]:

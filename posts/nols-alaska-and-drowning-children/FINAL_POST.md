@@ -2,6 +2,7 @@
 title: NOLS Alaska and Drowning Children
 date: 2025-06-08
 updated: 2026-07-02
+rating: 4
 ---
 
 “I slept and dreamt that life was joy. I awoke and saw that life was service. I acted—and behold,

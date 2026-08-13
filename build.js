@@ -4,7 +4,6 @@
 // Each post is a markdown file with a tiny frontmatter block:
 //   ---
 //   title: How to Make People Feel Smart
-//   subtitle: (And thus ask more questions and learn quickly)
 //   date: 2025-01-25
 //   ---
 //   <markdown body, with [^1] style footnotes>
@@ -185,7 +184,6 @@ function postPage(p) {
         <header class="post-header">
           ${draftBanner}<p class="post-meta"><a href="${blogHref}">&larr; Blog</a></p>
           <h1>${esc(p.meta.title)}</h1>
-          ${p.meta.subtitle ? `<p class="subtitle">${esc(p.meta.subtitle)}</p>` : ""}
           <p class="post-dates"><span>Published <time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time></span><span>Last edited <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span></p>
         </header>
         ${p.html}
@@ -196,7 +194,7 @@ function postPage(p) {
     </main>`;
   return layout({
     title: p.meta.title,
-    description: p.meta.subtitle || SITE.description,
+    description: SITE.description,
     canonical: `${SITE.url}/blog/${p.slug}/`,
     body,
     hasMath: p.hasMath,
@@ -209,22 +207,37 @@ function indexPage(posts, { heading = "Blog", subpath = "" } = {}) {
       const tags =
         (p.draft ? ' <span class="draft-tag">draft</span>' : "") +
         (p.archive ? ' <span class="draft-tag archive-tag">archive</span>' : "");
-      return `        <li>
+      return `        <li data-rating="${p.rating}">
           <a class="post-link" href="/blog/${p.slug}/">${esc(p.meta.title)}${tags}</a>
-          <span class="post-date"><time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time></span>
-          ${p.meta.subtitle ? `<p class="post-sub">${esc(p.meta.subtitle)}</p>` : ""}
+          <span class="post-date"><time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time><span class="post-stars" title="${p.rating}/5">${"★".repeat(p.rating)}${"☆".repeat(5 - p.rating)}</span></span>
         </li>`;
     })
     .join("\n");
   const body = `    <main class="index">
       <header class="index-header">
         <h1>${esc(heading)}</h1>
-        <p class="index-sub"><a href="/">robbiewmthompson.com</a></p>
+        <p class="index-sub"><a class="sort-toggle" href="#">sort by rating</a> · <a href="/">robbiewmthompson.com</a></p>
       </header>
       <ul class="post-list">
 ${items}
       </ul>
-    </main>`;
+    </main>
+    <script>
+      // Client-side only, resets to date order on reload.
+      const sortList = document.querySelector(".post-list");
+      const sortByDate = [...sortList.children];
+      const sortToggle = document.querySelector("a.sort-toggle");
+      let sortedByRating = false;
+      sortToggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        sortedByRating = !sortedByRating;
+        const order = sortedByRating
+          ? [...sortByDate].sort((a, b) => b.dataset.rating - a.dataset.rating)
+          : sortByDate;
+        for (const li of order) sortList.appendChild(li);
+        sortToggle.textContent = sortedByRating ? "sort by date" : "sort by rating";
+      });
+    </script>`;
   return layout({
     title: `${heading} — ${SITE.title}`,
     description: SITE.description,
@@ -253,7 +266,7 @@ function feed(posts) {
       <link>${SITE.url}/blog/${p.slug}/</link>
       <guid isPermaLink="true">${SITE.url}/blog/${p.slug}/</guid>
       <pubDate>${rfc822(p.meta.date)}</pubDate>
-      <description>${esc(p.meta.subtitle || "")}</description>
+      <description></description>
       <content:encoded><![CDATA[${feedHtml(p).replace(/\]\]>/g, "]]]]><![CDATA[>")}]]></content:encoded>
     </item>`,
     )
@@ -361,6 +374,7 @@ function loadPost(slug, mdPath, assetDir) {
     updated,
     draft: meta.draft === "true",
     archive: meta.archive === "true",
+    rating: Math.min(5, Math.max(1, Number(meta.rating) || 3)),
     hasMath,
     assetDir,
     issues: checkContent(body),

@@ -2,6 +2,7 @@
 title: Honesty
 date: 2025-12-01
 updated: 2026-07-01
+rating: 5
 ---
 
 ## Giving Up Lying

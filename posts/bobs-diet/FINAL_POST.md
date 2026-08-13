@@ -2,6 +2,7 @@
 title: Bob's Diet: Much More Than You Wanted To Know
 date: 2025-12-08
 draft: false
+rating: 5
 ---
 
 _Update 8/11/26:_

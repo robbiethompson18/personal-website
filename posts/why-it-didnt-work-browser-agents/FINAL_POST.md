@@ -1,6 +1,7 @@
 ---
 title: Why It Didn't Work: Browser Agents
 date: 2026-08-09
+rating: 2
 ---
 
 Bailey and I spent a little more than a month building better browser agents before pivoting away.

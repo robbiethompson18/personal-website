@@ -2,6 +2,7 @@
 title: A Bullshit Job For Every American
 date: 2026-05-25
 draft: false
+rating: 5
 ---
 
 ## No One Is Safe
@@ -57,7 +58,6 @@ justification.
 Gas station attendant is a job people take seriously enough to protect via legislation, and to show
 up for every day. AFAICT the only thing it has going for it is that something bad happens if you
 don’t show up: people can’t pump gas. This is contrived, obviously, but that seems not to matter.
-The short-term consequences are real.
 
 It’s fun to imagine comparably silly positions, if one was to make them up from first principles.
 The one I can’t get out of my head is a ‘Stoplight Jockey:’ you watch cars and manually turn the
@@ -95,8 +95,8 @@ rest of the world will not care about imperfections.
 
 _Academic:_ Even if AI understands the universe better than any human, and can explain it better
 than any human, and does so faithfully every time, we’ll convince ourselves that it’s important for
-at least some humans to understand math/science/technology/psychology/etc. I'm told academia is
-toxic, but demand for these jobs still vastly exceeds supply.
+at least some humans to understand math/science/technology/psychology/etc. Demand for these jobs
+already exceeds supply; hopefully we can create more positions without diluting prestige.
 
 _Influencer:_ In 2000 you’d have been shocked to learn that people get paid six or seven figures to
 post videos about themself on the internet, but here we are. In the future we will find new ways to
@@ -114,8 +114,7 @@ keep lots and lots of pets.
     around for my own selfish purposes.
 
 _Artist, broadly defined:_ Many people take it as an axiom that AI cannot create ‘true art.’ This is
-a classic case of ‘No True Scotsman,’ and I will write up a blog post soon to prove it. The stubborn
-few that I can’t convince will keep some human artists employed post-singularity. More seriously:
+a classic case of ‘No True Scotsman,’ and I will write up a blog post soon to prove it. Regardless,
 art can be done entirely for the artist’s benefit, so while this lacks the structure and
 responsibility that makes something a ‘job,’ people will certainly spend time on it.
 
@@ -125,9 +124,7 @@ definition.[^7] AI will be the one explaining algebra.
 ## Core Needs Become Status Symbols
 
 Clothing began entirely as a functional object. Today dramatically more effort goes into making
-clothing a more effective status symbol [^cynical] than goes into keeping humans warm.
-
-[^cynical]: less cynically: _more beautiful_
+clothing more beautiful (and a more effective status symbol) than goes into keeping humans warm.
 
 Most vegetable gardens are for aesthetics or enjoyment. Meals are eaten by Instagram first. Exercise
 is for looking hot. Plastic surgery is
@@ -140,8 +137,8 @@ economic ones.
 
 It is an excellent intuition pump for this class of problems.
 
-Credit to David Graeber’s _Bullshit Jobs_ for coining the term, though that book was longer than it
-needed to be.
+Credit to David Graeber’s book _Bullshit Jobs_(@Claude add goodreads link) for coining the term,
+though that book was longer than it needed to be.
 
 [^1]:
     AI is already great at this, see eg humans losing to

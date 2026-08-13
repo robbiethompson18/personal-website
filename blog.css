@@ -216,25 +216,13 @@ th {
   color: var(--muted);
 }
 
-.subtitle {
-  font-size: 1.2rem;
-  color: var(--muted);
-  font-style: italic;
-  margin-bottom: 2.5rem;
-}
-
 .post-dates {
   font-family: var(--sans);
   font-size: 0.85rem;
   color: var(--muted);
   line-height: 1.5;
-  margin-top: 0.75rem; /* sits below the h1 when there's no subtitle */
+  margin-top: 0.75rem; /* sits below the h1 */
   margin-bottom: 0;
-}
-
-/* When a subtitle precedes the dates, tuck up under its bottom margin instead. */
-.subtitle + .post-dates {
-  margin-top: -1.5rem;
 }
 
 .post-dates span {
@@ -336,10 +324,10 @@ th {
   margin-top: 0.15rem;
 }
 
-.post-sub {
-  color: var(--muted);
-  font-style: italic;
-  margin: 0.4rem 0 0;
+/* Robbie's self-rating, from `rating:` frontmatter (default 3) */
+.post-stars {
+  margin-left: 0.5rem;
+  letter-spacing: 0.08em;
 }
 
 /* --- Notes + Sources (bottom of article) --- */

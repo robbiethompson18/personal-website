@@ -2,6 +2,7 @@
 title: Political Debates for 2036
 date: 2026-03-28
 draft: false
+rating: 4
 ---
 
 Epistemic status: fun musings, numbers I made up.

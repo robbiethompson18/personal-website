@@ -14,7 +14,7 @@
       <description></description>
       <content:encoded><![CDATA[<p>This is an argument I’ve had too many times, so I’m going to write it down here once and for all. If
 you already think IQ tests do an imperfect but decent job measuring the thing we casually refer to
-as ‘being smart’ then you can skip this post. I claim 0 novel contributions to this discussion.</p>
+as ‘being smart’ then you can skip this post. I claim zero novel contributions to this topic.</p>
 <p>B: IQ only measures one thing. How could that possibly be useful?</p>
 <p>A: Scientists first proposed IQ (back then ‘g’) because they found that mathematical reasoning
 correlates with verbal reasoning correlates with reaction time, etc. Given this, IQ is a useful
@@ -29,8 +29,7 @@ useful word. Name your way of being ‘smart’ that doesn’t correlate positiv
 “all measurable traits which one would describe as ‘smart’ are positively correlated with IQ” then
 one should have the prior that the non-measurable ones correlate positively too.</p>
 <p>Being virtuous is definitely not the same thing as being smart. I accuse you of trying to paint me
-into the corner of ‘all good human traits are positively correlated,’ which isn’t what we’re
-discussing.</p>
+into the corner of ‘all good human traits are positively correlated,’ which I did not claim.</p>
 <p>B: IQ only measures your upbringing and your education.</p>
 <p>A: IQ is most strongly correlated with your environment when you’re younger and gradually decouples.
 Reasonable estimates for what % of IQ variance in adults is caused by education / upbringing vary
@@ -42,8 +41,9 @@ range from <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src
 <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-scharfen-2018" class="cite">three tests</a>, your score stops improving with practice, for a total boost of
 <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-hausknecht-2007" class="cite" id="citeref-hausknecht-2007">7-8 points</a>. An extra year of schooling improves your score by
 <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-ritchie-2018" class="cite" id="citeref-ritchie-2018">1-5 points</a>. It is weakly gamable.</p>
-<p>Even if it was totally gamable via practice: who cares! It’s still useful to compare apples to
-apples, eg two kids who take the test with similar amounts of prep.</p>
+<p>Even if it was totally gamable: who cares! One can still make apples-to-apples comparisons, eg two
+kids who take the test with similar amounts of prep. In practice, one make reasonable comparisons
+between different test-takers because the phenomenon is so well-studied.</p>
 <p>B: If IQ is real, you’ve wrecked growth mindset.</p>
 <p>A: Growth mindset works with <a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/#src-sisk-2018" class="cite" id="citeref-sisk-2018">effect size <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo><mn>.1</mn></mrow><annotation encoding="application/x-tex">\approx .1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4831em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">.1</span></span></span></span></a>. To the extent that believing IQ
 is heritable inhibits growth mindset, I’m sad.</p>
@@ -153,7 +153,7 @@ why personalized learning has failed:</p>
 <li><em>tracking has bad vibes</em></li>
 </ul>
 <p>I couldn’t tell you how many people in how many contexts have tried to tell me that IQ is ‘not real’
-(<a href="https://slatestarcodex.com/2015/01/31/the-parable-of-the-talents/">it definitely is!</a>).</p>
+(<a href="https://robbiewmthompson.com/blog/iq-is-definitely-real/">it definitely is!</a>).</p>
 <p>If half of your third grade class is doing Algebra while the other half learns addition, that second
 half is a skill issue on your behalf. You are a Bad Teacher Who is Leaving Children Behind. If all
 of your third grade class is learning addition, then… there’s nothing to see here 😗🎶.</p>
@@ -665,8 +665,8 @@ irrigation and power consumption were revived in 2015. <a href="https://robbiewm
       <content:encoded><![CDATA[<p>People love to hate on AI-assisted writing, but I moved my blog to my website so that Claude can
 help. They make beautiful charts, do tons of research to get approximate numbers, and flag the worst
 parts of my own writing (eg hedging and typos).<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/writing-with-claude/#fn1" id="fnref1">[1]</a></sup></p>
-<p>Now I get my own styling: faint purple citation links, last edited dates, dark mode.</p>
-<p>Approximately none of the prose on this blog is authored by Claude. They still suck at that.</p>
+<p>I’m now able to use my own styling: faint purple citation links, last edited dates, dark mode.</p>
+<p>Approximately none of the prose on this blog is authored by Claude.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/writing-with-claude/#fn2" id="fnref2">[2]</a></sup></p>
 <p>Check at my blog in its native, beautiful form at
 <a href="https://robbiewmthompson.com/blog">robbiewmthompson.com/blog</a>.</p>
 <hr class="footnotes-sep">
@@ -675,6 +675,10 @@ parts of my own writing (eg hedging and typos).<sup class="footnote-ref"><a href
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>This skill.md for Claude’s proofreading lives
 <a href="https://github.com/robbiethompson18/personal-website/blob/main/.claude/skills/blog-review/SKILL.md">here</a>. <a href="https://robbiewmthompson.com/blog/writing-with-claude/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Contrary to popular belief, I think Claude is a decent writer, and we are extra-sensitive to the
+flaws in their style because we read so much LLM text. Nothing here is written by Claude because
+of Claude could write the post, it would be boring for me to write. <a href="https://robbiewmthompson.com/blog/writing-with-claude/#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
@@ -744,7 +748,7 @@ states I must be sad about this.</em></p>
 not push back. But if you accept nihilism, what happens next? It sounds like a boring way to live.
 Given the choice between two internally-consistent philosophies, I reserve the right to pick the one
 that makes me happier. Which, luckily, is also the one that deeply values other beings.</p>
-<p>This essay, per usual, inspired by Scott Alexander, this time
+<p>This essay inspired by Scott Alexander,
 <em><a href="https://slatestarcodex.com/2014/01/28/wirehead-gods-on-lotus-thrones/">Wirehead Gods on Lotus Thrones</a>.</em></p>
 <hr class="footnotes-sep">
 <section class="footnotes">
@@ -811,8 +815,7 @@ where the law was championed by an explicitly Communist politician, employment i
 justification.</p>
 <p>Gas station attendant is a job people take seriously enough to protect via legislation, and to show
 up for every day. AFAICT the only thing it has going for it is that something bad happens if you
-don’t show up: people can’t pump gas. This is contrived, obviously, but that seems not to matter.
-The short-term consequences are real.</p>
+don’t show up: people can’t pump gas. This is contrived, obviously, but that seems not to matter.</p>
 <p>It’s fun to imagine comparably silly positions, if one was to make them up from first principles.
 The one I can’t get out of my head is a ‘Stoplight Jockey:’ you watch cars and manually turn the
 lights green at the appropriate times. You can put the system on ‘autopilot’ if you need to go to
@@ -842,8 +845,8 @@ wildlife are perfect because the people doing these tasks will take them very se
 rest of the world will not care about imperfections.</p>
 <p><em>Academic:</em> Even if AI understands the universe better than any human, and can explain it better
 than any human, and does so faithfully every time, we’ll convince ourselves that it’s important for
-at least some humans to understand math/science/technology/psychology/etc. I’m told academia is
-toxic, but demand for these jobs still vastly exceeds supply.</p>
+at least some humans to understand math/science/technology/psychology/etc. Demand for these jobs
+already exceeds supply; hopefully we can create more positions without diluting prestige.</p>
 <p><em>Influencer:</em> In 2000 you’d have been shocked to learn that people get paid six or seven figures to
 post videos about themself on the internet, but here we are. In the future we will find new ways to
 reward people for sharing good ideas and being popular.</p>
@@ -854,15 +857,14 @@ feel altruistic every day for doing so.<sup class="footnote-ref"><a href="https:
 injured wildlife, hold long hearings to decide which plants are native enough to keep around, and
 keep lots and lots of pets.</p>
 <p><em>Artist, broadly defined:</em> Many people take it as an axiom that AI cannot create ‘true art.’ This is
-a classic case of ‘No True Scotsman,’ and I will write up a blog post soon to prove it. The stubborn
-few that I can’t convince will keep some human artists employed post-singularity. More seriously:
+a classic case of ‘No True Scotsman,’ and I will write up a blog post soon to prove it. Regardless,
 art can be done entirely for the artist’s benefit, so while this lacks the structure and
 responsibility that makes something a ‘job,’ people will certainly spend time on it.</p>
 <p><em>Teacher:</em> Being a role model for young humans, live in the flesh, can’t be automated almost by
 definition.<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn8" id="fnref8">[8]</a></sup> AI will be the one explaining algebra.</p>
 <h2 id="core-needs-become-status-symbols">Core Needs Become Status Symbols <a class="heading-anchor" href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#core-needs-become-status-symbols" aria-label="Link to this section">#</a></h2>
 <p>Clothing began entirely as a functional object. Today dramatically more effort goes into making
-clothing a more effective status symbol<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fn9" id="fnref9">[9]</a></sup> than goes into keeping humans warm.</p>
+clothing more beautiful (and a more effective status symbol) than goes into keeping humans warm.</p>
 <p>Most vegetable gardens are for aesthetics or enjoyment. Meals are eaten by Instagram first. Exercise
 is for looking hot. Plastic surgery is
 <a href="https://www.isaps.org/discover/about-isaps/global-statistics/global-survey-2024-full-report-and-press-releases/">growing faster than medicine generally</a>.</p>
@@ -870,8 +872,8 @@ is for looking hot. Plastic surgery is
 economic ones.</p>
 <h2 id="you-should-read-_brave-new-world_">You Should Read <em>Brave New World</em> <a class="heading-anchor" href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#you-should-read-_brave-new-world_" aria-label="Link to this section">#</a></h2>
 <p>It is an excellent intuition pump for this class of problems.</p>
-<p>Credit to David Graeber’s <em>Bullshit Jobs</em> for coining the term, though that book was longer than it
-needed to be.</p>
+<p>Credit to David Graeber’s book <em>Bullshit Jobs</em>(@Claude add goodreads link) for coining the term,
+though that book was longer than it needed to be.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#notes" aria-label="Link to this section">#</a></h2>
@@ -913,8 +915,6 @@ around for my own selfish purposes. <a href="https://robbiewmthompson.com/blog/a
 to and admire, isn’t that fleshy collection of atoms a real human doing a job? You could argue
 that the fleshy collection of atoms is indistinguishable from a human only to a child, and we’re
 ok with tricking kids. Or that humans will no longer use each other as role models. <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fnref8" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn9" class="footnote-item"><p>less cynically: <em>more beautiful</em> <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>

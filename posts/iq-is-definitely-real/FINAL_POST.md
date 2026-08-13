@@ -1,11 +1,12 @@
 ---
 title: IQ Is Definitely Real
 date: 2026-08-12
+rating: 2
 ---
 
 This is an argument I've had too many times, so I'm going to write it down here once and for all. If
 you already think IQ tests do an imperfect but decent job measuring the thing we casually refer to
-as 'being smart' then you can skip this post. I claim 0 novel contributions to this discussion.
+as 'being smart' then you can skip this post. I claim zero novel contributions to this topic.
 
 B: IQ only measures one thing. How could that possibly be useful?
 
@@ -28,8 +29,7 @@ I suspect you would define wise in a way that isn't measurable. If this argument
 one should have the prior that the non-measurable ones correlate positively too.
 
 Being virtuous is definitely not the same thing as being smart. I accuse you of trying to paint me
-into the corner of 'all good human traits are positively correlated,' which isn't what we're
-discussing.
+into the corner of 'all good human traits are positively correlated,' which I did not claim.
 
 B: IQ only measures your upbringing and your education.
 
@@ -47,8 +47,9 @@ A: If you take a second IQ test, your score improves by [about 5 points](@scharf
 [7-8 points](@hausknecht-2007). An extra year of schooling improves your score by
 [1-5 points](@ritchie-2018). It is weakly gamable.
 
-Even if it was totally gamable via practice: who cares! It's still useful to compare apples to
-apples, eg two kids who take the test with similar amounts of prep.
+Even if it was totally gamable: who cares! One can still make apples-to-apples comparisons, eg two
+kids who take the test with similar amounts of prep. In practice, one make reasonable comparisons
+between different test-takers because the phenomenon is so well-studied.
 
 B: If IQ is real, you've wrecked growth mindset.
 

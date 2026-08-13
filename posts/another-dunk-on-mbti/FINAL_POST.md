@@ -2,6 +2,7 @@
 title: Another Dunk on MBTI
 date: 2026-04-15
 draft: false
+rating: 4
 ---
 
 In one of

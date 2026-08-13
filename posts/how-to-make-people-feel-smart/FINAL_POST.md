@@ -1,6 +1,5 @@
 ---
 title: How to Make People Feel Smart
-subtitle: And thus ask more questions and learn quickly
 date: 2025-01-25
 archive: true
 ---

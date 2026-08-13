@@ -1,6 +1,7 @@
 ---
 title: Dry Indoor Air
 date: 2025-12-14
+rating: 1
 ---
 
 Epistemic status: I tried to find scientific studies which backed this up. They mostly pointed

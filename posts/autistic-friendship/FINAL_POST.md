@@ -2,6 +2,7 @@
 title: All My Homies Are Autists
 date: 2025-03-20
 updated: 2026-07-01
+rating: 5
 ---
 
 I find it easier to develop deep, vulnerable, loving friendships with people who have a touch of

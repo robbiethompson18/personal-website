@@ -1,6 +1,7 @@
 ---
 title: Why It Didn't Work: OpenClaw Hosting
 date: 2026-08-07
+rating: 2
 ---
 
 I'm going to start writing up why various startups of mine have failed.

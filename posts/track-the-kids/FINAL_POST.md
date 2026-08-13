@@ -1,6 +1,7 @@
 ---
 title: Track the Kids
 date: 2026-08-11
+rating: 4
 ---
 
 LLMs are magical tools for learning. They can teach any subject at exactly your level, with infinite
@@ -106,7 +107,7 @@ why personalized learning has failed:
 - _tracking has bad vibes_
 
 I couldn't tell you how many people in how many contexts have tried to tell me that IQ is 'not real'
-([it definitely is!](https://slatestarcodex.com/2015/01/31/the-parable-of-the-talents/)).
+([it definitely is!](https://robbiewmthompson.com/blog/iq-is-definitely-real/)).
 
 If half of your third grade class is doing Algebra while the other half learns addition, that second
 half is a skill issue on your behalf. You are a Bad Teacher Who is Leaving Children Behind. If all

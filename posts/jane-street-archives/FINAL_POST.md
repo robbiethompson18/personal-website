@@ -2,6 +2,7 @@
 title: Jane Street Archives
 date: 2025-04-04
 updated: 2025-04-14
+rating: 4
 ---
 
 ## Nerd Heaven
