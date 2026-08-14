@@ -208,7 +208,10 @@ function postPage(p) {
 }
 
 function indexPage(posts, { heading = "Blog", subpath = "" } = {}) {
-  const items = posts
+  // Rating-desc is the default order; posts arrive date-sorted, so the stable
+  // sort keeps newest-first within each rating tier.
+  const items = [...posts]
+    .sort((a, b) => b.rating - a.rating)
     .map((p) => {
       const tags =
         (p.draft ? ' <span class="draft-tag">draft</span>' : "") +
@@ -222,25 +225,25 @@ function indexPage(posts, { heading = "Blog", subpath = "" } = {}) {
   const body = `    <main class="index">
       <header class="index-header">
         <h1>${esc(heading)}</h1>
-        <p class="index-sub"><a class="sort-toggle" href="#">sort by rating</a> · <a href="/">robbiewmthompson.com</a></p>
+        <p class="index-sub"><a class="sort-toggle" href="#">sort by date</a> · <a href="/">robbiewmthompson.com</a></p>
       </header>
       <ul class="post-list">
 ${items}
       </ul>
     </main>
     <script>
-      // Client-side only, resets to date order on reload.
+      // Client-side only, resets to rating order on reload.
       const sortList = document.querySelector(".post-list");
-      const sortByDate = [...sortList.children];
+      const sortByRating = [...sortList.children];
+      const sortByDate = [...sortByRating].sort((a, b) =>
+        b.querySelector("time").dateTime.localeCompare(a.querySelector("time").dateTime),
+      );
       const sortToggle = document.querySelector("a.sort-toggle");
-      let sortedByRating = false;
+      let sortedByRating = true;
       sortToggle.addEventListener("click", (e) => {
         e.preventDefault();
         sortedByRating = !sortedByRating;
-        const order = sortedByRating
-          ? [...sortByDate].sort((a, b) => b.dataset.rating - a.dataset.rating)
-          : sortByDate;
-        for (const li of order) sortList.appendChild(li);
+        for (const li of sortedByRating ? sortByRating : sortByDate) sortList.appendChild(li);
         sortToggle.textContent = sortedByRating ? "sort by date" : "sort by rating";
       });
     </script>`;
