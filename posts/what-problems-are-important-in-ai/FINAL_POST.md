@@ -1,7 +1,6 @@
 ---
 title: Important Problems in AI
-date: 2026-08-27
-draft: true
+date: 2026-08-28
 rating: 2
 ---
 
@@ -26,8 +25,8 @@ Things get orders of magnitude less important as you move down this list, with t
 (6).[^fn]
 
 [^fn]:
-    Human civilization could certainly be unimaginably larger and better than it is today. Possibly
-    the most important thing is that, once we can have the GTF, we do.
+    Human civilization can be unimaginably larger and better than it is today. Plausibly the most
+    important thing is to grab the GTF once we can reach it.
 
 ---
 
@@ -41,8 +40,7 @@ Alignment is the most important problem to solve in AI safety. Almost trivially,
 our values it will help us and vice versa.
 
 We have made lots of progress in 'quotidian alignment.' Claude won't assume the persona of Hitler or
-tell you how to bully a child. There is still lots of progress to be made here (eg models not being
-sycophantic).
+tell you how to bully a child.
 
 In addition to solving the problem of technical alignment, we need to determine our 'alignment
 target.' Should superintelligent AI help us factory farm? Should humans be allowed to 'enslave' it?
@@ -52,8 +50,7 @@ There are strong theoretical arguments for why alignment is hard or impossible. 
 these myself in the future; for today Claude will write a footnote with pointers to the most
 important arguments.[^Claude]
 
-[^Claude]: <!-- @robbie done -->
-
+[^Claude]:
     - Orthogonality + instrumental convergence: intelligence and goals are independent, and almost
       any goal is served by acquiring power and resisting shutdown
       ([Bostrom, 2012](https://nickbostrom.com/superintelligentwill.pdf);
@@ -118,11 +115,8 @@ securing the weights to frontier models.
 
 ## 4. Safeguards
 
-[Cambridge researchers have reported](https://casp.ac/reports/ai-enabled-terrorism) Boko Haram using
-ChatGPT (and Claude, Gemini, Grok, Meta AI, DeepSeek) to build bombs.[^unclear] We'll be much sadder
-if they use Chat to build bioweapons or nukes.
-
-[^unclear]: Unclear how true this is, but I'd be shocked if no bad actors were trying to use AI.
+[Cambridge researchers reported](https://casp.ac/reports/ai-enabled-terrorism) on Boko Haram using
+chatbots to build bombs. We'll be much sadder if they use Chat to build bioweapons or nukes.
 
 Mitigations:
 
@@ -130,12 +124,12 @@ Mitigations:
   the early days).
 - Jailbreak robustness: pay many red teams to try to elicit dangerous information out of your model.
 - Unlearning: don't train your model on information about biology, or route that information to one
-  expert in the network and then delete that expert, or use more complicated methods that
-  get the model to forget information.
+  expert in the network and then delete that expert, or use more complicated methods that get the
+  model to forget information.
 
-Safeguards work well, which is why I'm not a fan of open weight models. You can't run classifiers
-on them. You can't patch jailbreaks. You can't revoke access if your model proves to be more
-dangerous than anticipated.
+Safeguards work well, which is why I'm not a fan of open weight models. You can't run classifiers on
+them. You can't patch jailbreaks. You can't revoke access if your model proves to be more dangerous
+than anticipated.
 
 ## 5. Interpretability
 
@@ -155,27 +149,34 @@ known ones. Build newer and better monitoring infrastructure.[^sug]
     novel pathogens every night. A sufficiently capable adversary could create a virus that lays
     dormant for months, or makes us infertile in a way that's hard to detect.
 
-## 7. Welfare
+## 7. Coordination, Race Dynamics, Lab Governance
+
+Lots of people have signed lots of letters since we should slow down because AI might kill us all.
+This hasn't resulted in much legislation or training pauses. Coordination is hard.
+
+## 8. Welfare
 
 Are AIs moral subjects? What does it mean to treat them humanely? Can we make mutually beneficial
 deals with AIs?
 
-## 8. Disinformation
+## 9. Disinformation
 
 Improve AI-detection techniques (see [Pangram](https://www.pangram.com/)). Improve watermarking.
 Proactively monitor for AI-led disinformation campaigns.
 
-## 9. Economic Policies (UBI, etc)
+## 10. Economic Policies (UBI, etc)
 
 It is not obvious to me what economic policies make sense post-AGI. See my
 [bullshit jobs post](https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/).
 
-## 10. Capabilities
+## 11. Capabilities
 
-If we get 1-9 right, our cookie at the end is ASI, which will hopefully then deliver health,
+If we get 1-10 right, our cookie at the end is ASI, which will hopefully then deliver health,
 immortality, material abundance, scientific advancement, body enhancement, uploading, wireheading,
 or whatever else you're into.
 
-### Conclusion
+## Conclusion
 
-There is a massive amount of work to be done. All of these fields have low-hanging fruit.
+There is a massive amount of work to be done. All of these fields have low-hanging fruit. I'm having
+a hard time deciding where to start! Writing this post did not convince me of what I should do, but
+it did convince me I should do _something_.

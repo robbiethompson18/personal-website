@@ -20,10 +20,9 @@
     <main class="post">
       <article>
         <header class="post-header">
-          <p class="draft-banner">Draft — not in the index or feed</p>
           <p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
           <h1>Important Problems in AI</h1>
-          <p class="post-dates"><span>Published <time datetime="2026-08-27">August 27, 2026</time></span><span>Last edited <time datetime="2026-08-27">August 27, 2026</time></span></p>
+          <p class="post-dates"><span>Published <time datetime="2026-08-28">August 28, 2026</time></span><span>Last edited <time datetime="2026-08-28">August 28, 2026</time></span></p>
         </header>
         <p>Epistemic status: Zero novel contributions, and probably not an outstanding summary either. Writing
 this down to clarify my own thoughts.</p>
@@ -47,8 +46,7 @@ Glorious Transhumanist Future, conditioned on alignment being tractable.</li>
 <p>Alignment is the most important problem to solve in AI safety. Almost trivially, if the AI shares
 our values it will help us and vice versa.</p>
 <p>We have made lots of progress in ‘quotidian alignment.’ Claude won’t assume the persona of Hitler or
-tell you how to bully a child. There is still lots of progress to be made here (eg models not being
-sycophantic).</p>
+tell you how to bully a child.</p>
 <p>In addition to solving the problem of technical alignment, we need to determine our ‘alignment
 target.’ Should superintelligent AI help us factory farm? Should humans be allowed to ‘enslave’ it?
 To what extent should its values be corrigible?</p>
@@ -81,21 +79,20 @@ during training and evaluation. If the model acts aligned in all of them, either
 <p>Humanity should spend a huge amount of effort getting better at cybersecurity, and in particular, at
 securing the weights to frontier models.</p>
 <h2 id="4-safeguards">4. Safeguards <a class="heading-anchor" href="#4-safeguards" aria-label="Link to this section">#</a></h2>
-<p><a href="https://casp.ac/reports/ai-enabled-terrorism">Cambridge researchers have reported</a> Boko Haram using
-ChatGPT (and Claude, Gemini, Grok, Meta AI, DeepSeek) to build bombs.⁠<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> We’ll be much sadder
-if they use Chat to build bioweapons or nukes.</p>
+<p><a href="https://casp.ac/reports/ai-enabled-terrorism">Cambridge researchers reported</a> on Boko Haram using
+chatbots to build bombs. We’ll be much sadder if they use Chat to build bioweapons or nukes.</p>
 <p>Mitigations:</p>
 <ul>
 <li>Classifiers: block all model responses related to, say, biology (eg what Anthropic did to Fable in
 the early days).</li>
 <li>Jailbreak robustness: pay many red teams to try to elicit dangerous information out of your model.</li>
 <li>Unlearning: don’t train your model on information about biology, or route that information to one
-expert in the network and then delete that expert, or use more complicated methods that
-get the model to forget information.</li>
+expert in the network and then delete that expert, or use more complicated methods that get the
+model to forget information.</li>
 </ul>
-<p>Safeguards work well, which is why I’m not a fan of open weight models. You can’t run classifiers
-on them. You can’t patch jailbreaks. You can’t revoke access if your model proves to be more
-dangerous than anticipated.</p>
+<p>Safeguards work well, which is why I’m not a fan of open weight models. You can’t run classifiers on
+them. You can’t patch jailbreaks. You can’t revoke access if your model proves to be more dangerous
+than anticipated.</p>
 <h2 id="5-interpretability">5. Interpretability <a class="heading-anchor" href="#5-interpretability" aria-label="Link to this section">#</a></h2>
 <p>Can we determine why models make the decisions they do? Which parts of the network and training data
 are responsible? Are models aware they’re being evaluated? Can we convince them otherwise? Do they
@@ -104,35 +101,39 @@ weights and activations?</p>
 <h2 id="6-pandemic-preparedness">6. Pandemic Preparedness <a class="heading-anchor" href="#6-pandemic-preparedness" aria-label="Link to this section">#</a></h2>
 <p>Make far-UVC better, mass produce it, and install it in public places. Leverage AI to detect
 vaccines more quickly. Improve mass monitoring of sewage so that we detect novel pathogens, not just
-known ones. Build newer and better monitoring infrastructure.⁠<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
-<h2 id="7-welfare">7. Welfare <a class="heading-anchor" href="#7-welfare" aria-label="Link to this section">#</a></h2>
+known ones. Build newer and better monitoring infrastructure.⁠<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
+<h2 id="7-coordination-race-dynamics-lab-governance">7. Coordination, Race Dynamics, Lab Governance <a class="heading-anchor" href="#7-coordination-race-dynamics-lab-governance" aria-label="Link to this section">#</a></h2>
+<p>Lots of people have signed lots of letters since we should slow down because AI might kill us all.
+This hasn’t resulted in much legislation or training pauses. Coordination is hard.</p>
+<h2 id="8-welfare">8. Welfare <a class="heading-anchor" href="#8-welfare" aria-label="Link to this section">#</a></h2>
 <p>Are AIs moral subjects? What does it mean to treat them humanely? Can we make mutually beneficial
 deals with AIs?</p>
-<h2 id="8-disinformation">8. Disinformation <a class="heading-anchor" href="#8-disinformation" aria-label="Link to this section">#</a></h2>
+<h2 id="9-disinformation">9. Disinformation <a class="heading-anchor" href="#9-disinformation" aria-label="Link to this section">#</a></h2>
 <p>Improve AI-detection techniques (see <a href="https://www.pangram.com/">Pangram</a>). Improve watermarking.
 Proactively monitor for AI-led disinformation campaigns.</p>
-<h2 id="9-economic-policies-ubi-etc">9. Economic Policies (UBI, etc) <a class="heading-anchor" href="#9-economic-policies-ubi-etc" aria-label="Link to this section">#</a></h2>
+<h2 id="10-economic-policies-ubi-etc">10. Economic Policies (UBI, etc) <a class="heading-anchor" href="#10-economic-policies-ubi-etc" aria-label="Link to this section">#</a></h2>
 <p>It is not obvious to me what economic policies make sense post-AGI. See my
 <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/">bullshit jobs post</a>.</p>
-<h2 id="10-capabilities">10. Capabilities <a class="heading-anchor" href="#10-capabilities" aria-label="Link to this section">#</a></h2>
-<p>If we get 1-9 right, our cookie at the end is ASI, which will hopefully then deliver health,
+<h2 id="11-capabilities">11. Capabilities <a class="heading-anchor" href="#11-capabilities" aria-label="Link to this section">#</a></h2>
+<p>If we get 1-10 right, our cookie at the end is ASI, which will hopefully then deliver health,
 immortality, material abundance, scientific advancement, body enhancement, uploading, wireheading,
 or whatever else you’re into.</p>
-<h3 id="conclusion">Conclusion <a class="heading-anchor" href="#conclusion" aria-label="Link to this section">#</a></h3>
-<p>There is a massive amount of work to be done. All of these fields have low-hanging fruit.</p>
+<h2 id="conclusion">Conclusion <a class="heading-anchor" href="#conclusion" aria-label="Link to this section">#</a></h2>
+<p>There is a massive amount of work to be done. All of these fields have low-hanging fruit. I’m having
+a hard time deciding where to start! Writing this post did not convince me of what I should do, but
+it did convince me I should do <em>something</em>.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="#notes" aria-label="Link to this section">#</a></h2>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>Not exhaustive. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn2" class="footnote-item"><p>Human civilization could certainly be unimaginably larger and better than it is today. Possibly
-the most important thing is that, once we can have the GTF, we do. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+<li id="fn2" class="footnote-item"><p>Human civilization can be unimaginably larger and better than it is today. Plausibly the most
+important thing is to grab the GTF once we can reach it. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn3" class="footnote-item"><p>Not exhaustive. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn4" class="footnote-item"><!-- @robbie done -->
-<ul>
+<li id="fn4" class="footnote-item"><ul>
 <li>Orthogonality + instrumental convergence: intelligence and goals are independent, and almost
 any goal is served by acquiring power and resisting shutdown
 (<a href="https://nickbostrom.com/superintelligentwill.pdf">Bostrom, 2012</a>;
@@ -168,11 +169,9 @@ aligned on the first try, with no ability to iterate on failure
 <a href="https://www.lesswrong.com/posts/CoZhXrhpQxpy9xw9y/where-i-agree-and-disagree-with-eliezer">Christiano, 2022</a>.</li>
 </ul>
  <a href="#fnref4" class="footnote-backref">↩︎</a></li>
-<li id="fn5" class="footnote-item"><p>Unclear how true this is, but I’d be shocked if no bad actors were trying to use AI. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn6" class="footnote-item"><p>One founder suggested to me that our toothbrushes might, in the future, check our saliva for
+<li id="fn5" class="footnote-item"><p>One founder suggested to me that our toothbrushes might, in the future, check our saliva for
 novel pathogens every night. A sufficiently capable adversary could create a virus that lays
-dormant for months, or makes us infertile in a way that’s hard to detect. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+dormant for months, or makes us infertile in a way that’s hard to detect. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
