@@ -2,14 +2,13 @@
 title: Important Problems in AI
 date: 2026-08-27
 draft: true
-category: alignment
-rating: 1
+rating: 2
 ---
 
 Epistemic status: Zero novel contributions, and probably not an outstanding summary either. Writing
 this down to clarify my own thoughts.
 
-First, it's worth stating the risks:[^ex]
+First, it's worth stating the risks posed by AI:[^ex]
 
 [^ex]: Not exhaustive.
 
@@ -130,15 +129,13 @@ Mitigations:
 - Classifiers: block all model responses related to, say, biology (eg what Anthropic did to Fable in
   the early days).
 - Jailbreak robustness: pay many red teams to try to elicit dangerous information out of your model.
-- Unlearning: don't train your model on information about biology
-  ([Deep Ignorance, 2025](https://arxiv.org/abs/2508.06601)), or route that information to one
-  expert in the network and then delete that expert
-  ([gradient routing, 2024](https://arxiv.org/abs/2410.04332)), or use more complicated methods that
-  get the model to forget information ([RMU, 2024](https://arxiv.org/abs/2403.03218)).
+- Unlearning: don't train your model on information about biology, or route that information to one
+  expert in the network and then delete that expert, or use more complicated methods that
+  get the model to forget information.
 
-  Safeguards work well, which is why I'm not a fan of open weight models. You can't run classifiers
-  on them. You can't patch jailbreaks. You can't revoke access if your model proves to be more
-  dangerous than anticipated.
+Safeguards work well, which is why I'm not a fan of open weight models. You can't run classifiers
+on them. You can't patch jailbreaks. You can't revoke access if your model proves to be more
+dangerous than anticipated.
 
 ## 5. Interpretability
 
@@ -170,7 +167,7 @@ Proactively monitor for AI-led disinformation campaigns.
 
 ## 9. Economic Policies (UBI, etc)
 
-It is obvious to me what economic policies make sense post-AGI. See my
+It is not obvious to me what economic policies make sense post-AGI. See my
 [bullshit jobs post](https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/).
 
 ## 10. Capabilities
@@ -181,4 +178,4 @@ or whatever else you're into.
 
 ### Conclusion
 
-There is a massive amount of work to be done. All of these fields have long-hanging fruit.
+There is a massive amount of work to be done. All of these fields have low-hanging fruit.
