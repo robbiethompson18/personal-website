@@ -27,7 +27,7 @@
         </header>
         <p>Epistemic status: Zero novel contributions, and probably not an outstanding summary either. Writing
 this down to clarify my own thoughts.</p>
-<p>First, it’s worth stating the risks:⁠<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p>First, it’s worth stating the risks posed by AI:⁠<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
 <ol>
 <li>Human extinction from misaligned AI (see <a href="https://ifanyonebuildsit.com/">IABIED</a>). Human
 enslavement by machines.</li>
@@ -86,24 +86,16 @@ ChatGPT (and Claude, Gemini, Grok, Meta AI, DeepSeek) to build bombs.⁠<sup cla
 if they use Chat to build bioweapons or nukes.</p>
 <p>Mitigations:</p>
 <ul>
-<li>
-<p>Classifiers: block all model responses related to, say, biology (eg what Anthropic did to Fable in
-the early days).</p>
-</li>
-<li>
-<p>Jailbreak robustness: pay many red teams to try to elicit dangerous information out of your model.</p>
-</li>
-<li>
-<p>Unlearning: don’t train your model on information about biology
-(<a href="https://arxiv.org/abs/2508.06601">Deep Ignorance, 2025</a>), or route that information to one
-expert in the network and then delete that expert
-(<a href="https://arxiv.org/abs/2410.04332">gradient routing, 2024</a>), or use more complicated methods that
-get the model to forget information (<a href="https://arxiv.org/abs/2403.03218">RMU, 2024</a>).</p>
+<li>Classifiers: block all model responses related to, say, biology (eg what Anthropic did to Fable in
+the early days).</li>
+<li>Jailbreak robustness: pay many red teams to try to elicit dangerous information out of your model.</li>
+<li>Unlearning: don’t train your model on information about biology, or route that information to one
+expert in the network and then delete that expert, or use more complicated methods that
+get the model to forget information.</li>
+</ul>
 <p>Safeguards work well, which is why I’m not a fan of open weight models. You can’t run classifiers
 on them. You can’t patch jailbreaks. You can’t revoke access if your model proves to be more
 dangerous than anticipated.</p>
-</li>
-</ul>
 <h2 id="5-interpretability">5. Interpretability <a class="heading-anchor" href="#5-interpretability" aria-label="Link to this section">#</a></h2>
 <p>Can we determine why models make the decisions they do? Which parts of the network and training data
 are responsible? Are models aware they’re being evaluated? Can we convince them otherwise? Do they
@@ -120,14 +112,14 @@ deals with AIs?</p>
 <p>Improve AI-detection techniques (see <a href="https://www.pangram.com/">Pangram</a>). Improve watermarking.
 Proactively monitor for AI-led disinformation campaigns.</p>
 <h2 id="9-economic-policies-ubi-etc">9. Economic Policies (UBI, etc) <a class="heading-anchor" href="#9-economic-policies-ubi-etc" aria-label="Link to this section">#</a></h2>
-<p>It is obvious to me what economic policies make sense post-AGI. See my
+<p>It is not obvious to me what economic policies make sense post-AGI. See my
 <a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/">bullshit jobs post</a>.</p>
 <h2 id="10-capabilities">10. Capabilities <a class="heading-anchor" href="#10-capabilities" aria-label="Link to this section">#</a></h2>
 <p>If we get 1-9 right, our cookie at the end is ASI, which will hopefully then deliver health,
 immortality, material abundance, scientific advancement, body enhancement, uploading, wireheading,
 or whatever else you’re into.</p>
 <h3 id="conclusion">Conclusion <a class="heading-anchor" href="#conclusion" aria-label="Link to this section">#</a></h3>
-<p>There is a massive amount of work to be done. All of these fields have long-hanging fruit.</p>
+<p>There is a massive amount of work to be done. All of these fields have low-hanging fruit.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="#notes" aria-label="Link to this section">#</a></h2>
