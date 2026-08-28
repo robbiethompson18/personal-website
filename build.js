@@ -232,7 +232,7 @@ ${items}
       </ul>
     </main>
     <script>
-      // Client-side only, resets to rating order on reload.
+      // Client-side only; preference persists in localStorage.
       const sortList = document.querySelector(".post-list");
       const sortByRating = [...sortList.children];
       const sortByDate = [...sortByRating].sort((a, b) =>
@@ -240,11 +240,21 @@ ${items}
       );
       const sortToggle = document.querySelector("a.sort-toggle");
       let sortedByRating = true;
+      const applySort = () => {
+        for (const li of sortedByRating ? sortByRating : sortByDate) sortList.appendChild(li);
+        sortToggle.textContent = sortedByRating ? "sort by date" : "sort by rating";
+      };
+      try {
+        if (localStorage.getItem("blogSort") === "date") sortedByRating = false;
+      } catch {}
+      applySort();
       sortToggle.addEventListener("click", (e) => {
         e.preventDefault();
         sortedByRating = !sortedByRating;
-        for (const li of sortedByRating ? sortByRating : sortByDate) sortList.appendChild(li);
-        sortToggle.textContent = sortedByRating ? "sort by date" : "sort by rating";
+        try {
+          localStorage.setItem("blogSort", sortedByRating ? "rating" : "date");
+        } catch {}
+        applySort();
       });
     </script>`;
   return layout({
