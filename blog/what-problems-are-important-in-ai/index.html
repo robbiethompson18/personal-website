@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Important Problems in AI</title>
+    <meta name="description" content="Essays by Robbie Thompson." />
+    <link rel="canonical" href="https://robbiewmthompson.com/blog/what-problems-are-important-in-ai/" />
+    <meta property="og:title" content="Important Problems in AI" />
+    <meta property="og:description" content="Essays by Robbie Thompson." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://robbiewmthompson.com/blog/what-problems-are-important-in-ai/" />
+    <link rel="alternate" type="application/rss+xml" title="Robbie Thompson" href="/feed.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/blog.css" />
+  </head>
+  <body>
+    <main class="post">
+      <article>
+        <header class="post-header">
+          <p class="draft-banner">Draft — not in the index or feed</p>
+          <p class="post-meta"><a href="/blog/drafts/">&larr; Blog</a></p>
+          <h1>Important Problems in AI</h1>
+          <p class="post-dates"><span>Published <time datetime="2026-08-27">August 27, 2026</time></span><span>Last edited <time datetime="2026-08-27">August 27, 2026</time></span></p>
+        </header>
+        <p>Epistemic status: Zero novel contributions, and probably not an outstanding summary either. Writing
+this down to clarify my own thoughts.</p>
+<p>First, it’s worth stating the risks:⁠<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<ol>
+<li>Human extinction from misaligned AI (see <a href="https://ifanyonebuildsit.com/">IABIED</a>). Human
+enslavement by machines.</li>
+<li>Techno-oligarchy, concentration of power.</li>
+<li>Mass casualty events from rogue actors with powerful AI (eg engineered pandemics).</li>
+<li><a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/">Crisis of meaning once almost no one can contribute meaningful work.</a></li>
+<li>Mass protests and economic turmoil from job displacement.</li>
+<li>Not a risk per se, but it would be sad if friendly superintelligence is possible, but we don’t
+build it because we can’t figure out alignment or there’s a massive backlash. I’m excited for the
+Glorious Transhumanist Future, conditioned on alignment being tractable.</li>
+</ol>
+<p>Things get orders of magnitude less important as you move down this list, with the exception of
+(6).⁠<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<hr>
+<p>Next, it’s worth stating what people are working on:⁠<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></p>
+<h2 id="1-alignment-make-ais-that-are-corrigible-and-share-our-values">1. Alignment: Make AIs That Are Corrigible and Share Our Values <a class="heading-anchor" href="#1-alignment-make-ais-that-are-corrigible-and-share-our-values" aria-label="Link to this section">#</a></h2>
+<p>Alignment is the most important problem to solve in AI safety. Almost trivially, if the AI shares
+our values it will help us and vice versa.</p>
+<p>We have made lots of progress in ‘quotidian alignment.’ Claude won’t assume the persona of Hitler or
+tell you how to bully a child. There is still lots of progress to be made here (eg models not being
+sycophantic).</p>
+<p>In addition to solving the problem of technical alignment, we need to determine our ‘alignment
+target.’ Should superintelligent AI help us factory farm? Should humans be allowed to ‘enslave’ it?
+To what extent should its values be corrigible?</p>
+<p>There are strong theoretical arguments for why alignment is hard or impossible. I hope to summarize
+these myself in the future; for today Claude will write a footnote with pointers to the most
+important arguments.⁠<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<h2 id="2-control-build-robust-monitoring-so-that-misaligned-ais-cant-do-much-harm-on-their-own">2. Control: Build Robust Monitoring So That Misaligned AIs Can’t Do Much Harm on Their Own <a class="heading-anchor" href="#2-control-build-robust-monitoring-so-that-misaligned-ais-cant-do-much-harm-on-their-own" aria-label="Link to this section">#</a></h2>
+<p>If we train a misaligned AI, how likely are we to catch it? We can run millions of alignment tests
+during training and evaluation. If the model acts aligned in all of them, either:</p>
+<ul>
+<li>The model is aligned.</li>
+<li>The model can tell apart training and deployment with very high fidelity (plausible).</li>
+<li>The model acts misaligned with very low probability (still very scary).</li>
+</ul>
+<p>Mitigations include:</p>
+<ul>
+<li>Lots of high-fidelity honeypots.</li>
+<li>Monitoring model outputs, escalating some for further (eventually human) review.</li>
+<li>Having untrusted models review or rewrite their own suspicious outputs (see
+<a href="https://arxiv.org/pdf/2504.10374">Ctrl-z</a>).</li>
+</ul>
+<h2 id="3-security">3. Security <a class="heading-anchor" href="#3-security" aria-label="Link to this section">#</a></h2>
+<p>It would be really bad if:</p>
+<ul>
+<li>An AI escaped a datacenter.</li>
+<li>A foreign adversary stole frontier model weights.</li>
+<li>An AI surreptitiously took over all or part of the datacenter it runs on.</li>
+<li>An AI or foreign adversary hacked important things (the power grid, the military etc.).</li>
+</ul>
+<p>Humanity should spend a huge amount of effort getting better at cybersecurity, and in particular, at
+securing the weights to frontier models.</p>
+<h2 id="4-safeguards">4. Safeguards <a class="heading-anchor" href="#4-safeguards" aria-label="Link to this section">#</a></h2>
+<p><a href="https://casp.ac/reports/ai-enabled-terrorism">Cambridge researchers have reported</a> Boko Haram using
+ChatGPT (and Claude, Gemini, Grok, Meta AI, DeepSeek) to build bombs.⁠<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> We’ll be much sadder
+if they use Chat to build bioweapons or nukes.</p>
+<p>Mitigations:</p>
+<ul>
+<li>
+<p>Classifiers: block all model responses related to, say, biology (eg what Anthropic did to Fable in
+the early days).</p>
+</li>
+<li>
+<p>Jailbreak robustness: pay many red teams to try to elicit dangerous information out of your model.</p>
+</li>
+<li>
+<p>Unlearning: don’t train your model on information about biology
+(<a href="https://arxiv.org/abs/2508.06601">Deep Ignorance, 2025</a>), or route that information to one
+expert in the network and then delete that expert
+(<a href="https://arxiv.org/abs/2410.04332">gradient routing, 2024</a>), or use more complicated methods that
+get the model to forget information (<a href="https://arxiv.org/abs/2403.03218">RMU, 2024</a>).</p>
+<p>Safeguards work well, which is why I’m not a fan of open weight models. You can’t run classifiers
+on them. You can’t patch jailbreaks. You can’t revoke access if your model proves to be more
+dangerous than anticipated.</p>
+</li>
+</ul>
+<h2 id="5-interpretability">5. Interpretability <a class="heading-anchor" href="#5-interpretability" aria-label="Link to this section">#</a></h2>
+<p>Can we determine why models make the decisions they do? Which parts of the network and training data
+are responsible? Are models aware they’re being evaluated? Can we convince them otherwise? Do they
+behave differently in deployment vs training? Can we detect misaligned models by studying their
+weights and activations?</p>
+<h2 id="6-pandemic-preparedness">6. Pandemic Preparedness <a class="heading-anchor" href="#6-pandemic-preparedness" aria-label="Link to this section">#</a></h2>
+<p>Make far-UVC better, mass produce it, and install it in public places. Leverage AI to detect
+vaccines more quickly. Improve mass monitoring of sewage so that we detect novel pathogens, not just
+known ones. Build newer and better monitoring infrastructure.⁠<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<h2 id="7-welfare">7. Welfare <a class="heading-anchor" href="#7-welfare" aria-label="Link to this section">#</a></h2>
+<p>Are AIs moral subjects? What does it mean to treat them humanely? Can we make mutually beneficial
+deals with AIs?</p>
+<h2 id="8-disinformation">8. Disinformation <a class="heading-anchor" href="#8-disinformation" aria-label="Link to this section">#</a></h2>
+<p>Improve AI-detection techniques (see <a href="https://www.pangram.com/">Pangram</a>). Improve watermarking.
+Proactively monitor for AI-led disinformation campaigns.</p>
+<h2 id="9-economic-policies-ubi-etc">9. Economic Policies (UBI, etc) <a class="heading-anchor" href="#9-economic-policies-ubi-etc" aria-label="Link to this section">#</a></h2>
+<p>It is obvious to me what economic policies make sense post-AGI. See my
+<a href="https://robbiewmthompson.com/blog/a-bullshit-job-for-every-american/">bullshit jobs post</a>.</p>
+<h2 id="10-capabilities">10. Capabilities <a class="heading-anchor" href="#10-capabilities" aria-label="Link to this section">#</a></h2>
+<p>If we get 1-9 right, our cookie at the end is ASI, which will hopefully then deliver health,
+immortality, material abundance, scientific advancement, body enhancement, uploading, wireheading,
+or whatever else you’re into.</p>
+<h3 id="conclusion">Conclusion <a class="heading-anchor" href="#conclusion" aria-label="Link to this section">#</a></h3>
+<p>There is a massive amount of work to be done. All of these fields have long-hanging fruit.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="#notes" aria-label="Link to this section">#</a></h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Not exhaustive. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Human civilization could certainly be unimaginably larger and better than it is today. Possibly
+the most important thing is that, once we can have the GTF, we do. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Not exhaustive. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><!-- @robbie done -->
+<ul>
+<li>Orthogonality + instrumental convergence: intelligence and goals are independent, and almost
+any goal is served by acquiring power and resisting shutdown
+(<a href="https://nickbostrom.com/superintelligentwill.pdf">Bostrom, 2012</a>;
+<a href="https://selfawaresystems.com/wp-content/uploads/2008/01/ai_drives_final.pdf">Omohundro, 2008</a>).</li>
+<li>Inner misalignment: a training process that selects for good behavior can produce a learned
+optimizer with a different objective that merely agrees on the training distribution
+(<a href="https://arxiv.org/abs/1906.01820">Hubinger et al., 2019</a>).</li>
+<li>Goal misgeneralization: capabilities generalize out of distribution while goals don’t,
+demonstrated empirically in RL agents
+(<a href="https://arxiv.org/abs/2105.14111">Langosco et al., 2022</a>;
+<a href="https://arxiv.org/abs/2210.01790">Shah et al., 2022</a>).</li>
+<li>Specification gaming / Goodhart: any measurable proxy for what we want gets optimized in ways
+we didn’t intend
+(<a href="https://deepmind.google/discover/blog/specification-gaming-the-flip-side-of-ai-ingenuity/">Krakovna et al., 2020</a>).</li>
+<li>Deceptive alignment: a misaligned model that understands training has an incentive to act
+aligned until it’s safe not to, and this behavior survives safety training once present
+(<a href="https://www.alignmentforum.org/posts/A9NxPTwbw6r6Awuwt/how-likely-is-deceptive-alignment">Hubinger, 2022</a>;
+<a href="https://arxiv.org/abs/2401.05566">Sleeper Agents, 2024</a>;
+<a href="https://arxiv.org/abs/2412.14093">Alignment Faking, 2024</a>).</li>
+<li>Corrigibility is anti-natural: an agent that wants X is incentivized to prevent you changing
+it away from X, so shutdownability fights against coherent goal-pursuit
+(<a href="https://intelligence.org/files/Corrigibility.pdf">Soares et al., 2015</a>).</li>
+<li>Value is fragile: human values are high-dimensional and getting almost all of them right still
+yields a worthless future
+(<a href="https://www.lesswrong.com/posts/GNnHHmm8EzePmKzPk/value-is-fragile">Yudkowsky, 2009</a>).</li>
+<li>Limits of human feedback: RLHF can’t scale past the point where humans can evaluate outputs,
+and systematically rewards what looks good over what is good
+(<a href="https://arxiv.org/abs/2307.15217">Casper et al., 2023</a>).</li>
+<li>No retries: unlike every other engineering problem, the first superintelligence has to be
+aligned on the first try, with no ability to iterate on failure
+(<a href="https://www.lesswrong.com/posts/uMQ3cqWDPHhjtiesc/agi-ruin-a-list-of-lethalities">Yudkowsky, 2022</a>).</li>
+<li>For the counterargument that these are real but tractable, see
+<a href="https://www.lesswrong.com/posts/CoZhXrhpQxpy9xw9y/where-i-agree-and-disagree-with-eliezer">Christiano, 2022</a>.</li>
+</ul>
+ <a href="#fnref4" class="footnote-backref">↩︎</a></li>
+<li id="fn5" class="footnote-item"><p>Unclear how true this is, but I’d be shocked if no bad actors were trying to use AI. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>One founder suggested to me that our toothbrushes might, in the future, check our saliva for
+novel pathogens every night. A sufficiently capable adversary could create a virus that lays
+dormant for months, or makes us infertile in a way that’s hard to detect. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      </article>
+      <footer class="post-footer">
+        <p><a href="/blog/drafts/">&larr; More writing</a></p>
+      </footer>
+    </main>
+    <script src="/footnotes.js" defer></script>
+  </body>
+</html>
