@@ -333,7 +333,7 @@ function checkContent(body) {
   // an unreferenced definition is silently dropped from the output entirely.
   const defs = new Set();
   const refs = new Set();
-  for (const m of prose.matchAll(/^\[\^([^\]]+)\]:/gm)) defs.add(m[1]);
+  for (const m of prose.matchAll(/^[ \t]*\[\^([^\]]+)\]:/gm)) defs.add(m[1]);
   for (const m of prose.matchAll(/\[\^([^\]]+)\](?!:)/g)) refs.add(m[1]);
   for (const id of refs)
     if (!defs.has(id)) issues.push(`footnote [^${id}] is referenced but never defined (renders as literal text)`);
@@ -344,7 +344,7 @@ function checkContent(body) {
   // `{@id}:` definition, and an unreferenced definition renders nothing.
   const citeDefs = new Set();
   const citeRefs = new Set();
-  for (const m of prose.matchAll(/^\{@([\w-]+)\}:/gm)) citeDefs.add(m[1]);
+  for (const m of prose.matchAll(/^[ \t]*\{@([\w-]+)\}:/gm)) citeDefs.add(m[1]);
   for (const m of prose.matchAll(/\]\(@([\w-]+)\)/g)) citeRefs.add(m[1]);
   for (const id of citeRefs)
     if (!citeDefs.has(id)) issues.push(`source (@${id}) is cited but never defined ({@${id}}: … is missing)`);
