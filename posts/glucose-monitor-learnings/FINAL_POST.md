@@ -2,7 +2,7 @@
 title: Glucose Monitor Learnings
 date: 2026-07-01
 draft: false
-rating: 5
+rating: 4
 ---
 
 I bought a CGM (continuous glucose monitor) on Amazon for \$100. It took 10 minutes to set up.

@@ -2,8 +2,11 @@
 title: Everything Speeds Up The Race
 date: 2026-08-27
 draft: true
+archive: true
 rating: 2
 ---
+
+<!--Don't fully buy my own arguments here, never edited this. -->
 
 If you zoom out enough, almost all research is liable to speed up timelines and improve
 capabilities. RLHF was intended for alignment but made ChatGPT a commercial success. Improving
@@ -19,17 +22,18 @@ they can do alignment research, they can do capabilities research.
 All things considered, this argument makes me nervous. One wonders if Alex Krizhevsky was the most
 effective altruist.
 
-Some hazy counterarguments I don't believe:
+Some hazy counterarguments:
 
 - Humans have some Pareto frontier they are willing to walk, with the axes being (how aligned the
   models seems, how powerful the models are). Moving this frontier to be more conservative is
   strictly good. Improving alignment faster means that, if are frontier was bad and we were willing
   to create a superintelligence that will kill us, we will do so faster. When we go extinct is
   pretty inconsequential relative to _if_ we go extinct.[^caveats]
-- Race dynamics are impossible to change.
+- Race dynamics are impossible to change. Capabilities will proceed at a predetermined pace, but
+  _you_ can choose to speed up alignment. I somewhat buy this.
 
 I don't know how hard to update on the fact that there are countless researchers at the big lab who
-seem not to be worried about this. Being worried is correlated with having thought hard about
+seem not to be worried about AI x-risk. Being worried is correlated with having thought hard about
 x-risk, but the causal arrow points in both directions.
 
 If you take this post to its logical conclusion, and you buy the premise that AI x-risk is real, the
