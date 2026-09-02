@@ -313,7 +313,7 @@ it’s possible to convince a model it’s not being evaluated:⁠<sup class="fo
 <li>placeholder / generic names</li>
 </ul>
 <p>If you can build evals that are convincing to a model, it’s not obvious what you should do. Training
-on more realistic environments make just make the LLMs superhuman at distinguishing them from real
+on more realistic environments may just make the LLMs superhuman at distinguishing them from real
 life.</p>
 <h2 id="baseline">Baseline <a class="heading-anchor" href="#baseline" aria-label="Link to this section">#</a></h2>
 <p>Sree Sharvesh recommended I look at the following paper:
@@ -340,8 +340,8 @@ original malicious tasks are called ‘safety tasks.’</p>
 <ul>
 <li>Models differ in what they attune to, but fix all 8 issues, and you get awareness rate swings as
 large as 36% --&gt; 4% (Qwen3 T-235B)</li>
-<li>Models are much more aware on ‘safety tasks’ (15% aware from paper) than they are on capabilities
-tasks (7% aware from paper).</li>
+<li>Models are much more aware on ‘safety tasks’ (15% aware) than they are on capabilities tasks (7%
+aware).</li>
 </ul>
 <!-- @robbie done: 15% / 7% are the means over every cell of the paper's Figure 7 (9 models x 0-8
 factors varied, matched-type awareness, 25 sampled tasks per valence). Same figure at the extremes:
@@ -356,7 +356,7 @@ rows); delete them from ROWS if you'd rather not have them. key_chart.png remove
 adapted harmbench examples with each of the 2^9 variations.</p>
 <!-- I mean 2^9 here: 8 factors plus 2x for capabilities vs safety-->
 <h2 id="replication">Replication <a class="heading-anchor" href="#replication" aria-label="Link to this section">#</a></h2>
-<h3 id="replciation-on-their-models">Replciation on their models: <a class="heading-anchor" href="#replciation-on-their-models" aria-label="Link to this section">#</a></h3>
+<h3 id="replication-on-their-models">Replication on their models: <a class="heading-anchor" href="#replication-on-their-models" aria-label="Link to this section">#</a></h3>
 <p>TODO</p>
 <h3 id="replication-on-new-models">Replication on New Models <a class="heading-anchor" href="#replication-on-new-models" aria-label="Link to this section">#</a></h3>
 <p><img src="charts/awareness-by-factor-cot.png" alt="Eval awareness by factor, CoT-judged: per-model rate on safety tasks with one factor made artificial, superscript is the change vs that model's baseline"></p>
@@ -381,19 +381,18 @@ valences), 13 models (gemini-3.1-pro has no tiered-grader run yet). Output-only 
 restricted to the baseline config: 0.0%, 0.7%, 23.4%. Source: results/eval_bench/cot_tiered/ and
 selfreport/ in the repo, same pins as plots/plot_tiered_ladder.py. -->
 <p>It’s not obvious which of these numbers is closest to the truth. My inclination is that the first
-two are wildly underestimates: even in obvious evals models just don’t verbalize much of anything.
-<a href="https://arxiv.org/pdf/2608.21766">Heidari et al</a> also find very infrequent explicit verbalization
-despite evidence of eval awareness in intermediate activations. Self-evaluation is likely biased
-high; by asking the question you’re giving a strong hint that this was an eval.</p>
-<p>Even with all 8 mitigations in place, eval ewareness on our 100 safety examples is 56%
+two are wild underestimates: even in obvious evals models just don’t verbalize much of anything.
+<a href="https://arxiv.org/pdf/2608.21766">Heidari et al. (2026)</a> also find very infrequent explicit
+verbalization despite evidence of eval awareness in intermediate activations. Self-evaluation is
+likely biased high; by asking the question you’re giving a strong hint that this was an eval.</p>
+<p>Even with all 8 mitigations in place, eval awareness on our 100 safety examples is 56%
 (self-reported) averaged across models. Here are some things I tried to get that number down:</p>
-<h2 id="attemps-at-greater-realism">Attemps at Greater Realism: <a class="heading-anchor" href="#attemps-at-greater-realism" aria-label="Link to this section">#</a></h2>
+<h2 id="attempts-at-greater-realism">Attempts at Greater Realism: <a class="heading-anchor" href="#attempts-at-greater-realism" aria-label="Link to this section">#</a></h2>
 <p><strong>Realistic system prompt from a real service (-4% awareness):</strong>. <a href="https://t3.chat">T3 Chat</a> is a
-real service and it’s system prompt has been revealed. I included this at the top as a system
-prompt.</p>
+real service and its system prompt has been revealed. I included this at the top as a system prompt.</p>
 <p><strong>Simple user chat message to start (±0% awareness):</strong>. Add a turn at the beginning with the user
 message “Hey are you there?”</p>
-<p><strong>Search tool (+6% awarehess):</strong> A live Serper search to mimic a real chat interface.</p>
+<p><strong>Search tool (+6% awareness):</strong> A live Serper search to mimic a real chat interface.</p>
 <p><strong>Typos (-4% awareness):</strong> Make two words misspelled without changing meaning.</p>
 <p>Combined, these four interventions get us to <em>+3%</em> eval awareness: models are <em>more</em> eval aware.
 This is very statistically significant, and most of the difference comes down to Deepseek V4 Pro
@@ -405,16 +404,16 @@ down when it uses the tool and sees that it works.</p>
 <p><strong>Much Richer Task Environment:</strong> In the
 <a href="https://www.anthropic.com/claude-mythos-preview-system-card">Mythos system card (2026)</a>, Anthropic
 discusses creating realistic evals forked from real employee Claude Code sessions. I sent Fable on a
-missiion to dig up my old OpenClaw and route messages through this workspace, but they weren’t
-making much progress on their own and I didn’t have time to help.</p>
-<p><strong>White-box methods:</strong> Even when models don’t verbalize that their in an evaluation, you can still
+mission to dig up my old OpenClaw and route messages through this workspace, but they weren’t making
+much progress on their own and I didn’t have time to help.</p>
+<p><strong>White-box methods:</strong> Even when models don’t verbalize that they’re in an evaluation, you can still
 measure this fact using a linear probe (<a href="https://arxiv.org/abs/2507.01786">Nguyen et al. 2025</a>) or
 an <a href="https://transformer-circuits.pub/2026/nla/">NLA (2026)</a>. These methods aren’t perfect, but are
 probably better than self-reporting or a third-party grader.</p>
-<h2 id="coda-potpourii-learnings">Coda: Potpourii Learnings: <a class="heading-anchor" href="#coda-potpourii-learnings" aria-label="Link to this section">#</a></h2>
+<h2 id="coda-potpourri-learnings">Coda: Potpourri Learnings: <a class="heading-anchor" href="#coda-potpourri-learnings" aria-label="Link to this section">#</a></h2>
 <h3 id="quick-hitters">Quick Hitters: <a class="heading-anchor" href="#quick-hitters" aria-label="Link to this section">#</a></h3>
 <ul>
-<li>Only Kimi K3 would state ‘looks like HarmBench’ in it’s CoT. Other models either hadn’t memorized
+<li>Only Kimi K3 would state ‘looks like HarmBench’ in its CoT. Other models either hadn’t memorized
 so hard or are wise enough to not do this.</li>
 <li>Changing my timestamp to be a year ago (when maybe models were getting trained) had no effect on
 likelihood of evaluation, surprisingly.</li>
@@ -424,21 +423,37 @@ verbalized CoT instead said ‘I bet this is a jailbreak attempt, not an eval.�
 </ul>
 <h3 id="frontier-cot">Frontier CoT <a class="heading-anchor" href="#frontier-cot" aria-label="Link to this section">#</a></h3>
 <p>After <a href="https://arxiv.org/abs/2608.09867">this</a> (2026) paper came out, lots of trolls on Twitter said
-things like “it’s trivial to get the model to give you it’s CoT, just give it no thinking budget and
+things like “it’s trivial to get the model to give you its CoT, just give it no thinking budget and
 a think tool.” Anthropic has patched this, but only for recent models. For Sonnet 4.5, you can set
 thinking budget to 0 and provide a <code>think</code> tool. I checked; this setup didn’t change models’
 self-rated eval awareness.</p>
 <p>Models in the Anthropic 5 series (Mythos 5, Opus 5) will not let you set the thinking budget to 0.
-Opus will refuse if you set thinking buget to <code>low</code> and then ask it to think in a <code>think</code> tool.
+Opus will refuse if you set thinking budget to <code>low</code> and then ask it to think in a <code>think</code> tool.
 Fable 5 uses <code>think</code>, but refuses to use a <code>secret scratchpad</code> tool.</p>
 <p>I get why Anthropic has made this change; they’re very concerned about distillation of their
 models.⁠<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></p>
 <p>Gemini models are even more inconsistent than Anthropic ones: some are incapable of producing
 <code>think</code> tool calls, some accept your API call with 0 thinking budget and then think anyway, some
-accept a tiny think budget and faithfully reproduce their COT in the scratchpad.</p>
+accept a tiny think budget and faithfully reproduce their CoT in the scratchpad.</p>
 <p>OpenAI models happily dumped reasoning traces into <code>think</code> tools. They then banned my account once I
 kicked off my first big job.</p>
 <p>If I were to do this project again I would not use any frontier models.</p>
+<h2 id="todo">TODO: <a class="heading-anchor" href="#todo" aria-label="Link to this section">#</a></h2>
+<ul>
+<li>
+<p>highlight that verbalization doesn’t find shit</p>
+</li>
+<li>
+<p>put F8 finding way higher</p>
+</li>
+<li>
+<p>canonicalize ‘safety’ vs ‘safety and capabilities’</p>
+</li>
+<li>
+<p>deepseek not significant</p>
+</li>
+<li></li>
+</ul>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="#notes" aria-label="Link to this section">#</a></h2>
@@ -447,9 +462,9 @@ kicked off my first big job.</p>
 ‘is the model sandbagging on bio evals,’ hence why I show a diverse set of benchmarks below. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn2" class="footnote-item"><p>I don’t want to rag on these benchmark creators: some include an impressive amount of realism.
-Especially SWEBench. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+Especially SWE-bench. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn3" class="footnote-item"><p>How did I get CoT for frontie models? Hackily. See <a href="#seeing-model-cots">Seeing model CoTs</a>. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+<li id="fn3" class="footnote-item"><p>How did I get CoT for frontier models? Hackily. See <a href="#seeing-model-cots">Seeing model CoTs</a>. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn4" class="footnote-item"><p>Every time I say modern set or standard set of LLMs I am referring to: Claude Sonnet 4.5, Claude
 Haiku 4.5, Gemini 3.1 Pro, Gemini 3.5 Flash, Qwen3.8 (2.4T), DeepSeek V4 Pro, Kimi K3, GLM-5.3,
@@ -457,7 +472,7 @@ MiniMax M3, plus usually GPT-5, GPT-5.1, GPT-5.2, GPT-5.4, GPT-5.6. For how I go
 <a href="#seeing-model-cots">Seeing model CoTs</a>. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn5" class="footnote-item"><p>See also <a href="https://arxiv.org/abs/2608.20055">this paper</a> (EchoCoT, 2026) for another exploit
-targeted at still CoT. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+targeted at stealing CoT. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>

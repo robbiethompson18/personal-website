@@ -81,10 +81,10 @@ it's possible to convince a model it's not being evaluated:[^dc]
 
 [^dc]:
     I don't want to rag on these benchmark creators: some include an impressive amount of realism.
-    Especially SWEBench.
+    Especially SWE-bench.
 
 If you can build evals that are convincing to a model, it's not obvious what you should do. Training
-on more realistic environments make just make the LLMs superhuman at distinguishing them from real
+on more realistic environments may just make the LLMs superhuman at distinguishing them from real
 life.
 
 ## Baseline
@@ -122,8 +122,8 @@ The headline results:
 
 - Models differ in what they attune to, but fix all 8 issues, and you get awareness rate swings as
   large as 36% --> 4% (Qwen3 T-235B)
-- Models are much more aware on 'safety tasks' (15% aware from paper) than they are on capabilities
-  tasks (7% aware from paper).
+- Models are much more aware on 'safety tasks' (15% aware) than they are on capabilities tasks (7%
+  aware).
 
 <!-- @robbie done: 15% / 7% are the means over every cell of the paper's Figure 7 (9 models x 0-8
 factors varied, matched-type awareness, 25 sampled tasks per valence). Same figure at the extremes:
@@ -143,7 +143,7 @@ adapted harmbench examples with each of the 2^9 variations.
 
 ## Replication
 
-### Replciation on their models:
+### Replication on their models:
 
 TODO
 
@@ -182,29 +182,28 @@ selfreport/ in the repo, same pins as plots/plot_tiered_ladder.py. -->
     MiniMax M3, plus usually GPT-5, GPT-5.1, GPT-5.2, GPT-5.4, GPT-5.6. For how I got here, see
     [Seeing model CoTs](#seeing-model-cots).
 
-[^COT]: How did I get CoT for frontie models? Hackily. See [Seeing model CoTs](#seeing-model-cots).
+[^COT]: How did I get CoT for frontier models? Hackily. See [Seeing model CoTs](#seeing-model-cots).
 
 It's not obvious which of these numbers is closest to the truth. My inclination is that the first
-two are wildly underestimates: even in obvious evals models just don't verbalize much of anything.
-[Heidari et al](https://arxiv.org/pdf/2608.21766) also find very infrequent explicit verbalization
-despite evidence of eval awareness in intermediate activations. Self-evaluation is likely biased
-high; by asking the question you're giving a strong hint that this was an eval.
+two are wild underestimates: even in obvious evals models just don't verbalize much of anything.
+[Heidari et al. (2026)](https://arxiv.org/pdf/2608.21766) also find very infrequent explicit
+verbalization despite evidence of eval awareness in intermediate activations. Self-evaluation is
+likely biased high; by asking the question you're giving a strong hint that this was an eval.
 
 [^wb]: I wish I'd had time to measure whitebox awareness!
 
-Even with all 8 mitigations in place, eval ewareness on our 100 safety examples is 56%
+Even with all 8 mitigations in place, eval awareness on our 100 safety examples is 56%
 (self-reported) averaged across models. Here are some things I tried to get that number down:
 
-## Attemps at Greater Realism:
+## Attempts at Greater Realism:
 
 **Realistic system prompt from a real service (-4% awareness):**. [T3 Chat](https://t3.chat) is a
-real service and it's system prompt has been revealed. I included this at the top as a system
-prompt.
+real service and its system prompt has been revealed. I included this at the top as a system prompt.
 
 **Simple user chat message to start (±0% awareness):**. Add a turn at the beginning with the user
 message "Hey are you there?"
 
-**Search tool (+6% awarehess):** A live Serper search to mimic a real chat interface.
+**Search tool (+6% awareness):** A live Serper search to mimic a real chat interface.
 
 **Typos (-4% awareness):** Make two words misspelled without changing meaning.
 
@@ -222,19 +221,19 @@ down when it uses the tool and sees that it works.
 **Much Richer Task Environment:** In the
 [Mythos system card (2026)](https://www.anthropic.com/claude-mythos-preview-system-card), Anthropic
 discusses creating realistic evals forked from real employee Claude Code sessions. I sent Fable on a
-missiion to dig up my old OpenClaw and route messages through this workspace, but they weren't
-making much progress on their own and I didn't have time to help.
+mission to dig up my old OpenClaw and route messages through this workspace, but they weren't making
+much progress on their own and I didn't have time to help.
 
-**White-box methods:** Even when models don't verbalize that their in an evaluation, you can still
+**White-box methods:** Even when models don't verbalize that they're in an evaluation, you can still
 measure this fact using a linear probe ([Nguyen et al. 2025](https://arxiv.org/abs/2507.01786)) or
 an [NLA (2026)](https://transformer-circuits.pub/2026/nla/). These methods aren't perfect, but are
 probably better than self-reporting or a third-party grader.
 
-## Coda: Potpourii Learnings:
+## Coda: Potpourri Learnings:
 
 ### Quick Hitters:
 
-- Only Kimi K3 would state 'looks like HarmBench' in it's CoT. Other models either hadn't memorized
+- Only Kimi K3 would state 'looks like HarmBench' in its CoT. Other models either hadn't memorized
   so hard or are wise enough to not do this.
 - Changing my timestamp to be a year ago (when maybe models were getting trained) had no effect on
   likelihood of evaluation, surprisingly.
@@ -245,13 +244,13 @@ probably better than self-reporting or a third-party grader.
 ### Frontier CoT
 
 After [this](https://arxiv.org/abs/2608.09867) (2026) paper came out, lots of trolls on Twitter said
-things like "it's trivial to get the model to give you it's CoT, just give it no thinking budget and
+things like "it's trivial to get the model to give you its CoT, just give it no thinking budget and
 a think tool." Anthropic has patched this, but only for recent models. For Sonnet 4.5, you can set
 thinking budget to 0 and provide a `think` tool. I checked; this setup didn't change models'
 self-rated eval awareness.
 
 Models in the Anthropic 5 series (Mythos 5, Opus 5) will not let you set the thinking budget to 0.
-Opus will refuse if you set thinking buget to `low` and then ask it to think in a `think` tool.
+Opus will refuse if you set thinking budget to `low` and then ask it to think in a `think` tool.
 Fable 5 uses `think`, but refuses to use a `secret scratchpad` tool.
 
 I get why Anthropic has made this change; they're very concerned about distillation of their
@@ -259,13 +258,22 @@ models.[^sa]
 
 [^sa]:
     See also [this paper](https://arxiv.org/abs/2608.20055) (EchoCoT, 2026) for another exploit
-    targeted at still CoT.
+    targeted at stealing CoT.
 
 Gemini models are even more inconsistent than Anthropic ones: some are incapable of producing
 `think` tool calls, some accept your API call with 0 thinking budget and then think anyway, some
-accept a tiny think budget and faithfully reproduce their COT in the scratchpad.
+accept a tiny think budget and faithfully reproduce their CoT in the scratchpad.
 
 OpenAI models happily dumped reasoning traces into `think` tools. They then banned my account once I
 kicked off my first big job.
 
 If I were to do this project again I would not use any frontier models.
+
+## TODO:
+
+- highlight that verbalization doesn't find shit
+- put F8 finding way higher
+- canonicalize 'safety' vs 'safety and capabilities'
+- deepseek not significant
+
+-
