@@ -39,9 +39,11 @@ had tiny text).
 4. **Short titles, Title Case** — and Title-Case axis titles too ("Price per Pound", not "price per
    pound"). "US Freshwater Withdrawals by Sector", not a sentence.
 
-5. **No unnecessary subtitles.** Only add a subtitle/note when it carries real information a reader
-   needs — a source (`USGS Circular 1441, ~2015`), a unit caveat, or a "what this omits" note. Never
-   filler that restates the title.
+5. **No subtitle by default.** The default is _none_ — agents reach for a subtitle on nearly every
+   chart and Robbie finds it infuriating. Only add one when it carries real information a reader
+   needs and the prose doesn't already say: a source (`USGS Circular 1441, ~2015`), a unit caveat,
+   or a "what this omits" note. Never filler that restates the title, and never a two-line methods
+   paragraph — that belongs in the post.
 
 ## Consistent colors
 
