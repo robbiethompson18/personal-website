@@ -335,8 +335,28 @@ th {
   margin-bottom: 0;
 }
 
-.post-dates span {
-  display: block;
+.post-dates span + span::before {
+  content: "·";
+  margin: 0 0.5em;
+}
+
+.post-repo {
+  white-space: nowrap;
+}
+
+.post-repo a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.post-repo a:hover {
+  color: var(--text);
+}
+
+.post-repo svg {
+  vertical-align: -0.15em;
+  margin-right: 0.35em;
 }
 
 .post-header {

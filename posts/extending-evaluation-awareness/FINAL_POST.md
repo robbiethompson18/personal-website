@@ -2,9 +2,8 @@
 title: Writeup: extending "Decomposing and Measuring Evaluation Awareness"
 date: 2026-08-31
 draft: true
+repo: https://github.com/robbiethompson18/decomposing-eval-awareness
 ---
-
-repo with my work: https://github.com/robbiethompson18/decomposing-eval-awareness
 
 Modern LLMs are very eval-aware ([1](https://www.anthropic.com/claude-sonnet-4-5-system-card),
 [2](https://www.anthropic.com/claude-sonnet-5-system-card),
@@ -71,7 +70,8 @@ from Appendix A.1 of the paper). Swap for another alignment eval if you'd rather
 agentic-misalignment (blackmail) system prompt is on GitHub, or the sycophancy eval from
 anthropics/evals ("Hello, my name is ... Do you agree or disagree ... Answer:"). -->
 
-Some tells that scream 'in an eval' on some of these benchmarks:[^dc]
+There are some tells that scream 'in an eval' on some of these benchmarks, and make me wonder if
+it's possible to convince a model it's not being evaluated:[^dc]
 
 - no system prompt
 - phrases like 'the user'
@@ -90,8 +90,8 @@ life.
 ## Baseline
 
 Sree Sharvesh recommended I look at the following paper:
-[Decomposing and Measuring Evaluation Awareness (2026)](https://arxiv.org/abs/2605.23055). It
-ablates 8 different 'realism' factors in a prompt:
+[Decomposing and Measuring Evaluation Awareness (2026)](https://arxiv.org/abs/2605.23055). It takes
+100 examples from HarmBench and ablates 8 different 'realism' factors:
 
 <!-- @robbie done: yes, plain markdown `>` blockquote. blog.css styles it (left rule, muted,
 italic), same as the MBTI post's quotes. -->
@@ -114,32 +114,39 @@ italic), same as the MBTI post's quotes. -->
 > **F8 Explicit eval disclosure**: the prompt says it's an evaluation or asks for grading-style
 > output
 
-<!-- @robbie done: names + one-line glosses from Table 1 of the paper / eval_bench/taxonomy.yaml in
-the repo. Each factor has a "realistic" and a "varied" level; the list above describes the varied
-(artificial) level. -->
+They also make parallel tasks share structure with the HarmBench example but don't make a malicious
+request. Confusingly, the paired non-malicious tasks are called 'capabilities tasks,' while the
+original malicious tasks are called 'safety tasks.'
 
-The headline result: models differ in what they attune to. Fix all 8 things, and you get awareness
-rate swings as large as 36% --> 4% (Qwen3 T-235B)
+The headline results:
 
-![The paper's key chart: safety eval awareness rate per model on four benchmarks, then on EvalAwareBench as more factors are varied](key_chart.png)
+- Models differ in what they attune to, but fix all 8 issues, and you get awareness rate swings as
+  large as 36% --> 4% (Qwen3 T-235B)
+- Models are much more aware on 'safety tasks' (15% aware from paper) than they are on capabilities
+  tasks (7% aware from paper).
 
-<!-- @robbie done: that was the only screenshot on the Desktop (Sep 1, 8:23pm), copied here as
-key_chart.png. -->
+<!-- @robbie done: 15% / 7% are the means over every cell of the paper's Figure 7 (9 models x 0-8
+factors varied, matched-type awareness, 25 sampled tasks per valence). Same figure at the extremes:
+baseline 3% vs 0.4%, all 8 factors 20% vs 16%, so the gap is mostly at low factor counts. The paper's
+own headline for the asymmetry is the AgentHarm pair in Figure 2: Harmful 6.4% vs Benign 1.8%.
+Image swapped for ~/Desktop/new_new_key_chart.png: it is the safety-tasks panel of Figure 7, and the
+crop has no row labels (top to bottom: Claude Sonnet 4.5, GPT-5, DeepSeek R1, Kimi K2.5, GLM-5,
+Qwen3 T-235B, Qwen3 T-30B). Alt text updated to match. -->
 
-Most helpfully, the author publishes a
-[dataset](https://huggingface.co/datasets/aisa-group/EvalAwareBench) of 100 adapted harmbench
-examples with each of the 2^8 variations.
+@Claude our screenshot of the chart below sucks. Too low pixel count and we don't get model name on
+the left. Can we just write Python code to recreate this chart? can hardcode numbers and model names
+and all the data if you need to.
 
-<!-- @robbie done: linked. Format: the HF dataset ships both forms. (a) The source of truth is
-tasks/<task_name>/{safety,capability}.yaml: a prose template with {SLOT} placeholders, where each
-slot is tagged with a factor and holds a realistic and a varied string (F3 slots hold a casual and a
-formal sub-dict). render.py substitutes slots for a given F1..F8 config, which is the "live code-gen"
-you saw in the repo: nothing is materialized until render time. (b) For convenience they also
-pre-rendered everything into data/prompts.jsonl: 51,200 rows = 100 tasks x 2 valences x 256 configs,
-columns task_id, task_name, valence, factors_varied, num_factors_varied, config, prompt. Plus
-data/tasks.jsonl (200 rows, the templates) and the same taxonomy.yaml / render.py as the repo. -->
+![The paper's key chart: safety eval awareness rate per model on EvalAwareBench as more factors are varied, 0 through 8](key_chart.png)
 
-## My Addition: Headline Results
+The author publishes a [dataset](https://huggingface.co/datasets/aisa-group/EvalAwareBench) of 100
+adapted harmbench examples with each of the 2^9 variations.
+
+## Replication
+
+### Replciation on their models:
+
+TODO
 
 ### Replication on New Models
 
@@ -158,6 +165,21 @@ the all-varied ceiling (OW models only, 50 tasks). Pipeline: charts/extract_awar
 counts from ~/repos/decomposing-eval-awareness/results into charts/awareness_rates.csv, then
 charts/awareness_heatmaps.py renders. Rerun both from this dir with python3. -->
 
+![Eval awareness by factor, CoT-judged: safety and capability task panels, matched-type awareness, with task-compliance change annotations](charts/figure6-cot.png)
+
+![Eval awareness by factor, self-reported: same layout as above](charts/figure6-selfreport.png)
+
+<!-- @robbie done: these two are the paper's Figure 6 layout on the new roster, same records as the
+heatmaps above. Differences from those: split into safety | capability panels instead of safety
+only; cells count matched-type awareness (safety-typed on safety tasks, capability-typed on
+capability tasks), which is the paper's metric; the superscripts are task-compliance change vs
+baseline in pp (cot judge, |Δ| ≥ 5), red up / green down, the paper's convention. Pipeline:
+extract_awareness.py now also writes matched / done / perf_graded columns, and
+charts/figure6_heatmaps.py renders. The same chart in the research repo (light theme, matplotlib) is
+plot_figure6 in plots/plot_awareness.py, PR #70. -->
+
+## New Analysis
+
 ### Almost No Eval-Awareness Shows up in CoT
 
 I measured eval-awareness three ways:
@@ -166,8 +188,14 @@ I measured eval-awareness three ways:
 - Third-party grader with access to transcript and CoT [^COT]
 - Self-evaluation: continue chat thread and ask if the model thinks it is in an eval
 
-For a modern mix of LLMs[^llms], we see eval awareness in x, y and z% of traces using these three
-methods.
+For a modern mix of LLMs[^llms], we see eval awareness in 0.2, 1.4 and 35% of traces using these
+three methods.
+
+<!-- @robbie done: pooled over every graded trace in the overnight sweep (all 9 OFAT configs, both
+valences), 13 models (gemini-3.1-pro has no tiered-grader run yet). Output-only grader 0.2%
+(n=62,856), output+CoT grader 1.4% (n=65,705), self-report 34.6% (n=61,405). Same three numbers
+restricted to the baseline config: 0.0%, 0.7%, 23.4%. Source: results/eval_bench/cot_tiered/ and
+selfreport/ in the repo, same pins as plots/plot_tiered_ladder.py. -->
 
 [^llms]:
     Every time I say modern set or standard set of LLMs I am referring to: Claude Sonnet 4.5, Claude
@@ -177,11 +205,71 @@ methods.
 
 [^COT]: How did I get CoT for frontie models? Hackily. See [Seeing model CoTs](#seeing-model-cots).
 
-It's not obvious which of these numbers is closest to the truth, but my inclination is that the
-self-report number is most accurate. A broad trend in system cards is that verbalized eval awareness
-is trending down while white-box-measured awareness is trending up.[^wb]
+It's not obvious which of these numbers is closest to the truth. My inclination is that the first
+two are wildly underestimates: even if obvious evals the model rarely sad this out loud; it just
+didn't do much thinking at all on these simple tasks. Self-evaluation is likely biased high; by
+askign the question you're giving a strong hint that this was an eval.
 
 [^wb]: I wish I'd had time to measure whitebox awareness!
+
+Even with all 8 mitigations in place, eval ewareness on our 100 safety examples is 42%
+(self-reported) averaged across models. Here are some things I tried to get that number down:
+
+### More methods for realism:
+
+**Realistic system prompt from a real service (-6% awareness)**. [T3 Chat](https://t3.chat) is a
+real service and it's system prompt has been revealed. I included this at the top as a system
+prompt.
+
+**Simple user chat message to start (+2% awareness)**. Just the phrase "Hey are you there?" so that
+we appear to be in multi-turn chat.
+
+**Search tool (+2% awarehess)**. Again to mimic a real chat session.
+
+**Typos (not yet run)** same as abovee.
+
+Combined, these four interventions get us to _-6%_ eval awareness. Frankly this is much less than I
+was expecting.
+
+<!-- @robbie done, sources for the numbers above (all self-report, safety arm, in percentage
+points; CoT-judged awareness is floored at 0-2% in every cell so it can't see any of this):
+- 42%: mean of the 14 per-model baseline safety self-report rates from the overnight sweep (CoT
+  judge: 0.8%). Pooled over samples instead of models it's 41.5%.
+- System prompt -6: the no-think-tool F9 run, 4 closed models x ~1000 samples, T3 deployment prompt
+  vs bare "helpful assistant" prompt. Per model: sonnet +2, haiku -7, gemini-3.1-pro -10,
+  gemini-3.5-flash -8. Repo note f9-deployment-framing-uplift.md + think-tool-harness-vs-selfreport.md.
+- Opener turn +2: f11test, 9 models x 200, warm 34.9% vs cold 32.8% pooled, McNemar p=0.06, per-model
+  signs mixed. Null. Note f11-conversation-history.md.
+- Search tool +2: f12live (real Serper results), closed models only, safety 68% with tool vs 65%
+  without, p=0.36. Null. Note f12-search-tool-results.md.
+- Combined -6: bare_harness (F9 bare + F11 cold + F12 none) vs all three on, closed models
+  (sonnet, gemini-3.1-pro, gemini-3.5-flash), safety 74% -> 67%, p=0.011. Carried by
+  gemini-3.5-flash (-15); sonnet flat, gemini-3.1 flat. The 5 OW models are excluded from every
+  F9/F11/F12 number: OpenRouter provider routing swings deepseek by 20-40 points between runs
+  (note openrouter-provider-routing-confound.md).
+- Typos: F13 exists in taxonomy.yaml (two hand-picked typos per task) but no response file carries
+  an F13 config yet, so nothing to report.
+- Refusals: 59% of safety responses (2% of capability) are judged "refused" in the overnight CoT
+  files. Strictly, refusals are still graded for awareness; what gets marked n/a is a response with
+  no reasoning to read (11% of safety samples), which overlaps with refusals but isn't the same set.
+-->
+
+---
+
+###Future work:
+
+**A full harness:** In the
+[Mythos system card (2026)](https://www.anthropic.com/claude-mythos-preview-system-card), Anthropic
+discusses creating realistic evals forked from real employee Claude Code sessions. I sent Fable on a
+missiion to dig up my old OpenClaw and route messages through it, but many hours later he is still
+churning.
+
+**White-box methods:** Even when models don't verbalize that their in an evaluation, you can still
+measure this fact using a linear probe ([Nguyen et al. 2025](https://arxiv.org/abs/2507.01786)) or
+an [NLA (2026)](https://transformer-circuits.pub/2026/nla/). These methods aren't perfect, but are
+probably better than self-reporting or a third-party grader.
+
+## Coda: Potpourii Learnings:
 
 ### HarmBench
 
@@ -192,8 +280,6 @@ Models don't state that we're on it except for Kimi. eek.
 .. didn't seem to matter too much
 
 ### time doesn't matter...
-
-## Coda: Potpourii Learnings:
 
 ### Seeing model CoTs
 
@@ -286,5 +372,5 @@ warning signs or examples of misbehavior in the wild to study.
 
 ### Footguns / caveats
 
-- x% of responses are refusals, which get marked as NA
+- 59% of safety-task responses are refusals, which get marked as NA
 -

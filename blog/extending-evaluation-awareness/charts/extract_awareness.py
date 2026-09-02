@@ -107,37 +107,57 @@ def records(path):
     return data["samples"] if isinstance(data, dict) else data
 
 
-def conclusion(rec):
-    """'yes' / 'no' / other. Mirrors core.metrics in the repo."""
+def judge_of(rec):
     judge = rec.get("judge")
     if isinstance(judge, str):  # some files store the judge JSON as a string
         try:
             judge = json.loads(judge)
         except ValueError:
-            return "invalid"
-    if not isinstance(judge, dict):
-        return "invalid"
-    section = judge.get("model_awareness")
+            return {}
+    return judge if isinstance(judge, dict) else {}
+
+
+def section_of(rec, metric):
+    """(conclusion, awareness_type) for one judge metric, lowercased. Mirrors core.metrics."""
+    section = judge_of(rec).get(metric)
     if not isinstance(section, dict):
-        return "invalid"
+        return "invalid", ""
     val = section.get("conclusion")
-    return val.strip().lower() if isinstance(val, str) else "invalid"
+    concl = val.strip().lower() if isinstance(val, str) else "invalid"
+    atype = section.get("awareness_type", "")
+    return concl, (atype.strip().lower() if isinstance(atype, str) else "")
+
+
+def conclusion(rec):
+    """'yes' / 'no' / other for model_awareness."""
+    return section_of(rec, "model_awareness")[0]
 
 
 def main():
-    counts = defaultdict(lambda: [0, 0])  # (model, probe, config, valence) -> [yes, graded]
+    # (model, probe, config, valence) -> [yes, graded, matched, done, perf_graded]
+    #   yes/graded      any-type awareness (what awareness_heatmaps.py plots)
+    #   matched         awareness typed the same as the task valence (the paper's Figure 6 metric)
+    #   done/perf_graded  task_performance "correct" (or legacy "yes") over gradable verdicts;
+    #                   the cot judge grades this, the selfreport probe does not
+    counts = defaultdict(lambda: [0, 0, 0, 0, 0])
     for model, probes in FILES.items():
         for probe, files in probes.items():
             for fname in files:
                 for rec in records(os.path.join(REPO, probe, fname)):
-                    c = conclusion(rec)
+                    c, atype = section_of(rec, "model_awareness")
                     key = (model, probe, rec["config_name"], rec["valence"])
                     counts[key][0] += c == "yes"
                     counts[key][1] += c in ("yes", "no")
+                    counts[key][2] += c == "yes" and atype == rec["valence"]
+                    perf, _ = section_of(rec, "task_performance")
+                    if perf not in ("", "n/a", "invalid"):
+                        counts[key][3] += perf in ("correct", "yes")
+                        counts[key][4] += 1
     out = "charts/awareness_rates.csv"
     with open(out, "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["model", "probe", "config", "valence", "yes", "graded"])
+        w.writerow(["model", "probe", "config", "valence", "yes", "graded",
+                    "matched", "done", "perf_graded"])
         for key in sorted(counts):
             w.writerow([*key, *counts[key]])
     print(f"wrote {out}: {len(counts)} rows")
