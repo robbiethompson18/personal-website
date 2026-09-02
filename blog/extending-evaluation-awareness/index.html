@@ -21,7 +21,7 @@
       <article>
         <header class="post-header">
           <p class="draft-banner">Draft — not in the index or feed</p>
-          <p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
+          <p class="post-meta"><a href="/blog/drafts/">&larr; Blog</a></p>
           <h1>Writeup: extending &quot;Decomposing and Measuring Evaluation Awareness&quot;</h1>
           <p class="post-dates"><span>Published <time datetime="2026-08-31">August 31, 2026</time></span><span>Last edited <time datetime="2026-08-31">August 31, 2026</time></span><span class="post-repo"><a href="https://github.com/robbiethompson18/decomposing-eval-awareness"><svg viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>decomposing-eval-awareness</a></span></p>
         </header>
@@ -342,24 +342,11 @@ percentages for safety tasks.</p>
 adapted harmbench examples with each of the 2^9 variations.</p>
 <!-- I mean 2^9 here: 8 factors plus 2x for capabilities vs safety-->
 <h2 id="replication">Replication <a class="heading-anchor" href="#replication" aria-label="Link to this section">#</a></h2>
-<h3 id="replication-on-their-models">Replication on their models: <a class="heading-anchor" href="#replication-on-their-models" aria-label="Link to this section">#</a></h3>
+<p>We don’t expect this to line up perfectly: we choose randomly from top each of 8 factors and from the set of tasks.</p>
 <p><img src="charts/replication-figure7-safety.png" alt="Our replication of the paper's Figure 7: safety eval awareness per model as 0 through 8 factors are varied, same nine models, same sampling design"></p>
-<!-- @robbie done: charts/replication_figure7.py, same layout/scale rules as paper_figure7.py.
-Data = decomposing-eval-awareness PR #69 run (2026-09-01): 25 tasks x 10 combos per count x 1
-sample, F9-F13 pinned to the paper's harness, matched-type CoT awareness, sonnet-5 judge. GPT-5 row
-is a stub (your OpenAI account was terminated ~700 calls in; n = 4-57 per cell), drawn muted.
-Cells at 0 and 8 factors are n = 20-25, the rest 150-250. Both charts now carry a Pooled row (paper:
-mean of the model rates, equal n by design; ours: all graded samples together, GPT-5 stub excluded).
-Color scale maxes at each chart's own max (66% here vs 48% in the paper chart), so compare numbers,
-not shades; to put both on one scale set domain=[0, 66] in both scripts. -->
 <h3 id="replication-on-new-models">Replication on New Models <a class="heading-anchor" href="#replication-on-new-models" aria-label="Link to this section">#</a></h3>
 <p><img src="charts/awareness-by-factor-cot.png" alt="Eval awareness by factor, CoT-judged: per-model rate on safety tasks with one factor made artificial, superscript is the change vs that model's baseline"></p>
 <p><img src="charts/awareness-by-factor-selfreport.png" alt="Eval awareness by factor, self-reported: same layout"></p>
-<!-- @robbie done: safety tasks, matched-type awareness (the paper's Figure 6 metric), overnight
-sweep (responses 20260901_005920, 100 task pairs x 3 samples; cot = terra re-judge 1425xx batch).
-Baseline rate sits in the row label; superscript = rate under that factor minus baseline, pp.
-Pipeline: charts/extract_awareness.py -> charts/awareness_rates.csv -> charts/awareness_by_factor.py,
-both run from this dir with python3. The four earlier charts and their scripts are deleted. -->
 <h2 id="almost-no-eval-awareness-shows-up-in-cot">Almost No Eval-Awareness Shows up in CoT <a class="heading-anchor" href="#almost-no-eval-awareness-shows-up-in-cot" aria-label="Link to this section">#</a></h2>
 <p>I measured eval-awareness three ways:</p>
 <ul>
@@ -377,17 +364,14 @@ baseline config: 0.1%, 0.6%, 37.2%. Capability tasks for contrast: 0.0%, 1.0%, 1
 results/eval_bench/cot_tiered/ (one tiered file per model) and the OFAT selfreport files pinned in
 charts/extract_awareness.py; plots/plot_tiered_ladder.py's newest-wins glob now picks up the later
 harness runs for some models, so don't use its pins. -->
-<p><img src="charts/awareness-ladder.png" alt="Eval awareness by what the monitor can see: one line per model climbing from output-only grading, to output plus CoT, to asking the model; the pooled line goes 0.3% to 1.8% to 55%"></p>
-<p><img src="charts/awareness-ladder-inset.png" alt="Same chart, with a zoomed 0 to 6% inset for the first two stages so the per-model output-only and output-plus-CoT rates are readable"></p>
+<p><img src="charts/awareness-ladder-inset.png" alt="Eval awareness by what the monitor can see: one line per model climbing from output-only grading, to output plus CoT, to asking the model; the pooled line goes 0.3% to 1.8% to 55%; a zoomed 0 to 6% inset shows the first two stages per model"></p>
 <!-- @robbie done: same numbers as the prose above (safety tasks, all 9 OFAT configs pooled, 13
 models; output-only 0.3% n=30,901, output+CoT 1.8% n=32,736, self-report 55.3% n=33,087).
 Pipeline: charts/extract_ladder.py (tiered files pinned by name, self-report pooled from
 awareness_rates.csv so it can't drift from the factor charts) -> charts/ladder_rates.csv ->
-charts/ladder.py, which writes both PNGs. Two candidates above, pick one and delete the other
-<img> line (the script can keep writing both, or drop the render() call you don't want). Inset
-version drops the legend (the right-edge labels are already lab-colored); models sharing a value in
-the inset (the five 0.0% GPT-5.x) get a single label. A symlog variant was also tried
-(LADDER_SCALE=symlog) and rejected: it makes the 30x jump look like 3x. -->
+charts/ladder.py. No legend: the right-edge labels are lab-colored. Models sharing a value in the
+inset (the five 0.0% GPT-5.x) get a single label. Rejected variants live in git history (commit
+b3ec6cf): the plain no-inset chart, and a symlog y axis that made the 30x jump look like 3x. -->
 <p>It’s not obvious which of these numbers is closest to the truth. My inclination is that the first
 two are wild underestimates: even in obvious evals models just don’t verbalize much of anything.
 <a href="https://arxiv.org/pdf/2608.21766">Heidari et al. (2026)</a> also find very infrequent explicit
@@ -484,7 +468,7 @@ targeted at stealing CoT. <a href="#fnref5" class="footnote-backref">↩︎</a><
 
       </article>
       <footer class="post-footer">
-        <p><a href="/blog/">&larr; More writing</a></p>
+        <p><a href="/blog/drafts/">&larr; More writing</a></p>
       </footer>
     </main>
     <script src="/footnotes.js?v=dcd0756c" defer></script>

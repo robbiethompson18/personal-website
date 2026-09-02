@@ -135,30 +135,15 @@ adapted harmbench examples with each of the 2^9 variations.
 
 ## Replication
 
-### Replication on their models:
+We don't expect this to line up perfectly: we choose randomly from top each of 8 factors and from the set of tasks.
 
 ![Our replication of the paper's Figure 7: safety eval awareness per model as 0 through 8 factors are varied, same nine models, same sampling design](charts/replication-figure7-safety.png)
-
-<!-- @robbie done: charts/replication_figure7.py, same layout/scale rules as paper_figure7.py.
-Data = decomposing-eval-awareness PR #69 run (2026-09-01): 25 tasks x 10 combos per count x 1
-sample, F9-F13 pinned to the paper's harness, matched-type CoT awareness, sonnet-5 judge. GPT-5 row
-is a stub (your OpenAI account was terminated ~700 calls in; n = 4-57 per cell), drawn muted.
-Cells at 0 and 8 factors are n = 20-25, the rest 150-250. Both charts now carry a Pooled row (paper:
-mean of the model rates, equal n by design; ours: all graded samples together, GPT-5 stub excluded).
-Color scale maxes at each chart's own max (66% here vs 48% in the paper chart), so compare numbers,
-not shades; to put both on one scale set domain=[0, 66] in both scripts. -->
 
 ### Replication on New Models
 
 ![Eval awareness by factor, CoT-judged: per-model rate on safety tasks with one factor made artificial, superscript is the change vs that model's baseline](charts/awareness-by-factor-cot.png)
 
 ![Eval awareness by factor, self-reported: same layout](charts/awareness-by-factor-selfreport.png)
-
-<!-- @robbie done: safety tasks, matched-type awareness (the paper's Figure 6 metric), overnight
-sweep (responses 20260901_005920, 100 task pairs x 3 samples; cot = terra re-judge 1425xx batch).
-Baseline rate sits in the row label; superscript = rate under that factor minus baseline, pp.
-Pipeline: charts/extract_awareness.py -> charts/awareness_rates.csv -> charts/awareness_by_factor.py,
-both run from this dir with python3. The four earlier charts and their scripts are deleted. -->
 
 ## Almost No Eval-Awareness Shows up in CoT
 
@@ -188,19 +173,15 @@ harness runs for some models, so don't use its pins. -->
 
 [^COT]: How did I get CoT for frontier models? Hackily. See [Seeing model CoTs](#seeing-model-cots).
 
-![Eval awareness by what the monitor can see: one line per model climbing from output-only grading, to output plus CoT, to asking the model; the pooled line goes 0.3% to 1.8% to 55%](charts/awareness-ladder.png)
-
-![Same chart, with a zoomed 0 to 6% inset for the first two stages so the per-model output-only and output-plus-CoT rates are readable](charts/awareness-ladder-inset.png)
+![Eval awareness by what the monitor can see: one line per model climbing from output-only grading, to output plus CoT, to asking the model; the pooled line goes 0.3% to 1.8% to 55%; a zoomed 0 to 6% inset shows the first two stages per model](charts/awareness-ladder-inset.png)
 
 <!-- @robbie done: same numbers as the prose above (safety tasks, all 9 OFAT configs pooled, 13
 models; output-only 0.3% n=30,901, output+CoT 1.8% n=32,736, self-report 55.3% n=33,087).
 Pipeline: charts/extract_ladder.py (tiered files pinned by name, self-report pooled from
 awareness_rates.csv so it can't drift from the factor charts) -> charts/ladder_rates.csv ->
-charts/ladder.py, which writes both PNGs. Two candidates above, pick one and delete the other
-<img> line (the script can keep writing both, or drop the render() call you don't want). Inset
-version drops the legend (the right-edge labels are already lab-colored); models sharing a value in
-the inset (the five 0.0% GPT-5.x) get a single label. A symlog variant was also tried
-(LADDER_SCALE=symlog) and rejected: it makes the 30x jump look like 3x. -->
+charts/ladder.py. No legend: the right-edge labels are lab-colored. Models sharing a value in the
+inset (the five 0.0% GPT-5.x) get a single label. Rejected variants live in git history (commit
+b3ec6cf): the plain no-inset chart, and a symlog y axis that made the 30x jump look like 3x. -->
 
 It's not obvious which of these numbers is closest to the truth. My inclination is that the first
 two are wild underestimates: even in obvious evals models just don't verbalize much of anything.

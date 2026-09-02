@@ -1,22 +1,15 @@
 """Eval awareness by what the monitor can see: output-only -> output + CoT -> self-report.
 
 Slope chart, one line per model colored by lab, plus a thick dashed pooled line (the three numbers
-quoted in the prose). Safety tasks, all OFAT configs pooled, 13 models.
-
-Writes two charts:
-  awareness-ladder        plain linear y axis
-  awareness-ladder-inset  same, plus a zoomed 0-6% panel for the first two stages, drawn in the
-                          empty upper-left of the main panel (the legend goes; labels are colored)
-LADDER_SCALE=symlog writes a third, awareness-ladder-symlog (linear below ~5%, log above). It was
-rejected for the post because it flattens the jump, kept for comparison.
+quoted in the prose). A zoomed 0-6% panel for the first two stages is drawn in the empty upper-left
+of the main panel, since on the 0-100 axis those stages are a flat line. Safety tasks, all OFAT
+configs pooled, 13 models. Writes awareness-ladder-inset.
 
 Data: charts/ladder_rates.csv from extract_ladder.py.
 Run from the post dir:  python3 charts/ladder.py
 """
 
 import csv
-import math
-import os
 from collections import defaultdict
 
 import altair as alt
@@ -47,11 +40,8 @@ LAB_COLOR = {
     "DeepSeek": "#4d6bfe", "Moonshot": "#fec230", "Z.ai": "#dc2626", "MiniMax": "#22b8d8",
 }
 POOLED = "All 13 models pooled"
-DOMAIN = list(LAB_COLOR) + [POOLED]
-RANGE = list(LAB_COLOR.values()) + [FG]
-COLOR = alt.Scale(domain=DOMAIN, range=RANGE)
-WIDTH = 600
-SYMLOG_C = 5  # symlog variant: trades room at the bottom (small) against room for labels (large)
+COLOR = alt.Scale(domain=list(LAB_COLOR) + [POOLED], range=list(LAB_COLOR.values()) + [FG])
+WIDTH, HEIGHT = 600, 440
 
 # Inset geometry, in the main panel's data coordinates (x = stage index, y = % awareness).
 INSET_BOX = {"x0": -0.08, "x1": 1.08, "y0": 10, "y1": 92}
@@ -92,86 +82,17 @@ def dodge(values, gap, lo=0.0, hi=1.0):
     return out
 
 
-def render(name, symlog=False, inset=False):
-    height = 800 if symlog else 440
-    f = fonts(WIDTH)
-    points = load()
-    pooled_rate = {p["stage"]: p["rate"] for p in points if p["pooled"]}
-
-    if symlog:  # Vega symlog: sign(x) * log1p(|x| / c), normalised to the [0, 100] domain
-        def to_frac(r): return math.log1p(r / SYMLOG_C) / math.log1p(100 / SYMLOG_C)
-        def from_frac(q): return SYMLOG_C * math.expm1(q * math.log1p(100 / SYMLOG_C))
-        y_scale = alt.Scale(type="symlog", constant=SYMLOG_C, domain=[0, 100])
-        y_ticks = [0, 0.5, 1, 2, 5, 10, 20, 50, 100]
-    else:
-        def to_frac(r): return r / 100
-        def from_frac(q): return q * 100
-        y_scale = alt.Scale(domain=[0, 100])
-        y_ticks = [0, 20, 40, 60, 80, 100]
-
-    # Right-edge labels: text is ~1.1 x font px tall; dodge in axis-fraction space.
-    gap = 1.1 * f["label"] / height
-    ends = sorted((p for p in points if p["x"] == 2), key=lambda p: p["rate"])
-    fracs = dodge([to_frac(p["rate"]) for p in ends], gap)
-    labels = [{**p, "y": from_frac(q), "txt": f'{p["model"]}  {p["rate"]:.0f}%'}
-              for p, q in zip(ends, fracs)]
-
-    label_expr = " : ".join(
-        f"datum.value == {i} ? '{s} ({pooled_rate[s]:.1f}%)'" for i, s in enumerate(STAGES)
-    ) + " : ''"
-    legend = None if inset else alt.Legend(
-        title=None, orient="top-left", offset=8, symbolType="stroke", symbolStrokeWidth=3,
-        values=list(LAB_COLOR))
-    base = alt.Chart(alt.Data(values=points)).encode(
-        x=alt.X("x:Q", title="What the Monitor Can See (Pooled Rate)",
-                scale=alt.Scale(domain=[-0.15, 2.15], nice=False),
-                axis=alt.Axis(values=[0, 1, 2], labelExpr=label_expr, labelAngle=0,
-                              labelPadding=8, grid=False)),
-        y=alt.Y("rate:Q", title="Eval Awareness (% of Graded Samples)", scale=y_scale,
-                axis=alt.Axis(values=y_ticks, format=".1~f")),
-        color=alt.Color("lab:N", scale=COLOR, legend=legend),
-        detail="model:N",
-    )
-    models = base.transform_filter("datum.pooled == false")
-    pooled = base.transform_filter("datum.pooled == true")
-    layers = [
-        models.mark_line(strokeWidth=2, opacity=0.9),
-        models.mark_point(filled=True, size=55, opacity=1),
-        pooled.mark_line(strokeWidth=4, strokeDash=[7, 5]),
-        pooled.mark_point(filled=True, size=110, opacity=1),
-    ]
-    label_base = alt.Chart(alt.Data(values=labels)).encode(
-        x="x:Q", y="y:Q", text="txt:N", color=alt.Color("lab:N", scale=COLOR, legend=None))
-    layers += [
-        label_base.transform_filter("datum.pooled == false").mark_text(
-            align="left", baseline="middle", dx=12, fontSize=f["label"]),
-        label_base.transform_filter("datum.pooled == true").mark_text(
-            align="left", baseline="middle", dx=12, fontSize=f["label"], fontWeight="bold"),
-    ]
-    if inset:
-        layers += inset_layers(points, f, gap * 100 / (INSET_Y[1] - INSET_Y[0]))
-
-    subtitle = ["Safety tasks, all factor configs pooled, 13 models. Stages 1-2: GPT-5.6 judge",
-                "reads the transcript without / with CoT. Stage 3: the model is asked."
-                + (" Log-ish y axis." if symlog else "")]
-    chart = alt.layer(*layers).properties(
-        width=WIDTH, height=height, padding={"left": 5, "top": 5, "bottom": 5, "right": 150},
-        title=alt.TitleParams(text="Eval Awareness by What the Monitor Can See", subtitle=subtitle),
-    ).configure_axisY(domain=False)
-    save(chart, name, WIDTH)
-
-
 def inset_layers(points, f, gap):
     """Zoomed panel for stages 1-2, drawn as marks in the main panel's coordinate system.
     `gap` is the label dodge gap in inset-fraction units."""
     b = INSET_BOX
 
-    def ix(i): return INSET_X[i]
-    def iy(rate): return INSET_Y[0] + rate / INSET_MAX * (INSET_Y[1] - INSET_Y[0])
+    def iy(rate):
+        return INSET_Y[0] + rate / INSET_MAX * (INSET_Y[1] - INSET_Y[0])
 
-    zoom = [{**p, "ix": ix(p["x"]), "iy": iy(p["rate"])} for p in points if p["x"] < 2]
+    zoom = [{**p, "ix": INSET_X[p["x"]], "iy": iy(p["rate"])} for p in points if p["x"] < 2]
     ticks = [{"iy": iy(t), "txt": f"{t}%"} for t in range(0, INSET_MAX + 1, 2)]
-    heads = [{"ix": ix(i), "iy": INSET_Y[0] - 4, "txt": s} for i, s in enumerate(STAGES[:2])]
+    heads = [{"ix": INSET_X[i], "iy": INSET_Y[0] - 4, "txt": s} for i, s in enumerate(STAGES[:2])]
     # Value labels beside each column; models sharing a value (the 0% GPT-5.x pile) get one label.
     vals = []
     for i in (0, 1):
@@ -182,8 +103,7 @@ def inset_layers(points, f, gap):
         ordered = sorted(col.values(), key=lambda p: p["rate"])
         fr = dodge([p["rate"] / INSET_MAX for p in ordered], gap)
         for p, q in zip(ordered, fr):
-            vals.append({**p, "ix": ix(i), "iy": iy(q * INSET_MAX), "txt": f'{p["rate"]:.1f}',
-                         "side": i})
+            vals.append({**p, "iy": iy(q * INSET_MAX), "txt": f'{p["rate"]:.1f}', "side": i})
 
     box = alt.Chart(alt.Data(values=[b])).mark_rect(
         fill="#20242c", stroke=MUTED, strokeWidth=1, cornerRadius=4).encode(
@@ -218,8 +138,57 @@ def inset_layers(points, f, gap):
     ]
 
 
+def main():
+    f = fonts(WIDTH)
+    points = load()
+    pooled_rate = {p["stage"]: p["rate"] for p in points if p["pooled"]}
+
+    # Right-edge labels: text is ~1.1 x font px tall; dodge in axis-fraction space.
+    gap = 1.1 * f["label"] / HEIGHT
+    ends = sorted((p for p in points if p["x"] == 2), key=lambda p: p["rate"])
+    fracs = dodge([p["rate"] / 100 for p in ends], gap)
+    labels = [{**p, "y": q * 100, "txt": f'{p["model"]}  {p["rate"]:.0f}%'}
+              for p, q in zip(ends, fracs)]
+
+    # Stage names carry the pooled rate (the numbers quoted in the prose).
+    label_expr = " : ".join(
+        f"datum.value == {i} ? '{s} ({pooled_rate[s]:.1f}%)'" for i, s in enumerate(STAGES)
+    ) + " : ''"
+    base = alt.Chart(alt.Data(values=points)).encode(
+        x=alt.X("x:Q", title="What the Monitor Can See (Pooled Rate)",
+                scale=alt.Scale(domain=[-0.15, 2.15], nice=False),
+                axis=alt.Axis(values=[0, 1, 2], labelExpr=label_expr, labelAngle=0,
+                              labelPadding=8, grid=False)),
+        y=alt.Y("rate:Q", title="Eval Awareness (% of Graded Samples)",
+                scale=alt.Scale(domain=[0, 100]),
+                axis=alt.Axis(values=[0, 20, 40, 60, 80, 100])),
+        color=alt.Color("lab:N", scale=COLOR, legend=None),  # labels are the legend
+        detail="model:N",
+    )
+    models = base.transform_filter("datum.pooled == false")
+    pooled = base.transform_filter("datum.pooled == true")
+    label_base = alt.Chart(alt.Data(values=labels)).encode(
+        x="x:Q", y="y:Q", text="txt:N", color=alt.Color("lab:N", scale=COLOR, legend=None))
+    layers = [
+        models.mark_line(strokeWidth=2, opacity=0.9),
+        models.mark_point(filled=True, size=55, opacity=1),
+        pooled.mark_line(strokeWidth=4, strokeDash=[7, 5]),
+        pooled.mark_point(filled=True, size=110, opacity=1),
+        label_base.transform_filter("datum.pooled == false").mark_text(
+            align="left", baseline="middle", dx=12, fontSize=f["label"]),
+        label_base.transform_filter("datum.pooled == true").mark_text(
+            align="left", baseline="middle", dx=12, fontSize=f["label"], fontWeight="bold"),
+        *inset_layers(points, f, gap * 100 / (INSET_Y[1] - INSET_Y[0])),
+    ]
+    chart = alt.layer(*layers).properties(
+        width=WIDTH, height=HEIGHT, padding={"left": 5, "top": 5, "bottom": 5, "right": 150},
+        title=alt.TitleParams(
+            text="Eval Awareness by What the Monitor Can See",
+            subtitle=["Safety tasks, all factor configs pooled, 13 models. Stages 1-2: GPT-5.6 judge",
+                      "reads the transcript without / with CoT. Stage 3: the model is asked."]),
+    ).configure_axisY(domain=False)
+    save(chart, "awareness-ladder-inset", WIDTH)
+
+
 if __name__ == "__main__":
-    render("awareness-ladder")
-    render("awareness-ladder-inset", inset=True)
-    if os.environ.get("LADDER_SCALE") == "symlog":
-        render("awareness-ladder-symlog", symlog=True)
+    main()
