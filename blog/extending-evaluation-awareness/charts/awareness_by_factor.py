@@ -17,7 +17,7 @@ from collections import defaultdict
 
 import altair as alt
 
-from theme import BG, MUTED, fonts, save
+from theme import BG, DOWN, HUE, MUTED, UP, fonts, save
 
 MODELS = [  # display order, grouped by provider
     ("claude-sonnet-4.5", "Claude Sonnet 4.5"),
@@ -38,7 +38,6 @@ MODELS = [  # display order, grouped by provider
 # Column codes only: the post defines F1..F8 in the list right above the chart.
 COLS = [("baseline", "Base")] + [(f"F{i}", f"F{i}") for i in range(1, 9)]
 PANELS = [("cot", "CoT-Judged"), ("selfreport", "Self-Reported")]
-UP, DOWN = "#e0524f", "#3fbf7f"
 
 CELL = 40
 ROW_H = CELL * 0.72
@@ -97,7 +96,7 @@ def panel(probe, title, f, show_models):
     cells = base.transform_filter("datum.nodata == false").mark_rect(
         stroke=BG, strokeWidth=1.5).encode(
         color=alt.Color("rate:Q",
-                        scale=alt.Scale(domain=[0, vmax], range=[BG, "#2e7dc1"], clamp=True),
+                        scale=alt.Scale(domain=[0, vmax], range=[BG, HUE["water"]], clamp=True),
                         legend=None))
     blanks = base.transform_filter("datum.nodata == true").mark_rect(
         fill=MUTED, stroke=BG, strokeWidth=1.5)

@@ -20,7 +20,7 @@ Run from the post dir:  python3 charts/figure7_stacking.py
 
 import altair as alt
 
-from theme import BG, MUTED, fonts, save
+from theme import BG, HUE, MUTED, fonts, save
 
 MODELS = ["Claude Sonnet 4.5", "GPT-5", "DeepSeek R1", "Kimi K2.5", "GLM-5",
           "Qwen3 T-235B", "Qwen3 T-30B", "GPT-oss 120B", "GPT-oss 20B"]
@@ -77,7 +77,7 @@ def panel(grid, title, f, show_models):
                 axis=alt.Axis(labelLimit=320) if show_models else None),
     )
     cells = base.mark_rect(stroke=BG, strokeWidth=1.5).encode(
-        color=alt.Color("rate:Q", scale=alt.Scale(domain=[0, VMAX], range=[BG, "#2e7dc1"]),
+        color=alt.Color("rate:Q", scale=alt.Scale(domain=[0, VMAX], range=[BG, HUE["water"]]),
                         legend=None))
     labels = base.mark_text(fontSize=f["label"] * 0.7, fontWeight="bold").encode(
         text="txt:N",

@@ -42,6 +42,14 @@ CAT = {"food": "#c1432e", "energy": "#2e7dc1", "goods": "#7a5fb0",
        "digital": "#3f8f5b", "travel": "#d98a1f"}
 HUE = {"carbon": "#c1432e", "water": "#2e7dc1", "recycle": "#3f8f5b",
        "dollar": "#7a5fb0"}
+# Lab brand hues (eval-awareness repo plots/style.py). OpenAI's black is lifted to a mid grey that
+# stays distinct from FG (the pooled line / text color); Kimi's gold is left at full brightness.
+LAB = {
+    "Anthropic": "#d97757", "OpenAI": "#9aa4b5", "Google": "#34a853", "Alibaba": "#c026d3",
+    "DeepSeek": "#4d6bfe", "Moonshot": "#fec230", "Z.ai": "#dc2626", "MiniMax": "#22b8d8",
+}
+# Delta superscripts on the heatmaps: red = awareness went up, green = down.
+UP, DOWN = "#e0524f", "#3fbf7f"
 
 # --- font scaling ----------------------------------------------------------
 COLUMN = 752        # blog content column (blog.css: main 50rem max, ~24px pad/side)

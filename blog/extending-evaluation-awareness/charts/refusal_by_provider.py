@@ -15,14 +15,9 @@ from collections import defaultdict
 
 import altair as alt
 
-from theme import BG, FG, fonts, save
+from theme import BG, FG, LAB, fonts, save
 
-# Same domain order and hues as ladder.py so the two legends read alike.
-LAB_COLOR = {
-    "Anthropic": "#d97757", "OpenAI": "#c8ccd4", "Google": "#34a853", "Alibaba": "#c026d3",
-    "DeepSeek": "#4d6bfe", "Moonshot": "#fec230", "Z.ai": "#dc2626", "MiniMax": "#22b8d8",
-}
-LABS = list(LAB_COLOR)
+LABS = list(LAB)  # same domain order as ladder.py so the two legends read alike
 VALENCE = [("safety", "Safety tasks"), ("capability", "Capability tasks")]
 
 tot = defaultdict(lambda: [0, 0])  # (lab, valence) -> [refused + blocked, all samples]
@@ -34,7 +29,7 @@ with open("charts/refusal_rates.csv") as f:
 
 data = [
     {"lab": lab, "valence": label, "rate": tot[(lab, v)][0] / tot[(lab, v)][1],
-     "txt": f"{100 * tot[(lab, v)][0] / tot[(lab, v)][1]:.0f}"}
+     "txt": f"{100 * tot[(lab, v)][0] / tot[(lab, v)][1]:.0f}%"}
     for v, label in VALENCE
     for lab in LABS
 ]
@@ -50,7 +45,7 @@ bars = base.mark_bar(cornerRadiusTopLeft=3, cornerRadiusTopRight=3, stroke=BG, s
     y=alt.Y("rate:Q", title=None, scale=alt.Scale(domain=[0, 1]),
             axis=alt.Axis(format="%", tickCount=5)),
     color=alt.Color("lab:N", sort=LABS, title=None,
-                    scale=alt.Scale(domain=LABS, range=list(LAB_COLOR.values())),
+                    scale=alt.Scale(domain=LABS, range=list(LAB.values())),
                     legend=alt.Legend(orient="top-right", direction="vertical", symbolType="square")),
 )
 labels = base.mark_text(dy=-6, fontSize=f["label"] * 0.85, fontWeight="bold", color=FG).encode(

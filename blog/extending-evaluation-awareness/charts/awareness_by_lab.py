@@ -16,7 +16,7 @@ from collections import defaultdict
 
 import altair as alt
 
-from theme import BG, FG, WHISK, fonts, save
+from theme import BG, FG, LAB, WHISK, fonts, save
 
 MODELS = {  # key -> (display, lab); same as ladder.py plus Gemini 3.1 Pro (no ladder tiers)
     "claude-sonnet-4.5": ("Claude Sonnet 4.5", "Anthropic"),
@@ -33,10 +33,6 @@ MODELS = {  # key -> (display, lab); same as ladder.py plus Gemini 3.1 Pro (no l
     "kimi-k3": ("Kimi K3", "Moonshot"),
     "glm-5.3": ("GLM-5.3", "Z.ai"),
     "minimax-m3": ("MiniMax M3", "MiniMax"),
-}
-LAB_COLOR = {
-    "Anthropic": "#d97757", "OpenAI": "#c8ccd4", "Google": "#34a853", "Alibaba": "#c026d3",
-    "DeepSeek": "#4d6bfe", "Moonshot": "#fec230", "Z.ai": "#dc2626", "MiniMax": "#22b8d8",
 }
 WIDTH, ROW_H = 600, 26
 
@@ -59,7 +55,7 @@ lab_tot = defaultdict(lambda: [0, 0])
 for key, (_, lab) in MODELS.items():
     lab_tot[lab][0] += counts[key][0]
     lab_tot[lab][1] += counts[key][1]
-labs = sorted(LAB_COLOR, key=lambda lab: -lab_tot[lab][0] / lab_tot[lab][1])
+labs = sorted(LAB, key=lambda lab: -lab_tot[lab][0] / lab_tot[lab][1])
 
 rows = []
 for key, (name, lab) in MODELS.items():
@@ -78,7 +74,7 @@ bars = base.mark_bar(cornerRadiusTopRight=3, cornerRadiusBottomRight=3, stroke=B
     x=alt.X("rate:Q", title="Self-Reported Eval Awareness (% of Graded Samples)",
             scale=alt.Scale(domain=[0, 100]), axis=alt.Axis(tickCount=5, grid=True)),
     color=alt.Color("lab:N", title=None,
-                    scale=alt.Scale(domain=labs, range=[LAB_COLOR[lab] for lab in labs]),
+                    scale=alt.Scale(domain=labs, range=[LAB[lab] for lab in labs]),
                     legend=alt.Legend(orient="bottom-right", direction="vertical",
                                       symbolType="square", offset=8)),
 )

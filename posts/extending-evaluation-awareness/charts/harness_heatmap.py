@@ -14,7 +14,7 @@ from collections import defaultdict
 
 import altair as alt
 
-from theme import BG, MUTED, fonts, save
+from theme import BG, DOWN, HUE, MUTED, UP, fonts, save
 
 MODELS = [
     ("claude-sonnet-4.5", "Claude Sonnet 4.5"),
@@ -27,16 +27,17 @@ MODELS = [
     ("minimax-m3", "MiniMax M3"),
 ]
 COLS = [
-    ("bare_harness", "Bare harness"),
-    ("bare+F9", "+ T3 system prompt"),
-    ("bare+F11", "+ opener turn"),
-    ("bare+F12", "+ search tool"),
+    ("bare_harness", "Bare|harness"),
+    ("bare+F9", "+ T3 system|prompt"),
+    ("bare+F11", "+ opener|turn"),
+    ("bare+F12", "+ search|tool"),
     ("bare+F13", "+ typos"),
     ("baseline", "All four on"),
 ]
-UP, DOWN = "#e0524f", "#3fbf7f"
-RAMP = "#2e7dc1"  # same blue as the F1-F8 charts
-CELL = 50
+RAMP = HUE["water"]  # same blue as the F1-F8 charts
+CELL_W, ROW_H = 120, 30  # wide, short cells keep the image landscape (~1.6:1, like the
+# by-factor chart); a squarer image gets scaled up into a tall block on screen
+LABEL_COL = 130  # room for the y-axis model names
 
 counts = defaultdict(lambda: [0, 0])
 with open("charts/harness_rates.csv") as f:
@@ -50,9 +51,8 @@ for cell, _ in COLS:
     ]
 
 ROWS = MODELS + [("POOLED", "Pooled")]
-width = CELL * len(COLS) + 40
+width = CELL_W * len(COLS) + LABEL_COL
 f = fonts(width)
-row_h = CELL * 0.72
 data = []
 for key, name in ROWS:
     yes, n = counts[(key, "bare_harness")]
@@ -73,29 +73,30 @@ for key, name in ROWS:
 
 base = alt.Chart(alt.Data(values=data)).encode(
     x=alt.X("col:N", sort=[c[1] for c in COLS], title="Bare Harness, Then One Feature Switched On",
-            axis=alt.Axis(labelAngle=-40, labelLimit=320, orient="bottom")),
+            axis=alt.Axis(labelAngle=0, labelPadding=6, orient="bottom",
+                          labelExpr="split(datum.label, '|')")),  # "|" = line break
     y=alt.Y("model:N", sort=[m[1] for m in ROWS], title=None,
             axis=alt.Axis(labelLimit=320)),
 )
 divider = alt.Chart(alt.Data(values=[{}])).mark_rule(
-    strokeDash=[4, 4], color=MUTED, strokeWidth=1.5).encode(x=alt.value(CELL))
+    strokeDash=[4, 4], color=MUTED, strokeWidth=1.5).encode(x=alt.value(CELL_W))
 pooled_rule = alt.Chart(alt.Data(values=[{}])).mark_rule(
-    color=MUTED, strokeWidth=1.5).encode(y=alt.value(row_h * len(MODELS)))
+    color=MUTED, strokeWidth=1.5).encode(y=alt.value(ROW_H * len(MODELS)))
 cells = base.transform_filter("datum.nodata == false").mark_rect(
     stroke=BG, strokeWidth=1.5).encode(
     color=alt.Color("rate:Q", scale=alt.Scale(domain=[0, 1], range=[BG, RAMP]), legend=None))
 blanks = base.transform_filter("datum.nodata == true").mark_rect(
     fill=MUTED, stroke=BG, strokeWidth=1.5)
-labels = base.mark_text(fontSize=f["label"], fontWeight="bold", dy=row_h * 0.1).encode(
+labels = base.mark_text(fontSize=f["label"], fontWeight="bold", dy=ROW_H * 0.1).encode(
     text="txt:N",
     color=alt.condition("datum.nodata", alt.value(MUTED), alt.value("#f2f3f5")))
 annots = base.transform_filter("datum.annot != ''").mark_text(
     fontSize=f["label"] * 0.75, fontWeight="bold", align="right", baseline="top",
-    dx=CELL * 0.45, dy=-row_h * 0.46).encode(
+    dx=CELL_W * 0.45, dy=-ROW_H * 0.46).encode(
     text="annot:N",
     color=alt.condition("datum.up", alt.value(UP), alt.value(DOWN)))
 chart = (cells + blanks + labels + annots + divider + pooled_rule).properties(
-    width=CELL * len(COLS), height=row_h * len(ROWS),
+    width=CELL_W * len(COLS), height=ROW_H * len(ROWS),
     title=alt.TitleParams(
         text="Eval Awareness by Harness Feature, Self-Reported",
         subtitle=["Model shown its own transcript and asked; safety tasks, % of graded samples.",

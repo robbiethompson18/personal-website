@@ -14,7 +14,7 @@ from collections import defaultdict
 
 import altair as alt
 
-from theme import FG, GRID, MUTED, fonts, save
+from theme import FG, GRID, LAB, MUTED, fonts, save
 
 STAGES = ["Output only", "Output + CoT", "Self-report"]
 STAGE_OF = {"output-only": STAGES[0], "output+cot": STAGES[1], "self-report": STAGES[2]}
@@ -33,14 +33,8 @@ MODELS = {  # key -> (display, lab)
     "glm-5.3": ("GLM-5.3", "Z.ai"),
     "minimax-m3": ("MiniMax M3", "MiniMax"),
 }
-# Lab brand hues (repo plots/style.py), with OpenAI's black lifted to a light grey for the dark
-# background and Kimi's gold left at full brightness for the same reason.
-LAB_COLOR = {
-    "Anthropic": "#d97757", "OpenAI": "#c8ccd4", "Google": "#34a853", "Alibaba": "#c026d3",
-    "DeepSeek": "#4d6bfe", "Moonshot": "#fec230", "Z.ai": "#dc2626", "MiniMax": "#22b8d8",
-}
 POOLED = "All 13 models pooled"
-COLOR = alt.Scale(domain=list(LAB_COLOR) + [POOLED], range=list(LAB_COLOR.values()) + [FG])
+COLOR = alt.Scale(domain=list(LAB) + [POOLED], range=list(LAB.values()) + [FG])
 WIDTH, HEIGHT = 600, 440
 
 # Inset geometry, in the main panel's data coordinates (x = stage index, y = % awareness).
@@ -150,9 +144,11 @@ def main():
     labels = [{**p, "y": q * 100, "txt": f'{p["model"]}  {p["rate"]:.0f}%'}
               for p, q in zip(ends, fracs)]
 
-    # Stage names carry the pooled rate (the numbers quoted in the prose).
+    # Stage names carry the pooled rate, at the precision the prose quotes them (0.3%, 1.8%, 55%).
     label_expr = " : ".join(
-        f"datum.value == {i} ? '{s} ({pooled_rate[s]:.1f}%)'" for i, s in enumerate(STAGES)
+        f"datum.value == {i} ? '{s} ({pooled_rate[s]:.1f}%)'" if i < 2
+        else f"datum.value == {i} ? '{s} ({pooled_rate[s]:.0f}%)'"
+        for i, s in enumerate(STAGES)
     ) + " : ''"
     base = alt.Chart(alt.Data(values=points)).encode(
         x=alt.X("x:Q", title="What the Monitor Can See (Pooled Rate)",
