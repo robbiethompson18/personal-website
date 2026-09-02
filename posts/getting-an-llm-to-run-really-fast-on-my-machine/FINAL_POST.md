@@ -4,9 +4,9 @@ date: 2026-07-23
 draft: true
 ---
 
-After finishing The Scaling Book (@claude include link) I set up a final exam for myself: find
-whatever the SOTA <45B Open-weights LLM is, predict how fast it will run on my MAC using and on a
-pod of eight v5es. Then run it both places and see how close I can get.
+After finishing [The Scaling Book](https://jax-ml.github.io/scaling-book/) I set up a final exam for
+myself: find whatever the SOTA <45B Open-weights LLM is, predict how fast it will run on my MAC
+using and on a pod of eight v5es. Then run it both places and see how close I can get.
 
 ## Model: Qwen 3.6B
 
