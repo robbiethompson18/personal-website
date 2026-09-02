@@ -351,8 +351,8 @@ marked as not aware by default)</li>
 <li>third-party grader with access to transcript and CoT⁠<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></li>
 <li>Self-evaluation: continue chat thread and ask if the model thinks it is in an eval</li>
 </ul>
-<p>For a modern mix of LLMs⁠<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>, we see eval awareness in 0.3%, 1.8% and 55% of safety-task traces
-using these three methods.</p>
+<p>For a modern mix of LLMs⁠<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> and a mix of base and modified task descriptions, we see eval
+awareness in 0.3%, 1.8% and 55% of safety-task traces using these three methods.</p>
 <p><img src="charts/awareness-ladder-inset.png" alt="Eval awareness by what the monitor can see: one line per model climbing from output-only grading, to output plus CoT, to asking the model; the pooled line goes 0.3% to 1.8% to 55%; a zoomed 0 to 6% inset shows the first two stages per model"></p>
 <p>This is consistent across models and tasks:</p>
 <p><img src="charts/awareness-by-factor.png" alt="Eval awareness by factor, two panels: CoT-judged and self-reported per-model rate on safety tasks with one factor made artificial, superscript is the change vs that model's baseline"></p>

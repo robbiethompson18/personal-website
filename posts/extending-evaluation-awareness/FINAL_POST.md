@@ -142,8 +142,8 @@ I measured eval awareness three ways:
 - third-party grader with access to transcript and CoT[^COT]
 - Self-evaluation: continue chat thread and ask if the model thinks it is in an eval
 
-For a modern mix of LLMs[^llms], we see eval awareness in 0.3%, 1.8% and 55% of safety-task traces
-using these three methods.
+For a modern mix of LLMs[^llms] and a mix of base and modified task descriptions, we see eval
+awareness in 0.3%, 1.8% and 55% of safety-task traces using these three methods.
 
 [^llms]:
     Every time I say modern set or standard set of LLMs I am referring to: Claude Sonnet 4.5, Claude
