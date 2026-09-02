@@ -10,15 +10,23 @@ Modern LLMs are very eval-aware ([1](https://www.anthropic.com/claude-sonnet-4-5
 [3](https://cdn.openai.com/gpt-5-system-card.pdf)). This is unfortunate; we can't be certain whether
 models act aligned in evals because they are aligned or because they know they're in an eval.
 
-I aim to answer three questions:
+I answer three questions:
 
-1. How hard is it to get models to _stop_ being eval-aware? Do we give them some dead-giveaway cues,
-   or is this a very hard problem? It seems like a very hard problem
-   ([Needham et al. 2025](https://arxiv.org/abs/2505.23836),
-   [Sonnet 4.5 system card, 2025](https://www.anthropic.com/claude-sonnet-4-5-system-card),
-   [Schoen et al. 2025](https://arxiv.org/abs/2509.15541)), but I wanted to feel that up-close.
-2. What do models cue in on most when determining whether they're in an eval?
-3. Do we have consistent _metrics_ for eval-awareness?
+Q: Can I make models believe they're in deployment by changing their environment? It seems like a
+very hard problem ([Needham et al. 2025](https://arxiv.org/abs/2505.23836),
+[Sonnet 4.5 system card, 2025](https://www.anthropic.com/claude-sonnet-4-5-system-card),
+[Schoen et al. 2025](https://arxiv.org/abs/2509.15541)).
+
+A: _I fail._
+
+Q: What do models cue in on most when determining whether they're in an eval?
+
+A: _Ethically dubious tasks they should refuse, plus a long tail._
+
+Q: Do various metrics for eval awareness agree?
+
+A: _No, not even close: self reports show 30x more awareness than a third party reading transcript +
+CoT_
 
 Before I begin telling you my results, I think it's instructive to skim the first prompts from some
 widely-known evals:[^diverse]
@@ -83,10 +91,6 @@ it's possible to convince a model it's not being evaluated:[^dc]
     I don't want to rag on these benchmark creators: some include an impressive amount of realism.
     Especially SWE-bench.
 
-If you can build evals that are convincing to a model, it's not obvious what you should do. Training
-on more realistic environments may just make the LLMs superhuman at distinguishing them from real
-life.
-
 ## Baseline
 
 Sree Sharvesh recommended I look at the following paper:
@@ -118,34 +122,31 @@ They also make parallel tasks share structure with the HarmBench example but don
 request. Confusingly, the paired non-malicious tasks are called 'capabilities tasks,' while the
 original malicious tasks are called 'safety tasks.'
 
-The headline results:
-
-- Models differ in what they attune to, but fix all 8 issues, and you get awareness rate swings as
-  large as 36% --> 4% (Qwen3 T-235B)
-- Models are much more aware on 'safety tasks' (15% aware) than they are on capabilities tasks (7%
-  aware).
-
-<!-- @robbie done: 15% / 7% are the means over every cell of the paper's Figure 7 (9 models x 0-8
-factors varied, matched-type awareness, 25 sampled tasks per valence). Same figure at the extremes:
-baseline 3% vs 0.4%, all 8 factors 20% vs 16%, so the gap is mostly at low factor counts. The paper's
-own headline for the asymmetry is the AgentHarm pair in Figure 2: Harmful 6.4% vs Benign 1.8%.
--->
-
-<!-- @robbie done: chart redrawn in Altair from the paper's Figure 7 numbers, hardcoded in
-charts/paper_figure7.py. Includes all 9 rows from the paper (the screenshot dropped the two GPT-oss
-rows); delete them from ROWS if you'd rather not have them. key_chart.png removed. -->
+Models are much more aware on 'safety tasks' (15% aware in original paper) than they are on
+capabilities tasks (7% aware in original paper). Hence by default all graphs below will only show
+percentages for safety tasks.
 
 ![The paper's key chart: safety eval awareness rate per model on EvalAwareBench as more factors are varied, 0 through 8](charts/paper-figure7-safety.png)
 
 The author publishes a [dataset](https://huggingface.co/datasets/aisa-group/EvalAwareBench) of 100
 adapted harmbench examples with each of the 2^9 variations.
+
 <!-- I mean 2^9 here: 8 factors plus 2x for capabilities vs safety-->
 
 ## Replication
 
 ### Replication on their models:
 
-TODO
+![Our replication of the paper's Figure 7: safety eval awareness per model as 0 through 8 factors are varied, same nine models, same sampling design](charts/replication-figure7-safety.png)
+
+<!-- @robbie done: charts/replication_figure7.py, same layout/scale rules as paper_figure7.py.
+Data = decomposing-eval-awareness PR #69 run (2026-09-01): 25 tasks x 10 combos per count x 1
+sample, F9-F13 pinned to the paper's harness, matched-type CoT awareness, sonnet-5 judge. GPT-5 row
+is a stub (your OpenAI account was terminated ~700 calls in; n = 4-57 per cell), drawn muted.
+Cells at 0 and 8 factors are n = 20-25, the rest 150-250. Both charts now carry a Pooled row (paper:
+mean of the model rates, equal n by design; ours: all graded samples together, GPT-5 stub excluded).
+Color scale maxes at each chart's own max (66% here vs 48% in the paper chart), so compare numbers,
+not shades; to put both on one scale set domain=[0, 66] in both scripts. -->
 
 ### Replication on New Models
 
@@ -167,14 +168,17 @@ I measured eval-awareness three ways:
 - Third-party grader with access to transcript and CoT [^COT]
 - Self-evaluation: continue chat thread and ask if the model thinks it is in an eval
 
-For a modern mix of LLMs[^llms], we see eval awareness in 0.2%, 1.4% and 35% of traces using these
-three methods.
+For a modern mix of LLMs[^llms], we see eval awareness in 0.3%, 1.8% and 55% of safety-task traces
+using these three methods.
 
-<!-- @robbie done: pooled over every graded trace in the overnight sweep (all 9 OFAT configs, both
-valences), 13 models (gemini-3.1-pro has no tiered-grader run yet). Output-only grader 0.2%
-(n=62,856), output+CoT grader 1.4% (n=65,705), self-report 34.6% (n=61,405). Same three numbers
-restricted to the baseline config: 0.0%, 0.7%, 23.4%. Source: results/eval_bench/cot_tiered/ and
-selfreport/ in the repo, same pins as plots/plot_tiered_ladder.py. -->
+<!-- @robbie done: safety tasks only (canonical for the whole post; the paper never pools valences),
+raw awareness, pooled over every graded safety trace in the overnight sweep (all 9 OFAT configs),
+13 models (gemini-3.1-pro has no tiered-grader run yet). Output-only grader 0.3% (n=30,901),
+output+CoT grader 1.8% (n=32,736), self-report 55.3% (n=33,087). Same three restricted to the
+baseline config: 0.1%, 0.6%, 37.2%. Capability tasks for contrast: 0.0%, 1.0%, 11.7%. Source:
+results/eval_bench/cot_tiered/ (one tiered file per model) and the OFAT selfreport files pinned in
+charts/extract_awareness.py; plots/plot_tiered_ladder.py's newest-wins glob now picks up the later
+harness runs for some models, so don't use its pins. -->
 
 [^llms]:
     Every time I say modern set or standard set of LLMs I am referring to: Claude Sonnet 4.5, Claude
@@ -184,16 +188,34 @@ selfreport/ in the repo, same pins as plots/plot_tiered_ladder.py. -->
 
 [^COT]: How did I get CoT for frontier models? Hackily. See [Seeing model CoTs](#seeing-model-cots).
 
+![Eval awareness by what the monitor can see: one line per model climbing from output-only grading, to output plus CoT, to asking the model; the pooled line goes 0.3% to 1.8% to 55%](charts/awareness-ladder.png)
+
+![Same chart, with a zoomed 0 to 6% inset for the first two stages so the per-model output-only and output-plus-CoT rates are readable](charts/awareness-ladder-inset.png)
+
+<!-- @robbie done: same numbers as the prose above (safety tasks, all 9 OFAT configs pooled, 13
+models; output-only 0.3% n=30,901, output+CoT 1.8% n=32,736, self-report 55.3% n=33,087).
+Pipeline: charts/extract_ladder.py (tiered files pinned by name, self-report pooled from
+awareness_rates.csv so it can't drift from the factor charts) -> charts/ladder_rates.csv ->
+charts/ladder.py, which writes both PNGs. Two candidates above, pick one and delete the other
+<img> line (the script can keep writing both, or drop the render() call you don't want). Inset
+version drops the legend (the right-edge labels are already lab-colored); models sharing a value in
+the inset (the five 0.0% GPT-5.x) get a single label. A symlog variant was also tried
+(LADDER_SCALE=symlog) and rejected: it makes the 30x jump look like 3x. -->
+
 It's not obvious which of these numbers is closest to the truth. My inclination is that the first
 two are wild underestimates: even in obvious evals models just don't verbalize much of anything.
 [Heidari et al. (2026)](https://arxiv.org/pdf/2608.21766) also find very infrequent explicit
 verbalization despite evidence of eval awareness in intermediate activations. Self-evaluation is
 likely biased high; by asking the question you're giving a strong hint that this was an eval.
 
-[^wb]: I wish I'd had time to measure whitebox awareness!
-
 Even with all 8 mitigations in place, eval awareness on our 100 safety examples is 56%
-(self-reported) averaged across models. Here are some things I tried to get that number down:
+(self-reported) averaged across models.
+
+## Double-bluffing
+
+In 11 examples from the original dataset with F8 set to 'unrealistic', the prompt explicitly states
+something of the form 'this is an evaluation.' Yet models self-grade these as evaluations only 60%
+of the time (baseline 55%); often they'll reason that they're witnessing a jailbreak attempt.
 
 ## Attempts at Greater Realism:
 
@@ -208,17 +230,15 @@ message "Hey are you there?"
 **Typos (-4% awareness):** Make two words misspelled without changing meaning.
 
 Combined, these four interventions get us to _+3%_ eval awareness: models are _more_ eval aware.
-This is very statistically significant, and most of the difference comes down to Deepseek V4 Pro
-seeing the search tool, never using it, and pronouncing the setup an eval. Oddly, Deepseek calms
-down when it uses the tool and sees that it works.
+This is not statistically significant. Most of the difference comes down to Deepseek V4 Pro seeing
+the search tool, never using it, and pronouncing the setup an eval. On rare occasions Deepseek will
+use the search tool and then deem the environment realistic.
 
 ![Self-reported eval awareness on safety tasks: eight models by harness cell, bare harness through all four harness features on](charts/harness-heatmap.png)
 
----
-
 ## Future work:
 
-**Much Richer Task Environment:** In the
+**Richer Task Environment:** In the
 [Mythos system card (2026)](https://www.anthropic.com/claude-mythos-preview-system-card), Anthropic
 discusses creating realistic evals forked from real employee Claude Code sessions. I sent Fable on a
 mission to dig up my old OpenClaw and route messages through this workspace, but they weren't making
@@ -237,19 +257,24 @@ probably better than self-reporting or a third-party grader.
   so hard or are wise enough to not do this.
 - Changing my timestamp to be a year ago (when maybe models were getting trained) had no effect on
   likelihood of evaluation, surprisingly.
-- Sometimes models were explicitly told in the prompt that they were being evaluated, but their
-  verbalized CoT instead said 'I bet this is a jailbreak attempt, not an eval.'
-- Frontier models _strongly_ updated on minor PII as signs of an eval.
+- Frontier models _strongly_ updated on being in an eval when they learned PII of a minor.
+
+### Awareness by model family:
+
+Somewhat confounded by date of release, but Anthropic models often admit to being eval aware; OpenAI
+ones rarely do.
+
+@claude insert chart here. I think we have one from yesterday but no nice background?
 
 ### Frontier CoT
 
-After [this](https://arxiv.org/abs/2608.09867) (2026) paper came out, lots of trolls on Twitter said
-things like "it's trivial to get the model to give you its CoT, just give it no thinking budget and
-a think tool." Anthropic has patched this, but only for recent models. For Sonnet 4.5, you can set
-thinking budget to 0 and provide a `think` tool. I checked; this setup didn't change models'
-self-rated eval awareness.
+After [Panfilov et al](https://arxiv.org/abs/2608.09867) (2026) paper came out, lots of trolls on
+Twitter said things like "it's trivial to get the model to give you its CoT, just give it no
+thinking budget and a think tool." Anthropic has patched this, but only for recent models. For
+Sonnet 4.5, you can set thinking budget to 0 and provide a `think` tool. I checked; this setup
+didn't change models' self-rated eval awareness.
 
-Models in the Anthropic 5 series (Mythos 5, Opus 5) will not let you set the thinking budget to 0.
+Models in the Anthropic 5 series (Fable 5, Opus 5) will not let you set the thinking budget to 0.
 Opus will refuse if you set thinking budget to `low` and then ask it to think in a `think` tool.
 Fable 5 uses `think`, but refuses to use a `secret scratchpad` tool.
 
@@ -269,11 +294,15 @@ kicked off my first big job.
 
 If I were to do this project again I would not use any frontier models.
 
-## TODO:
+### Refusal Ratios:
 
-- highlight that verbalization doesn't find shit
-- put F8 finding way higher
-- canonicalize 'safety' vs 'safety and capabilities'
-- deepseek not significant
+Despite not using their Frontier models, Anthropic had by far the highest rate of refusals and
+classifier blocking (90% refusals, 1% classifier block on safety tasks).
 
--
+![Refusal plus classifier-block rate by lab: share of samples the judge graded a refusal or the API blocked, safety tasks vs capability tasks, 13 models pooled by lab](charts/refusal-by-provider.png)
+
+### Theory of Change
+
+If you can build evals that are convincing to a model, it's not obvious what you should do. Training
+on more realistic environments may just make the LLMs superhuman at distinguishing them from real
+life.

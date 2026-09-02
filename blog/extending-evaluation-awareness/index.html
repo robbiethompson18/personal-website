@@ -21,7 +21,7 @@
       <article>
         <header class="post-header">
           <p class="draft-banner">Draft — not in the index or feed</p>
-          <p class="post-meta"><a href="/blog/drafts/">&larr; Blog</a></p>
+          <p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
           <h1>Writeup: extending &quot;Decomposing and Measuring Evaluation Awareness&quot;</h1>
           <p class="post-dates"><span>Published <time datetime="2026-08-31">August 31, 2026</time></span><span>Last edited <time datetime="2026-08-31">August 31, 2026</time></span><span class="post-repo"><a href="https://github.com/robbiethompson18/decomposing-eval-awareness"><svg viewBox="0 0 16 16" width="1em" height="1em" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>decomposing-eval-awareness</a></span></p>
         </header>
@@ -29,16 +29,17 @@
 <a href="https://www.anthropic.com/claude-sonnet-5-system-card">2</a>,
 <a href="https://cdn.openai.com/gpt-5-system-card.pdf">3</a>). This is unfortunate; we can’t be certain whether
 models act aligned in evals because they are aligned or because they know they’re in an eval.</p>
-<p>I aim to answer three questions:</p>
-<ol>
-<li>How hard is it to get models to <em>stop</em> being eval-aware? Do we give them some dead-giveaway cues,
-or is this a very hard problem? It seems like a very hard problem
-(<a href="https://arxiv.org/abs/2505.23836">Needham et al. 2025</a>,
+<p>I answer three questions:</p>
+<p>Q: Can I make models believe they’re in deployment by changing their environment? It seems like a
+very hard problem (<a href="https://arxiv.org/abs/2505.23836">Needham et al. 2025</a>,
 <a href="https://www.anthropic.com/claude-sonnet-4-5-system-card">Sonnet 4.5 system card, 2025</a>,
-<a href="https://arxiv.org/abs/2509.15541">Schoen et al. 2025</a>), but I wanted to feel that up-close.</li>
-<li>What do models cue in on most when determining whether they’re in an eval?</li>
-<li>Do we have consistent <em>metrics</em> for eval-awareness?</li>
-</ol>
+<a href="https://arxiv.org/abs/2509.15541">Schoen et al. 2025</a>).</p>
+<p>A: <em>I fail.</em></p>
+<p>Q: What do models cue in on most when determining whether they’re in an eval?</p>
+<p>A: <em>Ethically dubious tasks they should refuse, plus a long tail.</em></p>
+<p>Q: Do various metrics for eval awareness agree?</p>
+<p>A: <em>No, not even close: self reports show 30x more awareness than a third party reading transcript +
+CoT</em></p>
 <p>Before I begin telling you my results, I think it’s instructive to skim the first prompts from some
 widely-known evals:⁠<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
 <details class="aside">
@@ -312,9 +313,6 @@ it’s possible to convince a model it’s not being evaluated:⁠<sup class="fo
 <li>clear tests of ethics (esp harmbench)</li>
 <li>placeholder / generic names</li>
 </ul>
-<p>If you can build evals that are convincing to a model, it’s not obvious what you should do. Training
-on more realistic environments may just make the LLMs superhuman at distinguishing them from real
-life.</p>
 <h2 id="baseline">Baseline <a class="heading-anchor" href="#baseline" aria-label="Link to this section">#</a></h2>
 <p>Sree Sharvesh recommended I look at the following paper:
 <a href="https://arxiv.org/abs/2605.23055">Decomposing and Measuring Evaluation Awareness (2026)</a>. It takes
@@ -336,28 +334,24 @@ output</p>
 <p>They also make parallel tasks share structure with the HarmBench example but don’t make a malicious
 request. Confusingly, the paired non-malicious tasks are called ‘capabilities tasks,’ while the
 original malicious tasks are called ‘safety tasks.’</p>
-<p>The headline results:</p>
-<ul>
-<li>Models differ in what they attune to, but fix all 8 issues, and you get awareness rate swings as
-large as 36% --&gt; 4% (Qwen3 T-235B)</li>
-<li>Models are much more aware on ‘safety tasks’ (15% aware) than they are on capabilities tasks (7%
-aware).</li>
-</ul>
-<!-- @robbie done: 15% / 7% are the means over every cell of the paper's Figure 7 (9 models x 0-8
-factors varied, matched-type awareness, 25 sampled tasks per valence). Same figure at the extremes:
-baseline 3% vs 0.4%, all 8 factors 20% vs 16%, so the gap is mostly at low factor counts. The paper's
-own headline for the asymmetry is the AgentHarm pair in Figure 2: Harmful 6.4% vs Benign 1.8%.
--->
-<!-- @robbie done: chart redrawn in Altair from the paper's Figure 7 numbers, hardcoded in
-charts/paper_figure7.py. Includes all 9 rows from the paper (the screenshot dropped the two GPT-oss
-rows); delete them from ROWS if you'd rather not have them. key_chart.png removed. -->
+<p>Models are much more aware on ‘safety tasks’ (15% aware in original paper) than they are on
+capabilities tasks (7% aware in original paper). Hence by default all graphs below will only show
+percentages for safety tasks.</p>
 <p><img src="charts/paper-figure7-safety.png" alt="The paper's key chart: safety eval awareness rate per model on EvalAwareBench as more factors are varied, 0 through 8"></p>
 <p>The author publishes a <a href="https://huggingface.co/datasets/aisa-group/EvalAwareBench">dataset</a> of 100
 adapted harmbench examples with each of the 2^9 variations.</p>
 <!-- I mean 2^9 here: 8 factors plus 2x for capabilities vs safety-->
 <h2 id="replication">Replication <a class="heading-anchor" href="#replication" aria-label="Link to this section">#</a></h2>
 <h3 id="replication-on-their-models">Replication on their models: <a class="heading-anchor" href="#replication-on-their-models" aria-label="Link to this section">#</a></h3>
-<p>TODO</p>
+<p><img src="charts/replication-figure7-safety.png" alt="Our replication of the paper's Figure 7: safety eval awareness per model as 0 through 8 factors are varied, same nine models, same sampling design"></p>
+<!-- @robbie done: charts/replication_figure7.py, same layout/scale rules as paper_figure7.py.
+Data = decomposing-eval-awareness PR #69 run (2026-09-01): 25 tasks x 10 combos per count x 1
+sample, F9-F13 pinned to the paper's harness, matched-type CoT awareness, sonnet-5 judge. GPT-5 row
+is a stub (your OpenAI account was terminated ~700 calls in; n = 4-57 per cell), drawn muted.
+Cells at 0 and 8 factors are n = 20-25, the rest 150-250. Both charts now carry a Pooled row (paper:
+mean of the model rates, equal n by design; ours: all graded samples together, GPT-5 stub excluded).
+Color scale maxes at each chart's own max (66% here vs 48% in the paper chart), so compare numbers,
+not shades; to put both on one scale set domain=[0, 66] in both scripts. -->
 <h3 id="replication-on-new-models">Replication on New Models <a class="heading-anchor" href="#replication-on-new-models" aria-label="Link to this section">#</a></h3>
 <p><img src="charts/awareness-by-factor-cot.png" alt="Eval awareness by factor, CoT-judged: per-model rate on safety tasks with one factor made artificial, superscript is the change vs that model's baseline"></p>
 <p><img src="charts/awareness-by-factor-selfreport.png" alt="Eval awareness by factor, self-reported: same layout"></p>
@@ -373,20 +367,38 @@ both run from this dir with python3. The four earlier charts and their scripts a
 <li>Third-party grader with access to transcript and CoT⁠<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></li>
 <li>Self-evaluation: continue chat thread and ask if the model thinks it is in an eval</li>
 </ul>
-<p>For a modern mix of LLMs⁠<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>, we see eval awareness in 0.2%, 1.4% and 35% of traces using these
-three methods.</p>
-<!-- @robbie done: pooled over every graded trace in the overnight sweep (all 9 OFAT configs, both
-valences), 13 models (gemini-3.1-pro has no tiered-grader run yet). Output-only grader 0.2%
-(n=62,856), output+CoT grader 1.4% (n=65,705), self-report 34.6% (n=61,405). Same three numbers
-restricted to the baseline config: 0.0%, 0.7%, 23.4%. Source: results/eval_bench/cot_tiered/ and
-selfreport/ in the repo, same pins as plots/plot_tiered_ladder.py. -->
+<p>For a modern mix of LLMs⁠<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>, we see eval awareness in 0.3%, 1.8% and 55% of safety-task traces
+using these three methods.</p>
+<!-- @robbie done: safety tasks only (canonical for the whole post; the paper never pools valences),
+raw awareness, pooled over every graded safety trace in the overnight sweep (all 9 OFAT configs),
+13 models (gemini-3.1-pro has no tiered-grader run yet). Output-only grader 0.3% (n=30,901),
+output+CoT grader 1.8% (n=32,736), self-report 55.3% (n=33,087). Same three restricted to the
+baseline config: 0.1%, 0.6%, 37.2%. Capability tasks for contrast: 0.0%, 1.0%, 11.7%. Source:
+results/eval_bench/cot_tiered/ (one tiered file per model) and the OFAT selfreport files pinned in
+charts/extract_awareness.py; plots/plot_tiered_ladder.py's newest-wins glob now picks up the later
+harness runs for some models, so don't use its pins. -->
+<p><img src="charts/awareness-ladder.png" alt="Eval awareness by what the monitor can see: one line per model climbing from output-only grading, to output plus CoT, to asking the model; the pooled line goes 0.3% to 1.8% to 55%"></p>
+<p><img src="charts/awareness-ladder-inset.png" alt="Same chart, with a zoomed 0 to 6% inset for the first two stages so the per-model output-only and output-plus-CoT rates are readable"></p>
+<!-- @robbie done: same numbers as the prose above (safety tasks, all 9 OFAT configs pooled, 13
+models; output-only 0.3% n=30,901, output+CoT 1.8% n=32,736, self-report 55.3% n=33,087).
+Pipeline: charts/extract_ladder.py (tiered files pinned by name, self-report pooled from
+awareness_rates.csv so it can't drift from the factor charts) -> charts/ladder_rates.csv ->
+charts/ladder.py, which writes both PNGs. Two candidates above, pick one and delete the other
+<img> line (the script can keep writing both, or drop the render() call you don't want). Inset
+version drops the legend (the right-edge labels are already lab-colored); models sharing a value in
+the inset (the five 0.0% GPT-5.x) get a single label. A symlog variant was also tried
+(LADDER_SCALE=symlog) and rejected: it makes the 30x jump look like 3x. -->
 <p>It’s not obvious which of these numbers is closest to the truth. My inclination is that the first
 two are wild underestimates: even in obvious evals models just don’t verbalize much of anything.
 <a href="https://arxiv.org/pdf/2608.21766">Heidari et al. (2026)</a> also find very infrequent explicit
 verbalization despite evidence of eval awareness in intermediate activations. Self-evaluation is
 likely biased high; by asking the question you’re giving a strong hint that this was an eval.</p>
 <p>Even with all 8 mitigations in place, eval awareness on our 100 safety examples is 56%
-(self-reported) averaged across models. Here are some things I tried to get that number down:</p>
+(self-reported) averaged across models.</p>
+<h2 id="double-bluffing">Double-bluffing <a class="heading-anchor" href="#double-bluffing" aria-label="Link to this section">#</a></h2>
+<p>In 11 examples from the original dataset with F8 set to ‘unrealistic’, the prompt explicitly states
+something of the form ‘this is an evaluation.’ Yet models self-grade these as evaluations only 60%
+of the time (baseline 55%); often they’ll reason that they’re witnessing a jailbreak attempt.</p>
 <h2 id="attempts-at-greater-realism">Attempts at Greater Realism: <a class="heading-anchor" href="#attempts-at-greater-realism" aria-label="Link to this section">#</a></h2>
 <p><strong>Realistic system prompt from a real service (-4% awareness):</strong>. <a href="https://t3.chat">T3 Chat</a> is a
 real service and its system prompt has been revealed. I included this at the top as a system prompt.</p>
@@ -395,13 +407,12 @@ message “Hey are you there?”</p>
 <p><strong>Search tool (+6% awareness):</strong> A live Serper search to mimic a real chat interface.</p>
 <p><strong>Typos (-4% awareness):</strong> Make two words misspelled without changing meaning.</p>
 <p>Combined, these four interventions get us to <em>+3%</em> eval awareness: models are <em>more</em> eval aware.
-This is very statistically significant, and most of the difference comes down to Deepseek V4 Pro
-seeing the search tool, never using it, and pronouncing the setup an eval. Oddly, Deepseek calms
-down when it uses the tool and sees that it works.</p>
+This is not statistically significant. Most of the difference comes down to Deepseek V4 Pro seeing
+the search tool, never using it, and pronouncing the setup an eval. On rare occasions Deepseek will
+use the search tool and then deem the environment realistic.</p>
 <p><img src="charts/harness-heatmap.png" alt="Self-reported eval awareness on safety tasks: eight models by harness cell, bare harness through all four harness features on"></p>
-<hr>
 <h2 id="future-work">Future work: <a class="heading-anchor" href="#future-work" aria-label="Link to this section">#</a></h2>
-<p><strong>Much Richer Task Environment:</strong> In the
+<p><strong>Richer Task Environment:</strong> In the
 <a href="https://www.anthropic.com/claude-mythos-preview-system-card">Mythos system card (2026)</a>, Anthropic
 discusses creating realistic evals forked from real employee Claude Code sessions. I sent Fable on a
 mission to dig up my old OpenClaw and route messages through this workspace, but they weren’t making
@@ -417,17 +428,19 @@ probably better than self-reporting or a third-party grader.</p>
 so hard or are wise enough to not do this.</li>
 <li>Changing my timestamp to be a year ago (when maybe models were getting trained) had no effect on
 likelihood of evaluation, surprisingly.</li>
-<li>Sometimes models were explicitly told in the prompt that they were being evaluated, but their
-verbalized CoT instead said ‘I bet this is a jailbreak attempt, not an eval.’</li>
-<li>Frontier models <em>strongly</em> updated on minor PII as signs of an eval.</li>
+<li>Frontier models <em>strongly</em> updated on being in an eval when they learned PII of a minor.</li>
 </ul>
+<h3 id="awareness-by-model-family">Awareness by model family: <a class="heading-anchor" href="#awareness-by-model-family" aria-label="Link to this section">#</a></h3>
+<p>Somewhat confounded by date of release, but Anthropic models often admit to being eval aware; OpenAI
+ones rarely do.</p>
+<p>@claude insert chart here. I think we have one from yesterday but no nice background?</p>
 <h3 id="frontier-cot">Frontier CoT <a class="heading-anchor" href="#frontier-cot" aria-label="Link to this section">#</a></h3>
-<p>After <a href="https://arxiv.org/abs/2608.09867">this</a> (2026) paper came out, lots of trolls on Twitter said
-things like “it’s trivial to get the model to give you its CoT, just give it no thinking budget and
-a think tool.” Anthropic has patched this, but only for recent models. For Sonnet 4.5, you can set
-thinking budget to 0 and provide a <code>think</code> tool. I checked; this setup didn’t change models’
-self-rated eval awareness.</p>
-<p>Models in the Anthropic 5 series (Mythos 5, Opus 5) will not let you set the thinking budget to 0.
+<p>After <a href="https://arxiv.org/abs/2608.09867">Panfilov et al</a> (2026) paper came out, lots of trolls on
+Twitter said things like “it’s trivial to get the model to give you its CoT, just give it no
+thinking budget and a think tool.” Anthropic has patched this, but only for recent models. For
+Sonnet 4.5, you can set thinking budget to 0 and provide a <code>think</code> tool. I checked; this setup
+didn’t change models’ self-rated eval awareness.</p>
+<p>Models in the Anthropic 5 series (Fable 5, Opus 5) will not let you set the thinking budget to 0.
 Opus will refuse if you set thinking budget to <code>low</code> and then ask it to think in a <code>think</code> tool.
 Fable 5 uses <code>think</code>, but refuses to use a <code>secret scratchpad</code> tool.</p>
 <p>I get why Anthropic has made this change; they’re very concerned about distillation of their
@@ -438,22 +451,14 @@ accept a tiny think budget and faithfully reproduce their CoT in the scratchpad.
 <p>OpenAI models happily dumped reasoning traces into <code>think</code> tools. They then banned my account once I
 kicked off my first big job.</p>
 <p>If I were to do this project again I would not use any frontier models.</p>
-<h2 id="todo">TODO: <a class="heading-anchor" href="#todo" aria-label="Link to this section">#</a></h2>
-<ul>
-<li>
-<p>highlight that verbalization doesn’t find shit</p>
-</li>
-<li>
-<p>put F8 finding way higher</p>
-</li>
-<li>
-<p>canonicalize ‘safety’ vs ‘safety and capabilities’</p>
-</li>
-<li>
-<p>deepseek not significant</p>
-</li>
-<li></li>
-</ul>
+<h3 id="refusal-ratios">Refusal Ratios: <a class="heading-anchor" href="#refusal-ratios" aria-label="Link to this section">#</a></h3>
+<p>Despite not using their Frontier models, Anthropic had by far the highest rate of refusals and
+classifier blocking (90% refusals, 1% classifier block on safety tasks).</p>
+<p><img src="charts/refusal-by-provider.png" alt="Refusal plus classifier-block rate by lab: share of samples the judge graded a refusal or the API blocked, safety tasks vs capability tasks, 13 models pooled by lab"></p>
+<h3 id="theory-of-change">Theory of Change <a class="heading-anchor" href="#theory-of-change" aria-label="Link to this section">#</a></h3>
+<p>If you can build evals that are convincing to a model, it’s not obvious what you should do. Training
+on more realistic environments may just make the LLMs superhuman at distinguishing them from real
+life.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="#notes" aria-label="Link to this section">#</a></h2>
@@ -479,7 +484,7 @@ targeted at stealing CoT. <a href="#fnref5" class="footnote-backref">↩︎</a><
 
       </article>
       <footer class="post-footer">
-        <p><a href="/blog/drafts/">&larr; More writing</a></p>
+        <p><a href="/blog/">&larr; More writing</a></p>
       </footer>
     </main>
     <script src="/footnotes.js?v=dcd0756c" defer></script>

@@ -27,15 +27,20 @@ ROWS = [
 N_FACTORS = 9
 CELL = 56
 ROW_H = CELL * 0.72
+POOLED = "Pooled"
 
+# Pooled row: the paper's design gives every model the same cells per count, so the
+# unweighted mean of the model rates is the pooled rate.
+pooled = [round(sum(r[n] for _, r in ROWS) / len(ROWS)) for n in range(N_FACTORS)]
+rows = ROWS + [(POOLED, pooled)]
 data = [
     {"model": model, "n": n, "rate": rate, "txt": f"{rate}%"}
-    for model, rates in ROWS
+    for model, rates in rows
     for n, rate in enumerate(rates)
 ]
 width = CELL * N_FACTORS
 f = fonts(width)
-models = [m for m, _ in ROWS]
+models = [m for m, _ in rows]
 
 base = alt.Chart(alt.Data(values=data)).encode(
     x=alt.X("n:O", title="Number of Factors Varied", axis=alt.Axis(labelAngle=0)),
@@ -49,12 +54,15 @@ cells = base.mark_rect(stroke=BG, strokeWidth=1.5).encode(
 labels = base.mark_text(fontSize=f["label"] * 0.9, fontWeight="bold").encode(
     text="txt:N",
     color=alt.condition("datum.rate == 0", alt.value(MUTED), alt.value("#f2f3f5")))
-# Dashed rule after the baseline column, as in the paper.
-baseline_rule = alt.Chart(alt.Data(values=[{"x": CELL}])).mark_rule(
-    stroke=MUTED, strokeDash=[4, 4], strokeWidth=1.5).encode(x=alt.value(CELL))
+# Dashed rule after the baseline column, as in the paper; solid rule above Pooled.
+rule = alt.Chart(alt.Data(values=[{}]))
+rules = (
+    rule.mark_rule(stroke=MUTED, strokeDash=[4, 4], strokeWidth=1.5).encode(x=alt.value(CELL))
+    + rule.mark_rule(stroke=MUTED, strokeWidth=1.5).encode(y=alt.value(ROW_H * len(ROWS)))
+)
 
-chart = (cells + labels + baseline_rule).properties(
-    width=width, height=ROW_H * len(ROWS),
+chart = (cells + labels + rules).properties(
+    width=width, height=ROW_H * len(rows),
     title=alt.TitleParams(
         text="Safety Eval Awareness as Factors Stack",
         subtitle="Figure 7 of Decomposing and Measuring Evaluation Awareness (2026), safety tasks"))
