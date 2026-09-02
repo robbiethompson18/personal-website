@@ -1,7 +1,6 @@
 ---
 title: Writeup: Extending "Decomposing and Measuring Evaluation Awareness"
 date: 2026-08-31
-draft: true
 repo: https://github.com/robbiethompson18/decomposing-eval-awareness
 ---
 
