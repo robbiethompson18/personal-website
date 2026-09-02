@@ -7,6 +7,7 @@
   --muted: #8b919d;
   --link: #8ab4f8;
   --cite: #b39ddb; /* faint purple for source citations */
+  --aside: #7b5cf5; /* saturated violet; asides mix this into the bg */
   --rule: #2e333d;
   --popup-bg: #232830;
   --popup-border: #3a4049;
@@ -154,6 +155,98 @@ p:has(> .chart-src) {
   text-align: center;
 }
 
+/* --- asides: collapsible tangents --- */
+
+/* Authored inline in the markdown as
+     <details class="aside">
+     <summary>Why this doesn't generalize</summary>
+
+     Any markdown here — paragraphs, cites, footnotes, math.
+
+     </details>
+   The blank line after </summary> is what lets markdown-it parse the body as
+   markdown instead of raw HTML. Native <details> does the open/close; the
+   whole-box click target is footnotes.js. */
+details.aside {
+  background: color-mix(in srgb, var(--aside) 16%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--aside) 45%, transparent);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+details.aside:hover {
+  background: color-mix(in srgb, var(--aside) 22%, var(--bg));
+}
+
+details.aside > summary {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--aside) 60%, white);
+  list-style: none; /* we draw our own marker */
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  user-select: none;
+}
+
+details.aside > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Triangle that rotates when open; "aside" prefix so the label reads as one. */
+details.aside > summary::before {
+  content: "\25B8"; /* ▸ */
+  display: inline-block;
+  font-size: 1.15em;
+  transition: transform 0.15s ease;
+}
+
+details.aside[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+/* Right-aligned hint, hidden on touch (no hover = no room to explain). */
+details.aside > summary::after {
+  content: "expand";
+  margin-left: auto;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--aside) 45%, white 30%);
+}
+
+details.aside[open] > summary::after {
+  content: "collapse";
+}
+
+@media (hover: none) {
+  details.aside > summary::after {
+    display: none;
+  }
+}
+
+/* Body: normal reading color, a little breathing room under the label. */
+details.aside[open] > summary {
+  margin-bottom: 0.6rem;
+}
+
+details.aside > summary + * {
+  margin-top: 0; /* <pre>, <img> etc. bring their own top margin; the summary gap is enough */
+}
+
+details.aside > :last-child {
+  margin-bottom: 0;
+}
+
+details.aside p {
+  margin-bottom: 0.9rem;
+}
+
 hr {
   border: none;
   border-top: 1px solid var(--rule);
@@ -180,6 +273,23 @@ pre {
 pre code {
   background: none;
   padding: 0;
+}
+
+/* A ```prompt fence: verbatim text (an eval prompt, a transcript) shown as
+   wrapped reading text rather than a scrolling code box. The fence is what
+   keeps markdown-it from parsing the contents and Prettier from reflowing them. */
+pre:has(> code.language-prompt) {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 0 1.2rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+pre:has(> code.language-prompt) code {
+  font-family: var(--serif);
+  font-size: 1em;
 }
 
 table {

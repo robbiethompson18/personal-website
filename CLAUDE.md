@@ -66,6 +66,11 @@ cross-post, and an email newsletter later. Static images/diagrams go in with `![
 markdown-it runs with `html: true`, interactive JS/SVG charts can be embedded inline when a flat
 image isn't enough — so markdown doesn't cap what a post can hold.
 
+**Asides, verbatim prompts, includes** Collapsible `<details class="aside">` boxes, ` ```prompt `
+fences for pasted eval prompts (never paste them bare: markdown and Prettier both mangle them), and
+`<!-- include excerpts/foo.md -->` to keep long excerpts out of `FINAL_POST.md`. The mechanics and
+gotchas are in the note below; read it before using any of the three.
+
 **Sources** If you're just adding a source, use that syntax for the nice purple underline, instead
 of creating a footnote. For example: `[40,000 Americans](@nhtsa)`
 
@@ -75,3 +80,9 @@ Charts are Altair (Python) → static dark PNG + SVG at build time. **All the ho
 the shared dark theme, agreed sizes (bars 200 / scatters 560), font-scaling rule, and title/subtitle
 conventions — lives in the `/graph` skill (`.claude/skills/graph/SKILL.md`).** Read it before
 authoring or editing a chart.
+
+## Notes
+
+- [Asides, verbatim prompts, and includes — read before adding a collapsible box, pasting an eval prompt/transcript, or splitting an excerpt out of a post](.claude/notes/asides-prompts-includes.md)
+  — the blank-line rule, why bare pasted text breaks, the `prompt` fence, prettier-ignore ranges,
+  the include directive, cache-busting

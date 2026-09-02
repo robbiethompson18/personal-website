@@ -8,8 +8,9 @@
 //   ---
 //   <markdown body, with [^1] style footnotes>
 
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, copyFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmdirSync, copyFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { createHash } from "node:crypto";
 import MarkdownIt from "markdown-it";
 import footnote from "markdown-it-footnote";
 import katex from "@vscode/markdown-it-katex";
@@ -151,6 +152,17 @@ function parse(raw) {
 
 // --- templates -----------------------------------------------------------
 
+// Content-hash the shared asset URLs so a CSS/JS edit shows up on the next page
+// load instead of after the browser's (or GitHub Pages') cache expires. Without
+// this, the dev server's cache-less responses let Chrome keep an old blog.css
+// for the rest of the session, which looks exactly like a broken stylesheet.
+function versioned(file) {
+  const hash = createHash("md5").update(readFileSync(file)).digest("hex").slice(0, 8);
+  return `/${file}?v=${hash}`;
+}
+const BLOG_CSS = versioned("blog.css");
+const FOOTNOTES_JS = versioned("footnotes.js");
+
 function layout({ title, description, canonical, body, hasMath }) {
   return `<!doctype html>
 <html lang="en">
@@ -168,11 +180,11 @@ function layout({ title, description, canonical, body, hasMath }) {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/blog.css" />${hasMath ? '\n    <link rel="stylesheet" href="/vendor/katex/katex.min.css" />' : ""}
+    <link rel="stylesheet" href="${BLOG_CSS}" />${hasMath ? '\n    <link rel="stylesheet" href="/vendor/katex/katex.min.css" />' : ""}
   </head>
   <body>
 ${body}
-    <script src="/footnotes.js" defer></script>
+    <script src="${FOOTNOTES_JS}" defer></script>
   </body>
 </html>
 `;
@@ -318,6 +330,7 @@ function copyAssets(srcDir, destDir) {
     if (e.isDirectory()) {
       mkdirSync(dest, { recursive: true });
       copyAssets(src, dest);
+      if (readdirSync(dest).length === 0) rmdirSync(dest); // e.g. an excerpts/ folder of only .md
     } else if (!e.name.endsWith(".md")) {
       copyFileSync(src, dest);
     }
@@ -335,7 +348,7 @@ function checkContent(body) {
   // Strip the zones where `$` and `[^...]` are legitimately literal, so we don't
   // false-alarm on code samples, editor notes, etc.
   const prose = body
-    .replace(/```[\s\S]*?```/g, "") // fenced code blocks
+    .replace(/^(`{3,})[\s\S]*?^\1`*[ \t]*$/gm, "") // fenced code blocks (````-fences may contain ```)
     .replace(/`[^`]*`/g, "") // inline code spans
     .replace(/<!--[\s\S]*?-->/g, ""); // HTML comments (@claude/@robbie notes)
 
@@ -373,13 +386,25 @@ function checkContent(body) {
   return issues;
 }
 
+// `<!-- include excerpts/foo.md -->` on its own line splices that file (path
+// relative to the post folder) into the body before rendering, so a long
+// verbatim excerpt can live outside FINAL_POST.md. Included files keep the .md
+// extension so the builder neither renders them as posts nor copies them to
+// blog/. Expanded after checkContent on purpose: the footnote/cite/math checks
+// are for Robbie's prose, not for stray `$`s in someone else's benchmark.
+function expandIncludes(body, dir) {
+  return body.replace(/^<!--\s*include\s+(\S+)\s*-->$/gm, (_m, rel) =>
+    readFileSync(join(dir, rel), "utf8").trimEnd(),
+  );
+}
+
 // Every post is a folder: posts/<slug>/FINAL_POST.md is the published body,
 // with co-located assets (charts/, images) copied to the output. Other .md
 // files in the folder (POST_DRAFT.md, POST_RESEARCH.md) are ignored by the build.
 function loadPost(slug, mdPath, assetDir) {
   const { meta, body } = parse(readFileSync(mdPath, "utf8"));
   if (!meta.title || !meta.date) throw new Error(`${mdPath}: frontmatter needs title and date`);
-  const html = md.render(body);
+  const html = md.render(expandIncludes(body, assetDir));
   // KaTeX always emits <span class="katex">; use that to pull in its stylesheet
   // only on pages that actually render math (same lazy-load spirit as charts).
   const hasMath = html.includes('class="katex"');

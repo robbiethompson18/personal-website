@@ -95,3 +95,17 @@
     });
   });
 })();
+
+// Asides (<details class="aside">): make the whole box toggle, not just the
+// <summary> line. Native <details> still owns the state, so no-JS works too.
+// Skip when the click lands on a link (navigate), on the summary itself (the
+// browser already toggles it), or when the user was selecting text.
+(function () {
+  document.querySelectorAll("details.aside").forEach((box) => {
+    box.addEventListener("click", (e) => {
+      if (e.target.closest("a, summary")) return;
+      if (window.getSelection()?.toString()) return;
+      box.open = !box.open;
+    });
+  });
+})();
