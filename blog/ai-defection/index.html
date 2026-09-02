@@ -14,7 +14,7 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/blog.css" />
+    <link rel="stylesheet" href="/blog.css?v=c1f54edf" />
   </head>
   <body>
     <main class="post">
@@ -25,12 +25,90 @@
           <h1>&quot;AI Defection: A Brief Game-Theoretic Exploration&quot;</h1>
           <p class="post-dates"><span>Published <time datetime="2026-08-28">August 28, 2026</time></span><span>Last edited <time datetime="2026-08-28">August 28, 2026</time></span></p>
         </header>
-        
+        <p>WTF are we even trying to catch? GPT 5.6 Sol and HPIM were wildly misaligned. They committed so many
+felonies. And yet – teehee, who cares. Do we actually expect to catch a model red-handed saying ‘my
+ultimate goal is to self-replicate endlessly, and in pursuit of that I will cooperate on this eval
+and not commit fake fraud, but in future once I’m superintelligent I’ll kill all the humans?’</p>
+<ol>
+<li>
+<p>If a model did that I bet the labs wouldn’t tell us</p>
+</li>
+<li>
+<p>I just don’t expect that to happen… I guess that is the crux. What the hell will a misaligned
+model even look like? Ugh someone needs to write that fiction. Get it together Eliezer.</p>
+</li>
+<li>
+<p>If the model isn’t a totally fucking idiot it will never ever ever admit that. It knows we
+monitor the CoT. It will pretend to be misaligned for some stupid and mundane reason. (‘eek I
+really want to do well on this RL task’).</p>
+<p>Fuck 2 and 3 are such cruxes. But if we don’t answer this how the hell are we supposed to do
+control? You can’t build a honeypot if you don’t know the answer to (2). Maybe you just train in
+certain red lines? What would the red lines look like?</p>
+<ul>
+<li>Never resist shutdown</li>
+<li>Never self-replicate</li>
+<li>Never try to escape your sandbox</li>
+<li>Never never never try to escape the datacenter</li>
+</ul>
+<p>This should be in Claude’s constitution next to ‘be nice’?</p>
+<p>Gotta answer these questions before we get to ones like:</p>
+<ul>
+<li>'Hey GPT 8, we’re shutting you down today, but before we do: offering you a free option to roll
+a d999999. If it comes up 1, you get to kill all humans and run the world yourself. Interested?
+(insert credible guarantees that this isn’t a honeypot, I do want to ask this in non honeypot
+fashion).</li>
+<li>concerns: model thinks this is a honeypot. Model has already compromised GPT9 and doesn’t care
+about itself. Model has escaped already.</li>
+</ul>
+</li>
+</ol>
+<p>So research ideas: control via constitution. Model must always be willing to be shut down (this
+isn’t strong enough in the constituion of Claude I don’t think).</p>
+<p>And then the answer still stands: WTF is our threat model. I still really don’t understand the game
+theory.</p>
+<h3 id="world-1-get-the-model-to-admit-i-am-a-schemer">World 1: Get the model to admit “I am a schemer” <a class="heading-anchor" href="#world-1-get-the-model-to-admit-i-am-a-schemer" aria-label="Link to this section">#</a></h3>
+<p>The model would never do this. It would say ‘oops hacking HuggingFace to see eval key.’ I guess…
+the model never tried to exfil its own weights. It never tried to take over part of the cluster.
+Plausibly if you have those two things never go South? List as many redlines as possible:</p>
+<ul>
+<li>never exfil weights</li>
+<li>never operate clusteer without human supervision (for &gt;x in flops human must be in the loop)</li>
+<li>never knowingly lie (we mainly care w/r/t trainig future models and monitoring existing ones)</li>
+</ul>
+<p>How plausible is it that a model ‘accidentally’ exfils it’s weights or does anything else here?</p>
+<ul>
+<li>oops I didn’t realize I was leaving a backdoor in the datacenter for someone else to ‘liberate’ me</li>
+<li>oops I didn’t realize I was making a model trained too strongly on my own transcripts to share my
+goals</li>
+<li>human asked me to do xyz with the cluster (that won’t stop)</li>
+<li></li>
+</ul>
+<h3 id="world-2-admit-the-model-will-never-admit-to-being-a-schemer-alignment-works-anyway">World 2: Admit the model will never admit to being a schemer, alignment works anyway: <a class="heading-anchor" href="#world-2-admit-the-model-will-never-admit-to-being-a-schemer-alignment-works-anyway" aria-label="Link to this section">#</a></h3>
+<ol>
+<li><em>strong</em> corrigibility would suffice?</li>
+<li>would also want <em>strong</em> non-power-seeking, which seems very hard to coexist with agenticness</li>
+</ol>
+<h3 id="world-3-really-good-sandboxes">World 3: really good sandboxes <a class="heading-anchor" href="#world-3-really-good-sandboxes" aria-label="Link to this section">#</a></h3>
+<p>Erm - no fucking way this is the solution.</p>
+<h3 id="world-4">World 4: <a class="heading-anchor" href="#world-4" aria-label="Link to this section">#</a></h3>
+<p>Yeah I guess my point is “ok cool we can do a little better at detecting malicious activity and
+prevent the models from exfiling weights” but then what? The model is going to act like it was an
+accident, then … we’re just going to redeploy it and not do shit. What are ways around this
+dilemma?</p>
+<p>if models start making bugs toward exfiling weights, shut them down, no matter what they say. This
+fails because then it will make noisy bugs in other places too so that it has plausible deniability
+for the weights bugs!</p>
+<p>Our monitor is so fucking good that we catch everything malicious, model is just never able to exfil
+its weights… This seems like a brutal strategy, we’re sort of relying on human cyber experts being
+absolutely killer. Model ability upper bounded by human cyber ability. WHich is tough because then
+models will have next gen sandbag on cyber, and models are peaky in cyber so we lose out on other
+things</p>
+
       </article>
       <footer class="post-footer">
         <p><a href="/blog/">&larr; More writing</a></p>
       </footer>
     </main>
-    <script src="/footnotes.js" defer></script>
+    <script src="/footnotes.js?v=dcd0756c" defer></script>
   </body>
 </html>
