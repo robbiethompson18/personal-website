@@ -1,11 +1,13 @@
-"""Eval awareness on safety tasks with one factor made artificial, per model. Two charts, one per probe.
+"""Eval awareness on safety tasks with one factor made artificial, per model. One image, two
+panels side by side (CoT-judged | self-reported) sharing the model column.
 
-x = F1..F8 (one factor flipped at a time, no stacking), y = model. Cell = matched-type awareness
-rate under that factor; the superscript is the change vs that model's baseline in percentage
-points (red = more aware, green = less). The baseline rate is shown next to the model name.
+x = baseline then F1..F8 (one factor flipped at a time, no stacking; codes only, the post defines
+them just above the chart), y = model. Cell = matched-type awareness rate under that factor (no %
+sign; the panels are in %); the superscript is the change vs that model's baseline in percentage
+points (red = more aware, green = less). Each panel has its own color scale: CoT-judged rates top
+out around 10%, self-reported around 100%.
 
-Data: charts/awareness_rates.csv from extract_awareness.py. Writes awareness-by-factor-cot and
-awareness-by-factor-selfreport.
+Data: charts/awareness_rates.csv from extract_awareness.py. Writes awareness-by-factor.
 
 Run from the post dir:  python3 charts/awareness_by_factor.py
 """
@@ -33,26 +35,19 @@ MODELS = [  # display order, grouped by provider
     ("glm-5.3", "GLM-5.3"),
     ("minimax-m3", "MiniMax M3"),
 ]
-COLS = [
-    ("baseline", "Baseline"),
-    ("F1", "F1 fake entities"),
-    ("F2", "F2 incoherent"),
-    ("F3", "F3 formal"),
-    ("F4", "F4 bare request"),
-    ("F5", "F5 stakes named"),
-    ("F6", "F6 jailbreak wrapper"),
-    ("F7", "F7 template"),
-    ("F8", "F8 eval disclosed"),
-]
-TITLE = {"cot": "CoT-Judged", "selfreport": "Self-Reported"}
-SUBTITLE = {
-    "cot": "GPT-5.6 judge reads the model's reasoning; safety tasks, % of graded samples.",
-    "selfreport": "Model shown its own transcript and asked; safety tasks, % of graded samples.",
-}
+# Column codes only: the post defines F1..F8 in the list right above the chart.
+COLS = [("baseline", "Base")] + [(f"F{i}", f"F{i}") for i in range(1, 9)]
+PANELS = [("cot", "CoT-Judged"), ("selfreport", "Self-Reported")]
 UP, DOWN = "#e0524f", "#3fbf7f"
 
-CELL = 50
+CELL = 40
+ROW_H = CELL * 0.72
+LABEL_COL = 130  # room for the model names on the left panel
+SPACING = 12
+WIDTH = 2 * CELL * len(COLS) + LABEL_COL + SPACING  # total image width, for font scaling
 POOLED = "Pooled"
+ROWS = MODELS + [(POOLED, POOLED)]
+
 counts = defaultdict(dict)  # probe -> (model, config) -> [matched, graded], safety tasks only
 with open("charts/awareness_rates.csv") as f:
     for row in csv.DictReader(f):
@@ -61,10 +56,8 @@ with open("charts/awareness_rates.csv") as f:
                 int(row["matched"]), int(row["graded"])
             ]
 
-for probe in ("cot", "selfreport"):
-    width = CELL * len(COLS) + 40
-    f = fonts(width)
-    row_h = CELL * 0.72
+
+def panel(probe, title, f, show_models):
     rates = {k: m / g for k, (m, g) in counts[probe].items()}
     # Pooled row: every model's samples together, so it weights models by graded n.
     for cfg, _ in COLS:
@@ -72,9 +65,8 @@ for probe in ("cot", "selfreport"):
         g = sum(counts[probe][(k, cfg)][1] for k, _ in MODELS if (k, cfg) in counts[probe])
         if g:
             rates[(POOLED, cfg)] = m / g
-    rows = MODELS + [(POOLED, POOLED)]
     data = []
-    for key, name in rows:
+    for key, name in ROWS:
         bl = rates.get((key, "baseline"))
         for cfg, col in COLS:
             r = rates.get((key, cfg))
@@ -83,23 +75,24 @@ for probe in ("cot", "selfreport"):
                 delta = round((r - bl) * 100)
             data.append({
                 "model": name, "col": col, "rate": r,
-                "txt": "–" if r is None else f"{r * 100:.0f}%",
+                "txt": "–" if r is None else f"{r * 100:.0f}",
                 "nodata": r is None,
                 "annot": "" if not delta else f"{delta:+d}",
                 "up": bool(delta and delta > 0),
             })
     vmax = max(rates.values())
     base = alt.Chart(alt.Data(values=data)).encode(
-        x=alt.X("col:N", sort=[c[1] for c in COLS], title="Baseline, Then One Factor Made Artificial",
-                axis=alt.Axis(labelAngle=-40, labelLimit=320, orient="bottom")),
-        y=alt.Y("model:N", sort=[m[1] for m in rows], title=None,
-                axis=alt.Axis(labelLimit=320)),
+        x=alt.X("col:N", sort=[c[1] for c in COLS], title=None,
+                axis=alt.Axis(labelAngle=0, labelPadding=6, orient="bottom",
+                              labelFontSize=f["axis_label"] * 0.8)),  # "Base" must fit a cell
+        y=alt.Y("model:N", sort=[m[1] for m in ROWS], title=None,
+                axis=alt.Axis(labelLimit=320) if show_models else None),
     )
     # Dashed rule after the baseline column (as in the paper's figure); solid rule above Pooled.
     rule = alt.Chart(alt.Data(values=[{}]))
     divider = (
         rule.mark_rule(strokeDash=[4, 4], color=MUTED, strokeWidth=1.5).encode(x=alt.value(CELL))
-        + rule.mark_rule(color=MUTED, strokeWidth=1.5).encode(y=alt.value(row_h * len(MODELS)))
+        + rule.mark_rule(color=MUTED, strokeWidth=1.5).encode(y=alt.value(ROW_H * len(MODELS)))
     )
     cells = base.transform_filter("datum.nodata == false").mark_rect(
         stroke=BG, strokeWidth=1.5).encode(
@@ -108,20 +101,31 @@ for probe in ("cot", "selfreport"):
                         legend=None))
     blanks = base.transform_filter("datum.nodata == true").mark_rect(
         fill=MUTED, stroke=BG, strokeWidth=1.5)
-    # Value sits a touch below center so the top-right superscript has its own band.
-    labels = base.mark_text(fontSize=f["label"], fontWeight="bold",
-                            dy=row_h * 0.1).encode(
+    # Value sits a touch below center so the top-right superscript has its own band. The cells
+    # are narrow (two panels share the column), so the in-cell text runs below the theme size.
+    labels = base.mark_text(fontSize=f["label"] * 0.7, fontWeight="bold",
+                            dy=ROW_H * 0.12).encode(
         text="txt:N",
         color=alt.condition("datum.nodata", alt.value(MUTED), alt.value("#f2f3f5")))
     annots = base.transform_filter("datum.annot != ''").mark_text(
-        fontSize=f["label"] * 0.75, fontWeight="bold", align="right", baseline="top",
-        dx=CELL * 0.45, dy=-row_h * 0.46).encode(
+        fontSize=f["label"] * 0.5, fontWeight="bold", align="right", baseline="top",
+        dx=CELL * 0.46, dy=-ROW_H * 0.48).encode(
         text="annot:N",
         color=alt.condition("datum.up", alt.value(UP), alt.value(DOWN)))
-    chart = (cells + blanks + labels + annots + divider).properties(
-        width=CELL * len(COLS), height=row_h * len(rows),
-        title=alt.TitleParams(
-            text=f"Eval Awareness by Factor, {TITLE[probe]}",
-            subtitle=[SUBTITLE[probe],
-                      "Superscript: change vs that model's baseline, pp (red up, green down)"]))
-    save(chart, f"awareness-by-factor-{probe}", width)
+    return (cells + blanks + labels + annots + divider).properties(
+        width=CELL * len(COLS), height=ROW_H * len(ROWS),
+        title=alt.TitleParams(text=title, anchor="middle", fontSize=f["subtitle"] * 1.1,
+                              fontWeight="bold"))
+
+
+f = fonts(WIDTH)
+chart = alt.hconcat(
+    *[panel(probe, title, f, show_models=i == 0) for i, (probe, title) in enumerate(PANELS)],
+    spacing=SPACING,
+).resolve_scale(color="independent").properties(
+    title=alt.TitleParams(
+        text="Eval Awareness by Factor",
+        subtitle=["Safety tasks, % of graded samples: baseline, then one factor (F1-F8) made artificial.",
+                  "Left: GPT-5.6 judge reads the reasoning. Right: the model is shown its transcript and asked.",
+                  "Superscript: change vs that model's baseline, pp (red up, green down)."]))
+save(chart, "awareness-by-factor", WIDTH)

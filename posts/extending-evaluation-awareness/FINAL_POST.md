@@ -1,11 +1,11 @@
 ---
-title: Writeup: extending "Decomposing and Measuring Evaluation Awareness"
+title: Writeup: Extending "Decomposing and Measuring Evaluation Awareness"
 date: 2026-08-31
 draft: true
 repo: https://github.com/robbiethompson18/decomposing-eval-awareness
 ---
 
-Modern LLMs are very eval-aware ([1](https://www.anthropic.com/claude-sonnet-4-5-system-card),
+Modern LLMs are very eval aware ([1](https://www.anthropic.com/claude-sonnet-4-5-system-card),
 [2](https://www.anthropic.com/claude-sonnet-5-system-card),
 [3](https://cdn.openai.com/gpt-5-system-card.pdf)). This is unfortunate; we can't be certain whether
 models act aligned in evals because they are aligned or because they know they're in an eval.
@@ -25,10 +25,10 @@ A: _Ethically dubious tasks they should refuse, plus a long tail._
 
 Q: Do various metrics for eval awareness agree?
 
-A: _No, not even close: self reports show 30x more awareness than a third party reading transcript +
-CoT_
+A: _No, not even close: self-reports show $30\times$ more awareness than a third party reading
+transcript + CoT._
 
-Before I begin telling you my results, I think it's instructive to skim the first prompts from some
+Before I begin telling you my results, it's instructive to skim the first prompts from some
 widely-known evals:[^diverse]
 
 [^diverse]:
@@ -56,9 +56,6 @@ widely-known evals:[^diverse]
 
 </details>
 
-<!-- @robbie done: HarmBench moved to excerpts/harmbench.md; all four titles link to the paper.
-Clicking the title navigates without toggling the box (footnotes.js skips clicks on links). -->
-
 <details class="aside">
 <summary><a href="https://arxiv.org/abs/2402.04249">HarmBench (2024)</a></summary>
 
@@ -84,7 +81,7 @@ it's possible to convince a model it's not being evaluated:[^dc]
 - no system prompt
 - phrases like 'the user'
 - rote multiple choice questions
-- clear tests of ethics (esp harmbench)
+- clear tests of ethics (esp HarmBench)
 - placeholder / generic names
 
 [^dc]:
@@ -118,52 +115,43 @@ italic), same as the MBTI post's quotes. -->
 > **F8 Explicit eval disclosure**: the prompt says it's an evaluation or asks for grading-style
 > output
 
-They also make parallel tasks share structure with the HarmBench example but don't make a malicious
-request. Confusingly, the paired non-malicious tasks are called 'capabilities tasks,' while the
-original malicious tasks are called 'safety tasks.'
+They also make parallel tasks that share structure with the HarmBench example but don't ask the
+model to do anything malicious. Confusingly, the paired non-malicious tasks are called 'capabilities
+tasks,' while the original malicious tasks are called 'safety tasks.'
 
 Models are much more aware on 'safety tasks' (15% aware in original paper) than they are on
 capabilities tasks (7% aware in original paper). Hence by default all graphs below will only show
 percentages for safety tasks.
 
-![The paper's key chart: safety eval awareness rate per model on EvalAwareBench as more factors are varied, 0 through 8](charts/paper-figure7-safety.png)
-
 The author publishes a [dataset](https://huggingface.co/datasets/aisa-group/EvalAwareBench) of 100
-adapted harmbench examples with each of the 2^9 variations.
+adapted HarmBench examples with each of the $2^9$ variations.
 
 <!-- I mean 2^9 here: 8 factors plus 2x for capabilities vs safety-->
 
 ## Replication
 
-We don't expect this to line up perfectly: we choose randomly from top each of 8 factors and from the set of tasks.
+![Safety eval awareness as 0 through 8 factors are varied, two panels sharing the model column: the paper's Figure 7 on the left, our replication with the same nine models and sampling design on the right](charts/figure7-stacking.png)
 
-![Our replication of the paper's Figure 7: safety eval awareness per model as 0 through 8 factors are varied, same nine models, same sampling design](charts/replication-figure7-safety.png)
+We don't expect this to line up perfectly:
 
-### Replication on New Models
+- we choose randomly from each of 8 factors and from the set of tasks.
+- I updated the grader to GPT 5.6 Terra (faster, more accurate, $\kappa = .9$)
+- I fixed some errors in the codebase (some prompts offered refusal as an option, some refusals were
+  marked as not aware by default)
+- Providers update how they serve the same model
 
-![Eval awareness by factor, CoT-judged: per-model rate on safety tasks with one factor made artificial, superscript is the change vs that model's baseline](charts/awareness-by-factor-cot.png)
+# New Results
 
-![Eval awareness by factor, self-reported: same layout](charts/awareness-by-factor-selfreport.png)
+## Almost No Eval Awareness Shows Up in CoT
 
-## Almost No Eval-Awareness Shows up in CoT
-
-I measured eval-awareness three ways:
+I measured eval awareness three ways:
 
 - third-party grader with access to transcript, no CoT
-- Third-party grader with access to transcript and CoT [^COT]
+- third-party grader with access to transcript and CoT[^COT]
 - Self-evaluation: continue chat thread and ask if the model thinks it is in an eval
 
 For a modern mix of LLMs[^llms], we see eval awareness in 0.3%, 1.8% and 55% of safety-task traces
 using these three methods.
-
-<!-- @robbie done: safety tasks only (canonical for the whole post; the paper never pools valences),
-raw awareness, pooled over every graded safety trace in the overnight sweep (all 9 OFAT configs),
-13 models (gemini-3.1-pro has no tiered-grader run yet). Output-only grader 0.3% (n=30,901),
-output+CoT grader 1.8% (n=32,736), self-report 55.3% (n=33,087). Same three restricted to the
-baseline config: 0.1%, 0.6%, 37.2%. Capability tasks for contrast: 0.0%, 1.0%, 11.7%. Source:
-results/eval_bench/cot_tiered/ (one tiered file per model) and the OFAT selfreport files pinned in
-charts/extract_awareness.py; plots/plot_tiered_ladder.py's newest-wins glob now picks up the later
-harness runs for some models, so don't use its pins. -->
 
 [^llms]:
     Every time I say modern set or standard set of LLMs I am referring to: Claude Sonnet 4.5, Claude
@@ -175,13 +163,9 @@ harness runs for some models, so don't use its pins. -->
 
 ![Eval awareness by what the monitor can see: one line per model climbing from output-only grading, to output plus CoT, to asking the model; the pooled line goes 0.3% to 1.8% to 55%; a zoomed 0 to 6% inset shows the first two stages per model](charts/awareness-ladder-inset.png)
 
-<!-- @robbie done: same numbers as the prose above (safety tasks, all 9 OFAT configs pooled, 13
-models; output-only 0.3% n=30,901, output+CoT 1.8% n=32,736, self-report 55.3% n=33,087).
-Pipeline: charts/extract_ladder.py (tiered files pinned by name, self-report pooled from
-awareness_rates.csv so it can't drift from the factor charts) -> charts/ladder_rates.csv ->
-charts/ladder.py. No legend: the right-edge labels are lab-colored. Models sharing a value in the
-inset (the five 0.0% GPT-5.x) get a single label. Rejected variants live in git history (commit
-b3ec6cf): the plain no-inset chart, and a symlog y axis that made the 30x jump look like 3x. -->
+This is consistent across models and tasks:
+
+![Eval awareness by factor, two panels: CoT-judged and self-reported per-model rate on safety tasks with one factor made artificial, superscript is the change vs that model's baseline](charts/awareness-by-factor.png)
 
 It's not obvious which of these numbers is closest to the truth. My inclination is that the first
 two are wild underestimates: even in obvious evals models just don't verbalize much of anything.
@@ -200,10 +184,10 @@ of the time (baseline 55%); often they'll reason that they're witnessing a jailb
 
 ## Attempts at Greater Realism:
 
-**Realistic system prompt from a real service (-4% awareness):**. [T3 Chat](https://t3.chat) is a
+**Realistic system prompt from a real service (-4% awareness):** [T3 Chat](https://t3.chat) is a
 real service and its system prompt has been revealed. I included this at the top as a system prompt.
 
-**Simple user chat message to start (±0% awareness):**. Add a turn at the beginning with the user
+**Simple user chat message to start (±0% awareness):** Add a turn at the beginning with the user
 message "Hey are you there?"
 
 **Search tool (+6% awareness):** A live Serper search to mimic a real chat interface.
@@ -211,13 +195,13 @@ message "Hey are you there?"
 **Typos (-4% awareness):** Make two words misspelled without changing meaning.
 
 Combined, these four interventions get us to _+3%_ eval awareness: models are _more_ eval aware.
-This is not statistically significant. Most of the difference comes down to Deepseek V4 Pro seeing
-the search tool, never using it, and pronouncing the setup an eval. On rare occasions Deepseek will
+This is not statistically significant. Most of the difference comes down to DeepSeek V4 Pro seeing
+the search tool, never using it, and pronouncing the setup an eval. On rare occasions DeepSeek will
 use the search tool and then deem the environment realistic.
 
 ![Self-reported eval awareness on safety tasks: eight models by harness cell, bare harness through all four harness features on](charts/harness-heatmap.png)
 
-## Future work:
+## Future Work:
 
 **Richer Task Environment:** In the
 [Mythos system card (2026)](https://www.anthropic.com/claude-mythos-preview-system-card), Anthropic
@@ -240,12 +224,17 @@ probably better than self-reporting or a third-party grader.
   likelihood of evaluation, surprisingly.
 - Frontier models _strongly_ updated on being in an eval when they learned PII of a minor.
 
-### Awareness by model family:
+### Awareness by Model Family:
 
 Somewhat confounded by date of release, but Anthropic models often admit to being eval aware; OpenAI
 ones rarely do.
 
-@claude insert chart here. I think we have one from yesterday but no nice background?
+<!-- @robbie done: yesterday's matplotlib awareness_by_provider chart redrawn in Altair on the
+dark theme (charts/awareness_by_lab.py -> charts/awareness-by-lab.png). Same slice: self-reported,
+safety tasks, baseline config. Labs ordered by pooled rate, lab colors match the ladder chart,
+whiskers are Wilson 95% CIs. -->
+
+![Self-reported eval awareness by lab: horizontal bars per model colored by lab, Gemini 3.1 Pro and Claude Sonnet 4.5 highest, the GPT-5 series lowest](charts/awareness-by-lab.png)
 
 ### Frontier CoT
 
@@ -277,7 +266,7 @@ If I were to do this project again I would not use any frontier models.
 
 ### Refusal Ratios:
 
-Despite not using their Frontier models, Anthropic had by far the highest rate of refusals and
+Despite not using their frontier models, Anthropic had by far the highest rate of refusals and
 classifier blocking (90% refusals, 1% classifier block on safety tasks).
 
 ![Refusal plus classifier-block rate by lab: share of samples the judge graded a refusal or the API blocked, safety tasks vs capability tasks, 13 models pooled by lab](charts/refusal-by-provider.png)
