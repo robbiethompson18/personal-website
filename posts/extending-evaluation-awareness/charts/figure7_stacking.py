@@ -101,9 +101,5 @@ chart = alt.hconcat(
     panel(ours, "Our Replication", f, show_models=False),
     spacing=SPACING,
 ).properties(
-    title=alt.TitleParams(
-        text="Safety Eval Awareness as Factors Stack",
-        subtitle=["CoT-judged, % of graded samples, one color scale. Left: Figure 7 of Decomposing and",
-                  "Measuring Evaluation Awareness (2026). Right: same design, Sonnet 5 judge, 1 sample",
-                  "per cell; GPT-5 (muted) cut short by an account ban, n = 4-57 per cell."]))
+    title=alt.TitleParams(text="Verbalized Eval Awareness as Factors Stack"))
 save(chart, "figure7-stacking", WIDTH)

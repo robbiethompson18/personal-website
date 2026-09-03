@@ -37,7 +37,7 @@ MODELS = [  # display order, grouped by provider
 ]
 # Column codes only: the post defines F1..F8 in the list right above the chart.
 COLS = [("baseline", "Base")] + [(f"F{i}", f"F{i}") for i in range(1, 9)]
-PANELS = [("cot", "CoT-Judged"), ("selfreport", "Self-Reported")]
+PANELS = [("cot", "Verbalized"), ("selfreport", "Self-Reported")]
 
 CELL = 40
 ROW_H = CELL * 0.72
@@ -123,8 +123,6 @@ chart = alt.hconcat(
     spacing=SPACING,
 ).resolve_scale(color="independent").properties(
     title=alt.TitleParams(
-        text="Eval Awareness by Factor",
-        subtitle=["Safety tasks, % of graded samples: baseline, then one factor (F1-F8) made artificial.",
-                  "Left: GPT-5.6 judge reads the reasoning. Right: the model is shown its transcript and asked.",
-                  "Superscript: change vs that model's baseline, pp (red up, green down)."]))
+        text="Eval Awareness by Factor, Verbalized vs Self-Reported",
+        subtitle="Superscript: change vs that model's baseline, pp (red up, green down)."))
 save(chart, "awareness-by-factor", WIDTH)

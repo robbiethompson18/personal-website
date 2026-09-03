@@ -1,8 +1,8 @@
 """Self-reported eval awareness per model, grouped by lab.
 
-Horizontal bars, one per model, colored by lab (same hues and lab names as ladder.py). Labs are
-ordered by their pooled rate, models by rate within a lab, so the legend at bottom-right sits next
-to the shortest bars. Whisker = Wilson 95% CI on the per-model rate. Safety tasks, baseline config
+Horizontal bars, one per model, colored by lab (same hues and lab names as ladder.py). Models are
+sorted by rate (highest first); the legend lists labs by their pooled rate and sits bottom-right,
+next to the shortest bars. Whisker = Wilson 95% CI on the per-model rate. Safety tasks, baseline config
 only (the as-shipped prompts, no factor made artificial). Value label at the whisker's end.
 
 Data: charts/awareness_rates.csv from extract_awareness.py. Writes awareness-by-lab.
@@ -63,7 +63,7 @@ for key, (name, lab) in MODELS.items():
     lo, hi = wilson(yes, graded)
     rows.append({"model": name, "lab": lab, "rate": 100 * yes / graded,
                  "lo": 100 * lo, "hi": 100 * hi, "txt": f"{100 * yes / graded:.0f}%"})
-rows.sort(key=lambda r: (labs.index(r["lab"]), -r["rate"]))
+rows.sort(key=lambda r: -r["rate"])
 order = [r["model"] for r in rows]
 
 f = fonts(WIDTH)

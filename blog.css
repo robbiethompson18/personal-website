@@ -313,6 +313,12 @@ th {
   background: #21262f;
 }
 
+/* Inside an aside the page-grey header band clashes with the violet body rows;
+   mix the header out of the same aside violet, one step lighter than the box. */
+details.aside th {
+  background: color-mix(in srgb, var(--aside) 30%, var(--bg));
+}
+
 /* --- post chrome --- */
 
 .post-meta {
