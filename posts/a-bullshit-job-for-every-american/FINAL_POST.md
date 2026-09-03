@@ -137,7 +137,8 @@ economic ones.
 
 It is an excellent intuition pump for this class of problems.
 
-Credit to David Graeber’s book _Bullshit Jobs_(@Claude add goodreads link) for coining the term,
+Credit to David Graeber’s book
+[_Bullshit Jobs_](https://www.goodreads.com/book/show/34466958-bullshit-jobs) for coining the term,
 though that book was longer than it needed to be.
 
 [^1]:
