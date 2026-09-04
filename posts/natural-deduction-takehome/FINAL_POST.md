@@ -218,8 +218,8 @@ over three rounds (+7); retraining goes 65 → 115 → 134 (+69).
 ## Harvesting Loop:
 
 We solved 25% of L7 loops having never seen an L7 loop. Three rounds of expert iteration later, with
-50% of our datamix the new proofs we solved (not filtered to L7), we reached 10% on the whole pool
-of RL problems.
+50% of our datamix the new proofs we solved (not filtered to L7), we reached 14.5% on the whole
+RL-target pool, up from 4.5%. On the transfer pool we never sampled, 4.9% → 10.4%.
 
 We pre-trained a NoPE and RoPE transformer, harvested all of the RL problems they solved, and from
 that point on did expert iteration only on the NoPE pretrain, killing the RoPE model.
