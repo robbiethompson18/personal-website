@@ -46,8 +46,17 @@ title:    Post Title        # required
 date:     2026-06-30        # required; sorts the index, sets the RSS pubDate
 draft:    true              # optional; renders at its URL but stays out of index + feed
 rating:   5                 # optional; 1-5, shown as stars next to the date on the index (default 3)
+repo:     https://…         # optional; renders a GitHub link inline with the dates
+source:   ../other/x.md     # optional; upstream file for `node sync-post.js <slug>` (see below)
 ---
 ```
+
+**Posts sourced from another repo.** A post whose text lives in another repo (e.g.
+`natural-deduction-takehome` ← `../nd-takehome/writeup.md`) gets a `source:` frontmatter line, and
+`node sync-post.js <slug>` copies that file's body in, preserving the frontmatter. It is **not**
+part of the build — run it by hand when upstream changes. It overwrites the body, so any blog-side
+edits are lost; `git diff` afterwards is the safety net. Prettier adds a blank line before headings,
+so the synced copy differs from upstream by whitespace only — that's stable, not churn.
 
 **No subtitles.** The builder doesn't support them and Robbie doesn't like them — don't add a
 subtitle anywhere (posts, Substack drafts).
