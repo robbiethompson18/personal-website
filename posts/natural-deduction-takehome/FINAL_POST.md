@@ -4,8 +4,6 @@ date: 2026-09-03
 source: ../nd-takehome/writeup.md
 ---
 
-Robbie's file, don't edit without human permission.
-
 ## Executive Summary:
 
 1. We created a generator that provided ~150k unique theorems. Theorems generatored _backwards_, eg

@@ -12,8 +12,7 @@
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/natural-deduction-takehome/</guid>
       <pubDate>Thu, 03 Sep 2026 12:00:00 GMT</pubDate>
       <description></description>
-      <content:encoded><![CDATA[<p>Robbie’s file, don’t edit without human permission.</p>
-<h2 id="executive-summary">Executive Summary: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#executive-summary" aria-label="Link to this section">#</a></h2>
+      <content:encoded><![CDATA[<h2 id="executive-summary">Executive Summary: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#executive-summary" aria-label="Link to this section">#</a></h2>
 <ol>
 <li>We created a generator that provided ~150k unique theorems. Theorems generatored <em>backwards</em>, eg
 by starting with conclusion and generating steps / premises.</li>
