@@ -40,6 +40,10 @@ maybe slightly better.</li>
 <li>We were able to prove 5% of length 7-16 theorems in RL target pool on the first try!</li>
 <li>We ran 3 rounds of expert iteration and had proven a total of 62 / 78 / 91 theorems of length &gt;6
 after each round.</li>
+<li>Test set, run once, greedy: Stage-1 model 45.3% on <code>test_short</code> (121/267, 95% CI 39.5-51.3) and
+4.5% on <code>test_long</code> (24/532, CI 3.1-6.6); final model (round 3) 47.6% (127/267, CI 41.7-53.5) and
+4.3% (23/532, CI 2.9-6.4). The differences are inside the intervals: expert iteration did not
+move the test numbers.</li>
 </ol>
 <h2 id="decoder">Decoder: <a class="heading-anchor" href="#decoder" aria-label="Link to this section">#</a></h2>
 <p>We wanted to avoid the problem of learning an entirely new token (N7) to generate length 7 proofs,
