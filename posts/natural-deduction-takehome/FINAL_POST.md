@@ -1,7 +1,6 @@
 ---
 title: Natural Deduction Takehome
 date: 2026-09-03
-draft: true
 source: ../nd-takehome/writeup.md
 ---
 
@@ -21,7 +20,7 @@ Robbie's file, don't edit without human permission.
 5. We trained a very vanilla transformer. NoPE and RoPE roughly equally performant, with NoPE before
    maybe slightly better.
 6. We were able to prove 5% of length 7-16 theorems in RL target pool on the first try!
-7. We ran n rounds of expert iteration and proved 97, 23, and 15 new theorems of length >6 each
+7. We ran 3 rounds of expert iteration and proved 97, 23, and 15 new theorems of length >6 each
    round.
 
 ## Decoder:
@@ -104,8 +103,6 @@ Check: 0 dead lines in 37,748 generated lines (cap-6 sample) and 0 in the two 7-
 6. Same theorem is implemented as a `key` string per record.
 
 ## Generated data, train / held-out split:
-
-@ caldues yours to gix.
 
 | proof len | train   | held-out | trivial % (train) | body tokens, median (train) |
 | --------- | ------- | -------- | ----------------- | --------------------------- |

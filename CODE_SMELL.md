@@ -35,3 +35,11 @@ says nothing about line charts, which have neither's shape — a 15-point series
 whitespace, at 200 it's a squashed ribbon. `posts/natural-deduction-takehome/charts/` picked 300 for
 both of its line charts, unblessed. Add a line-chart height to the skill so the next agent doesn't
 re-invent one.
+
+Sep 3, 2026: `npm run dev` sets DEV=true, which makes build.js emit `/blog/drafts/` instead of
+`/blog/` for every post's back-link (build.js `blogHref`). Since blog/ is committed build output,
+any commit taken while the dev server has rebuilt will silently repoint all ~36 published posts' "←
+Blog" links at the drafts index on the live site. Caught once during a ship (36 dirty index.html,
+each a one-line back-link change) and fixed by running `npm run build` before committing. Either
+make ship always prod-build first, have lint.sh fail when a committed blog/*.html contains
+`/blog/drafts/` in a post back-link, or stop letting DEV touch committed output.

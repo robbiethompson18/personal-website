@@ -7,6 +7,511 @@
     <description>Essays by Robbie Thompson.</description>
     <language>en</language>
     <item>
+      <title>Natural Deduction Takehome</title>
+      <link>https://robbiewmthompson.com/blog/natural-deduction-takehome/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/natural-deduction-takehome/</guid>
+      <pubDate>Thu, 03 Sep 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>Robbie’s file, don’t edit without human permission.</p>
+<h2 id="executive-summary">Executive Summary: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#executive-summary" aria-label="Link to this section">#</a></h2>
+<ol>
+<li>We created a generator that provided ~150k unique theorems. Theorems generatored <em>backwards</em>, eg
+by starting with conclusion and generating steps / premises.</li>
+<li>We omit line number tokens entirely from our vocabularly (possibly cheating, you should look). We
+also omit PR lines.</li>
+<li>We created a notion of canonicalization of proofs and sequents that I am happy with: canonical
+atom order, reject theorems with unused precedents, prune dead lines, dedupe if only differences
+is precedent order. Certainly some duplication remains (eg P^Q not deduped from Q^P).</li>
+<li>We augmented our data with extra depth-two boxes because this did not show up much in our
+original generator configuration.</li>
+<li>We trained a very vanilla transformer. NoPE and RoPE roughly equally performant, with NoPE before
+maybe slightly better.</li>
+<li>We were able to prove 5% of length 7-16 theorems in RL target pool on the first try!</li>
+<li>We ran 3 rounds of expert iteration and proved 97, 23, and 15 new theorems of length &gt;6 each
+round.</li>
+</ol>
+<h2 id="decoder">Decoder: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#decoder" aria-label="Link to this section">#</a></h2>
+<p>We wanted to avoid the problem of learning an entirely new token (N7) to generate length 7 proofs,
+and of using relative line references. (We would still be stuck with referencing 7 lines prior if
+one goes this route.)</p>
+<p>We entirely omit line number tokens from our vocabulary. If a line depends on a previous statement,
+the decoder searches backwards in scope and adds the line number reference automatically. If it
+doesn’t exist, we fill in that line’s own index, and verifier fails. Possibly this is deemed
+cheating. I don’t think so. Things that require a slight change in format (Claude):</p>
+<ul>
+<li>ANDE1 deriving G: cites some ( G &amp; X ). X is not determined by G. So the model writes the
+conjunction: Q : ANDE1 ( Q &amp; R ).</li>
+<li>ANDE2: same, other side.</li>
+<li>IMPE deriving G: cites ( X &gt; G ) and X. Once you know the implication, X is determined, so the
+model writes just the implication: Q : IMPE ( P &gt; Q ). The decoder then knows to also find a line
+P.</li>
+<li>NEGE deriving F: cites A and ( ~ A ). F says nothing about A. Model writes the negation: F : NEGE
+( ~ P ). The decoder also finds P.</li>
+<li>ORE deriving G: cites ( A v B ) plus a box assuming A ending in G plus a box assuming B ending in
+G. Model writes the disjunction: Q : ORE ( P v Q ). Both boxes are then determined by A, B, G.</li>
+</ul>
+<p>(Every other rules cites nothing).</p>
+<p>One other gotcha: R is a noun and a verb. We changed the verb to REIT.</p>
+<h2 id="proof-generator">Proof Generator: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#proof-generator" aria-label="Link to this section">#</a></h2>
+<p>We go backwards. First definitions:</p>
+<p><strong>forwards</strong>: Generate random premises. Generate random next statements from those premises.
+Eventually just stop, you have some final line that can be your sequent. Bad because:</p>
+<ul>
+<li>you generate lots of dead lines</li>
+<li>you probably don’t do much boxing that’s helpful</li>
+</ul>
+<p><strong>backward</strong> Generate a random sequent. Randomly pick a rule that generates that sequent. Say:</p>
+<ul>
+<li>Goal = R</li>
+<li>rng IMPE to get there. Needs (X &gt; R). Pick X=Q.
+<ul>
+<li>Goal = q…</li>
+</ul>
+</li>
+</ul>
+<p>Backward is away more annoying to code, but Claude was chomping at the bit to do it, so I let him.</p>
+<p>I do not understand this code deeply; Claude hardcoded many transition probabilities with bespoke
+numbers to try to generate diverse proofs that roughly matched the reference proofs. Never tuned.</p>
+<p>Leanness constraints, enforced by construction or by throwing the sample away and resampling:</p>
+<ul>
+<li>Eliminations only start from a premise or a box hypothesis, never from something an introduction
+rule just built. This is Prawitz normal form: no “build <code>( A &amp; B )</code> then immediately take <code>A</code> back
+out” detours.</li>
+<li>A goal never equals one of its own ancestor goals (kills “prove Q by proving <code>( Q &amp; X )</code> by
+proving Q”).</li>
+<li>A formula is never derived twice in the same scope; the second time it is cited.</li>
+<li>Every premise is cited somewhere. A premise that duplicates a box hypothesis is rejected, because
+the decoder cites the hypothesis and the premise would hang loose.</li>
+<li>NEGI and ORE boxes must use their hypothesis. IMPI boxes may be vacuous 15% of the time, since
+<code>Q ⊢ ( P &gt; Q )</code> is a legitimate theorem.</li>
+<li><code>REIT</code> appears only where Fitch forces it: a box whose goal was already in scope, or a conclusion
+that is literally a premise (capped at 1% of a length bucket).</li>
+</ul>
+<p>Not enforced: minimality. A generated 12-line proof may have a 7-line proof by a different route, so
+a theorem’s generating length is an upper bound on its shortest proof, not a difficulty label.</p>
+<p>Check: 0 dead lines in 37,748 generated lines (cap-6 sample) and 0 in the two 7-16 line pools
+(20,776 lines), via <code>prune.py</code>.</p>
+<h2 id="canonicalization">Canonicalization: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#canonicalization" aria-label="Link to this section">#</a></h2>
+<ol>
+<li>Rename atoms by first occurence.</li>
+<li>For model’s proofs, dead lines of logic pruned. This isn’t an issue for code-generated proofs by
+construction. 7% of model-written proofs of length &gt;6 were pruned.</li>
+<li>If the only difference is reordering of precedents we count this as the same sequent.</li>
+<li>We could very well have spiritually-duped <em>theorems</em> themselves, eg same sequent, just different
+ordering in ands and ors. This is OK.</li>
+<li>We reject theorems with unused precedents at generation time.</li>
+<li>Same theorem is implemented as a <code>key</code> string per record.</li>
+</ol>
+<h2 id="generated-data-train-held-out-split">Generated data, train / held-out split: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#generated-data-train-held-out-split" aria-label="Link to this section">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>proof len</th>
+<th>train</th>
+<th>held-out</th>
+<th>trivial % (train)</th>
+<th>body tokens, median (train)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>7,169</td>
+<td>400</td>
+<td>8.4</td>
+<td>30</td>
+</tr>
+<tr>
+<td>3</td>
+<td>16,813</td>
+<td>400</td>
+<td>0.0</td>
+<td>38</td>
+</tr>
+<tr>
+<td>4</td>
+<td>39,536</td>
+<td>408</td>
+<td>0.1</td>
+<td>38</td>
+</tr>
+<tr>
+<td>5</td>
+<td>39,743</td>
+<td>426</td>
+<td>0.1</td>
+<td>47</td>
+</tr>
+<tr>
+<td>6</td>
+<td>40,885</td>
+<td>477</td>
+<td>0.1</td>
+<td>50</td>
+</tr>
+<tr>
+<td>total</td>
+<td>144,146</td>
+<td>2,111</td>
+<td>0.5</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Quota was 40k per length; lengths 2 and 3 saturate (the generator runs out of distinct theorems),
+so the set is not flat over length. Held-out is a fixed 400 per length.</li>
+<li>Every record has a <code>key</code>: the theorem with atom renaming and premise order folded. The sampler
+drops any theorem whose key it has already emitted, so the dataset has no duplicate theorems, and
+the train / held-out split is by key, so 0 held-out theorems are a renaming or reordering of a
+training theorem.</li>
+<li>Body tokens = model-facing compact tokens after the prompt, <code>QED</code> included.</li>
+</ul>
+<p>How do we have 7k 2 line proofs? This was weird to me. They look like this:</p>
+<pre><code>( ( ¬P ) ∧ ( ( Q → R ) ∨ ( ¬Q ) ) )  ⊢  ( ( Q → R ) ∨ ( ¬Q ) )
+
+N1   ( ( ¬P ) ∧ ( ( Q → R ) ∨ ( ¬Q ) ) )
+N2   ( ( Q → R ) ∨ ( ¬Q ) )
+</code></pre>
+<h2 id="data-augmentation">Data Augmentation: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#data-augmentation" aria-label="Link to this section">#</a></h2>
+<p>We had basically no nested boxes. Claude changed some parameters to add more. This barely moved the
+needle on any imporant metric.</p>
+<h2 id="architecture">Architecture <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#architecture" aria-label="Link to this section">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>knob</th>
+<th>value</th>
+<th>why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>layers</td>
+<td>4</td>
+<td>matches the reference (3.3M); depth is what does the sequential box bookkeeping</td>
+</tr>
+<tr>
+<td>d_model</td>
+<td>256</td>
+<td></td>
+</tr>
+<tr>
+<td>heads</td>
+<td>4 (head_dim 64)</td>
+<td></td>
+</tr>
+<tr>
+<td>MLP</td>
+<td>4× = 1024, GELU</td>
+<td>boring</td>
+</tr>
+<tr>
+<td>norm</td>
+<td>pre-norm RMSNorm, no biases</td>
+<td></td>
+</tr>
+<tr>
+<td>positional</td>
+<td>NoPE and RoPE</td>
+<td></td>
+</tr>
+<tr>
+<td>context</td>
+<td>512</td>
+<td>pure buffer size; costs 0 params</td>
+</tr>
+<tr>
+<td>vocab</td>
+<td>34 (33 real)</td>
+<td></td>
+</tr>
+<tr>
+<td>tied embeddings</td>
+<td>untied</td>
+<td></td>
+</tr>
+<tr>
+<td>dropout</td>
+<td>0.0</td>
+<td>data is free, don’t repeat it</td>
+</tr>
+<tr>
+<td>params</td>
+<td>3.16M</td>
+<td>4 × (4d² attn + 8d² mlp) = 3.15M + embeddings</td>
+</tr>
+<tr>
+<td>optimizer</td>
+<td>AdamW, lr 1e-3, β (0.9, 0.95), wd 0.1</td>
+<td>200 warmup steps then cosine decay; grad clip 1.0; batch 1024 × 6k steps ≈ 43 epochs; loss on proof body only</td>
+</tr>
+</tbody>
+</table>
+<h2 id="gpus">GPUs: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#gpus" aria-label="Link to this section">#</a></h2>
+<p>Just used Runpod H100s, cost me &lt;$10</p>
+<h2 id="solve-rate-for-pretrain-only-model">Solve Rate For Pretrain-Only Model <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#solve-rate-for-pretrain-only-model" aria-label="Link to this section">#</a></h2>
+<p>Greedy decoding, pass @ 1.</p>
+<p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/solve-by-length.png" alt="Greedy solve rate against proof length: ~99% through length 6, then collapsing to 25% at 7, 2% at
+8, and exactly 0 from 9 on"></p>
+<p>Lengths 2-6 start from the held-out split (400 theorems each); 7-16 from the RL-target and transfer
+pools (200 each, 61 at length 16). A solved theorem is filed under
+<code>min(generating length, length the model wrote)</code> — proving a “14-line” theorem in five lines is
+evidence the theorem was a five-liner, not that the model wrote a 14-line proof. Whisker is a Wilson
+95% interval.</p>
+<h2 id="rl-data">RL data <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#rl-data" aria-label="Link to this section">#</a></h2>
+<p>Greedy, one attempt per theorem. <code>proof len</code> is the generating length, which past 8 is an upper
+bound rather than a difficulty (see graph 6). RL targets are the theorems expert iteration sampled
+against; transfer is the pool it never saw.</p>
+<p><strong>RL targets</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">proof len</th>
+<th style="text-align:right">n</th>
+<th>% solved, pretrain-only (Wilson)</th>
+<th>% solved, 3 rounds EI (Wilson)</th>
+<th style="text-align:right">num solved, pretrain</th>
+<th style="text-align:right">num solved, 3 rounds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">7</td>
+<td style="text-align:right">100</td>
+<td>25.0% [17.5, 34.3]</td>
+<td>69.0% [59.4, 77.2]</td>
+<td style="text-align:right">25</td>
+<td style="text-align:right">69</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:right">100</td>
+<td>9.0% [ 4.8, 16.2]</td>
+<td>25.0% [17.5, 34.3]</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">25</td>
+</tr>
+<tr>
+<td style="text-align:right">9</td>
+<td style="text-align:right">100</td>
+<td>2.0% [ 0.6, 7.0]</td>
+<td>10.0% [ 5.5, 17.4]</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">10</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td style="text-align:right">100</td>
+<td>0.0% [ 0.0, 3.7]</td>
+<td>4.0% [ 1.6, 9.8]</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td style="text-align:right">11</td>
+<td style="text-align:right">100</td>
+<td>2.0% [ 0.6, 7.0]</td>
+<td>4.0% [ 1.6, 9.8]</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td style="text-align:right">100</td>
+<td>0.0% [ 0.0, 3.7]</td>
+<td>2.0% [ 0.6, 7.0]</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td style="text-align:right">13</td>
+<td style="text-align:right">100</td>
+<td>0.0% [ 0.0, 3.7]</td>
+<td>3.0% [ 1.0, 8.5]</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:right">14</td>
+<td style="text-align:right">100</td>
+<td>2.0% [ 0.6, 7.0]</td>
+<td>7.0% [ 3.4, 13.7]</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td style="text-align:right">15</td>
+<td style="text-align:right">100</td>
+<td>1.0% [ 0.2, 5.4]</td>
+<td>9.0% [ 4.8, 16.2]</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">9</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td style="text-align:right">30</td>
+<td>3.3% [ 0.6, 16.7]</td>
+<td>6.7% [ 1.8, 21.3]</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>total</strong></td>
+<td style="text-align:right"><strong>930</strong></td>
+<td><strong>4.5% [3.4, 6.0]</strong></td>
+<td><strong>14.5% [12.4, 16.9]</strong></td>
+<td style="text-align:right"><strong>42</strong></td>
+<td style="text-align:right"><strong>135</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Transfer</strong> (never sampled, never trained on)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">proof len</th>
+<th style="text-align:right">n</th>
+<th>% solved, pretrain-only (Wilson)</th>
+<th>% solved, 3 rounds EI (Wilson)</th>
+<th style="text-align:right">num solved, pretrain</th>
+<th style="text-align:right">num solved, 3 rounds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">7</td>
+<td style="text-align:right">100</td>
+<td>25.0% [17.5, 34.3]</td>
+<td>46.0% [36.6, 55.7]</td>
+<td style="text-align:right">25</td>
+<td style="text-align:right">46</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:right">100</td>
+<td>11.0% [ 6.3, 18.6]</td>
+<td>20.0% [13.3, 28.9]</td>
+<td style="text-align:right">11</td>
+<td style="text-align:right">20</td>
+</tr>
+<tr>
+<td style="text-align:right">9</td>
+<td style="text-align:right">100</td>
+<td>4.0% [ 1.6, 9.8]</td>
+<td>6.0% [ 2.8, 12.5]</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">6</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td style="text-align:right">100</td>
+<td>4.0% [ 1.6, 9.8]</td>
+<td>7.0% [ 3.4, 13.7]</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">7</td>
+</tr>
+<tr>
+<td style="text-align:right">11</td>
+<td style="text-align:right">100</td>
+<td>0.0% [ 0.0, 3.7]</td>
+<td>2.0% [ 0.6, 7.0]</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td style="text-align:right">100</td>
+<td>0.0% [ 0.0, 3.7]</td>
+<td>3.0% [ 1.0, 8.5]</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:right">13</td>
+<td style="text-align:right">100</td>
+<td>0.0% [ 0.0, 3.7]</td>
+<td>1.0% [ 0.2, 5.4]</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1</td>
+</tr>
+<tr>
+<td style="text-align:right">14</td>
+<td style="text-align:right">100</td>
+<td>1.0% [ 0.2, 5.4]</td>
+<td>5.0% [ 2.2, 11.2]</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td style="text-align:right">15</td>
+<td style="text-align:right">100</td>
+<td>0.0% [ 0.0, 3.7]</td>
+<td>4.0% [ 1.6, 9.8]</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">4</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td style="text-align:right">31</td>
+<td>3.2% [ 0.6, 16.2]</td>
+<td>9.7% [ 3.3, 24.9]</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>total</strong></td>
+<td style="text-align:right"><strong>931</strong></td>
+<td><strong>4.9% [3.7, 6.5]</strong></td>
+<td><strong>10.4% [8.6, 12.5]</strong></td>
+<td style="text-align:right"><strong>46</strong></td>
+<td style="text-align:right"><strong>97</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Transfer improving at all is the load-bearing result: 4.9% → 10.4% is 5.5pp against a ~1.3pp
+standard error, so the gain is not memorisation of the 134 theorems we harvested proofs from. The
+frozen model given the same total attempt budget instead of retraining goes 75 → 79 → 82 theorems
+over three rounds (+7); retraining goes 65 → 115 → 134 (+69).</p>
+<h2 id="harvesting-loop">Harvesting Loop: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#harvesting-loop" aria-label="Link to this section">#</a></h2>
+<p>We solved 5% of L7 loops having never seen an L7 loop. One round of expert iteration later, with 50%
+of our datamix the new proofs we solved (not filtered to L7), we reached 10% on L7 and solved 4 L8
+proofs.</p>
+<p>We pre-trained a NoPE and RoPE transformer, harvested all of the RL problems they solved, and from
+that point on did expert iteration only on the NoPE pretrain, killing the RoPE model.</p>
+<p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/harvest-loop.png" alt="Verified proofs written at 7 and 8 lines across four stages, on the RL targets the loop trained
+against and on the transfer pool it never sampled; both rise, and no round ever produces a 9-line
+proof"></p>
+<p>The robust frontier — the longest length with ≥5 distinct verified proofs, pruned — is <strong>7 for the
+pretrain-only model and 8 after expert iteration</strong>, on both pools. So L − P = 1. Round 1 already
+clears the bar on RL targets but lands on 4 distinct L8 proofs on transfer, one short; round 2
+clears it on both.</p>
+<p>The L9 column is the interesting one. <strong>The model has never written a nine-line proof</strong>, in any
+round, on either pool.</p>
+<h2 id="graphs">Graphs <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#graphs" aria-label="Link to this section">#</a></h2>
+<p>Two models throughout: NoPE (no positional encoding at all) and RoPE. 3.16M params each, same data,
+6k steps.</p>
+<h3 id="1-rule-occurrences">1. Rule occurrences <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#1-rule-occurrences" aria-label="Link to this section">#</a></h3>
+<p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/rule-use.png" alt="Share of training proofs using each inference rule, with IMPI, ORE and NEGI highlighted as the
+rules that open a subproof"></p>
+<h3 id="3-loss-over-epochs">3. Loss over epochs <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#3-loss-over-epochs" aria-label="Link to this section">#</a></h3>
+<p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/loss-curves.png" alt="Train and held-out cross-entropy loss per epoch on a log axis, falling from 1.0 to 0.002 and never
+turning up"></p>
+<h3 id="4-solve-rate-over-epochs">4. Solve rate over epochs <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#4-solve-rate-over-epochs" aria-label="Link to this section">#</a></h3>
+<p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/solve-curve.png" alt="Held-out greedy solve rate against epochs, rising to ~99.5% by epoch 15 and flat
+after"></p>
+<h3 id="5-error-breakdown-past-the-cap">5. Error breakdown past the cap <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#5-error-breakdown-past-the-cap" aria-label="Link to this section">#</a></h3>
+<p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/error-breakdown.png" alt="Verifier rejection reasons on the 7-16 line pools, dominated by bad line
+cite"></p>
+<h3 id="6-the-model-finds-much-shorter-proofs-than-our-generator">6. The Model Finds Much Shorter Proofs Than Our Generator <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#6-the-model-finds-much-shorter-proofs-than-our-generator" aria-label="Link to this section">#</a></h3>
+<p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/label-inflation.png" alt="Generating length against the length the model actually wrote, for every solved target: all
+points sit far below the diagonal past 8 lines"></p>
+<p>The usual shape: a premise like <code>( ( P &amp; Q ) &gt; S ) &amp; ( P &amp; Q )</code> carries an implication and its own
+antecedent, so two ANDE and one IMPE finish it in six lines whatever the generator did. Or a premise
+contradicts something derivable in two steps, and ex falso reaches any conclusion at all.</p>
+]]></content:encoded>
+    </item>
+    <item>
       <title>Writeup: Extending &quot;Decomposing and Measuring Evaluation Awareness&quot; (Li et al. 2026)</title>
       <link>https://robbiewmthompson.com/blog/extending-evaluation-awareness/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/extending-evaluation-awareness/</guid>
