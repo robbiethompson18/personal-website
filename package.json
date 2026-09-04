@@ -8,7 +8,7 @@
     "charts": "node render-charts.js && node build.js",
     "export": "node export.js",
     "watch": "DEV=1 node --watch-path=./posts --watch-path=./blog.css --watch-path=./footnotes.js build.js",
-    "dev": "trap 'kill 0' EXIT; DEV=1 node --watch-path=./posts --watch-path=./blog.css --watch-path=./footnotes.js build.js & node render-charts.js --watch & python3 -m http.server 7000"
+    "dev": "trap 'kill 0' EXIT; DEV=1 node --watch-path=./posts --watch-path=./blog.css --watch-path=./footnotes.js build.js & node render-charts.js --watch & python3 -m http.server 7000 --directory .dev"
   },
   "devDependencies": {
     "@vscode/markdown-it-katex": "^1.1.2",

@@ -27,8 +27,11 @@ Static site built by `build.js` (`npm run build`). Source lives in `posts/`, gen
 `blog/` (committed — GitHub Pages serves the repo root). The landing page is `index.html` +
 `style.css`; blog pages use `blog.css` + `footnotes.js`.
 
-**Local dev:** `npm run dev` watches `posts/` (rebuild on save) and serves the repo root on
-port 7000. Caddy proxies it at http://robbiewmthompson.localhost/. Ctrl-C stops both.
+**Local dev:** `npm run dev` watches `posts/` (rebuild on save) and serves `.dev/` on port 7000.
+Caddy proxies it at http://robbiewmthompson.localhost/. Ctrl-C stops both. `DEV=1` builds into
+`.dev/` (gitignored) rather than the committed `blog/`, because DEV rewrites every post's back-link
+to `/blog/drafts/` and the watcher rebuilds all posts on any `posts/` change — see CODE_SMELL.
+Run `git config core.hooksPath hooks` once per clone to enable the pre-commit backstop.
 
 **One convention, no exceptions:** every post is a folder `posts/<slug>/` containing a
 `FINAL_POST.md`. The builder renders that file to `/blog/<slug>/`. Everything else in the folder is

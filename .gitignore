@@ -1,3 +1,6 @@
 node_modules/
 __pycache__/
 export/
+
+# DEV=1 builds land here so the watcher never rewrites the committed blog/ output
+.dev/

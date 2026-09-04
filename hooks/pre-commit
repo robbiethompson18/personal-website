@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Refuse to commit build output carrying DEV=1's /blog/drafts/ back-links.
+#
+# `npm run dev` runs build.js with DEV=1, which rewrites every post's "back to blog"
+# link to /blog/drafts/ and rebuilds ALL posts on any change under posts/. Since the
+# DEV fix that output goes to .dev/, but this stays as the backstop: it is the bug
+# that shipped three times, and it silently repoints every published post.
+#
+# blog/drafts/index.html is the drafts index itself and legitimately contains the
+# string, so it is exempt.
+#
+# Enabled per clone with:  git config core.hooksPath hooks
+set -euo pipefail
+
+bad=$(git diff --cached --name-only --diff-filter=ACM \
+      | grep -E '^blog/.*index\.html$' \
+      | grep -v '^blog/drafts/index\.html$' \
+      | while read -r f; do
+          git show ":$f" | grep -q '/blog/drafts/' && echo "$f"
+        done || true)
+
+if [ -n "$bad" ]; then
+  echo "pre-commit: staged build output has DEV=1 back-links (/blog/drafts/):" >&2
+  echo "$bad" | sed 's/^/  /' >&2
+  echo >&2
+  echo "Rebuild in prod mode and re-stage:" >&2
+  echo "  npm run build && git add blog feed.xml" >&2
+  exit 1
+fi

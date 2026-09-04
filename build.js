@@ -8,7 +8,7 @@
 //   ---
 //   <markdown body, with [^1] style footnotes>
 
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmdirSync, copyFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmdirSync, copyFileSync, existsSync, symlinkSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
 import MarkdownIt from "markdown-it";
@@ -20,6 +20,14 @@ import { SITE, liveAssetUrl } from "./site.js";
 // Set by `npm run dev`/`watch` so post pages link back to the drafts index
 // locally, where you actually want to land on the thing you're editing.
 const DEV = !!process.env.DEV;
+
+// A DEV build writes to .dev/ (gitignored), never to the committed blog/ and
+// feed.xml. It has to: DEV rewrites every post's back-link to /blog/drafts/, and
+// the watcher rebuilds ALL posts on any change under posts/, so a dev session left
+// running would otherwise scribble drafts-links across the tracked build output and
+// the next `git add blog/` would ship them site-wide. That happened three times.
+// `npm run dev` serves .dev/ as its docroot; linkDevRoot() fills it in.
+const OUT = DEV ? ".dev" : ".";
 
 const md = new MarkdownIt({ html: true, linkify: true, typographer: true })
   .use(footnote)
@@ -443,7 +451,7 @@ for (const e of readdirSync("posts", { withFileTypes: true })) {
 posts.sort((a, b) => b.meta.date.localeCompare(a.meta.date));
 
 for (const p of posts) {
-  const dir = join("blog", p.slug);
+  const dir = join(OUT, "blog", p.slug);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, "index.html"), postPage(p));
   if (p.assetDir) copyAssets(p.assetDir, dir);
@@ -452,30 +460,43 @@ for (const p of posts) {
 // Drafts and archived posts render at their own URL but stay out of the public
 // index and the feed.
 const published = posts.filter((p) => !p.draft && !p.archive);
-mkdirSync("blog", { recursive: true });
-writeFileSync(join("blog", "index.html"), indexPage(published));
-writeFileSync("feed.xml", feed(published));
+mkdirSync(join(OUT, "blog"), { recursive: true });
+writeFileSync(join(OUT, "blog", "index.html"), indexPage(published));
+writeFileSync(join(OUT, "feed.xml"), feed(published));
 
 // Two private-ish indexes, unlinked from anywhere and kept out of feed.xml:
 //   /blog/drafts/  — every post (drafts + archive included), for eyeballing.
 //   /blog/archive/ — just the archived (retired) posts.
-mkdirSync(join("blog", "drafts"), { recursive: true });
+mkdirSync(join(OUT, "blog", "drafts"), { recursive: true });
 writeFileSync(
-  join("blog", "drafts", "index.html"),
+  join(OUT, "blog", "drafts", "index.html"),
   indexPage(posts, { heading: "Blog (incl. drafts)", subpath: "drafts/" }),
 );
-mkdirSync(join("blog", "archive"), { recursive: true });
+mkdirSync(join(OUT, "blog", "archive"), { recursive: true });
 writeFileSync(
-  join("blog", "archive", "index.html"),
+  join(OUT, "blog", "archive", "index.html"),
   indexPage(
     posts.filter((p) => p.archive),
     { heading: "Archive", subpath: "archive/" },
   ),
 );
 
+// .dev/ holds only the generated blog/ and feed.xml, so symlink the rest of the
+// site (blog.css, assets/, vendor/, favicons, the root index.html, ...) next to
+// them. Then `http.server --directory .dev` serves a complete site and nothing in
+// the tracked tree is written. Regenerated every build so new root assets appear.
+if (DEV) {
+  const generated = new Set(["blog", "feed.xml"]);
+  for (const e of readdirSync(".", { withFileTypes: true })) {
+    if (e.name.startsWith(".") || generated.has(e.name) || e.name === "node_modules") continue;
+    const link = join(OUT, e.name);
+    if (!existsSync(link)) symlinkSync(join("..", e.name), link);
+  }
+}
+
 const excluded = posts.length - published.length;
 console.log(
-  `Built ${posts.length} post(s) -> blog/, feed.xml` +
+  `Built ${posts.length} post(s) -> ${OUT === "." ? "" : OUT + "/"}blog/, feed.xml` +
     (excluded ? ` (${excluded} draft/archived excluded from index/feed)` : ""),
 );
 

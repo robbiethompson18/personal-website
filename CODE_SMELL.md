@@ -43,3 +43,11 @@ Blog" links at the drafts index on the live site. Caught once during a ship (36 
 each a one-line back-link change) and fixed by running `npm run build` before committing. Either
 make ship always prod-build first, have lint.sh fail when a committed blog/*.html contains
 `/blog/drafts/` in a post back-link, or stop letting DEV touch committed output.
+
+Sep 3, 2026 (same day, fixed): it recurred twice more in one session — including on a
+`sync-post.js` write, which counts as a `posts/` change and so retriggers the watcher after a prod
+build. Took the third option: `DEV=1` now builds into `.dev/` (gitignored), which the build fills
+out with symlinks to the root's static files so `http.server --directory .dev` still serves a whole
+site. A DEV build now touches zero tracked files. `hooks/pre-commit` is the backstop, refusing any
+staged `blog/**/index.html` that contains `/blog/drafts/` (the drafts index itself is exempt);
+enable it per clone with `git config core.hooksPath hooks`.
