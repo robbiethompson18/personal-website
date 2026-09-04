@@ -20,8 +20,8 @@ Robbie's file, don't edit without human permission.
 5. We trained a very vanilla transformer. NoPE and RoPE roughly equally performant, with NoPE before
    maybe slightly better.
 6. We were able to prove 5% of length 7-16 theorems in RL target pool on the first try!
-7. We ran 3 rounds of expert iteration and proved 97, 23, and 15 new theorems of length >6 each
-   round.
+7. We ran 3 rounds of expert iteration and had proven a total of 62 / 78 / 91 theorems of length >6
+   after each round.
 
 ## Decoder:
 
@@ -114,7 +114,9 @@ Check: 0 dead lines in 37,748 generated lines (cap-6 sample) and 0 in the two 7-
 | total     | 144,146 | 2,111    | 0.5               |                             |
 
 - Quota was 40k per length; lengths 2 and 3 saturate (the generator runs out of distinct theorems),
-  so the set is not flat over length. Held-out is a fixed 400 per length.
+  so the set is not flat over length. Held-out is 400 per length from the original split, plus the
+  111 depth-2 records the augmentation round put aside (8 at length 4, 26 at 5, 77 at 6), which is
+  why lengths 4-6 sit above 400.
 - Every record has a `key`: the theorem with atom renaming and premise order folded. The sampler
   drops any theorem whose key it has already emitted, so the dataset has no duplicate theorems, and
   the train / held-out split is by key, so 0 held-out theorems are a renaming or reordering of a
@@ -172,8 +174,9 @@ evidence the theorem was a five-liner, not that the model wrote a 14-line proof.
 ## RL data
 
 Greedy, one attempt per theorem. `proof len` is the generating length, which past 8 is an upper
-bound rather than a difficulty (see graph 6). RL targets are the theorems expert iteration sampled
-against; transfer is the pool it never saw.
+bound rather than a difficulty (see graph 5). No generated proof was longer than 8 lines, even if
+the target was. RL targets are the theorems expert iteration sampled against; transfer is the pool
+it never saw.
 
 **RL targets**
 
@@ -214,9 +217,9 @@ over three rounds (+7); retraining goes 65 → 115 → 134 (+69).
 
 ## Harvesting Loop:
 
-We solved 5% of L7 loops having never seen an L7 loop. One round of expert iteration later, with 50%
-of our datamix the new proofs we solved (not filtered to L7), we reached 10% on L7 and solved 4 L8
-proofs.
+We solved 25% of L7 loops having never seen an L7 loop. Three rounds of expert iteration later, with
+50% of our datamix the new proofs we solved (not filtered to L7), we reached 10% on the whole pool
+of RL problems.
 
 We pre-trained a NoPE and RoPE transformer, harvested all of the RL problems they solved, and from
 that point on did expert iteration only on the NoPE pretrain, killing the RoPE model.
@@ -235,30 +238,29 @@ round, on either pool.
 
 ## Graphs
 
-Two models throughout: NoPE (no positional encoding at all) and RoPE. 3.16M params each, same data,
-6k steps.
+Two models in many places: NoPE and RoPE. 3.16M params each, same data, 6k steps.
 
 ### 1. Rule occurrences
 
 ![Share of training proofs using each inference rule, with IMPI, ORE and NEGI highlighted as the
 rules that open a subproof](charts/rule-use.png)
 
-### 3. Loss over epochs
+### 2. Loss over epochs
 
 ![Train and held-out cross-entropy loss per epoch on a log axis, falling from 1.0 to 0.002 and never
 turning up](charts/loss-curves.png)
 
-### 4. Solve rate over epochs
+### 3. Solve rate over epochs
 
 ![Held-out greedy solve rate against epochs, rising to ~99.5% by epoch 15 and flat
 after](charts/solve-curve.png)
 
-### 5. Error breakdown past the cap
+### 4. Error breakdown past the cap
 
 ![Verifier rejection reasons on the 7-16 line pools, dominated by bad line
 cite](charts/error-breakdown.png)
 
-### 6. The Model Finds Much Shorter Proofs Than Our Generator
+### 5. The Model Finds Much Shorter Proofs Than Our Generator
 
 ![Generating length against the length the model actually wrote, for every solved target: all
 points sit far below the diagonal past 8 lines](charts/label-inflation.png)

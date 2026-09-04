@@ -27,8 +27,8 @@ original generator configuration.</li>
 <li>We trained a very vanilla transformer. NoPE and RoPE roughly equally performant, with NoPE before
 maybe slightly better.</li>
 <li>We were able to prove 5% of length 7-16 theorems in RL target pool on the first try!</li>
-<li>We ran 3 rounds of expert iteration and proved 97, 23, and 15 new theorems of length &gt;6 each
-round.</li>
+<li>We ran 3 rounds of expert iteration and had proven a total of 62 / 78 / 91 theorems of length &gt;6
+after each round.</li>
 </ol>
 <h2 id="decoder">Decoder: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#decoder" aria-label="Link to this section">#</a></h2>
 <p>We wanted to avoid the problem of learning an entirely new token (N7) to generate length 7 proofs,
@@ -160,7 +160,9 @@ ordering in ands and ors. This is OK.</li>
 </table>
 <ul>
 <li>Quota was 40k per length; lengths 2 and 3 saturate (the generator runs out of distinct theorems),
-so the set is not flat over length. Held-out is a fixed 400 per length.</li>
+so the set is not flat over length. Held-out is 400 per length from the original split, plus the
+111 depth-2 records the augmentation round put aside (8 at length 4, 26 at 5, 77 at 6), which is
+why lengths 4-6 sit above 400.</li>
 <li>Every record has a <code>key</code>: the theorem with atom renaming and premise order folded. The sampler
 drops any theorem whose key it has already emitted, so the dataset has no duplicate theorems, and
 the train / held-out split is by key, so 0 held-out theorems are a renaming or reordering of a
@@ -261,8 +263,9 @@ evidence the theorem was a five-liner, not that the model wrote a 14-line proof.
 95% interval.</p>
 <h2 id="rl-data">RL data <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#rl-data" aria-label="Link to this section">#</a></h2>
 <p>Greedy, one attempt per theorem. <code>proof len</code> is the generating length, which past 8 is an upper
-bound rather than a difficulty (see graph 6). RL targets are the theorems expert iteration sampled
-against; transfer is the pool it never saw.</p>
+bound rather than a difficulty (see graph 5). No generated proof was longer than 8 lines, even if
+the target was. RL targets are the theorems expert iteration sampled against; transfer is the pool
+it never saw.</p>
 <p><strong>RL targets</strong></p>
 <table>
 <thead>
@@ -474,9 +477,9 @@ standard error, so the gain is not memorisation of the 134 theorems we harvested
 frozen model given the same total attempt budget instead of retraining goes 75 → 79 → 82 theorems
 over three rounds (+7); retraining goes 65 → 115 → 134 (+69).</p>
 <h2 id="harvesting-loop">Harvesting Loop: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#harvesting-loop" aria-label="Link to this section">#</a></h2>
-<p>We solved 5% of L7 loops having never seen an L7 loop. One round of expert iteration later, with 50%
-of our datamix the new proofs we solved (not filtered to L7), we reached 10% on L7 and solved 4 L8
-proofs.</p>
+<p>We solved 25% of L7 loops having never seen an L7 loop. Three rounds of expert iteration later, with
+50% of our datamix the new proofs we solved (not filtered to L7), we reached 10% on the whole pool
+of RL problems.</p>
 <p>We pre-trained a NoPE and RoPE transformer, harvested all of the RL problems they solved, and from
 that point on did expert iteration only on the NoPE pretrain, killing the RoPE model.</p>
 <p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/harvest-loop.png" alt="Verified proofs written at 7 and 8 lines across four stages, on the RL targets the loop trained
@@ -489,21 +492,20 @@ clears it on both.</p>
 <p>The L9 column is the interesting one. <strong>The model has never written a nine-line proof</strong>, in any
 round, on either pool.</p>
 <h2 id="graphs">Graphs <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#graphs" aria-label="Link to this section">#</a></h2>
-<p>Two models throughout: NoPE (no positional encoding at all) and RoPE. 3.16M params each, same data,
-6k steps.</p>
+<p>Two models in many places: NoPE and RoPE. 3.16M params each, same data, 6k steps.</p>
 <h3 id="1-rule-occurrences">1. Rule occurrences <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#1-rule-occurrences" aria-label="Link to this section">#</a></h3>
 <p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/rule-use.png" alt="Share of training proofs using each inference rule, with IMPI, ORE and NEGI highlighted as the
 rules that open a subproof"></p>
-<h3 id="3-loss-over-epochs">3. Loss over epochs <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#3-loss-over-epochs" aria-label="Link to this section">#</a></h3>
+<h3 id="2-loss-over-epochs">2. Loss over epochs <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#2-loss-over-epochs" aria-label="Link to this section">#</a></h3>
 <p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/loss-curves.png" alt="Train and held-out cross-entropy loss per epoch on a log axis, falling from 1.0 to 0.002 and never
 turning up"></p>
-<h3 id="4-solve-rate-over-epochs">4. Solve rate over epochs <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#4-solve-rate-over-epochs" aria-label="Link to this section">#</a></h3>
+<h3 id="3-solve-rate-over-epochs">3. Solve rate over epochs <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#3-solve-rate-over-epochs" aria-label="Link to this section">#</a></h3>
 <p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/solve-curve.png" alt="Held-out greedy solve rate against epochs, rising to ~99.5% by epoch 15 and flat
 after"></p>
-<h3 id="5-error-breakdown-past-the-cap">5. Error breakdown past the cap <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#5-error-breakdown-past-the-cap" aria-label="Link to this section">#</a></h3>
+<h3 id="4-error-breakdown-past-the-cap">4. Error breakdown past the cap <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#4-error-breakdown-past-the-cap" aria-label="Link to this section">#</a></h3>
 <p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/error-breakdown.png" alt="Verifier rejection reasons on the 7-16 line pools, dominated by bad line
 cite"></p>
-<h3 id="6-the-model-finds-much-shorter-proofs-than-our-generator">6. The Model Finds Much Shorter Proofs Than Our Generator <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#6-the-model-finds-much-shorter-proofs-than-our-generator" aria-label="Link to this section">#</a></h3>
+<h3 id="5-the-model-finds-much-shorter-proofs-than-our-generator">5. The Model Finds Much Shorter Proofs Than Our Generator <a class="heading-anchor" href="https://robbiewmthompson.com/blog/natural-deduction-takehome/#5-the-model-finds-much-shorter-proofs-than-our-generator" aria-label="Link to this section">#</a></h3>
 <p><img src="https://robbiewmthompson.com/blog/natural-deduction-takehome/charts/label-inflation.png" alt="Generating length against the length the model actually wrote, for every solved target: all
 points sit far below the diagonal past 8 lines"></p>
 <p>The usual shape: a premise like <code>( ( P &amp; Q ) &gt; S ) &amp; ( P &amp; Q )</code> carries an implication and its own
