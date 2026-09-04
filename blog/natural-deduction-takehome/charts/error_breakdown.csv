@@ -1,0 +1,13 @@
+pos,reason,count
+nope,bad line cite,1435
+rope,bad line cite,1383
+nope,final formula is not the conclusion,131
+rope,parse error,130
+rope,bad box cite,97
+nope,rule check failed,78
+rope,final formula is not the conclusion,77
+rope,rule check failed,75
+nope,parse error,68
+nope,bad box cite,52
+rope,proof ends inside a subproof,18
+nope,proof ends inside a subproof,9

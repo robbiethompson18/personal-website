@@ -1,0 +1,17 @@
+stage,pool,length,count
+Pretrain only,RL targets,7,23
+Pretrain only,RL targets,8,2
+Pretrain only,Transfer,7,24
+Pretrain only,Transfer,8,1
+1 round,RL targets,7,54
+1 round,RL targets,8,8
+1 round,Transfer,7,41
+1 round,Transfer,8,4
+2 rounds,RL targets,7,68
+2 rounds,RL targets,8,10
+2 rounds,Transfer,7,45
+2 rounds,Transfer,8,5
+3 rounds,RL targets,7,75
+3 rounds,RL targets,8,16
+3 rounds,Transfer,7,48
+3 rounds,Transfer,8,9

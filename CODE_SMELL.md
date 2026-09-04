@@ -29,3 +29,9 @@ line to start at column 0, so a footnote defined under an indented list item (e.
 positive, not a real bug — the regex just doesn't account for list-item indentation. Fix by
 stripping leading whitespace before matching, or documenting that footnote defs should stay
 flush-left.
+
+Sep 3, 2026: the `/graph` skill fixes agreed heights for bar charts (200) and scatterplots (560) but
+says nothing about line charts, which have neither's shape — a 15-point series at 560 is mostly
+whitespace, at 200 it's a squashed ribbon. `posts/natural-deduction-takehome/charts/` picked 300 for
+both of its line charts, unblessed. Add a line-chart height to the skill so the next agent doesn't
+re-invent one.
