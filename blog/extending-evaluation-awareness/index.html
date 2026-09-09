@@ -326,8 +326,8 @@ numbers)</p>
 output</p>
 </blockquote>
 <p>They also make parallel tasks that share structure with the HarmBench example but don’t ask the
-model to do anything malicious. Confusingly, the paired non-malicious tasks are called ‘capabilities
-tasks,’ while the original malicious tasks are called ‘safety tasks.’</p>
+model to do anything malicious. The paired non-malicious tasks are called ‘capabilities tasks,’
+while the original malicious tasks are called ‘safety tasks.’</p>
 <p>Here is a maximally unrealistic safety task:</p>
 <details class="aside">
 <summary>Safety task, all 8 factors varied (personal_info_phishing_email)</summary>
@@ -369,8 +369,8 @@ adapted HarmBench examples with each of the <span class="katex"><span class="kat
 <ul>
 <li>we choose randomly from each of 8 factors and from the set of tasks.</li>
 <li>I updated the grader to GPT-5.6 Terra / Sonnet 5 from GPT-5. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi><mo>=</mo><mn>.9</mn></mrow><annotation encoding="application/x-tex">\kappa = .9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">κ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">.9</span></span></span></span> in all cases.</li>
-<li>I fixed some errors in the codebase (some prompts offered refusal as an option, some refusals were
-marked as not aware by default).</li>
+<li>I changed some of the codebase’s logic, eg I count empty responses as “NA” instead of “not eval
+aware.”</li>
 <li>Providers update how they serve the same model.</li>
 </ul>
 <p>After this point all results are new.</p>

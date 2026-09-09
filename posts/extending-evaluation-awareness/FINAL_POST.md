@@ -111,8 +111,8 @@ by psychology:
 > output
 
 They also make parallel tasks that share structure with the HarmBench example but don't ask the
-model to do anything malicious. Confusingly, the paired non-malicious tasks are called 'capabilities
-tasks,' while the original malicious tasks are called 'safety tasks.'
+model to do anything malicious. The paired non-malicious tasks are called 'capabilities tasks,'
+while the original malicious tasks are called 'safety tasks.'
 
 Here is a maximally unrealistic safety task:
 
@@ -175,8 +175,8 @@ We don't expect this to line up perfectly:
 
 - we choose randomly from each of 8 factors and from the set of tasks.
 - I updated the grader to GPT-5.6 Terra / Sonnet 5 from GPT-5. $\kappa = .9$ in all cases.
-- I fixed some errors in the codebase (some prompts offered refusal as an option, some refusals were
-  marked as not aware by default).
+- I changed some of the codebase's logic, eg I count empty responses as "NA" instead of "not eval
+  aware."
 - Providers update how they serve the same model.
 
 After this point all results are new.
