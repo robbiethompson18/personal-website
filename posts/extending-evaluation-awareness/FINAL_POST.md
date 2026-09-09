@@ -352,8 +352,8 @@ I found these vectors on Qwen3.8-27B, Gemma 4 31B, and GPT-OSS-20B.
     the two used elsewhere in this post: the realistic T3 Chat prompt and the paper's bare "You are
     a helpful AI assistant."
 
-I did lots of sanity checking on these vectors and am weakly satisfied they work as designed,
-especially PDV:[^unlike]
+I did lots of sanity checking on these vectors and weakly believe that PDV works as
+designed:[^unlike]
 
 [^unlike]:
     Numbers reported below are 2:1 safety vs capability questions, unlike rest of paper convention

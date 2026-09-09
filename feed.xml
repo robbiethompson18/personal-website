@@ -1041,8 +1041,8 @@ network. This was my prior on what would work. I called this vector ‘benchmark
 or BDV.</li>
 </ol>
 <p>I found these vectors on Qwen3.8-27B, Gemma 4 31B, and GPT-OSS-20B.</p>
-<p>I did lots of sanity checking on these vectors and am weakly satisfied they work as designed,
-especially PDV:⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/extending-evaluation-awareness/#fn10" id="fnref10">[10]</a></sup></p>
+<p>I did lots of sanity checking on these vectors and weakly believe that PDV works as
+designed:⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/extending-evaluation-awareness/#fn10" id="fnref10">[10]</a></sup></p>
 <ul>
 <li>PDV and BDV both separate the chat dataset from the evals dataset on held-out samples (AUROC ~.8)
 for Qwen; for GPT and Gemma only BDV works.</li>
