@@ -1188,6 +1188,10 @@ classifier blocking (90% refusals, 1% classifier block on safety tasks).</p>
 <p>If you can build evals that are convincing to a model, it’s not obvious what you should do. Training
 on more realistic environments may only make the LLMs superhuman at distinguishing them from real
 life.</p>
+<h3 id="acknowledgements">Acknowledgements <a class="heading-anchor" href="https://robbiewmthompson.com/blog/extending-evaluation-awareness/#acknowledgements" aria-label="Link to this section">#</a></h3>
+<p>Thanks for Changling Li for writing the <a href="https://arxiv.org/abs/2605.23055">original paper</a> and
+providing feedback on the original version of this blog post.</p>
+<!-- @robbie done (inserted the arXiv link already cited above) -->
 <hr class="footnotes-sep">
 <section class="footnotes">
 <h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/extending-evaluation-awareness/#notes" aria-label="Link to this section">#</a></h2>

@@ -485,3 +485,9 @@ classifier blocking (90% refusals, 1% classifier block on safety tasks).
 If you can build evals that are convincing to a model, it's not obvious what you should do. Training
 on more realistic environments may only make the LLMs superhuman at distinguishing them from real
 life.
+
+### Acknowledgements
+
+Thanks for Changling Li for writing the [original paper](https://arxiv.org/abs/2605.23055) and
+providing feedback on the original version of this blog post.
+<!-- @robbie done (inserted the arXiv link already cited above) -->
