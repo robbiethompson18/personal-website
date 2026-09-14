@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+@~/.claude/personal-repo-rules.md
+
 ## Linting
 
 Run `./lint.sh` after editing HTML **or any Markdown** (posts, skills, `CLAUDE.md`, notes) —
