@@ -7,6 +7,51 @@
     <description>Essays by Robbie Thompson.</description>
     <language>en</language>
     <item>
+      <title>Klaus Security Incidents</title>
+      <link>https://robbiewmthompson.com/blog/klaus-security-incident/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/klaus-security-incident/</guid>
+      <pubDate>Mon, 14 Sep 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>In early April Klaus had a string of malicious users sign up for our service.</p>
+<h2 id="unprotected-endpoints">Unprotected Endpoints <a class="heading-anchor" href="https://robbiewmthompson.com/blog/klaus-security-incident/#unprotected-endpoints" aria-label="Link to this section">#</a></h2>
+<p>Late on the night of April 6, I noticed that we sent a welcome email to <a href="mailto:bughunter@gmail.com">bughunter@gmail.com</a>.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/klaus-security-incident/#fn1" id="fnref1">[1]</a></sup> I
+quickly checked the logs and noticed anomalous activity from several new accounts.</p>
+<p>They found one bug: an unprotected organization creation endpoint. The attackers used this to create
+an additional VM and claim extra token credits.</p>
+<p>The bug was fixed three hours after discovery. I added Express middleware in front of all of
+BetterAuth endpoints and made them off by default.</p>
+<p>I suspect these users were pen-testers.</p>
+<h2 id="free-trial-fraud">Free Trial Fraud <a class="heading-anchor" href="https://robbiewmthompson.com/blog/klaus-security-incident/#free-trial-fraud" aria-label="Link to this section">#</a></h2>
+<p>On April 2 we implemented a 2 day free trial and quickly saw lots of fraud:</p>
+<ul>
+<li>Users created fake accounts to claim a referral credit. We patched by only crediting referrers on
+first payment of the referee.</li>
+<li>Spammers used fake credit cards to create new accounts for free token credits.</li>
+<li>Many accounts were made with discount codes we had never made public.</li>
+</ul>
+<p>We used the following mitigations to deter scammers:</p>
+<ul>
+<li>Reported accounts made on the same credit card with clear burner emails to Stripe.</li>
+<li>Rate-limited our discount code endpoint.</li>
+<li>Captured client IP at signup, then flagged any new signup sharing an IP with a banned account.</li>
+<li>Stored the Stripe card fingerprint on each org to catch the same card across accounts.</li>
+<li>Created alerts for high-volume referrers and referral chains through banned accounts.</li>
+</ul>
+<p>In total we found 156 fraudulent accounts. Average time to deactivation was 289 minutes. In total
+spammers were able to spend $314 in token credits of the ~$10,000 they were granted.</p>
+<p>Eventually we decided that we were spending too much time combating spammers, and we eliminated our
+free trial.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/klaus-security-incident/#notes" aria-label="Link to this section">#</a></h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Stylized, not exactly this email. <a href="https://robbiewmthompson.com/blog/klaus-security-incident/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content:encoded>
+    </item>
+    <item>
       <title>Natural Deduction Takehome</title>
       <link>https://robbiewmthompson.com/blog/natural-deduction-takehome/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/natural-deduction-takehome/</guid>
@@ -1449,7 +1494,7 @@ Glorious Transhumanist Future, conditioned on alignment being tractable.</li>
 <h2 id="1-alignment-make-ais-that-are-corrigible-and-share-our-values">1. Alignment: Make AIs That Are Corrigible and Share Our Values <a class="heading-anchor" href="https://robbiewmthompson.com/blog/what-problems-are-important-in-ai/#1-alignment-make-ais-that-are-corrigible-and-share-our-values" aria-label="Link to this section">#</a></h2>
 <p>Alignment is the most important problem to solve in AI safety. Almost trivially, if the AI shares
 our values it will help us and vice versa.</p>
-<p>We have made lots of progress in ‘quotidian alignment.’ Claude won’t assume the persona of Hitler or
+<p>We have made lots of progress in ‘prosaic alignment.’ Claude won’t assume the persona of Hitler or
 tell you how to bully a child.</p>
 <p>In addition to solving the problem of technical alignment, we need to determine our ‘alignment
 target.’ Should superintelligent AI help us factory farm? Should humans be allowed to ‘enslave’ it?
