@@ -1,7 +1,9 @@
 ---
-title: Writeup: Extending "Decomposing and Measuring Evaluation Awareness" (Li et al. 2026)
+title: Extending "Decomposing and Measuring Evaluation Awareness" (Li et al. 2026)
 date: 2026-08-31
 repo: https://github.com/robbiethompson18/decomposing-eval-awareness
+project: true
+rating: 4
 ---
 
 ## Summary

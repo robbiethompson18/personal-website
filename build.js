@@ -213,18 +213,18 @@ function postPage(p) {
     : p.archive
       ? `<p class="draft-banner">Archived — not in the index or feed</p>\n          `
       : "";
-  const blogHref = DEV ? "/blog/drafts/" : "/blog/";
+  const blogHref = DEV ? "/blog/drafts/" : p.project ? "/projects/" : "/blog/";
   const body = `    <main class="post">
       <article>
         <header class="post-header">
-          ${draftBanner}<p class="post-meta"><a href="${blogHref}">&larr; Blog</a></p>
+          ${draftBanner}<p class="post-meta"><a href="${blogHref}">&larr; ${p.project ? "Projects" : "Blog"}</a></p>
           <h1>${esc(p.meta.title)}</h1>
           <p class="post-dates"><span>Published <time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time></span><span>Last edited <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span>${repoLink(p.meta.repo)}</p>
         </header>
         ${p.html}
       </article>
       <footer class="post-footer">
-        <p><a href="${blogHref}">&larr; More writing</a></p>
+        <p><a href="${blogHref}">&larr; More ${p.project ? "projects" : "writing"}</a></p>
       </footer>
     </main>`;
   return layout({
@@ -236,7 +236,10 @@ function postPage(p) {
   });
 }
 
-function indexPage(posts, { heading = "Blog", subpath = "" } = {}) {
+// `path` is the index's URL path under the site root (e.g. "blog/", "projects/").
+// `showProjectTag` marks project entries on mixed indexes (drafts, archive); the
+// blog and projects indexes are already split, so they don't need it.
+function indexPage(posts, { heading, path, showProjectTag = false }) {
   // Rating-desc is the default order; posts arrive date-sorted, so the stable
   // sort keeps newest-first within each rating tier.
   const items = [...posts]
@@ -244,7 +247,8 @@ function indexPage(posts, { heading = "Blog", subpath = "" } = {}) {
     .map((p) => {
       const tags =
         (p.draft ? ' <span class="draft-tag">draft</span>' : "") +
-        (p.archive ? ' <span class="draft-tag archive-tag">archive</span>' : "");
+        (p.archive ? ' <span class="draft-tag archive-tag">archive</span>' : "") +
+        (showProjectTag && p.project ? ' <span class="draft-tag project-tag">project</span>' : "");
       return `        <li data-rating="${p.rating}">
           <a class="post-link" href="/blog/${p.slug}/">${esc(p.meta.title)}${tags}</a>
           <span class="post-date"><time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time><span class="post-stars" title="${p.rating}/5">${"★".repeat(p.rating)}${"☆".repeat(5 - p.rating)}</span></span>
@@ -289,7 +293,7 @@ ${items}
   return layout({
     title: `${heading} — ${SITE.title}`,
     description: SITE.description,
-    canonical: `${SITE.url}/blog/${subpath}`,
+    canonical: `${SITE.url}/${path}`,
     body,
   });
 }
@@ -435,6 +439,9 @@ function loadPost(slug, mdPath, assetDir) {
     updated,
     draft: meta.draft === "true",
     archive: meta.archive === "true",
+    // A post is either a blog post or a project; projects list at /projects/
+    // instead of /blog/ but keep their /blog/<slug>/ URL.
+    project: meta.project === "true",
     rating: Math.min(5, Math.max(1, Number(meta.rating) || 3)),
     hasMath,
     assetDir,
@@ -458,27 +465,33 @@ for (const p of posts) {
 }
 
 // Drafts and archived posts render at their own URL but stay out of the public
-// index and the feed.
+// indexes and the feed. Published posts split into /blog/ and /projects/; the
+// feed carries both.
 const published = posts.filter((p) => !p.draft && !p.archive);
-mkdirSync(join(OUT, "blog"), { recursive: true });
-writeFileSync(join(OUT, "blog", "index.html"), indexPage(published));
+function writeIndex(dir, posts, opts) {
+  mkdirSync(join(OUT, dir), { recursive: true });
+  writeFileSync(join(OUT, dir, "index.html"), indexPage(posts, { path: `${dir}/`, ...opts }));
+}
+writeIndex(
+  "blog",
+  published.filter((p) => !p.project),
+  { heading: "Blog" },
+);
+writeIndex(
+  "projects",
+  published.filter((p) => p.project),
+  { heading: "Projects" },
+);
 writeFileSync(join(OUT, "feed.xml"), feed(published));
 
 // Two private-ish indexes, unlinked from anywhere and kept out of feed.xml:
-//   /blog/drafts/  — every post (drafts + archive included), for eyeballing.
+//   /blog/drafts/  — every post (drafts + archive + projects included), for eyeballing.
 //   /blog/archive/ — just the archived (retired) posts.
-mkdirSync(join(OUT, "blog", "drafts"), { recursive: true });
-writeFileSync(
-  join(OUT, "blog", "drafts", "index.html"),
-  indexPage(posts, { heading: "Blog (incl. drafts)", subpath: "drafts/" }),
-);
-mkdirSync(join(OUT, "blog", "archive"), { recursive: true });
-writeFileSync(
-  join(OUT, "blog", "archive", "index.html"),
-  indexPage(
-    posts.filter((p) => p.archive),
-    { heading: "Archive", subpath: "archive/" },
-  ),
+writeIndex("blog/drafts", posts, { heading: "Blog (incl. drafts)", showProjectTag: true });
+writeIndex(
+  "blog/archive",
+  posts.filter((p) => p.archive),
+  { heading: "Archive", showProjectTag: true },
 );
 
 // .dev/ holds only the generated blog/ and feed.xml, so symlink the rest of the
@@ -486,7 +499,7 @@ writeFileSync(
 // them. Then `http.server --directory .dev` serves a complete site and nothing in
 // the tracked tree is written. Regenerated every build so new root assets appear.
 if (DEV) {
-  const generated = new Set(["blog", "feed.xml"]);
+  const generated = new Set(["blog", "projects", "feed.xml"]);
   for (const e of readdirSync(".", { withFileTypes: true })) {
     if (e.name.startsWith(".") || generated.has(e.name) || e.name === "node_modules") continue;
     const link = join(OUT, e.name);

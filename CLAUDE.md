@@ -50,6 +50,7 @@ for Robbie, not the reader:
 title:    Post Title        # required
 date:     2026-06-30        # required; sorts the index, sets the RSS pubDate
 draft:    true              # optional; renders at its URL but stays out of index + feed
+project:  true              # optional; lists at /projects/ instead of /blog/ (URL stays /blog/<slug>/)
 rating:   5                 # optional; 1-5, shown as stars next to the date on the index (default 3)
 repo:     https://…         # optional; renders a GitHub link inline with the dates
 source:   ../other/x.md     # optional; upstream file for `node sync-post.js <slug>` (see below)

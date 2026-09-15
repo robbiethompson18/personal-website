@@ -452,6 +452,12 @@ details.aside th {
   border-color: rgba(148, 148, 148, 0.35);
 }
 
+.project-tag {
+  color: var(--link);
+  background: rgba(148, 148, 148, 0.1);
+  border-color: rgba(148, 148, 148, 0.35);
+}
+
 .post-date {
   display: block;
   font-family: var(--sans);
