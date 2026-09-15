@@ -2,6 +2,7 @@
 title: Klaus Security Incidents
 date: 2026-09-14
 rating: 1
+archive: true
 ---
 
 In early April Klaus had a string of malicious users sign up for our service.
