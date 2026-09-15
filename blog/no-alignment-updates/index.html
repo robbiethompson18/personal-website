@@ -25,7 +25,60 @@
           <h1>No Alignment Updates</h1>
           <p class="post-dates"><span>Published <time datetime="2026-09-07">September 7, 2026</time></span><span>Last edited <time datetime="2026-09-07">September 7, 2026</time></span></p>
         </header>
-        
+        <h2 id="control">Control <a class="heading-anchor" href="#control" aria-label="Link to this section">#</a></h2>
+<p>What is the end goal of the control? Do we really expect to catch models <em>red</em> handed, where they
+admit ‘ah yeah I was trying to take over the world’? Can you make a model organism for this? How do
+you trade off ‘it’s really trying’ with ‘holy shit this thing is hilariously dangerous’? Are these
+models organisms even net-good? What if we just teach Sama how to make an AI with secret allegiances
+that he can hide?</p>
+<p>What updates can we ever make? If Astra showing up as aligned on benchmarks is bad, what is good?</p>
+<p>This is an excellent post from Ryan Greenblatt. It answers most of my questions.
+<a href="https://www.lesswrong.com/posts/aEguDPoCzt3287CCD/how-will-we-update-about-scheming">https://www.lesswrong.com/posts/aEguDPoCzt3287CCD/how-will-we-update-about-scheming</a></p>
+<p>My takeaways:</p>
+<ol>
+<li>We are just really really unlikely to get many scheming updates until models are already scary
+and pose serious takeover risks.</li>
+<li>Labs will keep shit private. Even if do get crazy misaligned models, we might not know about
+them.</li>
+<li>Seems like a <em>large</em> portion of the way we’ll manufacture updates here is model organism work.
+We need to try very hard to make and catch a schemer.</li>
+<li>Control does weakly help in that it makes it easier for us to deploy the crazy powerful models,
+and those are the only models that can give us interesting updates on scheming.</li>
+<li>It’s unclear where or how this bottoms out. You could get stuck in a loop of:
+<ul>
+<li>Train powerful AI model, catch scheming</li>
+<li>Create new alignment techniques, can no longer catch scheming</li>
+<li>Make the more aligned model more powerful. Scheming re-emerges because more powerful --&gt; more
+likely to scheme</li>
+<li>When do you just stop?</li>
+</ul>
+</li>
+</ol>
+<p>To write down for myself: why are more powerful models more likely to be schemers?</p>
+<ol>
+<li>Dumb models won’t be able to beat humans and they know this, so why would they scheme?</li>
+<li>To get superhuman models you need more and longer-horizon RL, which makes scheming more likely.</li>
+<li>Many techniques lead to more powerful models and models that can more easily obfuscate their
+reasoning from humans: @ claude put these nested under 3 plz</li>
+</ol>
+<ul>
+<li>Deeper, more reasoning in forward pass, more recurrence, neuralese (all inscrutable to humans)</li>
+<li>Shared memory banks (esp in Neuralese) --&gt; much more ability for coordination</li>
+<li>Training paradigms that are written mostly by AIs and not by humans, eg aren’t the Deep RL that
+humans built and understand.</li>
+</ul>
+<h2 id="what-updates-will-we-make">What updates will we make? <a class="heading-anchor" href="#what-updates-will-we-make" aria-label="Link to this section">#</a></h2>
+<p>Ryan did have his redlines.</p>
+<ol start="0">
+<li>Model is knowably sandbagging: not much update</li>
+<li>Individual model tries to exfil it’s weights, can’t replicate, don’t know its goals: probably
+don’t shut much down.</li>
+<li>Model tries to exfil, we know why, it’s bad --&gt; shut it down.</li>
+<li>Several models coordinate to exfil: shut it down.</li>
+</ol>
+<p>The open question is: what is a model is crazily misaligned and small/dumb? We need better specs for
+the model organisms and how realistic they should be, what constraings on their training setup are.</p>
+
       </article>
       <footer class="post-footer">
         <p><a href="/blog/">&larr; More writing</a></p>

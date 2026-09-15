@@ -39,7 +39,7 @@ Next, it's worth stating what people are working on:[^ex2]
 Alignment is the most important problem to solve in AI safety. Almost trivially, if the AI shares
 our values it will help us and vice versa.
 
-We have made lots of progress in 'quotidian alignment.' Claude won't assume the persona of Hitler or
+We have made lots of progress in 'prosaic alignment.' Claude won't assume the persona of Hitler or
 tell you how to bully a child.
 
 In addition to solving the problem of technical alignment, we need to determine our 'alignment

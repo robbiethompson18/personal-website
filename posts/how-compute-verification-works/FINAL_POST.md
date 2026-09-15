@@ -3,3 +3,181 @@ title: How Compute Verification Works
 date: 2026-09-08
 draft: true
 ---
+
+## Companies / orgs working on compute verification:
+
+**Miri**
+
+**Lucid Computing**
+
+Things I should do:
+
+Going to think about compute verification because it's the most important in my inside view, and the
+hardest to think about how I would help.
+
+Miri seems like the main org working on this. There are one or two startups (eg Lucid Computing) and
+lots of academics.
+
+I am going to brainstorm some things I could work on here:
+
+- Go back to Stanford, work with Dan Boneh or someone on this.
+- Work for Miri or some other startup. Would maybe hard to insta get the job... I don't have domain
+  expertise.
+- Just go right ahead and found an org on this via Tailwind. Reach out to the 20 most important
+  people working on this, convince them to cofound.
+
+I think I should be doing all three of these things. Compute verification is just so so so so
+important. Probably very important that more orgs than just MIRI are working on it, because MIRI has
+antagonized so many people.
+
+But first I need to write myself a blog post convincing myself this is true! Critical path:
+
+1. Control is super risky (I am convinced of this)
+2. Alignment is super hard (I definitely need to convince myself of this)
+3. Compute verification is very important for a treaty (I am weakly convinced of this)
+4. A treaty will make it way easier for a slowdown to happen (I think this is an artifact of Donny T
+   being in office, sadly. But that could be the case through the singularity).
+
+Random thought: in the next political race, it's very likely that, because we love polarization, one
+party will be the pro slowdown party and one will be the anti slowdown party. Probably Trump will be
+anti slowdown? Maybe it will be a race to the bottom on being most anti-AI? I'm actually super
+curious how this will play it out in 2028. WOrth pondering.
+
+## Why Destroying Interconnect Won't Work:
+
+Pasting in from Claude, a bunch of notes on why just destroying interconnect won't work:
+
+❯ sorry go slow and in more detail on diloco. I guess I could brainstorm a couple ways to get aruond
+the issues:
+
+- use architectures that require less communication... you'll have to explain
+- somehow compress gradients... just take top eigenvector or something? ...
+
+Slow version. Four parts: why synchronous training needs bandwidth, what DiLoCo changes, then your
+two brainstorms (compression, architecture) each of which is a real research line, and finally what
+they stack to.
+
+Why synchronous data-parallel training is bandwidth-bound
+
+Every worker holds a full copy of the parameters θ. Each step, worker i takes its shard of the
+batch, computes a gradient g_i, and then all workers all-reduce: every g_i is summed and everyone
+ends up with the same averaged gradient, applies the same Adam update, and stays in lockstep. The
+copies never differ.
+
+The cost is that the full gradient crosses the network every step. In a ring all-reduce each node
+sends and receives about 2× the gradient size, so with bf16 gradients that is 4N bytes per step for
+N parameters. For a 1T-parameter model that is 4 TB per step. If your per-node batch is 8k tokens on
+8 H100s, a step takes about 12 seconds, so you need 330 GB/s per node just to keep up. That is why
+the fast fabric exists: 8 ports of 400G InfiniBand is 400 GB/s. Take the fabric away and a step
+waits minutes on comms for every 12 seconds of compute.
+
+Everything below attacks the "every step" or the "full gradient" part.
+
+DiLoCo
+
+Local SGD is old (federated averaging, McMahan et al. 2017; Stich 2018): let each worker run H steps
+on its own data with no communication, then average the parameters. The problem is that after H
+steps the copies have drifted, and naive averaging of drifted models gets worse as H grows. In
+practice people could get H of maybe 4 to 16 before quality fell off.
+
+DiLoCo (Douillard et al., DeepMind, 2023) makes H ≈ 500 work with almost no loss. The trick is to
+treat the drift as a gradient and put an optimizer on it.
+
+1. All workers start from the same θ.
+2. Each worker runs H steps of ordinary AdamW on its ownlt θ_i. This is the inner optimizer. No
+   communication.Each worker computes its delta Δ_i = θ − θ_i. This is or pseudo-gradient. Average
+   the Δ_i across workers. Thisis the one all-reduce.
+3. Apply an outer optimizer to the global parameters usi were a gradient. DiLoCo uses Nesterov
+   momentum with alarge learning rate, around 0.7.
+4. Broadcast the new θ, go to 2.
+
+The outer Nesterov momentum is what makes it work. Plain averaging (outer lr = 1, no momentum) is
+federated averaging and degrades with H. Momentum on the pseudo-gradient smooths the sequence of
+averaged deltas across outer steps and lets the global trajectory move faster than any single
+averaging step would. The intuition for why averaging drifted workers is valid at all is linear mode
+connectivity: workers that start from the same point and take a few hundred steps she loss
+landscape, and the loss along the straight linebetween them is low. Model merging works for the same
+reason.
+
+Communication per step drops from 4N to 4N/H. At H = 500 also tolerates stragglers and dropouts,
+because the outer step just averages whoever showed up.
+
+What has been measured: Original paper: 150M to 400M parameter models, H = 500ning within noise,
+using 8 workers with 500× lesscommunication. OpenDiLoCo and INTELLECT-1 (Prime Intellect, 2024): 10
+30 nodes of 8 H100s each across three continents over the public internet, H = 100, int8
+pseudo-gradients, 83 to 96% compute utilization. That is literally your 8-GPU-node regime, and the
+model was fine, a bit behind same-size models trained conventionally. Scaling laws for DiLoCo
+(Charles et al., 2025): the gas model size grows, and the optimal H grows with scale.They argue
+DiLoCo tolerates larger batches than synchrhe opposite of what you would guess.Streaming DiLoCo
+(Douillard et al., 2025): sync differmes so bandwidth is spread rather than bursty, quantizethe
+outer gradient to 4 bits, and overlap the sync witak bandwidth drops another 100× or so.
+
+- Asynchronous variants (Liu et al., 2024) drop the wait-for-everyone barrier entirely. Nobody has
+  published a 1T-parameter DiLoCo run. That is scaling-law evidence points the wrong way for
+  theinterconnect-cap idea.  
+  Your first brainstorm: compress the gradient  
+  Yes, and "take the top eigenvector" is a published method. Gradient compression is orthogonal to
+  DiLoCo: DiLoCo reduces how often you sync, compression reduces how much per sync. All of these
+  relyr feedback (Seide et al., 2014): whatever you did notsend, keep locally and add it to next
+  step's gradient. The compression error accumulates instead of vanishing, and the optimizer
+  converges almost the same place.Low rank. The gradient of a weight matrix for one tokeivation
+  vector times backprop vector), so rank 1. For abatch it is a sum of those, rank at most the batch
+  size, and empirically the spectrum is steep. PowerSGD (Vogels et al., 2019) computes a rank-r
+  approximation of each layer's gradient with a s, warm-started from last step's factors, and
+  all-reducesthe two thin factors P and Q instead of the matrix. Rare. This is your eigenvector idea
+  with error feedbackbolted on. GaLore (Zhao et al., 2024) uses the same lo optimizer
+  memory.Sparsify. Deep Gradient Compression (Lin et al., 2018)1% of entries by magnitude,
+  accumulate the rest locally.300 to 600×.
+- Quantize. signSGD and 1-bit Adam (Bernstein et al., 2018; Tang et al., 2021): send one bit per
+  entry. 16× versus bf16.
+- Transform then sparsify. DeMo (Peng, Quesnelle, Kingmark): take a discrete cosine transform of the
+  momentumtensor and share only the top-k frequency components. Claims of 100 to 1000× and the basis
+  for their Psyche distributed runs. This is very close to what you said: pick a basis, keep the
+  biggest
+
+Reported numbers are for fine-tuning and models up to a gressive compression on frontier pretraining
+is less tested, but the methods compose with DiLoCo, and Streamiadient is already a form of it.
+
+Your second brainstorm: architectures that need less com
+
+The clean way to see it: communication per sync is proportional to the number of parameters that
+need syncing, and compute per step is oportional to parameters times tokens times how many td. So
+you can improve the ratio by changing any of those.
+
+- Reuse parameters. A recurrent-depth model runs the same block many times per token. Universal
+  Transformers, looped transformers, and the recurrent-depth models of 2025 do more FLOPs per
+  parameter per token, so the same compute needs fewer bytes of sync. Mixture-of-experts goes the
+  wrong way: many parameters, few FLOPs each, sThat is one reason MoE training is so fabric-hungry.
+- Big per-node batch. Not an architecture change but it s: required per-node batch is (2/3)F/B,
+  independent of model size. Make each node chew through more tokens pezes. Critical batch size is
+  the limit, and it grows during training, so the constraint loosens as the run goes on
+- Train pieces independently and merge. Branch-Train-Merranch-Train-MiX (Sukhbaatar et al., 2024):
+  fork a seed model, train each fork on a different data domain withmerge the forks into a
+  mixture-of-experts at the end.Quality is below joint training but not by a lot at the scales
+  tested. This is the H = ∞ limit of DiLoCo.
+- Pipeline across slow links. SWARM parallelism (Ryabinirent layers on different unreliable nodes
+  and routemicro-batches stochastically. The traffic is activations, which per token is 2d bytes per
+  stage boundary, tiny compared to gradients, and tolerant of latency if you keep enough
+  micro-batches in flight. This is how you exceed one node's memory without a fabric. Reinforcement
+  learning post-training is embarrassinglyference, the policy update is small relative to
+  rolloutcompute, and INTELLECT-2 (2025) did a 32B RL run with t workers. The part of training that
+  currently produces the largest capability jumps is the easiest part to di
+
+What they stack to
+
+Take the 1T-parameter example: 4 TB per step at 12 seconds per step, 330 GB/s.
+
+┌───────────────────────────────────────────────────────┬────────────┬────────────────────┐ │ Layer
+│ Multiplier │ Bandwidth per node │
+├───────────────────────────────────────────────────────────────┤ │ Synchronous, bf16 │
+├───────────────────────────────────────────────────────────────┤ │ DiLoCo H = 500 │
+├───────────────────────────────────────────────────────┼────────────┼────────────────────┤ │ 4-bit
+outer gradient │ 4× │ 165 MB/s │ ├───────────────────────────────────────────────────────────────┤ │
+Low-rank or top-k on the outer gradient, conservative │ 10× │ 17 MB/s │
+└───────────────────────────────────────────────────────────────┘ 17 MB/s is a residential fiber
+connection. Each multiplieparately at billion-parameter scale, and the first twotogether at 10B.
+Whether all three hold at 1T with frontier-level quality is unknown, and that unknown is the entire
+strength of the interconnect-cap regime. Given that the decentralized-trd each gap it has been
+pointed at over the last two years,I would not build a treaty on it holding.What the cap does still
+do is move the sync traffic ontoa volume, pattern, and symmetry that does not look likeserving
+requests. That is where it becomes a metering prkind.
