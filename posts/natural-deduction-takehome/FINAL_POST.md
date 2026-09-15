@@ -1,8 +1,13 @@
 ---
 title: Natural Deduction Takehome
-date: 2026-09-03
+date: 2026-09-04
 source: ../nd-takehome/writeup.md
+repo: https://github.com/robbiethompson18/nd-takehome
+project: true
 ---
+
+I worked on this as a four hour take-home assignment for a SPAR application:
+[Natural deduction as a sandbox for capability emergence from RL](https://sparai.org/projects/f26/rec8qbsiN63iT3e8Z/)
 
 ## Executive Summary:
 
