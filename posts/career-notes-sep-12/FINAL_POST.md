@@ -1,5 +1,5 @@
 ---
-title: Prep for chat with Lisa
+title: Career Notes Sep 12
 date: 2026-09-12
 draft: true
 ---
