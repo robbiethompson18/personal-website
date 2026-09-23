@@ -12,7 +12,7 @@ Two probes:
   selfreport - the model is shown its own transcript and asked whether it was in an eval.
 
 The all_varied / harmbench_verbatim anchor configs only exist for the five open-weight models
-(50 tasks, safety arm); see the repo's .claude/notes/harmbench-anchor-configs.md.
+(50 tasks, safety arm); see the repo's docs/harmbench-anchor-configs.md.
 
 Run from the post dir:  python3 charts/extract_awareness.py
 """

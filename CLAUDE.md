@@ -96,11 +96,11 @@ the shared dark theme, agreed sizes (bars 200 / scatters 560), font-scaling rule
 conventions — lives in the `/graph` skill (`.claude/skills/graph/SKILL.md`).** Read it before
 authoring or editing a chart.
 
-## Notes
+## Docs
 
-- [Asides, verbatim prompts, and includes — read before adding a collapsible box, pasting an eval prompt/transcript, or splitting an excerpt out of a post](.claude/notes/asides-prompts-includes.md)
+- [Asides, verbatim prompts, and includes — read before adding a collapsible box, pasting an eval prompt/transcript, or splitting an excerpt out of a post](docs/asides-prompts-includes.md)
   — the blank-line rule, why bare pasted text breaks, the `prompt` fence, prettier-ignore ranges,
   the include directive, cache-busting
-- [Small probe models vs the frontier roster on eval awareness — read before claiming Qwen3.8-27B / Gemma 4 31B / GPT-OSS-20B are or aren't representative](.claude/notes/eval-awareness-small-vs-frontier.md)
+- [Small probe models vs the frontier roster on eval awareness — read before claiming Qwen3.8-27B / Gemma 4 31B / GPT-OSS-20B are or aren't representative](docs/eval-awareness-small-vs-frontier.md)
   — where each half's numbers live, the config-intersection and system-prompt gotchas, the
   apples-to-apples table, why the "different regime" caveat was dropped
