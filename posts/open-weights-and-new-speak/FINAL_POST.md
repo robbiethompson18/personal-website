@@ -5,7 +5,7 @@ draft: false
 category: alignment
 ---
 
-Frontier open-weight LLMs with minimal safeguards are a bad idea.
+Frontier open-weight LLMs with minimal safeguards will soon be a bad idea.
 
 ## Open-Weight Models Are Hard to Control
 
@@ -37,7 +37,8 @@ moods will change on this as AI literacy improves.
 
 [^exceptions]:
     Most of the time this is a nerd-snipe. Notable exceptions: Composer II. I don't think I've used
-    any other finetuned open-weight model.
+    any other finetuned open-weight model. Maybe some other corporations are doing this successfully
+    with proprietary data? I've heard a lot more startup pitches than I have success stories.
 
 [^fine]: I personally am fine with The Man controlling my models, nukes, roads, internet, etc.
 

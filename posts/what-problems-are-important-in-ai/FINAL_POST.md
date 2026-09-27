@@ -1,7 +1,7 @@
 ---
 title: Important Problems in AI
 date: 2026-08-28
-rating: 2
+rating: 1
 ---
 
 Epistemic status: Zero novel contributions, and probably not an outstanding summary either. Writing

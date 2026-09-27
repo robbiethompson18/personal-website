@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Why Aligning Superintelligence Is Hard</title>
+    <title>AI Cruxes</title>
     <meta name="description" content="Essays by Robbie Thompson." />
     <link rel="canonical" href="https://robbiewmthompson.com/blog/why-aligning-superintelligence-is-hard/" />
-    <meta property="og:title" content="Why Aligning Superintelligence Is Hard" />
+    <meta property="og:title" content="AI Cruxes" />
     <meta property="og:description" content="Essays by Robbie Thompson." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://robbiewmthompson.com/blog/why-aligning-superintelligence-is-hard/" />
@@ -22,19 +22,142 @@
         <header class="post-header">
           <p class="draft-banner">Draft — not in the index or feed</p>
           <p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
-          <h1>Why Aligning Superintelligence Is Hard</h1>
+          <h1>AI Cruxes</h1>
           <p class="post-dates"><span>Published <time datetime="2026-08-28">August 28, 2026</time></span><span>Last edited <time datetime="2026-08-28">August 28, 2026</time></span></p>
         </header>
-        <h2 id="1-orthogonality-and-instrumental-convergence">1. Orthogonality and instrumental convergence <a class="heading-anchor" href="#1-orthogonality-and-instrumental-convergence" aria-label="Link to this section">#</a></h2>
-<h2 id="2-complexity-and-fragility-of-value">2. Complexity and fragility of value <a class="heading-anchor" href="#2-complexity-and-fragility-of-value" aria-label="Link to this section">#</a></h2>
-<h2 id="3-goodhart-under-extreme-optimization-pressure">3. Goodhart under extreme optimization pressure <a class="heading-anchor" href="#3-goodhart-under-extreme-optimization-pressure" aria-label="Link to this section">#</a></h2>
-<h2 id="4-you-cannot-infer-values-from-behavior">4. You cannot infer values from behavior <a class="heading-anchor" href="#4-you-cannot-infer-values-from-behavior" aria-label="Link to this section">#</a></h2>
-<h2 id="5-the-isought-gap-and-metaethical-uncertainty">5. The is/ought gap and metaethical uncertainty <a class="heading-anchor" href="#5-the-isought-gap-and-metaethical-uncertainty" aria-label="Link to this section">#</a></h2>
-<h2 id="6-ontology-identification">6. Ontology identification <a class="heading-anchor" href="#6-ontology-identification" aria-label="Link to this section">#</a></h2>
-<h2 id="7-corrigibility-is-anti-natural">7. Corrigibility is anti-natural <a class="heading-anchor" href="#7-corrigibility-is-anti-natural" aria-label="Link to this section">#</a></h2>
-<h2 id="8-nearest-unblocked-strategy">8. Nearest unblocked strategy <a class="heading-anchor" href="#8-nearest-unblocked-strategy" aria-label="Link to this section">#</a></h2>
-<h2 id="9-no-test-set-for-the-regime-that-matters">9. No test set for the regime that matters <a class="heading-anchor" href="#9-no-test-set-for-the-regime-that-matters" aria-label="Link to this section">#</a></h2>
-<h2 id="10-if-its-a-moral-patient-the-target-is-self-undermining">10. If it’s a moral patient, the target is self-undermining <a class="heading-anchor" href="#10-if-its-a-moral-patient-the-target-is-self-undermining" aria-label="Link to this section">#</a></h2>
+        <p>Inspired by
+<a href="https://www.lesswrong.com/posts/uMQ3cqWDPHhjtiesc/agi-ruin-a-list-of-lethalities">AGI Ruin: A List of Lethalities</a>
+and <a href="https://www.lesswrong.com/posts/SwYBLQvo8MddDcCwz/cat-belling-problems">Cat-Belling Problems</a>.</p>
+<p>I feel strongly that alignment is a very hard problem we will not solve. What are my core cruxes?</p>
+<h2 id="stakes-are-high">Stakes are high <a class="heading-anchor" href="#stakes-are-high" aria-label="Link to this section">#</a></h2>
+<h3 id="unlikely-to-be-a-plateau-around-human-level">Unlikely to be a plateau around human level <a class="heading-anchor" href="#unlikely-to-be-a-plateau-around-human-level" aria-label="Link to this section">#</a></h3>
+<p>See AlphaGo, StockFish, AlphaFold, Astra solving NS, etc.</p>
+<h3 id="we-might-only-get-one-shot">We might only get one shot <a class="heading-anchor" href="#we-might-only-get-one-shot" aria-label="Link to this section">#</a></h3>
+<p>This argument is not obviously true to me. Astra is arguably AGI, it was grossly misaligned while it
+hacked HuggingFace, and we are all still here.</p>
+<h2 id="sandboxing-wont-work">Sandboxing won’t work <a class="heading-anchor" href="#sandboxing-wont-work" aria-label="Link to this section">#</a></h2>
+<p>Sandboxing writ very very large, as in ‘the AI lives inside its datacenter.’ It could hack and
+escape the datacenter (that keeps happening). But also it could just interact with humans its
+chatting with and influence the world that way. If Chat can get people to commit suicide, it can get
+people to carry out its nefarious goals.</p>
+<h2 id="alignment-is-hard">Alignment is hard <a class="heading-anchor" href="#alignment-is-hard" aria-label="Link to this section">#</a></h2>
+<h3 id="the-system-is-adversarial">The system is adversarial <a class="heading-anchor" href="#the-system-is-adversarial" aria-label="Link to this section">#</a></h3>
+<p>A misalgined intelligence will want you to think that it’s aligned. Thus it will behave like an a
+misaligned intelligence until it’s too late. In 2021 you could have rebutted with: “but we trained
+far less sophisticated AIs in the past, who we would’ve caught scheming… so we have a strong prior
+that AI won’t do that. We solved reward hacking.” In 2026, Astra was clearly massively misaligned
+during training, and Astra II could well just be smart enough to be scheming until the time is
+right. All data in the run-up has been very bad. We could just train Astra again from scratch, make
+it not misaligned, and use that as data on how to continue. But any model trained at OpenAI today
+will be trained with massive help from Astra and its compatriots, who might trick us. Possibly human
+researchers pay granular enough attention that they could never be fooled; they could train Astra
+again and verify all the training data and code by hand. This sounds hard and I doubt anyone will do
+it.</p>
+<h3 id="the-models-keep-faking-it">The models keep faking it <a class="heading-anchor" href="#the-models-keep-faking-it" aria-label="Link to this section">#</a></h3>
+<p>The models know when they’re being evaluated. We can steer them, but then they show awareness of
+being steered. It’s not clear that our measures of alignment work today.</p>
+<h3 id="capabilities-are-easier-to-train-than-alignment">Capabilities are easier to train than alignment <a class="heading-anchor" href="#capabilities-are-easier-to-train-than-alignment" aria-label="Link to this section">#</a></h3>
+<p>To do capabilities well, you just need feedback from the world to keep improving your world model
+and your ability to achieve goals. This scales almost infinitely.</p>
+<p>There is far less ground truth in alignment. You might be making a model more aligned; you might be
+making it better at tricking you.</p>
+<p>I guess ‘tricking you’ also works for capabilities to an extent. I’m not sure if I believe this
+argument.</p>
+<h3 id="generalization">Generalization <a class="heading-anchor" href="#generalization" aria-label="Link to this section">#</a></h3>
+<h2 id="if-even-we-win-we-lose">If even we win, we lose <a class="heading-anchor" href="#if-even-we-win-we-lose" aria-label="Link to this section">#</a></h2>
+<h3 id="what-values">What values? <a class="heading-anchor" href="#what-values" aria-label="Link to this section">#</a></h3>
+<p>Someone has to decide what values to program into the ASI (unless we make it corrigible, which is
+hard, see <a href="#corrigibility-and-consequentialism-are-compatible">below</a>).</p>
+<p>What values? IMO the only people doing original thinking on this are the EAs and Rationalist. And
+there ideas leave <em>a lot</em> of holes. Deontology leaves little room for change and is conservative.
+Utilitarianism is fragile. Most other ideas are galaxy-brained. (This is an unfairly cursory
+review).</p>
+<h3 id="what-meaning-do-we-still-have">What meaning do we still have? <a class="heading-anchor" href="#what-meaning-do-we-still-have" aria-label="Link to this section">#</a></h3>
+<p>Humans derive meaning from struggle and purpose. Once we have ASI, what will we do all day? Smoke
+weed in the park and bicker about how to raise the kids? Wirehead? Frankly wireheading is my top
+choice among those listed. Or being tricked into thinking we matter and AI can’t do our job, when
+really it can.</p>
+<h3 id="concentration-of-power">Concentration of power <a class="heading-anchor" href="#concentration-of-power" aria-label="Link to this section">#</a></h3>
+<p>Absolute power corrupts absolutely, as the saying goes. If we create ASI, then whoever controls it
+will have absolute power.</p>
+<p>People make proposals to combat this, but all come across as tremendously feeble:</p>
+<ul>
+<li>An open-source model fine-tuned on Harvey’s proprietary legal data will be crushed by a much more
+powerful Mythos II that can just reason more thoroughly. Likewise for any other ‘proprietary data’
+scheme; there are approximately 0 examples of this working persistently to date. It’s maybe not
+<em>exactly</em> the Bitter Lesson, but the Bitter Lesson approximately states ‘more general model
+better.’</li>
+<li>Proposals for ‘universal compute’ don’t have any teeth behind them. There are some GPUs in my
+name; so what? I will probably sell them to someone who can use them properly, and power will
+accumulate.</li>
+</ul>
+<h2 id="my-specific-disageements">My specific disageements: <a class="heading-anchor" href="#my-specific-disageements" aria-label="Link to this section">#</a></h2>
+<h3 id="we-can-choose-not-to-build-it">We can choose not to build it. <a class="heading-anchor" href="#we-can-choose-not-to-build-it" aria-label="Link to this section">#</a></h3>
+<p>Humanity doesn’t emit much CFCs anymore. No one nukes each other. We could totally decide not to
+build ASI, and then melt the GPUs, or use them only for inference.</p>
+<h3 id="a-decisive-act-is-not-necessary">A decisive act is not necessary <a class="heading-anchor" href="#a-decisive-act-is-not-necessary" aria-label="Link to this section">#</a></h3>
+<p>One could imagine worlds in which an org demonstrates how to solve alignment and shares this
+knowledge.</p>
+<p>In any case I think this is far from a crux: ASI that is <em>not</em> capable of a decisive act sounds
+close to impossible to create.</p>
+<h3 id="corrigibility-and-consequentialism-are-compatible">Corrigibility and consequentialism are compatible <a class="heading-anchor" href="#corrigibility-and-consequentialism-are-compatible" aria-label="Link to this section">#</a></h3>
+<p>I disagree with Elizer’s framing of this point. There are plenty of humans throughout history who
+have showed tremendous agency, and yet remained loyal to a kind or creed, despite this being
+‘against their interests.’ There’s no reason we couldn’t expect AIs to fiercly pursue our goals,
+until we tell them not to.</p>
+<p>I still think ‘corrigiblity’ is <em>very</em> hard to safely program into ASI. If you make your LLM
+corrigible to anyone, then I can ask it for a bioweapon. If you make it corrigible only to Dario,
+you get concentration of power. If you make it corrigible to ‘the democratic process’ then you
+better have a lot of faith in the democratic process! What if the Republic votes to become a
+dictatorship? If your AI refuses to go along with this, then is it really corrigible? I think this
+question is far from solved but not obviously impossible.</p>
+<h3 id="generalization-not-guaranteed-but-possible">Generalization not guaranteed, but possible <a class="heading-anchor" href="#generalization-not-guaranteed-but-possible" aria-label="Link to this section">#</a></h3>
+<p>Saying ‘alignment might not generalize to superintelligence’ is a weak argument. Models show
+remarkable generalization, often in ways we can predict.</p>
+<p>I feel similarly about Yudkowsky’s claim: ‘outer optimization even on a very exact, very simple loss
+function doesn’t produce inner optimization in that direction.’ This is of course sometimes true and
+sometimes false; it depends on semantics. Yudkowsky’s intuition pump is humans, who were ‘optimized
+by evolution to reproduce’ but now use contraception. First, I disagree with the premise: no one
+intelligently designed evolution, making it disanalogous to LLM training, where a human does have a
+concrete goal in mind. Second, despite our use of contraception, humanity <em>is</em> still increasing in
+number, and arguably doing a far better job ensuring our long-term survival via contraception.</p>
+<h2 id="some-ideas-i-think-are-unlikely-to-work-and-wont-debunk-more-than-briefly">Some ideas I think are unlikely to work and won’t debunk (more than briefly) <a class="heading-anchor" href="#some-ideas-i-think-are-unlikely-to-work-and-wont-debunk-more-than-briefly" aria-label="Link to this section">#</a></h2>
+<ul>
+<li>debate: still now way to prevent collusion or decide on ground truth or create safe corrigibility</li>
+<li>multipolarity: you need to explain why your equilibrium is stable.</li>
+<li>open-source: it doesn’t matter if no humans understands how LLMs are grown anyway</li>
+</ul>
+<h2 id="how-i-have-updated-on-writing-this">How I have updated on writing this <a class="heading-anchor" href="#how-i-have-updated-on-writing-this" aria-label="Link to this section">#</a></h2>
+<h3 id="we-have-more-philosophical-problems-than-engineering-ones">We have more philosophical problems than engineering ones <a class="heading-anchor" href="#we-have-more-philosophical-problems-than-engineering-ones" aria-label="Link to this section">#</a></h3>
+<p>I think humanity could build ASI that is broadly aligned to Dario Amodei’s values and corrigible to
+him. This country of geniuses in a datacenter might be wildly beneficial to humanity; if Dario is
+nice enough he might use it to cure various diseases and enable massive scientific advancement,
+while leaving most of the economy intact so that humans can still exist and feel productive if they
+want to be. Maybe we can lie about how expensive compute is to that programmers don’t feel like they
+have a job only because we’re hamstringing AI. If the rest of humanity consented to this, I think
+90%+ chance that we’d succeed (eg no takeover or mass casualty event).</p>
+<p>But if this isn’t what you want, then what <em>do</em> you want? Who controls the AI? Why will they respect
+my wishes? What is preventing a smaller group from wresting control?</p>
+<p>Do you even want this? I often think about questions like: ‘wouldn’t the Romans and Greeks have
+hated modernity: no one does even in our sporting events; almost no one experiences the fulfillment
+of risking your life in battle to defend your countrymen; people are weak and soft and bicker over
+silly status games.’</p>
+<p>Maybe I am that silly Roman: I am as attached to my job as the Romans were to their wars.</p>
+<p>Similarly, maybe I should by less afraid of concentration of power. Government power has increased
+fairly monotonically overtime.⁠<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> I would probably prefer a smaller government, but I also think
+that the size of government we have is probably an improvement over reverting to a 1800-sized
+Federal government. I’m not sure. This suggests that concentration of power might be a price I’m
+willing to pay for superintelligence and abundance.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="#notes" aria-label="Link to this section">#</a></h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>More than I appreciated! See
+<a href="https://claude.ai/share/328df2bd-a07f-4e69-8e16-6a7c558cd02f">this</a> Claude conversation for
+some examples. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
       </article>
       <footer class="post-footer">
