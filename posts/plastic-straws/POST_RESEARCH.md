@@ -268,9 +268,8 @@ goods, and the sweatshop literature is more contested than a one-liner implies.
 
 - CO₂→miles: 2 kg (cradle-to-gate, conservative) to 7 kg (cradle-to-grave) ÷ 0.4 kg/mi (EPA avg car)
   = 5–17.5 mi.
-- GiveWell arbitrage: $20 ÷ $5,500/life (AMF) = 0.0036 = 1/275.
-  $300/yr greener-wardrobe premium
-  × 40 yr ÷ $5,500 ≈ **2.2 lives** over an adult life.
+- GiveWell arbitrage: $20 ÷ $5,500/life (AMF) = 0.0036 = 1/275. $300/yr greener-wardrobe premium ×
+  40 yr ÷ $5,500 ≈ **2.2 lives** over an adult life.
 - Sweatshop wage: Bangladesh $0.13/hr × 70 hr/wk × 52 = $473/yr.
 
 **⚠️ Flags:**
@@ -300,8 +299,8 @@ goods, and the sweatshop literature is more contested than a one-liner implies.
 
 **Sources:**
 
-- [GiveWell — Top Charities](https://www.givewell.org/charities/top-charities) — AMF
-  "$5,500 per life saved"; Malaria Consortium "$4,000."
+- [GiveWell — Top Charities](https://www.givewell.org/charities/top-charities) — AMF "$5,500 per
+  life saved"; Malaria Consortium "$4,000."
 - [Powell & Skarbek (2004/2006)](https://www.independent.org/wp-content/uploads/article/2004/09/53_sweatshop.pdf)
   — "In 9 of the 11 countries, the reported sweatshop wages equal or exceed average income, doubling
   it in Cambodia, Haiti, Nicaragua, and Honduras (at 70 hours)"; Bangladesh $0.13/hr.
@@ -591,11 +590,9 @@ fueleconomy.gov (Tesla Model 3 / F-150 Lightning).
 
 ## 6. Using AI
 
-**Verdict: MIXED.** For a typical user — even a heavy _chat_ user on a
-$200 Max plan — a month of
-AI is trivial. The honest exception, which you should flag not bury, is the all-day
-**agentic-coding** power user (i.e. exactly the person who buys the $200
-plan).
+**Verdict: MIXED.** For a typical user — even a heavy _chat_ user on a $200 Max plan — a month of AI
+is trivial. The honest exception, which you should flag not bury, is the all-day **agentic-coding**
+power user (i.e. exactly the person who buys the $200 plan).
 
 **Equivalences (defensible):**
 
@@ -939,11 +936,9 @@ weak.
   eastern-Pacific tuna fishery fell **~99%, from ~132,000/yr (1986) to ~820 (2018)** — but the same
   shift to FAD fishing helps kill the **>1 million sharks** taken as tuna bycatch each year. It
   saves the cute species and is silent on the rest.
-- **The "better" food label barely moves money:** Fairtrade's cocoa premium
-  ($240/tonne) ≈ **~1–2
-  cents per 100g bar** (and it goes to the *co-op*, not the individual farmer); Rainforest
-  Alliance's $70/tonne
-  is under a cent.
+- **The "better" food label barely moves money:** Fairtrade's cocoa premium ($240/tonne) ≈ **~1–2
+  cents per 100g bar** (and it goes to the _co-op_, not the individual farmer); Rainforest
+  Alliance's $70/tonne is under a cent.
 
 **The math:**
 
@@ -998,26 +993,24 @@ gummed up anywhere in silly orgs?
 **~1–2 cents**, and the slice reaching an individual farmer as cash is **well under one cent.** The
 money goes to the **co-operative, not the farmer:** Fairtrade pays a ~$2,400/tonne price floor
 
-- a
-  **~$240/tonne premium**, and the co-op votes on how to split it (only from Oct 2026 must ≥40%
-be paid as member cash, in Ghana / Côte d'Ivoire). Rainforest Alliance (merged with UTZ, 2018)
-instead pays a small **~$70/tonne
-  "Sustainability Differential"** as cash to the farmer. Per 100g dark bar (~70g cocoa): Fairtrade
-  premium ≈ **1.7¢** (≈0.7¢ reaching a farmer as cash); RA ≈ **0.5¢.**
+- a **~$240/tonne premium**, and the co-op votes on how to split it (only from Oct 2026 must ≥40% be
+  paid as member cash, in Ghana / Côte d'Ivoire). Rainforest Alliance (merged with UTZ, 2018)
+  instead pays a small **~$70/tonne "Sustainability Differential"** as cash to the farmer. Per 100g
+  dark bar (~70g cocoa): Fairtrade premium ≈ **1.7¢** (≈0.7¢ reaching a farmer as cash); RA ≈
+  **0.5¢.**
 
 **Where it gets gummed up:** (1) co-op governance / elite capture (premium spent collectively; weak
 governance and ghost members skim it); (2) **FLOCERT audit fees** (~€396/day) come out of the
 premium; (3) **mass balance** — an "RA Certified" bar can contain _uncertified_ cocoa as long as an
 equal tonnage was bought certified somewhere (origin-matching even lets a Ghana certificate attach
 to Ivorian non-certified beans), so the farmer on the wrapper may get nothing; (4) **licensee/label
-fees + NGO admin**; (5) **scale** — the premium is dwarfed by price swings (cocoa ran
-$2,400 →
-$12,931 in Dec 2024 → ~$4,000–5,000 now), and the $2,400 floor is currently _non-binding_
-(below market), so today only the premium adds anything. **Counterweight (cuts against "it's
-pointless"):** the premium does fund real community goods (schools, water, inputs), and Fairtrade's
-panel data shows Ivorian cocoa-household income +85% over 2016/17–2020/21 — but that's confounded by
-the price spike, and the Cocoa Barometer's bottom line stands: <10% income lift, with 73–90% of
-those households still below a living-income benchmark. Sources:
+fees + NGO admin**; (5) **scale** — the premium is dwarfed by price swings (cocoa ran $2,400 →
+$12,931 in Dec 2024 → ~$4,000–5,000 now), and the $2,400 floor is currently _non-binding_ (below
+market), so today only the premium adds anything. **Counterweight (cuts against "it's pointless"):**
+the premium does fund real community goods (schools, water, inputs), and Fairtrade's panel data
+shows Ivorian cocoa-household income +85% over 2016/17–2020/21 — but that's confounded by the price
+spike, and the Cocoa Barometer's bottom line stands: <10% income lift, with 73–90% of those
+households still below a living-income benchmark. Sources:
 [Fairtrade min price/premium](https://www.fairtrade.net/en/get-involved/news/new-fairtrade-minimum-price-for-cocoa-in-non-regulated-markets.html);
 [RA Sustainability Differential](https://www.rainforest-alliance.org/business/certification/cocoa-sustainability-differential/);
 [RA mass balance](https://www.rainforest-alliance.org/business/certification/what-is-mass-balance-sourcing/);

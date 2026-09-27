@@ -206,8 +206,8 @@ winners shift right and become less egalitarian, scaling with win size.
     here. The technically correct statistic is Cramér’s $V \approx 0.60$, but $V$ is normalized by
     the number of categories and systematically produces lower values for larger tables — the same
     data collapsed to a $2 \times 2$ table yields $\phi \approx 0.90$. We report 0.90 because every
-    other cell uses a Pearson-scale metric, and placing 0.60 next to (say) politics → spouse at
-    $r = 0.58$ would falsely imply comparable sorting strength, when racial endogamy
+    other cell uses a Pearson-scale metric, and placing 0.60 next to (say) politics → spouse at $r =
+    0.58$ would falsely imply comparable sorting strength, when racial endogamy
     ([83–95% of marriages are same-race](@pew)) is far stronger than partisan sorting. IQ → job
     performance ($r = 0.31$) is the post-Sackett (2022) corrected consensus, well below the older
     Schmidt & Hunter estimate ($r = 0.51$) that still appears in textbooks. All values should be

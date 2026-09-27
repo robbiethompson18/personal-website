@@ -85,9 +85,8 @@ of farmland.
     would counterfactually be biodiverse nature, which is not true of landfill.
 
 The average American's annual landfill use is about 20 cubic feet, or $0.2\ \text{ft}^2$ of landfill
-area. It takes ~[1,590 sq ft to create a 1-lb steak](@steak), so your year of trash is
-$0.2 / 1590 \times
-100 \approx \frac{1}{80}$ steaks, even after the 100x penalty.
+area. It takes ~[1,590 sq ft to create a 1-lb steak](@steak), so your year of trash is $0.2 / 1590
+\times 100 \approx \frac{1}{80}$ steaks, even after the 100x penalty.
 
 No one has done a rigorous study showing that microplastics meaningfully impact health. Even if you
 are worried about them, vanishingly little exposure comes from plastic that properly makes it to

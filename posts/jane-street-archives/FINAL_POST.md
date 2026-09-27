@@ -89,10 +89,8 @@ a couple half marathons with a full one coming soon I hope!”[^5]
 The first thing you learn as an intern is that the only important thing about a bet is its
 [expected value](https://en.wikipedia.org/wiki/Expected_value) (almost). For small amounts of money,
 risk is irrelevant. And that’s ‘small’ by Jane Street standards. There’s a man who walks around the
-Christmas party every year with about
-$40k in hundred dollar bills who will flip a coin for as much
-money as you like,[^6] with an informal minimum of $100.
-He gets hundreds of takers.
+Christmas party every year with about $40k in hundred dollar bills who will flip a coin for as much
+money as you like,[^6] with an informal minimum of $100. He gets hundreds of takers.
 
 [^6]: As long as it’s less than what’s in his hand.
 
@@ -115,8 +113,7 @@ Doug’s surprise, Tyler did too.
 When Doug came back to our table, he told us this story. “Thank God the kid won,” he sighed. He
 opened his wallet, counted 27 Benjamins, and called over another fulltimer to get the rest of the
 cash he needed. He insisted on $100 bills. Within 3 minutes of losing the flip, he handed Tyler
-$3000
-in cash.
+$3000 in cash.
 
 Any intern unwilling to take bets like this was a schmuck. At work dinners, fulltimers would
 frequently offer interns coin flips where they stood to win $102 or lose $100. If you said no, you

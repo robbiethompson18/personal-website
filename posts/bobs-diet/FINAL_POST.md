@@ -158,10 +158,9 @@ Everyone hates this solution
 ([example](https://forum.effectivealtruism.org/posts/Mfq7KxQRvkeLnJvoB/why-neuron-counts-shouldn-t-be-used-as-proxies-for-moral)),
 but no one proposes anything better.
 
-I propose something better:
-$\text{suffering caused} \approx \text{neuron count} \times \text{time spent on a factory farm}$.
-This is of course oversimplified. I sit here awaiting your better metric, dear reader. In the
-meantime I will use my flawed-but-plausible one.
+I propose something better: $\text{suffering caused} \approx \text{neuron count} \times \text{time
+spent on a factory farm}$. This is of course oversimplified. I sit here awaiting your better metric,
+dear reader. In the meantime I will use my flawed-but-plausible one.
 
 ## The Rankings
 
