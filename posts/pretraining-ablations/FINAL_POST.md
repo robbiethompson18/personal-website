@@ -22,10 +22,9 @@ held-out set were:
 1. Lean tokenizer
 2. Muon optimizer
 
-Leon's new RL recipe does _much_ better on recipe 39 I sent him than on recipe 1 (~2x more proofs)
-which updated me against too strong of p-hacking.
-
-And held-out performance correlates _very_ strongly with validation performance.
+Leon's new RL recipe does _much_ better on recipe 39 I sent him than on recipe 1 (~2x more proofs).
+And held-out performance correlates _very_ strongly with validation performance. These update me
+against p-hacking and make me more inclined to accept Fable's crazy experiments.
 
 If you made me ship a pretrain implementation to the core of the repo today, I would probably ask
 Claude to simplify what I have a fair amount, run it again, and if performances drop <10% just use
