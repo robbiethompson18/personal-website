@@ -14,8 +14,8 @@
 // The header lives upstream when the source has one: each key in the source's
 // frontmatter overwrites ours (title, date, draft, project, …), and we keep only
 // the keys it doesn't set (source:, or the whole header if it has no frontmatter).
-// A source's `written_on:` fills `date:` and its leading `# ` heading fills
-// `title:`, unless it sets those keys itself. Deleting a key upstream does NOT
+// A source's `written_on:` fills `date:` and its first heading, if it's a `# `
+// h1, fills `title:`, unless it sets those keys itself. Deleting a key upstream does NOT
 // delete ours — set `draft: false` to publish rather than removing `draft: true`.
 //
 // Everything below the frontmatter is overwritten with the source file's body.
@@ -44,15 +44,21 @@ const fields = (fm) =>
 const upstream = readFileSync(resolve(source), "utf8");
 const up = upstream.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
 const upFields = fields(up?.[1] ?? "");
-// Move a leading `# ` title (only blank lines / HTML comments may precede it) into title:, since
-// build.js renders the frontmatter title as the h1 and leaving it in would show it twice.
-const body = (up?.[2] ?? upstream).replace(
-  /^((?:\s*<!--[\s\S]*?-->)*\s*)# (.*)\n/,
-  (_, pre, h1) => {
-    if (!upFields.has("title")) upFields.set("title", h1.trim());
-    return pre;
-  },
-);
+// If the body's first heading is an h1, it's the title: move it into title:, since build.js
+// renders the frontmatter title as the h1 and leaving it in would show it twice. Prose may sit
+// above it (a "for context, see …" line); `#` lines inside code fences aren't headings.
+const bodyLines = (up?.[2] ?? upstream).split("\n");
+let inFence = false;
+for (let i = 0; i < bodyLines.length; i++) {
+  if (/^(```|~~~)/.test(bodyLines[i])) inFence = !inFence;
+  if (inFence || !/^#{1,6} /.test(bodyLines[i])) continue;
+  if (bodyLines[i].startsWith("# ")) {
+    if (!upFields.has("title")) upFields.set("title", bodyLines[i].slice(2).trim());
+    bodyLines.splice(i, bodyLines[i + 1] === "" ? 2 : 1);
+  }
+  break;
+}
+const body = bodyLines.join("\n");
 if (upFields.has("written_on") && !upFields.has("date"))
   upFields.set("date", upFields.get("written_on"));
 

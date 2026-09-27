@@ -7,6 +7,238 @@
     <description>Essays by Robbie Thompson.</description>
     <language>en</language>
     <item>
+      <title>Pretraining ablations, week of September 21, 2026</title>
+      <link>https://robbiewmthompson.com/blog/pretraining-ablations/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/pretraining-ablations/</guid>
+      <pubDate>Sat, 26 Sep 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>For context, see <a href="https://robbiewmthompson.com/blog/natural-deduction-takehome/">previous work</a>.</p>
+<h2 id="summary">Summary <a class="heading-anchor" href="https://robbiewmthompson.com/blog/pretraining-ablations/#summary" aria-label="Link to this section">#</a></h2>
+<p>I set up auto research to determine what pretraining setup would lead to the best RL performance on
+our natural deduction task.</p>
+<p>The only optimizations agents made to the pretrain that I was confident worked before checking the
+held-out set were:</p>
+<ol>
+<li>Lean tokenizer</li>
+<li>Muon optimizer</li>
+</ol>
+<p>Leon’s new RL recipe does <em>much</em> better on recipe 39 I sent him than on recipe 1 (~2x more proofs)
+which updated me against too strong of p-hacking.</p>
+<p>And held-out performance correlates <em>very</em> strongly with validation performance.</p>
+<p>If you made me ship a pretrain implementation to the core of the repo today, I would probably ask
+Claude to simplify what I have a fair amount, run it again, and if performances drop &lt;10% just use
+that.</p>
+<h2 id="mistakes-made">Mistakes Made: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/pretraining-ablations/#mistakes-made" aria-label="Link to this section">#</a></h2>
+<ol>
+<li>It took me far too long to realize that the agents thought speedups were out of bounds (and thus
+they were training tiny models). Torch.compile didn’t even work. Claude is somehow struggling
+<em>mightily</em> to get this to work right now, it’s still not done, which I feel bad about.</li>
+<li>In general, I spent way too many tokens letting autoresearch spin without validating its outputs.</li>
+</ol>
+<h2 id="methodology">Methodology: <a class="heading-anchor" href="https://robbiewmthompson.com/blog/pretraining-ablations/#methodology" aria-label="Link to this section">#</a></h2>
+<ol>
+<li>Freeze training data to Dan’s set (155k pretrain examples, 1.5k RL proofs for expert iteration,
+1.1k proofs not trained on and used to decide whether run is kept, 1.2k proofs held out until
+after runs finish)</li>
+<li>Advance based on pass@64 on the eval set.</li>
+<li>Freeze RL methodology (very vanilla expert iteration)</li>
+<li>Freeze GPU budget: 300s of pretrain, ~2,100 seconds of RL (both of these numbers got increased).</li>
+<li>Parameter cap of 10m. Almost never got hit because pretrain time was the limiting factor</li>
+</ol>
+<h2 id="findings">Findings <a class="heading-anchor" href="https://robbiewmthompson.com/blog/pretraining-ablations/#findings" aria-label="Link to this section">#</a></h2>
+<h3 id="does-pretrain-loss-correlate-with-rl-theorems-learned">Does Pretrain Loss Correlate With RL Theorems Learned? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/pretraining-ablations/#does-pretrain-loss-correlate-with-rl-theorems-learned" aria-label="Link to this section">#</a></h3>
+<p>A: Not really. You would expect a negative sign below:</p>
+<ul>
+<li>Token era: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mo>−</mo><mn>0.29</mn></mrow><annotation encoding="application/x-tex">r = -0.29</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">0.29</span></span></span></span>, Spearman <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mo>−</mo><mn>0.24</mn></mrow><annotation encoding="application/x-tex">\rho = -0.24</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">ρ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">0.24</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>81</mn></mrow><annotation encoding="application/x-tex">n = 81</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">81</span></span></span></span>)</li>
+<li>Lean era: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mo>+</mo><mn>0.21</mn></mrow><annotation encoding="application/x-tex">r = +0.21</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">0.21</span></span></span></span>, Spearman <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mo>+</mo><mn>0.29</mn></mrow><annotation encoding="application/x-tex">\rho = +0.29</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">ρ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">+</span><span class="mord">0.29</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>99</mn></mrow><annotation encoding="application/x-tex">n = 99</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">99</span></span></span></span>)</li>
+</ul>
+<p>Outliers excluded: label smoothing (017) in the token era, and in the Lean era the two broken runs
+(166-fable2, 162-fable) that are off the chart.</p>
+<p><img src="https://robbiewmthompson.com/blog/pretraining-ablations/charts/loss-vs-score.png" alt="Pretrain loss vs. dev score, one point per run"></p>
+<h3 id="validation-theorems-solved-vs-held-out-theorems-solved">Validation Theorems Solved vs Held-Out Theorems Solved <a class="heading-anchor" href="https://robbiewmthompson.com/blog/pretraining-ablations/#validation-theorems-solved-vs-held-out-theorems-solved" aria-label="Link to this section">#</a></h3>
+<ul>
+<li>Token era: not scored on holdout yet</li>
+<li>Lean era: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>0.99</mn></mrow><annotation encoding="application/x-tex">r = 0.99</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.99</span></span></span></span>, Spearman <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mn>0.98</mn></mrow><annotation encoding="application/x-tex">\rho = 0.98</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">ρ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.98</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>86</mn></mrow><annotation encoding="application/x-tex">n = 86</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">86</span></span></span></span>)</li>
+</ul>
+<p><img src="https://robbiewmthompson.com/blog/pretraining-ablations/charts/dev-vs-holdout.png" alt="Dev vs holdout score, one point per run"></p>
+<h3 id="pretrain-loss-rl-theorems">Pretrain Loss, RL Theorems <a class="heading-anchor" href="https://robbiewmthompson.com/blog/pretraining-ablations/#pretrain-loss-rl-theorems" aria-label="Link to this section">#</a></h3>
+<p><img src="https://robbiewmthompson.com/blog/pretraining-ablations/charts/by-run.png" alt="Pretrain loss, dev and holdout score by run"></p>
+<p>Progress on longer theorems:</p>
+<p><img src="https://robbiewmthompson.com/blog/pretraining-ablations/charts/by-length.png" alt="Dev theorems proved, by the length of the model's shortest proof, by run"></p>
+<p>Length here is the shorter of two proofs of each theorem: the model’s shortest verified proof (with
+uncited lines pruned) and the deterministically-generated reference proof.⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/pretraining-ablations/#fn1" id="fnref1">[1]</a></sup>⁠<sup class="footnote-ref"><a href="https://robbiewmthompson.com/blog/pretraining-ablations/#fn2" id="fnref2">[2]</a></sup></p>
+<h2 id="potpourri">Potpourri <a class="heading-anchor" href="https://robbiewmthompson.com/blog/pretraining-ablations/#potpourri" aria-label="Link to this section">#</a></h2>
+<h3 id="why-does-the-lean-tokenizer-work-so-much-better">Why Does the Lean Tokenizer Work so much Better? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/pretraining-ablations/#why-does-the-lean-tokenizer-work-so-much-better" aria-label="Link to this section">#</a></h3>
+<p>I suspect it has a lot to do with depth invariance. Stealing Dan’s unary-| hypothesis:</p>
+<p>In the ND world, if the model is in a depth-three box, it has to write something like</p>
+<pre><code>N13 | | | P : AS ;
+N14 | | | (QvP) : ORI2 N13 ;
+</code></pre>
+<p>Whereas in the Lean world depth is not marked by bars but by parens:</p>
+<pre><code>( fun ( n14 : P ) =&gt; by
+    have n15 : (Q ∨ P) := Or.inr n14 ;
+    exact n15 )
+</code></pre>
+<p>There are more parens wrapped around this <code>fun</code>, but locally we don’t care about them.</p>
+<h3 id="how-do-we-deal-with-relative-references-and-getting-past-7-lines">How Do We Deal With Relative References and Getting Past 7 Lines? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/pretraining-ablations/#how-do-we-deal-with-relative-references-and-getting-past-7-lines" aria-label="Link to this section">#</a></h3>
+<p>We number statements, eg:</p>
+<pre><code>N1 (PvQ) : PR ;
+  N2 | P : AS ;
+  N3 | (QvP) : ORI2 N2 ;
+  N4 | Q : AS ;
+  N5 | (QvP) : ORI1 N4 ;
+N6 (QvP) : ORE N1 N2 N3 N4 N5 ; QED
+</code></pre>
+<p>We then add a random offset so that the model sees more than six ‘name’ tokens:</p>
+<pre><code>-- ND, offset +11
+N12 (PvQ) : PR ;
+  N13 | P : AS ;
+  N14 | (QvP) : ORI2 N13 ;
+  N15 | Q : AS ;
+  N16 | (QvP) : ORI1 N15 ;
+N17 (QvP) : ORE N12 N13 N14 N15 N16 ; QED
+
+-- Lean, offset +11
+have n12 : (P ∨ Q) := h1 ;
+have n13 : (Q ∨ P) := Or.elim n12
+    ( fun ( n14 : P ) =&gt; by
+        have n15 : (Q ∨ P) := Or.inr n14 ;
+        exact n15 )
+    ( fun ( n16 : Q ) =&gt; by
+        have n17 : (Q ∨ P) := Or.inl n16 ;
+        exact n17 ) ;
+exact n13
+</code></pre>
+<p>In practice offset is random 0-64. I did not ablate this.</p>
+<h2 id="longer-summary-of-results-claude-written">Longer Summary of Results (Claude Written) <a class="heading-anchor" href="https://robbiewmthompson.com/blog/pretraining-ablations/#longer-summary-of-results-claude-written" aria-label="Link to this section">#</a></h2>
+<p>Top 10 single-change jumps. Metric: dev theorems solved at length <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">\geq 7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">7</span></span></span></span>, mean of seeds 0/1/2.
+Delta is vs the incumbent the run was compared against. Protocol changes are excluded.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Run</th>
+<th>Δ</th>
+<th>Score</th>
+<th>What changed</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>030</td>
+<td><strong>+65</strong></td>
+<td>148→213</td>
+<td><strong>Muon</strong> for hidden matrices (was AdamW)</td>
+<td>Every seed up (+117/+21/+57); val loss ~flat. The one clearly real jump.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>081</td>
+<td><strong>+48</strong></td>
+<td>356→404</td>
+<td><strong>Polar Express</strong> Newton-Schulz coefficients in Muon</td>
+<td>Pretraining indistinguishable; RL went further. Every seed up.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>115</td>
+<td>+26</td>
+<td>606→631</td>
+<td>Hybrid heads: ALiBi on 4 heads, NoPE on 4</td>
+<td>Fixed 113’s bad RL start (round-1 parse failures 30–64% → 18–25%).</td>
+</tr>
+<tr>
+<td>4</td>
+<td>070</td>
+<td>+25</td>
+<td>327→353</td>
+<td>Muon weight decay 3× → 10×</td>
+<td>RL better from round 1; no sharpness failure.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>066</td>
+<td>+23</td>
+<td>293→316</td>
+<td>Batch 256 → 128 (2× optimizer steps, same wall-clock)</td>
+<td>Val loss didn’t drop. “Steps turn into score.”</td>
+</tr>
+<tr>
+<td>6</td>
+<td>032</td>
+<td>+19</td>
+<td>213→233</td>
+<td>AdamW finish for last 20% of pretraining</td>
+<td><strong>Later removed (040) at an exact tie.</strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td>113</td>
+<td>+19</td>
+<td>587→606</td>
+<td>ALiBi replaces RoPE</td>
+<td>~+30% pretraining steps; own mechanism refuted. Probably partly a speed win.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>038</td>
+<td>+17</td>
+<td>237→254</td>
+<td>AdamW finish shortened to 10%</td>
+<td>Same AdamW-finish line.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>101</td>
+<td>+16</td>
+<td>563→580</td>
+<td>5 → 6 layers (Lean protocol)</td>
+<td>−17% steps, still up on every seed.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>039</td>
+<td>+16</td>
+<td>254→270</td>
+<td>AdamW finish shortened to 5%</td>
+<td>Same AdamW-finish line.</td>
+</tr>
+</tbody>
+</table>
+<p>Just below the cutoff: 129 (LR floor 0.1 → 0.3, +15), 153 (width 384, +15), 150 (bigram table, +14),
+151 (width 320, +14).</p>
+<p>Protocol jumps (not comparable, not ideas): 000 → 012 (56 → 148, 600 s → 1200 s harness and 3-seed
+bar); 081 → 100 (404 → 563, Lean tokenizer + Lean ∧ nd_verify reward + 2400 s).</p>
+<p>Noise: pooled one-seed sd is 41.6 (token era) and 44.7 (Lean era), so the SE of a difference of two
+3-seed means is ~36. Only Muon (~1.8 SE) and Polar Express (~1.3 SE) clear it. Ranks 6, 8 and 10
+(+52 combined) came from the AdamW finish, which 040 then deleted at a tie. Keeps are selected for
+being high, so kept deltas overstate true effects. 153 (687) has held for 30+ runs (154–184), many
+of which scored 670–685.</p>
+<p>By era: token era 148 → 404 (2.7×), almost all from the Muon family. Lean era 563 → 687 (+22%), from
+architecture and position encoding, plus spending 148’s token-batching speed on width.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="https://robbiewmthompson.com/blog/pretraining-ablations/#notes" aria-label="Link to this section">#</a></h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>The dev pool has 1,108 theorems. By reference-proof length: 150 of 7 lines, 152 of 8, 477 of 9,
+219 of 10, 49 of 11, 54 of 12, 5 of 13 and 2 of 14. The reference length is only an upper bound:
+the incumbent (153) finds a shorter proof than the reference for about 27% of the theorems it
+solves, and a longer one for about 7%. <a href="https://robbiewmthompson.com/blog/pretraining-ablations/#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>The min is taken per run. We neglect the global-min analysis in the chart, which would fix each
+theorem’s length as the shortest proof found by any run (311 of the 1,108 theorems beat their
+reference that way). If we had done global min, the incumbent’s counts would change by +3% at 7
+lines, +18% at 8, −17% at 9, −14% at 10, −18% at 11 and 0% at 12. Earlier runs move further down
+at the long end (Polar Express, 081: −55% at 10 lines), so the chart slightly understates the
+progress on long proofs. <a href="https://robbiewmthompson.com/blog/pretraining-ablations/#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content:encoded>
+    </item>
+    <item>
       <title>Natural Deduction Takehome</title>
       <link>https://robbiewmthompson.com/blog/natural-deduction-takehome/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/natural-deduction-takehome/</guid>

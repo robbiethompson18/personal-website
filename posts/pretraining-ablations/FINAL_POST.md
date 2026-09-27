@@ -1,62 +1,164 @@
 ---
 title: Pretraining ablations, week of September 21, 2026
-date: 2026-09-27
-draft: true
+date: 2026-09-26
+draft: false
 project: true
 source: ../nd-rl/experiment-summaries/2026-09-21-pretrain-ablations/README.md
+written_on: 2026-09-26
+written_by: human:Robbie
+rating: 2
 ---
 
-<!-- HUMAN-ONLY: agents must not edit this file. Robbie writes it by hand. -->
-
-## Open questions:
-
-1. when does held-out score peak? Will probably take what we got there.
+For context, see [previous work](https://robbiewmthompson.com/blog/natural-deduction-takehome/).
 
 ## Summary
 
-The only things that I really trust working here are:
+I set up auto research to determine what pretraining setup would lead to the best RL performance on
+our natural deduction task.
 
-1. Lean
-2. Muon
+The only optimizations agents made to the pretrain that I was confident worked before checking the
+held-out set were:
 
-Everything else could just be noise.
+1. Lean tokenizer
+2. Muon optimizer
 
-Leon's new RL recipe does _much_ better on the recipe 39 I sent him than on recipe 1 (~2x more
-proofs) which is nice.
+Leon's new RL recipe does _much_ better on recipe 39 I sent him than on recipe 1 (~2x more proofs)
+which updated me against too strong of p-hacking.
+
+And held-out performance correlates _very_ strongly with validation performance.
+
+If you made me ship a pretrain implementation to the core of the repo today, I would probably ask
+Claude to simplify what I have a fair amount, run it again, and if performances drop <10% just use
+that.
+
+## Mistakes Made:
+
+1. It took me far too long to realize that the agents thought speedups were out of bounds (and thus
+   they were training tiny models). Torch.compile didn't even work. Claude is somehow struggling
+   _mightily_ to get this to work right now, it's still not done, which I feel bad about.
+2. In general, I spent way too many tokens letting autoresearch spin without validating its outputs.
 
 ## Methodology:
 
-1. Freeze training data to Dan's set (155k pertrain examples, 1.5k RL proofs for expert iteration,
+1. Freeze training data to Dan's set (155k pretrain examples, 1.5k RL proofs for expert iteration,
    1.1k proofs not trained on and used to decide whether run is kept, 1.2k proofs held out until
    after runs finish)
 2. Advance based on pass@64 on the eval set.
-3. Free RL methodology (very vanilla expert iteration)
-4. Freeze GPU budget: 300s of pretrain, ~1,100 seconds of RL
+3. Freeze RL methodology (very vanilla expert iteration)
+4. Freeze GPU budget: 300s of pretrain, ~2,100 seconds of RL (both of these numbers got increased).
 5. Parameter cap of 10m. Almost never got hit because pretrain time was the limiting factor
 
 ## Findings
 
-### Does pretrain loss correlate with RL theorems learned?
+### Does Pretrain Loss Correlate With RL Theorems Learned?
 
-A: Not really. R = 0.03. Spearman = 0.25
+A: Not really. You would expect a negative sign below:
+
+- Token era: $r = -0.29$, Spearman $\rho = -0.24$ ($n = 81$)
+- Lean era: $r = +0.21$, Spearman $\rho = +0.29$ ($n = 99$)
+
+Outliers excluded: label smoothing (017) in the token era, and in the Lean era the two broken runs
+(166-fable2, 162-fable) that are off the chart.
 
 ![Pretrain loss vs. dev score, one point per run](charts/loss-vs-score.png)
 
-### Pretrain loss, RL theorems
+### Validation Theorems Solved vs Held-Out Theorems Solved
+
+- Token era: not scored on holdout yet
+- Lean era: $r = 0.99$, Spearman $\rho = 0.98$ ($n = 86$)
+
+![Dev vs holdout score, one point per run](charts/dev-vs-holdout.png)
+
+### Pretrain Loss, RL Theorems
 
 ![Pretrain loss, dev and holdout score by run](charts/by-run.png)
 
-## Mistakes made:
+Progress on longer theorems:
 
-1. even tiny prompts get amplified if you don't notice. Took me far too long to realize that the
-   agents thought speedups were out of bounds (and thus they were training tiny models).
-2. I think I spent way too many tokens letting autoresearch spin and didn't think hard eonugh about
-   validation
+![Dev theorems proved, by the length of the model's shortest proof, by run](charts/by-length.png)
 
-## Summary of results (Claude written)
+Length here is the shorter of two proofs of each theorem: the model's shortest verified proof (with
+uncited lines pruned) and the deterministically-generated reference proof.[^bank][^globalmin]
 
-Top 10 single-change jumps. Metric: dev theorems solved at length >= 7, mean of seeds 0/1/2. Delta
-is vs the incumbent the run was compared against. Protocol changes are excluded.
+[^bank]:
+    The dev pool has 1,108 theorems. By reference-proof length: 150 of 7 lines, 152 of 8, 477 of 9,
+    219 of 10, 49 of 11, 54 of 12, 5 of 13 and 2 of 14. The reference length is only an upper bound:
+    the incumbent (153) finds a shorter proof than the reference for about 27% of the theorems it
+    solves, and a longer one for about 7%.
+
+[^globalmin]:
+    The min is taken per run. We neglect the global-min analysis in the chart, which would fix each
+    theorem's length as the shortest proof found by any run (311 of the 1,108 theorems beat their
+    reference that way). If we had done global min, the incumbent's counts would change by +3% at 7
+    lines, +18% at 8, −17% at 9, −14% at 10, −18% at 11 and 0% at 12. Earlier runs move further down
+    at the long end (Polar Express, 081: −55% at 10 lines), so the chart slightly understates the
+    progress on long proofs.
+
+## Potpourri
+
+### Why Does the Lean Tokenizer Work so much Better?
+
+I suspect it has a lot to do with depth invariance. Stealing Dan's unary-| hypothesis:
+
+In the ND world, if the model is in a depth-three box, it has to write something like
+
+```
+N13 | | | P : AS ;
+N14 | | | (QvP) : ORI2 N13 ;
+```
+
+Whereas in the Lean world depth is not marked by bars but by parens:
+
+```
+( fun ( n14 : P ) => by
+    have n15 : (Q ∨ P) := Or.inr n14 ;
+    exact n15 )
+```
+
+There are more parens wrapped around this `fun`, but locally we don't care about them.
+
+### How Do We Deal With Relative References and Getting Past 7 Lines?
+
+We number statements, eg:
+
+```
+N1 (PvQ) : PR ;
+  N2 | P : AS ;
+  N3 | (QvP) : ORI2 N2 ;
+  N4 | Q : AS ;
+  N5 | (QvP) : ORI1 N4 ;
+N6 (QvP) : ORE N1 N2 N3 N4 N5 ; QED
+```
+
+We then add a random offset so that the model sees more than six 'name' tokens:
+
+```
+-- ND, offset +11
+N12 (PvQ) : PR ;
+  N13 | P : AS ;
+  N14 | (QvP) : ORI2 N13 ;
+  N15 | Q : AS ;
+  N16 | (QvP) : ORI1 N15 ;
+N17 (QvP) : ORE N12 N13 N14 N15 N16 ; QED
+
+-- Lean, offset +11
+have n12 : (P ∨ Q) := h1 ;
+have n13 : (Q ∨ P) := Or.elim n12
+    ( fun ( n14 : P ) => by
+        have n15 : (Q ∨ P) := Or.inr n14 ;
+        exact n15 )
+    ( fun ( n16 : Q ) => by
+        have n17 : (Q ∨ P) := Or.inl n16 ;
+        exact n17 ) ;
+exact n13
+```
+
+In practice offset is random 0-64. I did not ablate this.
+
+## Longer Summary of Results (Claude Written)
+
+Top 10 single-change jumps. Metric: dev theorems solved at length $\geq 7$, mean of seeds 0/1/2.
+Delta is vs the incumbent the run was compared against. Protocol changes are excluded.
 
 | #   | Run | Δ       | Score   | What changed                                          | Notes                                                                        |
 | --- | --- | ------- | ------- | ----------------------------------------------------- | ---------------------------------------------------------------------------- |
