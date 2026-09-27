@@ -15,8 +15,8 @@
 // That's fine — git is the undo. Run `git diff` after to see what you'd lose,
 // and `git checkout` the file if the blog version had drifted on purpose.
 
-import { readFileSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
 
 const slug = process.argv[2];
 if (!slug) throw new Error("usage: node sync-post.js <slug>");
@@ -41,3 +41,12 @@ const body = (upstream.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/)?.[1] ?? upstrea
 writeFileSync(postPath, `---\n${m[1]}\n---\n\n${body.replace(/^\n+/, "")}`);
 const lines = (s) => s.split("\n").length;
 console.log(`${postPath}: ${lines(m[2])} -> ${lines(body)} lines from ${source}`);
+
+// Copy the images the body references by relative path (e.g. charts/foo.png) from next to the
+// source into the post folder, where build.js picks them up as assets.
+for (const [, rel] of body.matchAll(/!\[[^\]]*\]\(([^)\s]+)\)/g)) {
+  if (/^([a-z]+:|\/)/.test(rel)) continue; // URLs and site-absolute paths
+  mkdirSync(dirname(`posts/${slug}/${rel}`), { recursive: true });
+  copyFileSync(resolve(dirname(source), rel), `posts/${slug}/${rel}`);
+  console.log(`  copied ${rel}`);
+}

@@ -26,25 +26,25 @@ proofs) which is nice.
 
 ## Methodology:
 
-1. Freeze training data to Dan's set (500k pertrain examples, 1.5k RL proofs for expert iteration,
-   1.5k proofs not trained on and used to decide whether run is kept, 1k proofs held out until after
-   runs finish)
-2. Advance based on pass@16? on the eval set.
+1. Freeze training data to Dan's set (155k pertrain examples, 1.5k RL proofs for expert iteration,
+   1.1k proofs not trained on and used to decide whether run is kept, 1.2k proofs held out until
+   after runs finish)
+2. Advance based on pass@64 on the eval set.
 3. Free RL methodology (very vanilla expert iteration)
-4. Freeze GPU budget: 300s of pretrain, __ seconds of RL
-5. Parameter cap of 10m. Didn't get hit because pretrain time was the limiting factor
+4. Freeze GPU budget: 300s of pretrain, ~1,100 seconds of RL
+5. Parameter cap of 10m. Almost never got hit because pretrain time was the limiting factor
 
 ## Findings
 
 ### Does pretrain loss correlate with RL theorems learned?
 
-A: Not much. R = ?
+A: Not really. R = 0.03. Spearman = 0.25
 
-@claude insert simple scatter chart here.
+![Pretrain loss vs. dev score, one point per run](charts/loss-vs-score.png)
 
 ### Pretrain loss, RL theorems
 
-x: run # y: pretrain loss, RL theorems in val set proved, RL theorems in heldout set
+![Pretrain loss, dev and holdout score by run](charts/by-run.png)
 
 ## Mistakes made:
 

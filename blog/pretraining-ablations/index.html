@@ -41,20 +41,20 @@
 proofs) which is nice.</p>
 <h2 id="methodology">Methodology: <a class="heading-anchor" href="#methodology" aria-label="Link to this section">#</a></h2>
 <ol>
-<li>Freeze training data to Dan’s set (500k pertrain examples, 1.5k RL proofs for expert iteration,
-1.5k proofs not trained on and used to decide whether run is kept, 1k proofs held out until after
-runs finish)</li>
-<li>Advance based on pass@16? on the eval set.</li>
+<li>Freeze training data to Dan’s set (155k pertrain examples, 1.5k RL proofs for expert iteration,
+1.1k proofs not trained on and used to decide whether run is kept, 1.2k proofs held out until
+after runs finish)</li>
+<li>Advance based on pass@64 on the eval set.</li>
 <li>Free RL methodology (very vanilla expert iteration)</li>
-<li>Freeze GPU budget: 300s of pretrain, __ seconds of RL</li>
-<li>Parameter cap of 10m. Didn’t get hit because pretrain time was the limiting factor</li>
+<li>Freeze GPU budget: 300s of pretrain, ~1,100 seconds of RL</li>
+<li>Parameter cap of 10m. Almost never got hit because pretrain time was the limiting factor</li>
 </ol>
 <h2 id="findings">Findings <a class="heading-anchor" href="#findings" aria-label="Link to this section">#</a></h2>
 <h3 id="does-pretrain-loss-correlate-with-rl-theorems-learned">Does pretrain loss correlate with RL theorems learned? <a class="heading-anchor" href="#does-pretrain-loss-correlate-with-rl-theorems-learned" aria-label="Link to this section">#</a></h3>
-<p>A: Not much. R = ?</p>
-<p>@claude insert simple scatter chart here.</p>
+<p>A: Not really. R = 0.03. Spearman = 0.25</p>
+<p><img src="charts/loss-vs-score.png" alt="Pretrain loss vs. dev score, one point per run"></p>
 <h3 id="pretrain-loss-rl-theorems">Pretrain loss, RL theorems <a class="heading-anchor" href="#pretrain-loss-rl-theorems" aria-label="Link to this section">#</a></h3>
-<p>x: run # y: pretrain loss, RL theorems in val set proved, RL theorems in heldout set</p>
+<p><img src="charts/by-run.png" alt="Pretrain loss, dev and holdout score by run"></p>
 <h2 id="mistakes-made">Mistakes made: <a class="heading-anchor" href="#mistakes-made" aria-label="Link to this section">#</a></h2>
 <ol>
 <li>even tiny prompts get amplified if you don’t notice. Took me far too long to realize that the
