@@ -31,7 +31,12 @@ if (!source) throw new Error(`${postPath}: frontmatter needs a source: path`);
 
 // Strip frontmatter from the source too, in case it ever grows one.
 const upstream = readFileSync(resolve(source), "utf8");
-const body = upstream.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/)?.[1] ?? upstream;
+// Drop a leading `# ` title too (only blank lines / HTML comments may precede it): build.js
+// renders the frontmatter title as the h1, so an upstream title heading would show twice.
+const body = (upstream.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/)?.[1] ?? upstream).replace(
+  /^((?:\s*<!--[\s\S]*?-->)*\s*)# .*\n/,
+  "$1",
+);
 
 writeFileSync(postPath, `---\n${m[1]}\n---\n\n${body.replace(/^\n+/, "")}`);
 const lines = (s) => s.split("\n").length;
