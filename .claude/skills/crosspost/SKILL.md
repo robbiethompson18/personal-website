@@ -39,7 +39,14 @@ screenshot before assuming.
    raw feed HTML. Click **Import** → a "Confirm Ownership" modal carries the ToS checkbox ("Yes,
    this is my publication and I accept" — Robbie must approve this) → **Next**. Each created post is
    **published, backdated, web-only** — **no email**. Check the Published + Drafts lists after and
-   delete any stray you didn't ask for.
+   delete any stray you didn't ask for. **Gotcha (Sep 14, 2026):** once ownership has been confirmed
+   once, the modal never reappears and clicking Import publishes immediately — so every feed post
+   not yet on Substack goes live at once. With 10 missing posts that meant 7 strays public for a few
+   minutes. Before importing, diff the feed against `/api/v1/post_management/published` (needs
+   `order_by=post_date&order_direction=desc`) and expect to unpublish the extras right away
+   (dashboard "…" → Unpublish; no known API unpublish endpoint). Posts whose Substack slug differs
+   from the blog slug (e.g. `bobs-diet`) get re-imported as duplicates. Leaving strays as drafts is
+   fine: the importer treats them as already imported.
 2. **Unpublish to draft** while you clean: post "…" menu → **Unpublish** → confirm. Keeps the messy
    interim off the public archive. (Still no email either way.)
 3. **Clean up the import artifacts** — see next section.
