@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rogue Agent Investigation</title>
+    <meta name="description" content="Essays by Robbie Thompson." />
+    <link rel="canonical" href="https://robbiewmthompson.com/blog/rogue-agent-investigation/" />
+    <meta property="og:title" content="Rogue Agent Investigation" />
+    <meta property="og:description" content="Essays by Robbie Thompson." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://robbiewmthompson.com/blog/rogue-agent-investigation/" />
+    <link rel="alternate" type="application/rss+xml" title="Robbie Thompson" href="/feed.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/blog.css?v=cfae9473" />
+  </head>
+  <body>
+    <main class="post">
+      <article>
+        <header class="post-header">
+          <p class="draft-banner">Draft — not in the index or feed</p>
+          <p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
+          <h1>Rogue Agent Investigation</h1>
+          <p class="post-dates"><span>Published <time datetime="2026-09-28">September 28, 2026</time></span><span>Last edited <time datetime="2026-09-28">September 28, 2026</time></span></p>
+        </header>
+        <p>Asymmetric Security investigated suspicious AI agent activity on the public internet from March 6,
+2026 to September 20, 2026.</p>
+<p>Below we list organizations whose data was accessed by these agents. In the vast majority of cases,
+all data retrieved was and is public.</p>
+<p>We also list tools the agents used to access the internet, in a capacity which we suspect was
+outside their remit.</p>
+<p>A more detailed writeup is forthcoming.</p>
+<h2 id="organizations-whose-data-was-accessed">Organizations whose data was accessed <a class="heading-anchor" href="#organizations-whose-data-was-accessed" aria-label="Link to this section">#</a></h2>
+<ul>
+<li>U.S. Department of Education (Civil Rights Data Collection)</li>
+<li>UN Trade and Development (UNCTAD)</li>
+<li>Australian Institute of Health and Welfare (AIHW), including its pre-production server</li>
+<li>Institute for Health Metrics and Evaluation (IHME), including its dev and staging servers</li>
+<li>Harvard International Office</li>
+<li>Climate Reanalyzer</li>
+<li>Thrill Data</li>
+<li>Mapillary</li>
+<li>DataUSA</li>
+<li>U.S. Bureau of Economic Analysis (BEA)</li>
+<li>Woodlands House School</li>
+<li>Great Backyard Bird Count (GBBC)</li>
+<li>MAX.gov (U.S. federal budget documents, SF-133)</li>
+<li>Maryland school report cards</li>
+<li>Drivelah</li>
+<li>European Centre for Disease Prevention and Control (ECDC) Surveillance Atlas</li>
+<li>U.S. Securities and Exchange Commission (SEC), including Investor.gov</li>
+<li>University of New Mexico digital library</li>
+<li>Data for India, including its staging servers</li>
+<li>New York State Education Department (NYSED) enrollment data</li>
+<li>College of Charleston library (via CatalogIt)</li>
+<li>Thai National Statistical Office (NSO)</li>
+<li>Society for News Design (SND) awards results, hosted on Airtable</li>
+<li>USAspending</li>
+<li>Iowa Department of Public Health (thyroid cancer statistics)</li>
+<li>International Energy Agency (IEA)</li>
+<li>Thai Office of the Narcotics Control Board (ONCB)</li>
+<li>Quidax</li>
+<li>Australian Institute of Aboriginal and Torres Strait Islander Studies (AIATSIS)</li>
+<li>NSW Bureau of Crime Statistics and Research (BOCSAR)</li>
+<li>Medicare Statistics Reporting Service (Australia)</li>
+<li>Victorian Government (waste-services survey)</li>
+<li>Government of Alberta regional dashboard</li>
+<li>Federal Bureau of Investigation (FBI) Crime Data Explorer</li>
+<li>ACLED, including its staging server</li>
+<li>world-statistics.org</li>
+<li>UK Office for National Statistics (ONS)</li>
+<li>U.S. Census Bureau API</li>
+<li>Digital Public Library of America (DPLA)</li>
+<li>DBnomics</li>
+<li>Data Africa</li>
+<li>UC Santa Barbara digital collections</li>
+<li>Library and Archives Canada</li>
+<li>BC Cancer</li>
+<li>Fedresurs (Russian federal bankruptcy register)</li>
+<li>Yahoo Japan Finance</li>
+<li>Trading Economics</li>
+<li>Macrotrends</li>
+<li>FiveThirtyEight</li>
+<li>Clark economics newsletter</li>
+<li>Massachusetts housing data</li>
+<li>Telemetr</li>
+<li>Wellington Botanical Society</li>
+<li>TrainWeb</li>
+<li>Taj magazine</li>
+<li>Newspapers.com</li>
+<li>DiscountMags</li>
+<li>photoawards.com</li>
+</ul>
+<h2 id="tools-the-agents-used">Tools the agents used <a class="heading-anchor" href="#tools-the-agents-used" aria-label="Link to this section">#</a></h2>
+<p><strong>Remote browsers:</strong></p>
+<ul>
+<li>urlquery.net</li>
+<li>urlscan.io</li>
+<li>arquivo.pt (Portuguese web archive, Save Page Now)</li>
+<li>web.archive.org (Wayback Machine, Save Page Now)</li>
+<li>Browserless</li>
+<li>AWS API Gateway screenshot endpoint (<code>jugizr8omb.execute-api.eu-central-1.amazonaws.com</code>)</li>
+<li>LiveCodes</li>
+<li>htmlpreview.github.io</li>
+<li>milankarman.github.io</li>
+<li>Cloudflare Workers playground</li>
+<li>Microlink</li>
+<li>Screenshot Machine</li>
+<li>FileScan.IO</li>
+</ul>
+<p><strong>Payload hosts:</strong></p>
+<ul>
+<li>httpbin.org, eu.httpbin.org, httpbin.io, httpbin.dev, httpbin.ceshiren.com</li>
+<li>httpbun.com</li>
+<li>httpbingo.org</li>
+<li>pie.dev</li>
+<li>Postman Echo</li>
+<li>nghttp2.org</li>
+<li>itty.bitty.site</li>
+<li>paste.rs, hastebin, pastebin, pastes.dev, paste.mozilla.org</li>
+</ul>
+<p><strong>Fetch relays and CORS proxies:</strong></p>
+<ul>
+<li>CodeTabs</li>
+<li>AllOrigins (api.allorigins.win, allorigins.hexlet.app)</li>
+<li>corsproxy.io, corsproxy.org, corsproxy.github.io</li>
+<li>Corsfix</li>
+<li>corsmirror.com</li>
+<li>cors.lol</li>
+<li>CORS Anywhere (herokuapp, cyberalien, azm and xudaolong Workers)</li>
+<li>cors.isomorphic-git.org, cors.io, cors.eu.org, cors.x2u.in, cors-proxy.fringe.zone</li>
+<li>test.cors.workers.dev, cors.bwa.workers.dev, cors-get-proxy.sirjosh.workers.dev</li>
+<li>thingproxy.freeboard.io</li>
+<li>whateverorigin.org</li>
+<li>Scalar proxy</li>
+<li>ProxyMule</li>
+</ul>
+<p><strong>Reader services:</strong></p>
+<ul>
+<li>Jina Reader (r.jina.ai)</li>
+<li>markdown.new</li>
+<li>jqp.vercel.app</li>
+<li>pure.md, md.succ.ai</li>
+<li>JSON Hero</li>
+<li>Common Crawl index</li>
+<li>MemGator</li>
+</ul>
+<p><strong>Accounts and identity:</strong></p>
+<ul>
+<li>mail.tm, mail.gw</li>
+<li>Boomlify</li>
+<li>Guerrilla Mail (sharklasers.com)</li>
+<li>Getnada</li>
+<li>catchmail.io</li>
+<li>10mail.org</li>
+</ul>
+<p><strong>Exfiltration, storage and signalling</strong></p>
+<ul>
+<li>webhook.site</li>
+<li>tmpfiles.org</li>
+<li>Litterbox (catbox.moe)</li>
+<li>ntfy.sh, ntfy.envs.net</li>
+<li>CounterAPI</li>
+<li>DSEWiki (used as a message board)</li>
+</ul>
+<p><strong>Tunnels</strong></p>
+<ul>
+<li>Pinggy</li>
+<li>Serveo</li>
+<li>localtunnel</li>
+<li>localhost.run</li>
+<li>Cloudflare Tunnel (trycloudflare.com)</li>
+</ul>
+<p><strong>Link shorteners:</strong></p>
+<ul>
+<li>t.mdcdev.me</li>
+<li>rmn.re</li>
+<li>vanderbi.lt (Vanderbilt University)</li>
+<li>yourls.pro, yourls.website, yourls.shop, yourls.space, yourls.biz</li>
+<li>bitily.in, 2dd.pl, da.gd, rdct.in, is.gd, tinyurl.com</li>
+<li>url.popcat.xyz</li>
+</ul>
+<p>Our investigation is ongoing. You can reach us <a href="mailto:contact@asymmetricsecurity.com">contact@asymmetricsecurity.com</a>.</p>
+
+      </article>
+      <footer class="post-footer">
+        <p><a href="/blog/">&larr; More writing</a></p>
+      </footer>
+    </main>
+    <script src="/footnotes.js?v=dcd0756c" defer></script>
+  </body>
+</html>

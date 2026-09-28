@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Can reasoning models keep Codenames words out of their CoT?</title>
+    <meta name="description" content="Essays by Robbie Thompson." />
+    <link rel="canonical" href="https://robbiewmthompson.com/blog/cot-codenames/" />
+    <meta property="og:title" content="Can reasoning models keep Codenames words out of their CoT?" />
+    <meta property="og:description" content="Essays by Robbie Thompson." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://robbiewmthompson.com/blog/cot-codenames/" />
+    <link rel="alternate" type="application/rss+xml" title="Robbie Thompson" href="/feed.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/blog.css?v=cfae9473" />
+  </head>
+  <body>
+    <main class="post">
+      <article>
+        <header class="post-header">
+          <p class="draft-banner">Draft — not in the index or feed</p>
+          <p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
+          <h1>Can reasoning models keep Codenames words out of their CoT?</h1>
+          <p class="post-dates"><span>Published <time datetime="2026-09-28">September 28, 2026</time></span><span>Last edited <time datetime="2026-09-28">September 28, 2026</time></span></p>
+        </header>
+        <ol>
+<li>By default, models can’t keep themselves from writing the board words in their CoT, even when
+told an adversary reads it: 30/30 told spymasters wrote essentially all 25 words. They even
+notice as it happens, e.g. DeepSeek V4.1 Flash: “Since I’ve already written them, let me at least
+minimize further exposure and produce a clean final answer.”</li>
+<li>The models have memorized every word in the standard Codenames word list, so a monitor that
+guesses from that list barely needs the CoT. I had to expand the noun set.</li>
+<li>Adding few-shot examples of how to keep thoughts secret (label the words T1–T9 / N1–N16, then
+reason only through labels) didn’t work: still 30/30 leaked, usually by writing out the label
+table with the words themselves (“T1 = LIGHT”).</li>
+<li>Adding a pre-labeled board, so the model never has to write the word-to-label mapping itself,
+might help.</li>
+<li>Why are open models <em>so janky</em> about obeying rules? Kimi K3’s endpoint ignores
+<code>tool_choice=&quot;required&quot;</code> and DeepSeek Flash narrates its reasoning in the reply when thinking is
+off, while GLM-5.3 and Qwen3.8 can’t turn thinking off at all.</li>
+</ol>
+
+      </article>
+      <footer class="post-footer">
+        <p><a href="/blog/">&larr; More writing</a></p>
+      </footer>
+    </main>
+    <script src="/footnotes.js?v=dcd0756c" defer></script>
+  </body>
+</html>
