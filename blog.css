@@ -319,6 +319,16 @@ details.aside th {
   background: color-mix(in srgb, var(--aside) 30%, var(--bg));
 }
 
+/* Markdown tables must have a header row; leave it blank for a key/value
+   table and it's hidden here instead of rendering as an empty band. */
+thead:not(:has(th:not(:empty))) {
+  display: none;
+}
+
+table:has(> thead th:empty) td:first-child {
+  white-space: nowrap;
+}
+
 /* --- post chrome --- */
 
 .post-meta {
@@ -597,6 +607,11 @@ details.aside th {
 
 .fn-tooltip p {
   margin: 0;
+}
+
+/* A long path in code has no break points and would poke out of the 22rem box. */
+.fn-tooltip code {
+  overflow-wrap: anywhere;
 }
 
 .fn-tooltip .footnote-backref,

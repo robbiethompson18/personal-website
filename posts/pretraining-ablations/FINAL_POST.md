@@ -30,6 +30,10 @@ If you made me ship a pretrain implementation to the core of the repo today, I w
 Claude to simplify what I have a fair amount, run it again, and if performances drop <10% just use
 that.
 
+Graphs below mention 'lean era' and 'token era.' Halfway through the week I updated my tokenizer to
+use lean because Dan did this and saw much better results. This led to a step change in performance
+and thus I split my graphs up into `before lean` and `after lean`.
+
 ## Mistakes Made:
 
 1. It took me far too long to realize that the agents thought speedups were out of bounds (and thus
@@ -49,84 +53,91 @@ that.
 
 ## The Winning Model
 
-Run `153-claude` (`lean-width384`, commit `debc89b`). Code:
-`code/experiments/current/autoresearch/pretrain.py` at that commit; full config in
-`results/153-claude_lean-width384/params.json`.
+Run `153-claude` [^mi]
 
-```
-score           = 687 dev-transfer theorems solved at >= 7 lines (3-seed mean; seeds 0/1/2 = 676/700/685 of 1,108)
-holdout         = 733 of 1,177 (732/737/729), scored offline after the loop
+[^mi]:
+    (`lean-width384`, commit `debc89b`). Code: `code/experiments/current/autoresearch/pretrain.py`
+    at that commit; full config in `results/153-claude_lean-width384/params.json`.
 
-# ---- architecture (decoder-only transformer, the fork's GPT with swapped blocks)
-total params    = 9,557,760 handed to RL (cap 10,000,000)
-                  + 1,875,584 in the MTP module, trained during pretraining only and then thrown away
-                  per block 1,579,136 = qkv 443,520 + attn out 147,840 + fc1 492,800 + fc2 491,904 + 4 LayerNorms 3,072
-                  token embedding 41,088 + output head 41,088 (untied, 107 x 384) + final LayerNorm 768
-layers          = 6
-d_model         = 384
-heads           = 8 heads x 48 dims
-q, k, v         = one fused Linear(384 -> 1152) with bias, split into Q/K/V; plain multi-head attention
-                  (k and v have 8 heads too, no GQA/MQA)
-attn out        = Linear(384 -> 384) with bias
-MLP             = Linear(384 -> 1280) -> GELU -> Linear(1280 -> 384), with biases
-                  (3.33x, not the usual 4x: 4x = 1536 would push the model to 10.6M, over the cap)
-norm            = Peri-LN: LayerNorm on each branch input (pre-LN) AND on each branch output,
-                  x = x + LN(attn(LN(x))); x = x + LN(mlp(LN(x))); final LayerNorm before the head
-attention       = 4 ALiBi + 4 NoPE heads in every block. No RoPE, no learned position embedding.
-                  Logit bias -slope_h * (query_pos - key_pos): heads 1-4 slopes 1/4, 1/16, 1/64, 1/256;
-                  heads 5-8 slope 0 (causal mask only)
-max context     = 1024
-dropout         = 0
+<details class="aside">
+<summary>Architecture (decoder-only transformer, the fork's GPT with swapped blocks)</summary>
 
-# ---- pretraining objective
-loss            = next-token cross-entropy on proof tokens only (prompt = theorem statement, context only)
-                  + 0.3 x multi-token-prediction loss (DeepSeek-V3 style, depth 1):
-                  one extra Peri-LN block reads [LN(trunk state at t); LN(embedding of token t+1)]
-                  through a Linear(768 -> 384) and predicts token t+2 through the shared ln_f + head
-data            = 154,990 cap-6 proofs (2-6 lines, ~31k per length), first 1,024 held out for val loss
-augmentation    = random start offset on the hypothesis-name tokens (n1.. -> nK..), per record per step
-batching        = token budget: 18,432 padded tokens per step. Each epoch shuffle, stable-sort by length,
-                  cut into runs with count x max_len <= 18,432 (33-921 records, mean ~136), shuffle the runs
-budget          = 300 s wall-clock on one A40 (construction included), ~4,500 steps (4,540/4,479/4,489),
-                  ~4.0 epochs, no torch.compile
-precision       = bf16 autocast, fp32 params and optimizer state
+|              |                                                                                                                                                                                                                                                                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| total params | 9,557,760 handed to RL (cap 10,000,000)<br>+ 1,875,584 in the MTP module, trained during pretraining only and then thrown away<br>per block 1,579,136 = qkv 443,520 + attn out 147,840 + fc1 492,800 + fc2 491,904 + 4 LayerNorms 3,072<br>token embedding 41,088 + output head 41,088 (untied, 107 x 384) + final LayerNorm 768 |
+| layers       | 6                                                                                                                                                                                                                                                                                                                                |
+| d_model      | 384                                                                                                                                                                                                                                                                                                                              |
+| heads        | 8 heads x 48 dims                                                                                                                                                                                                                                                                                                                |
+| q, k, v      | one fused Linear(384 -> 1152) with bias, split into Q/K/V; plain multi-head attention (k and v have 8 heads too, no GQA/MQA)                                                                                                                                                                                                     |
+| attn out     | Linear(384 -> 384) with bias                                                                                                                                                                                                                                                                                                     |
+| MLP          | Linear(384 -> 1280) -> GELU -> Linear(1280 -> 384), with biases (3.33x, not the usual 4x: 4x = 1536 would push the model to 10.6M, over the cap)                                                                                                                                                                                 |
+| norm         | Peri-LN: LayerNorm on each branch input (pre-LN) AND on each branch output,<br>x = x + LN(attn(LN(x))); x = x + LN(mlp(LN(x))); final LayerNorm before the head                                                                                                                                                                  |
+| attention    | 4 ALiBi + 4 NoPE heads in every block. No RoPE, no learned position embedding.<br>Logit bias -slope_h \* (query_pos - key_pos): heads 1-4 slopes 1/4, 1/16, 1/64, 1/256; heads 5-8 slope 0 (causal mask only)                                                                                                                    |
+| max context  | 1024                                                                                                                                                                                                                                                                                                                             |
+| dropout      | 0                                                                                                                                                                                                                                                                                                                                |
 
-# ---- optimizer
-split           = Muon on 30 matrices: per block Q, K, V, attn out, fc1, fc2 (x6), the output head,
-                  and the MTP module's 5 matrices. AdamW on the token embedding, all biases, all LayerNorms
-Muon            = lr 0.01, Nesterov momentum 0.95, 5 Polar Express iterations in bf16 (per-iteration
-                  quintic coefficients, as in modded-nanogpt), Q/K/V orthogonalized separately,
-                  update scaled by sqrt(max(rows, cols) / 384) so every matrix gets the same element RMS,
-                  decoupled weight decay 0.1 (per-step shrink lr x 0.1 = 1e-3 at peak, 10x AdamW's)
-AdamW           = lr 1e-3, betas (0.9, 0.95), weight decay 0.1, eps default
-grad clip       = 1.0 global norm
-schedule        = 200-step linear warmup, then cosine over wall-clock fraction (not steps) down to 0.3 x peak;
-                  Muon lr follows the same multiplier
-init            = embedding + head normal(0, 0.02); every 2D block matrix orthogonal with
-                  gain 0.02 x sqrt(max(rows, cols)) (element std 0.02); biases 0; LayerNorm gain 1, bias 0
+</details>
 
-# ---- tokenizer (Dan's lean_seq, fork commit 51604b3, fixed across the ablations)
-format          = Lean 4 tactic proof on one line, `;` between tactics, one symbol per token
-vocab           = 107 = <pad> <eos> + 11 formula symbols ( ) ¬ ∧ ∨ → P Q R S False
-                  + 6 statement symbols (theorem t : Prop := by) + 16 tactic symbols
-                  (have exact ; fun => ⟨ ⟩ , .1 .2 .elim Or.inl Or.inr Or.elim Classical.byContradiction hh)
-                  + h1..h8 premise names + n1..n64 hypothesis names
-names           = n-names numbered by first appearance in the proof, plus the random start offset above
-example         = theorem t ( P Q R S : Prop ) ( h1 : F1 ) ... : C := by
-                  have n1 : F1 := h1 ; have n7 : ( P → R ) := ( fun ( n3 : P ) => by have n4 : Q := n1 n3 ; exact n4 ) ; exact n7 <eos>
+<details class="aside">
+<summary>Pretraining objective</summary>
 
-# ---- pretraining diagnostics (seeds 0/1/2)
-final val loss  = 0.088 / 0.087 / 0.089 (main next-token term only)
-held-out greedy = 0.968 / 0.967 / 0.968 (cap-6 held-out proofs, greedy decode, verified)
+|              |                                                                                                                                                                                                                                                                                                                                   |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| loss         | next-token cross-entropy on proof tokens only (prompt = theorem statement, context only)<br>+ 0.3 x multi-token-prediction loss (DeepSeek-V3 style, depth 1): one extra Peri-LN block reads [LN(trunk state at t); LN(embedding of token t+1)] through a Linear(768 -> 384) and predicts token t+2 through the shared ln_f + head |
+| data         | 154,990 cap-6 proofs (2-6 lines, ~31k per length), first 1,024 held out for val loss                                                                                                                                                                                                                                              |
+| augmentation | random start offset on the hypothesis-name tokens (`n1..` -> `nK..`), per record per step                                                                                                                                                                                                                                         |
+| batching     | token budget: 18,432 padded tokens per step. Each epoch shuffle, stable-sort by length, cut into runs with count x max_len <= 18,432 (33-921 records, mean ~136), shuffle the runs                                                                                                                                                |
+| budget       | 300 s wall-clock on one A40 (construction included), ~4,500 steps (4,540/4,479/4,489), ~4.0 epochs, no torch.compile                                                                                                                                                                                                              |
+| precision    | bf16 autocast, fp32 params and optimizer state                                                                                                                                                                                                                                                                                    |
 
-# ---- fixed downstream RL (frozen harness, same for every run)
-RL              = 4 rounds of expert iteration: 1,500 targets per round from a 4,495-theorem pool (7-14 lines),
-                  32 samples each at T=0.8, keep Lean 4 AND nd_verify passes (<= 4 proofs per theorem),
-                  fine-tune 600 steps, batch 128, AdamW lr 3e-4, verified proofs weighted 4x
-                  and mixed with 20,000 pretraining records
-seed-0 RL curve = targets solved 766 -> 1,022 -> 1,111 -> 1,157 over rounds 1-4
-eval            = 1,108 dev-transfer theorems (7-14 lines), 64 samples each at T=0.8, pass = Lean 4 AND nd_verify
-```
+</details>
+
+<details class="aside">
+<summary>Optimizer</summary>
+
+|           |                                                                                                                                                                                                                                                                                                                                            |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| split     | Muon on 30 matrices: per block Q, K, V, attn out, fc1, fc2 (x6), the output head, and the MTP module's 5 matrices. AdamW on the token embedding, all biases, all LayerNorms                                                                                                                                                                |
+| Muon      | lr 0.01, Nesterov momentum 0.95, 5 Polar Express iterations in bf16 (per-iteration quintic coefficients, as in modded-nanogpt), Q/K/V orthogonalized separately, update scaled by sqrt(max(rows, cols) / 384) so every matrix gets the same element RMS, decoupled weight decay 0.1 (per-step shrink lr x 0.1 = 1e-3 at peak, 10x AdamW's) |
+| AdamW     | lr 1e-3, betas (0.9, 0.95), weight decay 0.1, eps default                                                                                                                                                                                                                                                                                  |
+| grad clip | 1.0 global norm                                                                                                                                                                                                                                                                                                                            |
+| schedule  | 200-step linear warmup, then cosine over wall-clock fraction (not steps) down to 0.3 x peak; Muon lr follows the same multiplier                                                                                                                                                                                                           |
+| init      | embedding + head normal(0, 0.02); every 2D block matrix orthogonal with gain 0.02 x sqrt(max(rows, cols)) (element std 0.02); biases 0; LayerNorm gain 1, bias 0                                                                                                                                                                           |
+
+</details>
+
+<details class="aside">
+<summary>Tokenizer (Dan's lean_seq, fork commit 51604b3, fixed across the ablations)</summary>
+
+|         |                                                                                                                                                                                                                                                                                        |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| format  | Lean 4 tactic proof on one line, `;` between tactics, one symbol per token                                                                                                                                                                                                             |
+| vocab   | 107 = `<pad>` `<eos>` + 11 formula symbols `( ) ¬ ∧ ∨ → P Q R S False` + 6 statement symbols `theorem t : Prop := by` + 16 tactic symbols `have exact ; fun => ⟨ ⟩ , .1 .2 .elim Or.inl Or.inr Or.elim Classical.byContradiction hh` + h1..h8 premise names + n1..n64 hypothesis names |
+| names   | n-names numbered by first appearance in the proof, plus the random start offset above                                                                                                                                                                                                  |
+| example | `theorem t ( P Q R S : Prop ) ( h1 : F1 ) ... : C := by`<br>`have n1 : F1 := h1 ; have n7 : ( P → R ) := ( fun ( n3 : P ) => by have n4 : Q := n1 n3 ; exact n4 ) ; exact n7 <eos>`                                                                                                    |
+
+</details>
+
+<details class="aside">
+<summary>Pretraining diagnostics (seeds 0/1/2)</summary>
+
+|                 |                                                                        |
+| --------------- | ---------------------------------------------------------------------- |
+| final val loss  | 0.088 / 0.087 / 0.089 (main next-token term only)                      |
+| held-out greedy | 0.968 / 0.967 / 0.968 (cap-6 held-out proofs, greedy decode, verified) |
+
+</details>
+
+<details class="aside">
+<summary>Fixed downstream RL (frozen harness, same for every run)</summary>
+
+|                 |                                                                                                                                                                                                                                                                                                          |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| RL              | 4 rounds of expert iteration: 1,500 targets per round from a 4,495-theorem pool (7-14 lines), 32 samples each at T=0.8, keep Lean 4 AND nd_verify passes (<= 4 proofs per theorem), fine-tune 600 steps, batch 128, AdamW lr 3e-4, verified proofs weighted 4x and mixed with 20,000 pretraining records |
+| seed-0 RL curve | targets solved 766 -> 1,022 -> 1,111 -> 1,157 over rounds 1-4                                                                                                                                                                                                                                            |
+| eval            | 1,108 dev-transfer theorems (7-14 lines), 64 samples each at T=0.8, pass = Lean 4 AND nd_verify                                                                                                                                                                                                          |
+
+</details>
 
 How it got here: every kept Lean-protocol change, each 3-seed mean vs the previous incumbent.
 
@@ -165,8 +176,8 @@ Outliers excluded: label smoothing (017) in the token era, and in the Lean era t
 
 ### Validation Theorems Solved vs Held-Out Theorems Solved
 
-- Token era: not scored on holdout yet
-- Lean era: $r = 0.99$, Spearman $\rho = 0.98$ ($n = 86$)
+- Token era: $r = 0.998$, Spearman $\rho = 0.995$ ($n = 82$)
+- Lean era: $r = 0.99$, Spearman $\rho = 0.99$ ($n = 100$)
 
 ![Dev vs holdout score, one point per run](charts/dev-vs-holdout.png)
 
