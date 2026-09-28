@@ -54,6 +54,8 @@ project:  true              # optional; lists at /projects/ instead of /blog/ (U
 rating:   5                 # optional; 1-5, shown as stars next to the date on the index (default 3)
 repo:     https://…         # optional; renders a GitHub link inline with the dates
 source:   ../other/x.md     # optional; upstream file for `node sync-post.js <slug>` (see below)
+external: https://…         # optional; no page built, the index links here instead (body ignored, not in feed)
+logo:     /assets/logos/x.png  # optional, with external; host wordmark shown faded beside the index row
 ---
 ```
 
