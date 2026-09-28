@@ -249,8 +249,14 @@ function indexPage(posts, { heading, path, showProjectTag = false }) {
         (p.draft ? ' <span class="draft-tag">draft</span>' : "") +
         (p.archive ? ' <span class="draft-tag archive-tag">archive</span>' : "") +
         (showProjectTag && p.project ? ' <span class="draft-tag project-tag">project</span>' : "");
-      return `        <li data-rating="${p.rating}">
-          <a class="post-link" href="/blog/${p.slug}/">${esc(p.meta.title)}${tags}</a>
+      // An `external:` post links out; its optional `logo:` sits faded beside the row.
+      const ext = p.meta.external;
+      const href = ext ? esc(ext) : `/blog/${p.slug}/`;
+      const logo = p.meta.logo
+        ? `<span class="post-logo" style="--logo: url('${esc(p.meta.logo)}')" title="${esc(new URL(ext).hostname.replace(/^www\./, ""))}"></span>`
+        : "";
+      return `        <li data-rating="${p.rating}"${ext ? ' class="external"' : ""}>
+          ${logo}<a class="post-link" href="${href}">${esc(p.meta.title)}${tags}</a>
           <span class="post-date"><time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time><span class="post-stars" title="${p.rating}/5">${"★".repeat(p.rating)}${"☆".repeat(5 - p.rating)}</span></span>
         </li>`;
     })
@@ -458,6 +464,7 @@ for (const e of readdirSync("posts", { withFileTypes: true })) {
 posts.sort((a, b) => b.meta.date.localeCompare(a.meta.date));
 
 for (const p of posts) {
+  if (p.meta.external) continue; // lives on another site; only the index links to it
   const dir = join(OUT, "blog", p.slug);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, "index.html"), postPage(p));
@@ -482,7 +489,7 @@ writeIndex(
   published.filter((p) => p.project),
   { heading: "Projects" },
 );
-writeFileSync(join(OUT, "feed.xml"), feed(published));
+writeFileSync(join(OUT, "feed.xml"), feed(published.filter((p) => !p.meta.external)));
 
 // Two private-ish indexes, unlinked from anywhere and kept out of feed.xml:
 //   /blog/drafts/  — every post (drafts + archive + projects included), for eyeballing.

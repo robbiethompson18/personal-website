@@ -443,6 +443,47 @@ table:has(> thead th:empty) td:first-child {
   color: var(--link);
 }
 
+/* Posts hosted elsewhere (`external:` frontmatter): the host's wordmark, tinted
+   muted via mask, faded at the row's right edge. */
+.post-list li.external {
+  position: relative;
+  padding-right: 9rem;
+}
+
+.post-logo {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8rem;
+  height: 0.9rem;
+  background: var(--muted);
+  opacity: 0.3;
+  -webkit-mask: var(--logo) right center / contain no-repeat;
+  mask: var(--logo) right center / contain no-repeat;
+  transition: opacity 0.15s;
+}
+
+li.external:hover .post-logo {
+  opacity: 0.7;
+}
+
+/* No room beside the title on phones: the wordmark becomes a kicker above it. */
+@media (max-width: 600px) {
+  .post-list li.external {
+    padding-right: 0;
+  }
+
+  .post-logo {
+    position: static;
+    display: block;
+    transform: none;
+    margin-top: 0.4rem;
+    -webkit-mask-position: left center;
+    mask-position: left center;
+  }
+}
+
 .draft-tag {
   font-size: 0.7rem;
   font-weight: 600;
