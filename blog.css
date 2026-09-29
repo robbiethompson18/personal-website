@@ -8,6 +8,7 @@
   --link: #8ab4f8;
   --cite: #b39ddb; /* faint purple for source citations */
   --aside: #7b5cf5; /* saturated violet; asides mix this into the bg */
+  --claude: #d97757; /* Claude's clay orange; marks Claude-written text */
   --rule: #2e333d;
   --popup-bg: #232830;
   --popup-border: #3a4049;
@@ -245,6 +246,44 @@ details.aside > :last-child {
 
 details.aside p {
   margin-bottom: 0.9rem;
+}
+
+/* --- Claude-written text: a ```claude fence, rendered as markdown by build.js --- */
+.claude-text {
+  background: color-mix(in srgb, var(--claude) 14%, var(--bg));
+  border-left: 3px solid var(--claude);
+  border-radius: 0 6px 6px 0;
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  position: relative; /* anchors the tooltip */
+  cursor: help;
+}
+
+.claude-text > :last-child {
+  margin-bottom: 0;
+}
+
+/* Instant hover tooltip, sitting on the box's top edge. */
+.claude-text::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 0;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--text);
+  background: var(--popup-bg);
+  border: 1px solid var(--claude);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+}
+
+.claude-text:hover::after {
+  opacity: 1;
 }
 
 hr {
