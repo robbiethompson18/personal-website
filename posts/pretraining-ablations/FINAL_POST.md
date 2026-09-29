@@ -185,15 +185,15 @@ Outliers excluded: label smoothing (017) in the token era, and in the Lean era t
 
 ![Pretrain loss, dev, holdout and textbook score by run](charts/by-run.png)
 
-The bottom panel is 72 textbook problems that no run trained or was selected on, scored offline like
-the holdout, at 256 samples per problem.[^textbook] They track dev less tightly than the holdout
-does:
+The bottom panel is 72 textbook problems that no run trained or was selected on, scored offline
+like the holdout, at 256 samples per problem.[^textbook] They track dev less tightly than the
+holdout does:
 
 - Token era: $r = 0.88$, Spearman $\rho = 0.86$ ($n = 82$)
 - Lean era: $r = 0.76$, Spearman $\rho = 0.73$ ($n = 99$)
 
-The best textbook run, the bigram table (150), solves 21.7 of 72 on average over its three seeds. It
-was kept, but it ties for tenth on dev. The incumbent (153) solves 18.7.
+The best textbook run, the bigram table (150), solves 21.7 of 72 on average over its three seeds.
+It was kept, but it ties for tenth on dev. The incumbent (153) solves 18.7.
 
 [^textbook]:
     Dmitry's textbook set: 58 problems with reference proofs of 1 to 33 lines, plus 14 without a
@@ -201,7 +201,7 @@ was kept, but it ties for tenth on dev. The incumbent (153) solves 18.7.
     solved by any run. One (modus ponens) is a renaming of a pretraining theorem. The longest proof
     any run found is 12 lines, for a problem whose reference proof is 14 lines, in 3 of 256 samples.
 
-Progress on longer theorems:
+### Progress on longer theorems:
 
 ![Dev theorems proved, by the length of the model's shortest proof, by run](charts/by-length.png)
 
@@ -221,6 +221,12 @@ uncited lines pruned) and the deterministically-generated reference proof.[^bank
     lines, +18% at 8, −17% at 9, −14% at 10, −18% at 11 and 0% at 12. Earlier runs move further down
     at the long end (Polar Express, 081: −55% at 10 lines), so the chart slightly understates the
     progress on long proofs.
+
+### Pass@k Curves
+
+![pass@k on 250 transfer-holdout theorems, k = 1 to 256, six kept runs](charts/passk-holdout250.png)
+
+![pass@k on the 72 textbook problems, k = 1 to 256, six kept runs](charts/passk-textbook.png)
 
 ## Potpourri
 
