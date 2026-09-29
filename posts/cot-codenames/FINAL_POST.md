@@ -2,6 +2,7 @@
 title: Models are Awful at Controlling Their CoT
 date: 2026-09-28
 draft: false
+project: true
 source: ../cot-codenames/writeup.md
 rating: 3
 ---
