@@ -478,7 +478,7 @@ one variant with a proof.</li>
 or an implication. Many are mastered at once and leave the pool.</li>
 </ul>
 <p><strong>TTRL solves 48 of 64. Sampling more solves 31.</strong> Numbers below are seed 0 unless marked.</p>
-<p><img src="https://robbiewmthompson.com/blog/combined-model/charts/ttrl-dev64.png" alt="Targets solved vs samples per target: TTRL, unrelated-variant TTRL and sampling more, two seeds"></p>
+<p><img src="https://robbiewmthompson.com/blog/combined-model/charts/ttrl-dev64.png" alt="Targets solved vs samples per target: TTRL and sampling more, two seeds"></p>
 <ul>
 <li><strong>The budgets are matched.</strong>
 <ul>
@@ -490,8 +490,7 @@ which 3 minutes were fine-tuning.</li>
 </li>
 <li><strong>TTRL solves everything the control does, plus 17 more.</strong> The control solves nothing TTRL misses.</li>
 <li><strong>TTRL barely samples the targets themselves.</strong> Of its 167,872 samples, only 4,832 were on
-targets: 75 per target, against the control’s 2,412. The rest went to variants, and training on
-those made the targets solvable.</li>
+targets: 75 per target, against the control’s 2,412. The rest went to variants.</li>
 <li><strong>The gain is on the long theorems.</strong> At 10 lines TTRL solves all 25 targets; the control
 solves 10. At 11 or more lines TTRL gets 8 of 16, the control 6.</li>
 <li><strong>It starts slower and doesn’t flatten.</strong> For the first ~2,000 samples per target TTRL is behind,
@@ -510,60 +509,6 @@ budget.</li>
 </ul>
 </li>
 </ul>
-<h3 id="is-it-the-variants-or-just-more-rl">Is it the variants, or just more RL? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/combined-model/#is-it-the-variants-or-just-more-rl" aria-label="Link to this section">#</a></h3>
-<p><strong>It’s the variants.</strong> The same loop on seed 0, with the variants swapped for those of 64 <em>other</em>
-unsolved dev theorems: 4,499 variants from similar lengths, the same band and the same updates. The
-64 targets are sampled exactly as in TTRL, 16 per round.</p>
-<table>
-<thead>
-<tr>
-<th>round</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>own variants (TTRL)</td>
-<td>8</td>
-<td>23</td>
-<td>28</td>
-<td>29</td>
-<td>36</td>
-<td>40</td>
-<td>46</td>
-<td>48</td>
-</tr>
-<tr>
-<td>unrelated variants</td>
-<td>7</td>
-<td>11</td>
-<td>20</td>
-<td>23</td>
-<td>25</td>
-<td>25</td>
-<td>26</td>
-<td>28</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Generic RL does help: 7 → 28 on targets it never trained on.</li>
-<li>It ends below plain sampling (31). Against TTRL it used 2.7× the samples, 5× the training records
-(232k vs 44k) and 79 minutes of A40 time (TTRL: 29).</li>
-<li>It solves nothing that TTRL misses.</li>
-<li>Its pool never shrinks, because solving a target retires no unrelated variant. That is why it
-costs so much more.</li>
-</ul>
-<p>Generic RL on similar theorems doesn’t beat sampling more. So TTRL’s whole lead over sampling more
-comes from practising on problems built from the target. That includes the targets themselves, and
-that turns out to be most of it: see “At scale” below.</p>
 <h3 id="whats-left">What’s left <a class="heading-anchor" href="https://robbiewmthompson.com/blog/combined-model/#whats-left" aria-label="Link to this section">#</a></h3>
 <p>16 targets are still unsolved. For 9 of them every variant has been solved at least once, and most
 are mastered. la_transfer_1167, for one, has all 19 variants mastered, and the target is still
@@ -576,7 +521,7 @@ the model’s own pieces. Training on it teaches the long proof. This wasn’t i
 <h3 id="caveats">Caveats <a class="heading-anchor" href="https://robbiewmthompson.com/blog/combined-model/#caveats" aria-label="Link to this section">#</a></h3>
 <ul>
 <li><strong>Two seeds, one run each, mostly the same 64 dev targets.</strong> +17 and +10 over sampling more; seed
-1’s lead at exactly matched samples is smaller. The unrelated-variants arm ran on seed 0 only.</li>
+1’s lead at exactly matched samples is smaller.</li>
 <li><strong>Dev theorems.</strong> The 64 were picked by failing c005 at 64 plain samples on this dev split. Every
 knob was set before the run and none was tuned, but the real test is the held-out theorems every
 inference method missed. At 1,024 attempts about 90% of those stay unsolved.</li>
@@ -586,16 +531,15 @@ samples” was a weak filter for hard. The comparison is still like for like.</l
 section above use T 0.8.</li>
 </ul>
 <p>Code: <code>code/experiments/current/ttrl/</code> on branch <code>robbie-experiments</code>. Per-item results live in the
-checkout’s <code>artifacts/ttrl/</code>: <code>dev64_ttrl</code>, <code>dev64_control</code>, <code>dev64_unrelated</code>, <code>s1_ttrl</code>,
-<code>s1_control</code>.</p>
+checkout’s <code>artifacts/ttrl/</code>: <code>dev64_ttrl</code>, <code>dev64_control</code>, <code>s1_ttrl</code>, <code>s1_control</code>.</p>
 <h3 id="at-scale-every-dev-failure-up-to-5-the-pipelines-compute">At scale: every dev failure, up to 5× the pipeline’s compute <a class="heading-anchor" href="https://robbiewmthompson.com/blog/combined-model/#at-scale-every-dev-failure-up-to-5-the-pipelines-compute" aria-label="Link to this section">#</a></h3>
 <p>The 64-target runs leave two questions:</p>
 <ol>
 <li><strong>How much does TTRL add to the real metric, per unit of compute?</strong></li>
 <li><strong>Is it the variants, or just being allowed to train on the eval theorems at all?</strong> Plain expert
 iteration on the eval statements, with no variants, might buy most of the gain. If it does,
-“test-time RL helps” is the headline, not “variants help”. Neither run so far separates the two:
-the control never trains, and the unrelated-variants arm never trains on the targets.</li>
+“test-time RL helps” is the headline, not “variants help”. The 64-target runs can’t separate the
+two: the control never trains.</li>
 </ol>
 <p><strong>Setup.</strong></p>
 <ul>
@@ -710,9 +654,8 @@ EI solves 21, 29 and 2 that TTRL doesn’t. Together they leave 12, 1 and 19 uns
 <li>Sampling more flattens early, as before: +116 at 5x, nearly all of it by 2x.</li>
 </ul>
 <p>What this means for the earlier sections: the 64-target result (“TTRL 48, sampling more 31”) stands,
-but its explanation doesn’t. The unrelated-variants arm showed that variants of <em>other</em> theorems
-don’t help. It never asked whether the targets alone would do. They do, at least when there are ~200
-of them.</p>
+but it doesn’t show that the variants did the work. That run had no arm that trained on the targets
+alone. Targets alone do most of it, at least when there are ~200 of them.</p>
 <h4 id="what-each-arm-does-round-by-round">What each arm does, round by round <a class="heading-anchor" href="https://robbiewmthompson.com/blog/combined-model/#what-each-arm-does-round-by-round" aria-label="Link to this section">#</a></h4>
 <p>Seed 0, from the logs. All three arms start from the same weights, the same 193 targets and the same
 sampler.</p>
