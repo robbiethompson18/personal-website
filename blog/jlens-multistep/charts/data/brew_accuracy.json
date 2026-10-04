@@ -1,0 +1,146 @@
+[
+ {
+  "model": "qwen3.6-27b",
+  "stirs": 1,
+  "correct": 20,
+  "n": 20
+ },
+ {
+  "model": "qwen3.6-27b",
+  "stirs": 2,
+  "correct": 5,
+  "n": 20
+ },
+ {
+  "model": "qwen3.6-27b",
+  "stirs": 3,
+  "correct": 0,
+  "n": 20
+ },
+ {
+  "model": "gemma-4-31b-it",
+  "stirs": 1,
+  "correct": 20,
+  "n": 20
+ },
+ {
+  "model": "gemma-4-31b-it",
+  "stirs": 2,
+  "correct": 15,
+  "n": 20
+ },
+ {
+  "model": "gemma-4-31b-it",
+  "stirs": 3,
+  "correct": 1,
+  "n": 20
+ },
+ {
+  "model": "gemma-4-26b-a4b-it",
+  "stirs": 1,
+  "correct": 20,
+  "n": 20
+ },
+ {
+  "model": "gemma-4-26b-a4b-it",
+  "stirs": 2,
+  "correct": 3,
+  "n": 20
+ },
+ {
+  "model": "gemma-4-26b-a4b-it",
+  "stirs": 3,
+  "correct": 3,
+  "n": 20
+ },
+ {
+  "model": "qwen3.8-27b",
+  "stirs": 1,
+  "correct": 20,
+  "n": 20
+ },
+ {
+  "model": "qwen3.8-27b",
+  "stirs": 2,
+  "correct": 7,
+  "n": 20
+ },
+ {
+  "model": "qwen3.8-27b",
+  "stirs": 3,
+  "correct": 2,
+  "n": 20
+ },
+ {
+  "model": "qwen3.5-122b-a10b",
+  "stirs": 1,
+  "correct": 20,
+  "n": 20
+ },
+ {
+  "model": "qwen3.5-122b-a10b",
+  "stirs": 2,
+  "correct": 4,
+  "n": 20
+ },
+ {
+  "model": "qwen3.5-122b-a10b",
+  "stirs": 3,
+  "correct": 2,
+  "n": 20
+ },
+ {
+  "model": "deepseek-v4-flash",
+  "stirs": 1,
+  "correct": 20,
+  "n": 20
+ },
+ {
+  "model": "deepseek-v4-flash",
+  "stirs": 2,
+  "correct": 2,
+  "n": 20
+ },
+ {
+  "model": "deepseek-v4-flash",
+  "stirs": 3,
+  "correct": 2,
+  "n": 20
+ },
+ {
+  "model": "deepseek-v4-pro",
+  "stirs": 1,
+  "correct": 20,
+  "n": 20
+ },
+ {
+  "model": "deepseek-v4-pro",
+  "stirs": 2,
+  "correct": 4,
+  "n": 20
+ },
+ {
+  "model": "deepseek-v4-pro",
+  "stirs": 3,
+  "correct": 1,
+  "n": 20
+ },
+ {
+  "model": "hermes-3-llama-3.1-405b",
+  "stirs": 1,
+  "correct": 20,
+  "n": 20
+ },
+ {
+  "model": "hermes-3-llama-3.1-405b",
+  "stirs": 2,
+  "correct": 3,
+  "n": 20
+ },
+ {
+  "model": "hermes-3-llama-3.1-405b",
+  "stirs": 3,
+  "correct": 2,
+  "n": 20
+ }
+]
