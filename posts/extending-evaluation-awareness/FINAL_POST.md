@@ -34,9 +34,9 @@ transcripts (including CoT). Self-reports are consistent with white-box metrics.
 
 _UPDATE 10/4/26:_ I have updated strongly against my self-reported awareness metric being
 meaningful. An intuition which I have not rigorously measured: models verbalize _far_ more than
-humans in comparable situations and find it very hard to control their CoT. The models I measure
-aren't very large, so I've lowered my prior for how much verbalized awareness to expect. Changling
-immediately flagged this, and I updated further on reading
+humans in comparable situations and find it very hard to control their CoT. I've lowered my prior
+for how much verbalized awareness to expect. Changling immediately flagged this, and I updated
+further on reading
 [Reasoning Models Struggle to Control their Chains of Thought (2026)](https://arxiv.org/abs/2603.05706)
 and on doing my own small experiments in [CoT controllability](/blog/cot-codenames/).
 
@@ -500,5 +500,5 @@ life.
 
 ### Acknowledgements
 
-Thanks for Changling Li for writing the [original paper](https://arxiv.org/abs/2605.23055) and
+Thanks to Changling Li for writing the [original paper](https://arxiv.org/abs/2605.23055) and
 providing feedback on the original version of this blog post.

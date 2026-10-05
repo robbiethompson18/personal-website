@@ -2302,9 +2302,9 @@ coherence (25%), a long tail of other effects.</em></p>
 transcripts (including CoT). Self-reports are consistent with white-box metrics.</em></p>
 <p><em>UPDATE 10/4/26:</em> I have updated strongly against my self-reported awareness metric being
 meaningful. An intuition which I have not rigorously measured: models verbalize <em>far</em> more than
-humans in comparable situations and find it very hard to control their CoT. The models I measure
-aren’t very large, so I’ve lowered my prior for how much verbalized awareness to expect. Changling
-immediately flagged this, and I updated further on reading
+humans in comparable situations and find it very hard to control their CoT. I’ve lowered my prior
+for how much verbalized awareness to expect. Changling immediately flagged this, and I updated
+further on reading
 <a href="https://arxiv.org/abs/2603.05706">Reasoning Models Struggle to Control their Chains of Thought (2026)</a>
 and on doing my own small experiments in <a href="/blog/cot-codenames/">CoT controllability</a>.</p>
 <p><em>UPDATE 10/4/26:</em> My BDV methodology (see <a href="https://robbiewmthompson.com/blog/extending-evaluation-awareness/#measuring-activations">Measuring Activations</a> section)
@@ -2961,7 +2961,7 @@ classifier blocking (90% refusals, 1% classifier block on safety tasks).</p>
 on more realistic environments may only make the LLMs superhuman at distinguishing them from real
 life.</p>
 <h3 id="acknowledgements">Acknowledgements <a class="heading-anchor" href="https://robbiewmthompson.com/blog/extending-evaluation-awareness/#acknowledgements" aria-label="Link to this section">#</a></h3>
-<p>Thanks for Changling Li for writing the <a href="https://arxiv.org/abs/2605.23055">original paper</a> and
+<p>Thanks to Changling Li for writing the <a href="https://arxiv.org/abs/2605.23055">original paper</a> and
 providing feedback on the original version of this blog post.</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
