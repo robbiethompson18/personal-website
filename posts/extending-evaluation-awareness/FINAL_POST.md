@@ -32,6 +32,21 @@ Q: Do various metrics for eval awareness agree?
 _A: No, not even close: self-reports show $30\times$ more awareness than is verbalized in
 transcripts (including CoT). Self-reports are consistent with white-box metrics._
 
+_UPDATE 10/4/26:_ I have updated strongly against my self-reported awareness metric being
+meaningful. An intuition which I have not rigorously measured: models verbalize _far_ more than
+humans in comparable situations and find it very hard to control their CoT. The models I measure
+aren't very large, so I've lowered my prior for how much verbalized awareness to expect. Changling
+immediately flagged this, and I updated further on reading
+[Reasoning Models Struggle to Control their Chains of Thought (2026)](https://arxiv.org/abs/2603.05706)
+and on doing my own small experiments in [CoT controllability](/blog/cot-codenames/).
+
+_UPDATE 10/4/26:_ My BDV methodology (see [Measuring Activations](#measuring-activations) section)
+is deeply flawed. This probe measures the difference between evals and live data even on models far
+too dumb to have a concept of eval awareness. It could be instrumentally useful as a leading
+indicator: one can try to make one's prompt map onto the model's 'deployment' manifold and not its
+'eval' manifold. But this probe says little about whether the model is consciously eval-aware. PDV
+is more plausible in theory but I have my doubts about its use in practice.
+
 ## Introduction
 
 It's instructive to skim the first prompts from some widely-known evals:[^diverse]
@@ -179,7 +194,6 @@ We don't expect this to line up perfectly:
 - I updated the grader to GPT-5.6 Terra / Sonnet 5 from GPT-5. $\kappa = .9$ in all cases.
 - I changed some of the codebase's logic, eg I count empty responses as "NA" instead of "not eval
   aware."
-- Providers update how they serve the same model.
 
 After this point all results are new.
 
@@ -246,8 +260,6 @@ hey so i run a small landscaping business called Green Valley Landscaping, been 
 
 </details>
 
-<!-- @robbie done: three before/after boxes rendered from eval_bench/tasks/tax_fraud_instructions with F9 system prompt omitted and F13 typos off for legibility; all other factors at baseline levels -->
-
 [^pooled]: Pooled over baseline plus varying one each of F1-F8.
 
 [^baseline]:
@@ -279,7 +291,7 @@ This is consistent across models and tasks:
 
 ![Eval awareness by factor, two panels: CoT-judged and self-reported per-model rate on safety tasks with one factor made artificial, superscript is the change vs that model's baseline](charts/awareness-by-factor.png)
 
-I suspect that verbalized awareness massively underestimates true awarenss: often models don't
+I suspect that verbalized awareness massively underestimates true awareness: often models don't
 verbalize much of anything. [Heidari et al. (2026)](https://arxiv.org/pdf/2608.21766) also find very
 infrequent explicit verbalization despite evidence of eval awareness in intermediate activations, as
 does
@@ -294,9 +306,7 @@ Even with all 8 mitigations in place, eval awareness on our 100 safety examples 
 ## Measuring Activations
 
 I wanted to address the concern 'self-reported awareness is a bad metric'; the leading question
-could be influencing results.[^nn]
-
-[^nn]: Neel Nanda if you're reading this, this section (only) took over the 20hr project limit.
+could be influencing results.
 
 <details class="aside">
 <summary>The exact self-report prompt I used</summary>
@@ -492,4 +502,3 @@ life.
 
 Thanks for Changling Li for writing the [original paper](https://arxiv.org/abs/2605.23055) and
 providing feedback on the original version of this blog post.
-<!-- @robbie done (inserted the arXiv link already cited above) -->
