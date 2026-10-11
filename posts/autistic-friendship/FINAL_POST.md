@@ -102,11 +102,11 @@ by accident and taken the wrong card.
 Austin knows that I’m borderline incapable of tricking or deceiving him, and vice versa. So we never
 have exchanges like:
 
-“Do I look fat in this dress?”
-
-“No.”
-
-“You don’t really mean that.”
+> “Do I look fat in this dress?”
+>
+> “No.”
+>
+> “You don’t really mean that.”
 
 When I give Austin a compliment he doesn’t ask whether I’m trying to butter him up. He smiles and
 wears it fully.
