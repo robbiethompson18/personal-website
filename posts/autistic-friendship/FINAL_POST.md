@@ -65,7 +65,7 @@ I followed a tried and true recipe for popularity:
 I say this not to brag about being popular, but to contend that I did and do have my choice between
 popular and unpopular, autist and non-autist friends.[^2] For many years I chose not to be close
 with people who exhibited autistic tendencies, for no other reason than that they generally weren’t
-popular.
+popular and I was.
 
 [^2]: Being unpopular does not imply that you are autistic. Nor are the converse or inverse true.
 
@@ -79,11 +79,11 @@ their behavior puts them just barely onto the spectrum from my admittedly unscie
     fact that I did care subconsciously, and acted on a craving of popularity (again, in the vain
     sense of the term).
 
-Some of my friends wouldn’t want to see their name in this essay as someone I think is slightly
-autistic. So I’m instead going to use real stories, but always with placeholder names: Austin, for a
-slightly autistic person; and Norbert, for a ‘normal,’ not-on-the-autism-spectrum person. Austin and
-Norbert each represent several different people. These stories have been modified only enough to
-give me plausible deniability regarding each story's true subjects.
+Some of my friends wouldn’t want to see their name in this essay. So I’m instead going to use real
+stories, but always with placeholder names: Austin, for a slightly autistic person; and Norbert, for
+a ‘normal,’ not-on-the-autism-spectrum person. Austin and Norbert each represent several different
+people. These stories have been modified only enough to give me plausible deniability regarding each
+story's true subjects.
 
 ## I: Autists Can Be Trusted
 
