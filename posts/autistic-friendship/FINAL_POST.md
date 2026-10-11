@@ -10,7 +10,7 @@ autism.
 
 Psychiatry has rebranded autism (and a lot of other diagnoses) from disorders to neurodivergences.
 This reframes autism not as a problem to fix or work around, but instead as one among many ways that
-normal, healthy brains work. I'm in favor of this.
+normal, healthy brains work. In this instance, I'm on board.
 
 Three common explanations for why autists seem maladjusted when in fact they are not, each of which
 I ignore in this essay:
