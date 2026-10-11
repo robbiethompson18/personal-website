@@ -104,8 +104,8 @@ farmed food. This didn't work for several reasons:
     eat less meat, but making up a title for this fact comes across as self-aggrandizing.
 
 No rational discourse was going to change my meat-eating habits at that point in time. I could not
-become part of the soy-eating blue tribe. Luckily, in 2021 while walking the Camino de Santiago, I
-met several vegans I liked. Most influential was Paul.
+become part of the Soy Boy Blue Tribe. Luckily, in 2021 while walking the Camino de Santiago, I met
+several vegans I liked. Most influential was Paul.
 
 Paul was vegan for environmental reasons, which I thought of as dumb because it is not on the Pareto
 frontier of lifestyle changes that reduce emissions while preserving quality of life. Paul was not
