@@ -65,7 +65,7 @@ I followed a tried and true recipe for popularity:
 I say this not to brag about being popular, but to contend that I did and do have my choice between
 popular and unpopular, autist and non-autist friends.[^2] For many years I chose not to be close
 with people who exhibited autistic tendencies, for no other reason than that they generally weren’t
-popular and I was so enamored with my newfound popularity.
+popular.
 
 [^2]: Being unpopular does not imply that you are autistic. Nor are the converse or inverse true.
 
