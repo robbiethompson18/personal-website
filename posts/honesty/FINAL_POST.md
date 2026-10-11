@@ -21,8 +21,8 @@ Some of the reasons this was the case:
 - When I used to occasionally lie, I felt like people had a right to not believe me even when I was
   telling the truth. I accepted low-trust relationships. Now that I can say to myself “I haven’t
   lied in years” I feel entitled to be in high-trust relationships.
-- The plurality of my lies were instantaneous decisions to “not hurt others’ feelings.” This was a
-  known bad habit. It’s hard to tell someone “I have no other plans but I still don’t want to watch
+- The plurality of my lies were instantaneous decisions to “not hurt others’ feelings.” This was
+  known akrasia. It’s hard to tell someone “I have no other plans but I still don’t want to watch
   soccer. I’d rather smoke weed and watch Youtube.” It’s much easier to say “I’m busy with work.” Or
   “I have plans with someone else.” When I stopped lying, almost no one was ever hurt by the truth.
 
