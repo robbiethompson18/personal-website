@@ -8,8 +8,8 @@ rating: 5
 ## Giving Up Lying
 
 Five years ago I gave up lying for Lent. Even before Lent I was an unusually honest person, but I
-decided to give up white lies too, things like “I’m too tired” when the truth was that I didn’t want
-to see someone. My reasoning was rule-utilitarian even if I didn’t appreciate it at the time.
+decided to give up white lies too, statements like “I’m too tired” when the truth was that I didn’t
+want to see someone. My reasoning was rule-utilitarian even if I didn’t appreciate it at the time.
 Empirically, the lies I had told in my life up to that point had been massively negative in utility.
 Some of the reasons this was the case:
 
