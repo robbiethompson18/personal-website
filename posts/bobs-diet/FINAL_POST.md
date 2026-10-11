@@ -224,11 +224,6 @@ Correct. And fishmeal normally comes from anchovies, which are much smarter than
 wants me to believe that 1 pound of shrimp production requires ~.2 pounds of fishmeal. These
 anchovies are caught wild. This doesn't change my conclusions.
 
-### Horseflies Don't Look So Good
-
-And as a former eater of horseflies and former believer in insect meats, I am distressed by this.
-Raw size is a bad heuristic.
-
 ### Some Animals Don't Have Brains At All
 
 Correct. Bivalves don't have a brain or a central nervous system, and they're the first animals on
