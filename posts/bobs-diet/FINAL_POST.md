@@ -212,7 +212,7 @@ I consider this objection unresolved. I'm still curious about:
 ### Don't You Care About The Environment?
 
 Yes, I do, and I wrote about this a bit more
-[here](https://robbiewmthompson.com/blog/plastic-straws)[^4]
+[here](https://robbiewmthompson.com/blog/plastic-straws).[^4]
 
 [^4]:
     I don't know how to perform any calculation that converts kg of $\text{CO}_2$ emitted to units
