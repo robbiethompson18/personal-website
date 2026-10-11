@@ -107,7 +107,7 @@ No rational discourse was going to change my meat-eating habits at that point in
 become part of the Soy Boy Blue Tribe. Luckily, in 2021 while walking the Camino de Santiago, I met
 several vegans I liked. Most influential was Paul.
 
-Paul was vegan for environmental reasons, which I thought of as dumb because it is not on the Pareto
+Paul was vegan for environmental reasons, which I thought was dumb because it is not on the Pareto
 frontier of lifestyle changes that reduce emissions while preserving quality of life. Paul was not
 dumb; he had already made all the lifestyle changes on said Pareto frontier. He was vegan, never
 took planes, always used carpools or public transit, never bought new clothing, never consumed
