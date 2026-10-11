@@ -62,11 +62,11 @@ This state of affairs is more costly than people appreciate.
 ## Lying as Cultural Barrier
 
 I read
-[here](https://www.lesswrong.com/posts/xdwbX9pFEr7Pomaxv/meta-honesty-firming-up-honesty-around-its-edge-cases-1)
-(first comment) that foreign startup founders have no idea what lies are and aren’t acceptable, and
-thus end up in jail. Selling a product when all you have to deliver is a Figma? Totally acceptable.
-Not doing much accounting and making up plausible figures? Also fine if you’re small enough. Raising
-a tiny follow-on raise at a massive markup to inflate your valuation? It would be rude not to. But
+[here](https://www.lesswrong.com/posts/xdwbX9pFEr7Pomaxv/meta-honesty-firming-up-honesty-around-its-edge-cases-1?commentId=6CPEqXASy9uzxDNNp)
+that foreign startup founders have no idea what lies are and aren’t acceptable, and thus end up in
+jail. Selling a product when all you have to deliver is a Figma? Totally acceptable. Not doing much
+accounting and making up plausible figures? Also fine if you’re small enough. Raising a tiny
+follow-on raise at a massive markup to inflate your valuation? It would be rude not to. But
 knowingly lying about your user count, revenue, etc.? Financial fraud, you could go to jail. If
 there’s a hard and fast rule about what lying is and isn’t OK, or a clear line of reasoning that
 neatly separates the two, I’m not aware of it.
