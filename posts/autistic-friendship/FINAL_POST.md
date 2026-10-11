@@ -79,11 +79,10 @@ their behavior puts them just barely onto the spectrum from my admittedly unscie
     fact that I did care subconsciously, and acted on a craving of popularity (again, in the vain
     sense of the term).
 
-Some of my friends wouldn’t want to see their name in this essay. So I’m instead going to use real
-stories, but always with placeholder names: Austin, for a slightly autistic person; and Norbert, for
-a ‘normal,’ not-on-the-autism-spectrum person. Austin and Norbert each represent several different
-people. These stories have been modified only enough to give me plausible deniability regarding each
-story's true subjects.
+Some of my friends wouldn’t want to see their name in this essay. So I’m instead going to use
+lightly fictionalized stories with placeholder names: Austin, for a slightly autistic person; and
+Norbert, for a ‘normal,’ not-on-the-autism-spectrum person. Austin and Norbert each represent
+several different people.
 
 ## I: Autists Can Be Trusted
 
