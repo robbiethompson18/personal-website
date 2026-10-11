@@ -67,11 +67,14 @@ def hbar(rows, unit, title, name, hue, domain):
 #    sheet's high-end 1.3e8). 4e7 x 2.25 / 5000 = 18,000 (was 122k).
 #    Crab added post-8/11 edit: mud crab (Scylla serrata) grow-out farming is
 #    real, ~5.5mo stocking-to-harvest. 1430 neurons/cal x (5.5/12) yr = 655.
+#    Cricket replaces Horsefly (10/10): nobody farms horseflies, house crickets
+#    (Acheta domesticus) are farmed, ~8wk hatch-to-harvest (sources say 6–12).
+#    500,000 neurons/cal x 0.15 yr = 75,000.
 hbar([
     ("Scallop", 600), ("Crab", 655), ("Oyster", 1250), ("Clam", 1430),
     ("Mussel", 1500), ("Snail", 2120), ("Prawn", 4000), ("Cow Milk", 5480),
     ("Shrimp", 5710), ("Chicken Eggs", 12700), ("Chicken", 16700),
-    ("Salmon", 18000), ("Turkey", 26500), ("Pig", 28000), ("Horsefly", 33300),
+    ("Salmon", 18000), ("Turkey", 26500), ("Pig", 28000), ("Cricket", 75000),
     ("Cow", 78900),
 ], "neurons × lifespan / calorie  (log)", "Suffering per Calorie",
    "rankings-suffering", "carbon", domain=[200, 400000])

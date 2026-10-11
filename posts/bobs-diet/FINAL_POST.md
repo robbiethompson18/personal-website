@@ -180,13 +180,8 @@ which aren't farmed don't appear in this graph.
 If you're going to eat a farmed animal, bivalves (clams, mussels, oysters, scallops) are by far your
 best bet. Natant decapods (shrimps and prawns) also score well.
 
-UPDATE 5/17/2026:
-
-1. Based on readings I've done since writing this post, fish seem categorically dumber / less
-   sentient per neuron than other animals on the list. I would take the opposite of the conclusion
-   suggested here, which is that salmon are the most inhumane farmed animal.
-2. Tuna are often 'farmed' in that they are captured and fattened before slaughter, despite the
-   suggestion in the table that no one farms them.
+Crickets are farmed, and they look inhumane to eat on this metric; it makes me skeptical of my
+pretty graph too.
 
 # III: Objections
 
