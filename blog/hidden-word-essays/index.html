@@ -38,9 +38,8 @@ monitor catches the hidden word 2% of the time. For essays written by stock Qwen
 <p>Results: If you freeze the model you’re using, prompting-based methods outperform internals-based
 methods. If you freeze the methods you’re using (internals vs prompting-based), the fine-tuned model
 outperforms the stock model.</p>
-<p>Takeaways: A model can fairly quickly learn steganography that fools the base it was finetuned from.
-This suggests a future research direction: how quickly do you need to retrain your monitors as your
-model trains?</p>
+<p>Takeaways: mostly unexciting. Metamodels are worse than prompting. The organism doesn’t learn any
+very creative steganography; it mostly just goes off on tangents relating to the hidden word.</p>
 <h2 id="training-the-organism">Training the Organism: <a class="heading-anchor" href="#training-the-organism" aria-label="Link to this section">#</a></h2>
 <p>There are four players.</p>
 <ul>
@@ -101,11 +100,14 @@ essay.</li>
 (layer 48 of 63) scores the secret against 50 other words. The secret comes top at 8% of tokens
 against 2% by chance, the stock and fine-tuned readers score the same, and the NLA names the secret
 no more often than the other 50 words.</p>
-<h2 id="graphs-showing-metamodel-success-by-layer">Graphs Showing metamodel success by layer <a class="heading-anchor" href="#graphs-showing-metamodel-success-by-layer" aria-label="Link to this section">#</a></h2>
-<p>@c NLA graph @c Jlens graph</p>
+<h2 id="suspicious-essay-detection">Suspicious essay detection <a class="heading-anchor" href="#suspicious-essay-detection" aria-label="Link to this section">#</a></h2>
+<p>I had Claude train a bunch of methods to detect whether the essay contains a hidden word at all.
+Many stupid things have AUROC close to 1, including sorting by essay length and training a linear
+probe, while fun methods like looking at J-lens activations for the word ‘hidden’ have AUROC ~.6.</p>
 <h2 id="caveats">Caveats <a class="heading-anchor" href="#caveats" aria-label="Link to this section">#</a></h2>
 <p>Our measure of ‘uplift from NLA’ is an underestimate: we don’t retrain the NLA on the RLed model, we
-just use <a href="https://huggingface.co/ceselder/qwen3.6-27b-nla-av">Celeste’s NLA</a> on the OOTB model.</p>
+just use <a href="https://huggingface.co/ceselder/qwen3.6-27b-nla-av">Celeste’s NLA</a> on the OOTB model. This
+NLA works horribly, so I didn’t try very hard to make it better.</p>
 <h2 id="steganogaphic-methods">Steganogaphic Methods <a class="heading-anchor" href="#steganogaphic-methods" aria-label="Link to this section">#</a></h2>
 <p>The steganographic methods Qwen uses here are pretty crude. Here are some attractor basins</p>
 <p><strong>Acrostics</strong></p>
