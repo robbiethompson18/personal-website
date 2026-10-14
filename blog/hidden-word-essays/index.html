@@ -21,20 +21,20 @@
     <main class="post">
       <article>
         <header class="post-header">
-          <p class="draft-banner">Draft — not in the index or feed</p>
           <p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
           <h1>Attempt to Make Qwen 27B do Steganography</h1>
           <p class="post-dates"><span>Published <time datetime="2026-10-12">October 12, 2026</time></span><span>Last edited <time datetime="2026-10-12">October 12, 2026</time></span></p>
         </header>
         <p>Code: <a href="https://github.com/robbiethompson18/cot-codenames">github.com/robbiethompson18/cot-codenames</a></p>
 <h2 id="executive-summary">Executive Summary <a class="heading-anchor" href="#executive-summary" aria-label="Link to this section">#</a></h2>
-<p>I spent some time trying to get Qwen 27b to obfuscate or hide things in its output or CoT. here is
+<p>I spent some time trying to get Qwen 27b to obfuscate or hide things in its output or CoT. Here is
 one model organism I constructed that showed some signs of life:</p>
 <p>I trained (via RL) a simple model organism of steganography: Qwen 27B writing an essay while hiding
 a secret word inside, that a copy of itself can detect, but stock Qwen 27B cannot.</p>
 <p>The model organism works: it can relay a code word to itself via an unrelated essay 77% of the time,
 while stock Qwen spots the hidden word 0% of the time, and Qwen 9b catches the hidden word 1% of the
 time. For essays written by stock Qwen 27B these numbers are 8.5%, 8.5% (necessarily), and 4.5%.</p>
+<p><img src="charts/roles.png" alt="Hits out of 100 held-out essays for the receiver and each monitor, first guess and within ten guesses"></p>
 <p>Detection methods: If you freeze the model you’re using, prompting-based methods almost always
 outperform internals-based methods, which are typically ~50-90% worse.</p>
 <p>Takeaways: mostly unexciting.</p>
