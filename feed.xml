@@ -7,6 +7,48 @@
     <description>Essays by Robbie Thompson.</description>
     <language>en</language>
     <item>
+      <title>Oct 18</title>
+      <link>https://robbiewmthompson.com/blog/oct-18/</link>
+      <guid isPermaLink="true">https://robbiewmthompson.com/blog/oct-18/</guid>
+      <pubDate>Sun, 18 Oct 2026 12:00:00 GMT</pubDate>
+      <description></description>
+      <content:encoded><![CDATA[<p>Work done October 12-18.</p>
+<h2 id="our-current-rl-paradigm-is-robustly-emergence-and-not-distillation">Our current RL paradigm is robustly ‘emergence’ and not ‘distillation’ <a class="heading-anchor" href="https://robbiewmthompson.com/blog/oct-18/#our-current-rl-paradigm-is-robustly-emergence-and-not-distillation" aria-label="Link to this section">#</a></h2>
+<p>I was quite confident in this for some time, but others were not convinced, so here is a graph of
+our best RLed model’s performance on a held-out set of textbook problems, relative to its pretrain:</p>
+<p><img src="https://robbiewmthompson.com/blog/oct-18/charts/passk.png" alt="Textbook72 pass@k for the pretrained model and the same model after 5.4 hours of RL"></p>
+<p>Between <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">k = 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.0315em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>10,000</mn></mrow><annotation encoding="application/x-tex">k = 10{,}000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.0315em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mord"><span class="mpunct">,</span></span><span class="mord">000</span></span></span></span>, the base model solves 2.6 new problems (3.6%) and the RLed
+model solves 6.5 new problems (9.1%).</p>
+<h2 id="more-data">More Data <a class="heading-anchor" href="https://robbiewmthompson.com/blog/oct-18/#more-data" aria-label="Link to this section">#</a></h2>
+<p>I created a dataset of 41,205 new proofs.</p>
+<p><img src="https://robbiewmthompson.com/blog/oct-18/charts/lengths-dan.png" alt="Dan's training proofs by length: all 12 body lines or fewer"></p>
+<p><img src="https://robbiewmthompson.com/blog/oct-18/charts/lengths-new.png" alt="The new proofs by length, out to 80 body lines"></p>
+<p>Generators write theorems with deliberately deep proofs using 3–10 premises. A C rewrite of Dan’s
+exhaustive minimal-length search, about 15,000× faster, then certifies each theorem’s exact minimal
+length, or that no proof shorter than 20 body lines exists, and every proof is checked in Lean.</p>
+<p>With this dataset, expert iteration does not saturate after six hours of training. Previously we
+saturated within an hour: the old setup had solved 83% of its RL targets after 10 minutes. This also
+improved my previous best on the 72 heldout textbook problems, from 32 to 36 solved (pass@256).</p>
+<p><img src="https://robbiewmthompson.com/blog/oct-18/charts/targets-solved.png" alt="RL targets solved over seven hours of expert iteration"></p>
+<h2 id="why-is-grpo-so-much-worse-than-ei">Why is GRPO so much worse than EI? <a class="heading-anchor" href="https://robbiewmthompson.com/blog/oct-18/#why-is-grpo-so-much-worse-than-ei" aria-label="Link to this section">#</a></h2>
+<p>The GRPO recipe I evaluated seems to barely update model weights at all between rounds. It does not
+include a KL penalty. Low KL divergence each round is downstream of a 10x lower learning rate than
+EI. I leave it to Leon to improve this recipe (update: he did, GRPO now beats EI, on his data at
+least).</p>
+<p><img src="https://robbiewmthompson.com/blog/oct-18/charts/kl-step.png" alt="KL between consecutive rounds' policies, expert iteration vs GRPO"></p>
+<p><img src="https://robbiewmthompson.com/blog/oct-18/charts/kl-pretrained.png" alt="KL from the pretrained model on rollouts, expert iteration vs GRPO"></p>
+<p><img src="https://robbiewmthompson.com/blog/oct-18/charts/nll-pretrain.png" alt="Loss on held-out pretraining proofs, expert iteration vs GRPO"></p>
+<h3 id="grpo-gets-box-of-length-three">GRPO Gets Box of Length Three <a class="heading-anchor" href="https://robbiewmthompson.com/blog/oct-18/#grpo-gets-box-of-length-three" aria-label="Link to this section">#</a></h3>
+<p>One thing GRPO struggles to learn, which EI learns quickly, is making proofs of depth 3. Broadly
+this was caused by GRPO’s low learning rate. Concretely, GRPOed models tried to close two boxes at
+once, and thus fail to learn proofs which require closing several boxes in a row. GRPOed models do
+learn some proofs of length 3 very quickly, just like EI does. Mysteriously, one GRPO run did break
+through this wall, leading to this graph:</p>
+<p><img src="https://robbiewmthompson.com/blog/oct-18/charts/grpo-solved.png" alt="RL targets solved by four GRPO runs, one of which jumps at 1.5 hours"></p>
+<p>EI learns to generate proofs up to depth 5.</p>
+]]></content:encoded>
+    </item>
+    <item>
       <title>Attempt to Make Qwen 3.6 27B do Steganography</title>
       <link>https://robbiewmthompson.com/blog/hidden-word-essays/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/hidden-word-essays/</guid>
@@ -287,7 +329,7 @@ few-shot prompted on more interesting methods from, say, Opus.</p>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/combined-model/</guid>
       <pubDate>Tue, 29 Sep 2026 12:00:00 GMT</pubDate>
       <description></description>
-      <content:encoded><![CDATA[<p>Epistemic Status: largely written by Claude, though I am confident assertions are correct.</p>
+      <content:encoded><![CDATA[<p><em>Epistemic Status: largely written by Claude, though I am confident assertions are correct.</em></p>
 <p>For context, see <a href="https://robbiewmthompson.com/blog/pretraining-ablations/">last week’s post</a>.</p>
 <h2 id="combining-models">Combining models <a class="heading-anchor" href="https://robbiewmthompson.com/blog/combined-model/#combining-models" aria-label="Link to this section">#</a></h2>
 <p><img src="https://robbiewmthompson.com/blog/combined-model/charts/by-cell.png" alt="Dev theorems solved, by pipeline"></p>

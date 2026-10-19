@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oct 18</title>
+    <meta name="description" content="Essays by Robbie Thompson." />
+    <link rel="canonical" href="https://robbiewmthompson.com/blog/oct-18/" />
+    <meta property="og:title" content="Oct 18" />
+    <meta property="og:description" content="Essays by Robbie Thompson." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://robbiewmthompson.com/blog/oct-18/" />
+    <link rel="alternate" type="application/rss+xml" title="Robbie Thompson" href="/feed.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/blog.css?v=cb0ee9a1" />
+    <link rel="stylesheet" href="/vendor/katex/katex.min.css" />
+  </head>
+  <body>
+    <main class="post">
+      <article>
+        <header class="post-header">
+          <p class="post-meta"><a href="/projects/">&larr; Projects</a></p>
+          <h1>Oct 18</h1>
+          <p class="post-dates"><span>Published <time datetime="2026-10-18">October 18, 2026</time></span><span>Last edited <time datetime="2026-10-18">October 18, 2026</time></span></p>
+        </header>
+        <p>Work done October 12-18.</p>
+<h2 id="our-current-rl-paradigm-is-robustly-emergence-and-not-distillation">Our current RL paradigm is robustly ‘emergence’ and not ‘distillation’ <a class="heading-anchor" href="#our-current-rl-paradigm-is-robustly-emergence-and-not-distillation" aria-label="Link to this section">#</a></h2>
+<p>I was quite confident in this for some time, but others were not convinced, so here is a graph of
+our best RLed model’s performance on a held-out set of textbook problems, relative to its pretrain:</p>
+<p><img src="charts/passk.png" alt="Textbook72 pass@k for the pretrained model and the same model after 5.4 hours of RL"></p>
+<p>Between <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">k = 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.0315em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>10,000</mn></mrow><annotation encoding="application/x-tex">k = 10{,}000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.0315em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mord"><span class="mpunct">,</span></span><span class="mord">000</span></span></span></span>, the base model solves 2.6 new problems (3.6%) and the RLed
+model solves 6.5 new problems (9.1%).</p>
+<h2 id="more-data">More Data <a class="heading-anchor" href="#more-data" aria-label="Link to this section">#</a></h2>
+<p>I created a dataset of 41,205 new proofs.</p>
+<p><img src="charts/lengths-dan.png" alt="Dan's training proofs by length: all 12 body lines or fewer"></p>
+<p><img src="charts/lengths-new.png" alt="The new proofs by length, out to 80 body lines"></p>
+<p>Generators write theorems with deliberately deep proofs using 3–10 premises. A C rewrite of Dan’s
+exhaustive minimal-length search, about 15,000× faster, then certifies each theorem’s exact minimal
+length, or that no proof shorter than 20 body lines exists, and every proof is checked in Lean.</p>
+<p>With this dataset, expert iteration does not saturate after six hours of training. Previously we
+saturated within an hour: the old setup had solved 83% of its RL targets after 10 minutes. This also
+improved my previous best on the 72 heldout textbook problems, from 32 to 36 solved (pass@256).</p>
+<p><img src="charts/targets-solved.png" alt="RL targets solved over seven hours of expert iteration"></p>
+<h2 id="why-is-grpo-so-much-worse-than-ei">Why is GRPO so much worse than EI? <a class="heading-anchor" href="#why-is-grpo-so-much-worse-than-ei" aria-label="Link to this section">#</a></h2>
+<p>The GRPO recipe I evaluated seems to barely update model weights at all between rounds. It does not
+include a KL penalty. Low KL divergence each round is downstream of a 10x lower learning rate than
+EI. I leave it to Leon to improve this recipe (update: he did, GRPO now beats EI, on his data at
+least).</p>
+<p><img src="charts/kl-step.png" alt="KL between consecutive rounds' policies, expert iteration vs GRPO"></p>
+<p><img src="charts/kl-pretrained.png" alt="KL from the pretrained model on rollouts, expert iteration vs GRPO"></p>
+<p><img src="charts/nll-pretrain.png" alt="Loss on held-out pretraining proofs, expert iteration vs GRPO"></p>
+<h3 id="grpo-gets-box-of-length-three">GRPO Gets Box of Length Three <a class="heading-anchor" href="#grpo-gets-box-of-length-three" aria-label="Link to this section">#</a></h3>
+<p>One thing GRPO struggles to learn, which EI learns quickly, is making proofs of depth 3. Broadly
+this was caused by GRPO’s low learning rate. Concretely, GRPOed models tried to close two boxes at
+once, and thus fail to learn proofs which require closing several boxes in a row. GRPOed models do
+learn some proofs of length 3 very quickly, just like EI does. Mysteriously, one GRPO run did break
+through this wall, leading to this graph:</p>
+<p><img src="charts/grpo-solved.png" alt="RL targets solved by four GRPO runs, one of which jumps at 1.5 hours"></p>
+<p>EI learns to generate proofs up to depth 5.</p>
+
+      </article>
+      <footer class="post-footer">
+        <p><a href="/projects/">&larr; More projects</a></p>
+      </footer>
+    </main>
+    <script src="/footnotes.js?v=dcd0756c" defer></script>
+  </body>
+</html>

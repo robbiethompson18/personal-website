@@ -9,7 +9,7 @@ title: SPAR, Capability Emergence: Test-Time Scaling, Sep 29
 date: 2026-09-29
 ---
 
-Epistemic Status: largely written by Claude, though I am confident assertions are correct.
+_Epistemic Status: largely written by Claude, though I am confident assertions are correct._
 
 For context, see [last week's post](https://robbiewmthompson.com/blog/pretraining-ablations/).
 
