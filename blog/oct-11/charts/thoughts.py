@@ -31,7 +31,7 @@ save(chart, "thoughts-prerl", WIDTH)
 
 # --- thoughts-recipes --------------------------------------------------------
 WIDTH, HEIGHT = 560, 240
-rows = [{**r, "solved": int(r["solved"]), "control": r["label"].startswith("Untied")}
+rows = [{**r, "solved": int(r["solved"]), "control": r["label"].startswith("Unlooped")}
         for r in csv.DictReader(open("charts/thoughts_recipes.csv"))]
 f = fonts(WIDTH)
 y = alt.Y("label:N", title=None, sort=None, axis=alt.Axis(labelLimit=0))
@@ -41,5 +41,5 @@ bars = base.mark_bar(size=34).encode(
     color=alt.Color("control:N", legend=None, scale=alt.Scale(domain=[False, True], range=[HUE["dollar"], MUTED])))
 value = base.mark_text(align="left", dx=6, color=FG, fontSize=f["label"]).encode(x="solved:Q", text="solved:Q")
 note = base.mark_text(align="left", dx=8, color=BG, fontSize=f["label"]).encode(x=alt.datum(0), text="note:N")
-chart = (bars + value + note).properties(width=WIDTH, height=HEIGHT, title="After RL: Thoughts Models vs the Untied Control")
+chart = (bars + value + note).properties(width=WIDTH, height=HEIGHT, title="After RL: Thoughts Models vs the Unlooped Control")
 save(chart, "thoughts-recipes", WIDTH)

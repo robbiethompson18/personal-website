@@ -183,6 +183,19 @@ function versioned(file) {
 const BLOG_CSS = versioned("blog.css");
 const FOOTNOTES_JS = versioned("footnotes.js");
 
+// DEV only: poll this page's Last-Modified and reload when the watcher rebuilds it. Every
+// posts/ change (prose or a re-rendered chart) rewrites every page, so this catches both.
+const DEV_RELOAD = `
+    <script>
+      let seen;
+      setInterval(async () => {
+        const res = await fetch(location.pathname, { method: "HEAD", cache: "no-store" }).catch(() => null);
+        const stamp = res?.headers.get("last-modified");
+        if (seen && stamp && stamp !== seen) location.reload();
+        seen = stamp ?? seen;
+      }, 1000);
+    </script>`;
+
 function layout({ title, description, canonical, body, hasMath }) {
   return `<!doctype html>
 <html lang="en">
@@ -204,7 +217,7 @@ function layout({ title, description, canonical, body, hasMath }) {
   </head>
   <body>
 ${body}
-    <script src="${FOOTNOTES_JS}" defer></script>
+    <script src="${FOOTNOTES_JS}" defer></script>${DEV ? DEV_RELOAD : ""}
   </body>
 </html>
 `;

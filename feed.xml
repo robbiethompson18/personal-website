@@ -7,7 +7,7 @@
     <description>Essays by Robbie Thompson.</description>
     <language>en</language>
     <item>
-      <title>SPAR, Capability Emergence: Oct 18</title>
+      <title>SPAR, Capability Emergence: Training Dynamics, Oct 18</title>
       <link>https://robbiewmthompson.com/blog/oct-18/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/oct-18/</guid>
       <pubDate>Sun, 18 Oct 2026 12:00:00 GMT</pubDate>
@@ -324,7 +324,7 @@ few-shot prompted on more interesting methods from, say, Opus.</p>
 ]]></content:encoded>
     </item>
     <item>
-      <title>SPAR, Capability Emergence: Oct 11</title>
+      <title>SPAR, Capability Emergence: Test-Time Scaling, Oct 11</title>
       <link>https://robbiewmthompson.com/blog/oct-11/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/oct-11/</guid>
       <pubDate>Sun, 11 Oct 2026 12:00:00 GMT</pubDate>
@@ -344,12 +344,12 @@ loops than they were trained on, even if we randomize loop number during trainin
 solved 11.4% / 13.8% / 15.9%.</li>
 </ul>
 <p><img src="https://robbiewmthompson.com/blog/oct-11/charts/loops-spike.png" alt="Long dev theorems solved by test-time loop count, for looped models trained on 1-4, 1-8 and 1-16 loops, and the 1-4 model after 12 RL rounds"></p>
-<p><img src="https://robbiewmthompson.com/blog/oct-11/charts/loops-gap.png" alt="Dev theorems solved at 2 and 8 test-time loops for each kept experiment, and the untied control at 792"></p>
+<p><img src="https://robbiewmthompson.com/blog/oct-11/charts/loops-gap.png" alt="Dev theorems solved at 2 and 8 test-time loops for each kept experiment, and the unlooped control at 792"></p>
 <p><img src="https://robbiewmthompson.com/blog/oct-11/charts/retry-depth.png" alt="Share of RL targets that failed at 1 loop solved on retry at 2, 4 and 8 loops"></p>
 <h2 id="continuous-thoughts-coconut-style-dont-win-either">Continuous thoughts (Coconut-style) don’t win either <a class="heading-anchor" href="https://robbiewmthompson.com/blog/oct-11/#continuous-thoughts-coconut-style-dont-win-either" aria-label="Link to this section">#</a></h2>
 <ul>
 <li>Before RL, thinking clearly helps: valid samples on the RL targets go from about 4% with no
-thoughts to 11% with 8 thoughts per line.</li>
+thoughts to 12% with 8 thoughts per line.</li>
 <li>After RL, the benefit is all in the step from 0 to 2 thoughts.</li>
 <li>Speed decided the score. Recipes that pass gradient through the thoughts get about 1,550
 pretraining steps and 3 RL rounds; pause slots get about 3,500 steps and 6–7 rounds, but the model
@@ -357,20 +357,20 @@ ignores the thoughts.</li>
 <li>Best result 711, against the plain 792 control.</li>
 </ul>
 <p><img src="https://robbiewmthompson.com/blog/oct-11/charts/thoughts-prerl.png" alt="Before RL, share of valid samples on the RL targets by thoughts per proof line"></p>
-<p><img src="https://robbiewmthompson.com/blog/oct-11/charts/thoughts-recipes.png" alt="Dev theorems solved after RL by the feedback recipe, pause slots, the best thoughts model, and the untied control"></p>
+<p><img src="https://robbiewmthompson.com/blog/oct-11/charts/thoughts-recipes.png" alt="Dev theorems solved after RL by the feedback recipe, pause slots, the best thoughts model, and the unlooped control"></p>
 <h2 id="retrying-with-lean-errors-the-model-doesnt-use-its-failed-proofs">Retrying with Lean errors: the model doesn’t use its failed proofs <a class="heading-anchor" href="https://robbiewmthompson.com/blog/oct-11/#retrying-with-lean-errors-the-model-doesnt-use-its-failed-proofs" aria-label="Link to this section">#</a></h2>
 <p>First, definitions:</p>
 <ul>
-<li><em>Retry</em>: The model sees its failure plus a Lean error token (one of x).</li>
+<li><em>Resume</em>: Resample as soon as you get a Lean error (so if you started down a bad path, you’re
+stuck).</li>
+<li><em>Retry</em>: The model sees its failure plus a Lean error token (one of 32).</li>
 <li><em>Blank</em>: Same as retry, except we always emit the same <code>&lt;fail&gt;</code> token on Lean errors.</li>
-<li><em>Resume</em>: Resume evaluating as soon as you get a Lean error (so if you started down a bad path,
-you’re stuck).</li>
-<li><em>Repair</em>: Resume, but add synthetic recoveries.</li>
+<li><em>Repair</em>: Retry, but add synthetic recoveries.</li>
 </ul>
 <ul>
 <li>Every variant scored below plain EI (706–762 vs 771).</li>
-<li>Trained on synthetic recoveries, the model ignores the failure. Trained to repair, it copies the
-failure (73% of second attempts identical to the first).</li>
+<li>On the <em>retry</em> leg, the model ignores the failure. Trained to <em>repair</em>, it copies the failure (73%
+of second attempts identical to the first).</li>
 <li>Why: failures are mostly <em>wrong plans</em>, and the Lean error points to where type-checking stopped,
 not to the earlier choice that made the proof unfinishable.</li>
 <li>Keeping the error-free prefix commits the model to the bad plan, so starting over beats resuming.</li>
