@@ -19,7 +19,7 @@ make the task easier and failed to demonstrate any ability to control CoT.
 Code: [github.com/robbiethompson18/cot-codenames](https://github.com/robbiethompson18/cot-codenames)
 
 Follow-up:
-[Attempt to Make Qwen 27B do Steganography](https://robbiewmthompson.com/blog/hidden-word-essays/)
+[Attempt to Make Qwen 3.6 27B do Steganography](https://robbiewmthompson.com/blog/hidden-word-essays/)
 
 ## The Setup
 
