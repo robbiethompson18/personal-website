@@ -1,5 +1,5 @@
 ---
-title: Oct 18
+title: SPAR, Capability Emergence: Oct 18
 date: 2026-10-18
 project: true
 ---
