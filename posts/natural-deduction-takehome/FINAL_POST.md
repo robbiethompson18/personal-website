@@ -4,6 +4,7 @@ date: 2026-09-04
 source: ../nd-takehome/writeup.md
 repo: https://github.com/robbiethompson18/nd-takehome
 project: true
+rating: 2
 ---
 
 I worked on this as a four hour take-home assignment for a SPAR application:

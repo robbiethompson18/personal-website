@@ -1,0 +1,5 @@
+label,solved,note
+Feedback Thoughts (701),531,"~1,520 pretrain steps, 3 RL rounds"
+Pause Slots (704),676,"~3,500 pretrain steps, 6-7 RL rounds"
+Best Thoughts Model (708),711,"~3,440 pretrain steps, 6-7 RL rounds"
+Untied Control (590),792,no thoughts

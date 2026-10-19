@@ -3,6 +3,7 @@ title: Attempt to Make Qwen 3.6 27B do Steganography
 date: 2026-10-12
 draft: false
 project: true
+rating: 3
 source: ../cot-codenames/writeup-stego.md
 ---
 

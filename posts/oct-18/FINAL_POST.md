@@ -2,6 +2,7 @@
 title: SPAR, Capability Emergence: Oct 18
 date: 2026-10-18
 project: true
+rating: 3
 ---
 
 Work done October 12-18.
@@ -47,12 +48,12 @@ least).
 
 ![Loss on held-out pretraining proofs, expert iteration vs GRPO](charts/nll-pretrain.png)
 
-### GRPO Gets Box of Length Three
+### GRPO Gets Box of Depth Three
 
 One thing GRPO struggles to learn, which EI learns quickly, is making proofs of depth 3. Broadly
 this was caused by GRPO's low learning rate. Concretely, GRPOed models tried to close two boxes at
 once, and thus fail to learn proofs which require closing several boxes in a row. GRPOed models do
-learn some proofs of length 3 very quickly, just like EI does. Mysteriously, one GRPO run did break
+learn some proofs of depth 3 very quickly, just like EI does. Mysteriously, one GRPO run did break
 through this wall, leading to this graph:
 
 ![RL targets solved by four GRPO runs, one of which jumps at 1.5 hours](charts/grpo-solved.png)

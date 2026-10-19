@@ -1,0 +1,28 @@
+model,loops,solved
+Trained on 1-4 Loops,1,85
+Trained on 1-4 Loops,2,92
+Trained on 1-4 Loops,3,91
+Trained on 1-4 Loops,4,101
+Trained on 1-4 Loops,6,98
+Trained on 1-4 Loops,8,98
+Trained on 1-4 Loops,12,96
+Trained on 1-8 Loops,1,82
+Trained on 1-8 Loops,2,96
+Trained on 1-8 Loops,4,104
+Trained on 1-8 Loops,6,107
+Trained on 1-8 Loops,8,105
+Trained on 1-8 Loops,12,106
+Trained on 1-8 Loops,16,105
+Trained on 1-16 Loops,1,69
+Trained on 1-16 Loops,2,82
+Trained on 1-16 Loops,4,88
+Trained on 1-16 Loops,8,86
+Trained on 1-16 Loops,16,91
+Trained on 1-16 Loops,24,86
+"1-4 Loops, 12 RL Rounds",1,118
+"1-4 Loops, 12 RL Rounds",2,116
+"1-4 Loops, 12 RL Rounds",3,115
+"1-4 Loops, 12 RL Rounds",4,114
+"1-4 Loops, 12 RL Rounds",6,115
+"1-4 Loops, 12 RL Rounds",8,115
+"1-4 Loops, 12 RL Rounds",12,115

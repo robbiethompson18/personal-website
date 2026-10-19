@@ -1,0 +1,8 @@
+run,label,loops2,loops8
+500,500: Looped Baseline,657,675
+502,502: Retry Failures Deeper,672,690
+507,507: Token-Budget Fine-Tune,714,732
+509,509: Muon Fine-Tune,727,748
+510,"510: More, Shorter Rounds",752,764
+512,512: Alternating Core Pairs,739,766
+590,590: Untied Run 198 (Control),792,792

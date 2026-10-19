@@ -51,11 +51,11 @@ least).</p>
 <p><img src="charts/kl-step.png" alt="KL between consecutive rounds' policies, expert iteration vs GRPO"></p>
 <p><img src="charts/kl-pretrained.png" alt="KL from the pretrained model on rollouts, expert iteration vs GRPO"></p>
 <p><img src="charts/nll-pretrain.png" alt="Loss on held-out pretraining proofs, expert iteration vs GRPO"></p>
-<h3 id="grpo-gets-box-of-length-three">GRPO Gets Box of Length Three <a class="heading-anchor" href="#grpo-gets-box-of-length-three" aria-label="Link to this section">#</a></h3>
+<h3 id="grpo-gets-box-of-depth-three">GRPO Gets Box of Depth Three <a class="heading-anchor" href="#grpo-gets-box-of-depth-three" aria-label="Link to this section">#</a></h3>
 <p>One thing GRPO struggles to learn, which EI learns quickly, is making proofs of depth 3. Broadly
 this was caused by GRPO’s low learning rate. Concretely, GRPOed models tried to close two boxes at
 once, and thus fail to learn proofs which require closing several boxes in a row. GRPOed models do
-learn some proofs of length 3 very quickly, just like EI does. Mysteriously, one GRPO run did break
+learn some proofs of depth 3 very quickly, just like EI does. Mysteriously, one GRPO run did break
 through this wall, leading to this graph:</p>
 <p><img src="charts/grpo-solved.png" alt="RL targets solved by four GRPO runs, one of which jumps at 1.5 hours"></p>
 <p>EI learns to generate proofs up to depth 5.</p>
