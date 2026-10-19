@@ -1,5 +1,5 @@
 ---
-title: Natural Deduction Takehome
+title: SPAR, Capability Emergence: Takehome
 date: 2026-09-04
 source: ../nd-takehome/writeup.md
 repo: https://github.com/robbiethompson18/nd-takehome

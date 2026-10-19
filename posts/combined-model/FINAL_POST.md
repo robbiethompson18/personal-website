@@ -5,9 +5,11 @@ project: true
 source: ../nd-rl-8/experiment-summaries/2026-09-28-combined-model/README.md
 written_on: 2026-09-29
 written_by: agent:claude
-title: The combined model, and where its gains come from
+title: SPAR, Capability Emergence: Test-Time Scaling, Sep 29
 date: 2026-09-29
 ---
+
+Epistemic Status: largely written by Claude, though I am confident assertions are correct.
 
 For context, see [last week's post](https://robbiewmthompson.com/blog/pretraining-ablations/).
 

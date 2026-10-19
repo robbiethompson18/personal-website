@@ -282,12 +282,13 @@ few-shot prompted on more interesting methods from, say, Opus.</p>
 ]]></content:encoded>
     </item>
     <item>
-      <title>The combined model, and where its gains come from</title>
+      <title>SPAR, Capability Emergence: Test-Time Scaling, Sep 29</title>
       <link>https://robbiewmthompson.com/blog/combined-model/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/combined-model/</guid>
       <pubDate>Tue, 29 Sep 2026 12:00:00 GMT</pubDate>
       <description></description>
-      <content:encoded><![CDATA[<p>For context, see <a href="https://robbiewmthompson.com/blog/pretraining-ablations/">last week’s post</a>.</p>
+      <content:encoded><![CDATA[<p>Epistemic Status: largely written by Claude, though I am confident assertions are correct.</p>
+<p>For context, see <a href="https://robbiewmthompson.com/blog/pretraining-ablations/">last week’s post</a>.</p>
 <h2 id="combining-models">Combining models <a class="heading-anchor" href="https://robbiewmthompson.com/blog/combined-model/#combining-models" aria-label="Link to this section">#</a></h2>
 <p><img src="https://robbiewmthompson.com/blog/combined-model/charts/by-cell.png" alt="Dev theorems solved, by pipeline"></p>
 <p>Where the 762 extra theorems come from, averaging each piece’s effect over the other two:</p>
@@ -1509,7 +1510,7 @@ returned no reasoning text.</li>
 ]]></content:encoded>
     </item>
     <item>
-      <title>Pretraining ablations, week of September 21, 2026</title>
+      <title>SPAR, Capability Emergence: Pretraining Ablations, Sep 21</title>
       <link>https://robbiewmthompson.com/blog/pretraining-ablations/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/pretraining-ablations/</guid>
       <pubDate>Sat, 26 Sep 2026 12:00:00 GMT</pubDate>
@@ -2044,7 +2045,7 @@ progress on long proofs. <a href="https://robbiewmthompson.com/blog/pretraining-
 ]]></content:encoded>
     </item>
     <item>
-      <title>Natural Deduction Takehome</title>
+      <title>SPAR, Capability Emergence: Takehome</title>
       <link>https://robbiewmthompson.com/blog/natural-deduction-takehome/</link>
       <guid isPermaLink="true">https://robbiewmthompson.com/blog/natural-deduction-takehome/</guid>
       <pubDate>Fri, 04 Sep 2026 12:00:00 GMT</pubDate>

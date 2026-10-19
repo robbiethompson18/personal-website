@@ -1,5 +1,5 @@
 ---
-title: Pretraining ablations, week of September 21, 2026
+title: SPAR, Capability Emergence: Pretraining Ablations, Sep 21
 date: 2026-09-26
 draft: false
 project: true
