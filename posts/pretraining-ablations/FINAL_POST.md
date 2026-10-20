@@ -3,6 +3,7 @@ title: SPAR, Capability Emergence: Pretraining Ablations, Sep 21
 date: 2026-09-26
 draft: false
 project: true
+repo: https://github.com/chainik1125/nd-rl
 source: ../nd-rl/experiment-summaries/2026-09-21-pretrain-ablations/README.md
 written_on: 2026-09-26
 written_by: human:Robbie

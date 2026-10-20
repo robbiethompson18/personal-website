@@ -2,6 +2,7 @@
 title: SPAR, Capability Emergence: Training Dynamics, Oct 18
 date: 2026-10-18
 project: true
+repo: https://github.com/chainik1125/nd-rl
 rating: 3
 ---
 

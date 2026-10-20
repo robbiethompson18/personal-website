@@ -2,10 +2,11 @@
 draft: false
 rating: 1
 project: true
+repo: https://github.com/chainik1125/nd-rl
 source: ../nd-rl-8/experiment-summaries/2026-09-28-combined-model/README.md
 written_on: 2026-09-29
 written_by: agent:claude
-title: SPAR, Capability Emergence: Test-Time Scaling, Sep 29
+title: SPAR, Capability Emergence: Test-Time Scaling I, Sep 29
 date: 2026-09-29
 ---
 

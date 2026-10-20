@@ -1,7 +1,8 @@
 ---
-title: SPAR, Capability Emergence: Test-Time Scaling, Oct 11
+title: SPAR, Capability Emergence: Test-Time Scaling II, Oct 11
 date: 2026-10-11
 project: true
+repo: https://github.com/chainik1125/nd-rl
 rating: 1
 ---
 
