@@ -5,8 +5,8 @@ draft: false
 ---
 
 My sister told me last week that my pronunciation changed. I speak clearly and emphasize all my
-consonants now. This is a huge win! But I'm disconcerted; I spent years trying to stop mumbling, and
-suddenly at 26 I quit by accident?
+consonants now. I'm disconcerted; I spent years trying to stop mumbling, and suddenly at 26 I quit
+by accident?
 
 ## Child Speak
 
@@ -50,20 +50,20 @@ conversation:
   him to help move the piano.
 - The invite is a _free option_.
 
-Increasingly I find it hard to communicate with people who do not understand statements like the
-above, which is problematic.
+Increasingly I find it frustrating to communicate with people who do not understand statements like
+the above.
 
 [^yup]:
     Yes, I really said this to a woman, and she thought this was a perfectly normal thing to say,
     and my crush became that much more overdetermined.
 
-But I am guilty of using nerdspeak needlessly, which I find grating when done by others. Examples
-with normal alternatives in parens:
+I am guilty of using nerdspeak needlessly, which I find grating when done by others. Examples (with
+standard English alternatives in parens).
 
 - The two ideas are _orthogonal_ (unrelated).
 - I eat two meals a day _in expectation_ (on average).
 - Taking e-bikes _costs epsilon dollars_ (is cheap).
-- It costs _approximately_ (about) \$20.
+- It is _approximately_ (about) 80˚ outside.
 
 ## Qualifiers
 
@@ -71,8 +71,7 @@ I used to see superfluous qualifiers, like "_I propose_ that pickleball is tenni
 suspect that Chan will lose the election," as nerd-signaling. In reality this is
 nerd-signals-deference.[^yud] To signal uncertainty, one says "80% Chan loses the election." To
 signal deference, one says "I suspect she will," with the implication "it is my smooth smooth brain
-doing the suspecting, you should trust your own intellect over mine." I sure did use a lot of these
-qualifiers as a new hire at Jane Street.
+doing the suspecting, you should trust your own intellect over mine."
 
 [^yud]:
     Yudkowsky and others have already written about this:
