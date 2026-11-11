@@ -63,7 +63,7 @@ standard English alternatives in parens).
 - The two ideas are _orthogonal_ (unrelated).
 - I eat two meals a day _in expectation_ (on average).
 - Taking e-bikes _costs epsilon dollars_ (is cheap).
-- It is _approximately_ (about) 80˚ outside.
+- It is _approximately_ (about) 80° outside.
 
 ## Qualifiers
 
