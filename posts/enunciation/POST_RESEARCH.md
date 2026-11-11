@@ -1,4 +1,4 @@
-# Annunciation: research notes
+# Enunciation: research notes
 
 Compiled 2026-11-11 from ten parallel research reports (2 Fable on rationalist and trader slang, 8
 Opus on the side questions), then cut to the interesting parts. The full reports are in `raw/`,
@@ -10,9 +10,6 @@ Robbie asked for Yudkowsky's own commentary on language, the "How to Speak River
 the FX chat logs. They are the sections "Yudkowsky on language", "How to Speak Riverian" and "The FX
 chat logs" below. For those three I spot-checked the quotes against the source text the researchers
 saved.
-
-On the title: Geoffrey Miller's description of the EA dialect (below) also spells it
-"over-annunciated consonants".
 
 ## Read these first
 
