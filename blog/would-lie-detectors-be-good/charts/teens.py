@@ -3,10 +3,11 @@
 Sources and caveats for every number are in POST_RESEARCH_KIDS.md; the short version:
 
 - Licence at 16: share of 16-year-olds holding a licence, FHWA data via Sivak & Schoettle (2016).
-- Ever had sex: US high schoolers, CDC YRBS. 2013-2023 read from the CDC trend report; 1991 from
-  Child Trends; 1995-2011 from MMWR / secondary summaries, rounded.
-- Depression: past-year major depressive episode, ages 12-17, SAMHSA NSDUH. Stops at 2020: the
-  survey method changed in 2021, so later figures (20.8% in 2021, 15.4% in 2024) aren't comparable.
+- Ever had sex: US high schoolers, CDC YRBS. 1991-2011 from MMWR 61(29), 2012; 2013-2023 from the
+  CDC "Data Summary & Trends Report: 2013-2023" (2024).
+- Depression: past-year major depressive episode, ages 12-17, SAMHSA NSDUH 2019 report, Figure 48.
+  Stops at 2019: 2020 was collected differently (COVID) and the survey method changed in 2021, so
+  later figures (20.8% in 2021, 15.4% in 2024) aren't comparable.
 - Read phone: parents of 13-17s who have looked through the teen's phone, Pew (2016, 2024).
 - Track location: NOT one population. 2015 is Pew, parents of 13-17s; 2018 is one US state
   (Burnell et al.); 2023 is Pew, parents of 18-24s; 2026 is the Mott Poll, parents of 18-25s.
@@ -22,9 +23,11 @@ PHONE, LOC = "Parents Read Teen's Phone", "Parents Track Location"
 
 DATA = {
     LIC: [(1983, 46.2), (2008, 31.1), (2011, 27.5), (2014, 24.5)],
-    SEX: [(1991, 54), (1995, 53), (2001, 46), (2005, 47), (2007, 48), (2011, 47), (2013, 47),
+    SEX: [(1991, 54.1), (1993, 53.0), (1995, 53.1), (1997, 48.4), (1999, 49.9), (2001, 45.6),
+          (2003, 46.7), (2005, 46.8), (2007, 47.8), (2009, 46.0), (2011, 47.4), (2013, 47),
           (2015, 41), (2017, 40), (2019, 38), (2021, 30), (2023, 32)],
-    DEP: [(2007, 8.2), (2009, 8.1), (2015, 12.7), (2018, 14.5), (2019, 15.8), (2020, 16.9)],
+    DEP: list(zip(range(2004, 2020), [9.0, 8.8, 7.9, 8.2, 8.3, 8.1, 8.0, 8.2, 9.1, 10.7, 11.4,
+                                      12.5, 12.8, 13.3, 14.4, 15.7])),
     PHONE: [(2015, 48), (2023, 50)],
     LOC: [(2015, 16), (2018, 51), (2023, 42), (2026, 52)],
 }
