@@ -20,8 +20,8 @@ technology on the basis of enabling 'oppressive governments.'[^donny]
 
 [^almost]:
     Practically speaking, cloud hosting platforms do most of the work to keep child porn off of
-    their services, but the intelligence appartus comes after bad actors when this does not suffice.
-    See eg [PlayPen](<https://en.wikipedia.org/wiki/Playpen_(website)>).
+    their services, but the intelligence apparatus comes after bad actors when this does not
+    suffice. See eg [PlayPen](<https://en.wikipedia.org/wiki/Playpen_(website)>).
 
 <!-- @robbie done (was "@c fix link"): now points at the Playpen Wikipedia page. -->
 
@@ -36,7 +36,7 @@ capacity USG has right now' the optimal amount? More technological capability an
 institutions (eg warrants) would be a Pareto improvement. More tech alone is better unless you have
 very strong opinions on states wielding too much power in the present day, which is a seductive but
 nonobvious position. Are you not happy that we catch child pornographers and murderers? Wouldn't it
-be nice if we could do the same to corrupt politicians and inside traders?
+be nice if we could do the same to corrupt politicians and insider traders?
 
 Counterargument: surveillance has real cost which we might not know about. Courts dismiss grossly
 miscollected evidence, but this tends not to matter; the NSA can and will use
@@ -55,14 +55,14 @@ me without my consent; I must actively sign a statement by, say, speaking the wo
 (I am _not_ assuming that one could not be pressured into using the device, only that one could not
 have arbitrary beliefs read from one's mind nonconsensually).
 
-I doubt that the tech tree is shaped in such a way that we can have concensual lie detectors but not
-nonconcensual ones. But I'm not sure, someone should look into it!
+I doubt that the tech tree is shaped in such a way that we can have consensual lie detectors but not
+nonconsensual ones. But I'm not sure, someone should look into it!
 
 ## The Glorious Transhumanist Future
 
 Once a year I biosign a document online stating "I am not a terrorist, I love America and planes." I
-get to the airport 20 minutes before takeoff and walk straight from the curb straight to gate, no
-TSA in sight.
+get to the airport 20 minutes before takeoff and walk straight from the curb to the gate, no TSA in
+sight.
 
 Every politician biosigns the campaign platform on their website. Mysteriously, medicine falls to
 10% of GDP, the Jones Act is repealed, and California finishes a train line.
@@ -83,7 +83,7 @@ After the state, I most fear giving lie detectors to parents.[^corporations]
 
 Children having fun experiences in the real world is trending down across categories. It's unclear
 whether the driver of this is technological surveillance.
-[Half of parents have (ever) looked through their kid's phone.](@pew-phone). I am nervous that cheap
+[Half of parents have (ever) looked through their kid's phone.](@pew-phone) I am nervous that cheap
 lie detectors would further empower oppressive household mommy-states.
 
 {@pew-phone}: Pew Research Center (2024), "How Teens and Parents Approach Screen Time": half of
@@ -152,17 +152,11 @@ Another LessWrong post which is mid:
 [Lie detection is best when it's cheap to cooperate](https://www.lesswrong.com/posts/u7nEaWygHkvfDiwa2/lie-detection-is-best-when-it-s-cheap-to-cooperate)
 (sciarrino, October 2026)
 
-## Appendix: to Think About Further
+## Appendix: To Think About Further
 
 This post comes from a fairly normie place, worrying about state power and not the looming
 AI-pocalypse. I want to think further about
 
 1. What I would ask AI company CEOs to biosign.
 2. How mind reading might help alignment.
-3. If mindreading make oppressive government's lives meaningful easier.
-
-<!-- @robbie done (was "@c fill these in plz"). All four links are ones the research agent or I
-opened. The Conduit post is a reply to Naomi Bashkansky's announcement, "Why I'm leaving OpenAI to
-build telepathy" (4 Aug 2026): https://naomibashkansky.com/blog/telepathy . There is a second, short
-LessWrong post on the same news if you want it: MathiasKB, "Mindreading is coming, what's the plan?"
-(Sept 2026), https://www.lesswrong.com/posts/hKdabFA8M9JEyp9Gr/mindreading-is-coming-what-s-the-plan -->
+3. How bad it is to give mindreading to oppressive governments.
