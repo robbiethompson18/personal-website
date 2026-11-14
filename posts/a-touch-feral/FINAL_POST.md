@@ -2,7 +2,7 @@
 title: A Touch Feral
 date: 2026-11-14
 draft: false
-rating: 3
+rating: 4
 ---
 
 In the winter delicious green weeds sprout up all over California. On my walks I munch on thistle,
