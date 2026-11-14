@@ -68,8 +68,7 @@ speed.
 
 <img src="your-speed-sign.jpg" alt="A radar sign reading 8 on the Mission Beach boardwalk" style="display: block; width: 50%; margin: 1.5rem auto">
 
-<span class="chart-src">Photo:
-[Mission Beach Life (2014)](https://missionbeachlife.com/vigilante-speed-enforcement-on-the-boardwalk-8mph/)</span>
+<span class="chart-src">A sign like this one.</span>
 
 In San Francisco, walkers see me, double take, run to catch up, and ask a couple questions while
 jogging alongside. This very morning I got cheers from four women in a doctor's waiting room as I
