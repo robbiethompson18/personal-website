@@ -131,7 +131,9 @@ md.renderer.rules.image = (tokens, idx, options, env, slf) => {
   if (!src.endsWith(".mp4")) return imageRenderer(tokens, idx, options, env, slf);
   const poster = src.replace(/\.mp4$/, ".jpg");
   const hasPoster = env.assetDir && existsSync(join(env.assetDir, poster));
-  return `<video src="${esc(src)}"${hasPoster ? ` poster="${esc(poster)}"` : ""} aria-label="${esc(tokens[idx].content)}" controls playsinline preload="metadata"></video>`;
+  // The markdown title slot sets the display height: ![alt](clip.mp4 "400px").
+  const height = tokens[idx].attrGet("title");
+  return `<video src="${esc(src)}"${hasPoster ? ` poster="${esc(poster)}"` : ""}${height ? ` style="max-height: ${esc(height)}"` : ""} aria-label="${esc(tokens[idx].content)}" controls playsinline preload="metadata"></video>`;
 };
 
 const MONTHS = [
