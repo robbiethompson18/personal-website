@@ -1,8 +1,9 @@
 ---
-title: Bob's Feet: More Than You Wanted To Know
+title: Bob's Feet: Much More Than You Wanted To Know
 date: 2026-11-13
 draft: false
 rating: 4
+redirect_from: bobs-feet-more-than-you-wanted-to-know, barefoot-running
 ---
 
 ## Dogs Out

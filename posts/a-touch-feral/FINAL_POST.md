@@ -107,6 +107,8 @@ We didn't get much protein, so I would occasionally eat horseflies I killed.
 After our first batch of butter went rancid, I stored the second inside a water bladder and sank it
 in the lake.
 
+@ can we make this video 30% smaller in size
+
 ![Hauling the butter sack out of the lake on a rope](butter-haul.mp4)
 
 My crewmates and I knew all 15 cows and 20 horses by name. Rolly was my favorite cow, named after

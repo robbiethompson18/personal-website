@@ -507,6 +507,20 @@ for (const p of posts) {
   if (p.assetDir) copyAssets(p.assetDir, dir);
 }
 
+// `redirect_from: old-slug, older-slug` keeps a renamed post's old URLs alive.
+// GitHub Pages has no server-side redirects, so each old slug gets a stub page
+// that forwards to the new URL and names it as canonical for search engines.
+for (const p of posts) {
+  const to = `/blog/${p.slug}/`;
+  for (const old of (p.meta.redirect_from || "").split(",").map((s) => s.trim()).filter(Boolean)) {
+    mkdirSync(join(OUT, "blog", old), { recursive: true });
+    writeFileSync(
+      join(OUT, "blog", old, "index.html"),
+      `<!doctype html>\n<meta charset="UTF-8" />\n<title>${esc(p.meta.title)}</title>\n<link rel="canonical" href="${SITE.url}${to}" />\n<meta http-equiv="refresh" content="0; url=${to}" />\n<a href="${to}">This post has moved.</a>\n`,
+    );
+  }
+}
+
 // Drafts and archived posts render at their own URL but stay out of the public
 // indexes and the feed. Published posts split into /blog/ and /projects/; the
 // feed carries both.
