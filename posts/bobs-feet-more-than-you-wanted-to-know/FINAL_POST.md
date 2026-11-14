@@ -59,10 +59,6 @@ Once while doing yoga in the park in Williamsburg I started playing with a dog; 
 told me I looked crazy and took him away. Chelsea Betches on the West Side Highway make the same
 face at me that I imagine Regina George would make if I wore trackpants on Monday.
 
-![Reel: a shirtless, barefoot man walks past in a New York downpour](nyc-downpour-reel.mp4)
-
-<span class="chart-src">[The original reel on Instagram](https://www.instagram.com/reel/CxGQ8elLVBC/)</span>
-
 In Orange County, I got high fives while sprinting past the bike speed limit sign that measures your
 speed.
 
@@ -74,12 +70,17 @@ In San Francisco, walkers see me, double take, run to catch up, and ask a couple
 jogging alongside. This very morning I got cheers from four women in a doctor's waiting room as I
 jogged past barefoot and shirtless in the pouring rain.
 
+![Reel: a shirtless, barefoot man walks past in a New York downpour](nyc-downpour-reel.mp4)
+
+<span class="chart-src">This video is from my NYC days, but you get the idea.
+[The original on Instagram](https://www.instagram.com/reel/CxGQ8elLVBC/)</span>
+
 ## Vanity
 
 I am ashamed to admit that my barefoot habit started in part because of vanity. My sister told me I
 would look like a loser in toe shoes, and her life would be much easier if I went fully barefoot
 instead. At least that would be somewhat impressive.
 
-I still enjoy the looks of shock I get on my runs, but if I would still go barefoot if I didn't get
-them. In college I used to especially enjoy the gasps from pedestrians when I footbraked barefoot
-going down a hill on my longboard.
+I still enjoy the looks of shock I get on my runs, but I would go barefoot if I didn't get them. In
+college I used to especially enjoy the gasps from pedestrians when I footbraked barefoot going down
+a hill on my longboard.
