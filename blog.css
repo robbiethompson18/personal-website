@@ -141,6 +141,16 @@ img {
   margin: 1.5rem 0;
 }
 
+/* `![alt](clip.mp4)` (build.js). Height-capped so a portrait phone clip doesn't
+   fill the screen, which leaves it narrower than the column, hence centred. */
+video {
+  display: block;
+  max-width: 100%;
+  max-height: min(80vh, 36rem);
+  margin: 1.5rem auto;
+  border-radius: 4px;
+}
+
 /* Source/caption line under a chart. Authored inline in the markdown as
    <span class="chart-src">Source: [label](@id)</span> — an inline tag, so the
    `[..](@id)` cite links inside still get parsed and flow into the Sources

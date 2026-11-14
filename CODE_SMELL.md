@@ -51,3 +51,11 @@ to the root's static files so `http.server --directory .dev` still serves a whol
 now touches zero tracked files. `hooks/pre-commit` is the backstop, refusing any staged
 `blog/**/index.html` that contains `/blog/drafts/` (the drafts index itself is exempt); enable it
 per clone with `git config core.hooksPath hooks`.
+
+Nov 13, 2026: `![alt](clip.mp4)` → `<video>` (build.js image renderer) left three rough edges. (1)
+The tag has no `width`/`height`, because the build doesn't probe the file, so the page below a video
+shifts when the poster or metadata loads. (2) `export.js` (LessWrong) only absolutizes `charts/…`
+image paths, so a video, like any other non-chart image such as
+`posts/barefoot-running/your-speed-sign.jpg`, exports as a relative path that LessWrong can't load;
+the image half of that predates the video rule. (3) A video inside a ` ```claude ` fence gets no
+poster, because that fence renders with a fresh env and the poster lookup needs the post's folder.

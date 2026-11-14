@@ -94,6 +94,14 @@ are in the note below; read it before using any of them.
 **Sources** If you're just adding a source, use that syntax for the nice purple underline, instead
 of creating a footnote. For example: `[40,000 Americans](@nhtsa)`
 
+**Video** `![alt](clip.mp4)` renders as a `<video>` player instead of an image (`.mp4` only). A
+sibling `clip.jpg` becomes the poster; add one, because iOS Safari shows an empty box without it.
+Re-encode before adding a clip, since it lives in git forever, twice (`posts/` + `blog/`): about
+720px wide and 2-3 MB, e.g.
+`ffmpeg -i in.mov -vf scale=720:-2 -c:v libx264 -crf 28 -c:a aac -b:a 64k -movflags +faststart clip.mp4`
+(check the size and raise `-crf` if it's over), then
+`ffmpeg -ss 5 -i clip.mp4 -frames:v 1 clip.jpg`.
+
 ### Charts
 
 Charts are Altair (Python) → static dark PNG + SVG at build time. **All the how-to — the pipeline,
