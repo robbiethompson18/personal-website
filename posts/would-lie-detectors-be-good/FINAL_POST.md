@@ -2,7 +2,7 @@
 title: Powerful Lie Detection Would Be Good
 date: 2026-11-12
 draft: false
-rating: 4
+rating: 2
 ---
 
 ## TLDR
