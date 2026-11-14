@@ -158,5 +158,5 @@ This post comes from a fairly normie place, worrying about state power and not t
 AI-pocalypse. I want to think further about
 
 1. What I would ask AI company CEOs to biosign.
-2. How mind reading might help alignment.
+
 3. How bad it is to give mindreading to oppressive governments.

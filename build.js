@@ -209,17 +209,15 @@ const DEV_RELOAD = `
       }, 1000);
     </script>`;
 
-function layout({ title, description, canonical, body, hasMath }) {
+function layout({ title, canonical, body, hasMath }) {
   return `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}" />
     <link rel="canonical" href="${canonical}" />
     <meta property="og:title" content="${esc(title)}" />
-    <meta property="og:description" content="${esc(description)}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="${canonical}" />
     <meta property="og:image" content="${SITE.url}/assets/og-image.jpg" />
@@ -269,7 +267,6 @@ function postPage(p) {
     </main>`;
   return layout({
     title: p.meta.title,
-    description: p.meta.title, // link previews show this under the title; Robbie wants the post's name, not prose
     canonical: `${SITE.url}/blog/${p.slug}/`,
     body,
     hasMath: p.hasMath,
@@ -337,8 +334,7 @@ ${items}
       });
     </script>`;
   return layout({
-    title: `${heading} — ${SITE.title}`,
-    description: SITE.description,
+    title: "Robbie Thompson's Website", // every index page; link previews show it with no line under it
     canonical: `${SITE.url}/${path}`,
     body,
   });
