@@ -222,6 +222,8 @@ function layout({ title, description, canonical, body, hasMath }) {
     <meta property="og:description" content="${esc(description)}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="${canonical}" />
+    <meta property="og:image" content="${SITE.url}/assets/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="alternate" type="application/rss+xml" title="${esc(SITE.title)}" href="/feed.xml" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
@@ -267,7 +269,7 @@ function postPage(p) {
     </main>`;
   return layout({
     title: p.meta.title,
-    description: SITE.description,
+    description: p.meta.title, // link previews show this under the title; Robbie wants the post's name, not prose
     canonical: `${SITE.url}/blog/${p.slug}/`,
     body,
     hasMath: p.hasMath,
