@@ -14,8 +14,8 @@ eat about half the year. On Stanford campus there's fruit to be gleaned almost a
 <figure><img src="forage-02-weed-patch-by-deck.jpg" alt="A patch of miner's lettuce beside a deck"><figcaption>Miner's lettuce at my childhood home.</figcaption></figure>
 </div>
 
-If I can't find anything to eat on my walks, I'll crush up hollyleaf or young eucalyptus leaves. Or
-pick a sprig of rosemary or lavender. Or linger by the jasmine.
+If I can't find anything to eat on my walks, I'll crush up and smell hollyleaf or young eucalyptus
+leaves. Or pick a sprig of rosemary or lavender. Or linger by the jasmine.
 
 Related: if you roll up a bay leaf and put it in your nose for 20 seconds while hiking, you'll get
 an intense headrush. How did I figure this out? By accident, I was mostly trying to enjoy the scent.
@@ -76,7 +76,7 @@ pissed myself.
 
 ---
 
-In Washington Square Park in NYC there's a man who feeds the pigeons. He barks at them, and they fly
+In NYC's Washington Square Park there's a man who feeds the pigeons. He barks at them, and they fly
 in a loop around the park. Then he barks again, and they land at his feet. If you're friendly, he'll
 help you feed them.
 
