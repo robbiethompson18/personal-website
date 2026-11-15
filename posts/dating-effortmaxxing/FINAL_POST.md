@@ -1,7 +1,7 @@
 ---
 title: EffortMaxxing Dating
-date: 2026-11-14
-draft: true
+date: 2026-11-15
+draft: false
 rating: 2
 ---
 
