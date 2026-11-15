@@ -159,4 +159,4 @@ AI-pocalypse. I want to think further about
 
 1. What I would ask AI company CEOs to biosign.
 
-3. How bad it is to give mindreading to oppressive governments.
+2. How bad it is to give mindreading to oppressive governments.
