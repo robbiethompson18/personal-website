@@ -468,18 +468,38 @@ table:has(> thead th:empty) td:first-child {
   border-top: 1px solid var(--rule);
   font-family: var(--sans);
   font-size: 0.95rem;
-  /* the "more writing" link on the left, the like button on the right */
+}
+
+/* Like buttons: an outline heart that fills once clicked and stays filled (hit.js).
+   No count is shown; a like is a private signal to Robbie. One sits beside the title,
+   one (with a "Like" label) is centred at the end of the text. */
+.title-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
-.post-footer p {
-  margin: 0; /* or the paragraph's bottom margin pushes the heart below the link's line */
+.post-header .title-row h1 {
+  margin: 0;
 }
 
-/* Like button: an outline heart that fills once clicked and stays filled (hit.js).
-   No count is shown; a like is a private signal to Robbie. */
+.like-row {
+  margin: 3rem 0 0;
+  text-align: center;
+}
+
+.like-row .like {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
 .like {
   background: none;
   border: 0;

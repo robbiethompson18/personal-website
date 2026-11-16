@@ -8,7 +8,7 @@ import vm from "node:vm";
 
 const SCRIPT = readFileSync(new URL("../hit.js", import.meta.url), "utf8");
 
-// Load hit.js as a page would. Returns what it sent, the like button, and localStorage.
+// Load hit.js as a page would. Returns what it sent, both like buttons, and localStorage.
 function load({
   hostname = "robbiewmthompson.com",
   referrer = "",
@@ -18,7 +18,8 @@ function load({
 } = {}) {
   const sent = [];
   const store = new Map(liked ? [["liked:/blog/some-post/", "1"]] : []);
-  const like = {
+  // A post has two like buttons (beside the title, and at the end of the text).
+  const makeButton = () => ({
     attrs: { "aria-pressed": "false" },
     setAttribute(name, value) {
       this.attrs[name] = value;
@@ -26,11 +27,16 @@ function load({
     addEventListener(type, fn) {
       this[type] = fn;
     },
-  };
+  });
+  const like = makeButton();
+  const other = makeButton();
   vm.runInNewContext(SCRIPT, {
     URL,
     location: { hostname, pathname: "/blog/some-post/" },
-    document: { referrer, querySelector: (sel) => (button && sel === ".like" ? like : null) },
+    document: {
+      referrer,
+      querySelectorAll: (sel) => (button && sel === ".like" ? [like, other] : []),
+    },
     navigator: beacon
       ? { sendBeacon: (url, body) => sent.push({ via: "beacon", url, body: JSON.parse(body) }) }
       : {},
@@ -46,7 +52,7 @@ function load({
     },
     localStorage: { getItem: (k) => store.get(k) ?? null, setItem: (k, v) => store.set(k, v) },
   });
-  return { sent, like, store };
+  return { sent, like, other, store };
 }
 
 test("sends one hit with the path and the referrer's hostname", () => {
@@ -90,12 +96,14 @@ test("pages without a like button just send the hit", () => {
   assert.equal(load({ button: false }).sent.length, 1);
 });
 
-test("clicking like fills the heart, remembers it, and sends one like", () => {
-  const { sent, like, store } = load();
+test("clicking like fills both hearts, remembers it, and sends one like", () => {
+  const { sent, like, other, store } = load();
   assert.equal(like.attrs["aria-pressed"], "false");
   like.click();
   like.click(); // like only: a second click neither unlikes nor re-sends
+  other.click(); // nor does the page's other button
   assert.equal(like.attrs["aria-pressed"], "true");
+  assert.equal(other.attrs["aria-pressed"], "true");
   assert.equal(store.get("liked:/blog/some-post/"), "1");
   assert.deepEqual(sent.slice(1), [
     { via: "beacon", url: "/api/like", body: { path: "/blog/some-post/" } },
@@ -103,8 +111,9 @@ test("clicking like fills the heart, remembers it, and sends one like", () => {
 });
 
 test("a post liked on an earlier visit loads filled and cannot be liked again", () => {
-  const { sent, like } = load({ liked: true });
+  const { sent, like, other } = load({ liked: true });
   assert.equal(like.attrs["aria-pressed"], "true");
-  like.click();
+  assert.equal(other.attrs["aria-pressed"], "true");
+  other.click();
   assert.equal(sent.length, 1, "only the hit");
 });

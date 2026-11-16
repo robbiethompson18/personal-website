@@ -17,9 +17,10 @@ private to Robbie: never display them on the site.
 
 - `POST /api/hit` with `{"path": "/dateme/", "referrer": "t.co"}` counts a page view. `referrer` is
   the hostname of `document.referrer`, `""` for none.
-- `POST /api/like` with `{"path": "/blog/<slug>/"}` records a like from the heart button at the end
-  of a post (`LIKE_BUTTON` in `build.js`, `.like` in `blog.css`). Like only, no unlike; the browser
-  remembers it in localStorage under `liked:<path>`.
+- `POST /api/like` with `{"path": "/blog/<slug>/"}` records a like. A post has two like buttons, a
+  bare heart beside the title and a labelled one centred at the end of the text above Notes and
+  Sources (`likeButton` and `withLikeRow` in `build.js`, `.like` in `blog.css`). Clicking either
+  fills both. Like only, no unlike; the browser remembers it in localStorage under `liked:<path>`.
 
 Both answer 204. Rejections: 403 for a request that isn't same-origin (`Origin`, `Sec-Fetch-Site`)
 or has a bot User-Agent, 413 for a body over 512 bytes, 400 for bad JSON, a referrer that isn't a

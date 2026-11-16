@@ -17,23 +17,26 @@
   // Only the referring hostname leaves the browser, never the full URL.
   send("/api/hit", { path, referrer: document.referrer && new URL(document.referrer).hostname });
 
-  // Post pages end with a like button (build.js). Like only, no unlike: localStorage is
-  // what remembers it, so the heart stays filled and this browser can't like twice.
-  const like = document.querySelector(".like");
-  if (!like) return;
+  // Post pages have two like buttons (build.js): beside the title and at the end of
+  // the text. Like only, no unlike: localStorage is what remembers it, so the hearts
+  // stay filled and this browser can't like twice.
+  const likes = document.querySelectorAll(".like");
   const key = `liked:${path}`;
   let liked = false;
   try {
     liked = !!localStorage.getItem(key);
-  } catch {} // storage can be blocked; the button then just starts empty
-  if (liked) like.setAttribute("aria-pressed", "true");
-  like.addEventListener("click", () => {
-    if (liked) return;
-    liked = true;
-    like.setAttribute("aria-pressed", "true");
-    try {
-      localStorage.setItem(key, "1");
-    } catch {}
-    send("/api/like", { path });
-  });
+  } catch {} // storage can be blocked; the buttons then just start empty
+  const fill = () => likes.forEach((like) => like.setAttribute("aria-pressed", "true"));
+  if (liked) fill();
+  likes.forEach((like) =>
+    like.addEventListener("click", () => {
+      if (liked) return;
+      liked = true;
+      fill();
+      try {
+        localStorage.setItem(key, "1");
+      } catch {}
+      send("/api/like", { path });
+    }),
+  );
 })();

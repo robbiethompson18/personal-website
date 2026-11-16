@@ -8,7 +8,16 @@
 //   ---
 //   <markdown body, with [^1] style footnotes>
 
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmdirSync, copyFileSync, existsSync, symlinkSync } from "node:fs";
+import {
+  readFileSync,
+  writeFileSync,
+  readdirSync,
+  mkdirSync,
+  rmdirSync,
+  copyFileSync,
+  existsSync,
+  symlinkSync,
+} from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
 import MarkdownIt from "markdown-it";
@@ -249,10 +258,21 @@ function repoLink(url) {
   return `<span class="post-repo"><a href="${esc(url)}">${GITHUB_MARK}${esc(label)}</a></span>`;
 }
 
-// The like button at the end of every post (not standalone pages). hit.js fills the
-// heart on click and remembers it in localStorage; the like is a private signal to
+// Like buttons on every post (not standalone pages): a bare heart beside the title, and
+// a labelled one centred at the end of the text, above Notes and Sources. hit.js fills
+// both on click and remembers it in localStorage; the like is a private signal to
 // Robbie, so no count is ever shown. Heart: Material Icons "favorite" (Apache 2.0).
-const LIKE_BUTTON = `<button class="like" type="button" aria-label="Like this post" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>`;
+const HEART = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
+const likeButton = (label = "") =>
+  `<button class="like" type="button" aria-label="Like this post" aria-pressed="false">${HEART}${label}</button>`;
+const LIKE_ROW = `<p class="like-row">${likeButton("<span>Like</span>")}</p>\n`;
+
+// The end of the text is where the Notes (footnotes) or Sources section starts, or the
+// end of the html when a post has neither.
+function withLikeRow(html) {
+  const tail = html.search(/<hr class="(footnotes|sources)-sep">/);
+  return tail === -1 ? html + LIKE_ROW : html.slice(0, tail) + LIKE_ROW + html.slice(tail);
+}
 
 // `standalone` is a page from pages/<slug>/, served at /<slug>/: the same template
 // without the blog chrome (banner, back-link, "more writing" footer).
@@ -271,13 +291,15 @@ function postPage(p, { standalone = false } = {}) {
     : `\n          <p class="post-dates"><span>Published <time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time></span><span>Last edited <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span>${repoLink(p.meta.repo)}</p>`;
   const footer = standalone
     ? ""
-    : `\n      <footer class="post-footer">\n        <p><a href="${blogHref}">&larr; More ${p.project ? "projects" : "writing"}</a></p>\n        ${LIKE_BUTTON}\n      </footer>`;
+    : `\n      <footer class="post-footer">\n        <p><a href="${blogHref}">&larr; More ${p.project ? "projects" : "writing"}</a></p>\n      </footer>`;
+  const h1 = `<h1>${esc(p.meta.title)}</h1>`;
+  const title = standalone ? h1 : `<div class="title-row">${h1}${likeButton()}</div>`;
   const body = `    <main class="post">
       <article>
         <header class="post-header">
-          ${backLink}<h1>${esc(p.meta.title)}</h1>${dates}
+          ${backLink}${title}${dates}
         </header>
-        ${p.html}
+        ${standalone ? p.html : withLikeRow(p.html)}
       </article>${footer}
     </main>`;
   return layout({
@@ -363,7 +385,10 @@ ${items}
 // which prefers the light-theme chart variant for these light-background surfaces.
 function feedHtml(p) {
   return p.html
-    .replace(/\b(src|poster)="(?!https?:|\/)([^"]+)"/g, (_m, attr, rel) => `${attr}="${liveAssetUrl(p.slug, rel)}"`)
+    .replace(
+      /\b(src|poster)="(?!https?:|\/)([^"]+)"/g,
+      (_m, attr, rel) => `${attr}="${liveAssetUrl(p.slug, rel)}"`,
+    )
     .replace(/\bhref="#/g, `href="${SITE.url}/blog/${p.slug}/#`);
 }
 
@@ -437,9 +462,11 @@ function checkContent(body) {
   for (const m of prose.matchAll(/^[ \t]*\[\^([^\]]+)\]:/gm)) defs.add(m[1]);
   for (const m of prose.matchAll(/\[\^([^\]]+)\](?!:)/g)) refs.add(m[1]);
   for (const id of refs)
-    if (!defs.has(id)) issues.push(`footnote [^${id}] is referenced but never defined (renders as literal text)`);
+    if (!defs.has(id))
+      issues.push(`footnote [^${id}] is referenced but never defined (renders as literal text)`);
   for (const id of defs)
-    if (!refs.has(id)) issues.push(`footnote [^${id}] is defined but never referenced (silently dropped)`);
+    if (!refs.has(id))
+      issues.push(`footnote [^${id}] is defined but never referenced (silently dropped)`);
 
   // Source citations (cite.js): every `[phrase](@id)` reference needs a matching
   // `{@id}:` definition, and an unreferenced definition renders nothing.
@@ -448,9 +475,11 @@ function checkContent(body) {
   for (const m of prose.matchAll(/^[ \t]*\{@([\w-]+)\}:/gm)) citeDefs.add(m[1]);
   for (const m of prose.matchAll(/\]\(@([\w-]+)\)/g)) citeRefs.add(m[1]);
   for (const id of citeRefs)
-    if (!citeDefs.has(id)) issues.push(`source (@${id}) is cited but never defined ({@${id}}: … is missing)`);
+    if (!citeDefs.has(id))
+      issues.push(`source (@${id}) is cited but never defined ({@${id}}: … is missing)`);
   for (const id of citeDefs)
-    if (!citeRefs.has(id)) issues.push(`source {@${id}} is defined but never cited (renders nothing)`);
+    if (!citeRefs.has(id))
+      issues.push(`source {@${id}} is defined but never cited (renders nothing)`);
 
   // Math: with the dollar-sign delimiter, currency `$` is escaped as `\$`. Once
   // those are removed, every remaining `$` should pair up into a `$…$` / `$$…$$`
@@ -527,7 +556,10 @@ for (const p of posts) {
 // that forwards to the new URL and names it as canonical for search engines.
 for (const p of posts) {
   const to = `/blog/${p.slug}/`;
-  for (const old of (p.meta.redirect_from || "").split(",").map((s) => s.trim()).filter(Boolean)) {
+  for (const old of (p.meta.redirect_from || "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean)) {
     mkdirSync(join(OUT, "blog", old), { recursive: true });
     writeFileSync(
       join(OUT, "blog", old, "index.html"),
