@@ -66,9 +66,9 @@ build.js write generated output outside `blog/`: a tracked `dateme/` at the repo
 edges. (1) `npm run build && git add blog feed.xml` (the habit, and what `hooks/pre-commit` prints)
 misses it. (2) Nothing checks the slug, so `pages/assets/` would write an `index.html` into the real
 `assets/`. (3) Deleting a page's source leaves its generated folder behind; that was already true of
-posts. (4) A standalone page reuses the post template, so it still shows the "Published … Last
-edited …" line and gets the shared layout's `og:type: article` and RSS `<link>`; split the template
-if a page ever needs to look less like a post.
+posts. (4) A standalone page reuses the post template, so it gets the shared layout's
+`og:type: article` and RSS `<link>`; split the template if a page ever needs to look less like a
+post.
 
 Nov 15, 2026: first-party analytics (`hit.js`, `worker/api.js`, D1) left six rough edges. (1)
 Nothing rate-limits `/api/hit` and `/api/like`: the Origin and User-Agent checks stop browsers on
@@ -83,3 +83,11 @@ unversioned `/hit.js` and lean on the host's revalidation rather than `versioned
 hostname `robbiewmthompson.com` is hard-coded in `hit.js` as well as `site.js`. (6)
 `worker/worker.test.js` shells out to a globally installed `wrangler` and depends on real content
 (`/dateme/`, `/blog/a-touch-feral/` and its video); renaming those breaks the tests, not the site.
+
+Nov 15, 2026: the move to Cloudflare (`docs/cloudflare-hosting.md`) left four loose ends. (1) GitHub
+Pages is still enabled and builds every push; it was left on so resolvers with the old nameservers
+cached still reach a working site. Turn it off after Nov 18, 2026 and delete the root `CNAME` file.
+(2) The www redirect rule, the "Always Use HTTPS" setting and the DNS records live only in the
+Cloudflare dashboard, not in the repo. (3) Deploys upload committed build output and run no build,
+so a push without `npm run build` publishes stale HTML; `hooks/pre-commit` is the only backstop. (4)
+There is no `404.html`, so an unknown path returns an empty 404.

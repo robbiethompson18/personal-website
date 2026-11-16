@@ -119,7 +119,9 @@ test("repeat hits from one visitor are views, not new unique visitors", async ()
 });
 
 test("referrers are bucketed by host: external, none, internal", async () => {
-  for (const referrer of ["t.co", "t.co", "www.google.com", "", "127.0.0.1"]) {
+  // `wrangler dev` presents requests to the Worker under the host of the route in
+  // wrangler.jsonc, so the site's own hostname is the real one even locally.
+  for (const referrer of ["t.co", "t.co", "www.google.com", "", "robbiewmthompson.com"]) {
     assert.equal((await post("/api/hit", { path: "/", referrer })).status, 204);
   }
   assert.deepEqual(db("SELECT referrer, count FROM views WHERE path = '/' ORDER BY referrer"), [

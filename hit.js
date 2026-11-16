@@ -1,7 +1,7 @@
 // First-party page-view counter and like button. The site's Worker does the counting
 // (worker/api.js). No cookies; nothing is read back, so no counts are ever shown.
 (() => {
-  // Only the real site counts: local dev, the .dev/ build and the workers.dev URL don't.
+  // Only the real site counts: local dev and the .dev/ build don't.
   const live = location.hostname === "robbiewmthompson.com";
   const path = location.pathname;
 

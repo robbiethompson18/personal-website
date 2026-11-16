@@ -12,8 +12,8 @@ reach `index.js`. Everything in this folder is kept out of the public upload by 
 ## Analytics
 
 `/hit.js` (repo root, loaded by every page) is the only caller. It sends only when
-`location.hostname` is `robbiewmthompson.com`, so local dev and the workers.dev URL never count. No
-cookies, and counts are private to Robbie: never display them on the site.
+`location.hostname` is `robbiewmthompson.com`, so local dev never counts. No cookies, and counts are
+private to Robbie: never display them on the site.
 
 - `POST /api/hit` with `{"path": "/dateme/", "referrer": "t.co"}` counts a page view. `referrer` is
   the hostname of `document.referrer`, `""` for none.
@@ -53,7 +53,8 @@ Run from the repo root. `wrangler` is a global install (not in `package.json`) a
   for `/dateme/`, likes per post, read from the remote D1 (`stats.js`).
 - New migration: add `migrations/000N_name.sql`, then
   `wrangler d1 migrations apply personal-website --remote` before deploying code that needs it.
-- Deploy: `npm run build && wrangler deploy`. It uploads the working tree as it is, uncommitted
+- Deploy: pushing to `main` deploys the committed files (see `/docs/cloudflare-hosting.md`). By
+  hand: `npm run build && wrangler deploy`, which uploads the working tree as it is, uncommitted
   changes included.
 - Ad-hoc query:
   `wrangler d1 execute personal-website --remote --command="SELECT * FROM views ORDER BY day DESC LIMIT 20"`.

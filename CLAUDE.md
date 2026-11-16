@@ -26,8 +26,8 @@ web-only publishing.
 ## Blog structure
 
 Static site built by `build.js` (`npm run build`). Source lives in `posts/`, generated HTML lands in
-`blog/` (committed — GitHub Pages serves the repo root). The landing page is `index.html` +
-`style.css`; blog pages use `blog.css` + `footnotes.js`.
+`blog/` (committed — Cloudflare serves the repo root as committed, with no build step on deploy).
+The landing page is `index.html` + `style.css`; blog pages use `blog.css` + `footnotes.js`.
 
 **Local dev:** `npm run dev` watches `posts/` (rebuild on save) and serves `.dev/` on port 7000.
 Caddy proxies it at http://robbiewmthompson.localhost/. Ctrl-C stops both. `DEV=1` builds into
@@ -80,10 +80,11 @@ subtitle anywhere (posts, Substack drafts).
 The blog index and `feed.xml` auto-source every non-draft post, newest first. To publish a draft,
 set `draft: false` and fix the date.
 
-**Everything committed is public, and that's fine.** The repo is public and GitHub Pages serves the
-repo root, so drafts, `/blog/drafts/`, `POST_DRAFT.md` / `POST_RESEARCH.md`, and chart `.py` source
-are all reachable at robbiewmthompson.com (and on GitHub). This is intentional: "draft" means
-unlisted (out of index + feed), not secret. Don't flag it or try to fix it.
+**Everything committed is public, and that's fine.** The repo is public and Cloudflare serves the
+repo root (minus `.assetsignore`), so drafts, `/blog/drafts/`, `POST_DRAFT.md` / `POST_RESEARCH.md`,
+and chart `.py` source are all reachable at robbiewmthompson.com (and on GitHub). This is
+intentional: "draft" means unlisted (out of index + feed), not secret. Don't flag it or try to fix
+it.
 
 **Why markdown?** It's the most portable form of the writing: editable in vim, easy to work on with
 Claude, clean in git diffs, and the _same_ file feeds the website, the RSS feed, a LessWrong
@@ -123,6 +124,9 @@ authoring or editing a chart.
 
 ## Docs
 
+- [Cloudflare hosting — read before changing how the site is deployed or served, touching DNS, or debugging a push that didn't go live](docs/cloudflare-hosting.md)
+  — how a request is served, deploy on push with no build step, the www redirect rule, Range and
+  custom-domain gotchas, why GitHub Pages was left on
 - [Asides, verbatim prompts, includes, Claude-written text — read before adding a collapsible box, pasting an eval prompt/transcript, splitting an excerpt out of a post, or marking text Claude wrote](docs/asides-prompts-includes.md)
   — the blank-line rule, why bare pasted text breaks, the `prompt` fence, prettier-ignore ranges,
   the include directive, cache-busting
