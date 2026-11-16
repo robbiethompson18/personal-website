@@ -1,0 +1,8 @@
+# Files wrangler must not upload as public site assets (.gitignore syntax).
+# Dotfiles and dot-directories: .git, .dev, .wrangler, .claude, .envrc, .DS_Store, ...
+.*
+node_modules
+__pycache__
+export
+worker
+wrangler.jsonc

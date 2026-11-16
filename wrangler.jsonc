@@ -1,0 +1,24 @@
+// Cloudflare Worker that serves the site. The repo root is the asset directory (the
+// same thing GitHub Pages served); .assetsignore keeps non-site files out of the upload.
+{
+  "name": "personal-website",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-01",
+  // www is not here: a zone redirect rule sends it to the apex (docs/cloudflare-hosting.md).
+  "routes": [{ "pattern": "robbiewmthompson.com", "custom_domain": true }],
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    // Everything else is served without running the Worker (free and unmetered).
+    "run_worker_first": ["/*.mp4", "/api/*"],
+  },
+  // Page-view and like counts (worker/api.js). Read them with `npm run stats`.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "personal-website",
+      "database_id": "0fe97c44-03cc-4955-ba52-c09f56bc6de8",
+      "migrations_dir": "worker/migrations",
+    },
+  ],
+}

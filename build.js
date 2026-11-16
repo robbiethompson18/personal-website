@@ -197,6 +197,7 @@ function versioned(file) {
 }
 const BLOG_CSS = versioned("blog.css");
 const FOOTNOTES_JS = versioned("footnotes.js");
+const HIT_JS = versioned("hit.js"); // page-view counter + like button; see worker/CLAUDE.md
 
 // DEV only: poll this page's Last-Modified and reload when the watcher rebuilds it. Every
 // posts/ change (prose or a re-rendered chart) rewrites every page, so this catches both.
@@ -232,7 +233,8 @@ function layout({ title, canonical, body, hasMath }) {
   </head>
   <body>
 ${body}
-    <script src="${FOOTNOTES_JS}" defer></script>${DEV ? DEV_RELOAD : ""}
+    <script src="${FOOTNOTES_JS}" defer></script>
+    <script src="${HIT_JS}" defer></script>${DEV ? DEV_RELOAD : ""}
   </body>
 </html>
 `;
@@ -247,29 +249,40 @@ function repoLink(url) {
   return `<span class="post-repo"><a href="${esc(url)}">${GITHUB_MARK}${esc(label)}</a></span>`;
 }
 
-function postPage(p) {
+// The like button at the end of every post (not standalone pages). hit.js fills the
+// heart on click and remembers it in localStorage; the like is a private signal to
+// Robbie, so no count is ever shown. Heart: Material Icons "favorite" (Apache 2.0).
+const LIKE_BUTTON = `<button class="like" type="button" aria-label="Like this post" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>`;
+
+// `standalone` is a page from pages/<slug>/, served at /<slug>/: the same template
+// without the blog chrome (banner, back-link, "more writing" footer).
+function postPage(p, { standalone = false } = {}) {
   const draftBanner = p.draft
     ? `<p class="draft-banner">Draft — not in the index or feed</p>\n          `
     : p.archive
       ? `<p class="draft-banner">Archived — not in the index or feed</p>\n          `
       : "";
   const blogHref = DEV ? "/blog/drafts/" : p.project ? "/projects/" : "/blog/";
+  const backLink = standalone
+    ? ""
+    : `${draftBanner}<p class="post-meta"><a href="${blogHref}">&larr; ${p.project ? "Projects" : "Blog"}</a></p>\n          `;
+  const dates = standalone
+    ? ""
+    : `\n          <p class="post-dates"><span>Published <time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time></span><span>Last edited <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span>${repoLink(p.meta.repo)}</p>`;
+  const footer = standalone
+    ? ""
+    : `\n      <footer class="post-footer">\n        <p><a href="${blogHref}">&larr; More ${p.project ? "projects" : "writing"}</a></p>\n        ${LIKE_BUTTON}\n      </footer>`;
   const body = `    <main class="post">
       <article>
         <header class="post-header">
-          ${draftBanner}<p class="post-meta"><a href="${blogHref}">&larr; ${p.project ? "Projects" : "Blog"}</a></p>
-          <h1>${esc(p.meta.title)}</h1>
-          <p class="post-dates"><span>Published <time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time></span><span>Last edited <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span>${repoLink(p.meta.repo)}</p>
+          ${backLink}<h1>${esc(p.meta.title)}</h1>${dates}
         </header>
         ${p.html}
-      </article>
-      <footer class="post-footer">
-        <p><a href="${blogHref}">&larr; More ${p.project ? "projects" : "writing"}</a></p>
-      </footer>
+      </article>${footer}
     </main>`;
   return layout({
     title: p.meta.title,
-    canonical: `${SITE.url}/blog/${p.slug}/`,
+    canonical: `${SITE.url}/${standalone ? "" : "blog/"}${p.slug}/`,
     body,
     hasMath: p.hasMath,
   });
@@ -303,7 +316,7 @@ function indexPage(posts, { heading, path, showProjectTag = false }) {
   const body = `    <main class="index">
       <header class="index-header">
         <h1>${esc(heading)}</h1>
-        <p class="index-sub"><a class="sort-toggle" href="#">sort by date</a> · <a href="/">robbiewmthompson.com</a></p>
+        <p class="index-sub"><a class="sort-toggle" href="#">sort by date</a> · <a href="/">robbiewmthompson.com</a> · <a href="/feed.xml">RSS</a></p>
       </header>
       <ul class="post-list">
 ${items}
@@ -523,6 +536,21 @@ for (const p of posts) {
   }
 }
 
+// Standalone pages: pages/<slug>/index.md renders to /<slug>/ at the site root,
+// through the same pipeline and template as a post but without the blog chrome.
+// They are not posts, so no index or feed lists them.
+const pages = [];
+for (const e of readdirSync("pages", { withFileTypes: true })) {
+  if (!e.isDirectory()) continue;
+  const src = join("pages", e.name);
+  const page = loadPost(e.name, join(src, "index.md"), src);
+  const dir = join(OUT, e.name);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, "index.html"), postPage(page, { standalone: true }));
+  copyAssets(src, dir);
+  pages.push(page);
+}
+
 // Drafts and archived posts render at their own URL but stay out of the public
 // indexes and the feed. Published posts split into /blog/ and /projects/; the
 // feed carries both.
@@ -575,7 +603,7 @@ console.log(
 // Content warnings are non-fatal: the HTML is already written (so previews still
 // work), but we flag the silent degradations and exit non-zero so `npm run build`
 // in CI / a `&&` chain — and the watch terminal — visibly fail.
-const warnings = posts.flatMap((p) => p.issues.map((i) => `  ⚠️  ${p.slug}: ${i}`));
+const warnings = [...posts, ...pages].flatMap((p) => p.issues.map((i) => `  ⚠️  ${p.slug}: ${i}`));
 if (warnings.length) {
   console.error(`\n${warnings.length} content warning(s):\n${warnings.join("\n")}`);
   process.exitCode = 1;

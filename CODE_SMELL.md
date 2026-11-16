@@ -60,3 +60,26 @@ image paths, so a video, like any other non-chart image such as
 that LessWrong can't load; the image half of that predates the video rule. (3) A video inside a
 ` ```claude ` fence gets no poster, because that fence renders with a fresh env and the poster
 lookup needs the post's folder.
+
+Nov 15, 2026: standalone pages (`pages/<slug>/index.md` → `/<slug>/`, added for `/dateme/`) make
+build.js write generated output outside `blog/`: a tracked `dateme/` at the repo root. Four rough
+edges. (1) `npm run build && git add blog feed.xml` (the habit, and what `hooks/pre-commit` prints)
+misses it. (2) Nothing checks the slug, so `pages/assets/` would write an `index.html` into the real
+`assets/`. (3) Deleting a page's source leaves its generated folder behind; that was already true of
+posts. (4) A standalone page reuses the post template, so it still shows the "Published … Last
+edited …" line and gets the shared layout's `og:type: article` and RSS `<link>`; split the template
+if a page ever needs to look less like a post.
+
+Nov 15, 2026: first-party analytics (`hit.js`, `worker/api.js`, D1) left six rough edges. (1)
+Nothing rate-limits `/api/hit` and `/api/like`: the Origin and User-Agent checks stop browsers on
+other sites and lazy bots, but anyone with curl can forge both, inflate counts, and burn the free
+plan's 100k D1 row writes a day (a hit is about 2). Add a Cloudflare rate-limiting rule if it ever
+happens. (2) `visitors` and `likes` keep one row per visitor per page per day forever. The hashes
+are meaningless once their salt is deleted, but the rows pile up; roll old days up into counts if
+the tables get big. (3) `calendar/index.html` loads `hit.js` as a blocking script, so the redirect
+waits on one small fetch. A deferred one never ran before the redirect (0 of 5 views counted in
+headless Chrome). (4) `index.html` and `calendar/index.html` are hand-written, so they load an
+unversioned `/hit.js` and lean on the host's revalidation rather than `versioned()`. (5) The
+hostname `robbiewmthompson.com` is hard-coded in `hit.js` as well as `site.js`. (6)
+`worker/worker.test.js` shells out to a globally installed `wrangler` and depends on real content
+(`/dateme/`, `/blog/a-touch-feral/` and its video); renaming those breaks the tests, not the site.

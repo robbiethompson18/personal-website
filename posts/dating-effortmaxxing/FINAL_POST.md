@@ -130,8 +130,7 @@ serious about.
 
 I have no idea how to find people to date besides having a vibrant social life. I doubt whether the
 apps or dateme docs help very much. Though making a dateme doc is very fun, so I recommend doing it
-anyway.
-[Here is mine!](https://docs.google.com/document/d/10q8DD7V7xLMcne7pKNlmhRbmYXtSq4qUvGnkRLZMN8Y/edit)
+anyway. [Here is mine!](https://robbiewmthompson.com/dateme/)
 
 <!-- @robbie done (was "@c link peltzmann" and "@c link clark"): both are source cites now. Peltzman gives 9.7x, Clark gives 84%, not 90%. -->
 

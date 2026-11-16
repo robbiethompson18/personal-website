@@ -9,6 +9,7 @@
   --cite: #b39ddb; /* faint purple for source citations */
   --aside: #7b5cf5; /* saturated violet; asides mix this into the bg */
   --claude: #d97757; /* Claude's clay orange; marks Claude-written text */
+  --like: #e5708c; /* a liked post's filled heart */
   --rule: #2e333d;
   --popup-bg: #232830;
   --popup-border: #3a4049;
@@ -467,6 +468,49 @@ table:has(> thead th:empty) td:first-child {
   border-top: 1px solid var(--rule);
   font-family: var(--sans);
   font-size: 0.95rem;
+  /* the "more writing" link on the left, the like button on the right */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-footer p {
+  margin: 0; /* or the paragraph's bottom margin pushes the heart below the link's line */
+}
+
+/* Like button: an outline heart that fills once clicked and stays filled (hit.js).
+   No count is shown; a like is a private signal to Robbie. */
+.like {
+  background: none;
+  border: 0;
+  padding: 0.4rem;
+  border-radius: 50%;
+  line-height: 0;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.like svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.like:hover {
+  color: var(--text);
+}
+
+.like:focus-visible {
+  outline: 2px solid var(--link);
+}
+
+.like[aria-pressed="true"] {
+  color: var(--like);
+  cursor: default;
+}
+
+.like[aria-pressed="true"] svg {
+  fill: currentColor;
 }
 
 .draft-banner {

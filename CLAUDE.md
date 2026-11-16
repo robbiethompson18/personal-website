@@ -60,6 +60,11 @@ logo:     /assets/logos/x.png  # optional, with external; host wordmark shown fa
 ---
 ```
 
+**Standalone pages.** A page that isn't a post (the date-me doc at `/dateme/`) is a folder
+`pages/<slug>/` with an `index.md`. The builder renders it to `/<slug>/` at the repo root with the
+post pipeline and template (same `title` + `date` frontmatter, assets copied alongside) minus the
+blog chrome: no back-link, footer or banner, and no index or feed lists it.
+
 **Posts sourced from another repo.** A post whose text lives in another repo (e.g.
 `natural-deduction-takehome` ← `../nd-takehome/writeup.md`) gets a `source:` frontmatter line, and
 `node sync-post.js <slug>` copies that file's body in. If the upstream has frontmatter, it owns the

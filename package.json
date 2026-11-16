@@ -7,8 +7,10 @@
     "build": "node build.js",
     "charts": "node render-charts.js && node build.js",
     "export": "node export.js",
-    "watch": "DEV=1 node --watch-path=./posts --watch-path=./blog.css --watch-path=./footnotes.js build.js",
-    "dev": "trap 'kill 0' EXIT; echo 'Dev site: http://robbiewmthompson.localhost/'; DEV=1 node --watch-path=./posts --watch-path=./blog.css --watch-path=./footnotes.js build.js & node render-charts.js --watch & python3 -m http.server 7000 --directory .dev"
+    "test": "node --test 'worker/*.test.js'",
+    "stats": "node worker/stats.js",
+    "watch": "DEV=1 node --watch-path=./posts --watch-path=./pages --watch-path=./blog.css --watch-path=./footnotes.js --watch-path=./hit.js build.js",
+    "dev": "trap 'kill 0' EXIT; echo 'Dev site: http://robbiewmthompson.localhost/'; DEV=1 node --watch-path=./posts --watch-path=./pages --watch-path=./blog.css --watch-path=./footnotes.js --watch-path=./hit.js build.js & node render-charts.js --watch & python3 -m http.server 7000 --directory .dev"
   },
   "devDependencies": {
     "@vscode/markdown-it-katex": "^1.1.2",
