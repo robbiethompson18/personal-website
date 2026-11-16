@@ -42,7 +42,8 @@ The turnaround point on my morning runs is a redwood tree, about 30 feet tall, w
 heading home.
 
 <div class="photo-row" style="--h: 175px">
-<figure><img src="tree-02-selfie-in-conifer-near-de-young.jpg" alt="Selfie from up in a conifer"><figcaption>I don't have a photo of me in the right tree, but this one is nearby.</figcaption></figure>
+<figure><img src="tree-03-selfie-in-turnaround-redwood.jpg" alt="Selfie from up in the turnaround redwood"><figcaption>The turnaround tree.</figcaption></figure>
+<figure><img src="tree-02-selfie-in-conifer-near-de-young.jpg" alt="Selfie from up in a conifer"><figcaption>A nearby tree, harder to climb but with a better view.</figcaption></figure>
 </div>
 
 If there are no trees around, you can always climb buildings. Or lampposts.
