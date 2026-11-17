@@ -1,5 +1,5 @@
 ---
-title: getting-humbled
+title: Getting Humbled
 date: 2026-09-20
 draft: true
 ---

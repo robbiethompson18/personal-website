@@ -21,7 +21,8 @@ summary verdict.
 
 1. **Typos** — real misspellings, doubled words, wrong homophones, broken markdown/links. Obvious
    only; never flag style or US/UK spelling.
-2. **Casing** - Title Case on graphs and headings.
+2. **Casing** - Title Case on the post title, headings and graphs (rule in `CLAUDE.md`, "Title
+   Case"). Edit these directly, despite the read-only default, and list what you changed.
 3. Any @claudereview comment: those are specifically left for the reviewer to handle.
 4. A footnote before closing punctuation, eg (BAD:) `...end of sentence[^EPGY].` instead of (GOOD:)
    `..end of sentence.[^EPGY]`

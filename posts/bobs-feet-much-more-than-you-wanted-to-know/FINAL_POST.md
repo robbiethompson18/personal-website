@@ -1,5 +1,5 @@
 ---
-title: Bob's Feet: Much More Than You Wanted To Know
+title: Bob's Feet: Much More Than You Wanted to Know
 date: 2026-11-13
 draft: false
 rating: 4

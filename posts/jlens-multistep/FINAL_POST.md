@@ -1,5 +1,5 @@
 ---
-title: Watching Hidden Reasoning Steps With a J-Lens
+title: Watching Hidden Reasoning Steps with a J-Lens
 date: 2026-10-04
 draft: true
 repo: https://github.com/robbiethompson18/jlens-visualizer

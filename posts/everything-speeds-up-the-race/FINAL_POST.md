@@ -1,5 +1,5 @@
 ---
-title: Everything Speeds Up The Race
+title: Everything Speeds Up the Race
 date: 2026-08-27
 draft: true
 archive: true

@@ -1,5 +1,5 @@
 ---
-title: Ramble: my big questions in AI safety
+title: Ramble: My Big Questions in AI Safety
 date: 2026-09-10
 draft: true
 ---

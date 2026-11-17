@@ -1,5 +1,5 @@
 ---
-title: Learnings From Serving a Meditation Course
+title: Learnings from Serving a Meditation Course
 date: 2025-02-28
 draft: true
 ---

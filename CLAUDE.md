@@ -74,6 +74,10 @@ fills `date:`, and a leading `# ` heading becomes `title:` (details in `sync-pos
 blog-side edits are lost; `git diff` afterwards is the safety net. Prettier adds a blank line before
 headings, so the synced copy differs from upstream by whitespace only — that's stable, not churn.
 
+**Title Case.** Post titles and headings are Title Case, with short articles, prepositions and
+conjunctions lowercase (a, the, of, for, on, in, to, with, and): "A Bullshit Job for Every
+American", not "For". The first word and the word after a colon are always capitalized.
+
 **No subtitles.** The builder doesn't support them and Robbie doesn't like them — don't add a
 subtitle anywhere (posts, Substack drafts).
 
