@@ -125,8 +125,9 @@ authoring or editing a chart.
 ## Docs
 
 - [Cloudflare hosting — read before changing how the site is deployed or served, touching DNS, or debugging a push that didn't go live](docs/cloudflare-hosting.md)
-  — how a request is served, deploy on push with no build step, the www redirect rule, Range and
-  custom-domain gotchas, why GitHub Pages was left on
+  — how a request is served, deploy on push with no build step, the www redirect rule, the
+  email-sending setup behind comment notifications, Range and custom-domain gotchas, why GitHub
+  Pages was left on
 - [Asides, verbatim prompts, includes, Claude-written text — read before adding a collapsible box, pasting an eval prompt/transcript, splitting an excerpt out of a post, or marking text Claude wrote](docs/asides-prompts-includes.md)
   — the blank-line rule, why bare pasted text breaks, the `prompt` fence, prettier-ignore ranges,
   the include directive, cache-busting

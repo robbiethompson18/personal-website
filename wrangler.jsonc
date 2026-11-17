@@ -12,7 +12,7 @@
     // Everything else is served without running the Worker (free and unmetered).
     "run_worker_first": ["/*.mp4", "/api/*"],
   },
-  // Page-view and like counts (worker/api.js). Read them with `npm run stats`.
+  // Page-view and like counts, and comments (worker/api.js). Read them with `npm run stats`.
   "d1_databases": [
     {
       "binding": "DB",
@@ -21,4 +21,8 @@
       "migrations_dir": "worker/migrations",
     },
   ],
+  // Emails Robbie about each new comment (notify in worker/api.js). On the free plan a
+  // Worker can only mail the account's verified addresses. Setup: docs/cloudflare-hosting.md.
+  "send_email": [{ "name": "EMAIL" }],
+  "vars": { "NOTIFY_EMAIL": "robbiethompson2018@gmail.com" },
 }

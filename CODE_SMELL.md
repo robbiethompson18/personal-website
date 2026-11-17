@@ -91,3 +91,23 @@ cached still reach a working site. Turn it off after Nov 18, 2026 and delete the
 Cloudflare dashboard, not in the repo. (3) Deploys upload committed build output and run no build,
 so a push without `npm run build` publishes stale HTML; `hooks/pre-commit` is the only backstop. (4)
 There is no `404.html`, so an unknown path returns an empty 404.
+
+Nov 16, 2026: comments (`comments.js`, `worker/api.js`, `migrations/0002_comments.sql`) left eight
+rough edges. (1) No rate limit and no Turnstile, by Robbie's choice. The Origin and User-Agent
+checks stop browsers on other sites and lazy bots, but anyone with curl can forge both and flood a
+post, and every comment is also one email to Robbie. If it happens, add a Cloudflare rate-limiting
+rule on `/api/comment` first, Turnstile second. (2) The caps (name 40, comment 5,000) are written
+twice: `MAX_NAME` / `MAX_COMMENT` in `api.js` and the form's `maxlength`s in `build.js`. (3)
+`RESERVED_NAME` only catches plain and fullwidth spellings of Robbie's name; lookalike letters
+(Cyrillic "о") get through. The author badge is the real signal. (4) `POST_PATH` is
+`/blog/<one segment>/`, so `/blog/drafts/` and `/blog/archive/` (index pages, which are 200 HTML)
+accept comments that no page ever shows. (5) `GET /api/comments` returns every comment on a post, no
+paging. (6) `worker.test.js` checks the notification by reading wrangler dev's log for the
+"Subject:" line its local `send_email` simulator prints, so a wrangler upgrade that rewords that log
+breaks the test, not the feature. The same simulator (wrangler 4.62) ignores a binding's
+`destination_address`, which is why the recipient is `vars.NOTIFY_EMAIL` passed as `to`, not fixed
+on the binding. (7) `worker.test.js`'s `db()` is `execFileSync`, which blocks the event loop for a
+second or more; a `beforeEach` that yields one turn papers over the ECONNRESET that caused (dead
+keep-alive socket). Making `db()` async is the real fix. (8) The Email Sending domain, the verified
+destination address and the `AUTHOR_KEY` secret live only in the Cloudflare account, not in the repo
+(`docs/cloudflare-hosting.md` describes them).

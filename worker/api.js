@@ -1,21 +1,49 @@
-// First-party analytics: POST /api/hit counts a page view, POST /api/like records a like.
-// hit.js (repo root) is the only intended caller. These are public write endpoints, so a
-// request is validated hard before anything is written, and only aggregates are stored:
-// no cookies, no raw IPs, no user agents. The schema is in migrations/.
+// The site's write endpoints, plus the one read (comments). hit.js and comments.js (repo
+// root) are the only intended callers. These are public write endpoints, so a request is
+// validated hard before anything is written. Analytics stores only aggregates: no cookies,
+// no raw IPs, no user agents. The schema is in migrations/.
+//
+//   POST /api/hit, /api/like    page views and likes (hit.js)
+//   GET  /api/comments?path=    a post's comments, oldest first
+//   POST /api/comment           add a comment; emails Robbie
+//   POST /api/comment/delete    delete one, with Robbie's key
 
 const MAX_BODY = 512; // a real body is {"path":"/blog/<slug>/","referrer":"<hostname>"}
+const MAX_COMMENT_BODY = 32 * 1024; // room for a 5,000-character comment once JSON-escaped
+const MAX_NAME = 40; // comments.js and the form's maxlength (build.js) use the same caps
+const MAX_COMMENT = 5000;
 // Every page is a directory index ("/", "/blog/", "/blog/<slug>/"). Anything else (assets,
 // "..", "//other-host/", query strings) is refused before the asset store is even asked.
 const PAGE_PATH = /^\/([\w-]+\/)*$/;
+const POST_PATH = /^\/blog\/[\w-]+\/$/; // comments are on posts only
 const HOSTNAME = /^[a-z0-9.-]{0,253}$/;
 // Crawlers mostly don't run JS, so this only has to catch the obvious ones that do, plus
 // scripts. "http" covers the "+http://..." in bot UAs and most HTTP libraries.
 const BOT = /bot|crawl|spider|headless|http|curl|wget|python/i;
+// Robbie's name, once a name is lowercased and stripped to letters: "Robbie",
+// "robbie thompson", "Robbie W. M. Thompson". Only a request with his key may use it.
+// Lookalike letters get past this; the author badge is what can't be faked.
+const RESERVED_NAME = /^robbie(w?m?thompson)?$/;
 
-export async function api(request, env) {
+export async function api(request, env, ctx) {
   const url = new URL(request.url);
-  const isLike = url.pathname === "/api/like";
-  if (!isLike && url.pathname !== "/api/hit") return status(404);
+  switch (url.pathname) {
+    case "/api/hit":
+    case "/api/like":
+      return count(request, url, env);
+    case "/api/comments":
+      return listComments(request, url, env);
+    case "/api/comment":
+      return addComment(request, url, env, ctx);
+    case "/api/comment/delete":
+      return deleteComment(request, url, env);
+  }
+  return status(404);
+}
+
+// The checks every write shares. Returns the parsed JSON body (null if it isn't JSON), or
+// the Response that turns the request away.
+async function posted(request, url, maxBody) {
   if (request.method !== "POST")
     return new Response(null, { status: 405, headers: { Allow: "POST" } });
   if (!sameOrigin(request, url)) return status(403);
@@ -23,14 +51,20 @@ export async function api(request, env) {
 
   // Content-Length turns away a big upload before reading it; the length check after
   // covers a missing or wrong header.
-  if (Number(request.headers.get("Content-Length")) > MAX_BODY) return status(413);
+  if (Number(request.headers.get("Content-Length")) > maxBody) return status(413);
   const text = await request.text();
-  if (text.length > MAX_BODY) return status(413);
-  const body = parseJson(text);
+  if (text.length > maxBody) return status(413);
+  return parseJson(text);
+}
+
+async function count(request, url, env) {
+  const isLike = url.pathname === "/api/like";
+  const body = await posted(request, url, MAX_BODY);
+  if (body instanceof Response) return body;
   const referrer = isLike ? "" : referrerBucket(body?.referrer, url);
   if (referrer === null || !(await isPage(body?.path, url, env))) return status(400);
 
-  const day = new Date().toISOString().slice(0, 10); // UTC
+  const day = today();
   const visitor = await visitorHash(request, await dailySalt(env.DB, day));
   // visitors and likes have the same shape: at most one row per visitor per page per day.
   const key = [day, body.path, visitor];
@@ -51,6 +85,107 @@ export async function api(request, env) {
   }
   return status(204);
 }
+
+// --- comments ---
+// No accounts and no rate limit: anyone can post under any name but Robbie's, and it is
+// public at once. What keeps that safe is that a comment is only ever plain text: stored
+// as typed, sent as JSON, and put on the page with textContent (comments.js), so it can't
+// carry markup or a clickable link.
+
+async function listComments(request, url, env) {
+  if (request.method !== "GET")
+    return new Response(null, { status: 405, headers: { Allow: "GET" } });
+  const path = url.searchParams.get("path") || "";
+  if (!POST_PATH.test(path)) return status(400);
+  const { results } = await env.DB.prepare(
+    "SELECT id, name, body, created, author FROM comments WHERE path = ? ORDER BY id",
+  )
+    .bind(path)
+    .all();
+  return json(results);
+}
+
+async function addComment(request, url, env, ctx) {
+  const body = await posted(request, url, MAX_COMMENT_BODY);
+  if (body instanceof Response) return body;
+  if (typeof body?.name !== "string" || typeof body?.body !== "string") return status(400);
+  // A name is one line; a comment keeps its line breaks, but not runs of blank lines.
+  const name = body.name.trim().replace(/\s+/g, " ") || "Anonymous";
+  const text = body.body
+    .replace(/\r\n?/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+  if (!text || text.length > MAX_COMMENT || name.length > MAX_NAME) return status(400);
+  if (!POST_PATH.test(body.path) || !(await isPage(body.path, url, env))) return status(400);
+
+  const author = isRobbie(body.key, env);
+  if (body.key !== undefined && !author) return status(403);
+  if (!author && isReserved(name)) return status(403);
+
+  const visitor = await visitorHash(request, await dailySalt(env.DB, today()));
+  const comment = await env.DB.prepare(
+    "INSERT INTO comments (path, name, body, created, author, visitor) VALUES (?, ?, ?, ?, ?, ?) " +
+      "RETURNING id, name, body, created, author",
+  )
+    .bind(body.path, name, text, new Date().toISOString(), author ? 1 : 0, visitor)
+    .first();
+  // The comment is saved whether or not the email goes out, and the commenter doesn't wait for it.
+  if (!author) ctx.waitUntil(notify(env, url, body.path, comment));
+  return json(comment, 201);
+}
+
+async function deleteComment(request, url, env) {
+  const body = await posted(request, url, MAX_BODY);
+  if (body instanceof Response) return body;
+  if (!isRobbie(body?.key, env)) return status(403);
+  if (!Number.isInteger(body.id)) return status(400);
+  await env.DB.prepare("DELETE FROM comments WHERE id = ?").bind(body.id).run();
+  return status(204);
+}
+
+// AUTHOR_KEY is a Worker secret (worker/CLAUDE.md). With it unset nobody is Robbie.
+const isRobbie = (key, env) => !!env.AUTHOR_KEY && key === env.AUTHOR_KEY;
+
+// NFKC folds fullwidth and other compatibility letters to the plain ones first.
+const isReserved = (name) =>
+  RESERVED_NAME.test(
+    name
+      .normalize("NFKC")
+      .toLowerCase()
+      .replace(/[^a-z]/g, ""),
+  );
+
+// Tell Robbie. The recipient is NOTIFY_EMAIL (wrangler.jsonc) and the subject holds only
+// the path, which POST_PATH has already checked, so nothing a commenter sends reaches a
+// header. A failed send is logged, never surfaced.
+async function notify(env, url, path, comment) {
+  const text = [
+    `${comment.name} commented on ${url.origin}${path}#comments`,
+    "",
+    comment.body,
+    "",
+    "To delete it, open the post in a browser that has your author key, or run:",
+    `wrangler d1 execute personal-website --remote --command="DELETE FROM comments WHERE id = ${comment.id}"`,
+  ].join("\n");
+  try {
+    await env.EMAIL.send({
+      to: env.NOTIFY_EMAIL,
+      from: `comments@${url.hostname}`,
+      subject: `New comment on ${path}`,
+      text,
+    });
+  } catch (err) {
+    console.error("comment email failed:", err.code, err.message);
+  }
+}
+
+const json = (data, code = 200) =>
+  new Response(JSON.stringify(data), {
+    status: code,
+    headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
+  });
+
+const today = () => new Date().toISOString().slice(0, 10); // UTC
 
 const status = (code) => new Response(null, { status: code });
 

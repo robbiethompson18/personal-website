@@ -4,8 +4,8 @@
 import { api } from "./api.js";
 
 export default {
-  async fetch(request, env) {
-    if (new URL(request.url).pathname.startsWith("/api/")) return api(request, env);
+  async fetch(request, env, ctx) {
+    if (new URL(request.url).pathname.startsWith("/api/")) return api(request, env, ctx);
     return serveWithRanges(request, env);
   },
 };

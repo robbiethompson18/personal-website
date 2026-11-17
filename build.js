@@ -207,6 +207,7 @@ function versioned(file) {
 const BLOG_CSS = versioned("blog.css");
 const FOOTNOTES_JS = versioned("footnotes.js");
 const HIT_JS = versioned("hit.js"); // page-view counter + like button; see worker/CLAUDE.md
+const COMMENTS_JS = versioned("comments.js"); // posts only; see worker/CLAUDE.md
 
 // DEV only: poll this page's Last-Modified and reload when the watcher rebuilds it. Every
 // posts/ change (prose or a re-rendered chart) rewrites every page, so this catches both.
@@ -221,7 +222,7 @@ const DEV_RELOAD = `
       }, 1000);
     </script>`;
 
-function layout({ title, canonical, body, hasMath }) {
+function layout({ title, canonical, body, hasMath, hasComments = false }) {
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -243,7 +244,7 @@ function layout({ title, canonical, body, hasMath }) {
   <body>
 ${body}
     <script src="${FOOTNOTES_JS}" defer></script>
-    <script src="${HIT_JS}" defer></script>${DEV ? DEV_RELOAD : ""}
+    <script src="${HIT_JS}" defer></script>${hasComments ? `\n    <script src="${COMMENTS_JS}" defer></script>` : ""}${DEV ? DEV_RELOAD : ""}
   </body>
 </html>
 `;
@@ -274,6 +275,21 @@ function withLikeRow(html) {
   return tail === -1 ? html + LIKE_ROW : html.slice(0, tail) + LIKE_ROW + html.slice(tail);
 }
 
+// Comments on every post (not standalone pages), below Notes and Sources. The section is
+// empty and hidden here; comments.js fills it from the Worker and unhides it. No count is
+// shown. The maxlengths match the caps worker/api.js enforces.
+const COMMENTS = `
+      <section class="comments" id="comments" hidden>
+        <h2>Comments</h2>
+        <ol class="comment-list"></ol>
+        <form class="comment-form">
+          <input name="name" maxlength="40" placeholder="Name" aria-label="Name" autocomplete="nickname" />
+          <textarea name="body" maxlength="5000" rows="4" placeholder="Leave a comment" aria-label="Comment" required></textarea>
+          <button type="submit">Post</button>
+          <p class="comment-status" role="status"></p>
+        </form>
+      </section>`;
+
 // `standalone` is a page from pages/<slug>/, served at /<slug>/: the same template
 // without the blog chrome (banner, back-link, "more writing" footer).
 function postPage(p, { standalone = false } = {}) {
@@ -300,13 +316,14 @@ function postPage(p, { standalone = false } = {}) {
           ${backLink}${title}${dates}
         </header>
         ${standalone ? p.html : withLikeRow(p.html)}
-      </article>${footer}
+      </article>${standalone ? "" : COMMENTS}${footer}
     </main>`;
   return layout({
     title: p.meta.title,
     canonical: `${SITE.url}/${standalone ? "" : "blog/"}${p.slug}/`,
     body,
     hasMath: p.hasMath,
+    hasComments: !standalone,
   });
 }
 

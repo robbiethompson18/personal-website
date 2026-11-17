@@ -22,6 +22,9 @@ const QUERIES = {
   "Top referrers, /dateme/, last 30 days": referrers(`${RECENT} AND path = '/dateme/'`),
   "Likes per post, all time": `
     SELECT path, COUNT(*) AS likes, MAX(day) AS latest FROM likes GROUP BY path ORDER BY latest DESC, likes DESC`,
+  "Newest comments": `
+    SELECT id, path, name, substr(replace(body, char(10), ' '), 1, 80) AS body, created
+    FROM comments ORDER BY id DESC LIMIT 20`,
 };
 
 const sql = Object.values(QUERIES).join(";");

@@ -14,7 +14,7 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="stylesheet" href="/blog.css?v=3d23c6c1" />
+    <link rel="stylesheet" href="/blog.css?v=dc09dc46" />
   </head>
   <body>
     <main class="post">
@@ -97,11 +97,22 @@ and my crush became that much more overdetermined. <a href="#fnref2" class="foot
 </section>
 
       </article>
+      <section class="comments" id="comments" hidden>
+        <h2>Comments</h2>
+        <ol class="comment-list"></ol>
+        <form class="comment-form">
+          <input name="name" maxlength="40" placeholder="Name" aria-label="Name" autocomplete="nickname" />
+          <textarea name="body" maxlength="5000" rows="4" placeholder="Leave a comment" aria-label="Comment" required></textarea>
+          <button type="submit">Post</button>
+          <p class="comment-status" role="status"></p>
+        </form>
+      </section>
       <footer class="post-footer">
         <p><a href="/blog/">&larr; More writing</a></p>
       </footer>
     </main>
     <script src="/footnotes.js?v=dcd0756c" defer></script>
     <script src="/hit.js?v=6616d66f" defer></script>
+    <script src="/comments.js?v=1d9339db" defer></script>
   </body>
 </html>

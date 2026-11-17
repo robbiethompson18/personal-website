@@ -41,6 +41,28 @@ included). `wrangler` is a global install and needs `CLOUDFLARE_API_TOKEN`.
 Database migrations are not part of a deploy. Apply them first:
 `wrangler d1 migrations apply personal-website --remote`.
 
+## Email
+
+The Worker emails Robbie about each new comment (`worker/CLAUDE.md`). Three things outside the repo
+make that work, all on the free plan:
+
+- **The domain is onboarded for Email Sending** (dashboard: Compute → Email Service → Email Sending;
+  it was done on Nov 16, 2026 with
+  `POST /zones/<zone>/email/sending/subdomains {"name": "robbiewmthompson.com"}`). That created six
+  DNS records: three MX and an SPF TXT on `cf-bounce.robbiewmthompson.com` (bounce handling), a DKIM
+  TXT on `cf-bounce._domainkey`, and `_dmarc` with `p=reject`. Removing the domain there deletes
+  them.
+- **The recipient is a verified destination address** on the account (Email Service → Email Routing
+  → Destination addresses). The free plan can only send to verified addresses, which is all this
+  needs; sending to anyone else needs Workers Paid.
+- **`wrangler.jsonc` has the `send_email` binding `EMAIL`** and the recipient in
+  `vars.NOTIFY_EMAIL`.
+
+The domain receives no mail: there are no MX records on the apex and Email Routing is off.
+`_dmarc p=reject` tells receivers to refuse mail claiming to be from the domain that Cloudflare
+didn't sign, so sending as `@robbiewmthompson.com` from any other provider needs that record changed
+first.
+
 ## Gotchas
 
 - **Range requests.** The asset store ignores `Range` and answers 200 with the whole file. iOS
