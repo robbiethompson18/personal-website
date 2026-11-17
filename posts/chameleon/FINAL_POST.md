@@ -3,6 +3,7 @@ title: Chameleon
 date: 2026-11-16
 draft: false
 rating: 1
+redirect_from: put-on-the-mask
 ---
 
 > “You have enemies? Good. That means you’ve stood up for something, sometime in your life.”
