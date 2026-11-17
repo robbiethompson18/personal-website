@@ -50,12 +50,12 @@ conversation:
   him to help move the piano.
 - The invite is a _free option_.
 
-Increasingly I find it frustrating to communicate with people who do not understand statements like
-the above.
-
 [^yup]:
     Yes, I really said this to a woman, and she thought this was a perfectly normal thing to say,
     and my crush became that much more overdetermined.
+
+Increasingly I find it frustrating to communicate with people who do not understand statements like
+the above.
 
 I am guilty of using nerdspeak needlessly, which I find grating when done by others. Examples (with
 standard English alternatives in parens).

@@ -28,7 +28,9 @@ line to start at column 0, so a footnote defined under an indented list item (e.
 "referenced but never defined" even though markdown-it-footnote renders it correctly. False
 positive, not a real bug — the regex just doesn't account for list-item indentation. Fix by
 stripping leading whitespace before matching, or documenting that footnote defs should stay
-flush-left.
+flush-left. Nov 17, 2026: `place-notes.js` (run by lint.sh) now moves every referenced definition to
+column 0 below its block, so this only bites between writing a nested definition and the next lint.
+The regex is unchanged.
 
 Sep 3, 2026: the `/graph` skill fixes agreed heights for bar charts (200) and scatterplots (560) but
 says nothing about line charts, which have neither's shape — a 15-point series at 560 is mostly

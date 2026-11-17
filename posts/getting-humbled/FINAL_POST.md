@@ -8,9 +8,17 @@ Everyone except John Von Neumann and Terence Tao will at some point in their lif
 with an intellect far superior than their own.[^maybe] Let me tell you about when this happened to
 me.
 
+[^maybe]:
+    Maybe this even applies to Terence Tao, who will meet Astra III, and to John Von Neumann, who
+    could be exhumed and cloned to help us build Astra IV.
+
 I am really good at math. Not so good that I ever went to the IMO, or even the AIME. But good enough
 that I won basically every math contest any school I attended ever held up until college.[^cav] Good
 enough that I got a job as a quant at Jane Street.
+
+[^cav]:
+    I beat all the seventh and eighth graders as a sixth grader; I did not beat the twelvth graders
+    until I was in eleventh grade.
 
 The trouble is that I never once sought out other people as good at math as me.[^mistake] I didn't
 want to: if I never tested myself, then for all I knew I might actually be the best. I never thought
@@ -22,6 +30,12 @@ friends."[^distance] In college I took only one or two hard proof-based math cla
 mega-geniuses that properly challenged me, and steered far clear of the accelerated courses I would
 have failed.[^m60] I still had to do hard math in courses like Algorithms, but I did it amongst
 engineers and, to flatter myself, did very well without trying very hard.
+
+[^mistake]: This was in hindsight a blunder. I could know a lot more math than I currently do.
+
+[^distance]: Oh how different I am from my 18-year-old self.
+
+[^m60]: eg the Math 60 series, IYKYK.
 
 Writing all of this out, I realize that it took quite a large amount of self-delusion and
 manipulation of my environment to make it through college without ever truly humbling myself
@@ -97,17 +111,3 @@ mindset differ:
 - level of leadership/ownership (cheems mindset)
 - sense for how efficient the world is
 -
-
-[^m60]: eg the Math 60 series, IYKYK.
-
-[^distance]: Oh how different I am from my 18-year-old self.
-
-[^mistake]: This was in hindsight a blunder. I could know a lot more math than I currently do.
-
-[^cav]:
-    I beat all the seventh and eighth graders as a sixth grader; I did not beat the twelvth graders
-    until I was in eleventh grade.
-
-[^maybe]:
-    Maybe this even applies to Terence Tao, who will meet Astra III, and to John Von Neumann, who
-    could be exhumed and cloned to help us build Astra IV.

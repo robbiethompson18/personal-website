@@ -32,13 +32,13 @@ knowledge sitting in open weights, accessible to any terrorist.
 - Privacy
 - Nvidia [commoditizing their complement](https://gwern.net/complement)
 
-More than all of these: _vibes_. People don't want The Man controlling Their Models.[^fine] I doubt
-moods will change on this as AI literacy improves.
-
 [^exceptions]:
     Most of the time this is a nerd-snipe. Notable exceptions: Composer II. I don't think I've used
     any other finetuned open-weight model. Maybe some other corporations are doing this successfully
     with proprietary data? I've heard a lot more startup pitches than I have success stories.
+
+More than all of these: _vibes_. People don't want The Man controlling Their Models.[^fine] I doubt
+moods will change on this as AI literacy improves.
 
 [^fine]: I personally am fine with The Man controlling my models, nukes, roads, internet, etc.
 

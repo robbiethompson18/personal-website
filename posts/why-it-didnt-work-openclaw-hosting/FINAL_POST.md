@@ -19,11 +19,11 @@ sell startups OpenClaw-related services! Payment rails, or browser agents, or sk
 integrations. The few non-startup customers we had were, ironically, VCs.[^customers] The buck
 stopped nowhere.
 
+[^customers]: And some tiny number of brick and mortar businesses.
+
 ![You buy my SaaS](charts/selling-you-my-saas.jpg)
 
 <span class="chart-src">Clawcon NYC 2026, Stylized</span>
-
-[^customers]: And some tiny number of brick and mortar businesses.
 
 ## Productivity Porn
 

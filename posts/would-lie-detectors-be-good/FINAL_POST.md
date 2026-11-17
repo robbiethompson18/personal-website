@@ -23,12 +23,12 @@ technology on the basis of enabling 'oppressive governments.'[^donny]
     their services, but the intelligence apparatus comes after bad actors when this does not
     suffice. See eg [PlayPen](<https://en.wikipedia.org/wiki/Playpen_(website)>).
 
-<!-- @robbie done (was "@c fix link"): now points at the Playpen Wikipedia page. -->
-
 [^donny]:
     It is worth mentioning that the Trump administration _did_
     [use social media to gather evidence for deportations](https://en.wikipedia.org/wiki/Visa_and_deportation_controversies_in_the_second_Trump_administration)
     and it largely did not hold up in court, though cases are still being appealed.
+
+<!-- @robbie done (was "@c fix link"): now points at the Playpen Wikipedia page. -->
 
 To take the thought experiment further: if you could ban any law enforcement agency from using
 digital evidence to catch or prosecute criminals, would you do it? Why is 'the exact technological
@@ -86,12 +86,6 @@ whether the driver of this is technological surveillance.
 [Half of parents have (ever) looked through their kid's phone.](@pew-phone) I am nervous that cheap
 lie detectors would further empower oppressive household mommy-states.
 
-{@pew-phone}: Pew Research Center (2024), "How Teens and Parents Approach Screen Time": half of
-parents of 13-to-17-year-olds say they have looked through their teen's phone (surveyed
-September–October 2023). In Pew's 2014–15 survey, 48% had looked through their teen's call records
-or text messages.
-<https://www.pewresearch.org/internet/2024/03/11/how-teens-and-parents-approach-screen-time/>
-
 ![Four panels over time: 16-year-olds with a licence, high schoolers who have had sex, teen depression, and parents reading phones or tracking location](charts/teens-panels.png)
 
 <span class="chart-src">Sources: licences [Sivak & Schoettle 2016](@umtri); sex
@@ -99,6 +93,39 @@ or text messages.
 [Pew 2016](@pew-monitor), [Pew 2024](@pew-phone); location tracking [Pew 2016](@pew-monitor),
 [Burnell 2023](@burnell), [Pew 2024](@pew-adult), [Mott 2026](@mott). The location line mixes
 populations: parents of 13–17s (2015), one US state (2018), parents of 18–25s (2023, 2026).</span>
+
+## Appendix: Prior Work
+
+AI Futures Project tentatively in favor of lie detectors:
+[AI 2040: Plan A](https://ai-2040.com/?choices=plan-a-root#should-lie-detectors-be-allowed-banned-or-regulated)
+(July 2026)
+
+LessWrong on the startup Conduit, I am surprised this post got so many upvotes and agree with
+williawa's comment.
+[Don't Build Mindreading](https://www.lesswrong.com/posts/CAdG5dzkWrrK2NQg8/don-t-build-mindreading)
+(KellerScholl, August 2026)
+
+David Friedman:
+[If Lie Detectors Worked](https://daviddfriedman.substack.com/p/if-lie-detectors-worked) (July 2026)
+
+Another LessWrong post which is mid:
+[Lie detection is best when it's cheap to cooperate](https://www.lesswrong.com/posts/u7nEaWygHkvfDiwa2/lie-detection-is-best-when-it-s-cheap-to-cooperate)
+(sciarrino, October 2026)
+
+## Appendix: To Think About Further
+
+This post comes from a fairly normie place, worrying about state power and not the looming
+AI-pocalypse. I want to think further about
+
+1. What I would ask AI company CEOs to biosign.
+
+2. How bad it is to give mindreading to oppressive governments.
+
+{@pew-phone}: Pew Research Center (2024), "How Teens and Parents Approach Screen Time": half of
+parents of 13-to-17-year-olds say they have looked through their teen's phone (surveyed
+September–October 2023). In Pew's 2014–15 survey, 48% had looked through their teen's call records
+or text messages.
+<https://www.pewresearch.org/internet/2024/03/11/how-teens-and-parents-approach-screen-time/>
 
 {@umtri}: Sivak & Schoettle (2016), University of Michigan Transportation Research Institute report
 UMTRI-2016-4: share of each age group holding a driver's licence, from Federal Highway
@@ -133,30 +160,3 @@ Adulthood" (surveyed late 2023): 42% of parents of 18-to-24-year-olds track thei
 {@mott}: C.S. Mott Children's Hospital National Poll on Children's Health (2026), "Safety or
 surveillance: Tracking of young adults": 52% of parents of 18-to-25-year-olds track their child's
 location. <https://mottpoll.org/reports/safety-or-surveillance-tracking-young-adults>
-
-## Appendix: Prior Work
-
-AI Futures Project tentatively in favor of lie detectors:
-[AI 2040: Plan A](https://ai-2040.com/?choices=plan-a-root#should-lie-detectors-be-allowed-banned-or-regulated)
-(July 2026)
-
-LessWrong on the startup Conduit, I am surprised this post got so many upvotes and agree with
-williawa's comment.
-[Don't Build Mindreading](https://www.lesswrong.com/posts/CAdG5dzkWrrK2NQg8/don-t-build-mindreading)
-(KellerScholl, August 2026)
-
-David Friedman:
-[If Lie Detectors Worked](https://daviddfriedman.substack.com/p/if-lie-detectors-worked) (July 2026)
-
-Another LessWrong post which is mid:
-[Lie detection is best when it's cheap to cooperate](https://www.lesswrong.com/posts/u7nEaWygHkvfDiwa2/lie-detection-is-best-when-it-s-cheap-to-cooperate)
-(sciarrino, October 2026)
-
-## Appendix: To Think About Further
-
-This post comes from a fairly normie place, worrying about state power and not the looming
-AI-pocalypse. I want to think further about
-
-1. What I would ask AI company CEOs to biosign.
-
-2. How bad it is to give mindreading to oppressive governments.

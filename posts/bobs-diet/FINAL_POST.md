@@ -15,25 +15,25 @@ arguments are sufficiently galaxy-brained that I prefer my simpler ones:
   humans, because octopi have a higher Critical Flicker-fusion Frequency.[^CFF] But humans have ~1.5
   OOMs greater [temporal resolution in hearing](@cff-audio) (via pitch) than sight.[^KISS]
 
-  [^KISS]:
-      My KISS approach would be to estimate clock speed (frequency at which neurons fire) and assume
-      that the 'number of sequential neuron firings it takes to produce a perceptually discrete
-      event' term cancels with the 'richness/magnitude of said event' term, because the latter is
-      probably higher if it's the result of more neurons firing. I have not thought about this hard.
-
-  [^CFF]:
-      CFF: how close together flashes of light are temporally for you to start perceiving them one
-      as one flash.
-
 - They try to measure ~90 different proxies for sentience, and about half of (species, sentience
   measurement) pairs are unknown. How you deal with this is a nasty statistical problem. It sounds
   like they made a reasonable adjustment[^adjustment], but I worry that by casting such a broad net
   they added more noise than signal.
 
-  [^adjustment]:
-      Their adjustment: a prior that no evidence for a trait implies that the trait is not present.
-
 - They only use binary measurements! That's throwing away so much good data.
+
+[^CFF]:
+    CFF: how close together flashes of light are temporally for you to start perceiving them one as
+    one flash.
+
+[^KISS]:
+    My KISS approach would be to estimate clock speed (frequency at which neurons fire) and assume
+    that the 'number of sequential neuron firings it takes to produce a perceptually discrete event'
+    term cancels with the 'richness/magnitude of said event' term, because the latter is probably
+    higher if it's the result of more neurons firing. I have not thought about this hard.
+
+[^adjustment]:
+    Their adjustment: a prior that no evidence for a trait implies that the trait is not present.
 
 I worry that this criticism is 'sour grapes' towards a document much better-researched than my own.
 But my judgement is that their complex model introduces too much error surface area to pay for its
@@ -256,18 +256,18 @@ table below. Humans fall between anchovies and octopi.
 
 ![](charts/rankings-neurons-per-calorie.png)
 
-{@cow-milk}: Holstein Association USA, _Do You Know This About Holstein Cattle?_ — a US Holstein
-averages ~80 lb (~35 L) of milk a day. <https://www.holsteinusa.com/pdf/fact_sheet_cattle.pdf>
-
-{@broiler}: The Humane League, "What Are Broiler Chickens and How Long Do They Live?" — modern
-broilers reach ~6.5 lb at ~47 days (about 6-7 weeks).
-<https://thehumaneleague.org/article/broiler-chickens>
+{@rp-neurons}: Rethink Priorities, "Why Neuron Counts Shouldn't Be Used as Proxies for Moral Weight"
+(2021).
+<https://rethinkpriorities.org/research-area/why-neuron-counts-shouldnt-be-used-as-proxies-for-moral-weight/>
 
 {@cff-audio}: Verschooten et al., "The upper frequency limit for the use of phase locking to code
 temporal fine structure in humans: A compilation of viewpoints," _Hearing Research_ 377 (2019):
 109–121 — binaural phase-locking confirmed to ~1,500 Hz, contributors' upper-limit estimates range
 1,500–10,000 Hz, vs. visual CFF's ~60–90 Hz. <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6524635/>
 
-{@rp-neurons}: Rethink Priorities, "Why Neuron Counts Shouldn't Be Used as Proxies for Moral Weight"
-(2021).
-<https://rethinkpriorities.org/research-area/why-neuron-counts-shouldnt-be-used-as-proxies-for-moral-weight/>
+{@cow-milk}: Holstein Association USA, _Do You Know This About Holstein Cattle?_ — a US Holstein
+averages ~80 lb (~35 L) of milk a day. <https://www.holsteinusa.com/pdf/fact_sheet_cattle.pdf>
+
+{@broiler}: The Humane League, "What Are Broiler Chickens and How Long Do They Live?" — modern
+broilers reach ~6.5 lb at ~47 days (about 6-7 weeks).
+<https://thehumaneleague.org/article/broiler-chickens>

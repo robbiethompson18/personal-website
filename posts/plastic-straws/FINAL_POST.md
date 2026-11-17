@@ -56,9 +56,9 @@ scale: [a ton of methane is ~80 tons](@methane80) $\text{CO}_2\text{e}$,
 It's convention to use GWP100. I am using GWP20[^methane] because interest rates are real and my
 model of the world accounts for them.[^tbond]
 
-[^tbond]: The price of treasuries suggests that \$1 today is worth 39¢ in 2046 and ~0.6¢ in 2126.
-
 [^methane]: Methane (from trash or cows) is ~3x less $\text{CO}_2\text{e}$ when using GWP100.
+
+[^tbond]: The price of treasuries suggests that \$1 today is worth 39¢ in 2046 and ~0.6¢ in 2126.
 
 ## Land Use, Water Use
 
@@ -95,9 +95,9 @@ landfill.
 Warming is also negligible here: The average American's landfill methane emissions is ~0.53 t
 $\text{CO}_2\text{e}$, or about 1/10 of an SF↔NYC round-trip flight.[^capture]
 
-If you do anything here, recycle your aluminum and cardboard (see [section III](#recycling)).
-
 [^capture]: In the US, these methane emissions are captured anyway!
+
+If you do anything here, recycle your aluminum and cardboard (see [section III](#recycling)).
 
 ## Organic Foods
 
@@ -185,10 +185,6 @@ it grows easily.[^flyin] [^Barbaria]
     A little more than Rainforest Alliance ([~0.5–1.5¢/bar](@fairtrade)), but it goes to the co-op,
     not the farmer.
 
-[^many-welfare]:
-    "Natural" on eggs / meat (meaningless); "No Hormones" on meat (this is banned anyway);
-    "Vegetarian-fed poultry" (chickens are omnivores).
-
 [^seafood-labels]:
     Each one fixes a single narrow thing and leaks the harm elsewhere. Dolphin-safe is the template:
     spare the cute mammal, push boats onto nets that kill sharks and juvenile tuna instead.
@@ -197,6 +193,10 @@ it grows easily.[^flyin] [^Barbaria]
     unregulated marketing with no audit behind them. The only semi-trustworthy signal isn't a logo
     but **Seafood Watch** (Monterey Bay Aquarium): independent, and it rates the actual species,
     gear, and region you're buying.
+
+[^many-welfare]:
+    "Natural" on eggs / meat (meaningless); "No Hormones" on meat (this is banned anyway);
+    "Vegetarian-fed poultry" (chickens are omnivores).
 
 # III: Too Much Data
 
@@ -242,11 +242,6 @@ shower.
 
 Agriculture is [~80–90% of US water consumption](@agwater).[^water-consumption]
 
-![US freshwater consumption by sector — agriculture dwarfs everything; power is a sliver](charts/bar_water_consumption.png)
-
-<span class="chart-src">[USGS Circular 1441](@usgs), 2015 US water use; smaller sectors estimated
-from withdrawals.</span>
-
 [^water-consumption]:
     _Consumption_ is water withdrawn and not returned — evaporated by crops, cooling towers, and
     lawns — as opposed to _withdrawals_, most of which flow back to the river. Power is the headline
@@ -258,6 +253,11 @@ from withdrawals.</span>
     1995 report due to budget and staffing cuts. Consumption can't be metered at a pipe the way a
     withdrawal can; it has to be _modeled_ from evapotranspiration and process losses. Only
     irrigation and power consumption were revived in 2015.
+
+![US freshwater consumption by sector — agriculture dwarfs everything; power is a sliver](charts/bar_water_consumption.png)
+
+<span class="chart-src">[USGS Circular 1441](@usgs), 2015 US water use; smaller sectors estimated
+from withdrawals.</span>
 
 ## Quotidian Power Use
 
@@ -288,38 +288,6 @@ LCAs.</span>
 
 <!-- Source definitions (collected into the Sources section by cite.js; order here doesn't matter). -->
 
-{@waterftprint}: Mekonnen & Hoekstra total ("green + blue + grey") water footprints — crops: (2011)
-"The green, blue and grey water footprint of crops and derived crop products," _Hydrology and Earth
-System Sciences_ 15(5); animal products: (2012) "A Global Assessment of the Water Footprint of Farm
-Animal Products," _Ecosystems_ 15. Water Footprint Network. <https://waterfootprint.org/>
-
-{@usgs}: Dieter et al. (2018), "Estimated Use of Water in the United States in 2015," _US Geological
-Survey Circular 1441_. <https://doi.org/10.3133/cir1441>
-
-{@egrid}: US EPA, "Emissions & Generation Resource Integrated Database (eGRID) 2022" — US average
-output emission rate ~0.37 kg CO₂/kWh. <https://www.epa.gov/egrid>
-
-{@eiarecs}: US EIA, "2020 Residential Energy Consumption Survey (RECS)" — residential energy end-use
-shares (space heating, water heating, air conditioning, etc.).
-<https://www.eia.gov/consumption/residential/>
-
-{@epoch}: Epoch AI (2025), "How much energy does ChatGPT use?" — a typical short query is ~0.3 Wh; a
-100k-token query is ~40 Wh. <https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use> The
-AI-power bars scale these per-query rates by usage, not by re-paying the full context on every
-tool-call (physically unreachable — prompt caching prefills the big context ~once, and the Max plan
-caps throughput at ~220k tokens per 5-hr window). A day of light chat lands at ~0.03 kg CO₂e;
-all-day agentic coding at ~0.2–0.75 kg/day, anchored on Epoch's rate and multiplied ~2–3× for Opus
-being larger than the GPT-4o-class model measured. Error bars are wide (±several×).
-
-{@altman}: Sam Altman (2025), "The Gentle Singularity" — an average ChatGPT query uses ~0.34 Wh of
-energy and ~0.000085 gallons of water. <https://blog.samaltman.com/the-gentle-singularity> The
-chart's per-query water bar is this figure directly; the "\$200 plan, used fully" bar scales it by a
-heavy month's query volume, so read it as order-of-magnitude.
-
-{@steak}: Beef land use ≈ 326 m²/kg live weight (~1,590 sq ft/lb), from Poore & Nemecek (2018),
-"Reducing food's environmental impacts through producers and consumers," _Science_ 360(6392), via
-Our World in Data. <https://ourworldindata.org/environmental-impacts-of-food>
-
 {@methane80}: IPCC AR6 WGI (2021), Ch. 7 Table 7.15 — methane's 20-year GWP is ~80 (79.7–82.5× CO₂).
 <https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-7/>
 
@@ -329,13 +297,13 @@ horizon (Resources for the Future, "Contrails, Aviation, and Climate Change," 20
 <https://ourworldindata.org/travel-carbon-footprint>
 <https://www.rff.org/publications/issue-briefs/contrails-aviation-and-climate-change/>
 
-{@foodghg}: Poore & Nemecek (2018), _Science_, via Our World in Data food-footprint data: beef ~60
-kg CO₂e/kg (mean up to ~99) vs bread/wheat ~1.4–1.6 (GWP100; a GWP20 re-weighting of enteric methane
-pushes beef higher). <https://ourworldindata.org/environmental-impacts-of-food>
-
 {@landfill}: US EPA, "National Overview: Facts and Figures on Materials, Wastes and Recycling" (2018
 data) — 146 million tons of MSW landfilled (the cubic-yard volume is derived from tonnage).
 <https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/national-overview-facts-and-figures-materials>
+
+{@steak}: Beef land use ≈ 326 m²/kg live weight (~1,590 sq ft/lb), from Poore & Nemecek (2018),
+"Reducing food's environmental impacts through producers and consumers," _Science_ 360(6392), via
+Our World in Data. <https://ourworldindata.org/environmental-impacts-of-food>
 
 {@organicyield}: Seufert, Ramankutty & Foley (2012), "Comparing the yields of organic and
 conventional agriculture," _Nature_ 485:229–232 — organic yields ~25% lower (de Ponti et al. 2012
@@ -367,6 +335,12 @@ biodiversity," _Journal of Applied Ecology_ 51:746–755 (species richness ~30%)
 abundance is from Bengtsson et al. (2005).
 <https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/1365-2664.12219>
 
+{@saudiwheat}: Saudi wheat output peaked at ~4 million tonnes in 1992 (the world's 6th-largest
+exporter that year), the flagship of a desert-farming push that at its height drew up to ~21 km³
+(~5.5 trillion US gallons) of fossil groundwater a year — roughly four-fifths of that non-renewable
+reserve is now gone. National Geographic, "Saudi Arabia's Great Thirst."
+<https://www.nationalgeographic.com/environment/article/saudi-arabia-water-use>
+
 {@energystar}: US EPA/DOE, ENERGY STAR "Impacts" (2020 accomplishments) — 520 billion kWh saved and
 400 million metric tons of GHG avoided in 2020. <https://www.energystar.gov/about/impacts>
 
@@ -386,12 +360,38 @@ membership."
 the producer co-op to invest collectively — not to the individual farmer.
 <https://www.fairtrade.net/en/get-involved/news/new-fairtrade-minimum-price-for-cocoa-in-non-regulated-markets.html>
 
+{@foodghg}: Poore & Nemecek (2018), _Science_, via Our World in Data food-footprint data: beef ~60
+kg CO₂e/kg (mean up to ~99) vs bread/wheat ~1.4–1.6 (GWP100; a GWP20 re-weighting of enteric methane
+pushes beef higher). <https://ourworldindata.org/environmental-impacts-of-food>
+
+{@egrid}: US EPA, "Emissions & Generation Resource Integrated Database (eGRID) 2022" — US average
+output emission rate ~0.37 kg CO₂/kWh. <https://www.epa.gov/egrid>
+
+{@waterftprint}: Mekonnen & Hoekstra total ("green + blue + grey") water footprints — crops: (2011)
+"The green, blue and grey water footprint of crops and derived crop products," _Hydrology and Earth
+System Sciences_ 15(5); animal products: (2012) "A Global Assessment of the Water Footprint of Farm
+Animal Products," _Ecosystems_ 15. Water Footprint Network. <https://waterfootprint.org/>
+
+{@altman}: Sam Altman (2025), "The Gentle Singularity" — an average ChatGPT query uses ~0.34 Wh of
+energy and ~0.000085 gallons of water. <https://blog.samaltman.com/the-gentle-singularity> The
+chart's per-query water bar is this figure directly; the "\$200 plan, used fully" bar scales it by a
+heavy month's query volume, so read it as order-of-magnitude.
+
 {@agwater}: USDA Economic Research Service, "Irrigation & Water Use" — agriculture is ~80–90% of US
 consumptive water use.
 <https://www.ers.usda.gov/topics/farm-practices-management/irrigation-water-use>
 
-{@saudiwheat}: Saudi wheat output peaked at ~4 million tonnes in 1992 (the world's 6th-largest
-exporter that year), the flagship of a desert-farming push that at its height drew up to ~21 km³
-(~5.5 trillion US gallons) of fossil groundwater a year — roughly four-fifths of that non-renewable
-reserve is now gone. National Geographic, "Saudi Arabia's Great Thirst."
-<https://www.nationalgeographic.com/environment/article/saudi-arabia-water-use>
+{@usgs}: Dieter et al. (2018), "Estimated Use of Water in the United States in 2015," _US Geological
+Survey Circular 1441_. <https://doi.org/10.3133/cir1441>
+
+{@eiarecs}: US EIA, "2020 Residential Energy Consumption Survey (RECS)" — residential energy end-use
+shares (space heating, water heating, air conditioning, etc.).
+<https://www.eia.gov/consumption/residential/>
+
+{@epoch}: Epoch AI (2025), "How much energy does ChatGPT use?" — a typical short query is ~0.3 Wh; a
+100k-token query is ~40 Wh. <https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use> The
+AI-power bars scale these per-query rates by usage, not by re-paying the full context on every
+tool-call (physically unreachable — prompt caching prefills the big context ~once, and the Max plan
+caps throughput at ~220k tokens per 5-hr window). A day of light chat lands at ~0.03 kg CO₂e;
+all-day agentic coding at ~0.2–0.75 kg/day, anchored on Epoch's rate and multiplied ~2–3× for Opus
+being larger than the GPT-4o-class model measured. Error bars are wide (±several×).

@@ -40,6 +40,13 @@ model I know of) has weights.[^1] Closed-source models probably aren’t many or
 bigger. If one being can be ‘more’ conscious than another, then humans are still on top, for the
 time being.
 
+[^1]:
+    Human brain: ~100 trillion synapses
+    ([estimates span 100–500 trillion](https://aiimpacts.org/scale-of-the-human-brain/)). DeepSeek
+    V4 Pro:
+    [1.6 trillion parameters, 49 billion active](https://artificialanalysis.ai/articles/deepseek-is-back-among-the-leading-open-weights-models-with-v4-pro-and-v4-flash).
+    100T ÷ 1.6T ≈ 60x at the low synapse estimate, higher above it.
+
 ## Rooting For The Home Team
 
 Despite my efforts in therapy, I still get upset when I ponder the multitude of humans dramatically
@@ -74,10 +81,3 @@ that makes me happier. Which, luckily, is also the one that deeply values other 
 
 This essay inspired by Scott Alexander,
 _[Wirehead Gods on Lotus Thrones](https://slatestarcodex.com/2014/01/28/wirehead-gods-on-lotus-thrones/)._
-
-[^1]:
-    Human brain: ~100 trillion synapses
-    ([estimates span 100–500 trillion](https://aiimpacts.org/scale-of-the-human-brain/)). DeepSeek
-    V4 Pro:
-    [1.6 trillion parameters, 49 billion active](https://artificialanalysis.ai/articles/deepseek-is-back-among-the-leading-open-weights-models-with-v4-pro-and-v4-flash).
-    100T ÷ 1.6T ≈ 60x at the low synapse estimate, higher above it.

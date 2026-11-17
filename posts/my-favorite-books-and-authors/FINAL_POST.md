@@ -40,6 +40,8 @@ This list is not complete. I plan to update it periodically.
       [The Top of My Todo List](https://www.paulgraham.com/todo.html),
       [How to Disagree](https://www.paulgraham.com/disagree.html)
 
+[^1]: This quote is from my memory but is approximately correct.
+
 ## Books
 
 1. _Born to Run_, Christopher McDougall
@@ -63,5 +65,3 @@ This list is not complete. I plan to update it periodically.
 18. _My Life on the Road_, Gloria Steinem
 19. _Natural Born Heroes_, Christopher McDougall
 20. _At Home in the World_, Thich Nhat Hanh
-
-[^1]: This quote is from my memory but is approximately correct.

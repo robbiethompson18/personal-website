@@ -44,6 +44,29 @@ mortality [Roberts 2007](@roberts). _MBTI_: [Pittenger 2005](@pittenger). _Astro
 Methodology: lazy. I asked Claude, and Claude looked up the answers from previous studies. The
 numbers pass my sniff test.[^1]
 
+[^1]:
+    Claude wants to include this methodological note on the heatmap values: The numbers in this
+    table are absolute values of correlation coefficients ($|r|$), but not every cell is a pure
+    Pearson $r$. Most cells — anything with a continuous predictor (IQ, Big Five scores, political
+    orientation) and a continuous outcome (income, mortality) — are standard Pearson correlations
+    drawn from meta-analyses. When the predictor is categorical but binary (e.g., comparing two
+    racial groups on income), the statistic is a point-biserial correlation, which is mathematically
+    identical to Pearson $r$. When the predictor is categorical with multiple groups (e.g., race
+    with 5 categories predicting income), the reported values are typically eta coefficients
+    ($\eta$), which represent the square root of variance explained by group membership —
+    functionally analogous to $r$ but not identical. The most problematic cell is race → spouse
+    similarity, where both variables are multi-category nominal. No version of Pearson $r$ applies
+    here. The technically correct statistic is Cramér’s $V \approx 0.60$, but $V$ is normalized by
+    the number of categories and systematically produces lower values for larger tables — the same
+    data collapsed to a $2 \times 2$ table yields $\phi \approx 0.90$. We report 0.90 because every
+    other cell uses a Pearson-scale metric, and placing 0.60 next to (say) politics → spouse at $r =
+    0.58$ would falsely imply comparable sorting strength, when racial endogamy
+    ([83–95% of marriages are same-race](@pew)) is far stronger than partisan sorting. IQ → job
+    performance ($r = 0.31$) is the post-Sackett (2022) corrected consensus, well below the older
+    Schmidt & Hunter estimate ($r = 0.51$) that still appears in textbooks. All values should be
+    read as approximate effect sizes for comparison across the table, not as precise estimates for
+    any individual cell.
+
 _Takeaways:_
 
 1. Personality tests are bad at predicting life outcomes.
@@ -190,26 +213,3 @@ the individual-level correlation is far smaller than the gap suggests.
 Longitudinal Study of Lottery Winners," IZA Discussion Paper 7934 — British panel data; lottery
 winners shift right and become less egalitarian, scaling with win size.
 <https://www.iza.org/publications/dp/7934>
-
-[^1]:
-    Claude wants to include this methodological note on the heatmap values: The numbers in this
-    table are absolute values of correlation coefficients ($|r|$), but not every cell is a pure
-    Pearson $r$. Most cells — anything with a continuous predictor (IQ, Big Five scores, political
-    orientation) and a continuous outcome (income, mortality) — are standard Pearson correlations
-    drawn from meta-analyses. When the predictor is categorical but binary (e.g., comparing two
-    racial groups on income), the statistic is a point-biserial correlation, which is mathematically
-    identical to Pearson $r$. When the predictor is categorical with multiple groups (e.g., race
-    with 5 categories predicting income), the reported values are typically eta coefficients
-    ($\eta$), which represent the square root of variance explained by group membership —
-    functionally analogous to $r$ but not identical. The most problematic cell is race → spouse
-    similarity, where both variables are multi-category nominal. No version of Pearson $r$ applies
-    here. The technically correct statistic is Cramér’s $V \approx 0.60$, but $V$ is normalized by
-    the number of categories and systematically produces lower values for larger tables — the same
-    data collapsed to a $2 \times 2$ table yields $\phi \approx 0.90$. We report 0.90 because every
-    other cell uses a Pearson-scale metric, and placing 0.60 next to (say) politics → spouse at $r =
-    0.58$ would falsely imply comparable sorting strength, when racial endogamy
-    ([83–95% of marriages are same-race](@pew)) is far stronger than partisan sorting. IQ → job
-    performance ($r = 0.31$) is the post-Sackett (2022) corrected consensus, well below the older
-    Schmidt & Hunter estimate ($r = 0.51$) that still appears in textbooks. All values should be
-    read as approximate effect sizes for comparison across the table, not as precise estimates for
-    any individual cell.

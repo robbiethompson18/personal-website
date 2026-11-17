@@ -22,9 +22,9 @@ It always surprises me how rarely people are willing to affiliate with any group
   Republican.[^libertarian]
 - I meet a lot more Rationalist-adjacent people than I do Rationalists.
 
-<!-- @robbie done (c): links the Meetups Everywhere 2026 post -->
-
 [^libertarian]: The libertarians are immune to this, bless their abrasive souls.
+
+<!-- @robbie done (c): links the Meetups Everywhere 2026 post -->
 
 I hate this pattern.
 

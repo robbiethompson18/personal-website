@@ -32,6 +32,10 @@ Some hazy counterarguments:
 - Race dynamics are impossible to change. Capabilities will proceed at a predetermined pace, but
   _you_ can choose to speed up alignment. I somewhat buy this.
 
+[^caveats]:
+    This is a woefully oversimplified model and doesn't account for countless other non-IABIED risks
+    (eg bioterrorism, concentration of power, war).
+
 I don't know how hard to update on the fact that there are countless researchers at the big lab who
 seem not to be worried about AI x-risk. Being worried is correlated with having thought hard about
 x-risk, but the causal arrow points in both directions.
@@ -45,7 +49,3 @@ because
 3. I don't want to be live in DC.
 
 I hope I am not letting (3) have a bigger impact than I realize.
-
-[^caveats]:
-    This is a woefully oversimplified model and doesn't account for countless other non-IABIED risks
-    (eg bioterrorism, concentration of power, war).

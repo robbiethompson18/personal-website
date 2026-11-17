@@ -34,15 +34,15 @@ student-to-teacher-ratios[^Guides] and paying the kids in 'Alpha Bucks.'[^Alpha]
 one of Alpha's events in San Francisco and talking to some students and parents, my finger in the
 air estimation is: it works.
 
-Interestingly, Alpha's marketing is all in on 'AI school,' but their product has no AI. One of
-founder Mackenzie Price's schticks was 'chatbots are cheatbots.' Everything works on the software
-of 2015.
-
 [^Guides]: Despite the teachers being 'guides' who deliver no curriculum!
 
 [^Alpha]:
     For a fuller treatment of Alpha School I recommend
     https://www.astralcodexten.com/p/your-review-alpha-school.
+
+Interestingly, Alpha's marketing is all in on 'AI school,' but their product has no AI. One of
+founder Mackenzie Price's schticks was 'chatbots are cheatbots.' Everything works on the software
+of 2015.
 
 ## Homeschoolers
 
@@ -220,6 +220,31 @@ software will move the needle, which is why I'm putting this idea on ice.
     or that I should give myself (hypothetical) credit for increased GDP. But it sure as hell makes
     every other number in this BOTEC tiny.
 
+I will at least make a tiny contribution to the vibes by boosting a favorite SSC essay,
+[The Parable of The Talents](https://slatestarcodex.com/2015/01/31/the-parable-of-the-talents/).
+
+## Coda
+
+I probably should've known. When I was in eighth grade I had taken every math class my middle school
+offered, so I took precalc online via EPGY.[^EPGY] I was all alone in a library, no teacher ever
+checked in on me. I had no homework. The course was just multiple choice quizzes and pre-recorded
+videos of someone drawing on an e-whiteboard, like Khan Academy but worse. Still, I passed. [^3eq]
+
+[^EPGY]:
+    [Education Program for Gifted Youth](https://en.wikipedia.org/wiki/Education_Program_for_Gifted_Youth).
+
+[^3eq]:
+    I still tweak out every time I have to solve a system of three equations. Doing this is
+    conceptually easy, but avoiding arithmetic errors would give me fits. I would constantly make
+    one, get a problem wrong with no explanation, and have to stare at my page trying to see where I
+    flipped a sign.
+
+{@hedges-hedberg-2007}: Hedges & Hedberg, "Intraclass Correlation Values for Planning
+Group-Randomized Trials in Education," _Educational Evaluation and Policy Analysis_ 29(1) (2007):
+60–87 — across national K–12 samples, the mean school-level intraclass correlation is 0.22 in both
+math and reading: ~78% of US achievement variance lives within schools, so a single school's stddev
+is ~88% of the national one. <https://journals.sagepub.com/doi/10.3102/0162373707299706>
+
 {@steenbergen-hu-2016}: Steenbergen-Hu, Makel & Olszewski-Kubilius, "What One Hundred Years of
 Research Says About the Effects of Ability Grouping and Acceleration on K–12 Students' Academic
 Achievement," _Review of Educational Research_ 86(4) (2016): 849–899 — second-order meta-analysis of
@@ -233,41 +258,16 @@ the one clean RCT of tracking itself. +0.14–0.18 SD after 18 months, gains at 
 including the bottom half, still +0.16 SD a year after the program ended.
 <https://www.nber.org/papers/w14475>
 
-{@hedges-hedberg-2007}: Hedges & Hedberg, "Intraclass Correlation Values for Planning
-Group-Randomized Trials in Education," _Educational Evaluation and Policy Analysis_ 29(1) (2007):
-60–87 — across national K–12 samples, the mean school-level intraclass correlation is 0.22 in both
-math and reading: ~78% of US achievement variance lives within schools, so a single school's stddev
-is ~88% of the national one. <https://journals.sagepub.com/doi/10.3102/0162373707299706>
-
-{@pisa-year}: OECD, "How Much Do 15-Year-Olds Learn over One Year of Schooling?," PISA in Focus No.
-115 (2021) — ~20 PISA points is the typical learning gain from one year of schooling across OECD
-countries. <https://eric.ed.gov/?id=ED616260>
-
 {@hw-growth}: Hanushek & Woessmann, "Do Better Schools Lead to More Growth? Cognitive Skills,
 Economic Outcomes, and Causation," _Journal of Economic Growth_ 17 (2012): 267–321 — a 100-point
 gain on international test scores is associated with ~1.98 percentage points higher average annual
 GDP growth over 40 years.
 <https://hanushek.stanford.edu/sites/default/files/publications/Hanushek+Woessmann%202012%20JEconGrowth%2017(4).pdf>
 
+{@pisa-year}: OECD, "How Much Do 15-Year-Olds Learn over One Year of Schooling?," PISA in Focus No.
+115 (2021) — ~20 PISA points is the typical learning gain from one year of schooling across OECD
+countries. <https://eric.ed.gov/?id=ED616260>
+
 {@cbo-gdp}: CBO, _The Budget and Economic Outlook: 2026 to 2036_ (Feb. 2026) — implied nominal GDP
 of ~\$46.7T in 2036, back-calculated from CBO's own stated 2036 spending (\$11.4T = 24.4% of GDP)
 and revenue (\$8.3T = 17.8% of GDP) figures. <https://www.cbo.gov/publication/61882>
-
-I will at least make a tiny contribution to the vibes by boosting a favorite SSC essay,
-[The Parable of The Talents](https://slatestarcodex.com/2015/01/31/the-parable-of-the-talents/).
-
-## Coda
-
-I probably should've known. When I was in eighth grade I had taken every math class my middle school
-offered, so I took precalc online via EPGY.[^EPGY] I was all alone in a library, no teacher ever
-checked in on me. I had no homework. The course was just multiple choice quizzes and pre-recorded
-videos of someone drawing on an e-whiteboard, like Khan Academy but worse. Still, I passed. [^3eq]
-
-[^3eq]:
-    I still tweak out every time I have to solve a system of three equations. Doing this is
-    conceptually easy, but avoiding arithmetic errors would give me fits. I would constantly make
-    one, get a problem wrong with no explanation, and have to stare at my page trying to see where I
-    flipped a sign.
-
-[^EPGY]:
-    [Education Program for Gifted Youth](https://en.wikipedia.org/wiki/Education_Program_for_Gifted_Youth).

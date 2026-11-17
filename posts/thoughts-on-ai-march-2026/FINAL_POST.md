@@ -20,6 +20,11 @@ Already many humans prefer Claude’s prose to their own, and let LLMs edit or f
 what they produce.[^1] Once everyone (who matters) does this, some meta Turing Test will have been
 passed.
 
+[^1]:
+    Claude certainly checks my work for typos. Writing that I don’t want or expect any human to
+    read, like a reflection after an HR training or a corporate blog post for SEO, I will happily
+    let AI write. But everything I publish in my name is my own prose (for now at least).
+
 ## AI Productivity Psychosis
 
 Status symbols die when they become cheap. A [thin watch](https://paulgraham.com/brandage.html) is
@@ -62,8 +67,3 @@ x, y, or z.” A real example I got recently:
 
 These sentences sound like BuzzFeed headlines circa 2014. OpenAI rewarded the models too much for
 getting follow-up questions.
-
-[^1]:
-    Claude certainly checks my work for typos. Writing that I don’t want or expect any human to
-    read, like a reflection after an HR training or a corporate blog post for SEO, I will happily
-    let AI write. But everything I publish in my name is my own prose (for now at least).

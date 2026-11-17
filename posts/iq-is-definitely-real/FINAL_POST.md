@@ -86,12 +86,6 @@ Findings," _Molecular Psychiatry_ 20 (2015): 98–108 — heritability of intell
 from ~20% in infancy to ~60% in adulthood (up to ~80% in later adulthood), with shared-environment
 effects shrinking correspondingly. <https://www.nature.com/articles/mp2014105>
 
-{@sisk-2018}: Sisk, Burgoyne, Sun, Butler & Macnamara, "To What Extent and Under Which Circumstances
-Are Growth Mind-Sets Important to Academic Achievement? Two Meta-Analyses," _Psychological Science_
-29(4) (2018): 549–571 — mindset–achievement correlation r ≈ 0.10; average intervention effect d ≈
-0.08, near zero for typical students.
-<https://journals.sagepub.com/doi/abs/10.1177/0956797617739704>
-
 {@scharfen-2018}: Scharfen, Peters & Holling, "Retest Effects in Cognitive Ability Tests: A
 Meta-Analysis," _Intelligence_ 67 (2018): 44–66 — scores rise ~0.33 SD (about 5 IQ points) from
 first to second administration and ~0.5 SD by the third, then plateau.
@@ -107,3 +101,9 @@ Meta-Analysis," _Psychological Science_ 29(8) (2018): 1358–1369 — 1–5 IQ p
 of education, from compulsory-schooling law changes, school-entry regression discontinuities, and
 prior-IQ-controlled longitudinal designs; effects persist across the lifespan.
 <https://journals.sagepub.com/doi/abs/10.1177/0956797618774253>
+
+{@sisk-2018}: Sisk, Burgoyne, Sun, Butler & Macnamara, "To What Extent and Under Which Circumstances
+Are Growth Mind-Sets Important to Academic Achievement? Two Meta-Analyses," _Psychological Science_
+29(4) (2018): 549–571 — mindset–achievement correlation r ≈ 0.10; average intervention effect d ≈
+0.08, near zero for typical students.
+<https://journals.sagepub.com/doi/abs/10.1177/0956797617739704>

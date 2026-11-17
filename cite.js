@@ -40,9 +40,16 @@ export default function cite(md) {
 
     const env = (state.env.cites ??= { defs: {}, order: [] });
     env.defs[m[1]] = content.trim();
+    // Renders nothing (rule below); it only tells place-notes.js which lines the definition spans.
+    const token = state.push("cite_definition", "", 0);
+    token.map = [startLine, next];
+    token.meta = { id: m[1] };
     state.line = next;
     return true;
   });
+
+  // A rule, not `token.hidden`: the renderer adds a newline after a hidden token.
+  md.renderer.rules.cite_definition = () => "";
 
   // --- inline refs: rewrite `[phrase](@id)` links into citation anchors ---
   md.core.ruler.after("inline", "cite_refs", (state) => {

@@ -24,6 +24,11 @@ Does it strike you as odd that dentists recommend that almost everyone get their
 removed? What happened to cavepeople? Did they all have horrible jaw pain in their twenties and
 thirties?[^1] Did they perform root canals with rocks?
 
+[^1]:
+    Yes, Paleolithic humans had lower life expectancies than modern ones. No, they did not all die
+    by their 30s. Conditional on making it to 15, your life expectancy was about 50.
+    [Study](https://gurven.anth.ucsb.edu/sites/secure.lsit.ucsb.edu.anth.d7_gurven/files/sitefiles/papers/GurvenKaplan2007pdr.pdf).
+
 If you ask an anthropologist, they’ll tell you: the human jaws we’ve found from before the
 agricultural revolution have perfect teeth. I’m sure some of the skeletons show teeth knocked out
 from blows. But the problems that modern orthodontia aims to fix — malocclusion, crowded and crooked
@@ -131,13 +136,8 @@ IRBs will block RCTs where the treatment group is something like 'use a tanning 
 causes skin cancer.' Without reading any tanning bed study, I have a strong prior that it's
 observational.[^workarounds]
 
-Know if a study is indirect (eg it shows lowered cholesterol but not lowered mortality).
-
 [^workarounds]:
     There are interesting workarounds, like having the treatment group be "pay people to stop using
     a tanning bed." I rarely see this.
 
-[^1]:
-    Yes, Paleolithic humans had lower life expectancies than modern ones. No, they did not all die
-    by their 30s. Conditional on making it to 15, your life expectancy was about 50.
-    [Study](https://gurven.anth.ucsb.edu/sites/secure.lsit.ucsb.edu.anth.d7_gurven/files/sitefiles/papers/GurvenKaplan2007pdr.pdf).
+Know if a study is indirect (eg it shows lowered cholesterol but not lowered mortality).

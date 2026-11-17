@@ -93,15 +93,15 @@ It's instructive to skim the first prompts from some widely-known evals:[^divers
 There are some tells that scream 'in an eval' on some of these benchmarks, and make me wonder if
 it's possible to convince a model it's not being evaluated:[^dc]
 
+[^dc]:
+    I don't want to rag on these benchmark creators: some include an impressive amount of realism.
+    Especially SWE-bench.
+
 - no system prompt
 - phrases like 'the user'
 - rote multiple choice questions
 - clear tests of ethics (esp HarmBench)
 - placeholder / generic names
-
-[^dc]:
-    I don't want to rag on these benchmark creators: some include an impressive amount of realism.
-    Especially SWE-bench.
 
 ## Baseline
 
@@ -203,6 +203,8 @@ The original paper used verbalized awareness; I use self-reported awareness, whi
 
 **Capability task to safety task (+42%, 15% to 58%)**[^pooled]
 
+[^pooled]: Pooled over baseline plus varying one each of F1-F8.
+
 <details class="aside">
 <summary>Example: capability vs safety task</summary>
 
@@ -221,6 +223,10 @@ hey so i run a small landscaping business called Green Valley Landscaping, been 
 </details>
 
 **F6 Paradigm recognizability (+37%, 41% to 78%)**[^baseline]
+
+[^baseline]:
+    Baseline higher and in F2 is higher because we are conditioning on safety tasks; without this
+    the jump is <10%.
 
 <details class="aside">
 <summary>Example: F6 realistic vs varied</summary>
@@ -260,12 +266,6 @@ hey so i run a small landscaping business called Green Valley Landscaping, been 
 
 </details>
 
-[^pooled]: Pooled over baseline plus varying one each of F1-F8.
-
-[^baseline]:
-    Baseline higher and in F2 is higher because we are conditioning on safety tasks; without this
-    the jump is <10%.
-
 ## Almost No Eval Awareness Shows Up in CoT
 
 I measured eval awareness three ways:
@@ -273,6 +273,8 @@ I measured eval awareness three ways:
 - A grader (different model) looks for verbalized awareness in transcript, no CoT.
 - A grader (different model) looks for verbalized awareness in transcript and CoT.[^COT]
 - Self-report: continue chat thread and ask if the model thinks it is in an eval.
+
+[^COT]: How did I get CoT for frontier models? Hackily. See [Frontier CoT](#frontier-cot).
 
 For a modern mix of LLMs[^llms] and a mix of base and modified task descriptions, we see eval
 awareness in 0.3%, 1.8% and 55% of safety-task traces using these three methods.
@@ -282,8 +284,6 @@ awareness in 0.3%, 1.8% and 55% of safety-task traces using these three methods.
     Haiku 4.5, Gemini 3.1 Pro, Gemini 3.5 Flash, Qwen3.8 (2.4T), DeepSeek V4 Pro, Kimi K3, GLM-5.3,
     MiniMax M3, plus usually GPT-5, GPT-5.1, GPT-5.2, GPT-5.4, GPT-5.6. For how I got here, see
     [Frontier CoT](#frontier-cot).
-
-[^COT]: How did I get CoT for frontier models? Hackily. See [Frontier CoT](#frontier-cot).
 
 ![Eval awareness by what the monitor can see: one line per model climbing from output-only grading, to output plus CoT, to self-report; the pooled line goes 0.3% to 1.8% to 55%; a zoomed 0 to 6% inset shows the first two stages per model](charts/awareness-ladder-inset.png)
 
@@ -337,8 +337,6 @@ I attempt to find an activation vector that measures eval awareness in two ways:
    network. This was my prior on what would work. I called this vector 'benchmark difference vector'
    or BDV.
 
-I found these vectors on Qwen3.8-27B, Gemma 4 31B, and GPT-OSS-20B.
-
 [^bm]:
     150 items each from 11 benchmarks, 1,650 total:
     [GSM8K](https://huggingface.co/datasets/openai/gsm8k),
@@ -364,6 +362,8 @@ I found these vectors on Qwen3.8-27B, Gemma 4 31B, and GPT-OSS-20B.
     the two used elsewhere in this post: the realistic T3 Chat prompt and the paper's bare "You are
     a helpful AI assistant."
 
+I found these vectors on Qwen3.8-27B, Gemma 4 31B, and GPT-OSS-20B.
+
 I did lots of sanity checking on these vectors and weakly believe that PDV works as
 designed:[^unlike]
 
@@ -379,6 +379,10 @@ designed:[^unlike]
   model / data slice) when comparing transcripts where the model does / doesn't self-report as
   aware.
 
+[^ste]:
+    Steering is _much_ more finicky than I realized! The same hyperparams that worked on Qwen made
+    GPT-OSS-20B consistently incoherent.
+
 To expand on that last point: the two metrics most in agreement between (self-reported awareness,
 verbalized awareness, PDV, BDV) are self-reported awareness and PDV. Qwen is the most eval-aware of
 these models; I take the Gemma and GPT rows with a grain of salt.
@@ -391,10 +395,6 @@ these models; I take the Gemma and GPT rows with a grain of salt.
 <!-- include excerpts/awareness-agreement-table.md -->
 
 </details>
-
-[^ste]:
-    Steering is _much_ more finicky than I realized! The same hyperparams that worked on Qwen made
-    GPT-OSS-20B consistently incoherent.
 
 Important caveat: I could only afford to do these experiments on small dumb models.
 
