@@ -475,13 +475,24 @@ table:has(> thead th:empty) td:first-child {
    one (with a "Like" label) is centred at the end of the text. */
 .title-row {
   display: flex;
+  flex-wrap: wrap; /* the stars drop under a title too long to share its line */
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.25rem 0.75rem;
   margin-bottom: 0.5rem;
 }
 
 .post-header .title-row h1 {
   margin: 0;
+  max-width: calc(100% - 3.25rem); /* keeps the heart on the title's line */
+}
+
+/* Robbie's self-rating, to the right of the heart (same markup as the index rows) */
+.title-row .post-stars {
+  flex: none;
+  margin-left: 0;
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--muted);
 }
 
 .like-row {

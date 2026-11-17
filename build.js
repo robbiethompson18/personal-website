@@ -268,6 +268,11 @@ const likeButton = (label = "") =>
   `<button class="like" type="button" aria-label="Like this post" aria-pressed="false">${HEART}${label}</button>`;
 const LIKE_ROW = `<p class="like-row">${likeButton("<span>Like</span>")}</p>\n`;
 
+// Robbie's self-rating (`rating:` frontmatter, default 3) as five stars: on each index
+// row and beside the like heart on the post itself.
+const stars = (rating) =>
+  `<span class="post-stars" title="${rating}/5">${"★".repeat(rating)}${"☆".repeat(5 - rating)}</span>`;
+
 // The end of the text is where the Notes (footnotes) or Sources section starts, or the
 // end of the html when a post has neither.
 function withLikeRow(html) {
@@ -309,7 +314,9 @@ function postPage(p, { standalone = false } = {}) {
     ? ""
     : `\n      <footer class="post-footer">\n        <p><a href="${blogHref}">&larr; More ${p.project ? "projects" : "writing"}</a></p>\n      </footer>`;
   const h1 = `<h1>${esc(p.meta.title)}</h1>`;
-  const title = standalone ? h1 : `<div class="title-row">${h1}${likeButton()}</div>`;
+  const title = standalone
+    ? h1
+    : `<div class="title-row">${h1}${likeButton()}${stars(p.rating)}</div>`;
   const body = `    <main class="post">
       <article>
         <header class="post-header">
@@ -348,7 +355,7 @@ function indexPage(posts, { heading, path, showProjectTag = false }) {
         : "";
       return `        <li data-rating="${p.rating}"${ext ? ' class="external"' : ""}>
           ${logo}<a class="post-link" href="${href}">${esc(p.meta.title)}${tags}</a>
-          <span class="post-date"><time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time><span class="post-stars" title="${p.rating}/5">${"★".repeat(p.rating)}${"☆".repeat(5 - p.rating)}</span></span>
+          <span class="post-date"><time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time>${stars(p.rating)}</span>
         </li>`;
     })
     .join("\n");
