@@ -116,9 +116,11 @@ MB, e.g.
 `ffmpeg -ss 5 -i clip.mp4 -frames:v 1 clip.jpg`.
 
 **Photos** Wrap photos in `<div class="photo-row">`: they sit centred on one line, all the same
-height whatever their shapes (default 240px; set it per row with `style="--h: 200px"`). Use bare
-`<img>` lines, or `<figure><img …><figcaption>…</figcaption></figure>` to caption one photo. It's an
-HTML block, so captions are plain text, not markdown.
+height whatever their shapes, as big as fits the column. The height tops out at what two square
+photos side by side would get; set a lower cap per row with `style="--h: 200px"`. Use bare `<img>`
+lines, or `<figure><img …><figcaption>…</figcaption></figure>` to caption one photo. It's an HTML
+block, so captions are plain text, not markdown. The build reads each photo's dimensions, so the
+`src` must be a file in the post folder.
 
 ### Charts
 

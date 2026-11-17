@@ -9,7 +9,7 @@ In the winter delicious green weeds sprout up all over California. On my walks I
 miner's lettuce, oxalis, cleavers, and chickweed. The parks in SF have java apples, which you can
 eat about half the year. On Stanford campus there's fruit to be gleaned almost any time of year.
 
-<div class="photo-row" style="--h: 258px">
+<div class="photo-row">
 <figure><img src="forage-31-java-apple-on-tree.jpg" alt="Java apples on the tree"><figcaption>Java apples in Lafayette Park.</figcaption></figure>
 <figure><img src="forage-02-weed-patch-by-deck.jpg" alt="A patch of miner's lettuce beside a deck"><figcaption>Miner's lettuce at my childhood home.</figcaption></figure>
 </div>
@@ -20,7 +20,7 @@ leaves. Or pick a sprig of rosemary or lavender. Or linger by the jasmine.
 Related: if you roll up a bay leaf and put it in your nose for 20 seconds while hiking, you'll get
 an intense headrush. How did I figure this out? By accident, I was mostly trying to enjoy the scent.
 
-<div class="photo-row" style="--h: 318px">
+<div class="photo-row">
 <figure><img src="bayleaf-03-hike-leaf-in-nostril-tight-crop-of-01.jpg" alt="A friend on a hike with a leaf in her nostril"></figure>
 <figure><img src="bayleaf-02-friend-rolled-leaf-in-nostril-closeup.jpg" alt="A friend with a rolled leaf in her nostril"></figure>
 </div>
@@ -30,7 +30,7 @@ an intense headrush. How did I figure this out? By accident, I was mostly trying
 When it rains I put on nothing but shorts and go for a walk. When I travel to snowy places I go
 outside almost naked and roll around in the snow.
 
-<div class="photo-row" style="--h: 240px">
+<div class="photo-row">
 <img src="snow-01-snow-angel-at-night-briefs.jpg" alt="A snow angel at night">
 <img src="snow-02-snow-davos-lake-swim.jpg" alt="Swimming in a lake ringed with snow">
 <img src="snow-07-rain-nyc-shirtless-with-friends.jpg" alt="Shirtless in the rain in New York with two friends">
@@ -41,14 +41,14 @@ outside almost naked and roll around in the snow.
 The turnaround point on my morning runs is a redwood tree, about 30 feet tall, which I climb before
 heading home.
 
-<div class="photo-row" style="--h: 248px">
+<div class="photo-row">
 <figure><img src="tree-03-selfie-in-turnaround-redwood.jpg" alt="Selfie from up in the turnaround redwood"><figcaption>The turnaround tree.</figcaption></figure>
 <figure><img src="tree-02-selfie-in-conifer-near-de-young.jpg" alt="Selfie from up in a conifer"><figcaption>A nearby tree, harder to climb but with a better view.</figcaption></figure>
 </div>
 
 If there are no trees around, you can always climb buildings. Or lampposts.
 
-<div class="photo-row" style="--h: 288px">
+<div class="photo-row">
 <img src="climb-07-davos-stone-wall-2022.jpg" alt="Partway up a stone wall in Davos">
 <img src="climb-01-terman-fountain-pole-2019-closeup.jpg" alt="Climbing a lamp pole above a crowd at night">
 </div>
@@ -58,7 +58,7 @@ If there are no trees around, you can always climb buildings. Or lampposts.
 The worst part of planes is sitting still. So at the gate I do yoga, upward dog and all on the
 airport carpet. If you're flying to the right place (eg Oahu), aunties will join in.
 
-<div class="photo-row" style="--h: 234px">
+<div class="photo-row">
 <figure><img src="yoga-01-dancer-pose-airport-baggage-claim.jpg" alt="Dancer pose at an airport baggage claim"><figcaption>My sisters will not join in.</figcaption></figure>
 <figure><img src="yoga-03-nearmiss-subway-side-stretch-close.jpg" alt="A side stretch holding a subway pole"><figcaption>Subways even have equipment to help you stretch!</figcaption></figure>
 </div>
@@ -81,7 +81,7 @@ In NYC's Washington Square Park there's a man who feeds the pigeons. He barks at
 in a loop around the park. Then he barks again, and they land at his feet. If you're friendly, he'll
 help you feed them.
 
-<div class="photo-row" style="--h: 288px">
+<div class="photo-row">
 <img src="pigeon-12-robbie-favicon-original-cropped-no-bystander.jpg" alt="Pigeons eating from my hand in Washington Square Park">
 <img src="pigeon-21-friend-pigeon-on-hand.jpg" alt="A friend with a pigeon on her hand">
 </div>
@@ -113,6 +113,6 @@ in the lake.
 My crewmates and I knew all 15 cows and 20 horses by name. Rolly was my favorite cow, named after
 the puppy from 101 Dalmations because he was so hungry.
 
-<div class="photo-row" style="--h: 300px">
+<div class="photo-row">
 <figure><img src="rolly.jpg" alt="A brown calf lying in the sun in front of a bush"><figcaption>Rolly would've been your favorite too.</figcaption></figure>
 </div>

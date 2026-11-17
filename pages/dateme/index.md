@@ -5,7 +5,7 @@ date: 2026-11-15
 
 _Last updated Oct 30 2026_
 
-<div class="photo-row">
+<div class="photo-row" style="--h: 240px">
 <img src="headshot.jpg" alt="">
 </div>
 
@@ -57,6 +57,10 @@ _Independence_: I am charismatic and extrovert-presenting, but by nature am an i
 my alone time. If me going off the grid for ten days for a meditation retreat once every year or two
 would be extremely burdensome for you, we might not be a great match.[^1]
 
+[^1]:
+    To be explicit: I want an intimate and securely attached relationship, and I’m excited to
+    support my partner when they need it. But I am attracted to people who can be happy alone.
+
 **Your Potential Dealbreakers**
 
 _Polyamory:_ I am poly
@@ -81,7 +85,7 @@ _Religion_: I’m atheist; this isn’t important to me
 if you reach out with a date me doc of your own!
 [Some pics I use on the apps](https://drive.google.com/drive/folders/1geDuB0jjfGtrvQkfV77PB9QqnUipBGKW)
 
-<div class="photo-row">
+<div class="photo-row" style="--h: 240px">
 <img src="pic-1.jpg" alt="">
 <img src="pic-2.jpg" alt="">
 <img src="pic-3.jpg" alt="">
@@ -98,11 +102,7 @@ if you reach out with a date me doc of your own!
 <img src="pic-9.jpg" alt="">
 </div>
 
-<div class="photo-row">
+<div class="photo-row" style="--h: 240px">
 <img src="pic-8.jpg" alt="">
 <img src="pic-10.jpg" alt="">
 </div>
-
-[^1]:
-    To be explicit: I want an intimate and securely attached relationship, and I’m excited to
-    support my partner when they need it. But I am attracted to people who can be happy alone.

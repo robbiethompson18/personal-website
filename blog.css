@@ -152,33 +152,36 @@ video {
   border-radius: 4px;
 }
 
-/* Photos: <div class="photo-row"> centres its photos on one line, all the same
-   height whatever their shapes. Set the height per row with style="--h: 200px".
-   Bare <img>s, or <figure><img><figcaption> for a caption under one photo (the
-   table display keeps a long caption from making its figure wider than its
-   photo). On narrow screens the height shrinks so a pair still fits side by side. */
+/* Photos: <div class="photo-row"> puts its photos on one line, all the same
+   height whatever their shapes, as big as fits the column. The height tops out
+   at what two square photos side by side would get, (row - gap) / 2; a row can
+   set a lower cap with style="--h: 200px". Bare <img>s, or
+   <figure><img><figcaption> for a caption under one photo.
+   How: build.js stamps each child with --ar (width / height). Its flex-basis is
+   its width at the capped height, and since flex-shrink takes width off each
+   item in proportion to its basis, a row too wide for the column shrinks with
+   the widths still in ratio, so the heights stay equal. */
 .photo-row {
-  --h: 240px;
+  --gap: 0.75rem;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  gap: 0.75rem;
+  gap: var(--gap);
   margin: 1.5rem 0;
+}
+.photo-row > * {
+  flex: 0 1 calc(var(--ar) * min(var(--h, 999rem), (100% - var(--gap)) / 2));
+  min-width: 0;
+  margin: 0;
 }
 .photo-row img {
   display: block;
-  width: auto;
-  height: min(var(--h), 42vw);
-  margin: 0;
-}
-.photo-row figure {
-  display: table;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ar); /* holds the space before the photo loads */
   margin: 0;
 }
 .photo-row figcaption {
-  display: table-caption;
-  caption-side: bottom;
   padding-top: 0.4rem;
   font-size: 0.82rem;
   color: var(--muted);

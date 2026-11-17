@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@vscode/markdown-it-katex": "^1.1.2",
+    "image-size": "^2.1.0",
     "katex": "^0.17.0",
     "markdown-it": "^14.1.0",
     "markdown-it-footnote": "^4.0.0"

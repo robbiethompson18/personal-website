@@ -23,6 +23,7 @@ import { createHash } from "node:crypto";
 import MarkdownIt from "markdown-it";
 import footnote from "markdown-it-footnote";
 import katex from "@vscode/markdown-it-katex";
+import { imageSize } from "image-size";
 import cite from "./cite.js";
 import { SITE, liveAssetUrl } from "./site.js";
 
@@ -529,13 +530,32 @@ function expandIncludes(body, dir) {
   );
 }
 
+// blog.css sizes a .photo-row so its photos share one height and fit on one line.
+// CSS can't see a photo's shape, so stamp each row child (the <figure>, or a bare
+// <img>) with its width/height ratio as --ar.
+function stampPhotoRatios(html, assetDir) {
+  return html.replace(/<div class="photo-row"[\s\S]*?<\/div>/g, (row) =>
+    row.replace(/(<figure>)?<img ([^>]*?)src="([^"]+)"/g, (_m, figure, attrs, src) => {
+      const { width, height, orientation } = imageSize(readFileSync(join(assetDir, src)));
+      const sideways = orientation >= 5; // EXIF says the browser will show it rotated 90°
+      const style = ` style="--ar: ${(sideways ? height / width : width / height).toFixed(3)}"`;
+      return figure
+        ? `<figure${style}><img ${attrs}src="${src}"`
+        : `<img${style} ${attrs}src="${src}"`;
+    }),
+  );
+}
+
 // Every post is a folder: posts/<slug>/FINAL_POST.md is the published body,
 // with co-located assets (charts/, images) copied to the output. Other .md
 // files in the folder (POST_DRAFT.md, POST_RESEARCH.md) are ignored by the build.
 function loadPost(slug, mdPath, assetDir) {
   const { meta, body } = parse(readFileSync(mdPath, "utf8"));
   if (!meta.title || !meta.date) throw new Error(`${mdPath}: frontmatter needs title and date`);
-  const html = md.render(expandIncludes(body, assetDir), { assetDir }); // assetDir: the video poster lookup
+  const html = stampPhotoRatios(
+    md.render(expandIncludes(body, assetDir), { assetDir }), // assetDir: the video poster lookup
+    assetDir,
+  );
   // KaTeX always emits <span class="katex">; use that to pull in its stylesheet
   // only on pages that actually render math (same lazy-load spirit as charts).
   const hasMath = html.includes('class="katex"');

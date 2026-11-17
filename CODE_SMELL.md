@@ -113,3 +113,9 @@ second or more; a `beforeEach` that yields one turn papers over the ECONNRESET t
 keep-alive socket). Making `db()` async is the real fix. (8) The Email Sending domain, the verified
 destination address and the `AUTHOR_KEY` secret live only in the Cloudflare account, not in the repo
 (`docs/cloudflare-hosting.md` describes them).
+
+Nov 17, 2026: build.js's `stampPhotoRatios` finds photo-row children by regex over the rendered
+HTML, so it only knows two shapes: a bare `<img …>` and `<figure><img …>` with nothing between the
+tags and no attributes on the figure. A figure with a class, an img wrapped in a link, or a nested
+`<div>` inside the row gets no `--ar` and silently lays out wrong. Switch to a real HTML parser (or
+a markdown-it container) if photo rows grow more markup.
