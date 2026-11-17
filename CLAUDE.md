@@ -75,8 +75,14 @@ blog-side edits are lost; `git diff` afterwards is the safety net. Prettier adds
 headings, so the synced copy differs from upstream by whitespace only — that's stable, not churn.
 
 **Title Case.** Post titles and headings are Title Case, with short articles, prepositions and
-conjunctions lowercase (a, the, of, for, on, in, to, with, and): "A Bullshit Job for Every
-American", not "For". The first word and the word after a colon are always capitalized.
+conjunctions lowercase (a, an, the, and, or, but, of, for, on, in, to, at, as, by, with, from): "A
+Bullshit Job for Every American", not "For". Every other word is capitalized, including short verbs
+(Is, Are, Do) and "Than". The first word and the word after a colon are always capitalized. A post
+with a `source:` line gets its title from upstream, so fix it there too.
+
+**External links open in a new tab.** `build.js` adds `target="_blank"` to every markdown link whose
+host isn't this site; same-site and in-page links stay in the tab. A raw `<a>` written in a post's
+HTML doesn't get it, so add the attribute by hand there.
 
 **No subtitles.** The builder doesn't support them and Robbie doesn't like them — don't add a
 subtitle anywhere (posts, Substack drafts).

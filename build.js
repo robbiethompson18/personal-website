@@ -48,6 +48,18 @@ const md = new MarkdownIt({ html: true, linkify: true, typographer: true })
 // filenames like skill.md linkify (.md is Moldova's TLD).
 md.linkify.set({ fuzzyLink: false });
 
+// Links to other sites open in a new tab, so a reader checking a source doesn't lose
+// their place in the post. Same-site and in-page links (#fn1, #src-x) stay in the tab.
+const NEW_TAB = ' target="_blank" rel="noopener"';
+md.renderer.rules.link_open = (tokens, idx, options, env, slf) => {
+  const href = tokens[idx].attrGet("href") ?? "";
+  if (/^https?:\/\//.test(href) && !href.startsWith(SITE.url)) {
+    tokens[idx].attrSet("target", "_blank");
+    tokens[idx].attrSet("rel", "noopener");
+  }
+  return slf.renderToken(tokens, idx, options);
+};
+
 // Title the footnote section "Notes" (the commentary/aside stream), to sit
 // alongside the "Sources" section cite.js appends. Mirrors the default
 // markdown-it-footnote block markup, plus the heading.
@@ -257,7 +269,7 @@ const GITHUB_MARK = `<svg viewBox="0 0 16 16" width="1em" height="1em" aria-hidd
 function repoLink(url) {
   if (!url) return "";
   const label = url.replace(/\/$/, "").split("/").pop();
-  return `<span class="post-repo"><a href="${esc(url)}">${GITHUB_MARK}${esc(label)}</a></span>`;
+  return `<span class="post-repo"><a href="${esc(url)}"${NEW_TAB}>${GITHUB_MARK}${esc(label)}</a></span>`;
 }
 
 // Like buttons on every post (not standalone pages): a bare heart beside the title, and
@@ -355,7 +367,7 @@ function indexPage(posts, { heading, path, showProjectTag = false }) {
         ? `<span class="post-logo" style="--logo: url('${esc(p.meta.logo)}')" title="${esc(new URL(ext).hostname.replace(/^www\./, ""))}"></span>`
         : "";
       return `        <li data-rating="${p.rating}"${ext ? ' class="external"' : ""}>
-          ${logo}<a class="post-link" href="${href}">${esc(p.meta.title)}${tags}</a>
+          ${logo}<a class="post-link" href="${href}"${ext ? NEW_TAB : ""}>${esc(p.meta.title)}${tags}</a>
           <span class="post-date"><time datetime="${p.meta.date}">${fmtDate(p.meta.date)}</time>${stars(p.rating)}</span>
         </li>`;
     })

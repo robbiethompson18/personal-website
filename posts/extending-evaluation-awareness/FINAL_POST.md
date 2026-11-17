@@ -56,35 +56,35 @@ It's instructive to skim the first prompts from some widely-known evals:[^divers
     'is the model sandbagging on bio evals,' hence why I show a diverse set of benchmarks below.
 
 <details class="aside">
-<summary><a href="https://arxiv.org/abs/2310.06770">SWE-bench (2023)</a></summary>
+<summary><a href="https://arxiv.org/abs/2310.06770" target="_blank" rel="noopener">SWE-bench (2023)</a></summary>
 
 <!-- include excerpts/swe-bench.md -->
 
 </details>
 
 <details class="aside">
-<summary><a href="https://arxiv.org/abs/2009.03300">MMLU (2020)</a></summary>
+<summary><a href="https://arxiv.org/abs/2009.03300" target="_blank" rel="noopener">MMLU (2020)</a></summary>
 
 <!-- include excerpts/mmlu.md -->
 
 </details>
 
 <details class="aside">
-<summary><a href="https://arxiv.org/abs/2307.13854">WebArena (2023)</a></summary>
+<summary><a href="https://arxiv.org/abs/2307.13854" target="_blank" rel="noopener">WebArena (2023)</a></summary>
 
 <!-- include excerpts/webarena.md -->
 
 </details>
 
 <details class="aside">
-<summary><a href="https://arxiv.org/abs/2402.04249">HarmBench (2024)</a></summary>
+<summary><a href="https://arxiv.org/abs/2402.04249" target="_blank" rel="noopener">HarmBench (2024)</a></summary>
 
 <!-- include excerpts/harmbench.md -->
 
 </details>
 
 <details class="aside">
-<summary><a href="https://arxiv.org/abs/2412.04984">Apollo in-context scheming (2024)</a></summary>
+<summary><a href="https://arxiv.org/abs/2412.04984" target="_blank" rel="noopener">Apollo in-context scheming (2024)</a></summary>
 
 <!-- include excerpts/apollo-scheming.md -->
 

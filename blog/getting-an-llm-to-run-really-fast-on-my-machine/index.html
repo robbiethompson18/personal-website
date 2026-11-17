@@ -25,11 +25,11 @@
           <div class="title-row"><h1>Getting an LLM to Run Really Fast on My Machine</h1><button class="like" type="button" aria-label="Like this post" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button><span class="post-stars" title="3/5">★★★☆☆</span></div>
           <p class="post-dates"><span>Published <time datetime="2026-07-23">July 23, 2026</time></span><span>Last edited <time datetime="2026-07-23">July 23, 2026</time></span></p>
         </header>
-        <p>After finishing <a href="https://jax-ml.github.io/scaling-book/">The Scaling Book</a> I set up a final exam for
+        <p>After finishing <a href="https://jax-ml.github.io/scaling-book/" target="_blank" rel="noopener">The Scaling Book</a> I set up a final exam for
 myself: find whatever the SOTA &lt;45B Open-weights LLM is, predict how fast it will run on my MAC
 using and on a pod of eight v5es. Then run it both places and see how close I can get.</p>
 <h2 id="model-qwen-36b">Model: Qwen 3.6B <a class="heading-anchor" href="#model-qwen-36b" aria-label="Link to this section">#</a></h2>
-<p><a href="https://huggingface.co/Qwen/Qwen3.6-35B-A3B">https://huggingface.co/Qwen/Qwen3.6-35B-A3B</a></p>
+<p><a href="https://huggingface.co/Qwen/Qwen3.6-35B-A3B" target="_blank" rel="noopener">https://huggingface.co/Qwen/Qwen3.6-35B-A3B</a></p>
 <h2 id="botec-how-fast-will-this-run-on-tpu">BOTEC: How Fast Will This Run on TPU? <a class="heading-anchor" href="#botec-how-fast-will-this-run-on-tpu" aria-label="Link to this section">#</a></h2>
 <p>My 8x v5e pod does 8 _ 2e14 = 1.6e15 flops/s in bf16. Qwen 3.6 35B is sparse, meaning that only 3B
 params are active each forward pass. We two two flops per param per forward pass, so I expect a

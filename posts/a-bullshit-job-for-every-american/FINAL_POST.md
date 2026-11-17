@@ -134,9 +134,9 @@ study [Byzantine acoustics](https://profiles.stanford.edu/bissera-pentcheva) and
 ["eroticism in German opera after Wagner"](https://profiles.stanford.edu/adrian-daub).[^lwr]
 
 [^lwr]:
-    Learned while researcing: professorships have as much branding as NASCAR. Stanford has a Tencent
-    Chair of the of the Computer Science Department, Yahoo! Founders Professor in the School of
-    Engineering, et.
+    Learned while researching: professorships have as much branding as NASCAR. Stanford has a
+    Tencent Chair of the Computer Science Department, Yahoo! Founders Professor in the School of
+    Engineering, etc.
 
 _Influencer:_ AI will be better at raw persuasion _conditioned on getting your attention_. But
 humans have enough baked-in social drives that human influencers might still have privileged access

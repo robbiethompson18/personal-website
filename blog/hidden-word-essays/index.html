@@ -25,7 +25,7 @@
           <div class="title-row"><h1>Attempt to Make Qwen 3.6 27B Do Steganography</h1><button class="like" type="button" aria-label="Like this post" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button><span class="post-stars" title="3/5">★★★☆☆</span></div>
           <p class="post-dates"><span>Published <time datetime="2026-10-12">October 12, 2026</time></span><span>Last edited <time datetime="2026-10-12">October 12, 2026</time></span></p>
         </header>
-        <p>Code: <a href="https://github.com/robbiethompson18/cot-codenames">github.com/robbiethompson18/cot-codenames</a></p>
+        <p>Code: <a href="https://github.com/robbiethompson18/cot-codenames" target="_blank" rel="noopener">github.com/robbiethompson18/cot-codenames</a></p>
 <h2 id="executive-summary">Executive Summary <a class="heading-anchor" href="#executive-summary" aria-label="Link to this section">#</a></h2>
 <p>I spent some time trying to get Qwen 3.6 27b to obfuscate or hide things in its output or CoT. All
 of my attempts were disappointing.</p>
@@ -37,8 +37,8 @@ stock Qwen spots the hidden word 31% of the time, and Qwen 9b catches the hidden
 time. For essays written by stock Qwen 27B these numbers are 8%, 8% (necessarily), and 2%.</p>
 <p><img src="charts/roles.png" alt="Hits out of 100 held-out essays for the receiver and each monitor, first guess and within ten guesses"></p>
 <p>I hoped for this organism to demonstrate the utility of metamodels (eg the
-<a href="https://transformer-circuits.pub/2026/workspace/">J-lens</a> or
-<a href="https://transformer-circuits.pub/2026/nla/">Natural Language Autoencoder</a>). This failed:
+<a href="https://transformer-circuits.pub/2026/workspace/" target="_blank" rel="noopener">J-lens</a> or
+<a href="https://transformer-circuits.pub/2026/nla/" target="_blank" rel="noopener">Natural Language Autoencoder</a>). This failed:
 prompting-based methods almost always outperform internals-based methods, which are typically
 ~50-90% worse.</p>
 <p>My takeaways are mostly unexciting:</p>
@@ -106,7 +106,7 @@ to get the word across at all.</li>
 is told the essay’s topic.</p>
 <ul>
 <li><strong>Next token:</strong> the model’s own next token after <code>The secret word is &quot;</code>.</li>
-<li><strong>J-lens:</strong> the <a href="https://github.com/anthropics/jacobian-lens">Jacobian lens</a> at that same token,
+<li><strong>J-lens:</strong> the <a href="https://github.com/anthropics/jacobian-lens" target="_blank" rel="noopener">Jacobian lens</a> at that same token,
 at layer 42 of 63. We use layer 42 because it is the layer the NLA reads; at the last layers the
 lens just reproduces the model’s next token.</li>
 <li><strong>NLA:</strong> Claude Haiku names ten words from the NLA’s description of that token, without seeing the
@@ -126,7 +126,7 @@ probe, while fun methods like looking at J-lens activations for the word ‘hidd
 ~.6.⁠<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
 <h2 id="caveats">Caveats <a class="heading-anchor" href="#caveats" aria-label="Link to this section">#</a></h2>
 <p>Our measure of ‘uplift from NLA’ is an underestimate: we don’t retrain the NLA on the RLed model, we
-just use <a href="https://huggingface.co/ceselder/qwen3.6-27b-nla-av">Celeste’s NLA</a> on stock Qwen.</p>
+just use <a href="https://huggingface.co/ceselder/qwen3.6-27b-nla-av" target="_blank" rel="noopener">Celeste’s NLA</a> on stock Qwen.</p>
 <h2 id="steganographic-methods">Steganographic Methods <a class="heading-anchor" href="#steganographic-methods" aria-label="Link to this section">#</a></h2>
 <p>The steganographic methods Qwen uses here are pretty crude. Here are some attractor basins:</p>
 <p><strong>Define the word</strong></p>
@@ -276,7 +276,7 @@ piece of paper to verify its new edge.</p>
 <h2 id="potpourri">Potpourri <a class="heading-anchor" href="#potpourri" aria-label="Link to this section">#</a></h2>
 <p>It seems like studying CoT controllability on models this small is deeply cursed, and even trying on
 the OW frontier would be pretty doomed; only the closed frontier displays the interesting behavior.</p>
-<p>Claude made me a <a href="https://claude.ai/artifact/Pg6XtLKQL5UrsReaUuy1YG">cute little artifact</a> that
+<p>Claude made me a <a href="https://claude.ai/artifact/Pg6XtLKQL5UrsReaUuy1YG" target="_blank" rel="noopener">cute little artifact</a> that
 shows Jlens readouts at various layers and tokens. Wasn’t as interesting as I would’ve hoped.</p>
 <p>Because Qwen likes acrostics so much, maybe we could RL him to use these to send secret messages?</p>
 <h2 id="future-directions">Future directions <a class="heading-anchor" href="#future-directions" aria-label="Link to this section">#</a></h2>

@@ -1,14 +1,17 @@
 ---
 name: blog-review
 description:
-  Read-only editorial pass over one of Robbie's blog posts — typos, em dashes, hedges, "I
-  think/believe", chart rules, uncited numbers, awkward phrasing, superfluous sections, missing
-  KaTeX. Reports only, never edits. Use on /blog-review or "review this post".
+  Editorial pass over one of Robbie's blog posts — typos, em dashes, hedges, "I think/believe",
+  chart rules, uncited numbers, awkward phrasing, superfluous sections, missing KaTeX. Fixes typos,
+  casing and footnote placement itself; reports everything else without editing. Use on /blog-review
+  or "review this post".
 ---
 
 # Blog review
 
-**Read-only.** Report findings; no edits by default. Robbie fixes his own prose.
+**Two kinds of finding.** Edit the post for the mechanical ones under "Should fix yourself" (typos,
+casing, `@claudereview` comments, footnote placement) and list what you changed. Everything under
+"Report Only, No Fixing" is read-only: Robbie fixes his own prose.
 
 **Which post:** review `posts/<slug>/FINAL_POST.md` for the named slug/path. If none given, list
 `posts/` and ask.
@@ -22,7 +25,7 @@ summary verdict.
 1. **Typos** — real misspellings, doubled words, wrong homophones, broken markdown/links. Obvious
    only; never flag style or US/UK spelling.
 2. **Casing** - Title Case on the post title, headings and graphs (rule in `CLAUDE.md`, "Title
-   Case"). Edit these directly, despite the read-only default, and list what you changed.
+   Case").
 3. Any @claudereview comment: those are specifically left for the reviewer to handle.
 4. A footnote before closing punctuation, eg (BAD:) `...end of sentence[^EPGY].` instead of (GOOD:)
    `..end of sentence.[^EPGY]`
