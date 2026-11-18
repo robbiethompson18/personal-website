@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pacing</title>
+    <link rel="canonical" href="https://robbiewmthompson.com/blog/pacing-v1/" />
+    <meta property="og:title" content="Pacing" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://robbiewmthompson.com/blog/pacing-v1/" />
+    <meta property="og:image" content="https://robbiewmthompson.com/assets/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="alternate" type="application/rss+xml" title="Robbie Thompson" href="/feed.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/blog.css?v=fd6aece0" />
+    <link rel="stylesheet" href="/vendor/katex/katex.min.css" />
+  </head>
+  <body>
+    <main class="post">
+      <article>
+        <header class="post-header">
+          <p class="draft-banner">Draft — not in the index or feed</p>
+          <p class="post-meta"><a href="/blog/">&larr; Blog</a></p>
+          <div class="title-row"><h1>Pacing</h1><button class="like" type="button" aria-label="Like this post" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button><span class="post-stars" title="2/5">★★☆☆☆</span></div>
+          <p class="post-dates"><span>Published <time datetime="2026-11-17">November 17, 2026</time></span><span>Last edited <time datetime="2026-11-17">November 17, 2026</time></span></p>
+        </header>
+        <p>I am bullish on AI labs establishing best practices which incidentally slow down the pace of
+progress. These mostly serve the purpose of <em>slowing down now</em>, while Verified Compute Allocation
+Disclosures (VCAD) handle <em>slowing down later</em>.</p>
+<h2 id="going-slower-now">Going Slower Now <a class="heading-anchor" href="#going-slower-now" aria-label="Link to this section">#</a></h2>
+<p>All numbers estimate quickly. You could convince me they are off by an OOM.</p>
+<h3 id="security-measures-eg-sl4-that-as-a-side-effect-slow-down-research-progress">Security Measures (eg SL4) That, as a Side Effect, Slow Down Research Progress <a class="heading-anchor" href="#security-measures-eg-sl4-that-as-a-side-effect-slow-down-research-progress" aria-label="Link to this section">#</a></h3>
+<p>The SF rumor mill tells me this would slow down research progress by tens of percentage points. It’s
+not clear how to operationalize this. Lab employees could insist that weights be under SL4 level
+security in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> months. The labs take security
+<a href="https://techcrunch.com/2025/07/07/openai-tightens-the-screws-on-security-to-keep-away-prying-eyes/" target="_blank" rel="noopener">very seriously</a>,
+yet still not seriously enough. Further reading:
+<a href="https://www.lesswrong.com/posts/gG4EhhWtD2is9Cx7m/implications-of-the-ai-security-gap" target="_blank" rel="noopener">LessWrong</a>,
+<a href="https://situational-awareness.ai/lock-down-the-labs/" target="_blank" rel="noopener">Situational Awareness</a>.</p>
+<h3 id="external-audits-prior-to-internal-deployments">External Audits Prior to Internal Deployments <a class="heading-anchor" href="#external-audits-prior-to-internal-deployments" aria-label="Link to this section">#</a></h3>
+<p><a href="https://blog.redwoodresearch.org/p/prioritizing-threats-for-ai-control" target="_blank" rel="noopener">Many</a>
+<a href="https://metr.org/blog/2025-01-17-ai-models-dangerous-before-public-deployment/" target="_blank" rel="noopener">experts</a> believe
+that most takeover risk arises from internal deployments at labs, not rogue agents escaped from the
+datacenter. Yet most safety and auditing work goes into model cards which inform and block
+<em>external</em> deployments. For Mythos Preview, Anthropic did only a
+<a href="#src-mythos-card" class="cite" id="citeref-mythos-card">24-hour internal check</a> before deploying internally. Their RSP requires a Risk Report
+<a href="#src-rsp" class="cite" id="citeref-rsp">30 days after internal deployment</a>.</p>
+<p>I don’t expect labs to let their compute sit idle, and there are more VCAD-flavored compute uses
+which I expect to be helpful. Starting with ideas I have not seen proposed seriously:</p>
+<h3 id="spend-5-of-compute-searching-for-vulnerabilities-in-open-source-software">Spend 5% of Compute Searching for Vulnerabilities in Open Source Software <a class="heading-anchor" href="#spend-5-of-compute-searching-for-vulnerabilities-in-open-source-software" aria-label="Link to this section">#</a></h3>
+<p>AI labs are already doing this (see
+<a href="https://openai.com/index/daybreak-securing-the-world" target="_blank" rel="noopener">Daybreak</a>,
+<a href="https://www.anthropic.com/glasswing" target="_blank" rel="noopener">Glasswing</a>). Claude estimates⁠<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>30</mn><mtext>bps</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(30\text{bps})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">30</span><span class="mord text"><span class="mord">bps</span></span><span class="mclose">)</span></span></span></span> of
+Anthropic’s compute went to Glasswing; it’s not clear how much more compute these projects could
+absorb.</p>
+<h3 id="spend-3-of-compute-on-monitoring-of-internal-or-external-deployments">Spend 3% of Compute on Monitoring of Internal or External Deployments <a class="heading-anchor" href="#spend-3-of-compute-on-monitoring-of-internal-or-external-deployments" aria-label="Link to this section">#</a></h3>
+<p>AI labs reveal a surprisingly large amount about their monitoring setups.⁠<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> Claude Fermi
+estimates that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>30</mn><mtext>bps</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(30\text{bps})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">O</span><span class="mopen">(</span><span class="mord">30</span><span class="mord text"><span class="mord">bps</span></span><span class="mclose">)</span></span></span></span> of frontier lab compute goes to monitoring.⁠<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> Given Hugging
+Face, the real number can and should be much higher.</p>
+<h3 id="spend-80-of-compute-on-external-inference">Spend 80% of Compute on External Inference <a class="heading-anchor" href="#spend-80-of-compute-on-external-inference" aria-label="Link to this section">#</a></h3>
+<p>This proposal is the most boring, most scalable, easiest to operationalize, and does the most work
+towards building robust ways of validating where compute gets spent. The hard part is the <em>how</em>,
+which I discuss briefly in the next section.</p>
+<h2 id="going-slower-in-the-future">Going Slower in the Future <a class="heading-anchor" href="#going-slower-in-the-future" aria-label="Link to this section">#</a></h2>
+<p>Much ink has been spilled on “how to prove that you are not spending your compute on AI R&amp;D.”
+<a href="https://ai-2040.com/supplements/verification-plan" target="_blank" rel="noopener">AI 2040</a> is a great place to start.</p>
+<p>I plan to write about this in more detail in the future. Here is my teaser of promising approaches:</p>
+<ul>
+<li>Use hardware guarantees to ensure you are running the model you say you are (slightly immature).</li>
+<li>Use zk-snarks to sign inference, enabling privacy while guaranteeing that your tokens came from a
+fixed model. This is 2-3 OOMs too slow to be useful at present.</li>
+<li>Make your whole datacenter open and public, then recompute random outputs to guarantee that a
+fixed model is doing inference. This assumes that “open and public” isn’t catastrophic, which is a
+big if.</li>
+<li>Physically destroy horizontal bandwidth inside your datacenter. This makes large training runs
+hard but not impossible and doesn’t make much sense.</li>
+</ul>
+<!-- @robbie done (was "@c put this whole monologue in a commenet plz"): everything from here to the end of the file is commented out.
+
+I am confused by people's pacing proposals. People talk about verifying that a certain percentage of
+compute goes to things like non-capabilities research or inference, and they have fancy frameworks
+to deal with this because they claim that things like scalable oversight are secretly capabilities
+research, even if they look like interpretability research. I object on three grounds:
+
+1. There's better, lower-hanging fruit: policies that would slow just by accident that we should
+   implement anyway. By that, I'm primarily thinking of security. Implementing super strict security
+   safeguards would slow down algorithmic progress (e.g., you can't talk about algos in Slack, and
+   you have to work out of a skiff). I think the incidental slowdown stuff should be first on the
+   docket. I'm not sure if there are other examples outside of security.
+2. These proposals are so complicated, and political will and human understanding are hard to come
+   by. Deciding whether scalable oversight research counts as capabilities versus alignment: if
+   you're fighting that battle, you've already lost. I think these metrics will get gamed. Sam
+   Altman is better at this game than you are, and the politicians will not understand. I think you
+   should instead fight your battles on forcing a certain standard. I know that companies are
+   working on this. I guess I take it as an axiom that if you can succeed at prosaic alignment,
+   you're on track to proceed with non-prosaic alignment. I know that other people disagree with
+   this. Whatever. It would be excellent if we had some alignment standard we made companies hit
+   that implicitly slowed down progress because they couldn't deploy their model until they passed
+   said regulatory framework. It obviously can't just be model scores 100% on Harmbench. That's
+   boring and dumb. It could be that government red teamers try to hack your model and your
+   safeguards and your whole production system before you can even deploy internally. That would
+   require a lot of political will, but sounds excellent, and that would implicitly do a lot of
+   slowing down. I'm not proposing that we make some shit government body. I actually want it to be
+   a good government body, but I want corporations to have to really, really succeed at aligning
+   their model before they can deploy it. Anyway, in general, I want a standard of alignment, as
+   opposed to "we're slowing down for the sake of slowing down." I think that sounds more
+   politically tenable. If you are slowing down for the sake of slowing down, this third part I feel
+   most uncertain about. There's a concept in trading where one never does partial takes. If it's
+   good to trade 100 shares at $50, it's good to trade 1,000 shares at $50. Well, that's not true.
+   If someone is resting a bid for 1,000 shares, you might not want to hit all 1,000 when you would
+   be willing to hit their bid for 100 shares. That does not mean that you should hit the first 100
+   shares of their 1,000. You should either hit all 1,000, or you should hit none and wait for the
+   price to rise because you think that their demand to buy is raising the price (the fair price of
+   the stock). I guess this analogy probably doesn't apply here, unfortunately, and is not a very
+   interesting thing to bring up, but I do, in general, question the idea that slowing down is the
+   right framing. Does it matter if we get a misaligned ASI in 2030 or 2028? It matters that it
+   doesn't happen, which means we should be aiming for each model we release to be maximally
+   aligned, not to have it happen slowly. I understand that time is instrumental in this, and it
+   takes time to review things, but that is possibly why we're in a maximally bad regime at present,
+   where, in fact, no one is reviewing Model 4. It is just being deployed internally, which is maybe
+   what everyone's saying about external auditors. It really is a shame that the U.S. government is
+   not interested in doing this auditing. Surely the EU could do this. I love this idea. Surely the
+   EU could say, "Any company which does business in the EU must allow our EU auditors into your
+   lab." Would it work? How many dollars is it worth OpenAI to have a total EU AI monopoly if they
+   agree to this and Anthropic doesn't? Probably not that many dollars. Not enough to let them have
+   strict, strong auditors. Certainly the EU has a lot more to lose and could cripple its own
+   economy. Well, no. I guess it would cripple its own economy, and it would also cripple the global
+   economy. You could say, "I can't say Google can't use." No, sorry, bad example. The EU couldn't
+   just say, "Bank of America, you can no longer access European financial markets if you use Claude
+   because they don't abide by our auditing regime." I guess they could maybe do this, but I
+   understand why it would be so hard and politically difficult to do this. You're punishing by
+   association, and then people would set up shell corporations, etc. Bank of America Prime would do
+   business in the EU, while Bank of America Original uses Anthropic models. Okay, yeah, maybe that
+   doesn't work. Oh well.
+
+Okay, another idea: you could have pacing be that you must externally deploy your model at the same
+time you internally deploy it. There's some bullshit around: you get to have classifiers on your
+external deployments, and maybe you even get to have the model catastrophically forget things. But
+there should be some standard for "everyone gets it," and if it's too safe for external deployment,
+it's too unsafe for internal deployment.
+
+Maybe that's horrible for distilling reasons. That's actually an open question to me: to what extent
+should stuff be deployed externally or not? I think it's quite hard. Maybe that is a fundamental
+issue of our time: how to make powerful models available, auditable, not distillable.
+-->
+<p class="like-row"><button class="like" type="button" aria-label="Like this post" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><span>Like</span></button></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<h2 class="footnotes-title" id="notes">Notes <a class="heading-anchor" href="#notes" aria-label="Link to this section">#</a></h2>
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><div class="claude-text" data-tooltip="Highlighted text generated by Claude">
+<ul>
+<li>Glasswing launched 2026-04-07 with up to $100M of Mythos Preview credits, at list price, for 12 launch partners and 40+ other organizations.</li>
+<li>Anthropic’s compute and infrastructure expense was $18.8B for the first nine months of 2026 and $9.9B in Q3 alone (<a href="https://sacra.com/c/anthropic" target="_blank" rel="noopener">Sacra</a>), so about $30B for the full year.</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">$</mi><mn>100</mn><mtext>M</mtext><mi mathvariant="normal">/</mi><mi mathvariant="normal">$</mi><mn>30</mn><mtext>B</mtext><mo>=</mo><mn>33</mn><mtext>bps</mtext></mrow><annotation encoding="application/x-tex">\$100\text{M} / \$30\text{B} = 33\text{bps}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">$100</span><span class="mord text"><span class="mord">M</span></span><span class="mord">/$30</span><span class="mord text"><span class="mord">B</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">33</span><span class="mord text"><span class="mord">bps</span></span></span></span></span>.</li>
+<li>Adjustments: the credits are at list price and revenue runs about 1.8x compute cost, so at cost it is $55M, or 18bps. That assumes every credit gets used. Anthropic’s own scanning with Mythos Preview is unpublished and adds to it.</li>
+</ul>
+</div>
+ <a href="#fnref1" class="footnote-backref">↩︎</a></li>
+<li id="fn2" class="footnote-item"><p>OpenAI:
+<a href="https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment" target="_blank" rel="noopener">How we monitor internal coding agents for misalignment</a>
+(2026). Anthropic:
+<a href="https://www-cdn.anthropic.com/f21d93f21602ead5cdbecb8c8e1c765759d9e232.pdf" target="_blank" rel="noopener">Sabotage Risk Report: Claude Opus 4.6</a>
+(2026, sections 5.1 and 8.4),
+<a href="https://www-cdn.anthropic.com/3edfc1a7f947aa81841cf88305cb513f184c36ae.pdf" target="_blank" rel="noopener">Alignment Risk Update: Claude Mythos Preview</a>
+(2026, section 5.5),
+<a href="https://www.anthropic.com/claude-opus-4-8-system-card" target="_blank" rel="noopener">Claude Opus 4.8 system card</a> (2026,
+section 6.2.1.2). <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><div class="claude-text" data-tooltip="Highlighted text generated by Claude">
+<ul>
+<li>A monitor reads each transcript once. The agent re-reads its growing context on every turn (cache hits, about 10% of input cost) and pays for output tokens (about 5x input cost).</li>
+<li>Take a 50-turn trajectory that ends at 100k tokens of context. Agent: 2.5M cached input tokens (250k input-equivalents) plus 30k output tokens (150k) = 400k. Monitor: 100k input plus 2k of reasoning (10k) = 110k.</li>
+<li>So a monitor of the same tier costs about 25% of the agent it watches.</li>
+<li>Internal agents use about 2% of a lab’s compute. This is my guess; no lab publishes it.</li>
+<li>OpenAI monitors 99.9% of internal coding-agent traffic with GPT-5.4 Thinking: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>25</mn><mi mathvariant="normal">%</mi><mo>×</mo><mn>2</mn><mi mathvariant="normal">%</mi><mo>=</mo><mn>50</mn><mtext>bps</mtext></mrow><annotation encoding="application/x-tex">25\% \times 2\% = 50\text{bps}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.0833em;"></span><span class="mord">25%</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">2%</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">50</span><span class="mord text"><span class="mord">bps</span></span></span></span></span>.</li>
+<li>Anthropic in February 2026 sampled 10% of Claude Code actions: 5bps. By May 2026 it covered “most internal traffic”, which puts it near OpenAI’s number.</li>
+<li>Neither figure includes the cheap misuse classifiers on external traffic.</li>
+</ul>
+</div>
+ <a href="#fnref3" class="footnote-backref">↩︎</a></li>
+</ol>
+</section>
+<hr class="sources-sep">
+<section class="sources">
+<h2 class="sources-title" id="sources">Sources <a class="heading-anchor" href="#sources" aria-label="Link to this section">#</a></h2>
+<p class="sources-note">Claude found these sources. Robbie did not necessarily review them.</p>
+<ol class="sources-list">
+<li id="src-mythos-card" class="source-item">Anthropic, “System Card: Claude Mythos Preview” (2026), section 4.1.4. <a href="https://www-cdn.anthropic.com/08ab9158070959f88f296514c21b7facce6f52bc.pdf" target="_blank" rel="noopener">https://www-cdn.anthropic.com/08ab9158070959f88f296514c21b7facce6f52bc.pdf</a> <a href="#citeref-mythos-card" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-rsp" class="source-item">Anthropic, “Responsible Scaling Policy”, version 3.4 (2026), section 3.1. <a href="https://www.anthropic.com/rsp" target="_blank" rel="noopener">https://www.anthropic.com/rsp</a> The norm should be that model cards come out at internal deployment time.[^aq] Bonus points if an external auditor or USG needs to sign off on the deployment. <a href="#citeref-rsp" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+</ol>
+</section>
+
+      </article>
+      <section class="comments" id="comments" hidden>
+        <h2>Comments</h2>
+        <ol class="comment-list"></ol>
+        <form class="comment-form">
+          <input name="name" maxlength="40" placeholder="Name" aria-label="Name" autocomplete="nickname" />
+          <textarea name="body" maxlength="5000" rows="4" placeholder="Leave a comment" aria-label="Comment" required></textarea>
+          <button type="submit">Post</button>
+          <p class="comment-status" role="status"></p>
+        </form>
+      </section>
+      <footer class="post-footer">
+        <p><a href="/blog/">&larr; More writing</a></p>
+      </footer>
+    </main>
+    <script src="/footnotes.js?v=dcd0756c" defer></script>
+    <script src="/hit.js?v=6616d66f" defer></script>
+    <script src="/comments.js?v=1d9339db" defer></script>
+  </body>
+</html>
