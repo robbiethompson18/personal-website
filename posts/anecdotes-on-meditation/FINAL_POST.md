@@ -1,7 +1,7 @@
 ---
 title: Meditation Anecdotes
 date: 2026-11-18
-draft: true
+draft: false
 ---
 
 Meditation was a big part of my life for many years. I did a ten day silent Vipassana retreat, TAed
