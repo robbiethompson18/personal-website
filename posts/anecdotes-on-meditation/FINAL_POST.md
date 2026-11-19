@@ -2,6 +2,7 @@
 title: Meditation Anecdotes
 date: 2026-11-18
 draft: false
+rating: 3
 ---
 
 Meditation was a big part of my life for many years. I did a ten day silent Vipassana retreat, TAed
@@ -63,7 +64,7 @@ the tension we hold in it.
 ---
 
 Gently exiting a long sit with a slow meal feels intense and pleasurable. The sky is bluer, flowers
-smell intensely fragrant, touching trees and kissing their bark feels divine.
+smell more fragrant, touching trees and kissing their bark feels divine.
 
 ## The Bad
 
