@@ -43,6 +43,9 @@ Jensen Huang, newly reinstated as Nvidia CEO, stands by his statement: "If your 
 to ship, don't ship the product." He amends the CUDA, cuDNN, and cuBLAS licenses to ban development
 of 'superhuman AI.'
 
+ASML stops servicing their lithography machines in Taiwan. TSMC, not to be outdone, stops creating
+GPUs. SK Hynix and Samsung had stopped delivering HBM to them anyway.
+
 Maersk, MSC, Hapag-Lloyd, and CMA CGM stop shipping anything besides food to the US Western
 seaboard, and refuse to export anything from the ports of Oakland, Los Angeles, Long Beach, and
 Seattle-Tacoma.
