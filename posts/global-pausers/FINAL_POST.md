@@ -2,7 +2,7 @@
 title: Global Pausers
 date: 2026-11-19
 draft: false
-rating: 3
+rating: 2
 ---
 
 In San Francisco it's no longer crazy to propose that we'll all die in a year or two because of
@@ -56,7 +56,7 @@ Mail.
 
 Vladimir Putin announces that unless Anthropic and OpenAI pause, he will detonate 50-kiloton nuclear
 warheads on Stargate and Project Rainier in precisely 7 days. These weapons would cause minimal
-fallout and loss of life while setting the US ASI effort back several months. Thirty-two UN members
+fallout and loss of life while setting the US ASI effort back several months. Seventy-two UN members
 approve of Russia's proposed use of force, celebrating Putin's humane treatment of the problem.
 
 Pope Leo proclaims in his second encyclical that using machines which think like humans do is a sin,
