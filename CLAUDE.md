@@ -148,6 +148,9 @@ authoring or editing a chart.
 - [Asides, verbatim prompts, includes, Claude-written text — read before adding a collapsible box, pasting an eval prompt/transcript, splitting an excerpt out of a post, or marking text Claude wrote](docs/asides-prompts-includes.md)
   — the blank-line rule, why bare pasted text breaks, the `prompt` fence, prettier-ignore ranges,
   the include directive, cache-busting
+- [AI-generated images — read before generating or editing an image for a post, or making a before/after pair from a real photo](docs/ai-images.md)
+  — which models Robbie picked and what he rejected, the Codex and OpenRouter commands, prompt
+  techniques that worked, licensing and caption conventions
 - [Small probe models vs the frontier roster on eval awareness — read before claiming Qwen3.8-27B / Gemma 4 31B / GPT-OSS-20B are or aren't representative](docs/eval-awareness-small-vs-frontier.md)
   — where each half's numbers live, the config-intersection and system-prompt gotchas, the
   apples-to-apples table, why the "different regime" caveat was dropped
