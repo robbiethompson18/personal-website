@@ -32,7 +32,7 @@ The city banned internal combustion engines and human-driven cars. Every residen
 publicly run self-driving-car network.
 
 After the ICE ban, tule elk, deer, turkeys, and coyotes began repopulating the tip of the peninsula.
-The deer particularly enjoy the Spanish rye grass in meadows that were once parking lots.
+The deer particularly enjoy the Italian ryegrass in meadows that were once parking lots.
 
 A survey of the city showed ambient noise averaging five decibels lower than in 2026, 10 decibels
 lower during rush hour.
