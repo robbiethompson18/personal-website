@@ -6607,3 +6607,97 @@ only researched inputs are the revenue and price figures. Labels as elsewhere.
 - Consequence for the footnote: the serving perimeter cannot be defended with a byte cap alone. The
   cap has to sit on something much smaller than the text (compressed tokens, or verified text), or
   the weights have to be large relative to daily output, which stopped being true around 2025.
+
+---
+
+# Part: SFT Tokens per Param, APEX-Agents Sizes and Rollout Length (fourth round of `@c` notes)
+
+Written 2026-11-22. Every figure here was read in the raw page text or an API response unless
+marked.
+
+## Tokens per parameter
+
+| Model                     | Params            | Pretraining tokens | Per param       | SFT tokens | Per param | SFT / pretraining |
+| ------------------------- | ----------------- | ------------------ | --------------- | ---------- | --------- | ----------------- |
+| Olmo 3 Think 7B (2025)    | 7B                | 5.93T              | 847             | 45.4B      | 6.5       | 0.77%             |
+| Olmo 3 Think 32B (2025)   | 32B               | 5.5T               | 172             | 45.2B      | 1.4       | 0.82%             |
+| Olmo 3 Instruct 7B (2025) | 7B                | 5.93T              | 847             | 3.4B       | 0.5       | 0.06%             |
+| OLMo 2 7B (2025)          | 7B                | 3.90T              | 557             | n/a        | n/a       | n/a               |
+| OLMo 2 32B (2025)         | 32B               | 6.06T              | 189             | n/a        | n/a       | n/a               |
+| Llama 3 8B (2024)         | 8B                | 15T                | 1,875           | n/a        | n/a       | n/a               |
+| Llama 3 70B (2024)        | 70B               | 15T                | 214             | n/a        | n/a       | n/a               |
+| DeepSeek V4-Pro (2026)    | 1.6T (49B active) | 33T                | 21 (673 active) | n/a        | n/a       | n/a               |
+| GLM-5 (2026)              | 744B (40B active) | 28.5T              | 38 (712 active) | n/a        | n/a       | n/a               |
+
+- PRIMARY, Olmo 3 paper (Team Olmo 2025, https://arxiv.org/abs/2512.13961): "pretraining for up to
+  5.9T tokens", "midtraining for 100 billion tokens", long-context extension "for 50B (Olmo 3 Base
+  7B) or 100B". 32B schedule "truncated at 5.5T tokens". Table 47, "Total Tokens": 45.4B (7B
+  Thinking SFT), 45.2B (32B Thinking SFT), 3.4B (7B Instruct SFT); SFT runs "for two epochs".
+- PRIMARY, Hugging Face size API (2026): `allenai/Dolci-Think-SFT-32B` has 2,253,684 rows, 77.6 GB
+  in memory, 36.0 GB as parquet. `allenai/Dolci-Think-SFT-7B`: 2,268,178 rows, 77.7 GB. MY
+  ARITHMETIC: 77.6 GB / 4 bytes is about 19B tokens, so the 45B "Total Tokens" is two passes over
+  about 22B.
+- PRIMARY, OLMo 2 paper (2025, https://arxiv.org/abs/2501.00656): "OLMo 2 7B is trained on 4.05
+  trillion tokens (3.90 trillion for pretraining stage)"; 32B "6.6 trillion tokens (6.06 trillion
+  for pretraining stage)". Mid-training: three runs of 50B tokens for the 7B; three of 100B plus one
+  of 300B for the 13B and 32B, then averaged.
+- PRIMARY, Tulu 3 paper (2024, https://arxiv.org/abs/2411.15124): SFT mix of 939,344 prompts, "two
+  epochs", "maximum sequence length of 4,096 tokens". Hugging Face reports 1.5 GB in memory, about
+  0.4B tokens (MY ARITHMETIC). So the SFT set grew about 50x from Tulu 3 to Olmo 3 Think, mostly
+  from reasoning traces.
+- PRIMARY, Meta's Llama 3 post (2024, read via the Internet Archive copy of
+  https://ai.meta.com/blog/meta-llama-3/): "while the Chinchilla-optimal amount of training compute
+  for an 8B parameter model corresponds to ~200B tokens, we found that model performance continues
+  to improve even after the model is trained on two orders of magnitude more data. Both our 8B and
+  70B parameter models continued to improve log-linearly after we trained them on up to 15T tokens."
+- Chinchilla: Hoffmann et al., "Training Compute-Optimal Large Language Models" (2022),
+  https://arxiv.org/abs/2203.15556. The roughly 20 tokens per parameter figure is from memory of the
+  paper, not re-read today.
+- DeepSeek V4-Pro and GLM-5 rows are from "Part: Does China Have the Cluster", section 5.
+- The Olmo 3 paper also lists other labs' mid-training sizes, "from hundreds of billions" to "almost
+  one trillion tokens (Kimi K2: 400B", "Llama 3.1: 800B", "DeepSeek V3.1: 840B").
+
+## What this implies for a frontier model's SFT data
+
+- Per-param scaling (the post's method): 10T params × 1.4 × 4 bytes = 56 TB; at 1 token per param,
+  40 TB.
+- Evidence against per-param scaling: the 7B and 32B Olmo 3 Think models use the same 45B-token SFT
+  set.
+- Share-of-pretraining scaling: 0.8% × 50T tokens = 0.4T tokens = 1.6 TB.
+- No scaling: 78 GB.
+- The earlier Fermi estimate ("Part: RL Environments, SFT Data and Other Post-Training Assets") put
+  SFT at 0.4 TB and mid-training at 12 TB.
+
+## APEX-Agents (Mercor), measured
+
+Hugging Face file listing for `mercor/apex-agents` (created 2026-01-14, CC BY 4.0,
+https://huggingface.co/datasets/mercor/apex-agents):
+
+| Item                     | Size                                                         |
+| ------------------------ | ------------------------------------------------------------ |
+| Worlds                   | 33                                                           |
+| Tasks                    | 480                                                          |
+| `world_files_zipped`     | 8.9 GB; mean 270 MB, median 177 MB, min 11.5 MB, max 1.68 GB |
+| `task_files`             | 123 MB                                                       |
+| `gold_files`             | 14 MB                                                        |
+| `tasks_and_rubrics.json` | 1.1 MB, 2.3 KB per task                                      |
+| Whole dataset            | 9.04 GB, 19 MB per task                                      |
+
+- The Mercor breach itself gives no per-environment sizes. One secondhand write-up
+  (https://ajing.github.io/posts/2026-04-13-mercor-breach-what-leaked-about-ai-training, 2026, which
+  says it draws only on public reports) lists the claimed 939 GB as the whole GitHub organization
+  and the training material as 84 Airtable workspaces in 1,055 JSONL files: annotation tasks,
+  rubrics, model outputs and human evaluations. No source says RL environments were taken.
+
+## Rollout length
+
+- Mechanize, "Cheap RL tasks will waste compute" (2025,
+  https://www.mechanize.work/blog/cheap-rl-tasks-will-waste-compute/): "frontier RL tasks are
+  already resulting in transcripts with an average length of around 100,000 tokens per task";
+  "transcript lengths appear to be growing at a rate of 5x per year"; "will soon be around half a
+  million tokens"; "trained with a group size of 64".
+- Kimi K3 tech report (2026): "A single rollout may involve up to thousands of tool calls and
+  millions of context tokens."
+- MY ARITHMETIC: 500,000 tokens × 4 bytes = 2 MB per rollout; × 64 = 128 MB per task; × 1.5M tasks =
+  190 TB, 48T tokens. The earlier 15T-token, 60 TB figure used a 150,000-token average over agentic
+  and short episodes.
