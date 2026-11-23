@@ -10,7 +10,13 @@ Epistemic Status: Fictional
 In the Redwood grove just north of the de Young, there are three hundred-foot Redwoods with
 auto-belays nailed to the trunk sixty feet up. One is a 5.4 with climbable branches the whole way,
 another a 5.10a with brown footholds discreetly nailed into the tree, and the third a 5.12a on which
-you have to hand-jam in cracks in the bark.
+you have to hand-jam in cracks in the bark.[^exists]
+
+[^exists]:
+    These exist, the trees don't mind. See
+    [Karri Trees in Australia](https://commons.wikimedia.org/wiki/File:Looking_up_the_Bicentennial_Tree.jpg),
+    [maple trees in New York](https://www.holidayvalley.com/activities/climbing-forest/), and
+    [spruce trees in Utah](https://www.snowbird.com/activities-events/summer-activities/tree-climb/).
 
 <!-- gen:redwood-climbing -->
 
