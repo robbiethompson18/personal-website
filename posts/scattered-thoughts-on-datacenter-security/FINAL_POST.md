@@ -1,9 +1,9 @@
 ---
 title: Scattered Thoughts on Datacenter Security
-date: 2026-11-22
+date: 2026-11-23
 draft: false
 redirect_from: scattered thoughts on datacenter security
-rating: 2
+rating: 3
 ---
 
 Epistemic status: I don't work at a lab, and I don't have close friends who do, and I've never done
@@ -32,8 +32,7 @@ Here are some questions I hope to deconfuse myself about:
 ### Model Weights
 
 I speculate that frontier models are about ~10T params, or ~10TB of data. This fits onto one
-external hard drive you could buy on
-[Amazon](https://www.amazon.com/Western-Digital-Elements-External-external/dp/B07G3QMPB5/ref=sr_1_1?adgrpid=201292937674&dib=eyJ2IjoiMSJ9.cZ4wQt3YRaemtsvis3wjyDVpr6IU5p5jUTvPgPvV8ZLn4BcAE8pd6rdrfRZgvQCp1ZvFzTcIGfLv2cvbvGrZR-OARKr1IkufHaTdbUeiNg09C6Zfu9CKd3GyqaobXzBwqBB9Mb2Dw7hgUDvN3xPGyKiPdyShtgrbCW_wHjM71pxbJsIbMX-9dtWwB1Olq8hf5yxPbwP35qqkmQQMAT81Da0Hk8FNIt9YIv7lvzIT91A.k2dsUE6p-7jZSBrqkQYt3-zdZBN0OQWOJpATxwCPAQY&dib_tag=se&hvadid=816788423012&hvcampaign=24009541080&hvdev=c&hvexpln=0&hvlocphy=9032075&hvnetw=g&hvocijid=5592404375246103090--&hvqmt=e&hvrand=5592404375246103090&hvtargid=kwd-474012051722&hydadcr=9589_14017052_2516394&keywords=10tb%2Bflash%2Bdrive&mcid=46cdd254666235ad9b9f9b6295e4201c&qid=1795393686&sr=8-1&th=1).
+external hard drive you could buy on [Amazon](https://www.amazon.com/dp/B07G3QMPB5).
 Cursed.[^bandwidth] With the weights you instantly have your adversary's best model. Even if
 Anthropic trained a model to do only Anthropic's bidding, it would be trivial for the CCP to undo
 this. Models are or will soon be good enough that they can improve themselves, subject to the
@@ -58,11 +57,11 @@ Questions:
   portion of algorithmic secrets can be conveyed in a couple of pages of text.
 - Chinese labs have the human capital to do a frontier training run using these secrets.
 - Frontier runs are [about 10% of R&D compute](@finalrun). Claude and I speculate that GPT 6 Astra
-  took $9.4\times10^{26}$ flops total,[^astra] trained on hundreds of thousands of Blackwells in
-  Abilene. China has about $2\times10^{21}$ total flops, so it would take them 5 days to do an
-  Astra-sized training run if they spent all of their compute on it, compared to the 90 days it took
-  OpenAI at Abilene. Realistically, if China used their biggest site in Johor, Malaysia, it would
-  take them about 130 days to train Astra.[^Johor]
+  took $9.4\times10^{26}$ flops total,[^astra] trained on over 100k Blackwells in Abilene. China has
+  about $2\times10^{21}$ total flops, so it would take them 5 days to do an Astra-sized training run
+  if they spent all of their compute on it, compared to the 90 days it took OpenAI at Abilene.
+  Realistically, if China used their biggest site in Johor, Malaysia, it would take them about 130
+  days to train Astra.[^Johor]
 
 [^astra]:
     This is [Epoch's estimate](https://epoch.ai/data/ai-models) (2026): 100,000 GB200s × 90 days
@@ -79,12 +78,13 @@ Questions:
     China's biggest site is in Johor because it's illegal to ship Nvidia chips to China, but it's
     not illegal to sell them to a Malaysian company who then rents the compute to China. The Johor
     site is [221,000 H100e](@my06), about 22% as large as the biggest US site (Stargate in Abilene,
-    Texas). It's owned by Bain, operated by Oracle, and used by ByteDance, originally for TikTok.
-    Just three days ago (Nov 19), [the Commerce Department started requiring licenses](@bisrule) to
-    ship chips to datacenters which in turn serve Chinese companies, and intimated that they would
-    enforce this restriction retroactively, ie require existing datacenter operators to get a
-    license to serve Chinese companies, under threat of future export controls. 'Recommendation
-    algorithms' (TikTok algos) are exempt; it's unclear to what extent this loophole will be abused.
+    Texas). It's owned by Bain, operated by a Bain subsidiary, and used by ByteDance, originally for
+    TikTok. Just three days ago (Nov 19),
+    [the Commerce Department started requiring licenses](@bisrule) to ship chips to datacenters
+    which in turn serve Chinese companies, and intimated that they would enforce this restriction
+    retroactively, ie require existing datacenter operators to get a license to serve Chinese
+    companies, under threat of future export controls. 'Recommendation algorithms' (TikTok algos)
+    are exempt; it's unclear to what extent this loophole will be abused.
 
 ### SFT Data
 
@@ -120,7 +120,9 @@ data,[^mercor] meaning that stealing every environment is maybe tens of terabyte
 magnitude as the model itself. Possibly you can get away with orders of magnitude fewer bytes via
 some compression scheme (eg LLM summarization or zstd).
 
-[^rumors]: Claude and the rumor mill independently arrived at this OOM.
+[^rumors]:
+    Claude and the rumor mill independently arrived at this OOM. Moonshot's Kimi K3 used
+    [1.5 million sandbox images](@kimi).
 
 [^mercor]:
     Claude fermi estimated these numbers, and I had them sanity-check by looking at some real-world
@@ -208,6 +210,10 @@ months of 2026, compared with a year earlier", per Strauss and O'Reilly (2026):
 <https://asimovaddendum.substack.com/p/anthropics-missing-s-1-disclosures>. That makes about $1.0
 billion of data vendor costs for those nine months, against $18.8 billion of compute spend, per
 Epoch AI (2026): <https://epoch.ai/data-insights/anthropic-openai-compute-spend-growth>.
+
+{@kimi}: Kimi Team, "Kimi K3: Open Frontier Intelligence" (2026), section 5.3: "Throughout Kimi K3’s
+training and evaluation, a total of 51,219,741 sandboxes across 1,505,678 images were created."
+<https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf>
 
 {@pricing}: Anthropic's API pricing (2026): Claude Fable 5.2 costs $8 per million input tokens and
 $40 per million output tokens. <https://platform.claude.com/docs/en/about-claude/pricing>
