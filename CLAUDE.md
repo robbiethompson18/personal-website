@@ -19,6 +19,14 @@ this gives you license to fix his typos or edit his prose. And do not _hedge_ so
 you fill in a number. Robbie will often be editing at the same time as you: try to edit a file max
 five times before returning control to Robbie and asking him to stop editing.
 
+**Comments you leave in a post get their own paragraph.** Never put an HTML comment
+(`<!-- @robbie done … -->`) inline in Robbie's prose or bullets: fill the blank in place and put the
+comment below that paragraph or list.
+
+**When Robbie is editing live, his saves can overwrite yours.** After answering a note in a post,
+check a few seconds later that the answer is still in the file and write it again if not. Keep
+trying; don't move answers to a side file.
+
 **Cross-posting** a published post to Substack (the default; not LessWrong unless asked, and never
 email subscribers) lives in the `/crosspost` skill — the import, the cleanup of its artifacts, and
 web-only publishing.
