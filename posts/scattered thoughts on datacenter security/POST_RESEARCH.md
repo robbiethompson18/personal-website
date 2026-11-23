@@ -2,9 +2,8 @@
 
 Compiled 2026-11-22 by Claude research agents for the `@c` note in `FINAL_POST.md` (the three
 questions under "Algorithmic Secrets") and for the post's other open questions. Each part is one
-agent's full findings, with sources and quotes. The short version of the first four parts is in the
-orange box in the post. The last two parts (weights size, the bandwidth limit, other things to
-steal, infiltration, the CCP) are not in the post.
+agent's full findings, with sources and quotes. The short version of the first four parts was in an
+orange box in the post, which Robbie has since replaced with his own bullets.
 
 Every part ends its speculation sections with the agent's own committed guesses, as the note asked.
 Those are marked MY INFERENCE or MY ARITHMETIC and are not sourced facts.
@@ -16,6 +15,19 @@ be checked against its URL before it is quoted in the post.
 
 Not reachable: SEC EDGAR blocks automated clients and the Anthropic S-1 is over 10 MB, so every S-1
 figure is second-hand (Epoch AI, Tom's Hardware, TechCrunch and others who read the filing).
+
+Added later on 2026-11-22 for the second round of `@c` notes: "Part: The Johor Site", "Part: What
+Labs Spend on Data and Environments" and "Part: RL Environments, SFT Data and Other Post-Training
+Assets". Their short answers are in hidden `@robbie done` comments in the post. The figures used in
+those comments were checked against the raw pages (Epoch's MY06 page data, the IFP report, Epoch on
+OpenAI's data spend, Strauss and O'Reilly on the S-1/A, ChinaTalk and Epoch on RL environments, the
+Kimi K3 report text).
+
+Correction: the offshore section of "Part: Does China Have the Cluster" reads Bridge MY06's 221k
+H100-equivalents as ByteDance Blackwells. "Part: The Johor Site" shows the megawatts are evidenced
+but the chip type is Epoch's default ("Chip type based on NVIDIA chip sales in preceding quarter"),
+and that 70% of the 221k is those assumed B200s. Where the two parts disagree, the Johor part is
+right.
 
 ---
 
@@ -4866,3 +4878,1732 @@ Compiled 2026-11-22. Verification tags:
   AND world-class infra".
 - **Not searched**: Kai-Fu Lee, Moonshot's Yang Zhilin beyond the AGI-Next transcript (his keynote
   there has nothing on this question), Greg Brockman (one search, no transcript line found).
+
+---
+
+# Part: The Johor Site (second round of `@c` notes)
+
+## Part 7: the Johor site, how we know, and who is up in arms
+
+Research date: 2026-11-22. Labels: PRIMARY (company/government document or direct quote), REPORTED
+(journalism), ESTIMATE (someone's model), MY ARITHMETIC, MY INFERENCE.
+
+Quote provenance tags: **[read]** = I downloaded the page and read the text myself. **[fetch]** =
+came through a fetch/summariser tool. **[snippet]** = only seen in a search result summary. Text is
+in quotation marks only where I saw those exact words.
+
+### Short answer
+
+1. MY06 is a real, ByteDance-anchored campus in Sedenak Tech Park, Kulai district, Johor, owned by
+   Bridge Data Centres (Bain Capital). ByteDance as anchor tenant is PRIMARY: a 2022 Malaysian
+   government press release names "ByteDance System Sdn. Bhd" [read].
+2. The "221k H100-equivalents on 243 MW" number is an Epoch ESTIMATE built from satellite
+   cooling-equipment counts and Chindata SEC filings. The megawatts are fairly solid. The chips are
+   not observed at all.
+3. The Blackwells at MY06 are an assumption, not a finding. Epoch's own data marks the 61,573 B200s
+   as chip type "Estimate", with the note "Chip type based on NVIDIA chip sales in preceding
+   quarter" [read]. Those assumed B200s are 70% of the 221k (MY ARITHMETIC).
+4. The better-evidenced route for ByteDance Blackwells in Johor is not MY06. It is Oracle capacity
+   inside DayOne's Johor campuses (SemiAnalysis, relayed by IFP: "GB200s for ByteDance's Oracle
+   capacity in SJB" [read]) plus the Aolani Cloud deal (WSJ, March 2026: ~500 GB200 NVL72 racks,
+   ~36,000 B200, >$2.5B).
+5. IFP's October 2026 report says that at sites like DayOne and Bridge the Chinese tenant "installs
+   its own equipment", and "export controls on advanced GPUs should ensure hyperscaler-owned
+   hardware is compliant" [read]. That directly contradicts reading MY06 as a ByteDance-owned
+   Blackwell cluster.
+6. One fully PRIMARY data point that ByteDance rents Blackwells abroad exists, but it is in Norway:
+   an Nscale loan agreement filed with the SEC names Spring (SG) Pte Ltd and "the 2,304 NVIDIA B200
+   graphics processing units" (quote seen via a third-party dataset that quotes the filing, not on
+   sec.gov myself).
+7. Renting was legal until 19 November 2026. Owning was not: since the October 2023 rule, chips
+   shipped to any China-headquartered entity anywhere needed a licence, and BIS restated that in
+   guidance on 31 May 2026.
+8. Yes, people are up in arms, and it escalated through 2026: House passed the Remote Access
+   Security Act 369-22 (12 Jan 2026), WSJ Aolani story (Mar), BIS guidance (May), BIS enforcement
+   review after Moonshot's Kimi K3 (Aug), IFP report (Oct), Nvidia's own 51% non-Chinese quota
+   (Nov), then the BIS interim final rule (issued 16 Nov, published 19 Nov).
+9. The rule: licence needed for chips going to any data centre worldwide that gives more than
+   12,000,000 aggregate TPP (about 760 H100s) to China-headquartered companies. Existing data
+   centres get 90 days (to 17 Feb 2027, MY ARITHMETIC). It does not order installed chips switched
+   off; the stated penalty is "future export restrictions". Recommender systems are exempt,
+   generative models are not.
+10. My probability that ByteDance is training frontier models on Blackwell-class chips somewhere in
+    Johor right now: **65%**. That it is doing so at MY06 on roughly 60k ByteDance-owned B200s, as
+    the Epoch entry reads: **20%**.
+
+### 1. The site(s)
+
+#### Bridge Data Centres MY06
+
+- PRIMARY. Location is Sedenak Tech Park (STeP), Johor. MIDA release, 20 Oct 2022: "grand opening of
+  BDC's first phase hyperscale data centre (MY06) in Sedenak, Johor" [read]. Epoch lists it as
+  "Kulai, Johor, Malaysia" [read]; Sedenak is in Kulai district.
+- PRIMARY. Original announced size: "Phase 1 covers the first of the three buildings in the 110MW
+  hyperscale data centre project which spans across 38 acres of land area" [read, MIDA 2022].
+- PRIMARY. Build speed: "approximately 2,200,000 working hours (314 days) since breaking ground in
+  November 2021" [read, MIDA 2022].
+- PRIMARY. Tenant: "ByteDance System Sdn. Bhd, will be the anchor tenant of BDC's hyperscale data
+  centre with long-term investment commitment in the country." [read, MIDA 2022]. A ByteDance public
+  policy director, Teresa Tan, is quoted in the same release: "We are excited to partner with BDC in
+  our data centre operations." [read]
+- PRIMARY. Stated purpose in 2022 was TikTok-style serving, not AI training: "As we continue to
+  provide interconnected online experiences to people across the globe while offering them
+  world-class privacy and security protections" [read, MIDA 2022].
+- REPORTED. Owner chain: Bain Capital invested in BDC in 2017, merged it with Chindata in 2019, took
+  Chindata private for $3.16B in 2023, then sold the China business (renamed WinTriX) to a Shenzhen
+  Dongyangguang-led consortium for about $4B, closing early 2026. BDC is the leftover international
+  piece. [read, TNW 2026, summarising Reuters]
+- REPORTED. Bain is selling a BDC stake at about a $5B valuation, with Citi and JPMorgan running it.
+  BDC "currently operates nine data centres: six in Malaysia, two in Thailand, and one in India.
+  TikTok parent ByteDance is the company's anchor tenant, particularly for its hyperscale campus in
+  Malaysia." [read, TNW 2026]. Bidders reported by Bloomberg in July 2026: Sixth Street, SK Telecom,
+  GIC, La Caisse [snippet].
+- ESTIMATE (Epoch, page updated 12 Oct 2026). "Bridge Data Centres MY06 is an operational AI data
+  center with AI chips likely owned and used by ByteDance. It hosts an estimated 221k
+  H100-equivalents of AI compute, supported by 243 MW of IT power at a capital cost of $9.2 B. We
+  estimate that it uses Nvidia A100, Nvidia H100, and Nvidia B200 chips." [read]
+
+Epoch's building-by-building timeline [all read on the Epoch page and its linked calculation sheet]:
+
+| Date        | Event (Epoch)                                       | IT MW | H100e |
+| ----------- | --------------------------------------------------- | ----- | ----- |
+| Oct 2021    | Land clearing, campus 1                             | 0     | 0     |
+| 31 Dec 2022 | Building 1 operational, 19 MW (Chindata SEC filing) | 19    | 6k    |
+| 30 May 2023 | Building 2 operational, 42 MW                       | 61    | 21k   |
+| 5 Nov 2024  | Buildings 3 and 4 operational                       | 114   | 65k   |
+| 25 May 2025 | Buildings 5-7 (campus 2) operational                | 243   | 221k  |
+| Mar 2026    | Buildings 8-10 complete, not running                | 243   | 221k  |
+| 13 Sep 2026 | "no cars in their carparks" at 8-10                 | 243   | 221k  |
+
+- ESTIMATE (Epoch). Ten buildings across two campuses. Seven count as operational. On buildings
+  8-10: "No visible construction work on Buildings 8-10, but no cars in their carparks either
+  (whereas Building 7 has many cars). So we still don't think Buildings 8-10 are utilized." [read]
+- MY ARITHMETIC. Epoch's sheet sizes buildings 8-10 at 38.6 + 8.6 + 23.1 = 70.3 MW. Under Epoch's
+  GB200 assumption that is another ~33,600 B200-equivalents if they ever fill.
+
+Chips Epoch thinks are inside [read from the page's embedded data and the calculation sheet]:
+
+| Buildings | Chip (Epoch) | Count  | H100e   | Source flag in Epoch's data |
+| --------- | ------------ | ------ | ------- | --------------------------- |
+| 1-2       | A100         | 65,857 | 20,765  | Estimate / Estimate         |
+| 3-4       | H100         | 44,720 | 44,720  | Estimate / Estimate         |
+| 5-7       | B200         | 61,573 | 155,566 | Estimate / Estimate         |
+| Total     |              |        | 221,051 |                             |
+
+- MY ARITHMETIC. B200 share of the H100e total: 155,566 / 221,052 = 70%.
+- MY ARITHMETIC. The B200 count is exactly 128.688 MW / (0.132 MW per NVL72 rack x 1.14 overhead /
+  72 GPUs) = 61,573. So Epoch assumed every watt in buildings 5-7 feeds GB200 NVL72 racks.
+- MY ARITHMETIC. Likewise 19 MW / (6.5 kW per 8-GPU A100 server x 1.14 / 8) = 20,513 A100s in
+  building 1. Epoch assumed every watt of a 2022 TikTok-era colo building feeds A100s.
+- MY INFERENCE. Both assumptions bias the estimate upward. A building ByteDance opened in 2022 for
+  "online experiences" was mostly CPU, storage and recommender GPUs. Epoch's method has no way to
+  split AI from non-AI load inside a building.
+- Inconsistency in Epoch's own entry: the chip note for the B200 row says "Adding Buildings 7-10"
+  [read], but the timeline says 5-7 are running and 8-10 are not, and the megawatts match 5-7. Treat
+  the note as a labelling slip.
+
+Who owns the chips vs who rents them:
+
+- ESTIMATE (Epoch). "CHIP OWNER ByteDance (likely)" and "USER ByteDance (likely)" [read]. The only
+  cited basis is the 2022 MIDA anchor-tenant release.
+- ESTIMATE (IFP 2026, relaying SemiAnalysis). "SemiAnalysis reported in January 2025 that ByteDance
+  was leasing Malaysian capacity to deploy CPUs and "some unrestricted GPUs like the B20 and H20,"
+  while renting state-of-the-art GPU systems from Oracle." [read on the IFP page; I did not see the
+  SemiAnalysis original]
+- ESTIMATE (IFP 2026). Direct developer leases are described as "Facilities leased directly from
+  data center developers, such as DayOne and Bridge Data Centres, where the Chinese hyperscaler is
+  the tenant and installs its own equipment. Here, export controls on advanced GPUs should ensure
+  hyperscaler-owned hardware is compliant." [read]
+- REPORTED. A different chip-owning intermediary did sit inside a Bridge site: "In April this year,
+  Bain Capital's Bridge Data Centers removed Megaspeed from their Malaysian computing hub." [read,
+  Asia Times 2026]. Megaspeed is the Singapore firm under US investigation; Bloomberg reported
+  Alibaba reaches Nvidia chips in Malaysia through it [read, TNW 2026]. Which Bridge building is not
+  stated.
+- MY INFERENCE. Three ownership stories fit the public record: (a) ByteDance owns everything and it
+  is CPUs plus licence-free GPUs (IFP/SemiAnalysis reading); (b) ByteDance owns pre-2023 A100s
+  bought legally, and later controlled chips belong to an intermediary such as Oracle or a neocloud;
+  (c) ByteDance owns B200s there, which would have needed a BIS licence or been a violation since
+  late 2023. Epoch's entry reads like (c). I rate (a)+(b) at about 80%.
+
+What ByteDance uses it for:
+
+- Nobody outside knows for MY06 specifically. No source I found ties a named model (Doubao, Seed,
+  Seedance) to MY06.
+- REPORTED (FT, 27 Nov 2025, read via the Irish Times syndication). "Alibaba and ByteDance are among
+  the tech groups training their latest large language models (LLMs) in data centres across
+  Southeast Asia, according to two people with direct knowledge of the matter." [read]. No site
+  named.
+- REPORTED (WSJ, 13 Mar 2026, via Reuters/The Standard). For the Aolani cluster: "ByteDance plans to
+  use the computing power for AI research and development outside China and meet growing global
+  demand for AI from its customers" [read].
+
+#### The neighbours
+
+Epoch directory entries [all read, all ESTIMATE unless noted]:
+
+| Site                                    | IT MW | H100e | Chips (Epoch)              | Owner / user (Epoch)                                              |
+| --------------------------------------- | ----- | ----- | -------------------------- | ----------------------------------------------------------------- |
+| Bridge MY06, Kulai                      | 243   | 221k  | A100, H100, B200           | ByteDance (likely) / ByteDance (likely)                           |
+| DayOne Nusajaya, Johor Bahru            | 473   | 584k  | 34,400 H100 + 217,467 B300 | page says unknown; sheet says "ByteDance #likely, Oracle #likely" |
+| DayOne Kempas, Johor                    | 422   | 481k  | 190,237 B300               | unknown; owners "carried over from our Nusajaya sheet"            |
+| Oracle Batam (DayOne Nongsa), Indonesia | 72    | 84k   | B200, B300                 | Oracle (likely) / Tencent (speculative)                           |
+| YTL Johor, Kulai                        | 113   | 154k  | 9,576 B200 + 51,192 B300   | unknown                                                           |
+
+- MY ARITHMETIC. The four China-linked sites sum to 1,210 MW and 1.37M H100e. A LessWrong dataset
+  post (Hung, 2026) computes the same and notes that is 81% of the 1,494 MW Epoch tracks outside the
+  US and China [read].
+- ESTIMATE (Epoch). Kempas has no tenant evidence of its own: "as of Jul 2026 we found no
+  Kempas-specific tenant reporting" [read].
+- ESTIMATE (Epoch). Nusajaya excludes three Phase 1 buildings (69.5 MW) as "probably not AI".
+  Epoch's cooling model disagreed with company numbers there: "Our default cooling model's results
+  aren't consistent with reported numbers." [read, calculation sheet]. They fell back on DayOne's
+  own "390 MW" in-service claim.
+- PRIMARY (via Epoch's quote of DayOne's site). DayOne reported 390 MW "in service" in Johor as of
+  30 Jan 2026 [read on Epoch's page, not on DayOne's].
+- YTL Johor is the only one of the five with a company-disclosed chip type: Epoch flags the first
+  9,576 B200s as "Company disclosure" (YTL's Nvidia GB200 DGX Cloud announcement) [read]. No
+  ByteDance link claimed.
+- REPORTED (SemiAnalysis, 30 Jun 2025). "We believe the most underappreciated aspect of Oracle's
+  growth story is its relationship with ByteDance. It has triggered the rise of Johor, Malaysia as
+  the world's second largest AI hub" [read]. And: "It is widely believed that most of Oracle's ASEAN
+  GPU capacity is allocated to Bytedance." [read]. And on DayOne: "its largest customer (by
+  committed power) is, by far, Bytedance. Oracle ranks second" [read].
+- PRIMARY (DayOne F-1, filed 5 Oct 2026; quote seen via the Hung dataset, sec.gov blocked my
+  request). "our largest customer, a global technology company with a leading short-form video
+  platform serving a worldwide audience, accounted for 69.4% and 69.2%, respectively, of our
+  revenue". Oracle is reported as second at 12.3% and 15.1% [snippet].
+- REPORTED (Bloomberg, 11 Jul 2025). DayOne is "a key regional operator that counts TikTok owner
+  ByteDance as its largest customer", and Oracle "will be the sole tenant at DayOne plots that could
+  support facilities with at least 120 megawatts of power" in Batam [read].
+- REPORTED (The Information, 16 Oct 2026, via a Dealroom abstract). "One person said none of the
+  ByteDance work is for AI training or inference, and that ByteDance is under 50% of 2027 contracted
+  commitments". Also: "As of September, ByteDance had committed 838MW across sites in Malaysia,
+  Thailand and Finland" [read, Dealroom abstract; not the original article]. One anonymous source
+  with an IPO to sell.
+- MY INFERENCE. Those pieces are consistent: ByteDance's direct leases at DayOne and Bridge are
+  mostly CPU/TikTok/unrestricted-GPU load, and its controlled GPUs sit in the slice Oracle leases
+  from DayOne and rents back to it.
+
+#### The deals
+
+- REPORTED (WSJ, 13 Mar 2026; read via Reuters/The Standard and Tom's Hardware). "ByteDance is
+  working with Southeast Asian firm Aolani Cloud to deploy about 500 Nvidia Blackwell computing
+  systems in Malaysia, totaling roughly 36,000 B200 chips" [read]. Cost "more than US$2.5 billion".
+  Servers from Aivres. "An Aolani spokesman told WSJ the company was currently operating with about
+  $100 million in hardware." [read]
+- REPORTED (Tom's Hardware 2026, summarising WSJ). "Aolani has been leasing AI servers equipped with
+  Nvidia H100 GPUs in Malaysia to ByteDance since February, 2025". "For the planned Blackwell
+  deployment, initial payments have reportedly already been made." Aolani "was established in late
+  2023 and operates under a Cayman Islands holding structure". A further "over 7,000 B200 GPUs at a
+  data center in Indonesia" was under consideration [all read].
+- Which Malaysian state or building hosts Aolani's racks: not stated in anything I read.
+- MY ARITHMETIC. 500 racks x 132 kW x 1.14 = about 75 MW of IT power.
+- ESTIMATE (IFP, Oct 2026). Seven months later IFP still lists "Aolani × ByteDance expanded cluster"
+  under "2026 delayed or unconfirmed clusters" and gives it "an 85% chance" of running by end-2027
+  [read].
+- PRIMARY (Nvidia spokesperson to Tom's Hardware, Mar 2026). "By design, the export rules allow
+  clouds to be built and operated outside controlled countries" and "All Nvidia cloud partners are
+  evaluated and cleared by Nvidia's field operations, finance, and compliance teams before they can
+  receive our products, directly or through an OEM" [read]. The phrase "no objections" is Tom's
+  Hardware's headline wording ("Nvidia confirms no objections"); I did not see those words
+  attributed to Nvidia as a direct quote.
+- REPORTED. Aolani's statement: it adheres to export control rules and ByteDance "will be just one
+  of many customers" (Engadget's paraphrase of Reuters) [read].
+- REPORTED (The Information, Dec 2024, via The Decoder). ByteDance "is planning to invest up to $7
+  billion in Nvidia AI chips through facilities outside of mainland China next year" [read].
+- ByteDance x Oracle in Johor: I found no 2024 Information article that says this in terms. The
+  claim rests on SemiAnalysis (June 2025, above) and on IFP's sizing: "mostly ByteDance x Oracle
+  Singapore/Johor/Batam (SJB) at 196 MW AI out of a 245 MW total footprint" [read]. IFP's simulation
+  varies "Oracle's SJB capacity (300–400 MW), ByteDance's share (55–85%)" [read].
+- REPORTED (WSJ, 13 Jun 2025, read via the To Vima syndication). "In early March, four Chinese
+  engineers flew to Malaysia from Beijing, each carrying a suitcase packed with 15 hard drives. The
+  drives contained 80 terabytes of spreadsheets, images and video clips for training an
+  artificial-intelligence model." "At a Malaysian data center, the engineers' employer had rented
+  about 300 servers containing advanced Nvidia chips." [read]. The company and the data centre are
+  unnamed. Nothing links this story to ByteDance or MY06.
+- MY INFERENCE. 80 TB and 300 servers is a small or mid-size lab, not ByteDance. Use the suitcase
+  story as colour for the loophole, not as evidence about this site.
+
+#### Total ByteDance footprint, Singapore-Johor-Batam
+
+- ESTIMATE (IFP 2026, from SemiAnalysis). "ByteDance's 700–800 MW of IT capacity in SJB by year-end
+  2026" [read]. This is all IT load, AI and non-AI.
+- ESTIMATE (IFP 2026). AI slice it counts via Oracle: 196 MW [read].
+- REPORTED. Aolani: ~75 MW if built (MY ARITHMETIC above).
+- ESTIMATE (Epoch). MY06: 243 MW.
+- MY ARITHMETIC. If the Oracle slice were all GB200 at Epoch's power assumptions, 196 MW is about
+  94,000 B200, or about 237,000 H100e. That is my conversion, not IFP's number.
+- REPORTED (Hung dataset 2026). Another ByteDance Johor site exists that Epoch does not track:
+  "Epoch Digital Johor campus (Project Mercury)", 120 MW IT, under construction, customer evidence
+  graded primary [read in the dataset; I did not open the underlying source]. The name is a
+  coincidence with Epoch AI.
+
+### 2. How do we know?
+
+#### Epoch's method, in their words
+
+- "Discovery is based on news, satellite imagery, and our previous research. We then analyze
+  commercial satellite imagery, and any available permitting documents and company disclosures"
+  [read, methodology page 2026].
+- Power from cooling: "IT power = capacity per cooling unit x number of cooling units / cooling
+  overhead" [read].
+- Stated error: "Additional analysis suggests that 80% of the time, any given IT power estimate will
+  be within a factor of 1.4x from the actual value." [read]
+- Chips, the weak link: "in most cases we lack specific hardware details for a data center and
+  cannot use the above approach. In those cases, we leverage estimates of chip ownership over time
+  to infer chip types, assuming a one-quarter lag between chip sales and deployment." [read]
+- Tenancy, admitted limit: "Even if we have a perfect analysis of a data center, we sometimes still
+  don't know who uses it, and what portion they use." [read]
+- Compute definition: "compute" means "the capacity of the AI-specialized chips we estimate at a
+  site, rather than all computing at the data center or campus" [read]. In practice the MY06 sheet
+  converts all IT power to AI chips.
+- Coverage: "we estimate this database's coverage of global deployed AI computing capacity to be 43%
+  as of November 23, 2026 (90% CI: 29% to 77%)" [read].
+- Confidence tags: owner and user fields carry "#confident", "#likely", or "#speculative" [read,
+  records documentation]. Epoch publishes no probability for each tag. MY06 gets #likely on both.
+  For comparison Oracle Batam's user is "Tencent (speculative)".
+
+#### Evidence chain for each claim about MY06
+
+| Claim                                               | Best evidence                                                                              | Grade                                              |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| The campus exists, in Sedenak, built 2021-2026      | Satellite imagery (6 high-res images, latest 21 Sep 2026), drone videos, MIDA release      | PRIMARY + direct observation                       |
+| Buildings 1-4 power: 19, 42, 53, 12 MW              | Chindata SEC filings quoted in Epoch's sheet                                               | PRIMARY (via Epoch's sheet)                        |
+| Buildings 5-7 power: 128.7 MW                       | Counting rooftop cooling units, scaled from buildings with known MW                        | ESTIMATE, factor ~1.4                              |
+| Buildings are actually running                      | Drone footage of fans spinning; cars in car parks                                          | Observation, weak proxy for utilisation            |
+| Tenant is ByteDance                                 | 2022 MIDA release; Reuters/TNW 2026 "anchor tenant"; IFP 2026 "large lessors to ByteDance" | PRIMARY for 2022 building 1; REPORTED for the rest |
+| ByteDance is the only tenant of all seven buildings | Nothing                                                                                    | Unknown                                            |
+| Chips are A100 / H100 / B200                        | Epoch default: whatever Nvidia was shipping the quarter before                             | ESTIMATE, no site evidence                         |
+| Chip counts                                         | MW divided by server power                                                                 | ESTIMATE on top of an estimate                     |
+| ByteDance owns the chips                            | Inferred from anchor tenancy                                                               | ESTIMATE; contradicted by IFP/SemiAnalysis         |
+| It can do 1e27 FLOP in ~130 days                    | Arithmetic on the above                                                                    | MY ARITHMETIC, below                               |
+
+- MY ARITHMETIC. 221,052 H100e x 989e12 FLOP/s (H100 dense BF16) x 40% utilisation = 8.74e19 FLOP/s.
+  1e27 / 8.74e19 = 132 days. The "~130 days" claim reproduces. It quietly switches from Epoch's
+  8-bit basis to 16-bit FLOP; on Epoch's own 8-bit OP/s (4.37e20) it would be 66 days.
+- The same arithmetic, same 989 TFLOP/s and 40%, appears in the Hung LessWrong post (2026), which
+  says: "I am not claiming anyone has trained a model of either size at MY06." [read]
+- MY ARITHMETIC. If only the assumed B200s count, it is 188 days. If the B200s are not there, MY06
+  cannot do 1e27 in under a year.
+
+#### Primary vs journalism vs model, for the wider ByteDance-in-Johor picture
+
+PRIMARY:
+
+- MIDA 2022 release naming ByteDance System Sdn Bhd [read].
+- DayOne F-1 (Oct 2026): unnamed "leading short-form video platform" customer at 69.4% of 2025
+  revenue [via dataset quote].
+- Nscale S-1 exhibit (Sep 2026): Spring (SG), 2,304 B200s, Glomfjord, Norway [via dataset quote].
+  Tom's Hardware/FT identify Spring as a ByteDance subsidiary [read]; the filing itself does not
+  name ByteDance.
+- Nvidia's on-record statements defending cloud rental [read].
+- The BIS rule text [read].
+
+JOURNALISM (anonymous sources throughout):
+
+- FT Nov 2025: ByteDance and Alibaba train latest LLMs in Southeast Asia. Two sources.
+- WSJ Mar 2026: Aolani, 36,000 B200. "people familiar". Reuters "could not immediately verify the
+  report" [read].
+- WSJ Jun 2025: suitcases. Unnamed firm.
+- Bloomberg Jul 2025: ByteDance is DayOne's largest customer.
+- The Information Dec 2024: $7B overseas Nvidia budget for 2025. The Information Oct 2026: 838 MW
+  committed at DayOne.
+- FT Oct 2026 (via Tom's Hardware): Tencent leases ~100,000 chips from Oracle in Southeast Asia,
+  ~$7B over five years [read].
+
+MODEL ESTIMATES:
+
+- Epoch's MW, chip types, chip counts, H100e, $9.2B cost.
+- SemiAnalysis's datacenter model (ByteDance MW in SJB, GB200 in Oracle's slice). Paywalled; I only
+  saw it relayed.
+- IFP's ~1M H100-eq of Chinese remote access.
+
+#### What nobody outside knows
+
+- Whether a single Blackwell is in MY06.
+- Whether MY06's halls are wired as one training cluster or as many separate serving pods. Epoch's
+  sheet shows buildings 5-7 at 13, 39 and 77 MW with different cooling layouts, built in stages.
+- Utilisation. Spinning fans and parked cars are the only signals.
+- How ByteDance splits Johor between TikTok serving, recommender training, Doubao/Seed training and
+  overseas inference.
+- Whether any BIS licence was ever granted for ByteDance-owned controlled chips in Malaysia.
+- Where Aolani's racks physically sit and whether the 500-rack expansion was delivered.
+
+### 3. Is anyone up in arms?
+
+#### Was it legal
+
+- Renting: yes, until 19 Nov 2026. FT Nov 2025 quotes a Singapore operator: "You need the best chips
+  to train the most cutting-edge models, and it's all legally compliant." [read]. Carnegie (Tan, May
+  2026): "under current U.S. law, they are perfectly legal—even if the data centers are inside the
+  United States." [read]
+- Why: the January 2025 AI Diffusion Rule would have capped this. It was rescinded in May 2025
+  before its compliance date. FT: "the Biden-era "diffusion rule" designed to close this loophole
+  was scrapped" [read].
+- Owning: no, not without a licence. Asia Times (Jun 2026) on the 31 May 2026 BIS guidance: "export
+  licenses are required for advanced computing chips destined for any entity whose ultimate parent
+  company is headquartered in China or Macau, regardless of where that entity is situated. It
+  stressed that the rule has technically been in force since November 2023." [read]
+- BIS now claims more than that. The November 2026 preamble says the old end-use control "is not,
+  and has never been limited only to exports" to Chinese entities as consignees, but extends to
+  cases where such an entity "was the exclusive or primary (greater than 50 percent of total
+  compute) remote end user of the data center computing capacity", and adds "Any entities in
+  violation of this requirement should submit a voluntary self-disclosure" [read, rule text].
+- MY INFERENCE. That sentence is BIS asserting that a data centre majority-used by ByteDance was
+  already covered before this rule. Nobody in industry or journalism read the old rule that way. It
+  is leverage for the licence negotiations more than a description of past enforcement.
+
+#### Who complained, in order
+
+- Jun 2025. WSJ suitcase story. Malaysia's MITI said it was verifying, and that "servers using
+  Nvidia and AI chips are not classified as controlled goods in Malaysia, and businesses — including
+  data centres — operating in Malaysia are free to make their own commercial decisions as long as
+  they comply with Malaysian laws and regulations" (w.media's rendering of the MITI statement)
+  [read].
+- Jul 2025. Malaysia requires a Strategic Trade Act permit for export, transshipment and transit of
+  US-origin high-performance AI chips. It does not cover importing or using them in Malaysia [read,
+  SAYS 2026 explainer].
+- Nov 2025. FT story on Alibaba and ByteDance. WSJ on INF Tech renting ~2,300 Blackwells via Indosat
+  in Indonesia [read, Carnegie 2026].
+- Dec 2025. Senators McCormick and Wyden introduce a Senate Remote Access Security Act [snippet].
+- 12 Jan 2026. House passes the Remote Access Security Act (H.R. 2683) 369-22. Select Committee
+  chair John Moolenaar: "The CCP's AI ambitions are being fueled by its access to American chips
+  housed in data centers located outside of China" [read, committee press release 2026]. Lead
+  sponsor Rep. Mike Lawler.
+- Mar 2026. WSJ Aolani story. Tom's Hardware: "many U.S. lawmakers are uneasy about usage of
+  American AI accelerators by Chinese companies in the cloud" [read]. I found no letter from
+  Congress naming ByteDance, Aolani or MY06 specifically.
+- May 2026. Carnegie paper (Tan): Alibaba and ByteDance "seem to have primarily relied on remotely
+  accessing Nvidia chips in Southeast Asia to train their most advanced models" [read]. BIS guidance
+  on 31 May closes the subsidiary-purchase route.
+- Jul-Aug 2026. Moonshot releases Kimi K3. "A top White House official then accused Moonshot of
+  illegally obtaining Nvidia's best hardware and reaching those same chips remotely through an
+  unnamed party in Thailand." BIS enforcement opens a review listing "countries where Chinese firms
+  tap the chips remotely" [read, TNW 2026 summarising Bloomberg].
+- 19 Oct 2026. IFP report (Fist, Adamson, Pilz), below.
+- Early Nov 2026. Nvidia tells cloud partners "at least 51% of their services must go to non-Chinese
+  firms" and requires Fleet Intelligence tracking for new Southeast Asian cloud partners
+  (FT/Bloomberg via Tom's Hardware). Delivered as "verbal instructions"; "Existing deals and leases
+  are not changed" [read].
+- Mid Nov 2026. Jensen Huang resigns as Nvidia CEO over a relationship with a former Megaspeed
+  executive [read, TNW and Tom's Hardware 2026]. The rule lands the following Monday.
+- 16 Nov 2026. Chris McGuire (CFR) calls the rule "a major step forward" and says "I have never seen
+  a BIS rule that was not written by BIS" (TNW quoting his X post via CNBC) [read].
+- 18 Nov 2026. CNAS (Michelle Nie Duncan): "a meaningful first step toward closing the remote access
+  loophole" [read].
+- Anthropic or other labs: I found no statement on remote access or on this rule.
+
+#### The IFP report
+
+- "How to Increase America's AI Lead Over China", Tim Fist, Georgia Adamson, Konstantin Pilz, IFP,
+  19 Oct 2026 [authors and date via fetch; body text read myself].
+- ESTIMATE. "We estimate that China will have access to roughly 1 million H100-eq of AI compute via
+  remote access by the end of 2026, rising to around 2.8 million by the end of 2027 (range: ~680,000
+  to 1.46 million in 2026, and 1.97 to 3.91 million in 2027)." [read]
+- ESTIMATE. "These data centers are heavily concentrated in Southeast Asia — around 75% of the
+  total." [read]
+- ESTIMATE. Total Chinese access: "around 4.6 million H100-eq" by end-2026 and "8.8 million H100-eq
+  by the end of 2027" [fetch]. So remote access is about 22% of the 2026 total (MY ARITHMETIC). CNAS
+  rounds it to "23 percent" [read].
+- Method, two parts. Named clusters: "~280,000 H100-eq in 2026 and ~861,000 in 2027 come from
+  Chinese AI clusters we observe directly." Leasing data: "we infer ~775,000 H100-eq in 2026 and
+  ~1.97 million H100-eq in 2027 from SemiAnalysis's data on Chinese hyperscalers' leasing overseas."
+  [read]
+- It does not use Epoch's MY06 number. It counts "ByteDance's directly leased capacity in Singapore,
+  Johor, and Batam through SemiAnalysis's data rather than as a fully AI cluster" [read].
+- Cross-checks it cites: "ChinaTalk's 2026 median estimate of ~1.03 million H100-eq (FP8) (April
+  2026)" and "IAPS's ~670,000 H100-eq floor (TPP) (May 2026)" [read]. IAPS's upper bound is 9
+  million.
+- On ByteDance: "The largest consumer of overseas AI compute, ByteDance, is a non-public company and
+  thus does not disclose any rentals at all. We size ByteDance via public reporting." [read]
+
+#### The BIS rule, from the text
+
+Source: public-inspection PDF of FR Doc. 2026-23529, "Addressing Remote Access to Advanced
+Semiconductors", RIN 0694-AK50, 117 pages [read]. Scheduled for Federal Register publication 19 Nov
+2026; effective on publication; 60-day comment period. The Hung dataset cites it as 91 FR 74970
+[read, not checked against the published issue].
+
+- The rule uses "Super Intelligence (SI)" where earlier rules said AI, "Pursuant to Executive Order
+  14434" [read].
+- Core prohibition, new § 744.24(a)(1): no export, reexport or in-country transfer of covered chips
+  and servers "without a license if you have "knowledge" at the time of the export, reexport, or
+  transfer (in-country) that the item is destined to a data center to or within any destination
+  worldwide that is providing or will provide access to more than 12,000,000 "aggregate TPP" either
+  at one data center or through 'linked data centers' to or for companies headquartered in, or whose
+  ultimate parent company is headquartered in, Macau or a destination specified in Country Group
+  D:5" [read].
+- Threshold size. CNAS: "the equivalent to about 760 Nvidia H100 chips", at "15,831 TPP per H100"
+  [read]. MY ARITHMETIC: about 300 B200s, or a little over 4 GB200 NVL72 racks, taking 40,000 TPP
+  per B200 from Epoch's 5e15 8-bit figure.
+- MY ARITHMETIC. Epoch's MY06 estimate is about 290 times the threshold. The Aolani deal is about
+  120 times.
+- Splitting does not dodge it: 'linked data centers' "includes digitally-linked infrastructure, not
+  just physically-linked infrastructure" [read].
+- Indirect access is covered: it applies where "a data center is providing remote access to a
+  non-D:5 customer that is in turn training SI models for, or participating in the training of SI
+  models for, or providing SI models to a D:5 company" [read].
+- Licence review: "case-by-case" [read]. No presumption of denial is written in.
+- Existing data centres, § 744.24(b)(3): "Any data center providing significant volume of compute
+  power to companies headquartered, or with an ultimate parent headquartered, in Macau or Country
+  Group D:5 prior to the publication date of this rule that wishes to continue providing these
+  services must obtain a license with 90 days of the effective date of this IFR or face future
+  export restrictions." [read; "with 90 days" is the rule's own typo]
+- MY ARITHMETIC. 19 Nov 2026 + 90 days = 17 Feb 2027.
+- Must installed chips be switched off? The text does not say so. The stated consequence is "future
+  export restrictions", meaning no more chips for that operator. MY INFERENCE: an operator that
+  keeps serving ByteDance unlicensed after 17 Feb 2027 keeps its installed racks running but loses
+  resupply and risks an Entity List listing. For a business that needs Rubin racks next year, that
+  is a shutdown order with a delay.
+- Change of use: for chips exported on or after publication, switching to a prohibited end-use
+  counts as a "transfer (in-country)" needing authorisation [read]. That clause is written for new
+  shipments. Pre-rule chips fall under the 90-day clause.
+- Due diligence: "A foreign data center declining or being unable to provide information sufficient
+  to verify compliance with this end use control shall be considered a red flag that presumptively
+  provides you with "knowledge"" [read].
+- Recommender carve-out: the prohibitions "do not apply when the computing power access is only
+  being provided for a 'commercial recommender system'", defined as a tool "exclusively designed and
+  exclusively used to rank, filter, or suggest commercial products, services, or content to users".
+  It "does not include any SI system designed or used to generate novel text, image, audio, video,
+  software, or other content" [read]. The operator must report the Chinese customer's name, total
+  TPP and the diligence done.
+- MY INFERENCE. This carve-out fits TikTok's feed ranking and excludes Doubao and Seed. ByteDance's
+  Johor load now has to be sorted into those two bins, with the operator certifying it to BIS.
+- Internal inconsistency in the text: the preamble also says recommender-system operators "may
+  continue providing these services for 90 days, but must obtain a license following expiration of
+  this period" [read], which conflicts with the reporting-only exception in § 744.24(b)(2).
+- Second limb: a licence is now required for advanced chips "to or within Indonesia, Malaysia,
+  Singapore, Brazil, and Thailand", except to US-headquartered end users whose exporters file
+  reports [read].
+- Threat to host countries: "import restrictions, new license requirements on advanced semiconductor
+  exports, downgrading the country's status in the U.S. export control regime, and Entity List
+  designations" for "countries that tolerate evasion" [read].
+- It also formally rescinds the AI Diffusion Rule: "The AI Diffusion Rule has never been enforced."
+  [read]
+- Does not cover data centres inside the US. CNAS: "The IFR omits data centers in the United
+  States." [read]
+- Authorship: BIS said the rule was "written by and at the direction of" Treasury and the National
+  Security Council (TNW quoting the BIS release) [read].
+
+#### Reactions
+
+- China, MOFCOM, 17 Nov 2026: "If the US persists, China will take countermeasures to firmly
+  safeguard its sovereignty, security and development interests" [fetch, TNW]. Tom's Hardware
+  renders the same line as China "will take countermeasures to firmly safeguard national
+  sovereignty, security, and development interests" [read]. Translations differ; I did not see the
+  Chinese original.
+- China, Foreign Ministry: called it economic coercion and long-arm jurisdiction [snippet, Global
+  Times 2026].
+- Malaysia, MITI Minister Johari Abdul Ghani, 18 Nov 2026 in Shenzhen: "My advice to all data centre
+  operators in Malaysia is, if you want to continue conducting your business here, you must comply
+  with US rules and regulations. If you are not prepared to comply, then you should not operate in
+  Malaysia" [read, Malaysiakini]. Also: "We have not received anything from the US, other than what
+  we have read in the media." [read]. Malaysia will notify "all 117 approved data centre projects"
+  [read].
+- Malaysia on moratorium, 28 Oct 2026: "Malaysia has no plans to impose a blanket moratorium on new
+  data centres but will assess applications based on water availability, electricity supply and
+  investors' financial strength" (The Edge's paraphrase of Johari) [read]. 117 approved, 55
+  operational.
+- Malaysia, 13 Nov 2026: MITI says importing AI chips needs no Malaysian permit, and Malaysia "does
+  not enforce unilateral export controls imposed by other countries" (SAYS paraphrase) [read].
+- Analyst, Joshua Kurlantzick (CFR) to Fortune: "For Malaysia, the controls could be disastrous"
+  [read, via TNW].
+- Malaysian brokers: facilities "relying on Chinese AI customers or less transparent
+  GPU-as-a-Service arrangements could face longer licensing and verification processes" (MBSB
+  Research, via NST) [read].
+- Nvidia: no on-record statement on the rule that I could find. CNBC (via Tom's Hardware) reports
+  Nvidia had been messaging chip buyers that the Remote Access Security Act "could expose both
+  Nvidia and chip buyers to legal risk" [read]. That is about the bill, not the BIS rule. Shares
+  "fell as much as 2.9% on Monday" [read, TNW citing Bloomberg].
+- ByteDance: no statement found.
+- Semiconductor Industry Association: said it was evaluating the rule [snippet].
+
+#### Bills
+
+- Remote Access Security Act (H.R. 2683): passed House 12 Jan 2026, 369-22. Not passed by the
+  Senate. Tom's Hardware, 17 Nov 2026: "in limbo in the Senate for over ten months now" [read]. CNAS
+  says it "would give BIS jurisdiction to regulate remote access itself—not just new transactions"
+  [read].
+- Cloud Security Act (Gottheimer, Moolenaar): KYC for cloud providers; introduced, not passed [read,
+  CNAS].
+- GAIN AI Act: passed the Senate as an NDAA amendment in Oct 2025, dropped from the final FY2026
+  NDAA [snippet].
+- Chip Security Act: not enacted as of the sources I found; a July 2026 report said it was slated
+  for the Senate's FY2027 NDAA manager's amendment [snippet]. Current status not confirmed.
+
+### Direct answer: is ByteDance training frontier models on Blackwells in Johor right now?
+
+- **65% yes**, for the broad claim: today, some ByteDance frontier-model training job (Doubao/Seed
+  class) is running on Blackwell-generation Nvidia chips physically in Johor, owned by someone else.
+- **20% yes**, for the narrow claim the notes make: the training is at MY06 on roughly 60,000 B200s
+  that ByteDance owns.
+- **About 95%** that ByteDance has rented Blackwells somewhere outside China at all (Norway is
+  documented in an SEC exhibit).
+
+Reasons for 65%, MY INFERENCE throughout:
+
+- For: FT's two direct sources say ByteDance trains its latest LLMs in Southeast Asia. SemiAnalysis
+  says ByteDance is Oracle's largest GPU customer, takes most of Oracle's ASEAN GPU capacity, and
+  that the SJB slice is GB200s. WSJ documents a second Blackwell route via Aolani with payments
+  made. The Nscale exhibit proves the pattern exists. The 90-day window means nothing has had to
+  stop yet.
+- Against: every Johor-specific claim is anonymous sourcing or a paywalled model. Aolani's expansion
+  was still "delayed or unconfirmed" in October 2026. Oracle's ASEAN capacity spans Singapore, Johor
+  and Batam, so "Johor" is the likeliest but not certain location. ByteDance also has large domestic
+  compute and may run its biggest pretraining there. Since May 2026, Nvidia and BIS have both been
+  squeezing these arrangements.
+
+Reasons the MY06-specific claim is only 20%:
+
+- Epoch's B200 label is a default, with zero site evidence.
+- ByteDance is the tenant installing its own gear, and its own gear could not legally include
+  Blackwells without a licence.
+- SemiAnalysis (via IFP) says ByteDance's leased Malaysian capacity holds CPUs and unrestricted
+  GPUs.
+- The 20% is for intermediary-owned racks sitting inside MY06 halls. Megaspeed's presence at a
+  Bridge site until April 2026 shows that happens.
+
+How to phrase it in the post: "Epoch estimates" is fine for the megawatts. For the chips, say "if it
+is filled with Blackwells, as Epoch assumes". The safer true sentence is that ByteDance reportedly
+has several hundred megawatts in Singapore-Johor-Batam, roughly 200 MW of it Oracle-hosted AI
+capacity on GB200s per SemiAnalysis.
+
+### What I could not confirm
+
+- Any direct evidence of chip type inside MY06. None exists publicly.
+- A 2024 article in The Information on ByteDance renting from Oracle in Johor. I found only the Dec
+  2024 "$7 billion" piece (via The Decoder) and SemiAnalysis's June 2025 post.
+- The original WSJ Aolani article. Paywalled; read via Reuters/The Standard, Tom's Hardware,
+  Engadget.
+- The words "no objections" as a direct Nvidia quote. Only Tom's Hardware's headline uses them.
+- The SemiAnalysis January 2025 and September 2026 reports. Paywalled; seen only as quoted by IFP.
+- The DayOne F-1 and Nscale exhibit on sec.gov. My requests were blocked (403); quotes come from the
+  Hung dataset, which links the filings.
+- The original Information article on DayOne (16 Oct 2026). Read only as a Dealroom abstract.
+- The SCMP articles on the rule and on the IFP report (403).
+- The published Federal Register version of the rule. I read the public-inspection PDF;
+  federalregister.gov blocked my request.
+- The BIS press release itself (404 on the URL I had).
+- MOFCOM's statement in Chinese.
+- Any ByteDance or Bridge Data Centres statement on the rule.
+- Any Anthropic, OpenAI or other lab statement on remote access.
+- Any congressional letter that names MY06, Bridge Data Centres or Aolani.
+- Whether Aolani's 500 racks were delivered, and where in Malaysia they are.
+- The bidders for Bain's BDC stake and whether a sale closed (search snippet only).
+- Senate status of the Chip Security Act and the FY2027 NDAA.
+- Where Megaspeed's racks sat within Bridge's Malaysian sites.
+
+### Sources
+
+Read myself (downloaded and read the text):
+
+- Epoch AI, Bridge Data Centres MY06 directory page (2026):
+  https://epoch.ai/data/ai-data-centers/directory/bridge-data-centres-my06
+- Epoch AI, MY06 calculation sheet (2026):
+  https://docs.google.com/spreadsheets/d/1xTeOcRhloSOXYL9J3dQOTPhYd5bxQpe9DNM6Ej6-SII/edit
+- Epoch AI, DayOne Nusajaya (2026): https://epoch.ai/data/ai-data-centers/directory/dayone-nusajaya
+- Epoch AI, Nusajaya calculation sheet (2026):
+  https://docs.google.com/spreadsheets/d/1Xu6B3gVZhKvkQ1U5gmXgOgoflyzpgOydm60SYn_lAWE/edit
+- Epoch AI, DayOne Kempas (2026): https://epoch.ai/data/ai-data-centers/directory/dayone-kempas
+- Epoch AI, Oracle Batam (2026): https://epoch.ai/data/ai-data-centers/directory/oracle-batam
+- Epoch AI, YTL Johor (2026): https://epoch.ai/data/ai-data-centers/directory/ytl-johor
+- Epoch AI, data centers methodology (2026):
+  https://epoch.ai/data/data-centers-documentation/methodology
+- Epoch AI, data centers records documentation (2026):
+  https://epoch.ai/data/data-centers-documentation/records
+- MIDA press release, "Bridge Data Centres And Bytedance Celebrate Grand Opening..." (2022):
+  https://www.mida.gov.my/media-release/bridge-data-centres-and-bytedance-celebrate-grand-opening-of-the-first-phase-hyperscale-data-centre-my06-in-johor-malaysia/
+- BIS, "Addressing Remote Access to Advanced Semiconductors", public-inspection PDF (2026):
+  https://public-inspection.federalregister.gov/2026-23529.pdf
+- IFP, Fist, Adamson, Pilz, "How to Increase America's AI Lead Over China" (2026):
+  https://ifp.org/how-to-increase-americas-ai-lead-over-china/
+- CNAS, Nie Duncan, "Unpacking the Remote Access Rule" (2026):
+  https://www.cnas.org/publications/cnas-insights/insights-unpacking-the-remote-access-rule
+- Carnegie, Tan, "The Geopolitical Debates Over Controlling Cloud Compute" (2026):
+  https://carnegieendowment.org/research/2026/05/the-geopolitical-debates-over-controlling-cloud-compute
+- SemiAnalysis, "How Oracle Is Winning the AI Compute Market" (2025), free portion:
+  https://newsletter.semianalysis.com/p/how-oracle-is-winning-the-ai-compute-market
+- Hung, "Where Chinese AI firms rent the chips they cannot buy", LessWrong (2026):
+  https://www.lesswrong.com/posts/cpi79Z6ERzmrzYnZr/where-chinese-ai-firms-rent-the-chips-they-cannot-buy
+- Hung, dataset (2026): https://github.com/newlivehung123123/overseas_data_centres_China
+- FT via Irish Times, "China's tech giants take AI model training offshore to tap Nvidia chips"
+  (2025):
+  https://www.irishtimes.com/business/2025/11/27/chinas-tech-giants-take-ai-model-training-offshore-to-tap-nvidia-chips
+- WSJ via To Vima, "Chinese AI Companies Dodge U.S. Chip Curbs by Flying Suitcases of Hard Drives
+  Abroad" (2025):
+  https://www.tovima.com/wsj/chinese-ai-companies-dodge-u-s-chip-curbs-by-flying-suitcases-of-hard-drives-abroad/
+- Reuters via The Standard, "China's ByteDance gets access to top Nvidia AI chips, WSJ reports"
+  (2026):
+  https://www.thestandard.com.hk/finance/article/326579/Chinas-ByteDance-gets-access-to-top-Nvidia-AI-chips-WSJ-reports
+- Tom's Hardware, Aolani / 36,000 Blackwell story (2026):
+  https://www.tomshardware.com/pc-components/gpus/chinas-bytedance-to-access-36-000-blackwell-gpu-cluster-through-malaysia-cloud-operator-nvidia-confirms-no-objections-deal-is-in-line-with-us-export-controls
+- Engadget, Aolani story (2026):
+  https://engadget.com/ai/bytedance-will-reportedly-buy-nvidias-latest-ai-chips-to-use-outside-of-china-155553019.html
+- Tom's Hardware, Nscale Norway filing (2026):
+  https://www.tomshardware.com/tech-industry/data-centers/filing-reveals-how-bytedance-gained-access-to-over-2-000-nvidia-b200-chips-through-nscales-norway-data-center-singaporean-subsidiary-spring-contributed-73-percent-of-uk-neoclouds-2025-revenue
+- Tom's Hardware, Nvidia 51% quota (2026):
+  https://www.tomshardware.com/tech-industry/policy/nvidia-cracks-down-on-overseas-cloud-ai-gpu-rentals-for-china-partners-face-51-percent-non-chinese-quota-as-black-market-b300-rack-prices-surge-to-usd2-8-million
+- Tom's Hardware, Nvidia warns customers (2026):
+  https://www.tomshardware.com/tech-industry/policy/nvidia-warns-customers-of-new-us-rule-that-could-expose-them-to-lawsuits-for-serving-chinese-clients-commerce-department-releases-interim-regulations-preventing-foreign-actors-from-using-advanced-compute-based-on-american-tech
+- Tom's Hardware, China threatens countermeasures (2026):
+  https://www.tomshardware.com/pc-components/gpus/china-threatens-countermeasures-on-the-face-of-new-ai-gpu-rental-and-export-restrictions-beijing-threatens-retaliation-ahead-of-thursdays-xi-jinping-meeting-sino-american-trade-war-may-be-renewed-for-a-new-season
+- Tom's Hardware, Tencent x Oracle (2026):
+  https://www.tomshardware.com/tech-industry/data-centers/tencent-scores-100-000-offshore-ai-chip-deal-with-oracle-for-usd7-billion-despite-climbing-prices-per-hour-costs-estimated-to-be-43-percent-under-standard-h100-rental-rates
+- Tom's Hardware, House passes RASA (2026):
+  https://www.tomshardware.com/tech-industry/artificial-intelligence/u-s-house-passes-bill-to-stop-chinese-companies-from-accessing-export-controlled-american-ai-chips-using-offshore-rental-loophole-remote-access-security-access-act-effectively-extends-export-controls-to-the-cloud
+- TNW, rule coverage with McGuire and Kurlantzick quotes (2026):
+  https://thenextweb.com/news/us-remote-access-ai-chips-rule-china-singapore-malaysia
+- TNW, BIS enforcement review (2026):
+  https://thenextweb.com/news/us-bis-review-china-remote-offshore-nvidia-chip-access
+- TNW, Bain / Bridge Data Centres stake sale (2026):
+  https://thenextweb.com/news/bain-capital-bridge-data-centres-5-billion-stake-sale
+- Asia Times, "Nvidia GPU crackdown hits China-linked Southeast Asia data centers" (2026):
+  https://asiatimes.com/2026/06/nvidia-gpu-crackdown-hits-china-linked-southeast-asia-data-centers/
+- Asia Times, "Nvidia chip curbs turn Singapore into AI hub for China" (2026):
+  https://asiatimes.com/2026/03/nvidia-chip-curbs-turn-singapore-into-ai-hub-for-china/
+- Bloomberg via Data Center Knowledge, Oracle leases DayOne Batam (2025):
+  https://www.datacenterknowledge.com/cloud/oracle-said-to-advance-indonesia-cloud-services-plan
+- Malaysiakini, Johari on US chip restrictions (2026):
+  https://www.malaysiakini.com/news/889381-malaysia-seeks-us-clarification-on-ai-chip-restrictions-probes-alleged-re-exports-says-johari
+- NST, "Tighter US chip rules cloud Malaysia's data centre outlook" (2026):
+  https://www.nst.com.my/amp/business/economy/2026/11/1580155/tighter-us-chip-rules-cloud-malaysias-data-centre-outlook-watch
+- SAYS, explainer on the rule for Malaysian operators (2026):
+  https://says.com/my/news/us-tightens-ai-chip-rules-for-malaysia-heres-what-data-centre-operators-need-to-know
+- The Edge Malaysia, no blanket moratorium (2026): https://theedgemalaysia.com/node/823645
+- w.media, MITI statement after the suitcase story (2025):
+  https://w.media/pipeline-data-center-projects-unaffected-by-alleged-chinese-ai-training-in-malaysia-analysts/
+- House Select Committee on the CCP, RASA press release (2026):
+  https://chinaselectcommittee.house.gov/media/press-releases/house-passes-bipartisan-legislation-to-limit-adversaries-remote-access-to-critical-technology
+- The Decoder, ByteDance $7B offshore plan (2024):
+  https://the-decoder.com/bytedance-plans-to-invest-billions-in-nvidia-ai-chips-through-offshore-data-centers/
+- Dealroom abstract of The Information's DayOne IPO story (2026):
+  https://dealroom.co/news/info-5pbeiz-singapores-dayone-pushes-ahead-with-data-center-ipo-tied-to-tiktok/
+
+Linked but not opened by me (quoted via the Hung dataset or Epoch):
+
+- DayOne F-1 (2026):
+  https://www.sec.gov/Archives/edgar/data/2118192/000119312526414188/d223752df1.htm
+- Nscale loan agreement exhibit (2026):
+  https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-ex10_12.htm
+- FT original, Alibaba and ByteDance training in Southeast Asia (2025):
+  https://www.ft.com/content/96fe9898-a3a4-4a33-be1d-da06bdb6cb2b
+- House roll call 13 on H.R. 2683 (2026): https://clerk.house.gov/evs/2026/roll013
+- SCMP, rule coverage (2026):
+  https://www.scmp.com/tech/article/3374639/us-tightens-ai-chip-export-curbs-close-chinas-overseas-data-centre-loophole
+
+---
+
+# Part: What Labs Spend on Data and Environments (second round of `@c` notes)
+
+## Part 8: Do US labs spend "tens of billions every year on data and environments"?
+
+Researched 2026-11-22. Labels: PRIMARY (company/government/court document or direct company quote),
+REPORTED (journalism), ESTIMATE (someone else's model), MY ARITHMETIC, MY INFERENCE.
+
+Quote provenance codes: **(F)** = I got the words through the fetch tool's summariser reading the
+page; **(S)** = I only saw the words in a search-result snippet; **(A)** = a research subagent got
+them through its fetch tool or snippet and relayed them to me. I did not read any page as raw text
+myself, so nothing here is "read on the page with my own eyes".
+
+### Short answer
+
+- The sentence is false as written for 2026. The supported number is **about $8 billion a year
+  (range $6B to $11B)** for all US frontier labs combined, counting human data, RL environments,
+  content licensing and settlement cash. MY INFERENCE from the evidence below.
+- Split for 2026: human data plus RL environments about $7B (range $5B to $9.5B); recurring content
+  licensing about $0.6B; copyright settlement cash about $0.75B (all Anthropic, Bartz).
+- Earlier years: about $2.5B in 2024, about $4B in 2025 (or $5.5B if you count Anthropic's $1.5B
+  Bartz charge). Spend has roughly doubled each year. MY INFERENCE.
+- Best single hard number: Anthropic's amended S-1 says vendor costs for "data quality and
+  performance evaluation services" rose by $757M in the first nine months of 2026 versus a year
+  earlier. That puts Anthropic alone at about $1.0B for nine months and above a $2B annual pace in
+  Q3 2026. PRIMARY (via secondary quotes) plus MY ARITHMETIC.
+- OpenAI spent about $1B on data in 2025, including human experts and RL environments (The
+  Information, relayed by Epoch AI, 2026). REPORTED.
+- Vendor side agrees: more than 50 training-data vendors summed to about $8.5B of gross run-rate
+  revenue in July 2026 (Deedy Das, Menlo Ventures, 2026). ESTIMATE.
+- Scale check: data is about 5% of compute. Anthropic: about $1.0B of data vendors against $18.8B of
+  compute in 9M 2026. OpenAI expects $50B of compute in 2026.
+- Replacement wording: "US labs spend billions of dollars a year on data and environments" or
+  "roughly $5 to $10 billion a year". "Tens of billions" only becomes true if the doubling continues
+  to about 2028, or if you count Meta's one-off $14.3B Scale AI equity purchase as spend.
+
+### 1. Lab-side disclosures
+
+#### Anthropic (S-1 filed 2026-10-26; S-1/A filed 2026-11-02, 11-10, 11-17)
+
+- The S-1 has no "data" line. The only disclosure is a year-over-year change inside the R&D
+  discussion. PRIMARY, relayed.
+- Quoted wording of the line: "vendor costs related to data quality and performance evaluation
+  services" (F, via Tadepalli 2026; same phrase seen (S) in FourWeekMBA 2026).
+- The increases: "rose $165M in 2024, $165M in 2025 and $251M in the first half of 2026" (F,
+  Tadepalli 2026,
+  https://www.lesswrong.com/posts/QgcgoMz7mviHL6Esr/anthropic-s-ai-acceleration-is-probably-real).
+  PRIMARY, relayed.
+- The amended filing adds Q3: "We are only told that the costs of data quality and model performance
+  evaluation services rose by $757 million" ... "in the first nine months of 2026, compared with a
+  year earlier." (F, Strauss and O'Reilly 2026,
+  https://asimovaddendum.substack.com/p/anthropics-missing-s-1-disclosures; their link points at the
+  S-1/A on sec.gov). PRIMARY, relayed.
+- Same two figures quoted by FourWeekMBA (2026): "a $757 million increase in vendor costs related to
+  data quality and performance evaluation services" and "a $251 million increase in vendor costs
+  related to data quality and performance evaluation services" (S,
+  https://fourweekmba.com/ai-anthropics-data-vendor-costs-rose-506m-yoy-in-q3-2x-h1/). Slator (2026)
+  reports the same $251M and $165M (S, https://slator.com/anthropic-ipo-ai-data-opportunity/). Four
+  independent write-ups agree on the numbers.
+- "Anthropic does not report the total cost of these services or how much is paid to outside
+  workers" (F, Strauss and O'Reilly 2026). So levels have to be built from the deltas.
+- Levels, MY ARITHMETIC:
+  - 2024 level = 2023 level + $165M. 2025 level = 2023 level + $330M.
+  - Tadepalli (2026) puts 2025 at "$330-392M in 2025, or 5-6% of R&D" (F). ESTIMATE. That range
+    assumes a 2023 level of $0 to $62M. Total R&D was $6.3B in 2025 (S-1 p. F-40, relayed (F) by
+    https://blog.business-model-innovation.com/2026/10/anthropic-business-model-s1/, 2026).
+  - Q3 2026 year-over-year increase = $757M minus $251M = $506M. Q3 2026 level is therefore at least
+    $506M, an annual pace of at least $2.0B.
+  - 9M 2026 level = $757M + 9M 2025 level. With 9M 2025 at $200M to $295M (60% to 75% of a $330M to
+    $392M year), 9M 2026 is $0.96B to $1.05B. Call it $1.0B.
+  - FY2026 = $1.0B + Q4. With Q4 at $0.6B to $0.9B, FY2026 is $1.6B to $1.9B. I commit to $1.7B.
+- Independent cross-check: FutureSearch (2026) writes "Anthropic alone spent roughly $1 billion on
+  data vendors in the first nine months of 2026." (F,
+  https://futuresearch.ai/app/p/a/rsi-uplift-ratios?idx=1). ESTIMATE, same source data.
+- Scope caveat from Tadepalli (2026): "The line bundles evaluation vendors with data, may not
+  include RL environments, and excludes in-house data teams." (F). MY INFERENCE: RL environment
+  vendors are in it, because nothing else in R&D would hold them and the Q3 jump matches the
+  reported $1B environments plan.
+- The earlier report: "leaders at Anthropic have discussed spending more than $1 billion on RL
+  environments over the next year." (F, TechCrunch 2025 citing The Information,
+  https://techcrunch.com/2025/09/16/silicon-valley-bets-big-on-environments-to-train-ai-agents/).
+  REPORTED. The S-1/A numbers are the 2026 follow-up: the plan happened.
+- Conflicting source: Wing VC (2026) said "Anthropic is estimated to be spending on the order of
+  tens of millions annually on RL environments." (F,
+  https://www.wing.vc/content/rl-environments-for-agentic-ai-who-will-win-the-training-verification-layer-by-2030).
+  ESTIMATE. I believe the S-1/A; Wing was written in January 2026 before the ramp.
+- S-1 on sources of training data: "Training data comes from the public web, scanned books, licensed
+  datasets and synthetic data" (F, business-model-innovation.com 2026 paraphrasing S-1 p. 92; this
+  is that blog's sentence, not S-1 text).
+- Bartz copyright settlement: $1.5B, all charged in Q3 2025 (F,
+  https://www.midgardfinance.com/research/anthropic/, 2026, from the S-1/A table). PRIMARY, relayed.
+- Anthropic compute and infrastructure expense: $2,522M (2024), $7,326M (2025), $8,945M (H1 2026),
+  $18,808M (9M 2026) (F, Midgard 2026). PRIMARY, relayed.
+- Anthropic R&D: $2.3B (2024), $6.3B (2025), $9.741B (H1 2026) (F, business-model-innovation.com
+  2026 and https://guptadeepak.com/anthropic-s1-ipo-filing/, 2026). 9M 2026 R&D $19.24B (S,
+  https://sec-api.io/insights/anthropic-ant-s-1-and-s-1-a-ipo-filings-analysis-q3-2026-revenue-17-0bn-and-895bn-compute-commitments,
+  2026). PRIMARY, relayed.
+
+#### OpenAI
+
+- 2024: data costs of about $500M, then forecast to fall to $200M a year later in the decade (S, The
+  Decoder and PC Gamer 2024 summarising The Information's October 2024 report on OpenAI financial
+  documents; I could not open the passage,
+  https://www.pcgamer.com/software/ai/openais-internal-documents-predict-usd14-billion-loss-in-2026-according-to-report/).
+  REPORTED. The forecast decline did not happen.
+- 2025: "about $1 billion on data (which includes paying for human experts and RL environments)" (F,
+  Epoch AI 2026, note 21, citing The Information,
+  https://epoch.ai/gradient-updates/can-ai-companies-become-profitable). REPORTED.
+- 2025 context: "In 2025, they spent $8.3 billion on R&D AI compute" (F, same Epoch note). Data was
+  12% of R&D compute. MY ARITHMETIC.
+- 2030 projection: "while OpenAI's data-related costs could hit $8 billion by 2030." (F, Marketing
+  AI Institute 2025 summarising The Information,
+  https://www.marketingaiinstitute.com/blog/ai-impact-on-the-economy). REPORTED.
+- 2026: no reported figure. MY INFERENCE: $2B (range $1.5B to $3B). Reasons: $1B base in 2025;
+  SemiAnalysis (2026) says OpenAI outspends Anthropic on data (F,
+  https://newsletter.semianalysis.com/p/rl-environments-and-rl-for-science); Anthropic is at $1.7B;
+  OpenAI is a top Mercor customer.
+- OpenAI audited 2025 R&D was $19.18B with no data line broken out (S, coverage of the Zitron leak
+  verified by the FT, 2026, e.g.
+  https://www.techtimes.com/articles/318496/20260616/openai-lost-385-billion-2025-audited-financials-expose-17b-azure-dependency.htm).
+  REPORTED.
+
+#### Google, Meta, xAI, Microsoft, Amazon
+
+- Google paid Scale about $150M in 2024 and planned about $200M for 2025 before cutting ties (F,
+  Sacra 2026 relaying Reuters 2025, https://sacra.com/research/scale-ai). REPORTED.
+- "Meta agreed to pay Scale at least $450 million a year for five years for its services." (F,
+  Forbes 2026,
+  https://www.forbes.com.au/news/innovation/inside-scale-ais-business-after-metas-bombshell-14-billion-deal/).
+  REPORTED.
+- Meta's $14.3B for 49% of Scale (2025) is an equity purchase, not annual spend. REPORTED.
+- xAI ran an in-house annotation team of about 1,500, cut by about 500 in September 2025 (S,
+  TechCrunch 2025,
+  https://techcrunch.com/2025/09/13/xai-reportedly-lays-off-500-workers-from-data-annotation-team).
+  REPORTED. No dollar figure.
+- Industry rule of thumb: "Each of the leading AI companies now spends around $1 billion on human
+  data per year" (F, TIME 2025, attributed to Handshake CEO Garrett Lord,
+  https://time.com/7294699/meta-scale-ai-data-industry/). PRIMARY quote from a vendor, not a
+  measurement.
+- No 2026 dollar figure exists for Google, Meta, xAI, Microsoft or Amazon. My 2026 allocations are
+  MY INFERENCE: Google $1.2B, Meta $1.0B, xAI $0.4B, Microsoft plus Amazon $0.5B.
+
+### 2. Vendor-side revenue (bounds lab spend from the other direction)
+
+Labs pay the gross figure, so gross revenue is the right measure of lab spend. Contractor pay is 60%
+to 70% of gross at the marketplaces: "Contractor payouts account for 60–70% of gross revenue" (F,
+Sacra 2026, https://sacra.com/c/mercor/).
+
+- Mercor: "The company generated $614 million in gross revenue in the first half of the year, up 70%
+  from all of last year, according to the documents." and "About 91% of the first half revenue came
+  from makers of AI foundation models." (S, The Information 2026,
+  https://www.theinformation.com/articles/mercors-fast-growth-relies-biggest-ai-companies-documents-show).
+  REPORTED. Top customers named: OpenAI, Anthropic, Google DeepMind (S, same).
+  - 2025 gross revenue = $614M / 1.7 = $361M. MY ARITHMETIC.
+  - $2B gross run rate in June 2026 (CEO statement, relayed (F) by
+    https://aiweekly.co/alerts/mercor-books-614m-in-h1-2026-leaning-on-openai-anthropic, 2026).
+    PRIMARY, relayed.
+  - "$3B in annualized gross revenue at the end of October 2026, up from $760M at the end of 2025"
+    (F, Sacra 2026). ESTIMATE.
+  - Calendar 2026 gross: $614M + about $1.25B for H2 = about $1.9B. MY ARITHMETIC.
+- Handshake: $1.1B annualised gross in April 2026, of which about $950M is AI data (F, Sacra 2026,
+  https://sacra.com/research/handshake-indeed-for-data-labelers/). ESTIMATE. Calendar 2026: about
+  $1.1B. MY INFERENCE.
+- Surge AI: $1.2B revenue in 2024 from about 12 frontier labs (F, Sacra 2026,
+  https://sacra.com/c/surge-ai). ESTIMATE/REPORTED. July 2026 run rate "~$3B", flagged "in talks"
+  (A, Deedy Das map 2026). ESTIMATE, uncorroborated. I use $2.0B for calendar 2026 (range $1.5B to
+  $2.5B). MY INFERENCE.
+- Scale AI: "Scale tells Forbes it tallied just shy of $1 billion in revenue last year, up from $870
+  million the year before." (F, Forbes 2026). PRIMARY. Sacra's $2B estimate for 2025 conflicts; I
+  believe Forbes because it is the company's own statement. 2026: company "expects to top $1
+  billion" (F, Forbes 2026).
+- micro1: $500M gross run rate in summer 2026; CEO claims "a $1 billion annual run rate while
+  remaining profitable" in October 2026 (F, Dealroom 2026 relaying the CEO's X post,
+  https://dealroom.co/news/161913-micro1-passes-a-1b-run-rate-with-about-180-staff-three-years-after-nearl).
+  PRIMARY claim. Calendar 2026 about $0.5B. MY INFERENCE.
+- Second tier, relayed by subagent (A): Turing $300M ARR December 2024 (PRIMARY,
+  https://www.turing.com/press/turing-annual-revenue-runrate-nearly-triples-to-300m, 2025), about
+  $500M July 2026 (ESTIMATE); Snorkel $375M run rate September 2026 (PRIMARY,
+  https://snorkel.ai/blog/data-2-0-and-the-research-era-of-ai-data/, 2026); Prolific about $350M
+  (ESTIMATE, Sacra 2026); Innodata $251.7M FY2025 and at least $357M guided for FY2026 (PRIMARY,
+  https://finviz.com/news/417736/innodata-reports-record-third-quarter-2026-results, 2026); Appen
+  US$230.8M FY2025, US$270M to $300M guided FY2026, China is 64% of H1 2026 (PRIMARY, ASX filing
+  2026, https://announcements.asx.com.au/asxpdf/20260827/pdf/0739d4q7lyh3w2.pdf); AfterQuery above
+  $100M run rate (PRIMARY, https://www.afterquery.com/blog/human-expertise-reimagined, 2026).
+- RL environment pure plays, relayed by subagent (A): Proximal over $200M annualised September 2026
+  (company claim via Sacra 2026, https://sacra.com/c/proximal/); Fleet $60M annualised April 2026
+  (ESTIMATE, https://sacra.com/c/fleet, 2026); Halluminate mid eight figures (REPORTED, Fortune
+  2026, https://fortune.com/2026/10/01/halluminate-raises-30-million-series-a-oakhc-ft/); Mechanize
+  no revenue disclosed. Calendar 2026 total for the category: about $0.4B. MY INFERENCE (subagent's
+  sum).
+- Contract sizes: "Contract sizes are often six to seven figures per quarter." (F, Epoch AI 2026,
+  https://epoch.ai/gradient-updates/state-of-rl-envs). Per-task price $200 to $2,000; website
+  replicas about $20k each (F, same). REPORTED.
+- US vendors get about $500M a year from China's six leading labs (F,
+  https://cryptobriefing.com/american-data-companies-chinese-ai-pentagon/, 2026, relaying Forbes
+  2026). REPORTED. This must come out of the US-lab total.
+
+#### Vendor sum, calendar 2026, gross (MY ARITHMETIC on the lines above)
+
+- Mercor 1.9 + Handshake 1.1 + Surge 2.0 + Scale 1.0 + other human data 2.9 + RL environments 0.4 =
+  **$9.3B**.
+- Minus Chinese labs 0.5, Scale government and enterprise 0.4, Appen China 0.2, enterprise, robotics
+  and neolab buyers 0.8 = **about $7.4B from US frontier labs and their parents**.
+- Plus work that never touches these vendors (xAI in-house tutors, OpenAI in-house human data team,
+  Google raters through GlobalLogic and Accenture): about $0.4B. MY INFERENCE.
+- Minus a haircut for run rates that were claimed, not booked (Surge, micro1): about $0.8B. MY
+  INFERENCE.
+- Result: **about $7B** for human data plus RL environments in 2026.
+
+#### Lab sum, calendar 2026 (MY INFERENCE except Anthropic)
+
+- Anthropic 1.7 + OpenAI 2.0 + Google 1.2 + Meta 1.0 + xAI 0.4 + Microsoft and Amazon 0.5 =
+  **$6.8B**. Matches the vendor sum.
+
+### 3. Market-size estimates by others
+
+- "They total ~$8.5B in rev and ~$100B in valuation, >75% of which are just 4 players: Scale, Surge,
+  Mercor and Handshake." (S, Deedy Das, Menlo Ventures, X post 2026-07-12,
+  https://x.com/deedydas/status/2076124392711696455). ESTIMATE. The image totals 28 companies with
+  figures, gross run rate, July 2026 (A). Its Scale figure ($1.5B) is higher than Forbes'.
+- "Total spending across the top five frontier developers is estimated in the $5–9 billion range."
+  for calendar 2026 (F, FutureSearch 2026). ESTIMATE, method not shown.
+- micro1's CEO says the human data market "will grow from $10-15 billion today to nearly $100
+  billion within two years." (F, TechCrunch 2025,
+  https://techcrunch.com/2025/12/04/micro1-a-scale-ai-competitor-touts-crossing-100m-arr). Vendor
+  claim. The $10B to $15B for late 2025 is about three times what vendor revenues support; I do not
+  believe it.
+- Glasp (2026): "Nobody has measured the total." and "the audited floor we found is about $0.7
+  billion" from four listed vendors' 2025 filings (F,
+  https://read.glasp.co/p/the-human-data-market-in-2026-who-buys-it-who-makes-it-and-what-it-pays).
+  ESTIMATE.
+- Ex-OpenAI researchers (Will Depue; Andrew Ho per The Decoder 2026) argue data spend will pass
+  $100B a year (S,
+  https://the-decoder.com/ex-openai-researcher-bets-100-billion-will-flow-into-training-data-because-scaling-alone-wont-cut-it/).
+  A forecast, not a current figure.
+
+### 4. Content licensing and settlements (subagent leg, relayed (A))
+
+- Reddit "other revenue", mostly Google and OpenAI licences: $114.7M (2024), $140M (2025), $130M for
+  Q1 to Q3 2026 (PRIMARY, Reddit results, https://www.businesswire.com/news/home/20260205441801/en,
+  2026). Reported split: Google about $60M a year, OpenAI about $70M a year. REPORTED.
+- News Corp/OpenAI: more than $250M over 5 years, about $50M a year. Meta/News Corp (2026): up to
+  $50M a year (REPORTED,
+  https://www.mediaweek.com.au/meta-to-pay-news-corp-up-to-us50m-a-year-for-ai-content, 2026).
+- Amazon/New York Times: $20M to $25M a year (REPORTED, GeekWire 2025 citing WSJ,
+  https://www.geekwire.com/2025/report-amazon-to-pay-at-least-20m-a-year-in-ai-content-deal-with-new-york-times/).
+- OpenAI/Dotdash Meredith at least $16M a year (REPORTED, Adweek 2024); OpenAI/Axel Springer about
+  $13M a year, FT reported tens of millions of euros (REPORTED, 2023); OpenAI/Financial Times $5M to
+  $10M a year (REPORTED tracker 2026).
+- Shutterstock data licensing: $104M (2023), $120.3M (2024), collapsing in 2026 (PRIMARY,
+  Shutterstock filings 2025 and 2026). Wiley AI licensing: $40M FY25, $49M FY26 (PRIMARY,
+  https://www.businesswire.com/news/home/20260616444615/en/, 2026). Informa/Taylor and Francis:
+  $75M+ in 2024 (PRIMARY, 2024).
+- Recurring licensing totals, including an allowance for undisclosed deals: about $470M (2024),
+  $550M (2025), $620M (2026). MY INFERENCE (subagent's sum; undisclosed-deal allowance is $60M,
+  $100M, $200M).
+- One outside estimate for 2024: "I estimate that AI companies spent $816.7 Mil.. on content
+  licensing in 2024." (A, Media and the Machine 2025). ESTIMATE; its author says the method may run
+  high.
+- Bartz v. Anthropic: $1.5B plus interest. Cash schedule: $300M October 2025, $300M July 2026, $450M
+  plus interest August 2026, $450M plus interest by September 2027. Final approval 2026-07-20
+  (PRIMARY, class counsel status report Dkt. 688, 2026,
+  https://blog.taaonline.net/wp-content/uploads/2026/09/2026-09-02-BartzAnthropicStatus-Report-dckt-688_0.pdf;
+  subagent read the PDF). Cash paid: $300M in 2025, $750M in 2026.
+- No other frontier-lab settlement with a dollar amount was found. NYT v. OpenAI/Microsoft and
+  Authors Guild v. OpenAI are still open (A).
+- No music-label or video licensing deal with a frontier lab carrying a dollar figure was found. The
+  Disney/OpenAI Sora deal was cancelled in March 2026 (A, TheWrap 2026).
+- Licensing is small: about 8% of the 2026 total.
+
+### 5. Compute for scale
+
+- OpenAI: "OpenAI President Greg Brockman revealed under oath that the company expects to spend $50
+  billion on computing power in 2026" (F, opentools.ai 2026 relaying Reuters and Bloomberg,
+  2026-05-05 testimony; Bloomberg headline "OpenAI to Spend $50 Billion on Computing in 2026,
+  Brockman Says",
+  https://www.bloomberg.com/news/articles/2026-05-05/openai-to-spend-50-billion-on-computing-in-2026-brockman-says).
+  PRIMARY testimony, relayed.
+- Anthropic: $18.8B compute and infrastructure in 9M 2026; Q3 alone = 18,808 minus 8,945 = $9.9B (MY
+  ARITHMETIC). FY2026 about $29B. MY INFERENCE.
+- Amazon, Microsoft, Alphabet and Meta 2026 capex guidance: about $725B combined (S, FT compilation
+  relayed by Tom's Hardware 2026,
+  https://www.tomshardware.com/tech-industry/big-tech/big-techs-ai-spending-plans-reach-725-billion).
+  REPORTED.
+- Ratios, MY ARITHMETIC:
+  - Anthropic 9M 2026: $1.0B data vendors / $18.8B compute = 5%.
+  - Anthropic 2025: $0.33B to $0.39B / $7.3B = 5%.
+  - OpenAI 2025: $1B / $8.3B R&D compute = 12%; against all 2025 compute (about $17B) it is 6%.
+  - OpenAI 2026: $2B / $50B = 4%.
+  - All labs' data and environments ($8B) against hyperscaler capex ($725B) = 1%.
+
+### 6. Table
+
+| Lab or vendor                            | Year                          | Dollars                                                           | What it covers                                                                | Source (year)                                             | Label                      |
+| ---------------------------------------- | ----------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------- | -------------------------- |
+| Anthropic                                | 9M 2026                       | +$757M vs 9M 2025                                                 | Increase in vendor costs for data quality and performance evaluation services | S-1/A via Strauss and O'Reilly (2026), FourWeekMBA (2026) | PRIMARY, relayed           |
+| Anthropic                                | H1 2026                       | +$251M vs H1 2025                                                 | Same line                                                                     | S-1 via Tadepalli (2026), Slator (2026)                   | PRIMARY, relayed           |
+| Anthropic                                | 2024, 2025                    | +$165M each year                                                  | Same line                                                                     | S-1 via Tadepalli (2026)                                  | PRIMARY, relayed           |
+| Anthropic                                | 2025                          | $330M to $392M                                                    | Level of that line                                                            | Tadepalli (2026)                                          | ESTIMATE                   |
+| Anthropic                                | 9M 2026                       | about $1.0B                                                       | Level of that line                                                            | Mine; FutureSearch (2026) agrees                          | MY ARITHMETIC              |
+| Anthropic                                | Q3 2026                       | at least $506M (annual pace above $2.0B)                          | Level of that line                                                            | Mine                                                      | MY ARITHMETIC              |
+| Anthropic                                | FY2026                        | $1.7B (1.6 to 1.9)                                                | Level of that line                                                            | Mine                                                      | MY ARITHMETIC              |
+| Anthropic                                | next 12 months from Sept 2025 | more than $1B discussed                                           | RL environments                                                               | TechCrunch citing The Information (2025)                  | REPORTED                   |
+| Anthropic                                | 2025 charge                   | $1.5B                                                             | Bartz book settlement; cash $300M 2025, $750M 2026, $450M 2027                | S-1/A; court status report (2026)                         | PRIMARY                    |
+| OpenAI                                   | 2024                          | about $500M                                                       | "Data costs"                                                                  | The Information via The Decoder (2024)                    | REPORTED                   |
+| OpenAI                                   | 2025                          | about $1B                                                         | Data incl. human experts and RL environments                                  | The Information via Epoch AI (2026)                       | REPORTED                   |
+| OpenAI                                   | 2026                          | $2B (1.5 to 3)                                                    | Same                                                                          | Mine                                                      | MY INFERENCE               |
+| OpenAI                                   | 2030                          | $8B                                                               | Data-related costs, projection                                                | The Information via Marketing AI Institute (2025)         | REPORTED                   |
+| Each leading lab                         | 2025                          | around $1B a year                                                 | Human data                                                                    | Handshake CEO in TIME (2025)                              | PRIMARY quote, vendor view |
+| Google                                   | 2024 / 2025 plan              | $150M / $200M                                                     | Payments to Scale only                                                        | Reuters via Sacra (2025, 2026)                            | REPORTED                   |
+| Meta                                     | 2025 to 2030                  | at least $450M a year                                             | Payments to Scale                                                             | Forbes (2026)                                             | REPORTED                   |
+| Meta                                     | 2025                          | $14.3B                                                            | 49% equity stake in Scale, not spend                                          | Bloomberg (2025)                                          | REPORTED                   |
+| Mercor                                   | H1 2026                       | $614M gross, 91% from foundation model makers                     | Human data, expert contractors                                                | The Information (2026)                                    | REPORTED                   |
+| Mercor                                   | 2025                          | $361M gross                                                       | Same                                                                          | Mine from The Information                                 | MY ARITHMETIC              |
+| Mercor                                   | Oct 2026 run rate             | $3B gross                                                         | Same                                                                          | Sacra (2026)                                              | ESTIMATE                   |
+| Handshake                                | Apr 2026 run rate             | $1.1B gross, $950M AI data                                        | Human data                                                                    | Sacra (2026)                                              | ESTIMATE                   |
+| Surge AI                                 | 2024                          | $1.2B                                                             | Human data, about 12 labs                                                     | Sacra, Forbes (2025, 2026)                                | REPORTED                   |
+| Scale AI                                 | 2024 / 2025 / 2026            | $870M / just under $1B / above $1B expected                       | Labelling, government, enterprise                                             | Forbes (2026)                                             | PRIMARY                    |
+| micro1                                   | Oct 2026 run rate             | $1B claimed                                                       | Human data                                                                    | CEO post via Dealroom (2026)                              | PRIMARY claim              |
+| 28 vendors with figures (50+ on the map) | Jul 2026 run rate             | about $8.5B gross                                                 | Training data and RL environments                                             | Deedy Das (2026)                                          | ESTIMATE                   |
+| Top five labs                            | 2026                          | $5B to $9B                                                        | Human data                                                                    | FutureSearch (2026)                                       | ESTIMATE                   |
+| RL environment pure plays                | 2026                          | about $0.4B                                                       | Environments and graders                                                      | Subagent sum from Sacra, Fortune (2026)                   | MY INFERENCE               |
+| Reddit                                   | 2024 / 2025 / 9M 2026         | $115M / $140M / $130M                                             | Data licensing, mostly Google and OpenAI                                      | Reddit filings (2025, 2026)                               | PRIMARY                    |
+| News Corp                                | 2024 on                       | about $50M a year from OpenAI; up to $50M a year from Meta (2026) | News licensing                                                                | WSJ via Mediaweek (2026)                                  | REPORTED                   |
+| All frontier labs                        | 2024 / 2025 / 2026            | $0.47B / $0.55B / $0.62B                                          | Recurring content licensing                                                   | Subagent sum                                              | MY INFERENCE               |
+| All frontier labs                        | 2024                          | about $2.5B (2 to 3.5)                                            | Human data, environments, licensing                                           | Mine                                                      | MY INFERENCE               |
+| All frontier labs                        | 2025                          | about $4B (3 to 5.5); $5.5B with the Bartz charge                 | Same                                                                          | Mine                                                      | MY INFERENCE               |
+| All frontier labs                        | 2026                          | about $8B (6 to 11)                                               | Same, plus $0.75B Bartz cash                                                  | Mine                                                      | MY INFERENCE               |
+| OpenAI                                   | 2026                          | $50B                                                              | Compute, for comparison                                                       | Brockman testimony via Bloomberg, Reuters (2026)          | PRIMARY, relayed           |
+| Anthropic                                | 9M 2026                       | $18.8B                                                            | Compute and infrastructure, for comparison                                    | S-1/A via Midgard (2026)                                  | PRIMARY, relayed           |
+
+### 7. How the yearly totals were built (all MY INFERENCE)
+
+- 2024, human data plus environments, about $2.0B: OpenAI 0.5, Anthropic 0.2, Google 0.6, Meta 0.4,
+  others 0.3. Vendor check: Surge 1.2 + Scale 0.87 + Turing 0.2 + Appen 0.23 + Innodata 0.17 +
+  Invisible 0.13 + others 0.2 = $3.0B gross, about $2.2B of it from US frontier labs. Plus licensing
+  0.47. Total about $2.5B.
+- 2025, about $3.5B: OpenAI 1.0, Anthropic 0.36, Google 0.8, Meta 0.7, xAI 0.2, Microsoft and Amazon
+  0.3. Vendor check: Surge 1.3 + Scale 1.0 + Mercor 0.36 + Handshake AI 0.15 + other human data
+  1.4 + RL 0.05 = $4.3B gross, about $3.3B from US frontier labs. Plus licensing 0.55. Total about
+  $4B. Bartz adds a $1.5B charge ($0.3B cash).
+- 2026, about $7B: built in section 2. Plus licensing 0.62 and Bartz cash 0.75. Total about $8B.
+- Range for 2026 ($6B to $11B): low end takes Surge at its 2024 level, discounts micro1 and Mercor's
+  H2, and drops settlement cash; high end takes Das's Surge figure, Sacra's Mercor exit rate and a
+  larger in-house share.
+
+### 8. Bottom line
+
+US frontier labs spend about **$8 billion a year on data and environments in 2026 (range $6 billion
+to $11 billion)**. About $7B is human data and RL environments, $0.6B is recurring content licensing
+and $0.75B is Anthropic's Bartz settlement cash. It was about $4B in 2025 and about $2.5B in 2024.
+"Tens of billions every year" overstates 2026 by a factor of three or more. The spend is about 5% of
+what the same labs spend on compute.
+
+Best citations to attach:
+
+1. Anthropic's amended S-1 (SEC, 2026): the $757M nine-month increase in vendor costs for data
+   quality and performance evaluation services. Filing index:
+   https://www.sec.gov/Archives/edgar/data/2130357/000162828026074338/0001628280-26-074338-index.htm
+   (document anthropicpbc-sx1ax3.htm). Readable secondary: Strauss and O'Reilly (2026),
+   https://asimovaddendum.substack.com/p/anthropics-missing-s-1-disclosures.
+2. Epoch AI (2026), "Can AI companies become profitable?", note 21, for OpenAI's roughly $1B on data
+   in 2025: https://epoch.ai/gradient-updates/can-ai-companies-become-profitable.
+3. For an industry total: Deedy Das's July 2026 vendor map ($8.5B gross run rate),
+   https://x.com/deedydas/status/2076124392711696455, or The Information (2026) on Mercor's $614M
+   first half with 91% from model makers.
+
+Suggested replacement wording, pick one:
+
+- "US labs spend billions of dollars every year on data and environments."
+- "US labs spend something like $5 to $10 billion a year on data and environments, and the number
+  has been doubling annually."
+- "Anthropic alone was paying data and evaluation vendors at a pace of more than $2 billion a year
+  by late 2026." (MY ARITHMETIC from the S-1/A: Q3 increase of $506M, times four.)
+
+### What I could not confirm
+
+- I could not open the S-1 or S-1/A text. sec.gov refused the scripted download (it wants a declared
+  contact address, which I did not supply) and the document is 14 MB, over the fetch tool's 10 MB
+  limit. Every S-1 figure here comes through secondary write-ups. The exact sentence around the
+  $757M figure, and its page number, are unverified. The author should open the S-1/A and search for
+  "data quality".
+- Whether Anthropic's line includes RL environment purchases, and what the 2023 base was. The
+  repeated $165M increase for both 2024 and 2025 is reported by two sources (Tadepalli; FourWeekMBA)
+  and looks odd, but I could not check it.
+- Whether the $757M and $251M are both measured on the same line definition across the original S-1
+  and the amendment.
+- Any 2026 figure for OpenAI's data spend. The 2025 "$1 billion" and 2030 "$8 billion" trace to
+  paywalled The Information articles I could not open.
+- Any dollar figure for Google, Meta (beyond Scale), xAI, Microsoft or Amazon human-data spend in
+  2025 or 2026.
+- Surge AI's 2025 and 2026 revenue. The only 2026 figure is the "~$3B" on Das's map.
+- The customer split inside Mercor's 91%.
+- The original Information article behind the $500M (2024) OpenAI data cost; I saw it only in search
+  snippets of The Decoder and PC Gamer.
+- The investmentbrief.ai article FutureSearch cites for Anthropic's "roughly $1 billion" in nine
+  months.
+- Revenue for most RL environment startups (Mechanize, Plato, HUD, Bespoke Labs, Matrices, Veris,
+  Preference Model). Habitat and Kaizen: no trace found.
+- Prices for most publisher deals (OpenAI with Washington Post, Guardian, Conde Nast, Vox, Atlantic,
+  AP; Meta's December 2025 publisher deals; Google's publisher pilot), and any music or video
+  licence fee paid by a frontier lab.
+- Slator, FourWeekMBA, Bloomberg and The Information pages returned 403 or paywalls; their content
+  is from search snippets only.
+
+---
+
+# Part: RL Environments, SFT Data and Other Post-Training Assets (second round of `@c` notes)
+
+## Part 9: RL environments, SFT data and other post-training assets — Fermi estimates
+
+Written 2026-11-22. "Mythos-class" = the 2026 flagship of a top-3 lab (Anthropic's Claude Mythos
+Preview, April 2026; Mythos 5, June 2026; Mythos 5.1, September 2026).
+
+**Labels.** PRIMARY = company document or direct quote. REPORTED = journalism. ESTIMATE = someone
+else's model. MY ARITHMETIC = I computed it from labelled inputs. MY GUESS = a Fermi input I chose.
+
+**How I saw each quote.** `[read]` = I extracted the PDF/page text locally and read the words
+myself. `[fetch]` = a fetch tool returned the words (it relays the page through a small model; I did
+not see raw HTML). `[fetch-sub]` = same, but a research subagent ran the fetch and reported the
+quote to me. `[sub-read]` = a research subagent reports matching the exact string in the raw page
+text. `[snippet]` = search snippet only; never in quotation marks.
+
+### Short answer
+
+1. **How many environments.** Three different counts, because "environment" is used three ways.
+   About **1,500 environment families** (range 300 to 5,000), about **1 million distinct sandbox
+   images** (200k to 5M), and about **1.5 million tasks** (300k to 10M). A flagship run plays them
+   about **100 million times** (10M to 1B episodes), producing about **15 trillion tokens** of
+   rollouts (2T to 100T).
+2. **How many bytes.** About **100 TB** as a lab would actually store it, with container layers
+   deduplicated (10 TB to 1 PB). About **2 PB** if every task's full image is counted separately
+   (0.2 to 20 PB). About **250 GB** if you keep only what cannot be rebuilt from public sources (50
+   GB to 2 TB).
+3. **Can you compress it.** Yes, about 30,000x from raw to minimal: 2 PB raw → 100 TB deduplicated →
+   250 GB of task text, graders, replica source code and private seed files → about **70 GB**
+   zstd-compressed (15 to 500 GB). The 70 GB is mostly human-authored and compresses only about 4x.
+4. **SFT data.** SFT is now the cold start before RL, and the consolidation step after it. About
+   **20 million examples, 100 billion tokens, 0.4 TB** uncompressed (range 5B to 2T tokens, 20 GB to
+   8 TB). Add a "mid-training" corpus of about **3 trillion tokens, 12 TB** (1T to 10T tokens). The
+   human-written part of all of it is about **20 GB** (2 to 100 GB): $1B of expert time buys at most
+   60 GB of typed text.
+5. **What is missing.** In order of value to a thief who already has the recipe: the on-policy
+   rollouts (15T tokens, a ready-made distillation set with raw reasoning and rewards), the
+   training-mix config and environment QA records (MBs), the experiment-tracking database (GBs), the
+   grader stack (rubrics, judge prompts, hack classifiers), the eval suites, user conversations, and
+   the cleaned pretraining corpus. "RLHF on policy" in the 2022 sense (humans rank fresh samples, a
+   reward model learns the ranking, PPO chases it) is now a minor ingredient. Human judgment enters
+   earlier: experts write the tasks, rubrics and graders, and the model then does on-policy RL
+   against those.
+
+- **Two independent methods agree on tasks.** Budget: $1B a year / $200 to $2,000 per task ≈ 0.3M to
+  3M tasks. Compute: about $230M of RL compute / $2 to $3 per episode / 64 rollouts per task ≈ 1.5M
+  tasks.
+- **One open-weight lab published its count.** Moonshot's Kimi K3 report (July 2026) says 51,219,741
+  sandboxes across 1,505,678 images. That is the best public anchor, and it is the same order as my
+  estimate.
+- **Environments are the easiest asset to buy.** US vendors sell about $0.5B a year of data to
+  Chinese labs, reportedly the same products US labs get, and RL environments are largely outside
+  export controls (ChinaTalk, 2026). Exclusive deals cost 4 to 5x more (Epoch, 2026).
+- **The vendor is the soft spot.** The Mercor breach claim was 4 TB, of which 939 GB was labelled
+  source code. One vendor's whole code holding is under 1 TB, so the vendor-held slice of a lab's
+  environments is single-digit TB.
+- **Chinese labs already build at the million-image scale** (Kimi K3), and Z.ai's GLM-5.3 was a
+  post-training-only release built on environment scaling.
+
+### 1. Definitions
+
+- **Environment (Epoch's definition).** PRIMARY: "The RL environment is defined by the set of
+  actions the model can take." `[fetch]`
+  ([Epoch AI, 2026](https://epochai.substack.com/p/an-faq-on-reinforcement-learning))
+- **Task.** PRIMARY: "Each task consists of a prompt instructing the model to achieve an objective,
+  and a grader." `[fetch]` (same source)
+- **Tasks per environment.** PRIMARY: "For computer use environments like the Excel clone, a single
+  environment might support hundreds of different tasks." For coding it is more common for "each
+  environment to contain just one task, since setting up a repo state is relatively cheap."
+  `[fetch]` (same source)
+- **Anthropic's usage** is the "family" sense. PRIMARY: "We collected a dataset of 80 environments
+  (each environment containing many tasks)" `[fetch]`
+  ([Anthropic Alignment Science, 2026](https://alignment.anthropic.com/2026/reward-seeker/))
+- So I report three levels: **family** (a harness + generator + grader design), **sandbox image**
+  (one repo commit, one cloned site with a seeded database, one VM snapshot), **task** (prompt +
+  grader).
+
+### 2. Evidence on counts
+
+| Who                         | What they said                                                                                                                                                                                                                                                                                                                        | Label                            | Source                                                                                                                                                                            |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Anthropic                   | "we intentionally trained a model on 80 RL environments that we had identified as vulnerable to reward hacking"; "All environments were real environments trained on by Anthropic production frontier models"; they cover "most major categories of the production mix, including but not limited to coding, math, and computer use." | PRIMARY `[fetch]`                | [Anthropic, 2026](https://alignment.anthropic.com/2026/reward-seeker/)                                                                                                            |
+| Anthropic                   | "We find negative affect in 3.6% of environments."                                                                                                                                                                                                                                                                                    | PRIMARY `[read]`                 | [Mythos Preview system card, 2026](https://www-cdn.anthropic.com/08ab9158070959f88f296514c21b7facce6f52bc.pdf), §5.6.1                                                            |
+| Anthropic                   | "sampling several hundred thousand transcripts from across much of the training process"                                                                                                                                                                                                                                              | PRIMARY `[read]`                 | same, §4.2.2.1; repeated in the [Mythos 5 card, 2026](https://assets.claude.com/57a52ea7d8f0e54e8a542e908266086df425cdf5.pdf), §6.2.2                                             |
+| Anthropic                   | "We take tasks from 16 agentic coding RL environments, selected for high grader awareness"; "We flagged that around half of our computer-use environments incentivized hacking or had accessible hack surfaces"                                                                                                                       | PRIMARY `[read]`                 | [Mythos 5.1 system card, 2026](https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf), §6.3 |
+| Anthropic                   | Rewarded-cheating rates reported to 0.01% precision with confidence intervals ("approximately 0.06%", "below 0.01% of episodes")                                                                                                                                                                                                      | PRIMARY `[read]`                 | same, §6.3.3                                                                                                                                                                      |
+| Moonshot (Kimi K3)          | "Throughout Kimi K3’s training and evaluation, a total of 51,219,741 sandboxes across 1,505,678 images were created." Also: "A single rollout may involve up to thousands of tool calls and millions of context tokens."                                                                                                              | PRIMARY `[read]`                 | [Kimi K3 tech report, 2026](https://github.com/MoonshotAI/Kimi-K3/blob/main/k3_tech_report.pdf), §5.3, §4.2.5                                                                     |
+| Thinking Machines (Inkling) | "We scaled RL to over 30M rollouts"                                                                                                                                                                                                                                                                                                   | PRIMARY `[fetch]`                | [Thinking Machines, 2026](https://thinkingmachines.ai/news/introducing-inkling/)                                                                                                  |
+| MiniMax (M2.5)              | "navigated over a hundred thousand distinct real-world agent scaffolds and environments"; throughput "on the scale of millions of samples" a day                                                                                                                                                                                      | PRIMARY `[fetch]`                | [MiniMax, 2026](https://www.minimax.io/news/forge-scalable-agent-rl-framework-and-algorithm)                                                                                      |
+| DeepSeek (V3.2)             | "we generate over 1,800 distinct environments and 85,000 complex prompts". Table 1: 24,667 code-agent, 50,275 search-agent, 4,417 general-agent, 5,908 code-interpreter tasks. Post-training compute "already exceeds 10% of the pre-training cost."                                                                                  | PRIMARY `[fetch]`                | [DeepSeek-V3.2 paper, 2025](https://arxiv.org/html/2512.02556v1)                                                                                                                  |
+| Z.ai (GLM-5)                | "over 10k verifiable environments across thousands of repositories spanning 9 programming languages"                                                                                                                                                                                                                                  | PRIMARY `[fetch]`                | [GLM-5 paper, 2026](https://arxiv.org/html/2602.15763v2)                                                                                                                          |
+| Xiaomi (MiMo-V2.6)          | Open-sourced its RL environments: 7,780 tasks in five domains                                                                                                                                                                                                                                                                         | REPORTED `[snippet]`             | [Towards AI, 2026](https://pub.towardsai.net/what-xiaomis-7-780-mimo-tasks-reveal-about-training-agents-2788d4ce8a81)                                                             |
+| OpenAI                      | "OpenAI has purchased hundreds of sites for ChatGPT Agent training and development"                                                                                                                                                                                                                                                   | ESTIMATE `[fetch]`               | [SemiAnalysis, 2026](https://newsletter.semianalysis.com/p/rl-environments-and-rl-for-science)                                                                                    |
+| Mechanize                   | Predicts "massive-scale training across thousands of diverse environments" and about "~10k years of model-facing task-time"                                                                                                                                                                                                           | PRIMARY `[fetch-sub]`            | [Mechanize, 2025](https://www.mechanize.work/blog/the-upcoming-gpt-3-moment-for-rl/)                                                                                              |
+| Qwen, Cursor                | Qwen3-Coder: "running 20,000 independent environments in parallel". Cursor: "hundreds of thousands of concurrent sandboxed coding environments in the cloud." These are concurrency, not library size.                                                                                                                                | PRIMARY `[fetch-sub]`, `[fetch]` | [Qwen, 2025](https://qwenlm.github.io/blog/qwen3-coder/); [Hugging Face blog, 2026](https://huggingface.co/blog/sergiopaniego/rl-environments-2026)                               |
+
+- No top-3 US lab has published a count of environments or tasks. Every US number below is an
+  estimate.
+- Open research pipelines are at the same scale. PRIMARY: Alibaba's SWE-Universe has 807,693
+  verifiable coding environments from over 52,000 repos `[snippet]`
+  ([paper, 2026](https://arxiv.org/abs/2602.02361)).
+- Trend in the open-weight labs: about 10^4 to 10^5 tasks in late 2025 (DeepSeek V3.2, GLM-5), about
+  10^6 images and 5×10^7 sandboxes by mid-2026 (Kimi K3).
+
+### 3. Fermi estimate: tasks, from the budget
+
+Inputs:
+
+- REPORTED: Anthropic's leaders "had discussed spending over $1 billion on RL environments over the
+  following year." `[fetch]` (The Information, September 2025, as quoted by
+  [Epoch AI, 2026](https://epoch.ai/gradient-updates/state-of-rl-envs); also
+  [TechCrunch, 2025](https://techcrunch.com/2025/09/16/silicon-valley-bets-big-on-environments-to-train-ai-agents/)).
+  "The following year" is September 2025 to September 2026, the window in which the Mythos models
+  were trained.
+- REPORTED: "a ballpark of $200-$2,000 per task." "I’ve seen $200 to $2000 mostly. $20k per task
+  would be rare but possible." `[fetch]` (Epoch AI, 2026, same page)
+- REPORTED: website replicas "cost around $20k each"; Slack-grade replicas "figures around $300k for
+  these." `[fetch]` (Epoch AI, 2026, citing SemiAnalysis for the $20k)
+- REPORTED: "Having heard so much about the likes of Anthropic or OpenAI spending $10M+ for single
+  environments" with "cumulative spend on the order of hundreds of millions per year" `[fetch]`
+  ([Nathan Lambert, Interconnects, 2026](https://www.interconnects.ai/p/notes-from-inside-chinas-ai-labs))
+- REPORTED: "These environments are a one time purchase and are reused for future models." `[fetch]`
+  (SemiAnalysis, 2026)
+- MY GUESS: 60% of the budget buys per-task work, 25% buys big replicas, 15% is tooling and QA.
+  Reason: Epoch's interviewees quote per-task prices as the default unit; replicas are a few large
+  line items.
+- MY GUESS: central task price $630, the geometric mean of $200 and $2,000.
+- MY GUESS: central replica price $100k, between the $20k UI gym and the $300k Slack clone.
+- MY GUESS: stock from earlier years adds 30%.
+
+MY ARITHMETIC:
+
+- Tasks bought per year: $600M / $630 = **950k**. Low $600M / $2,000 = 300k. High $600M / $200 = 3M.
+- With earlier stock: 950k × 1.3 = **1.2M vendor-built tasks**.
+- Replicas: $250M / $100k = **2,500**. Low $250M / $300k = 830. High $250M / $20k = 12,500.
+- At "hundreds" of tasks per replica, 2,500 replicas × 200 = 500k computer-use and enterprise tasks,
+  which fits inside the 1.2M.
+
+### 4. Fermi estimate: episodes and tasks, from compute
+
+Inputs:
+
+- PRIMARY (S-1/A via Epoch): Anthropic's compute and infrastructure spend was $2,945M in Q4 2025,
+  $3,387M in Q1 2026, $5,558M in Q2 2026, $9,863M in Q3 2026. Inference (cost of revenue) was "just
+  26%" of the $18.8B spent in the first nine months of 2026. `[fetch]`
+  ([Epoch AI, 2026](https://epoch.ai/data-insights/anthropic-openai-compute-spend-growth))
+- ESTIMATE: at OpenAI in 2024, "only about $500 million – roughly 10% – going to the final training
+  runs that produced released models". MiniMax 22.6%, Z.ai 12.3%. `[fetch]`
+  ([Epoch AI, 2026](https://epoch.ai/gradient-updates/r-and-d-vs-training-compute))
+- ESTIMATE: SemiAnalysis's chart of combined Anthropic and OpenAI compute: 1Q26 pre-training 23%,
+  post-training/RL 42%; 4Q26E pre-training 7%, post-training/RL 53 to 55%. `[fetch]`, as relayed by
+  [OfficeChai, 2026](https://officechai.com/ai/while-share-of-inference-has-held-steady-over-the-last-2-years-pre-training-compute-has-moved-to-post-training-semi-analysis/);
+  I did not see the chart.
+- ESTIMATE: "the average cost will be (500,000 tokens × $15 × 64) ÷ 1M = $480 per RL task per run";
+  "models are trained with a group size of 64"; "average length of around 100,000 tokens per task";
+  "transcript lengths appear to be growing at a rate of 5x per year." `[fetch]`
+  ([Mechanize, 2025](https://www.mechanize.work/blog/cheap-rl-tasks-will-waste-compute/))
+- REPORTED: labs want "a minimum pass rate of around 2-3%, or at least one success out of 64 or 128
+  rollouts." `[fetch]` (Epoch AI, 2026)
+- MY GUESS: one flagship takes half of the final-run compute in its two-quarter window.
+- MY GUESS: $2.30 of compute per episode, averaged over the mix. Reason: Mechanize's formula gives
+  $7.50 for a 500k-token episode at a $15/M list price. A 300k-token agentic episode on a model that
+  lists at $50/M output
+  ([Mythos 5 pricing, 2026](https://platform.claude.com/docs/models/mythos-5/overview), `[snippet]`)
+  is about $15 at list, about $4 to $5 at internal cost. Half the mix is short episodes (math, chat,
+  alignment environments; Anthropic's cards mention all three) at about $0.30. Average ≈ $2.30.
+- MY GUESS: average episode 150k tokens (half at 300k, half at 20k).
+
+MY ARITHMETIC:
+
+- Mythos Preview window (Q4 2025 + Q1 2026): $6.3B × 70% non-inference (62% in FY2025, 74% in 2026)
+  × 10% final runs × 50% = **$220M final run**. Mythos 5.1 window (Q2 + Q3 2026): $15.4B × 74% × 10%
+  × 50% = $570M. Mythos-class final run: $200M to $600M.
+- RL share of training compute: 42 / (42 + 23) = 65% in 1Q26, rising to 54 / (54 + 7) = 89% by
+  4Q26E. RL compute for one flagship: $220M × 65% = $145M (Preview) to $570M × 80% = $460M (5.1).
+  **Central $230M**, between the two.
+- Episodes: $230M / $2.30 = **100M episodes**. Low: $100M / $10 = 10M. High: $460M / $0.50 = 920M.
+- Tokens: 100M × 150k = **15 trillion tokens** of rollouts. That is the same order as a pretraining
+  corpus (Inkling: "pretrained on 45 trillion tokens" `[fetch]`; GLM-5: "totaling 28.5 trillion
+  tokens for the base model" `[fetch]`).
+- Tasks: 100M / 64 rollouts = **1.6M task-visits**. If each task is visited once per run: 1.6M
+  tasks. If three times: 0.5M. If long tasks use groups of 16: 6M.
+- Cross-check, Kimi K3: 51,219,741 / 1,505,678 = 34 sandboxes per image. 100M episodes / 34 = 2.9M
+  images.
+- Cross-check, Anthropic: "several hundred thousand" transcripts is a sample; measuring a 0.01% rate
+  needs at least tens of thousands of episodes per bucket; both are consistent with tens of millions
+  of episodes or more.
+
+**Committed numbers.**
+
+| Quantity                     | Low  | Central   | High  | Basis                                                                                                                                                                  |
+| ---------------------------- | ---- | --------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Environment families         | 300  | **1,500** | 5,000 | MY GUESS. 80 known-vulnerable families covered most categories; if 5% of families were ever flagged, total is 1,600; if 25%, 320. Budget gives 830 to 12,500 replicas. |
+| Sandbox images               | 200k | **1M**    | 5M    | Coding has about one image per task; Kimi K3 has 1.5M                                                                                                                  |
+| Tasks                        | 300k | **1.5M**  | 10M   | Budget 1.2M vendor-built; compute 1.6M; plus machine-synthesized tasks                                                                                                 |
+| Episodes in one flagship run | 10M  | **100M**  | 1B    | Compute method; Kimi K3 51M; Inkling 30M+                                                                                                                              |
+| Rollout tokens               | 2T   | **15T**   | 100T  | Episodes × 150k                                                                                                                                                        |
+
+### 5. Bytes
+
+#### Open analogues (to calibrate bytes per task)
+
+| Analogue                                    | Environments / tasks                                                         | Raw size                                                                                                                                                                | Optimized size                                                                                                               | Label and source                                                                                                                                |
+| ------------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| SWE-bench, full                             | 12 repos / 2,294 tasks (2,290 images built)                                  | "When summing the individual sizes of all (original) SWE-bench images, I get 3129 GiB" = **1.4 GB per task**. With Docker's shared layers: "684 GiB" = 0.30 GB per task | "67 GiB for all 2290 SWE-bench images (10x reduction)" = **29 MB per task**                                                  | PRIMARY `[fetch]` ([Epoch AI, 2025](https://epoch.ai/blog/swebench-docker))                                                                     |
+| SWE-bench Verified                          | 500 tasks                                                                    | "240 GiB of local storage" = 0.48 GB per task                                                                                                                           | "just 31 GiB uncompressed" with delta layers; "a single 5 GiB archive" with zstd = **10 MB per task** (48x)                  | PRIMARY `[fetch]` ([LogicStar, 2025](https://logicstar.ai/blog/how-we-made-swe-bench-50x-smaller))                                              |
+| SWE-Gym                                     | 11 repos / 2,438 tasks                                                       | "totaling 6 TB" = 2.5 GB per task                                                                                                                                       | not stated                                                                                                                   | PRIMARY `[sub-read]` ([paper, 2024](https://arxiv.org/abs/2412.21139))                                                                          |
+| SWE-smith                                   | 128 repos, one image per repo / 50k tasks (59,136 on Hugging Face)           | 295 GB = 2.3 GB per repo, 6 MB per task                                                                                                                                 | a no-image variant caches virtualenvs: 13.5 GB, 0.27 MB per task ([SWE-MiniSandbox, 2026](https://arxiv.org/abs/2602.11210)) | PRIMARY `[sub-read]` ([paper, 2025](https://arxiv.org/abs/2504.21798)). The paper says one image per task at this scale would need 50 to 150 TB |
+| R2E-Gym                                     | 13 repos / 8,135 tasks (4,578 in the main subset)                            | 4 TB for the subset                                                                                                                                                     | not stated                                                                                                                   | PRIMARY counts ([paper, 2025](https://arxiv.org/abs/2504.07164)); size REPORTED in SWE-smith's table                                            |
+| SWE-rebench / V2                            | 3,468 repos / 21,336 tasks; V2: 3,600+ repos / 32,079 tasks                  | not published                                                                                                                                                           |                                                                                                                              | PRIMARY ([paper, 2025](https://arxiv.org/abs/2505.20411); [V2 paper, 2026](https://arxiv.org/abs/2602.23866))                                   |
+| SWE-Universe (Alibaba Qwen team)            | over 52,000 repos / **807,693 environments**                                 | not stated; 0.5 to 0.9 PB at 0.6 to 1.1 GB per image                                                                                                                    | uses layer caching                                                                                                           | PRIMARY counts `[snippet]` and `[fetch-sub]` ([paper, 2026](https://arxiv.org/abs/2602.02361)); bytes are MY ARITHMETIC                         |
+| OpenSWE                                     | 12.8k repos / 45,320 environments, built for $891K = **$20 per environment** | Dockerfiles and eval scripts about 77 KB per environment                                                                                                                |                                                                                                                              | PRIMARY `[sub-read]` for the count and cost ([paper, 2026](https://arxiv.org/abs/2603.13023)); per-environment figures are arithmetic           |
+| WebArena sites (cloned shop, forum, GitLab) | 6 sites / 812 tasks                                                          | Shopping Admin 19.9 GB, Shopping 117 GB, Reddit 107 GB, GitLab 155 GB = 399 GB for four sites                                                                           | slim images 4.98 + 17.8 + 19 + 34 = 76 GB (5x)                                                                               | PRIMARY ([WebArena-Verified docs, 2025](https://servicenow.github.io/webarena-verified/getting_started/environments)), via subagent             |
+| OSWorld                                     | 369 tasks, one Ubuntu VM plus a Windows VM                                   | Ubuntu qcow2 23.7 GB; Windows 49.2 GB                                                                                                                                   | zipped 12.3 GB                                                                                                               | PRIMARY ([Hugging Face repo, 2024](https://huggingface.co/datasets/xlangai/ubuntu_osworld/tree/main)), via subagent                             |
+| TheAgentCompany                             | 175 tasks, simulated company with 4 services                                 | VM image 46.4 GB                                                                                                                                                        |                                                                                                                              | PRIMARY ([repo, 2024](https://github.com/TheAgentCompany/TheAgentCompany)), via subagent                                                        |
+| SWE-Lancer, open repo                       | 198 runnable tasks, 1 repo                                                   | "~14GB" per task image                                                                                                                                                  |                                                                                                                              | PRIMARY `[sub-read]` ([OpenAI repo, 2025](https://github.com/openai/preparedness))                                                              |
+| MLE-bench                                   | 75 Kaggle competitions                                                       | "3.3TB" = **44 GB per competition**                                                                                                                                     | lite subset 158 GB                                                                                                           | PRIMARY `[sub-read]` ([OpenAI repo, 2024](https://github.com/openai/mle-bench))                                                                 |
+
+Task text and trajectories (all ESTIMATE: the subagent divided Hugging Face file sizes by row
+counts):
+
+| Item                                                                            | Size                                                                                                    |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Task text (problem, patch, tests) in SWE-bench, SWE-Gym, SWE-rebench, SWE-smith | 16 to 80 KB per task uncompressed, 4 to 18 KB as parquet                                                |
+| One public agent trajectory (SWE-smith, SWE-Gym, Nebius, Nemotron-SWE, OpenSWE) | 60 to 375 KB uncompressed, 14 to 50 KB as parquet                                                       |
+| Largest public trajectory sets                                                  | Toucan 1,646,546 tool-use trajectories at 39 KB; Nemotron-Terminal 366,154; Nemotron-SFT-SWE-v3 237,970 |
+
+What the analogues give:
+
+- A coding task costs 1.4 to 2.5 GB as a standalone image, 0.3 to 0.5 GB with Docker's default layer
+  sharing, 30 to 60 MB after optimized layer sharing, 10 MB after delta layers plus zstd, and 0.3 to
+  6 MB if images are per repo or replaced by cached virtualenvs.
+- Open pipelines already reach 10^5 to 10^6 coding environments (SWE-Universe 807,693) at about $20
+  each (OpenSWE).
+- A cloned website with realistic seeded data is 5 to 34 GB optimized, 20 to 155 GB as first built.
+- A desktop VM is 24 to 49 GB per golden image.
+- An ML task with its dataset averages 44 GB and does not deduplicate.
+- Task text is tens of KB. A trajectory is hundreds of KB.
+
+#### Composition of a 1.5M-task library (central case)
+
+| Component                                                              | Count × size                                    | Deduplicated                 | Label                                                                                                                     |
+| ---------------------------------------------------------------------- | ----------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Coding task images                                                     | 1M tasks × 30 MB unique layers                  | 30 TB                        | MY ARITHMETIC; 29 MB per task from Epoch's SWE-bench registry. Per-repo images (SWE-smith, 6 MB per task) would give 6 TB |
+| App, site and company replicas (UI gyms, mock Slack / Gmail / SAP)     | 2,500 × 5 GB (source + seeded database + media) | 12.5 TB                      | MY GUESS on 5 GB: WebArena sites are 3 to 30 GB optimized; cheap $20k UI gyms are smaller                                 |
+| Desktop VM golden images and per-task state                            | 50 × 25 GB + 200k tasks × 50 MB                 | 11 TB                        | MY GUESS; OSWorld's VM is 23.7 GB                                                                                         |
+| Knowledge-work task files (spreadsheets, PDFs, decks, real work files) | 300k × 20 MB                                    | 6 TB                         | MY GUESS                                                                                                                  |
+| ML and data-science tasks with datasets and checkpoints                | 3,000 × 15 GB                                   | 45 TB                        | MY GUESS; MLE-bench averages 44 GB per competition, its lite subset far less                                              |
+| Frozen web and search corpora                                          |                                                 | 5 TB                         | MY GUESS; GLM-5 kept "over two million high-information web pages" `[fetch]`                                              |
+| Task text: prompts, graders, rubrics, reference solutions              | 1.5M × 40 KB                                    | 60 GB                        | MY ARITHMETIC; open coding tasks are 16 to 80 KB                                                                          |
+| Generators, harnesses, pipeline code and prompts                       |                                                 | 20 GB                        | MY GUESS                                                                                                                  |
+| **Total, deduplicated**                                                |                                                 | **≈ 110 TB, call it 100 TB** | Range 10 TB to 1 PB                                                                                                       |
+
+- **Raw (every task's full image counted).** 1M coding images × 1 GB + 200k computer-use snapshots ×
+  5 GB = 1 PB + 1 PB = **2 PB**. Range 0.2 to 20 PB. MY ARITHMETIC. The 1 GB is a MY GUESS, rounded
+  down from SWE-bench's 1.4 GB per image counted individually.
+- **Minimal (what cannot be rebuilt from public sources).** Task text 60 GB + replica source code
+  2,500 × 30 MB = 75 GB + private seed files and expert-supplied documents about 100 GB + generators
+  20 GB = **about 250 GB**, about **70 GB** after zstd. Range 15 to 500 GB compressed. MY
+  ARITHMETIC.
+
+#### Can it be compressed? What does not compress?
+
+- **Layer deduplication: 10 to 50x, measured.** 10x on SWE-bench by reordering Dockerfile layers
+  (Epoch, 2025); 48x with delta layers plus zstd (LogicStar, 2025); 4 to 13x on WebArena's sites
+  (WebArena-Verified, 2025). Most of a task image is a base OS plus pip/npm packages shared with
+  thousands of other tasks. My 2 PB → 100 TB is 20x.
+- **Rebuild instead of copy: a further 400x** (100 TB → 250 GB). A coding task reduces to a repo
+  URL, a commit hash, a Dockerfile, a problem statement and hidden tests: tens of KB. The image is a
+  cache of public bytes.
+- **Procedural generators: the generator is the compressed form.** DeepSeek's 1,827 synthesized
+  environments and Kimi's knowledge-graph task synthesis are pipelines; the pipeline code and
+  prompts are MBs. Z.ai: "we built pipelines that synthesize environments end to end" `[fetch]`
+  ([Z.ai docs, 2026](https://docs.z.ai/guides/llm/glm-5.3.md)).
+- **Does not compress:**
+  - Human-authored prompts, rubrics and golden solutions (text, about 4x with zstd, and already
+    small).
+  - Private seed data: real work files from contractors, licensed datasets inside ML tasks,
+    hand-configured VM images of commercial software.
+  - Screenshots and video demonstrations (already compressed).
+  - Anything a generator made with a live model in the loop: re-running the generator gives
+    different tasks, and the QA record of which ones are broken does not transfer.
+- **The scarce part is the QA, not the bytes.** REPORTED: "Interviewees consistently cited
+  robustness against reward hacking as the most important quality criterion." "There’s a large
+  amount of useless bad environments out there for that reason." `[fetch]` (Epoch AI, 2026).
+  Anthropic's own audit removed about half of its computer-use environments (Mythos 5.1 card,
+  above).
+
+#### The Mercor breach as a size check
+
+- REPORTED: "the stolen cache includes 939 gigabytes of platform source code, a 211-gigabyte user
+  database" and "roughly three terabytes of video interview recordings and identity verification
+  documents"; about four terabytes in all, "According to court filings and claims made by the
+  hacking groups involved". `[fetch]`
+  ([The Next Web, 2026](https://thenextweb.com/news/meta-mercor-breach-ai-training-secrets-risk))
+- REPORTED: the claim came from Lapsus$ on its leak site; the entry point was the LiteLLM
+  supply-chain compromise. `[fetch-sub]`
+  ([TechCrunch, 2026](https://techcrunch.com/2026/04/09/after-data-breach-10b-valued-startup-mercor-is-having-a-month))
+- PRIMARY: Mercor said "the impact to customer information was very limited". `[fetch-sub]`
+  ([Mercor, 2026](https://www.mercor.com/blog/update-on-mercor-security-incident/)). It never
+  confirmed the sizes.
+- REPORTED: Meta paused its Mercor contracts; OpenAI and Anthropic stayed. `[fetch-sub]`
+  (TechCrunch, 2026; The Next Web, 2026)
+- What it says about size:
+  - 3 of the 4 TB is video and ID scans: contractor onboarding, not training data.
+  - 939 GB is far more than hand-written platform code. MY GUESS: it is every repo, including task
+    and environment repos with their data files.
+  - So the upper bound for everything one of the largest vendors (over $1B run rate) held in code
+    form for all its customers is about 1 TB.
+  - SemiAnalysis thinks Anthropic uses "more than a dozen RL environment companies". 12 vendors ×
+    under 1 TB = single-digit TB of vendor-held environment material per lab. That is consistent
+    with 250 GB minimal and 100 TB deduplicated: vendors hold the recipes, the lab holds the built
+    images.
+
+### 6. SFT data
+
+#### What labs fine-tune on
+
+- PRIMARY (OpenAI): "do supervised fine-tuning on a broad set of ideal responses written by humans
+  or existing models" "and then run reinforcement learning with reward signals from a variety of
+  sources." `[fetch]` ([OpenAI, 2025](https://openai.com/index/expanding-on-sycophancy/))
+- PRIMARY (Moonshot): "Our post-training pipeline follows a three-stage paradigm: initializing
+  baseline agent capabilities via supervised fine-tuning (SFT), developing specialized domain
+  experts at varying reasoning effort via Reinforcement Learning (RL), and consolidating these
+  domain-specific policies into a single model using Multi-Teacher On-Policy Distillation (MOPD)."
+  SFT data: "we synthesize data trajectories using domain-specialized models from the prior Kimi
+  series, followed by multi-stage verification and human-in-the-loop annotation." `[read]` (Kimi K3
+  report, 2026, §4.1)
+- PRIMARY (Thinking Machines): "To bootstrap post-training, we ran an initial SFT on synthetic data
+  generated by open-weights models including Kimi K2.5." "The bootstrap accounts for a small
+  fraction of compute" `[fetch]` (Thinking Machines, 2026)
+- PRIMARY (Anthropic): post-training is "aimed at making it an assistant whose behavior aligns with
+  the values described in Claude’s constitution." Crowd workers "help improve our models through
+  preference selection, safety evaluation, and adversarial testing." `[read]` (Mythos 5.1 card,
+  2026, §1.1 and §1.2)
+- PRIMARY (Anthropic): character is trained with "a "character" variant of our Constitutional AI
+  training": Claude writes the prompts and ranks its own responses. `[fetch-sub]`
+  ([Anthropic, 2024](https://www.anthropic.com/research/claude-character))
+- REPORTED (Epoch): "Environments are also used to generate data for supervised learning"; "With
+  SFT, you can choose a single good trajectory and train on that". `[fetch]` (Epoch AI, 2026)
+
+So the SFT mix is:
+
+1. Format and tool-use bootstrapping (chat template, tool-call syntax, thinking format), synthetic.
+2. Successful agent trajectories, filtered from earlier models' RL rollouts.
+3. Expert-written golden answers and demonstrations from Surge, Mercor, Scale, Turing, Handshake.
+4. Character and constitution data, synthetic and self-ranked.
+5. Safety data: refusals, jailbreak resistance, sensitive-topic handling.
+6. Distillation targets from specialist or larger models (Kimi's nine experts; DeepSeek V4
+   reportedly the same pattern, `[snippet]`).
+
+#### Published sizes
+
+| Dataset                                 | Examples                                                           | Tokens / bytes                                                                                                            | Label                                                                                                                           |
+| --------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| InstructGPT (2022)                      | SFT ~13k prompts, reward model 33k, PPO 31k                        | MBs                                                                                                                       | PRIMARY `[fetch-sub]` ([paper, 2022](https://ar5iv.labs.arxiv.org/html/2203.02155))                                             |
+| Llama 2 (2023)                          | 27,540 SFT annotations; 1,418,091 human preference comparisons     | prefs ≈ 1.1B tokens ≈ 4.5 GB                                                                                              | PRIMARY counts `[fetch-sub]` ([paper, 2023](https://ar5iv.labs.arxiv.org/html/2307.09288)); bytes are the subagent's arithmetic |
+| Llama 3 (2024)                          | Six rounds of SFT then DPO; "over 2.7M synthetic examples" of code | not stated                                                                                                                | PRIMARY `[fetch-sub]` ([paper, 2024](https://ar5iv.labs.arxiv.org/html/2407.21783))                                             |
+| Tulu 3 SFT mix (2024)                   | 939,343                                                            | 1.41 GB parquet                                                                                                           | PRIMARY, Hugging Face size API ([dataset, 2024](https://huggingface.co/datasets/allenai/tulu-3-sft-mixture))                    |
+| OpenHermes 2.5 (2023)                   | 1,001,551                                                          | 1.94 GB JSON                                                                                                              | PRIMARY, HF size API                                                                                                            |
+| DeepSeek-R1 SFT (2025)                  | about 800k (600k reasoning, 200k other)                            | ≈ 4.3B tokens ≈ 17 GB                                                                                                     | PRIMARY counts `[fetch-sub]` ([paper, 2025](https://arxiv.org/html/2501.12948)); bytes are arithmetic                           |
+| Nvidia Nemotron Post-Training v1 (2025) | 25,659,642                                                         | 203 GB parquet                                                                                                            | PRIMARY, HF size API ([dataset, 2025](https://huggingface.co/datasets/nvidia/Nemotron-Post-Training-Dataset-v1))                |
+| ByteDance UI-TARS (2025)                | about 6M GUI tutorials, 18M grounding elements                     | about 50B tokens                                                                                                          | PRIMARY `[fetch-sub]` ([paper, 2025](https://arxiv.org/html/2501.12326))                                                        |
+| GLM-5 mid-training (2026)               | "approximately 10 million issue–PR pairs"                          | stages of "32K (1T tokens), 128K (500B tokens), and 200K (50B tokens)"                                                    | PRIMARY `[fetch]` (GLM-5 paper, 2026)                                                                                           |
+| Meta, OpenAI mid-training               |                                                                    | "Meta used 1T tokens for mid-training for a recent model, but we expect OpenAI to be using somewhere between 5-10x more." | ESTIMATE `[fetch]` (SemiAnalysis, 2026)                                                                                         |
+
+#### Fermi estimate
+
+- MY GUESS: 20 million SFT examples. Reason: Nvidia's open post-training set is already 25.7M;
+  DeepSeek-R1 used 0.8M in early 2025; a 2026 frontier lab has more domains and long agent traces.
+- MY GUESS: 5,000 tokens per example on average (R1 averaged 5,355 `[fetch-sub]`; chat examples are
+  shorter, agent traces far longer).
+- MY ARITHMETIC: 20M × 5k = **100B tokens** × 4 bytes = **0.4 TB**, about 100 GB compressed. Low 2M
+  × 2.5k = 5B tokens = 20 GB. High 100M × 20k = 2T tokens = 8 TB.
+- **Mid-training** (next-token training on curated long-context and agentic data, between
+  pretraining and SFT): central **3T tokens = 12 TB** (1T to 10T), from the GLM-5 and SemiAnalysis
+  figures.
+- **Human-written share.** MY ARITHMETIC: an expert produces about 1,000 finished words an hour ≈ 6
+  KB. At $100 an hour billed, 1 GB costs 167k hours = $17M. So $1B buys at most **60 GB** of typed
+  text. MY GUESS for a lab's cumulative human-written golden data: **20 GB** (2 to 100 GB).
+
+### 7. What "RLHF on policy" means, and whether labs do it in 2026
+
+Three different things get called RLHF:
+
+1. **Offline preference data.** Humans compare pairs of outputs. The pairs train a reward model, or
+   are used directly with DPO. The data is collected once and reused. InstructGPT (2022), Llama 2
+   (2023), Llama 3 (2024).
+2. **On-policy RL against a learned reward.** The current model samples fresh outputs, a reward
+   model or an LLM judge with a rubric scores them, and the policy is updated on its own samples.
+   "On policy" means the training data is generated by the model being trained, during training.
+   Classic RLHF is 1 feeding 2. "RLHF on policy" in the strict sense also re-collects human labels
+   on each new policy's outputs: Llama 2 did five rounds, Llama 3 six.
+3. **On-policy RL against programmatic graders in environments.** Unit tests, final-state checks,
+   answer matching. No human or learned reward in the loop at training time.
+
+What dominates in 2026:
+
+- **Type 3 dominates by compute, type 2 is a large and growing second, type 1 is small.**
+  - ESTIMATE: post-training/RL is 42% of Anthropic + OpenAI compute in 1Q26 and 53 to 55% by 4Q26E
+    (SemiAnalysis via OfficeChai, 2026, `[fetch]`).
+  - REPORTED: environments are used for RL far more than for benchmarking, "perhaps 10-20x more the
+    former vs the latter"; "Reinforcement learning remains the primary use case." `[fetch]` (Epoch
+    AI, 2026)
+  - REPORTED: graders are "typically automated, such as a unit test or an LLM judging against a
+    rubric" `[fetch]` (Epoch AI, 2026).
+  - My reading of the PRIMARY reports in section 2: Kimi K3, GLM-5.3, DeepSeek V3.2, MiniMax M2.5
+    and Inkling all describe their post-training as RL scaled over environments, with SFT as a
+    bootstrap.
+- **Model-graded rewards (type 2) are in production at Anthropic.** PRIMARY: "certain coding
+  environments which assign rewards based on model-graded behaviors" `[read]` (Mythos 5 card, 2026,
+  §6.4.2.2). "The grader or reward reasoned about may be an LLM grader or not (e.g., a deterministic
+  reward)." `[read]` (Mythos 5.1 card, 2026, §6.3.1). Kimi K3 scores non-verifiable tasks with
+  "deterministic rules or LLM-based evaluators" `[read]`.
+- **Human preference data (type 1) still exists.** PRIMARY: Anthropic's crowd workers do "preference
+  selection" `[read]` (Mythos 5.1 card, §1.2). Size is GBs at most.
+- **Production feedback as reward.** PRIMARY: OpenAI's April 2025 GPT-4o update "introduced an
+  additional reward signal based on user feedback—thumbs-up and thumbs-down data from ChatGPT."
+  `[fetch]` (OpenAI, 2025). It was rolled back for sycophancy.
+- **Where the human went.** Human judgment used to be applied per sample. It is now frozen into the
+  task, rubric and grader before training starts. That is why the spend moved from annotators to
+  experts and environment builders.
+
+### 8. Other assets, ranked by value to a thief who already has the recipe
+
+| #   | Asset                                                                                                                                                                 | Bytes                                                                                                                                                                            | Where it lives                                 | How hard to steal                                                         | Use to the thief                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **On-policy RL rollouts** (transcripts with raw reasoning, tool calls, rewards)                                                                                       | 15T tokens ≈ 60 TB raw, about 8 TB compressed, per flagship run. MY ARITHMETIC                                                                                                   | Training cluster storage, monitoring pipelines | Hard: large, inside the lab. A filtered slice of successes is far smaller | Very high. It is a distillation corpus with the reasoning visible and a reward label on every episode. For scale, the 2026 distillation campaigns Anthropic reported totalled "over 16 million exchanges" `[read]` ([Anthropic, 2026](https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks)); a run has about 100M episodes. Labs keep at least samples: Anthropic re-scored training episodes of every model since Opus 4.6 with one judge (PRIMARY `[read]`, Mythos 5.1 card §6.3.3) |
+| 2   | **Training-mix config and environment QA records** (which environments, in what proportions and order, reward shaping, which are broken or retired, hack classifiers) | MBs to a few GB. MY GUESS                                                                                                                                                        | Training-config repos, internal dashboards     | Medium: tiny, but inside the lab                                          | Very high per byte. Turns a bought or rebuilt environment pile into a working curriculum                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 3   | **Experiment-tracking database and research notes** (thousands of ablations, failed runs, scaling curves)                                                             | 1 to 100 GB of metrics and docs. MY GUESS                                                                                                                                        | Internal tracking system, docs, chat           | Medium: small, widely readable inside the lab                             | Very high per byte. It says what not to try. Final runs are only about 10% of R&D compute (Epoch, 2026); this is the record of the other 90%                                                                                                                                                                                                                                                                                                                                                                   |
+| 4   | **RL environment library** (sections 3 to 5)                                                                                                                          | 70 GB minimal, 100 TB deduplicated                                                                                                                                               | Lab registries and repos; vendor repos         | Easy to medium: vendors are soft, and much is for sale                    | High, but the least exclusive asset                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 5   | **Grader stack** (rubrics, LLM-judge prompts, reward models, user simulators, reward-hack classifiers)                                                                | MBs of prompts; reward models GBs; the judge is a prior-generation model (TB of weights)                                                                                         | With the environments and in the trainer       | Medium                                                                    | High. Model-graded environments are useless without the judge and its prompt                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 6   | **Eval suites and held-out tests**                                                                                                                                    | GBs. MY GUESS                                                                                                                                                                    | Eval repos                                     | Medium                                                                    | High for steering: tells the thief when the copy is done. Small                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| 7   | **SFT and mid-training corpora**                                                                                                                                      | 0.4 TB and 12 TB                                                                                                                                                                 | Data lake                                      | Medium to hard (size)                                                     | Medium. Mostly regenerable from the stolen model or rollouts                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 8   | **Human expert data** (golden answers, rubrics, preference labels, red-team transcripts)                                                                              | about 20 GB                                                                                                                                                                      | Vendors and lab                                | Easy: sits at vendors (Mercor)                                            | Medium. Costly per byte ($17M per GB), buyable                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 9   | **Synthetic-data pipelines and their prompts**, including the character and constitution pipeline                                                                     | MBs of code and prompts; outputs GBs                                                                                                                                             | Internal repos                                 | Medium                                                                    | Medium. The constitution itself is public (about 23,000 words, REPORTED `[snippet]`, [The Register, 2026](https://www.theregister.com/2026/01/22/anthropic_claude_constitution/)); the pipeline is not                                                                                                                                                                                                                                                                                                         |
+| 10  | **RL and sandbox infrastructure code** (orchestrator, resumable microVMs, trainer)                                                                                    | GBs of source                                                                                                                                                                    | Internal monorepo                              | Medium                                                                    | High for a small lab, low for a big one. Kimi K3 describes its own in detail                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 11  | **User conversations used for training**                                                                                                                              | Anthropic consumer data: tens of TB a year (MY GUESS). ChatGPT: 2.5B prompts a day (REPORTED `[snippet]`, mid-2025) × about 4.5 KB = 11 TB a day, 4 PB a year (MY ARITHMETIC)    | Production data stores, access-controlled      | Hard: size and the tightest access controls                               | Medium. The real task distribution, used to synthesize tasks and evals. PRIMARY: "We will train new models using data from Free, Pro, and Max accounts"; retention extended "to five years" `[fetch]` ([Anthropic, 2025](https://www.anthropic.com/news/updates-to-our-consumer-terms))                                                                                                                                                                                                                        |
+| 12  | **Cleaned, deduplicated pretraining corpus and its filters**                                                                                                          | 30 to 100T tokens ≈ 120 to 400 TB of text; multimodal 1 to 10 PB; raw crawl tens of PB (MY GUESS). Published: GLM-5 28.5T tokens, Inkling 45T                                    | Data lake                                      | Very hard: size                                                           | Medium. The public web can be re-crawled; the filter and classifier code (GBs) is the valuable part                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 13  | **Licensed and private datasets, scanned books**                                                                                                                      | Text: TBs. Scans: 100s of TB (MY GUESS). REPORTED: Anthropic bought and scanned millions of print books ([NPR, 2025](https://www.npr.org/2025/06/25/nx-s1-5445242), `[snippet]`) | Data lake                                      | Hard                                                                      | Low to medium. Legally toxic and replaceable                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 14  | **Safeguard classifiers and their training data**                                                                                                                     | GBs                                                                                                                                                                              | Serving stack                                  | Medium                                                                    | Low for capability; useful for finding jailbreaks                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| 15  | **System prompts, tokenizer, chat template**                                                                                                                          | KBs to MBs                                                                                                                                                                       | Everywhere                                     | Easy; much is public or extractable                                       | Low marginal value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+
+- For scale, the weights themselves: Kimi K3 has "2.8 trillion total parameters" `[read]`; at 4 bits
+  each that is 1.4 TB (MY ARITHMETIC).
+- Items 2, 3, 5, 6 and 9 together are under 100 GB. They are the part of post-training that is
+  neither for sale nor reconstructible from the weights.
+
+### 9. Could a thief skip stealing environments and buy them?
+
+- **Mostly yes for vendor-built environments.**
+  - PRIMARY: "Environments and tasks can be sold exclusively to one customer or non-exclusively to
+    multiple labs." "exclusive deals are roughly 4-5x more expensive than non-exclusive ones."
+    `[fetch]` (Epoch AI, 2026)
+  - ESTIMATE, contradicting: "Most aforementioned companies close source their environments and
+    serve them in exclusive contracts to the labs." `[fetch]` (SemiAnalysis, 2026). The two sources
+    disagree on the default.
+  - REPORTED: US vendors "are selling roughly half a billion dollars worth of data to Chinese AI
+    labs"; "Chinese labs have been reported to purchase exactly the same products as American labs
+    like Anthropic and OpenAI."; "RL environments are largely free from export controls aside from
+    Entity-Listed buyers like Zhipu."; "an unlisted ex-China affiliate easily sidesteps this."
+    `[fetch]` ([ChinaTalk, 2026](https://www.chinatalk.media/p/the-us-is-selling-rl-environments)).
+    The authors name nine vendors and say their sourcing is partly anonymous.
+  - REPORTED: Google's Mechanize deal was a non-exclusive license plus hires (Business Insider,
+    August 2026, `[snippet]`).
+- **No for the in-house share, which is growing.** REPORTED: "All the big AI labs are building RL
+  environments in-house" (Jennifer Li, a16z) `[fetch-sub]` (TechCrunch, 2025). One founder told
+  Epoch there is "substantially more in-housing" `[fetch]`. Reasons given: "avoiding margins paid to
+  vendors, keeping training priorities confidential."
+- **Buying does not get the QA.** Which bought environments are broken, how they are weighted, and
+  what the lab fixed are in assets 2 and 5, not in the vendor's deliverable.
+- **Cost.** The same $1B a year the lab pays. A thief with stolen weights and a recipe is short of
+  time, not money.
+
+#### Can Chinese labs build equivalents?
+
+- **They already do, at 10^5 to 10^6 scale.** Kimi K3: 1,505,678 images. Alibaba's SWE-Universe:
+  807,693 coding environments. MiniMax: over a hundred thousand scaffolds and environments. DeepSeek
+  V3.2: 85,267 tasks. GLM-5: over 10k environments. Xiaomi open-sourced 7,780 tasks.
+- **Machine-built coding environments are cheap.** OpenSWE built 45,320 Docker environments for
+  $891K, about $20 each (PRIMARY `[sub-read]`, [paper, 2026](https://arxiv.org/abs/2603.13023)).
+  That is 10 to 100x under the $200 to $2,000 vendors charge per task. The expensive part is
+  expert-graded and long-horizon work, not SWE tasks.
+- **GLM-5.3 (August 2026) was a post-training-only release.** PRIMARY: "It uses the same base model
+  as GLM-5.2, with all improvements driven by post-training."; "For GLM-5.3, we pushed environment
+  scaling toward tasks that look less like coding exercises"; "Some represent several days of work
+  for an experienced engineer."; "These pipelines still require a meaningful amount of
+  human-in-the-loop work" `[fetch]` (Z.ai docs, 2026). The phrase "more task environments, more
+  environment types" is press wording, not Z.ai's (`[snippet]`, MarkTechPost, 2026).
+- **They prefer to build.** REPORTED: "it is often better to build the environments or data
+  in-house."; "Researchers themselves spend meaningful time making the RL training environments"
+  `[fetch]` (Lambert, 2026). "Typically, Chinese labs prefer to build RL environments in-house"
+  `[fetch]` (ChinaTalk, 2026).
+- **Their gap is expert-graded domains.** REPORTED: "Chinese labs are starving for American data
+  vendors’ products, especially for expert-graded domains." `[fetch]` (ChinaTalk, 2026)
+- **Distillation is the substitute.** PRIMARY: "over 16 million exchanges with Claude through
+  approximately 24,000 fraudulent accounts"; MiniMax "Over 13 million exchanges", Moonshot "Over 3.4
+  million exchanges", DeepSeek "Over 150,000 exchanges". `[read]`
+  ([Anthropic, 2026](https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks))
+
+### What I could not confirm
+
+- Any count of environments, tasks or episodes from Anthropic, OpenAI or Google. Sections 3 and 4
+  are estimates. The only Anthropic counts are subsets (80, 16, "around half", 3.6%).
+- The Information's original article on Anthropic's $1B environment budget (paywalled). I have it
+  through Epoch and TechCrunch. It was a discussion, not a confirmed budget.
+- OpenAI's reported data budget ($1B in 2025 rising to $8B by 2030). Only on secondary pages.
+- The SemiAnalysis compute-share chart. I have the numbers through OfficeChai's text, not the chart.
+- The Mercor sizes. They are the attackers' claims and plaintiffs' filings. Mercor confirmed the
+  incident, not the volume, and did not say whether lab task designs or rubrics were taken. Wired
+  and The Information originals were not readable.
+- Whether the 939 GB "source code" bucket contains environment and task repos. That is my guess.
+- The open-analogue sizes in section 5 other than Epoch's and LogicStar's came from a research
+  subagent (Hugging Face and Docker Hub size queries, paper text), not pages I read. Published image
+  totals do not exist for SWE-rebench, Terminal-Bench or TheAgentCompany's task images.
+- SWE-Universe's exact repo count (52,960 in secondary summaries; the paper says over 52,000).
+- The disk size of any lab's or vendor's actual environment library. Section 5 is built entirely
+  from open analogues.
+- Z.ai's own wording for "more task environments, more environment types", and The New Stack's
+  "tenfold more long-horizon task environments" (snippet only).
+- Xiaomi's 7,780-task release: secondary source only; one report said the dataset was not yet
+  visible on Hugging Face.
+- Mythos 5 list pricing ($10 / $50 per million tokens): search snippet of Anthropic's docs, not
+  read.
+- ChatGPT's 2.5B prompts a day: mid-2025, aggregator snippet.
+- Whether labs keep full rollouts or only samples. Anthropic's cross-model re-scoring shows
+  retention of at least a per-step sample.
+- Internal cost per RL episode. My $2.30 is derived from Mechanize's list-price formula and guessed
+  margins and mix.
+- The size of any lab's experiment-tracking database, eval suites, or classifier data. Those rows
+  are guesses.
+- Sholto Douglas, Trenton Bricken, Brendan Foody, Edwin Chen and other named people: I found no
+  statement from any of them giving an environment or task count.
+
+---
+
+# Part: Egress Through Inference Tokens (third round of `@c` notes)
+
+Written 2026-11-22 for the rewritten bandwidth footnote. This is a back-of-envelope estimate; the
+only researched inputs are the revenue and price figures. Labels as elsewhere.
+
+## Tokens served per day by a flagship model
+
+- No lab publishes tokens per model. A secondary write-up of Anthropic's S-1 says it gives "no price
+  per token and no count of tokens processed" (FourWeekMBA 2026, search snippet only,
+  https://fourweekmba.com/ai-anthropic-cut-task-costs-up-to-45-and-says-margins-held/).
+- PRIMARY, relayed: Anthropic revenue was "$33.2 billion in the first nine months of 2026, including
+  $17.0 billion in the third quarter alone" (Strauss and O'Reilly 2026, read in the raw page text,
+  https://asimovaddendum.substack.com/p/anthropics-missing-s-1-disclosures). MY ARITHMETIC: $17.0B /
+  92 days = $185M a day.
+- PRIMARY: Claude Mythos 5 lists at "Input pricing $10 / MTok Output pricing $50 / MTok" and "is
+  available only to organizations verified through Anthropic's verification programs" (Anthropic
+  docs 2026, read in the raw page text,
+  https://platform.claude.com/docs/en/models/mythos-5/overview). The generally available Fable
+  models share its prices.
+- PRIMARY: current list prices on Anthropic's pricing page (2026, raw page text,
+  https://platform.claude.com/docs/en/about-claude/pricing): Fable 5.2 $8 input, $40 output, $0.20
+  cache hits per million tokens; Fable 5.1 cache hits $0.25.
+- MY GUESS: the flagship is 40% of revenue. Reason: one OpenRouter-based write-up (search snippet
+  only) had Fable 5 at 16% of Anthropic's tokens on that marketplace a day after launch in June
+  2026, at twice the Opus price.
+- MY GUESS: 25 input tokens per output token, 90% of them cache hits. Reason: the earlier notes cite
+  97% input tokens for Opus on OpenRouter; agentic coding re-reads its context every turn.
+- MY ARITHMETIC: input per million output tokens = 25 × (0.9 × $0.25 + 0.1 × $11) = $33. Revenue per
+  million output tokens = $50 + $33 = $83 at list. Subscriptions sell tokens below list, so use $60.
+- MY ARITHMETIC: $185M × 40% / $60 per million = 1.2 trillion output tokens a day. Range 0.3 to 3
+  trillion (flagship share 20% to 60%, revenue per million output tokens $40 to $120).
+- Cross-check from the earlier notes ("How the numbers work"): Google's first-party APIs at 46
+  trillion tokens a day in and out, 3% to 10% of it output, is 1.4 to 4.6 trillion output tokens a
+  day across all its models.
+- GPT-6 Astra: no data. Assumed the same.
+
+## The arithmetic
+
+| Step                                       | Value                                      |
+| ------------------------------------------ | ------------------------------------------ |
+| Output tokens per day                      | 1e12                                       |
+| Bytes of text per token                    | 4                                          |
+| Text per day                               | 4 TB = 3.2e13 bits                         |
+| Rate                                       | 3.2e13 / 86,400 = 3.7e8 bit/s = 370 Mbit/s |
+| Weights (the post's figure)                | 10 TB = 8e13 bits                          |
+| Time at full replacement                   | 8e13 / 3.2e13 = 2.5 days                   |
+| Time for 2 to 5 TB of weights              | 12 to 30 hours                             |
+| Time across 0.3 to 3 trillion tokens a day | 0.8 to 8 days                              |
+
+## What changes the answer
+
+- Full replacement is the ceiling: every response to every customer becomes weight bytes. It ends
+  the product within minutes.
+- Information-theoretic ceiling per token is log2(vocabulary). At 200,000 tokens that is 17.6 bits,
+  against 32 bits for 4 bytes of text, so an attacker limited to choosing token ids gets 2.2 TB a
+  day and needs 4.5 days. MY ARITHMETIC; the vocabulary size is MY GUESS.
+- Greenblatt's upload-limit scheme (2024, see "Where does the egress bandwidth limit live?"):
+  responses leave the weight-holding datacenter arithmetic-coded against a small model, measured "a
+  compression below 1 bit/token". 1e12 bits a day = 125 GB a day, 80 days for 10 TB. At his 0.1 bit
+  target, 800 days.
+- Inference verification (Rinberg et al. 2025, same section): hidden information under 0.5% of the
+  channel. 0.5% of 4 TB = 20 GB a day, 500 days.
+- Paying for it: 10 TB / 4 bytes = 2.5e12 output tokens. At $50 per million that is $125M; at Fable
+  5.2's $40 it is $100M. It equals 2.5 days of the model's total output, so it cannot hide in the
+  volume.
+- The wire versus the text. A streamed token arrives as a server-sent event with a JSON body. MY
+  GUESS: 100 to 300 bytes per token before TLS. 1e12 tokens a day is then 100 to 300 TB a day, 9 to
+  28 Gbit/s. An attacker who writes raw bytes to that link moves 10 TB in 0.8 to 2.4 hours. A byte
+  cap set just above normal traffic therefore protects much less than a cap on token content.
+- Consequence for the footnote: the serving perimeter cannot be defended with a byte cap alone. The
+  cap has to sit on something much smaller than the text (compressed tokens, or verified text), or
+  the weights have to be large relative to daily output, which stopped being true around 2025.

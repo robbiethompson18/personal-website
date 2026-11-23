@@ -52,26 +52,63 @@ Anthropic trained a model to do only Anthropic’s bidding, it would be trivial 
 this. Models are or will soon be good enough that they can improve themselves, subject to the
 constraings on how many experiments they can run on your compute. So if China gets GPT 10 the could
 be off to the races.</p>
+<!-- @robbie done (was "@c make a guess for Astra / Mythos tokens" and "@c do this BOTEC plz"). The BOTEC:
+- Tokens: no lab publishes tokens per model, so this comes from revenue. Anthropic booked $17.0B in Q3 2026, which is $185M a day. I guess 40% of that is the flagship (Fable and Mythos share a model, and Mythos alone is restricted to verified organizations), so $74M a day. Output listed at $50 per million then. Each output token comes with about 25 input tokens, mostly cache hits at $0.25 per million, so an output token brings in about $80 per million at list price and about $60 after subscription discounts. $74M / $60 per million = 1.2 trillion output tokens a day. Range 0.3 to 3 trillion. I assume Astra is the same size.
+- Bits: 1 trillion tokens × 4 bytes of text per token = 4 TB a day = 3.2e13 bits. Over 86,400 seconds that is 370 Mbit/s.
+- Time: your 10 TB of weights is 8e13 bits, and 8e13 / 3.2e13 = 2.5 days. A 2 to 5 TB model takes 12 to 30 hours. Across my token range, 10 TB takes 1 to 8 days.
+- 2.5 days is the ceiling. It needs an attacker who owns the serving stack and replaces every customer's response with weight bytes, which customers notice within minutes.
+- With Greenblatt's 2024 scheme (the weight-holding datacenter sends responses compressed against a small model both sides hold, measured at under 1 bit a token) the link carries at most 125 GB a day, and 10 TB takes 80 days.
+- If the lab re-runs a sample of responses and checks they reproduce (Rinberg et al., 2025), the hidden channel drops to under 0.5% of the text: 20 GB a day, 500 days.
+- Buying it through the API: 10 TB of text is 2.5 trillion output tokens, $125M at $50 per million, and it is 2.5 days of the model's whole output.
+- "The fiber" carries more than the text. Streaming wraps each token in 100 to 300 bytes of JSON (my estimate from the streaming format), so the link itself runs at 10 to 30 Gbit/s. An attacker who can write raw bytes to it, and not only choose tokens, moves 10 TB in 1 to 2.5 hours.
+- Notes: POST_RESEARCH.md, "Part: Egress Through Inference Tokens".
+-->
 <h3 id="algorithmic-secrets">Algorithmic Secrets <a class="heading-anchor" href="#algorithmic-secrets" aria-label="Link to this section">#</a></h3>
 <p>Questions:</p>
-<!-- @robbie done (was "@c to speculate / research"). Answers are in the orange box below the questions, full notes and sources in POST_RESEARCH.md. Lines starting "My guess" are speculation, as asked; everything else is cited. -->
 <ul>
-<li>Smart people (@c cite Dario, RAND, AIFP) claim that most algorithmic secrets can be conveyed in a
-couple of pages of text.</li>
+<li>Smart people (<a href="#src-dario" class="cite" id="citeref-dario">Dario</a>, <a href="#src-randinsights" class="cite" id="citeref-randinsights">RAND</a>, <a href="#src-aifp" class="cite" id="citeref-aifp">AIFP</a>) claim that a significant
+portion of algorithmic secrets can be conveyed in a couple of pages of text.</li>
 <li>Chinese labs have the human capital to do a frontier training run using these secrets.</li>
-<li>Frontier runs are aobut 10% of R&amp;D compute. Claude and I speculate that GPT 6 Astra took _ flops
-total (@c write out the calc in a footnote), trained on hundreds of thousands of Blackwells in
-Abilene. China has about _ total flops, so it would take them _ days to do an Astra-sized training
-run if they spent all of their compute on it, compared to the _ days it took OpenAI at Abilene.</li>
+<li>Frontier runs are aobut 10% of R&amp;D compute. Claude and I speculate that GPT 6 Astra took 9.4e26
+flops total,⁠<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> trained on hundreds of thousands of Blackwells in Abilene. China has about
+2e21 total flops, so it would take them 5 days to do an Astra-sized training run if they spent all
+of their compute on it, compared to the 90 days it took OpenAI at Abilene. Realistically, if China
+used their biggest site in Johor, Malaysia, it would take them about 130 days to train
+Astra.[^Johor]</li>
 </ul>
-<p>@c do placeholders above.</p>
-<p>@c I want to hear way more about this Johor site? Are we up in arms that Bytedance is using
-blackwells? How do we just know?</p>
+<p>[^Johor] China’s biggest site is in Johor because it’s illegal to ship Nvidia chips to China, but
+it’s not illegal to sell them to a Malaysian company who then rents the compute to China. The Johor
+site is x H100e, about y% as large as the biggest US site (Stargate in Abilene, Texas). It’s owned
+by Bain, operated by Oracle, and used by Bytedance, originally for TikTok.</p>
+<!-- @robbie done (was "@c I want to hear way more about this Johor site? Are we up in arms that Bytedance is using blackwells? How do we just know?"). Short version: the megawatts are known, the Blackwells are a guess, and yes. Full notes: POST_RESEARCH.md, "Part: The Johor Site".
+THE SITE
+- Bridge Data Centres MY06, Sedenak Tech Park, Kulai district, Johor. Owned by Bain Capital. Ten buildings on two campuses, seven running, 243 MW of IT power.
+- ByteDance as anchor tenant is on the record: a 2022 Malaysian government press release names "ByteDance System Sdn. Bhd". It opened as a TikTok serving site.
+HOW WE KNOW
+- Power: Epoch counts cooling units in satellite photos and reads the owner's SEC filings. That part is decent.
+- Chips: nobody outside has seen them. Epoch fills each building with whatever Nvidia was mostly selling the quarter before it opened. Its page data marks every chip count "Estimate" with the note "Chip type based on NVIDIA chip sales in preceding quarter". That rule puts 61,573 B200s in buildings 5 to 7, which is 70% of the 221,000 H100-equivalents.
+- Evidence against: ByteDance installs its own servers there, and a Chinese-owned company has needed a US licence to buy these chips since 2023. IFP (2026), relaying SemiAnalysis, says ByteDance's own leased halls in Malaysia hold CPUs and unrestricted GPUs.
+- Where ByteDance's Blackwells more likely are: capacity that Oracle rents inside DayOne's Johor campuses and rents on to ByteDance (IFP sizes it at 196 MW of GB200s), and a deal with Aolani Cloud for about 36,000 B200s (WSJ, March 2026, over $2.5B; IFP still listed it as "delayed or unconfirmed" in October 2026).
+- So I was too confident in the earlier box. My odds: 65% that ByteDance is training frontier models on Blackwells somewhere in Johor today, 20% that it is at MY06 on B200s it owns. The 130-day figure assumes Epoch's chips are real.
+ARE WE UP IN ARMS
+- Renting was legal until November 19, 2026. US rules controlled shipping a chip, not renting time on one. Nvidia's line in March 2026: "By design, the export rules allow clouds to be built and operated outside controlled countries".
+- 2026 in order: the House passed the Remote Access Security Act 369 to 22 in January (stuck in the Senate). WSJ's Aolani story in March. IFP's October report put Chinese remote access at 1M H100-equivalents, 75% of it in Southeast Asia. In early November Nvidia told cloud partners 51% of their capacity must go to non-Chinese customers. Jensen Huang resigned as Nvidia CEO on November 12 after reports of a relationship with a former executive of Megaspeed, a Singapore firm that rents Nvidia chips to Chinese customers. The Commerce Department rule came out four days later.
+- The rule: a licence is needed to ship chips to any data center anywhere that gives a China-headquartered company more than 12,000,000 TPP, about 760 H100s. Existing sites have 90 days, to February 17, 2027. It does not order installed chips switched off; the penalty is no future chips. Recommender systems are exempt and generative models are not, so TikTok ranking can stay and Doubao training can't.
+- Reactions: China's commerce ministry threatened countermeasures. Malaysia's trade minister: "if you want to continue conducting your business here, you must comply with US rules and regulations". Nothing from ByteDance.
+-->
 <h3 id="data-rl-environments">Data, RL Environments <a class="heading-anchor" href="#data-rl-environments" aria-label="Link to this section">#</a></h3>
 <p>Algorithmic secrets are enough to make an excellent pretrain, but you can’t posttrain without RL
-environments. US labs spend tens of billions every year (@c cite for me plz?) on data and
-environments.</p>
-<p>@c can we fermi estimate:</p>
+environments. US labs spend tens of billions every year (<a href="#src-dataspend" class="cite" id="citeref-dataspend">about $8 billion in 2026</a>) on
+data and environments.</p>
+<!-- @robbie done (was "@c cite for me plz?"). The sources say billions, not tens of billions, so I put the number beside your claim instead of citing something that contradicts it. Change the wording or drop the number. Full notes: POST_RESEARCH.md, "Part: What Labs Spend on Data and Environments".
+- All US frontier labs together: about $8B in 2026 (range $6B to $11B), $4B in 2025, $2.5B in 2024. It doubles each year. The totals are my sums from the items below, not a published figure.
+- Anthropic (amended S-1, read second-hand): costs for data quality and evaluation vendors rose $757M in the first nine months of 2026 against a year earlier. That makes about $1.0B for the nine months, and over $2B a year at the third-quarter pace.
+- OpenAI: about $1B in 2025, including human experts and RL environments (The Information via Epoch, 2026). No 2026 figure exists.
+- The vendor side agrees: a July 2026 tally of data vendors' revenue run rates comes to about $8.5B (Deedy Das, Menlo Ventures; I did not check it). Mercor alone booked $614M in the first half of 2026, 91% from model makers.
+- It is about 5% of compute spend: Anthropic's $1.0B against $18.8B of compute over the same nine months.
+- "Tens of billions" becomes true around 2028 if the doubling holds.
+-->
+<p>can we fermi estimate:</p>
 <ul>
 <li>how mant RL envs one needs to train Mythos</li>
 <li>how mant bytes of data are in those environments</li>
@@ -79,6 +116,26 @@ environments.</p>
 <li>what data labs SFT on in a frontier train, and how many bytes that is</li>
 <li>what am I not thinking of? They do RLHF on policy?</li>
 </ul>
+<!-- @robbie done (was "@c can we fermi estimate:" and the five bullets above). Central guesses with ranges. Arithmetic and sources: POST_RESEARCH.md, "Part: RL Environments, SFT Data and Other Post-Training Assets".
+HOW MANY ENVS
+- "Environment" gets used three ways. About 1,500 environment families (300 to 5,000), 1M sandbox images (200k to 5M), 1.5M tasks (300k to 10M). A task is a prompt plus a grader.
+- From budget: Anthropic reportedly discussed over $1B a year on environments, and tasks cost $200 to $2,000 each (Epoch, 2026). $600M of that at $630 a task is about 1M tasks.
+- From compute: about $230M of RL compute for one flagship at $2.30 an episode is 100M episodes, which at 64 rollouts per task is 1.6M tasks. The run emits about 15T tokens of rollouts. The $2.30 is my guess.
+- No US lab publishes a count. The public anchor is Moonshot's Kimi K3 report (2026): "a total of 51,219,741 sandboxes across 1,505,678 images".
+HOW MANY BYTES, AND DOES IT COMPRESS
+- 2 PB if every task's full container image is counted. 100 TB once shared layers are deduplicated (10 TB to 1 PB), which is how a lab stores it.
+- 250 GB if you keep only what can't be rebuilt from public sources: task text, graders, the source of cloned apps, private seed files. 70 GB after zstd. That is about 30,000x smaller than raw. A coding task is a repo URL, a commit hash, a Dockerfile, a prompt and hidden tests: tens of KB.
+- What doesn't compress: human-written rubrics and solutions, private work files, VM images of commercial software.
+- What doesn't transfer at all: the record of which environments are broken. Epoch's interviewees call resistance to reward hacking the top quality criterion.
+SFT
+- SFT is now the cold start before RL and the cleanup after it. About 20M examples, 100B tokens, 0.4 TB (20 GB to 8 TB). Contents: expert demonstrations, tool-use traces, synthetic dialogues, character and refusal data, outputs distilled from bigger models.
+- The human-written part is about 20 GB. $1B of expert time buys at most 60 GB of typed text.
+WHAT YOU'RE NOT THINKING OF
+- RLHF as in 2022 (humans rank samples, a reward model learns the ranking) is now minor. Most RL compute runs against programmatic graders (unit tests, final-state checks), then LLM judges with rubrics. The humans moved upstream: they write the tasks and the graders.
+- Ranked by value to a thief who has the recipe: (1) the RL rollouts themselves, 15T tokens, about 60 TB, a distillation set with the reasoning visible and a reward on every episode; (2) the training-mix config and the environment QA records, MBs; (3) the experiment-tracking database, GBs, the record of the 90% of compute that wasn't the final run; (4) the environment library; (5) graders, judge prompts, reward models; (6) eval suites. Items 2, 3, 5 and 6 together are under 100 GB, and they are neither for sale nor recoverable from weights. The byte sizes for 2, 3 and 6 are my guesses.
+- A thief may not need to steal environments. ChinaTalk (2026) reports US vendors "are selling roughly half a billion dollars worth of data to Chinese AI labs", the same products US labs buy, mostly outside export controls. Chinese labs also build their own at this scale: Kimi's 1.5M images, and a 2026 paper that built 45,320 coding environments for about $20 each.
+- That cuts against the section's opening line. Environments are needed for post-training, but they are the least exclusive asset on the list.
+-->
 <p class="like-row"><button class="like" type="button" aria-label="Like this post" aria-pressed="false"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><span>Like</span></button></p>
 <hr class="footnotes-sep">
 <section class="footnotes">
@@ -86,10 +143,35 @@ environments.</p>
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>MSS is the CCP’s intelligence service, something like their FBI/CIA/NSA combined. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn2" class="footnote-item"><p>Lots of security proposals involved limiting the bandwidth from … what parts of the
-datacenter? GPU sto object storage? Object storage to somwhere else? It’s actually not <em>at all</em>
-obvious where this BW limit lives… @c plz leave the answer in a comment. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+<li id="fn2" class="footnote-item"><p>Lots of security proposals involved limiting the bandwidth between some section of the data that
+holds model weights and the ‘outside world’ (in this case researcher’s laptops). However model
+weights need to be streaming tokens during inference and saving checkpoints during training. The
+training issue is easily solved: let your egress limit apply to one permieter which holds both
+your GPUs and the object storate which holds checkpoints. Inference limits are more challenging:
+labs serve ~1 trillion tokens from frontier models per day, which is ~3e13 bits of information,
+or 370 Mbits/s. This means that the fiber which sends out inference tokens can be used to egress
+weights in 2.5 days. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
+<li id="fn3" class="footnote-item"><p>This is <a href="https://epoch.ai/data/ai-models" target="_blank" rel="noopener">Epoch’s estimate</a> (2026): 100,000 GB200s × 90 days
+(7.8e6 seconds) × 1.2e15 useful FLOP/s per GB200 (25% of its FP8 peak) = 9.3e26, listed as
+9.4e26. OpenAI has only said
+<a href="https://fortune.com/2026/09/03/openai-debuts-gpt-6-astra-computer-use-greg-brockman-says-start-of-agi/" target="_blank" rel="noopener">“more than 100,000 GPUs”</a>
+(2026); the 90 days and the 25% are Epoch’s assumptions. China’s number is IFP’s
+<a href="https://ifp.org/how-to-increase-americas-ai-lead-over-china/" target="_blank" rel="noopener">4.6M H100-equivalents</a> (2026) at
+the same utilization. A GB200 is 2.54 H100-equivalents, so 4.6M × 1.2e15 / 2.54 = 2.2e21 useful
+FLOP/s, and 9.4e26 / 2.2e21 = 4.3e5 seconds = 5 days. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+<hr class="sources-sep">
+<section class="sources">
+<h2 class="sources-title" id="sources">Sources <a class="heading-anchor" href="#sources" aria-label="Link to this section">#</a></h2>
+<p class="sources-note">Claude found these sources. Robbie did not necessarily review them.</p>
+<ol class="sources-list">
+<li id="src-dario" class="source-item">Dario Amodei at the Council on Foreign Relations (2025): “many of these algorithmic secrets, there are $100 million secrets that are a few lines of code.” <a href="https://www.cfr.org/event/ceo-speaker-series-dario-amodei-anthropic" target="_blank" rel="noopener">https://www.cfr.org/event/ceo-speaker-series-dario-amodei-anthropic</a> <a href="#citeref-dario" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-randinsights" class="source-item">RAND, “Securing AI Algorithmic Insights” (2026): “a few lines of code, a diagram, or a brief technical exchange might be enough to convey a high-value insight.” <a href="https://www.rand.org/pubs/research_reports/RRA4685-1.html" target="_blank" rel="noopener">https://www.rand.org/pubs/research_reports/RRA4685-1.html</a> <a href="#citeref-randinsights" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-aifp" class="source-item">AI Futures Project, AI 2027 security forecast (2025), which sizes the secrets worth protecting at “the most important 10KB (plaintext)” from the last month. 10KB of plain text is about 3 pages. <a href="https://ai-2027.com/research/security-forecast" target="_blank" rel="noopener">https://ai-2027.com/research/security-forecast</a> <a href="#citeref-aifp" class="cite-backref" aria-label="Back to text">↩︎</a></li>
+<li id="src-dataspend" class="source-item">My sum across US labs, from two anchors. OpenAI spent “about $1 billion on data (which includes paying for human experts and RL environments)” in 2025, per Epoch AI (2026): <a href="https://epoch.ai/gradient-updates/can-ai-companies-become-profitable" target="_blank" rel="noopener">https://epoch.ai/gradient-updates/can-ai-companies-become-profitable</a>. Anthropic’s amended S-1 says its costs for data quality and model evaluation services “rose by $757 million in the first nine months of 2026, compared with a year earlier”, per Strauss and O’Reilly (2026): <a href="https://asimovaddendum.substack.com/p/anthropics-missing-s-1-disclosures" target="_blank" rel="noopener">https://asimovaddendum.substack.com/p/anthropics-missing-s-1-disclosures</a>. <a href="#citeref-dataspend" class="cite-backref" aria-label="Back to text">↩︎</a></li>
 </ol>
 </section>
 
