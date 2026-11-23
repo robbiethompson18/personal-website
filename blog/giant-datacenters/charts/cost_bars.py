@@ -4,7 +4,7 @@ Dollars, to about one significant figure. Full sourcing, ranges and arithmetic
 are in POST_RESEARCH.md, part "Cost Breakdown for the Chart". Most bars are
 estimates; the comments say which rest on a filing.
 
-Servers  = accelerators in whole servers and racks. Abilene: Epoch AI's $21.2B
+Compute  = accelerators in whole servers and racks. Abilene: Epoch AI's $21.2B
            per GW x 0.824 GW of IT power (SemiAnalysis's per-rack price agrees;
            the FT's reported $40B is the outlier). New Carlisle: about 1.04M
            Trainium2 x ~$7,000 installed + 104k Trainium3 x ~$10,000, capped by
@@ -34,7 +34,7 @@ from theme import CAT, FG, fonts, save
 ABILENE, CARLISLE = "Abilene", "New Carlisle"
 ROWS = [
     # (category, Abilene $B, New Carlisle $B), biggest first
-    ("Servers", 18, 8),
+    ("Compute", 18, 8),
     ("Buildings", 9, 5),
     ("Networking", 4, 1.4),
     ("New Power", 0.7, 0.8),

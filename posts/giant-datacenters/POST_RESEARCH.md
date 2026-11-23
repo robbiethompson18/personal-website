@@ -4468,3 +4468,624 @@ wholesale.
 - A published Trainium3 unit cost or Trainium server price.
 - Any site-specific networking or storage spend.
 - Amazon's actual contract rate with I&M and Oracle's or Crusoe's actual power contract at Abilene.
+
+---
+
+# Part: On Track: Spending Series, 2030 Factor and Bullet Inputs
+
+## Research for the "On Track" section of Giant Datacenters
+
+Researched 2026-11-22. Labels on every figure: **reported** (company, agency or press), **estimate**
+(third party), **arithmetic** (mine). Quote provenance: **raw** = I read the number or sentence out
+of the downloaded file (xlsx, csv, pdf text, saved html); **relayed** = it came through the
+summarizing fetch tool or a search summary, so re-open the URL before pasting it into the post;
+**sub-agent** = a research sub-agent read it and I did not re-open it.
+
+Downloads are in
+`/private/tmp/claude-501/-Users-robbie-repos-personal-website/313e2c7b-29d2-4103-9494-25f613e962a6/scratchpad/dl_ontrack/`
+(Census files in `.../scratchpad/dl/`), scripts in `.../scratchpad/ontrack_scripts/`.
+
+---
+
+### (i) Recommended spending series
+
+Plot the combined capital expenditure of Amazon, Microsoft, Alphabet, Meta and Oracle. It is the
+only series that is reported for every year and counts chips and equipment. It is worldwide and
+covers all capex, so the chart title cannot say "in the USA" without a qualifier; about 70 to 75% of
+it lands in the US (section 1b). The Census construction series is the honest US-only companion. It
+counts buildings only and is about a tenth of the money, but it grew by the same factor, 8x.
+
+| Year | Five-company capex, $B (recommended) | Status                                                                                   | US datacenter construction, $B (Census) | Status                                                                      |
+| ---- | -----------------------------------: | ---------------------------------------------------------------------------------------- | --------------------------------------: | --------------------------------------------------------------------------- |
+| 2020 |                                   97 | reported, summed                                                                         |                                     9.2 | reported                                                                    |
+| 2021 |                                  131 | reported, summed                                                                         |                                     9.9 | reported                                                                    |
+| 2022 |                                  158 | reported, summed                                                                         |                                    12.6 | reported                                                                    |
+| 2023 |                                  154 | reported, summed                                                                         |                                    20.0 | reported                                                                    |
+| 2024 |                                  239 | reported, summed                                                                         |                                    34.8 | reported                                                                    |
+| 2025 |                                  412 | reported, summed                                                                         |                                    49.7 | reported                                                                    |
+| 2026 |                            about 790 | arithmetic: 560 reported for nine months, fourth quarter held at the third quarter's 230 |                                about 75 | arithmetic: 54.2 reported for Jan to Sep, scaled by 2025's seasonal pattern |
+
+Growth 2020 to 2026: 8.1x for both columns. Suggested chart label: "Capital spending of Amazon,
+Microsoft, Alphabet, Meta and Oracle (worldwide)".
+
+### (ii) Recommended factor: 10x
+
+Use **10x** for power, cost and headcount, and say compute grows about 30x because chips improve.
+
+Derivation, three methods, 2026 to 2030:
+
+| Method                                                                                                                               |        Power |           Cost |          Compute |
+| ------------------------------------------------------------------------------------------------------------------------------------ | -----------: | -------------: | ---------------: |
+| Epoch AI measured trend (2025 paper: power 2.0x a year, hardware cost 1.9x, performance doubling every 9 months), compounded 4 years |          16x |            13x |              40x |
+| Same paper's own June 2030 projection (9 GW, $200B) over today's sites                                                               |      7 to 9x |        5 to 6x |        not given |
+| Epoch's newer record-holder trends (2026: power doubling every 10 months, compute every 7 months)                                    |          28x |      not given |             116x |
+| Aschenbrenner's table, ~2026 row to ~2030 row                                                                                        |         100x |     about 100x |             100x |
+| Announced pipeline, largest credible site at end of 2030 (about 3.5 GW at the meter)                                                 | 3x (2 to 4x) |        2 to 3x | about 5x by 2028 |
+| Announced pipeline, biggest paper plan (OpenAI's Ohio site, 9.2 GW requested from the utility by 2030)                               |         7.7x | about 8 to 10x |        not given |
+
+Why 10x, in two sentences: it is the round number nearest the measured trend for the things the
+bullets count (power and cost doubling yearly gives 13 to 16x, Epoch's own 2030 projection gives 7
+to 9x, the biggest filed plan gives 7.7x). It is also exactly one row of Aschenbrenner's table,
+which makes the honest sentence easy to write: the naive trend reaches his 2028 row (10 GW, hundreds
+of billions of dollars) in 2030, two years late.
+
+**Push-back on "We're on track."** The ~2026 row was hit on all three columns. The 2030 row is not
+on any trend or plan I found. At the measured 2x a year, a $1 trillion single site arrives around
+late 2031 and 100 GW around 2033 (arithmetic: log2(1000/35) = 4.8 years, log2(100/1.2) = 6.4 years).
+What is permitted or under construction supports about 3x by 2030, not 10x and not 100x. Epoch's
+tracker has no single site above 2.7 GW at the meter through 2030.
+
+### (iii) The four bullets at 10x
+
+Baseline "today's biggest": 1.2 GW at the meter; 2.0e21 FLOP/s at fp8 (Abilene); $31B (Abilene) to
+$39B (New Carlisle) in capital, both Epoch estimates; 6,400 (Abilene) and 4,000 (New Carlisle)
+construction workers; 935 permanent staff (New Carlisle).
+
+| Bullet                                       | At 10x                                                                                                                                                         | How                                                                                                                                                                                                                                                                                                       |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Employ x people                              | 40,000 to 64,000 construction workers on site, and 3,000 to 9,000 permanent staff                                                                              | Linear: 10 x 4,000 and 10 x 6,400; 10 x 935 = 9,350 permanent. Announced big sites promise fewer permanent jobs per gigawatt: OpenAI's 8 GW Ohio plan says 2,500, which scales to about 3,000 for a 12 GW site                                                                                            |
+| Use y% of US electricity production          | 12 GW, 105 TWh a year, **2.2%** of forecast 2030 US generation (2.4% of 2025's)                                                                                | 12 GW x 8,760 h = 105.1 TWh; / 4,734 TWh (EIA forecast for 2030) = 2.2%; / 4,425 TWh (2025 actual) = 2.4%. At a 90% load factor: 2.0% and 2.1%. Today's 1.2 GW is 0.24%                                                                                                                                   |
+| Cost $z per year, x% of US GDP               | $310B to $390B to build, **0.8 to 1.0%** of 2030 GDP. Per year on the post's convention: **$120B to $160B a year, 0.3 to 0.4%** of 2030 GDP                    | 10 x $31.2B and 10 x $39.3B, against CBO's $37.74T for 2030. The post's $12B a year for Abilene is $31B over 2.5 build years, so 10x is $120B to $125B a year (0.32 to 0.33%); New Carlisle on the same basis is $39.3B / 2.5 = $15.7B, so $157B (0.42%)                                                  |
+| Hold x flops, train GPT-6 Astra every _time_ | 2 x 10^22 FLOP/s (20 zettaflops, fp8): one GPT-6 Astra every **2.2 days**. With four years of chip improvement, about 6 x 10^22 FLOP/s: one every **17 hours** | 10 x 2.016e21 = 2.0e22 FLOP/s peak. x 25% utilization x 86,400 s = 4.35e26 FLOP a day. Astra = 9.4e26 FLOP (Epoch estimate). 9.4e26 / 4.35e26 = 2.16 days. Chips gain about 3x in FLOP/s per watt over four years (1.34x a year), so 10x the power is about 30x the compute: 1.3e27 FLOP a day, 0.72 days |
+
+For scale: today's whole Abilene site at the same 25% utilization would take 21.6 days per Astra,
+and New Carlisle 26.9 days.
+
+---
+
+## 1. Annual datacenter spending in the United States, 2020 to 2026
+
+### 1a. Construction only: Census "Value of Construction Put in Place", private, data center
+
+Source: U.S. Census Bureau, Construction Spending, release of November 2, 2026 (publication year
+2026). File: https://www.census.gov/construction/c30/xlsx/privtime.xlsx (monthly, not seasonally
+adjusted, millions of dollars; I summed the 12 months of each year). Seasonally adjusted annual
+rates: https://www.census.gov/construction/c30/xlsx/privsatime.xlsx. All raw.
+
+| Year             |       $B | Status                                          |
+| ---------------- | -------: | ----------------------------------------------- |
+| 2014             |     1.80 | reported (first year the category exists)       |
+| 2019             |     8.48 | reported                                        |
+| 2020             |     9.23 | reported                                        |
+| 2021             |     9.95 | reported                                        |
+| 2022             |    12.58 | reported                                        |
+| 2023             |    20.00 | reported                                        |
+| 2024             |    34.80 | reported                                        |
+| 2025             |    49.74 | reported                                        |
+| 2026, Jan to Sep |    54.21 | reported (Sep preliminary, Jul and Aug revised) |
+| 2026, full year  | about 75 | arithmetic, see below                           |
+
+2026 full-year options, all my arithmetic on the raw file:
+
+- Jan to Sep 2026 is $54.207B against $36.350B for Jan to Sep 2025, up 49.1%. Scaling 2025's full
+  year by that: 49.737 x 1.491 = **$74.2B**.
+- Simple annualization: 54.207 x 12 / 9 = $72.3B.
+- Fourth quarter held at September's $8.517B a month: 54.207 + 3 x 8.517 = $79.8B.
+- Census's own seasonally adjusted annual rate for September 2026: **$96.5B** (raw,
+  `privsatime.xlsx`, "Sep-26p 96462"). A year earlier it was $50.7B. Monthly spending went from
+  $4.5B in January to $8.5B in September, so the year-to-date figure understates the current pace.
+
+Raw rows from the file: "Sep-26p ... 8517", "Aug-26r ... 7909", "Jul-26r ... 6988", "Jun-26 ...
+6244", "Dec-25 ... 4488". File footnote (raw): "Source: U.S. Census Bureau, Construction Spending,
+November 2, 2026."
+
+What it counts. Census definitions page, https://www.census.gov/construction/c30/definitions.html
+(2026), relayed:
+
+- Data center, under Office: "Includes buildings that contain the hardware needed for storing,
+  processing, and transmitting digital information."
+- Value put in place includes "Cost of materials installed or erected", "Cost of labor",
+  "Contractor's profit", "Cost of architectural and engineering work", "Interest and taxes paid
+  during construction".
+- Excluded: "Cost and installation of production machinery and equipment items not specifically
+  covered above".
+
+So it is the shell, the installed electrical and mechanical plant and the labor. It leaves out
+servers, chips and networking, which are 55 to 70% of an AI site's cost (Epoch's 1 GW model: servers
+56%, network 13%, facility 30%). It is private construction only, and it is US-only.
+
+### 1b. All-in capital spending including chips and equipment
+
+No source publishes a US-only, all-in datacenter series by year. Searched: Dell'Oro, Synergy,
+McKinsey, Bloomberg Intelligence, S&P/451, Epoch, BEA, Fed, CEA, Goldman. The candidates:
+
+**Candidate 1 (recommended): combined capex of Amazon, Microsoft, Alphabet, Meta, Oracle.**
+Sub-agent's sums from the SEC XBRL API
+(`https://data.sec.gov/api/xbrl/companyconcept/CIK{cik}/us-gaap/PaymentsToAcquirePropertyPlantAndEquipment.json`;
+Amazon uses `PaymentsToAcquireProductiveAssets`), 10-K and 10-Q filings 2020 to 2026. Definition:
+cash purchases of property and equipment, finance leases excluded. Microsoft calendarized exactly
+from fiscal quarters; Oracle's fiscal quarters mapped to the nearest calendar quarter, so its year
+is really December to November. Status: reported per company, summing is arithmetic.
+
+| $B                | Amazon | Microsoft | Alphabet | Meta |        Oracle |   Sum |
+| ----------------- | -----: | --------: | -------: | ---: | ------------: | ----: |
+| 2020              |   40.1 |      17.6 |     22.3 | 15.2 |           1.8 |  97.0 |
+| 2021              |   61.1 |      23.2 |     24.6 | 18.7 |           3.1 | 130.7 |
+| 2022              |   63.6 |      24.8 |     31.5 | 31.2 |           6.7 | 157.8 |
+| 2023              |   52.7 |      35.2 |     32.3 | 27.0 |           6.9 | 154.2 |
+| 2024              |   83.0 |      55.6 |     52.5 | 37.3 |          10.7 | 239.1 |
+| 2025              |  131.8 |      83.1 |     91.4 | 69.7 |          35.5 | 411.5 |
+| 2026, nine months |  175.7 |     106.0 |    132.0 | 83.1 | 63.6 (to Aug) | 560.4 |
+
+- Third quarter 2026 alone: $230.4B. Holding the fourth quarter there gives about **$791B** for 2026
+  (arithmetic).
+- Cross-check, Vanguard chart "Hyperscaler capital expenditures (actual and consensus)" (undated,
+  relayed, sub-agent): 97 / 131 / 159 / 154 / 241 / 416, and 777 for 2026.
+  https://corporate.vanguard.com/etc.clientlibs/corporatesite/clientlibs/clientlib-site/resources/dwcharts/2dC6s.htm
+- Cross-check, Epoch AI (2026), same five firms with new finance leases added: 162 / 161 / 260 / 448
+  for 2022 to 2025 (sub-agent's sums of Epoch's quarterly CSV). "includes cash spending and new
+  finance leases" (relayed). https://epoch.ai/data-insights/hyperscaler-capex-trend
+- 2026 guidance at the third-quarter earnings season, each on the company's own definition
+  (sub-agent, relayed): Meta "in the range of $135-145 billion, narrowed from our prior outlook of
+  $130-145 billion" (Meta, 2026,
+  https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx);
+  Amazon about $220B; Microsoft about $170B for calendar 2026 including finance leases; Alphabet
+  $195B to $205B; Oracle fiscal 2027 $90B to $95B. Oracle 10-K (2026): "Cash used for capital
+  expenditures increased from $21.2 billion in fiscal 2025 to $55.7 billion in fiscal 2026"
+  (https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/orcl-20260531.htm). Midpoints
+  sum to roughly $815B.
+
+What it counts and what is wrong with it: worldwide, and all capex (Amazon warehouses, offices). It
+omits CoreWeave, xAI, Crusoe, colocation firms and enterprises. Shares, to qualify the label:
+
+- US share about 70 to 75%. Sub-agent's arithmetic on 10-K long-lived-asset geography, 2025
+  increase: Amazon 70%, Alphabet 73%, Meta 92%, Microsoft 68%. Amazon 10-K (2026): "U.S. property
+  and equipment, net and operating leases were $196.0 billion, $241.6 billion, and $321.9 billion"
+  (https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm). Epoch
+  (2026) uses the same number: "We scale by 70% to estimate the US share, consistent with
+  approximate hyperscaler capex geography" (relayed,
+  https://epoch.ai/data-insights/ai-datacenter-share-gdp).
+- Datacenter share: at Amazon, AWS was 51% of net property additions in 2023, 62% in 2024, 68% in
+  2025 (same 10-K, sub-agent). It was lower in 2020 and 2021, so the series overstates datacenter
+  spending most in the early years.
+
+**Candidate 2: BEA computers plus Census construction (US-only, official).** BEA private fixed
+investment in computers and peripheral equipment (FRED `B935RC1A027NBEA`) plus the Census column
+above. Sub-agent pulled FRED; reported data, summing is arithmetic.
+
+| Year                                          | Information processing equipment (`Y034RC1A027NBEA`) | Computers and peripherals | Census DC construction | Computers + construction |
+| --------------------------------------------- | ---------------------------------------------------: | ------------------------: | ---------------------: | -----------------------: |
+| 2020                                          |                                                400.2 |                     126.5 |                    9.2 |                    135.8 |
+| 2021                                          |                                                443.4 |                     147.1 |                    9.9 |                    157.1 |
+| 2022                                          |                                                480.8 |                     160.4 |                   12.6 |                    173.0 |
+| 2023                                          |                                                480.6 |                     148.5 |                   20.0 |                    168.5 |
+| 2024                                          |                                                514.1 |                     179.8 |                   34.8 |                    214.6 |
+| 2025                                          |                                                652.7 |                     280.2 |                   49.7 |                    329.9 |
+| 2026, Q1 to Q3 average annual rate (Q3 alone) |                                        855.3 (933.9) |             441.3 (504.1) |            70.9 (88.7) |            512.2 (592.8) |
+
+Problem: about half of the 2020 value is PCs and office computers, so it shows 3.8x growth where the
+datacenter-only series show 8x.
+
+**Candidate 3: Epoch AI, US computing infrastructure investment.** Isabel Juniewicz, "The AI boom
+has doubled computing infrastructure's share of US GDP" (Epoch AI, June 5, 2026),
+https://epoch.ai/data-insights/ai-datacenter-share-gdp. Computers and peripherals (BEA) + datacenter
+construction (Census) + Epoch's own networking estimate, US-only. Relayed: "driving computing
+infrastructure as a whole to ~1.5% of GDP, up from a 2015–2022 average of ~0.7%"; "This measure
+focuses on private investment and excludes buildouts that occur outside of the US". Raw from its CSV
+(https://epoch.ai/data/charts/ai-datacenter-share-gdp/datacenter_buildout_share.csv): combined share
+0.59% in Q1 2020, 0.82% in Q4 2024, 1.29% in Q4 2025, 1.49% in Q1 2026 on nominal GDP of $31,856B,
+which is about $474B a year (arithmetic). Annual dollar levels from share x GDP: about 140 / 163 /
+182 / 181 / 229 / 342 for 2020 to 2025 (sub-agent's arithmetic). Third-party estimate. Same PC
+problem as candidate 2.
+
+**Candidate 4: Federal Reserve, datacenter investment.** Two papers, quotes raw from the PDFs:
+
+- "Estimating Aggregate Data Center Investment with Project-level Data", FEDS 2025-109 (2025):
+  "investment increases from approximately $60 billion in 2024:Q4 to $180 billion in 2025:Q4,
+  reaching an annual rate of roughly $370 billion by 2026:Q2".
+  https://www.federalreserve.gov/econres/feds/files/2025109pap.pdf
+- Carollo, Crane, Garcia Molina and Nichols, "Artificial Intelligence and the U.S. Economy: Current
+  Evidence", FEDS 2026-074 (2026): "the level of total measured data center-related investment will
+  step up considerably, from about $100 billion in 2024 to over $880 billion by the end of 2027,
+  exceeding 2 percent of GDP." https://www.federalreserve.gov/econres/feds/files/2026074pap.pdf
+
+This is the best US-only, all-in measure in concept (structures plus above-trend computer
+investment), but it is near zero before 2023 by construction, so it cannot anchor a log chart
+from 2020. It does calibrate candidate 1: the Fed's roughly $100B for 2024 is 42% of the
+five-company $239B, and its $370B annual rate for mid-2026 is about half of the five-company run
+rate.
+
+**Other series checked (sub-agent):**
+
+- Dell'Oro Group, worldwide datacenter capex, no US share: about $241B (2022), $260B (2023), "surged
+  51 percent to $455 billion in 2024" (Dell'Oro, 2025, relayed,
+  https://www.delloro.com/news/data-center-capex-surged-51-percent-to-455-billion-in-2024/), up 57%
+  in 2025 (about $714B, arithmetic), above $1T forecast for 2026 (Dell'Oro, 2026, relayed,
+  https://www.delloro.com/news/data-center-capex-surges-57-percent-in-2025-as-ai-deployments-accelerate/).
+  The releases are not consistent with each other ($455B at +51% implies $301B for 2023).
+- Synergy Research: hyperscale capex $127B in Q2 2025 and $142B in Q3 2025; full-year 2025 and 2026
+  not found.
+  https://www.srgresearch.com/articles/hyperscale-spending-spree-is-driving-dramatic-growth-in-data-center-capacity
+- Goldman Sachs (2026): US AI investment $581B in 2026, 1.8% of GDP. Search summary only;
+  goldmansachs.com returned 403.
+- McKinsey, Bloomberg Intelligence, S&P/451: no US by-year series found.
+
+### Recommendation
+
+Candidate 1, labelled as worldwide capex of the five biggest US builders. If the title has to say
+"in the USA" literally, plot the Census construction column and say it is buildings only; both lines
+rise 8x from 2020 to 2026, so the story does not change. Plotting both on one log chart is also
+defensible: the 10x gap between them is chips, equipment and overseas sites.
+
+---
+
+## 2. Growth factor for the biggest single datacenter, 2026 to 2030
+
+### 2a. Trend (Epoch AI)
+
+**The 2025 paper.** Pilz, Rahman, Sanders and Heim, "Trends in AI Supercomputers" (Epoch AI, April
+23, 2025), https://epoch.ai/blog/trends-in-ai-supercomputers, arXiv 2504.16026. Relayed:
+
+- "The computational performance of leading AI supercomputers has doubled every 9 months"
+- "Hardware cost for leading AI supercomputers has increased by 1.9x every year, while power needs
+  increased by 2.0x annually."
+- "the leading AI supercomputer in June 2030 will need 2 million AI chips, cost $200 billion, and
+  require 9 GW of power."
+- Starting point: "xAI's Colossus, had an estimated hardware cost of $7 billion" and "required about
+  300 megawatts of power" (March 2025).
+
+Compounded over four years (arithmetic): power 2.0^4 = **16x**; cost 1.9^4 = **13x**; performance
+2^(48/9) = **40x**.
+
+Check that the trend held (arithmetic): 300 MW in March 2025 doubling yearly predicts 952 MW for
+November 2026. Actual: 1,037 MW of IT power at New Carlisle, 1,244 MW at the meter. So today's sites
+are on or slightly above the paper's line. The paper's own 2030 endpoint over today's sites: 9 /
+1.244 = 7.2x, 9 / 1.037 = 8.7x for power; $200B / $39.3B = 5.1x, $200B / $31.2B = 6.4x for cost (its
+$200B is hardware only, Epoch's site figures are all-in).
+
+**Current figures in Epoch's data hub.** I found no 2026 revision of the supercomputer paper. The
+newer analyses use the Frontier Data Centers dataset and a shorter window:
+
+- Ben Cottier, "The record for computing capacity in a single data center has doubled every 7
+  months" (Epoch AI, June 11, 2026), https://epoch.ai/data-insights/largest-data-center-compute.
+  Relayed: "the record for the largest AI data center by computing capacity has doubled every seven
+  months", "resulting in the 3.3x per year growth trend", "We start at the launch of Colossus 1 in
+  August 2024." Also: "no data center will have meaningfully greater capacity than Colossus 2 until
+  the second half of 2027." Four years: 2^(48/7) = **116x** (arithmetic).
+- Axel Campos and Ben Cottier, "The record for power capacity in a single data center has doubled
+  every 10 months" (Epoch AI, September 4, 2026),
+  https://epoch.ai/data-insights/frontier-data-center-power. Relayed: "Since mid-2024, the record
+  for the largest AI data center by IT power capacity has doubled every ten months." Record holders:
+  Google Papillion 237 MW (Aug 2024), Colossus 1 278 MW (Feb 2025), New Carlisle 398 / 626 / 910 MW
+  (Jun 2025, Dec 2025, Mar 2026), Colossus 2 946 MW (Jun 2026). Four years: 2^(48/10) = **28x**
+  (arithmetic). The same page's trend line gives about 3,442 MW for January 2028, against 1,632 MW
+  for the largest site Epoch actually projects then, so the pipeline already runs at half the trend
+  by 2028.
+- Epoch trends dashboard, https://epoch.ai/trends/compute ("Updated Nov. 5, 2026"), relayed: compute
+  of AI chips sold per quarter 2.5x a year (doubling 9 months, since 2024); GPU FLOP/s per watt
+  1.34x a year (since 2008); chip performance per dollar 1.49x a year (since 2023); training compute
+  of frontier language models 5x a year (since 2020); "gigawatt-scale data centers take about 2.1
+  years" to build; "about $38 billion in up-front capital expenditure for 1 GW of IT power".
+- Josh You and David Owen, "How much power will frontier AI training demand in 2030?" (Epoch AI with
+  EPRI, August 11, 2025), https://epoch.ai/publications/power-demands-of-frontier-ai-training.
+  Relayed: "the largest individual frontier training runs in 2030 will likely draw 4-16 gigawatts
+  (GW) of power"; "power demand for frontier training will likely grow by 2.2x to 2.9x per year".
+  Against 1.2 GW that is 3 to 13x.
+
+Summary of the trend method: power 16x (2025 paper) to 28x (2026 record trend), with Epoch's own
+2030 point forecasts at 4 to 16 GW, which is 3 to 13x. Cost 13x. Compute 40x to 116x.
+
+### 2b. Aschenbrenner's table
+
+"Situational Awareness", chapter IIIa (Leopold Aschenbrenner, 2024),
+https://situational-awareness.ai/racing-to-the-trillion-dollar-cluster/. Table already in
+POST_RESEARCH.md (raw there).
+
+|         | ~2026 row            | ~2030 row |           Factor |
+| ------- | -------------------- | --------- | ---------------: |
+| Power   | ~1 GW                | ~100 GW   |             100x |
+| Compute | ~1M H100-equivalents | ~100M     |             100x |
+| Cost    | $10s of billions     | $1T+      | about 30 to 100x |
+
+His method is "the rough ~0.5 OOMs/year trend", which is 3.16x a year, 100x over four years. From
+today's actual sites: 100 GW / 1.2 GW = 83x; $1T / $31B to $39B = 26 to 32x; 100M / 1.0M H100e =
+100x (arithmetic). His ~2028 row (10 GW, 10M H100e, $100s of billions) is 8 to 10x today's sites.
+
+### 2c. Announced pipeline
+
+Epoch's tracker first (raw from https://epoch.ai/data/data_centers/data_center_timelines.csv, pulled
+2026-11-22; all estimates). The file runs to 2030-01-01 and the largest single-site values on any
+date are:
+
+| Site                               | When     | IT MW | At the meter MW | H100-equivalents | fp8 FLOP/s | Capital, $B |
+| ---------------------------------- | -------- | ----: | --------------: | ---------------: | ---------: | ----------: |
+| Microsoft Fairwater Wisconsin      | May 2028 | 2,263 |           2,715 |           4,528k |    8.96e21 |        85.7 |
+| OpenAI Stargate New Mexico         | Dec 2028 | 1,750 |           2,450 |           5,104k |    1.01e22 |        66.3 |
+| Anthropic-Amazon New Carlisle      | Mar 2028 | 1,925 |           2,310 |           1,746k |    3.46e21 |        72.9 |
+| Meta Hyperion                      | Jan 2028 | 1,632 |           2,203 |           4,143k |    8.20e21 |        61.8 |
+| Colossus 2                         | Feb 2027 | 1,531 |           2,065 |           1,824k |    3.61e21 |        58.0 |
+| OpenAI Stargate Shackelford        | Nov 2028 | 1,400 |           1,960 |           4,563k |    9.03e21 |        53.0 |
+| For comparison, Abilene today      | Nov 2026 |   824 |           1,154 |           1,019k |    2.02e21 |        31.2 |
+| For comparison, New Carlisle today | Oct 2026 | 1,037 |           1,244 |             818k |    1.62e21 |        39.3 |
+
+Implied factors over today's record (arithmetic): power 2,715 / 1,276 = **2.1x** at the meter (2.2x
+on IT power); compute 5.10M / 1.11M H100e = **4.6x**; cost 85.7 / 39.3 = **2.2x**. Epoch has no
+entry for OpenAI's Ohio site and nothing new after 2028.
+
+Bigger announcements than Epoch tracks (from a sub-agent's survey; quotes relayed unless marked):
+
+| Site                                                               | Headline size                                                                                                | Schedule                                                                                                                                                                                                                                                                                                                                                                      | Cost                                                                                                                                                                                                                          | Status, Nov 2026                                                                                                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| OpenAI PORTS-Pike, Piketon, Ohio (SB Energy builds, OpenAI leases) | "approximately 8 gigawatts-IT"; 9.2 GW requested from the utility                                            | OpenAI (2026, raw from saved page): "The first 800 megawatts are expected to become available in 2028", "six-year buildout through 2032". AEP Ohio Transmission siting application 26-0426-EL-BTX (2026, sub-agent read the PDF): "SB Energy has requested 9,200 MW of demand... an initial load of 3,000 MW by the end of 2028 and plans to ramp up to full demand in 2030." | No official total. CNBC (2026): "could cost more than $500 billion in total". Nvidia guarantee for the first 4.25 GW "is capped at $105 billion" (Data Center Frontier, 2026). At $38B per GW of IT: about $300B (arithmetic) | Limited grading. Gas plant, 765 kV line and water permits pending; footprint cut from "more than 1,000 acres" to "less than 500 acres" (WOUB, Nov 17, 2026) |
+| Meta Hyperion, Richland Parish, Louisiana                          | "the expanded campus will now deliver 5 GW of IT capacity" (Hochtief release, July 16, 2026)                 | Meta has committed to 2 GW by 2030 (TechCrunch, 2025); Louisiana officials: full build-out "not expected to be complete until 2036" (WRKF, 2026)                                                                                                                                                                                                                              | "more than $50 billion in investment", excluding chips; about $250B with chips per Bloomberg                                                                                                                                  | No megawatts live; first buildings roofed; 7 of 10 gas plants unapproved                                                                                    |
+| Microsoft Fairwater, Mount Pleasant, Wisconsin                     | 2.26 GW IT (Epoch estimate)                                                                                  | Microsoft (2026): second facility "is scheduled to be completed in 2028"                                                                                                                                                                                                                                                                                                      | Epoch: $85.7B                                                                                                                                                                                                                 | 369 MW IT operating                                                                                                                                         |
+| Anthropic-Amazon                                                   | "up to 5 gigawatts (GW) of capacity", no sites named (Anthropic, 2026)                                       | ten years                                                                                                                                                                                                                                                                                                                                                                     | more than $100B                                                                                                                                                                                                               | New Carlisle buildings 19 to 32 need state permits                                                                                                          |
+| xAI Colossus 2, Memphis and Southaven                              | 1.53 GW IT (Epoch)                                                                                           | Feb 2027                                                                                                                                                                                                                                                                                                                                                                      | $58B (Epoch)                                                                                                                                                                                                                  | Operating at 946 MW; turbine-permit lawsuit                                                                                                                 |
+| UAE-US AI Campus, Abu Dhabi                                        | 5 GW campus, 1 GW Stargate UAE                                                                               | 1 GW about Jan 2028 (Epoch)                                                                                                                                                                                                                                                                                                                                                   | not given                                                                                                                                                                                                                     | Reuters (Sept 2026): it "will now likely comprise a network of data centers spread across the UAE" after Iran's March strikes                               |
+| Speculative, no signed tenant                                      | Fermi Amarillo 17 GW of generation; Wonder Valley, Alberta 7.5 GW; Stratos, Utah 7.5 GW; Humain Al-Saad 6 GW | none firm                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                                                                                                                                               | Fermi lost a second tenant Nov 12, 2026                                                                                                                     |
+
+Sources for that table: https://openai.com/index/openai-joins-ports-pike-project/ (OpenAI, 2026);
+https://www.aeptransmission.com/ohio/PiketonArea/docs/Baku%20Gavin%20765%20kV%20Transmission%20Line%20Application.pdf
+(AEP Ohio Transmission, 2026);
+https://www.datacenterfrontier.com/hyperscale/article/55398883/ports-pike-takes-shape-as-an-8-gw-ai-infrastructure-model
+(Data Center Frontier, 2026);
+https://www.cnbc.com/2026/11/04/data-center-ballot-measures-2026-midterm.html (CNBC, 2026);
+https://woub.org/2026/11/17/concerns-cultural-sites-downsizing-proposed-locations-pike-county-data-center-complex/
+(WOUB, 2026);
+https://www.hochtief.com/news-media/press-releases/press-release/expanded-meta-data-center-creates-more-jobs-and-opportunity-in-richland-parish-louisiana
+(Hochtief, 2026);
+https://www.wrkf.org/2026-07-14/meta-is-investing-40b-more-to-expand-richland-parish-data-center-project
+(WRKF, 2026);
+https://news.microsoft.com/source/2026/06/23/microsoft-completes-construction-on-first-datacenter-facility-in-mount-pleasant-wisconsin/
+(Microsoft, 2026); https://www.anthropic.com/news/anthropic-amazon-compute (Anthropic, 2026).
+
+What the largest credible site implies (sub-agent's judgment, which I think is reasonable):
+
+| Case          | GW at the meter, end of 2030 | Multiple of 1.2 GW | What has to happen                                                                          |
+| ------------- | ---------------------------: | -----------------: | ------------------------------------------------------------------------------------------- |
+| Low           |                          2.3 |                 2x | Only half-built, permitted sites finish (New Carlisle)                                      |
+| Central       |                          3.5 |                 3x | Ohio's first 3 GW tranche arrives a year or two late, or Hyperion or Fairwater overshoot    |
+| High          |                            5 |                 4x | Ohio tracks OpenAI's 2032 schedule (linear interpolation gives about 4.4 GW IT at end-2030) |
+| Paper ceiling |                          9.2 |               7.7x | The developer's utility request is met in full                                              |
+
+Slippage base rate: the fastest observed ramp is about 1 GW of IT a year (Colossus 2 went from 239
+to 946 MW in eight months). Sightline (via Latitude Media, 2026) expected 30 to 50% of the roughly
+16 GW due in 2026 to slip:
+https://www.latitudemedia.com/news/up-to-half-of-the-worlds-data-centers-may-be-delayed-this-year/.
+Dropped or cut in 2026: the 600 MW Abilene expansion, Stargate Norway and UK, the single-campus UAE
+design, Crusoe's Wyoming site (Google bought it).
+
+Lab statements on single clusters. Anthropic's OSTP submission (2025, sub-agent read the PDF): "We
+project that by 2027, training a single frontier AI model will require networked computing clusters
+drawing approximately five gigawatts of power".
+https://assets.anthropic.com/m/4e20a4ab6512e217/original/anthropic-response-to-osp-rfi-march-2025-final-submission-v3.pdf
+. Its July 2025 report moved that to "2GW and 5GW data centers... in 2027 and 2028, respectively"
+(https://www.anthropic.com/news/build-ai-in-america). Neither is on any site's schedule.
+
+### Recommendation
+
+**10x.** Reasons are in (ii) at the top. If the post wants the conservative number, 3x is what the
+pipeline supports and 5x (6 GW) is a fair "pipeline with one surprise" figure. If it wants the
+Aschenbrenner number, it is 100x and nothing supports it.
+
+Note on which base to multiply: "1.2 GW" is power at the meter. IT power is 0.8 to 1.0 GW.
+Aschenbrenner's rows and Epoch's records are closer to IT power. Keep the units consistent: 10x
+means 12 GW at the meter.
+
+---
+
+## 3. Inputs for the four bullets
+
+### 3a. Staffing
+
+| Site                                     | Size                                         | Construction                                                                                                                                         | Permanent                                                                                                                                                              | Per GW at the meter (arithmetic)                                             |
+| ---------------------------------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Abilene (reported)                       | 1.2 GW                                       | "more than 6,400 construction workers on site every day" (Oracle fact sheet, 2025); about 8,000 people over 20 million hours cumulative (TIME, 2026) | Not a clean number: 357 required by the tax contract, 400 in the city's award application, "nearly 1,700 jobs onsite" including the cancelled expansion (Oracle, 2025) | 5,300 construction; 300 to 1,400 permanent                                   |
+| New Carlisle (reported)                  | 1.24 GW today, 2.3 GW planned                | "about 4,000 workers are on site" in a typical week (NYT, 2025)                                                                                      | "935 permanent on-campus jobs to date" (Measured AI, 2026)                                                                                                             | 3,200 construction on today's size, 1,700 on the planned size; 750 permanent |
+| Microsoft Fairwater Wisconsin (reported) | 369 MW IT live, about 2.7 GW planned (Epoch) | "nearly 10,000 construction workers who contributed to its development over the past two years" (cumulative, relayed)                                | "nearly 550 full-time employees on-site supporting this first facility"; "will grow to around 800" with the second (Microsoft, 2026, relayed)                          | about 300 permanent per GW at full size                                      |
+| Meta Hyperion (reported)                 | 5 GW IT, roughly 6.5 GW at the meter         | "a peak construction workforce of approximately 7,500 people"                                                                                        | "more than 1,000 permanent operations jobs" (Hochtief, 2026, relayed)                                                                                                  | 1,150 construction; 150 permanent                                            |
+| OpenAI PORTS-Pike (reported)             | 8 GW IT, 9.2 GW requested                    | "expected to create 35,000 construction jobs during its six-year buildout through 2032" (cumulative, not a daily peak)                               | "and 2,500 long-term operating jobs" (OpenAI, 2026, raw from saved page)                                                                                               | 3,800 construction; 270 permanent                                            |
+
+Reading: construction headcount at the two existing sites is 3,000 to 5,000 per gigawatt at peak
+because they were built fast, in parallel. Bigger sites plan to build in sequence, so their peaks
+are lower per gigawatt (Hyperion) even where the cumulative count is similar (Ohio). Permanent staff
+fall from 750 per GW at New Carlisle to 150 to 300 per GW in the plans for 5 to 9 GW sites.
+
+Worked at 10x (12 GW at the meter), arithmetic:
+
+- Linear from today's sites: 40,000 (10 x 4,000) to 64,000 (10 x 6,400) construction workers; 9,350
+  permanent (10 x 935).
+- Scaled from the Ohio plan: 12 / 9.2 x 35,000 = 46,000 construction jobs over the build; 12 / 9.2 x
+  2,500 = 3,300 permanent.
+- So: about 50,000 builders, and 3,000 to 9,000 permanent staff.
+
+### 3b. US electricity production
+
+| Quantity                                         |            TWh | Average GW | Status and source                                                                                                                                                                |
+| ------------------------------------------------ | -------------: | ---------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2025 generation, utility-scale, all sectors      |          4,425 |        505 | reported. EIA, Short-Term Energy Outlook, November 2026, Table 7a (raw from PDF). The research notes' 4,429.5 from the Monthly Energy Review is the same series, earlier vintage |
+| 2025 including small-scale solar                 |          4,518 |        516 | reported. Same table (4,425 + 93) and EIA AEO2026 Table 8 (4,517.6)                                                                                                              |
+| 2026 generation, utility-scale                   |          4,539 |        518 | forecast. STEO November 2026, Table 7a (raw)                                                                                                                                     |
+| 2027 generation, utility-scale                   |          4,595 |        525 | forecast. Same                                                                                                                                                                   |
+| 2030 total net generation, including small-scale |          4,734 |        540 | forecast. EIA, Annual Energy Outlook 2026 (April 2026), Table 8, "Counterfactual Baseline" case (raw from xlsx)                                                                  |
+| 2030 total electricity use                       |          4,562 |        521 | forecast. Same table                                                                                                                                                             |
+| 2025 consumption (already in the research notes) | 4,195 to 4,216 | 479 to 481 | reported. Monthly Energy Review Table 7.6; STEO Table 7a says 4,216                                                                                                              |
+
+Sources: https://www.eia.gov/outlooks/steo/archives/nov26.pdf (EIA, 2026);
+https://www.eia.gov/outlooks/aeo/excel/aeotab8.xlsx (EIA, 2026); narrative
+https://www.eia.gov/outlooks/aeo/pdf/AEO_Narrative.pdf (EIA, 2026).
+
+Quotes, raw:
+
+- STEO: "We estimate that total electricity generation by the U.S. electric power sector will reach
+  a record of almost 4,390 billion kilowatthours (BkWh) in 2026, up 2.7% from the previous record
+  set last year." (That is the electric power sector alone; all sectors is 4,539.)
+- AEO2026 narrative: "We project electricity consumption will continue growing through 2050 at a
+  rate of 0.9% to 1.6%, with data center server energy use a major factor."
+
+Two cautions. AEO2026 calls its central case "Counterfactual Baseline", not "Reference". And EIA's
+2030 number is low next to other forecasts: it has generation rising only 1.8% from 2026 to 2030,
+while the STEO has 2.6% in 2026 alone. LBNL's 2025 Update (2026) implies about 5,500 TWh for 2030
+(649 TWh of datacenters is "11.8% of forecasted 2030 U.S. electricity use", so 649 / 0.118;
+arithmetic on a quote already in the notes). Extending the STEO's 2027 level at 2% a year gives
+about 4,880 TWh (arithmetic).
+
+Worked at 10x, arithmetic:
+
+- 12 GW x 8,760 h = 105.1 TWh at full nameplate; 94.6 TWh at a 90% load factor (Amazon's own figure
+  for New Carlisle).
+- Share of 2030 generation (4,734): 2.2% (2.0% at 90%). Share of 2025 generation (4,425): 2.4%
+  (2.1%). Against LBNL's implied 5,500: 1.9%.
+- Today: 1.2 GW is 10.5 TWh, 0.24% of 2025 generation.
+- Aschenbrenner's ">20% of US electricity production" needs 100 GW. 12 GW is a tenth of that.
+
+### 3c. US GDP
+
+| Quantity                         |            $ trillion | Status and source                                                                                                                        |
+| -------------------------------- | --------------------: | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| 2025 nominal GDP, actual         |                 30.86 | reported. BEA via FRED series GDPA, "2025-01-01 30861.292", last updated 2026-09-30 (relayed). https://fred.stlouisfed.org/data/GDPA.txt |
+| 2025, CBO's estimate in February |                 30.71 | estimate. CBO Table D-1 (raw)                                                                                                            |
+| 2026                             |                 32.27 | projection. CBO Table D-1 (raw)                                                                                                          |
+| 2027 / 2028 / 2029               | 33.65 / 35.00 / 36.35 | projection. Same                                                                                                                         |
+| **2030**                         |             **37.74** | projection. Same                                                                                                                         |
+| 2036                             |                 47.15 | projection. Same                                                                                                                         |
+
+Source: Congressional Budget Office, "The Budget and Economic Outlook: 2026 to 2036" (February
+2026), supplemental file "Economic Projections", Table D-1 "CBO's Economic Projections, by Calendar
+Year", row "Nominal GDP (billions of dollars)": 30705.2, 32274.2, 33651.5, 35001.9, 36350.7,
+37742.5. https://www.cbo.gov/publication/61882 ; file
+https://www.cbo.gov/system/files/2026-02/51135-2026-02-Economic-Projections.xlsx . cbo.gov returns
+403 to scripts, so I read the Wayback Machine copy of the same file (snapshot 2026-08-02). Calendar
+years, nominal dollars.
+
+Cost inputs:
+
+- Capital cost today, Epoch estimates (raw from CSV): Abilene $31.2B ($21.5B compute, $9.7B
+  construction), New Carlisle $39.3B ($27.1B, $12.2B). Amazon's announced figure for New Carlisle is
+  $11B.
+- Per gigawatt: $37.9B per GW of IT in Epoch's model, which works out to $27B to $32B per GW at the
+  meter for these two sites (arithmetic). Next-generation estimates in the notes run to $47B to $49B
+  per GW (Foxconn, Morgan Stanley, 2026), so cost may grow up to 1.3x faster than power.
+- Running cost today, Epoch: $0.74B a year (Abilene), $0.94B (New Carlisle).
+- The post's own "per year" numbers: $12B a year for Abilene is Epoch's $31B over about 2.5 build
+  years; $4B a year for New Carlisle is the announced $11B over about three years.
+- Oracle's investor-day economics (2026, in the notes): about $16B a year of revenue per 1 GW
+  contract.
+
+Worked at 10x, arithmetic:
+
+- Capital: 10 x $31.2B = $312B; 10 x $39.3B = $393B. Share of 2030 GDP: 312 / 37,742 = 0.83%; 393 /
+  37,742 = 1.04%. Share of 2025 GDP: 1.0% to 1.3%.
+- Per year, post's convention: 10 x $12B = $120B, 0.32% of 2030 GDP. Epoch's New Carlisle figure on
+  the same convention: $393B / 2.5 = $157B, 0.42%.
+- Per year, what a tenant would pay at Oracle's rate: 12 GW at the meter is about 9 to 10 GW of IT,
+  x $16B = $140B to $160B, about 0.4%.
+- For comparison: all five-company capex in 2026, about $790B, is 2.4% of 2026 GDP.
+- Aschenbrenner's $1T would be 2.6% of 2030 GDP.
+
+### 3d. Training compute
+
+**Is "GPT-6-Astra" real? Yes.** OpenAI released GPT-6 Astra on September 3, 2026. The official
+spelling is "GPT-6 Astra", with a space; the API identifier is `gpt-6-astra`. The post's
+"GPT-6-Astra" should lose the second hyphen.
+
+- OpenAI, https://openai.com/index/gpt-6-astra-next-generation-work (2026), relayed: "Last week we
+  introduced GPT‑6 Astra"; "now available in ChatGPT Work, Codex, and the API". Model page:
+  https://developers.openai.com/docs/models/gpt-6-astra .
+- Release date September 3, 2026: Epoch's models database row "2026-09-03 | GPT-6 Astra | OpenAI"
+  (raw) and Axios's dated URL https://www.axios.com/2026/09/03/openai-astra-gpt-6-agi-brockman (page
+  returned 403, headline only: "'Welcome to the AGI era,' OpenAI says as GPT-6 Astra debuts").
+- Training, The Batch, "GPT-6 Astra Is a Star" (DeepLearning.AI, September 11, 2026),
+  https://www.deeplearning.ai/the-batch/gpt-6-astra-is-a-star , relayed: OpenAI "trained Astra on
+  more than 100,000 GPUs, its largest run yet", attributed to Aidan Clark; "Parameter count,
+  architecture, training data and methods" undisclosed.
+- Where: Oracle's November 20, 2026 post, already in the notes: "Our Abilene campus, where Astra-6
+  was trained, is nearly complete." Epoch's database note (raw): "per OpenAI and affiliates (e.g.
+  Nvidia), 6 Astra was trained on at least 100,000 GB200s in Abilene, Texas". OpenAI's launch page
+  as I could read it does not name Abilene.
+- Later siblings in Epoch's database: GPT-6 Sol, GPT-6 Luna (September 22, 2026), GPT-6.1 Sol
+  (September 29, 2026), no compute estimates.
+
+**Training compute of recent frontier models.** Epoch AI, notable AI models database,
+https://epoch.ai/data/notable_ai_models.csv , pulled 2026-11-22 (raw). All third-party estimates; no
+lab has published a total.
+
+| Model                                                  | Released     | Training compute, FLOP | Epoch's confidence            | Basis                                                                  |
+| ------------------------------------------------------ | ------------ | ---------------------: | ----------------------------- | ---------------------------------------------------------------------- |
+| **GPT-6 Astra** (OpenAI)                               | 2026-09-03   |             **9.4e26** | Likely; CI about 5e26 to 2e27 | "~100k GB200s over 90 days at 25% FP8 MFU"; 100,000 is "a lower bound" |
+| Grok 4 (xAI)                                           | 2025-07-09   |                 5.0e26 | Speculative                   | Grok 3's pretraining plus reinforcement learning                       |
+| GPT-4.5 (OpenAI)                                       | 2025-02-27   |                 3.8e26 | Likely                        | 187M H100-hours, "20 to 40% under the H100 FP8 spec"                   |
+| Grok 3 (xAI)                                           | 2025-02-17   |                 3.5e26 | Likely                        | 80,000 H100s for about three months                                    |
+| GPT-5 (OpenAI)                                         | 2025-08-07   |                 6.6e25 | Speculative; CI 2e25 to 2e26  |                                                                        |
+| GPT-5.5, Claude Opus 5, Claude Fable 5.2, Gemini 3 Pro | 2025 to 2026 |                  blank | Unknown                       | no estimate                                                            |
+
+GPT-6 Astra is the largest training run in the database, and the only frontier model of 2026 with an
+estimate. Epoch's trend for frontier training compute is 5x a year since 2020 (dashboard, relayed).
+
+**Turning peak FLOP/s into training FLOP per day.**
+
+training FLOP per day = peak FLOP/s x utilization x 86,400
+
+- Precision: the sites' figures (1.6e21, 2.0e21) are Epoch's "8-bit OP/s", dense, the chips'
+  theoretical peak. fp16 is half. Nvidia's "with sparsity" headline numbers are double. Use fp8
+  dense, because Epoch's Astra estimate is stated against the same fp8 peak; the two cancel.
+- Utilization: Epoch assumes 25% of fp8 peak for Astra, and 20 to 40% for GPT-4.5 and Grok 3. That
+  one number bundles real utilization, any use of 16-bit arithmetic, and downtime. 25% is the
+  default; 40% is the optimistic end.
+- Share of the site: a whole site is never one training run. Astra itself used about 100,000 of
+  Abilene's roughly 403,000 GPUs. "Once every X" is a statement about capacity.
+- Not counted: experiments, reinforcement-learning rollouts beyond Epoch's estimate, and inference,
+  which is most of what these sites do.
+
+Check of Epoch's Astra number (arithmetic): 100,000 x 5e15 FLOP/s x 0.25 x 90 x 86,400 s = 9.7e26.
+Matches 9.4e26.
+
+Worked examples, arithmetic:
+
+| Site                                        | Peak fp8 FLOP/s | FLOP per day at 25% | Days per GPT-6 Astra (9.4e26) |
+| ------------------------------------------- | --------------: | ------------------: | ----------------------------: |
+| New Carlisle today                          |         1.62e21 |              3.5e25 |                          26.9 |
+| Abilene today                               |        2.016e21 |             4.35e25 |            21.6 (13.5 at 40%) |
+| 10x Abilene, same chips                     |          2.0e22 |             4.35e26 |            **2.2** (52 hours) |
+| 10x the power with 2030 chips (3x per watt) |          6.0e22 |              1.3e27 |           **0.72** (17 hours) |
+| 100x, Aschenbrenner                         |          2.0e23 |             4.35e27 |                0.22 (5 hours) |
+
+Why 3x per watt: Epoch's long-run GPU trend is 1.34x a year in FLOP/s per watt, 1.34^4 = 3.2. The
+pipeline says more: Stargate New Mexico is projected at 1.01e22 FLOP/s on 1,750 MW of IT, 2.4 times
+Abilene's FLOP/s per megawatt, by 2028 (arithmetic on Epoch's CSV). So 3x by 2030 is conservative
+and 5 to 6x is possible.
+
+One more number worth having: if frontier training compute keeps growing 5x a year, the 2030
+frontier model needs 625 x 9.4e26 = 5.9e29 FLOP. The 10x site with 2030 chips makes 1.3e27 a day, so
+that one model would take the whole site about 450 days (arithmetic). Either the training trend
+bends or the sites have to grow faster than 10x.
+
+---
+
+## Not found
+
+- A US-only, all-in datacenter capex series by year from any single source. Searched Dell'Oro,
+  Synergy, McKinsey, Bloomberg Intelligence, S&P/451, Epoch, BEA, Fed, CEA, Goldman.
+- A 2026 revision of Epoch's "Trends in AI Supercomputers" growth rates. The data hub now publishes
+  record-holder trends on a different dataset (7 months for compute, 10 months for power), which are
+  not the same measurement.
+- Any lab-published training compute figure for a 2026 frontier model. Everything is Epoch's
+  estimate, and Epoch has no estimate for any Anthropic or Google model since 2025.
+- A total cost for OpenAI's Ohio site from OpenAI, or any OpenAI capacity figure for 2029 or 2030.
+- A clean permanent headcount for Abilene.
+- EIA's AEO2026 "High Electricity Demand" case value for 2030 (the side-case spreadsheet index I
+  could reach listed only the older macro, price and renewables cases).
+- BEA's own release sentence for 2025 current-dollar GDP (the release page returned 404; the level
+  is from FRED's copy of BEA data).
+- Pages that refused the fetch: cbo.gov (403; used the Wayback copy), axios.com (403),
+  goldmansachs.com (403), The Decoder (paywall below the lead).
