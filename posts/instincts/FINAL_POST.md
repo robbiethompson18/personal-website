@@ -1,5 +1,6 @@
 ---
-title: On Ease
+title: Instincts
+redirect_from: on-ease
 date: 2026-11-24
 rating: 3
 ---
