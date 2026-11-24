@@ -79,5 +79,5 @@ I have stumbled upon a lot of 'science' by following bodily intuitions:
 - Digesting takes a lot of energy; your body doesn't want to do it while you're stressed.
 
 We should be sensation-maxxing more. I don't have a good scientific explanation for why
-almost-fainting feels so good, but I do it anyway; I'm sure a scientist will explain why this is a
-good idea someday soon.
+almost-fainting feels so good, but I do it anyway; I'm sure a scientist will explain this soon-to-be
+hot new health fad someday soon.
