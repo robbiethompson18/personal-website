@@ -7,11 +7,12 @@ rating: 2
 
 In 2024 Leopold Aschenbrenner wrote [Situational Awareness](https://situational-awareness.ai/). He
 made the sci-fi prediction that in 2030 the AI labs would build a "trillion-dollar cluster." We're
-on track.
+not on track, but the datacenters are big.
 
 ---
 
-Anthropic's biggest cluster [costs \$11B](@iedc). It's Project Rainier, in New Carlisle, Indiana.
+Anthropic's biggest cluster [costs \$15B](@cost-newcarlisle). It's Project Rainier, in New Carlisle,
+Indiana.
 
 <div class="photo-row">
 <img src="img/new-carlisle-aerial-amazon.jpg" alt="Drone photo at dusk across the lit roofs of several AWS data halls in New Carlisle, Indiana, with a substation and more buildings under construction behind">
@@ -26,7 +27,7 @@ Anthropic's biggest cluster [costs \$11B](@iedc). It's Project Rainier, in New C
 - [4,000 people](@nyt-rainier) constructed the site and [900 work there](@measuredai) permanently
 - Total of [89 acres](@acres-newcarlisle) of indoor floor space
 - Houses [$1.6 \times 10^{21}$ flops](@flops-newcarlisle), or 1.6 zettaflops (fp8). This is
-  [as many flops as the entire](@world2015) world had as of 2015
+  [as many flops as the entire world had as of 2015](@world2015)
 - The cluster is [~30% of Anthropic's total compute](@anthropic-share)
 - The site uses [1.2 billion watts](@power-newcarlisle) of power
 
@@ -109,12 +110,22 @@ labor and construction costs which residents and local businesses collect.
 
 Crusoe got [an 85% discount](@abilene-abatement) on property taxes
 ([from \$150 million down to \$22 million](@abilene-proptax)). In addition, Texas has a
-[statewide exemption on sales taxes](@tx-salestax) for datacenters, saving Abilene \$1.4 billion.
+[statewide exemption on sales taxes](@tx-salestax) for datacenters, saving Oracle \$1.4
+billion.[^salestax]
+
+[^salestax]:
+    Fermi estimate. Texas waives its 6.25% state sales tax on equipment bought for a qualifying
+    datacenter, and the saving goes to whoever buys the equipment. At Abilene that is mostly Oracle,
+    which buys the servers and networking gear: about \$22 billion (the \$18 billion and \$4 billion
+    bars in the chart above). 6.25% of \$22 billion is \$1.4 billion. Crusoe gets the same break on
+    the cooling and electrical equipment it buys, worth about \$0.4 billion more. Local sales tax
+    still applies. No public record confirms that the site is certified for the exemption, though it
+    clears the thresholds for size, investment and jobs many times over.
 
 **New Carlisle, Indiana**
 
 New Carlisle is in St. Joseph County, with [annual GDP \$19.5 billion](@stjoe-gdp) compared to
-datacenter spend of [\$4 billion a year](@newcarlisle-spend). The AWS campus employs
+datacenter spend of [\$5 billion a year](@newcarlisle-spend). The AWS campus employs
 [900 people](@measuredai) of [270k county residents](@stjoe-pop).
 
 In 2025 the town [voted 4-0](@wvpe-vote) against a new datacenter adjacent to the existing site. The
@@ -129,7 +140,7 @@ than today, then they will:
 
 - Employ [60,000 construction workers and 3,000 permanent staff](@extrapolation-2030)
 - Use [2% of US electricity production](@extrapolation-2030)
-- Cost [\$120 billion per year, 0.4% of US GDP](@extrapolation-2030).
+- Cost [\$120 billion per year, 0.4% of US GDP](@extrapolation-2030)
 - Hold [$5 \times 10^{22}$ flops of compute](@extrapolation-2030), enough to train
   [GPT-6 Astra](@astra-compute) once every day.
 
@@ -149,10 +160,13 @@ and the Abilene aerials are by
 and [OpenAI](https://openai.com/index/five-new-stargate-sites/). The satellite images contain
 modified Copernicus Sentinel data 2026.</span>
 
-{@iedc}: Indiana Economic Development Corporation (2024), "Gov. Holcomb announces Amazon Web
-Services plans to invest \$11B to create a new data center campus in Northern Indiana": AWS "plans
-to invest \$11 billion to build a data center campus in north central Indiana and create at least
-1,000 new jobs."
+{@cost-newcarlisle}: Estimate: Amazon announced \$11 billion in 2024, for a campus then planned at
+16 buildings (Indiana Economic Development Corporation, 2024). The county's compliance review found
+\$8.9 billion invested by January 1, 2026 (Measured AI, 2026), when 11 of today's 18 buildings were
+running (Epoch AI, 2026): \$8.9 billion × 18 ÷ 11 = \$15 billion. The New Carlisle bars in the
+spending chart, estimated part by part, also add up to about \$15 billion.
+<https://measuredai.substack.com/p/aws-new-carlisle-data-center-campus>
+<https://epoch.ai/data/ai-data-centers/directory/anthropic-amazon-new-carlisle>
 <https://www.iedc.in.gov/events/news/details/2024/04/25/gov.-holcomb-announces-amazon-web-services-plans-to-invest-11b-to-create-a-new-data-center-campus-in-northern-indiana>
 
 {@nyt-rainier}: New York Times (2025), "At Amazon's biggest data centre, everything is supersized
@@ -310,10 +324,11 @@ related to building and maintaining the facility".
 {@stjoe-gdp}: U.S. Bureau of Economic Analysis via FRED (2026), series GDPALL18141: St. Joseph
 County's GDP was \$19.49 billion in 2024. <https://fred.stlouisfed.org/data/GDPALL18141.txt>
 
-{@newcarlisle-spend}: Estimate: the \$11 billion Amazon announced in April 2024 (Indiana Economic
-Development Corporation, 2024) ÷ about three years of building = \$3.7 billion a year. Corey
-Trinetti, Measured AI (2026), reports that "\$8.9 billion of the \$11 billion had been invested as
-of January 1, 2026".
+{@newcarlisle-spend}: Estimate: about \$15 billion for the 18 buildings now running ÷ about three
+years of building = \$5 billion a year. The \$15 billion scales up what the county's compliance
+review found: Corey Trinetti, Measured AI (2026), reports that "\$8.9 billion of the \$11 billion
+had been invested as of January 1, 2026", when 11 of the 18 buildings were running. Amazon announced
+the \$11 billion in April 2024 (Indiana Economic Development Corporation, 2024).
 <https://www.iedc.in.gov/events/news/details/2024/04/25/gov.-holcomb-announces-amazon-web-services-plans-to-invest-11b-to-create-a-new-data-center-campus-in-northern-indiana>
 <https://measuredai.substack.com/p/aws-new-carlisle-data-center-campus>
 
