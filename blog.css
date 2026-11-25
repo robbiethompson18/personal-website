@@ -474,7 +474,7 @@ table:has(> thead th:empty) td:first-child {
 }
 
 /* Like buttons: an outline heart that fills once clicked and stays filled (hit.js).
-   No count is shown; a like is a private signal to Robbie. One sits beside the title,
+   The real count is never shown (the one beside each heart is a gag). One sits beside the title,
    one (with a "Like" label) is centred at the end of the text. */
 .title-row {
   display: flex;
@@ -545,6 +545,24 @@ table:has(> thead th:empty) td:first-child {
 
 .like[aria-pressed="true"] svg {
   fill: currentColor;
+}
+
+/* The gag like count hit.js puts after each heart */
+.like-count {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Undo most of the row gap so the count hugs the heart. On the heart, not the count,
+   so a count that wraps under a long title still starts at the column edge. */
+.title-row .like {
+  margin-right: -0.6rem;
+}
+
+.like[aria-pressed="true"] + .like-count {
+  color: var(--like);
 }
 
 /* --- comments (build.js renders the empty section, comments.js fills it) --- */
