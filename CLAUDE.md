@@ -8,6 +8,9 @@ Run `./lint.sh` after editing HTML **or any Markdown** (posts, skills, `CLAUDE.m
 Prettier reflows markdown prose + lists to 100 cols, so **don't hand-wrap markdown** (write long
 lines; lint rewraps them).
 
+In chat replies never write LaTeX (`$10^{20}$`): the terminal doesn't render it, so write `1e20`.
+LaTeX stays correct inside posts, which render KaTeX.
+
 Agents underuse `CODE_SMELL.md`; when you notice or leave debt, add a dated note there instead of
 relying on memory.
 
