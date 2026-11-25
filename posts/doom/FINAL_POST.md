@@ -1,6 +1,6 @@
 ---
 title: Doom
-date: 2026-11-24
+date: 2026-11-25
 rating: 2
 ---
 
