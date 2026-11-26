@@ -19,24 +19,16 @@ Yet something does not sit right with me at all about this decision.
 
 ## Morality
 
-1.
-
 I am not a violent person. I have never been in a fistfight. I'm not sure I _could_ shoot another
 human being. But I don't think this matters. I can shoot a gun into the air, someone else can hear
 it, and they can go away. I can give the gun to a loved one.
 
-2.
-
 Who am I to try to defend any of my property during the apocalypse? Who's to say that I need it more
-than anyone else? _I am_, I guess. I defend my property from thieves today, in normal times. The
-average human's nature would only be worse during the apocalypse.
-
-3.
+than anyone else? _I am_ to say, to decide. I defend my property from thieves today. The average
+human's nature would only be worse during the apocalypse.
 
 Does owning a gun make me paranoid? Probably. But so did buying all that food. It's not clear why
 one opens you up to so much more judgment than the other.
-
-4.
 
 I refuse to believe that there are simples alternatives. If I have a Smith and Wesson, and my
 neighbors have papper spray, then the crooks are putting on ski goggles and heading to my
