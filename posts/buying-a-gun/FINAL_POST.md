@@ -1,7 +1,7 @@
 ---
 title: Should I Buy a Gun?
 date: 2026-11-26
-draft: true
+draft: false
 ---
 
 As we march towards the singulariy, I am finally ready to be responsible a do some doomsday
