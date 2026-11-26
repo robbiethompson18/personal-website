@@ -46,6 +46,11 @@ Caddy proxies it at http://robbiewmthompson.localhost/. Ctrl-C stops both. `DEV=
 to `/blog/drafts/` and the watcher rebuilds all posts on any `posts/` change — see CODE_SMELL. Run
 `git config core.hooksPath hooks` once per clone to enable the pre-commit backstop.
 
+**Don't wait for the deploy.** Pushing to `main` deploys (Cloudflare Workers Builds, ~30s). Once the
+push succeeds, report and return: don't sleep, poll or curl the live site to check it went out. The
+exception is a task that needs the live page, like `/crosspost`, whose importer fetches from the
+live site.
+
 **One convention, no exceptions:** every post is a folder `posts/<slug>/` containing a
 `FINAL_POST.md`. The builder renders that file to `/blog/<slug>/`. Everything else in the folder is
 for Robbie, not the reader:

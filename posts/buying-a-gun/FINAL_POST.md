@@ -32,8 +32,8 @@ one opens me up to so much more judgment than the other.
 
 I refuse to believe that there are simple alternatives. If I have a Smith & Wesson, and my neighbors
 have pepper spray, then the crooks are putting on ski goggles and heading to my neighbors'. I could
-get a taser, but its range is only 5 yards, they hold charge for 365 days, and each cartridge can
-only be used once before needing replacement.
+get a taser, but its range is only 5 yards, they hold charge for 365 days, and each cartridge (\$25)
+can only be used once before needing replacement.
 
 ## Logistics
 
