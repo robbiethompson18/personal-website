@@ -165,7 +165,6 @@ authoring or editing a chart.
 - [Inkhaven submission — read before submitting a post to Inkhaven ("submit to IH")](docs/inkhaven.md)
   — portal URL, the one-per-day rule and how to check it, why the link must be pasted rather than
   typed, what success looks like
-
 - [Cloudflare hosting — read before changing how the site is deployed or served, touching DNS, or debugging a push that didn't go live](docs/cloudflare-hosting.md)
   — how a request is served, deploy on push with no build step, the www redirect rule, the
   email-sending setup behind comment notifications, Range and custom-domain gotchas, why GitHub
