@@ -24,7 +24,8 @@ five times before returning control to Robbie and asking him to stop editing.
 
 **Comments you leave in a post get their own paragraph.** Never put an HTML comment
 (`<!-- @robbie done … -->`) inline in Robbie's prose or bullets: fill the blank in place and put the
-comment below that paragraph or list.
+comment below that paragraph or list. The exception is `/blog-review`, whose `<!-- @claude … -->`
+review comments go inline right after the text they're about (see that skill).
 
 **When Robbie is editing live, his saves can overwrite yours.** After answering a note in a post,
 check a few seconds later that the answer is still in the file and write it again if not. Keep
