@@ -967,3 +967,91 @@ li.external:hover .post-logo {
 .fn-tooltip .cite-backref {
   display: none;
 }
+
+/* --- sidenotes: footnotes in the right margin on wide screens --- */
+/* footnotes.js builds one .sidenote per footnote inside main and sets its `top`;
+   it adds body.has-sidenotes at >= 80rem (45rem column + room for a 15rem note
+   beside it). Below that they stay hidden and the hover popup is used instead. */
+
+main.post {
+  position: relative;
+}
+
+.sidenote {
+  display: none;
+}
+
+.has-sidenotes .sidenote:not(.off) {
+  display: block;
+  position: absolute;
+  left: calc(100% + 0.5rem); /* main's 1.5rem padding + this = 2rem gap from the text */
+  width: 15rem;
+  font-size: 0.95rem; /* same as the Notes list at the bottom */
+  line-height: 1.45;
+  color: var(--muted);
+  transition: color 0.12s ease;
+}
+
+.sidenote p {
+  margin: 0 0 0.4rem;
+}
+
+/* Number and first paragraph share a line. */
+.sidenote p:first-of-type {
+  display: inline;
+}
+
+.sidenote-num {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--link);
+  margin-right: 0.35rem;
+}
+
+.sidenote code {
+  overflow-wrap: anywhere;
+}
+
+.sidenote .footnote-backref {
+  display: none;
+}
+
+.has-sidenotes .sidenote.active {
+  color: var(--text);
+}
+
+.footnote-ref a.active {
+  text-decoration: underline;
+}
+
+/* Long notes: footnotes.js adds .clamped when a note is over ~1.2x a third of the
+   window. Show the first third, fade it out, and expand on hover (the note or its
+   marker, both set .active). The expanded note floats over the notes below it
+   rather than re-stacking them, so nothing jumps while you read. */
+.has-sidenotes .sidenote.clamped {
+  max-height: 33.33vh; /* must match clampPx in footnotes.js */
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
+  mask-image: linear-gradient(to bottom, #000 70%, transparent);
+  cursor: default;
+}
+
+.has-sidenotes .sidenote.clamped.active {
+  max-height: none;
+  -webkit-mask-image: none;
+  mask-image: none;
+  z-index: 10;
+  background: var(--bg);
+  box-shadow: 0 0 0 0.6rem var(--bg); /* opaque margin so notes underneath don't touch the text */
+}
+
+.sidenote.flash {
+  animation: sidenote-flash 1.2s ease;
+}
+
+@keyframes sidenote-flash {
+  from {
+    color: var(--text);
+    background: rgba(138, 180, 248, 0.12);
+  }
+}
