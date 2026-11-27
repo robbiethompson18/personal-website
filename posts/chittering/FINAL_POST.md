@@ -1,7 +1,7 @@
 ---
 title: Movie Review: You Can See Everything
-date: 2026-11-26
-draft: true
+date: 2026-11-27
+draft: false
 rating: 2
 ---
 
@@ -47,13 +47,26 @@ Brin or Dario Amodei; they are not the same species.[^crit]
     I have a very different set of criticisms for Dario and Sergey! Possibly they are too ruthless
     and consequentialist, but they are not naked liars larping as technologists like Elizabeth.
 
-The contrast to _Wolf of Wall Street_ is stark. Jordan Belfort made his fortune from deception. But
-he is a beloved character; people [make raps](@belfort-song) in his honour. He is a powerful and
+The contrast to _The Wolf of Wall Street_ is stark. Jordan Belfort made his fortune from deception.
+But he is a beloved character; people [make raps](@belfort-song) in his honour. He is a powerful and
 impressive liar, not a bungling and tragicomic one. Powerful and impressive liars imply that the
 people they trick aren't stupid. _You Can See Everything_, by highlighting just how clueless
 Elizabeth and Billy are, begs the question: "just how dumb is the rest of Silicon Valley?" I dislike
-this message. The Silicon Valley of my lived experience does include many gullible VCs, but much
-more common are genuinely brilliant technologists.
+this message. The Silicon Valley of my lived experience does include many VCs who don't know much
+about technology,[^vcs] but genuinely brilliant engineers are much more common.[^jb]
+
+[^vcs]:
+    My mental model of VCs: tremendously good at reading people, leveraging connections to discover
+    things, and getting people to cooperate. Bad at futurism and engineering. They know which people
+    they invest in are overconfident and slippery with the truth; both of these things are strongly
+    positively correlated with being a successful founder.
+
+[^jb]:
+    In my gut I watch _The Wolf of Wall Street_ and I laugh: the guy ripped off idiots who should've
+    known better and then acted like a playboy. It's a comedy. In my head I know I shouldn't be
+    happy that we're glorifying fraud. Clearly this is bad; see the SBF section below. Yet somehow I
+    don't have an emotional response to this; I feel confident that we will keep catching and
+    punishing fraud. Maybe the Trump presidency is a counterexample and I should be more upset.
 
 ---
 
