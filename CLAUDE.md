@@ -101,6 +101,10 @@ with a `source:` line gets its title from upstream, so fix it there too.
 host isn't this site; same-site and in-page links stay in the tab. A raw `<a>` written in a post's
 HTML doesn't get it, so add the attribute by hand there.
 
+**Inkhaven ("IH"): one submission per day, never two.** Robbie submits one post a day to the
+Inkhaven portal. Before submitting, check today has no submission; if it does, stop and ask. How to
+submit is in `docs/inkhaven.md`.
+
 **No subtitles.** The builder doesn't support them and Robbie doesn't like them — don't add a
 subtitle anywhere (posts, Substack drafts).
 
@@ -157,6 +161,10 @@ conventions — lives in the `/graph` skill (`.claude/skills/graph/SKILL.md`).**
 authoring or editing a chart.
 
 ## Docs
+
+- [Inkhaven submission — read before submitting a post to Inkhaven ("submit to IH")](docs/inkhaven.md)
+  — portal URL, the one-per-day rule and how to check it, why the link must be pasted rather than
+  typed, what success looks like
 
 - [Cloudflare hosting — read before changing how the site is deployed or served, touching DNS, or debugging a push that didn't go live](docs/cloudflare-hosting.md)
   — how a request is served, deploy on push with no build step, the www redirect rule, the
