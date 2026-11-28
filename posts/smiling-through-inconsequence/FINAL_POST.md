@@ -30,10 +30,12 @@ consciousness are equally mystical.
 
 ## Humans Are Not Privileged
 
-Assume for the sake of argument that my smooth smooth brain can’t comprehend all those dissertations
-on consciousness, but some subset of them are real. That still leaves us with theories of
-consciousness that do not require biology, only computation. Program the right logic gates into
-silicon, and Claude is conscious too.
+I am willing to entertain that my smooth smooth brain can’t comprehend all those dissertations on
+consciousness, but some subset of them are correct. I do not think I will be convinced that
+biological computation is privileged relative to silicon-based computation; that if you implement
+the same logic in a different place the computer has less moral weight than the animal. In other
+words, I believe in substrate independence. Program the right logic gates into silicon, and Claude
+is conscious too.
 
 The human brain has about $60\times$ as many synapses as DeepSeek V4 Pro (the biggest open-weight
 model I know of) has weights.[^1] Closed-source models probably aren’t many orders of magnitude
